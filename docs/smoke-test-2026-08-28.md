@@ -156,7 +156,22 @@ repeats it while the response reports more pages, up to the capability's
 inventory moves under you, which is another reason the plan states a budget and
 the run reports what it actually spent.
 
-## 9. Geocoding is clean
+## 9. The news query was reading a field that does not exist
+
+`area_signal.news.region` was enabled and had never been called. Its template
+asked for `$stage.bounds.region_name`, and the bounding box is arithmetic over a
+coordinate: it has no name and never could.
+
+The region name comes from the candidate search, at
+`search_information.region.name`, which for this query is "San Jose CA 95110".
+So the news capability now reads `$stage.candidates.region_name` and cannot run
+until listings have been found. The access pattern check catches it either way,
+which is what it is for.
+
+Google News itself takes a plain `q` and returns 100 results with `iso_date` on
+every one, which is what `lookback_days` needs. No location parameter.
+
+## 10. Geocoding is clean
 
 `2788 San Tomas Expressway, Santa Clara, CA` resolves in one call to
 `place_results.gps_coordinates`, 37.3726799 / -121.9678625, with no ambiguity to
@@ -181,4 +196,12 @@ between the three is provisional until each filter is recorded on its own, and
 
 ## Still open
 
-- Yelp and Google News are unrecorded. Both are on the cut list, so that is fine.
+- Yelp is unrecorded and disabled in the registry. It answers the same question
+  as Google Local at lower coverage and is first on the cut list, so it stays off
+  until something needs it.
+- Maps Reviews is unrecorded and disabled. It exists to confirm opening hours
+  when Google Local returns a string we cannot parse, and structured
+  `operating_hours` turned out to be present on every result, so it may never be
+  needed.
+
+Nothing enabled in the registry is now unverified.

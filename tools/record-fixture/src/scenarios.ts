@@ -49,6 +49,12 @@ export const SCENARIOS: Record<string, Scenario> = {
     question:
       'Does travel_mode take the cycling integer, and where does the route duration in seconds live?',
   },
+  'san-jose-news': {
+    slug: 'san-jose-news',
+    engine: 'google_news',
+    params: { q: 'San Jose CA construction' },
+    question: 'Does google_news take a free text query, and what dates come back?',
+  },
   'santa-clara-office': {
     slug: 'santa-clara-office',
     engine: 'google_maps',

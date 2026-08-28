@@ -120,3 +120,50 @@ describe('google local', () => {
     expect(inArea.length).toBe(0)
   })
 })
+
+describe('google news', () => {
+  const news = load('google_news__san-jose-news__').body as any
+
+  it('takes a plain query and answers with enough to filter by age', () => {
+    expect(news.news_results.length).toBeGreaterThan(20)
+    expect(pct(news.news_results, 'iso_date')).toBe(100)
+    expect(pct(news.news_results, 'source')).toBe(100)
+  })
+})
+
+describe('zillow pagination', () => {
+  it('returns different listings on page two', () => {
+    const page1 = load('zillow__san-jose-rentals__').body as any
+    const page2 = load('zillow__san-jose-rentals-p2__').body as any
+    const id = (r: any) => r.provider_listing_id ?? r.zpid ?? r.title
+    const seen = new Set(page1.organic_results.map(id))
+    expect(page2.organic_results.filter((r: any) => seen.has(id(r)))).toHaveLength(0)
+    expect(page1.serpapi_pagination.next).toContain('page=2')
+  })
+
+  it('names the region, which is the only place a news query can get one', () => {
+    const filtered = load('zillow__san-jose-1bed__').body as any
+    expect(filtered.search_information.region.name).toMatch(/San Jose/)
+  })
+})
+
+describe('google maps directions', () => {
+  const route = load('google_maps_directions__bike-to-office__').body as any
+
+  it('answers the cycling integer with cycling routes', () => {
+    expect(route.search_parameters.travel_mode).toBe('1')
+    for (const r of route.directions) expect(r.travel_mode).toBe('Cycling')
+  })
+
+  it('returns seconds and meters, so nothing needs converting', () => {
+    expect(route.directions[0].duration).toBeGreaterThan(60)
+    expect(route.directions[0].distance).toBeGreaterThan(100)
+  })
+
+  it('does not return the fastest route first', () => {
+    // Reading directions[0] would reject a listing for a journey it never has
+    // to make. The verdict takes the minimum.
+    const durations = route.directions.map((r: any) => r.duration)
+    expect(Math.min(...durations)).toBeLessThan(durations[0])
+  })
+})

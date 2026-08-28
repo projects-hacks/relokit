@@ -1,5 +1,5 @@
 {
-  "registry_version": "2026-08-28.4",
+  "registry_version": "2026-08-28.5",
   "capabilities": [
     {
       "capability_id": "candidates.zillow.region",
@@ -23,7 +23,7 @@
         "page": 1
       },
       "notes": "One call per page. The plan emits a single op and the executor repeats it while the response reports more pages, up to max_fanout, because the page count is data and the plan is written before any of it exists. The free predicates cut the page count as well as the candidate count: the unfiltered San Jose pool is 20 pages, the filtered one is a single page.",
-      "produces": ["entity"]
+      "produces": ["entity", "stage.candidates"]
     },
     {
       "capability_id": "budget.zillow.native",
@@ -291,10 +291,9 @@
       "max_fanout": 6,
       "params_template": {
         "engine": "google_news",
-        "q": "$constraint.self.topic",
-        "location": "$stage.bounds.region_name"
+        "q": "$stage.candidates.region_name $constraint.self.topic"
       },
-      "notes": "selectivity_prior of 1 because it never prunes. area_signal is always soft.",
+      "notes": "selectivity_prior of 1 because it never prunes. area_signal is always soft. The region name comes from the candidate search response, not from the bounding box, so this cannot run until listings have been found. Filtering by lookback_days uses iso_date, which is present on every result.",
       "produces": []
     }
   ]

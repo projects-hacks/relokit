@@ -1,0 +1,1537 @@
+{
+  "key": "google_news__san-jose-news__9a60efcb1b020e5b",
+  "engine": "google_news",
+  "params": {
+    "q": "San Jose CA construction"
+  },
+  "recorded_at_ms": 1787955544008,
+  "status": 200,
+  "body": {
+    "search_metadata": {
+      "id": "6a920956a3ce8479cfdf129f",
+      "status": "Success",
+      "json_endpoint": "https://serpapi.com/searches/zxWDI_y5QjMv7B1tudkk2t7PDU6WQppYKkUEFILhJ6o/6a920956a3ce8479cfdf129f.json",
+      "markdown_endpoint": "https://serpapi.com/searches/zxWDI_y5QjMv7B1tudkk2t7PDU6WQppYKkUEFILhJ6o/6a920956a3ce8479cfdf129f.md",
+      "created_at": "2026-08-28 22:19:02 UTC",
+      "processed_at": "2026-08-28 22:19:02 UTC",
+      "google_news_url": "https://news.google.com/search?q=San+Jose+CA+construction",
+      "raw_html_file": "https://serpapi.com/searches/zxWDI_y5QjMv7B1tudkk2t7PDU6WQppYKkUEFILhJ6o/6a920956a3ce8479cfdf129f.html",
+      "total_time_taken": 1.79
+    },
+    "search_parameters": {
+      "engine": "google_news",
+      "q": "San Jose CA construction"
+    },
+    "news_results": [
+      {
+        "position": 1,
+        "title": "California Rules Discourage Condo Construction",
+        "source": {
+          "name": "San Jose Inside",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.sanjoseinside.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.sanjoseinside.com/opinion/california-rules-discourage-condo-construction/",
+        "thumbnail": "https://www.sanjoseinside.com/wp-content/uploads/2026/03/Housing-construction.png",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNHRNSFJKUVVNeGNrOTZObXRJVFJEZkFoaUVCaWdLTWdNQkZ3WQ",
+        "date": "08/13/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-08-13T07:00:00Z"
+      },
+      {
+        "position": 2,
+        "title": "His rent is $0. A Bay Area affordable housing surge made it possible",
+        "source": {
+          "name": "The Mercury News",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.mercurynews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Grant Stringer"
+          ]
+        },
+        "link": "https://www.mercurynews.com/2026/08/21/his-rent-is-0-bay-area-affordable-housing-surge/",
+        "thumbnail": "https://www.mercurynews.com/wp-content/uploads/2026/08/SJM-L-HOUSINGBOOM-0806-1.jpg?w=1024",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNWtaM3BEZDBsM2RUWTVYMU5RVFJERUF4aW5CU2dLTWdhVlJwSktIZ2s",
+        "date": "08/21/2026, 11:00 AM, +0000 UTC",
+        "iso_date": "2026-08-21T11:00:19Z"
+      },
+      {
+        "position": 3,
+        "title": "CA Is Not Building Affordable Housing Fast Enough, with San Jose Among Leaders But Still Lagging",
+        "source": {
+          "name": "San Jose Inside",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.sanjoseinside.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Ben Christopher"
+          ]
+        },
+        "link": "https://www.sanjoseinside.com/news/investigative-reports/ca-is-not-building-affordable-housing-fast-enough-with-san-jose-among-leaders-but-still-lagging/",
+        "thumbnail": "https://www.sanjoseinside.com/wp-content/uploads/2025/02/new-housing-in-CA-1.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNDBlVzV0UlZreGJHMTJZMVJ4VFJEYkFoaUVCaWdLTWdNQnNBUQ",
+        "date": "08/11/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-08-11T07:00:00Z"
+      },
+      {
+        "position": 4,
+        "title": "Work at South County ICE facility temporarily paused",
+        "source": {
+          "name": "San José Spotlight",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://sanjosespotlight.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Keith Menconi"
+          ]
+        },
+        "link": "https://sanjosespotlight.com/work-at-south-county-ice-facility-temporarily-paused/",
+        "thumbnail": "https://sanjosespotlight.s3.us-east-2.amazonaws.com/wp-content/uploads/2026/06/03145430/Screenshot-2026-06-03-at-2.49.07-PM.png",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iL0NnNVdiblJCTTJwWlZURXdYekpmVFJDbUF4alhCU2dLTWdrVmtJb0pOaVprY0FF",
+        "date": "07/13/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-07-13T07:00:00Z"
+      },
+      {
+        "position": 5,
+        "title": "San Fernando Street prepares for major upgrades | Blog",
+        "source": {
+          "name": "City of San Jose (.gov)",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sanjoseca.gov&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.sanjoseca.gov/Home/Components/News/News/7294/4765",
+        "thumbnail": "https://www.sanjoseca.gov/home/showpublishedimage/26654/639137659101100000",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNTFiMmRrTlhOcWNWTlRWVzV2VFJERUF4aW5CU2dLTWdZQmtJaU50UVk",
+        "date": "05/07/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-05-07T07:00:00Z"
+      },
+      {
+        "position": 6,
+        "title": "ENR West Announces 2026 California Best Project Winners",
+        "source": {
+          "name": "Engineering News-Record",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.enr.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Cj Schexnayder"
+          ]
+        },
+        "link": "https://www.enr.com/blogs/50-west-construction-views/post/63408-enr-west-announces-2026-california-best-project-winners",
+        "thumbnail": "https://www.enr.com/ext/resources/2026/08/03/Robert-Day-Sciences-Center_ENRwebready.webp?t=1785856393",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iI0NnNU9lVWRWT1dkeU1qaHJkR0ZoVFJDdkFSaWZBaWdCTWdB",
+        "date": "08/05/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-08-05T07:00:00Z"
+      },
+      {
+        "position": 7,
+        "title": "Retired engineer sounds alarm over Google's San Jose research facility",
+        "source": {
+          "name": "CBS News",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.cbsnews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.cbsnews.com/sanfrancisco/news/san-jose-research-facility-data-center-debate/",
+        "thumbnail": "https://assets1.cbsnewsstatic.com/hub/i/r/2026/07/13/759ba176-438c-40b7-929a-fd91fa97282a/thumbnail/640x360/c2454696dbfee7cf9b5a43ca53a10a2c/b7d2930ba8a15c964cae65f39d4ae940.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNHRVak5XYUd3dFpHZFNSSHBHVFJDb0FSaXNBaWdCTWdNSnNBWQ",
+        "date": "07/12/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-07-12T07:00:00Z"
+      },
+      {
+        "position": 8,
+        "title": "A new Bear Creek Road parking lot is now under construction",
+        "source": {
+          "name": "Los Gatan",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://losgatan.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://losgatan.com/a-new-bear-creek-road-parking-lot-is-now-under-construction/",
+        "thumbnail": "https://losgatan.com/wp-content/uploads/sites/32/2026/08/Parking-Lot-photo-scaled.jpeg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNDBVV2hEVjNSVVVXOU1URmROVFJESUF4aWdCU2dLTWdPQkxSTQ",
+        "date": "08/05/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-08-05T07:00:00Z"
+      },
+      {
+        "position": 9,
+        "title": "San Jose may be home to a new data center",
+        "source": {
+          "name": "NBC Bay Area",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.nbcbayarea.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.nbcbayarea.com/news/local/san-jose-data-center/4110961/",
+        "thumbnail": "https://media.nbcbayarea.com/2026/07/49466467951-1080pnbcstations.jpg?quality=85&strip=all&resize=1200%2C675",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNUdVazltVTFKVE4wTnhkVlpUVFJDZkF4ampCU2dLTWdZcEVZRFNFQXM",
+        "date": "07/08/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-07-08T07:00:00Z"
+      },
+      {
+        "position": 10,
+        "title": "California Builders Embrace Fire-Resistant Construction Amid Rising Risks",
+        "source": {
+          "name": "Davis Vanguard",
+          "icon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://davisvanguard.org&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "David Greenwald"
+          ]
+        },
+        "link": "https://davisvanguard.org/2026/05/san-jose-fire-resistant-adu/",
+        "thumbnail": "https://davisvanguard.org/wp-content/uploads/2026/05/Installing-Steel-Roof-765x510.webp",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNUJXSE01UXpKaFZISkNiak10VFJERUF4aW1CU2dLTWdZQlFJSUVHd28",
+        "date": "05/01/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-05-01T07:00:00Z"
+      },
+      {
+        "position": 11,
+        "title": "Santa Clara celebrates more housing in former industrial park",
+        "source": {
+          "name": "San José Spotlight",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://sanjosespotlight.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Maryanne Casas-perez"
+          ]
+        },
+        "link": "https://sanjosespotlight.com/santa-clara-celebrates-more-housing-in-former-industrial-park/",
+        "thumbnail": "https://sanjosespotlight.com/wp-content/uploads/2026/07/IMG_1350-1200x630.jpeg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNTROV3RmU1dWbFMwUmZaMUo1VFJDUkF4ajhCU2dLTWdZWmtJNk1zUVk",
+        "date": "07/16/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-07-16T07:00:00Z"
+      },
+      {
+        "position": 12,
+        "title": "NEWS RELEASE: San José Home to First Accessory Dwelling Unit (ADU) Condo Sale in California",
+        "source": {
+          "name": "City of San Jose (.gov)",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sanjoseca.gov&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.sanjoseca.gov/Home/Components/News/News/7399/4699",
+        "date": "06/30/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-06-30T07:00:00Z"
+      },
+      {
+        "position": 13,
+        "title": "Historic downtown San Jose skyscraper gets a brand new look",
+        "source": {
+          "name": "The Mercury News",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.mercurynews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Sal Pizarro"
+          ]
+        },
+        "link": "https://www.mercurynews.com/2026/07/25/historic-downtown-san-jose-skyscraper-gets-a-brand-new-look/",
+        "thumbnail": "https://www.mercurynews.com/wp-content/uploads/2026/07/SJM-L-BANK-0726-1.jpg?w=1024",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNXBjMWMwU1hCclgzaE9VblZFVFJERUF4aW5CU2dLTWdPQjB3QQ",
+        "date": "07/25/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-07-25T07:00:00Z"
+      },
+      {
+        "position": 14,
+        "title": "Microsoft breaks ground on new data center in San Jose",
+        "source": {
+          "name": "NBC Bay Area",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.nbcbayarea.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.nbcbayarea.com/news/local/microsoft-breaks-ground-on-new-data-center-in-san-jose/4097643/",
+        "thumbnail": "https://media.nbcbayarea.com/2026/06/Microsoft-breaks-ground-on-new-data-center-in-Alviso-1.jpg?quality=85&strip=all&resize=1200%2C675",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNDNhV2h5ZDFCb1ZsVXpRWFo2VFJDZkF4ampCU2dLTWdZQjRJRHkwQU0",
+        "date": "06/11/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-06-11T07:00:00Z"
+      },
+      {
+        "position": 15,
+        "title": "Is Google hiding a data center project in North San Jose?",
+        "source": {
+          "name": "San José Spotlight",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://sanjosespotlight.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Joyce Chu"
+          ]
+        },
+        "link": "https://sanjosespotlight.com/is-google-hiding-a-data-center-project-in-north-san-jose/",
+        "thumbnail": "https://sanjosespotlight.s3.us-east-2.amazonaws.com/wp-content/uploads/2026/07/09153557/IMG_7490-1160x560.jpeg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNVdTMWRXTFRVM2RHdEJhazkxVFJDQkF4aWRCaWdLTWdNTmRRUQ",
+        "date": "07/10/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-07-10T07:00:00Z"
+      },
+      {
+        "position": 16,
+        "title": "Construction Paused at Proposed Gilroy ICE Detention Center as Lawsuit Advances",
+        "source": {
+          "name": "San Jose Inside",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.sanjoseinside.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Todd Guild"
+          ]
+        },
+        "link": "https://www.sanjoseinside.com/news/construction-paused-at-proposed-gilroy-ice-detention-center-as-lawsuit-advances/",
+        "thumbnail": "https://www.sanjoseinside.com/wp-content/uploads/2026/07/Gilroy-ICE-site.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNTJWRUpDWDFSSGVtVndNakkwVFJEZUFoaUVCaWdLTWdNQnRCWQ",
+        "date": "07/17/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-07-17T07:00:00Z"
+      },
+      {
+        "position": 17,
+        "title": "Notice of CEQA Posting: Response to Comments for the Harker Bucknall Multi-Purpose Building Project IS/MND",
+        "source": {
+          "name": "City of San Jose (.gov)",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sanjoseca.gov&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.sanjoseca.gov/Home/Components/News/News/7275/4699",
+        "date": "04/27/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-04-27T07:00:00Z"
+      },
+      {
+        "position": 18,
+        "title": "NEWS RELEASE: City of San José is the Most Power Ready City in California with the Approval of New LS Power Transmission Projects",
+        "source": {
+          "name": "City of San Jose (.gov)",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sanjoseca.gov&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.sanjoseca.gov/Home/Components/News/News/7221/4699",
+        "date": "03/24/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-03-24T07:00:00Z"
+      },
+      {
+        "position": 19,
+        "title": "Campbell Library opens after two years of construction",
+        "source": {
+          "name": "San José Spotlight",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://sanjosespotlight.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Lorraine Gabbert"
+          ]
+        },
+        "link": "https://sanjosespotlight.com/campbell-library-opens-after-two-years-of-construction/",
+        "thumbnail": "https://sanjosespotlight.s3.us-east-2.amazonaws.com/wp-content/uploads/2026/05/09205532/FCnRm_GMT7qhOyd7po_WOw.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNDVZMDFNZDFGb1QycDVXalJoVFJEZ0F4ai1CQ2dLTWdZQndJWWtRZ1E",
+        "date": "05/12/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-05-12T07:00:00Z"
+      },
+      {
+        "position": 20,
+        "title": "Notice of CEQA Posting: 2256 Junction Avenue Project Addendum to the IS/MND",
+        "source": {
+          "name": "City of San Jose (.gov)",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sanjoseca.gov&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.sanjoseca.gov/Home/Components/News/News/7231/4699",
+        "date": "03/27/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-03-27T07:00:00Z"
+      },
+      {
+        "position": 21,
+        "title": "Op-ed: San Jose must act as \"Slavery Towers\" workers wait for protection",
+        "source": {
+          "name": "San José Spotlight",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://sanjosespotlight.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "San Jose Spotlight"
+          ]
+        },
+        "link": "https://sanjosespotlight.com/op-ed-san-jose-must-act-as-slavery-towers-workers-wait-for-protection/",
+        "thumbnail": "https://sanjosespotlight.s3.us-east-2.amazonaws.com/wp-content/uploads/2019/03/19220848/Silvery-Towers-scaled.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNU5lV1ZzYkhOWGJVdDRRalZDVFJEZ0F4aUFCU2dLTWdZQmtJTDFRQVk",
+        "date": "04/09/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-04-09T07:00:00Z"
+      },
+      {
+        "position": 22,
+        "title": "Affordable Housing Moves Forward at 1135 East Santa Clara Street in San Jose",
+        "source": {
+          "name": "San Francisco YIMBY",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://sfyimby.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Gabriel Clark-clough"
+          ]
+        },
+        "link": "https://sfyimby.com/2026/04/affordable-housing-moves-forward-at-1135-east-santa-clara-street-in-san-jose.html",
+        "thumbnail": "https://sfyimby.com/wp-content/uploads/2026/04/1135-East-Santa-Clara-Avenue-image-by-Lowney-Architecture-260x167.png",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNVJlV05KV2xSMU1qRnRlVzV0VFJDbkFSaUVBaWdLTWdNQjhBUQ",
+        "date": "04/03/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-04-03T07:00:00Z"
+      },
+      {
+        "position": 23,
+        "title": "San Jose’s Bank of Italy Tower Begins a Second Life as Housing",
+        "source": {
+          "name": "Propmodo",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://propmodo.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Travis Barrington"
+          ]
+        },
+        "link": "https://propmodo.com/playbook/san-joses-bank-of-italy-tower-begins-a-second-life-as-housing/",
+        "thumbnail": "https://propmodo.com/playbook/wp-content/uploads/2026/05/bank-of-italy-building-san-jose-768x512.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNVVaakk1UlZwaWNtNUJVRGRDVFJERUF4aW1CU2dLTWdNQmtBSQ",
+        "date": "05/17/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-05-17T07:00:00Z"
+      },
+      {
+        "position": 24,
+        "title": "How many homes are getting built in San Jose in 2026?",
+        "source": {
+          "name": "ttownmedia.com",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.ttownmedia.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.ttownmedia.com/news/state/how-many-homes-are-getting-built-in-san-jose-in-2026/article_1664cfa3-0e2d-5933-b46e-b3016e4761cd.html",
+        "date": "05/01/2026, 06:01 PM, +0000 UTC",
+        "iso_date": "2026-05-01T18:01:18Z"
+      },
+      {
+        "position": 25,
+        "title": "San Jose postpones debate on downtown parking rate hikes, extended meter hours until August",
+        "source": {
+          "name": "The Mercury News",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.mercurynews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Ryan Macasero"
+          ]
+        },
+        "link": "https://www.mercurynews.com/2026/06/23/san-jose-downtown-parking-hikes-extended-hours-postponed/",
+        "thumbnail": "https://www.mercurynews.com/wp-content/uploads/2026/04/SJM-L-BANKITALY-04XX-1.jpg?w=1024",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNUhjMDVrVmt0alNIbFRhMjkxVFJERUF4aW1CU2dLTWdNRndBWQ",
+        "date": "06/23/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-06-23T07:00:00Z"
+      },
+      {
+        "position": 26,
+        "title": "New San Jose power hub could help fuel city’s AI, data center ambitions",
+        "source": {
+          "name": "The Mercury News",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.mercurynews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "George Avalos"
+          ]
+        },
+        "link": "https://www.mercurynews.com/2026/05/20/project-to-boost-san-joses-electricity-capacity-breaks-ground/",
+        "thumbnail": "https://www.mercurynews.com/wp-content/uploads/2026/05/SJM-L-SJLSPOWER-9.jpg?w=1024",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNURWbE5tY2xneWFUVlBORTkwVFJERUF4aW5CU2dLTWdNTnNBNA",
+        "date": "05/20/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-05-20T07:00:00Z"
+      },
+      {
+        "position": 27,
+        "title": "Nvidia eyes San Jose industrial building for possible AI and advanced tech work",
+        "source": {
+          "name": "The Mercury News",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.mercurynews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "George Avalos"
+          ]
+        },
+        "link": "https://www.mercurynews.com/2026/07/29/nvidia-san-jose-tech-ai-jobs-property-build-real-estate-develop-economy/",
+        "thumbnail": "https://www.mercurynews.com/wp-content/uploads/2026/07/SJM-L-SJSPROPDEAL-01_432195.jpg?w=1024",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNU9jR2hmVEVaYVdsWkVSa3N6VFJEZ0F4aUFCU2dLTWdZQm9JWnd1UVU",
+        "date": "07/29/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-07-29T07:00:00Z"
+      },
+      {
+        "position": 28,
+        "title": "Caltrain Suspends Select Weekend Service Between Tamien and San Jose Diridon Through September for Bridge Construction",
+        "source": {
+          "name": "Railway Track and Structures",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.rtands.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "David C. Lester"
+          ]
+        },
+        "link": "https://www.rtands.com/track-construction/track-structure/bridges-tunnels/caltrain-suspends-select-weekend-service-between-tamien-and-san-jose-diridon-through-september-for-bridge-construction/",
+        "thumbnail": "https://www.rtands.com/wp-content/uploads/2024/06/Caltrain-3C2A2929-755x402.jpeg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNVNSRVUxU1RKUFZFWnpPRXBVVFJDU0F4anpCU2dLTWdZUllJYklNUVE",
+        "date": "07/09/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-07-09T07:00:00Z"
+      },
+      {
+        "position": 29,
+        "title": "Officials celebrate Bank of Italy downtown San Jose housing conversion",
+        "source": {
+          "name": "The Mercury News",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.mercurynews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Ryan Macasero"
+          ]
+        },
+        "link": "https://www.mercurynews.com/2026/04/06/san-jose-bank-of-italy-building-groundbreaking-housing-conversion-downtown/",
+        "thumbnail": "https://www.mercurynews.com/wp-content/uploads/2026/04/SJM-L-BANKITALY-04XX-1.jpg?w=1024",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNUhjMDVrVmt0alNIbFRhMjkxVFJERUF4aW1CU2dLTWdNRndBWQ",
+        "date": "04/06/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-04-06T07:00:00Z"
+      },
+      {
+        "position": 30,
+        "title": "Community members protest construction site of Gilroy detention center",
+        "source": {
+          "name": "Fight Back! News",
+          "icon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://fightbacknews.org&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://fightbacknews.org/articles/san-jose-residents-protest-construction-site-of-gilroy-detention-center",
+        "thumbnail": "https://i.snap.as/KRY2P6hg.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iI0NnNWlXbnBPWDJKMVEzcEVSRmN3VFJEX0JCamdBeWdLTWdB",
+        "date": "06/18/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-06-18T07:00:00Z"
+      },
+      {
+        "position": 31,
+        "title": "Google’s Downtown West is paused. Its $1 billion bet on San Jose is not",
+        "source": {
+          "name": "The Mercury News",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.mercurynews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "George Avalos"
+          ]
+        },
+        "link": "https://www.mercurynews.com/2026/05/14/google-san-jose-billion-dollar-real-estate-bet/",
+        "thumbnail": "https://www.mercurynews.com/wp-content/uploads/2026/04/SJM-L-GOOGLESJ-0408-6.jpg?w=1024",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNU1Vamh1UW5oYWMxVTVhRTl5VFJDeEF4akVCU2dLTWdZQkFJYm5tQVE",
+        "date": "05/14/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-05-14T07:00:00Z"
+      },
+      {
+        "position": 32,
+        "title": "CA Considers New Idea to Boost Factory-built Housing",
+        "source": {
+          "name": "San Jose Inside",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.sanjoseinside.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Ben Christopher"
+          ]
+        },
+        "link": "https://www.sanjoseinside.com/news/ca-considers-new-idea-to-boost-factory-built-housing/",
+        "thumbnail": "https://www.sanjoseinside.com/wp-content/uploads/2026/04/prefab-housing-772x350.png",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iI0NnNUpjbEJZUmxsb1kxVkRPSE14VFJEZUFoaUVCaWdLTWdB",
+        "date": "04/02/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-04-02T07:00:00Z"
+      },
+      {
+        "position": 33,
+        "title": "Microsoft breaks ground on Alviso data center campus in San Jose, California",
+        "source": {
+          "name": "Data Center Dynamics",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.datacenterdynamics.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Georgia Butler"
+          ]
+        },
+        "link": "https://www.datacenterdynamics.com/en/news/microsoft-breaks-ground-on-alviso-data-center-campus-in-san-jose-california/",
+        "thumbnail": "https://media.datacenterdynamics.com/media/images/1781205063927.width-358.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNXNaRVpoY1U1dVZVbFlaekl4VFJEQ0FSaUVBaWdCTWdZQkFKRHl4QVU",
+        "date": "06/12/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-06-12T07:00:00Z"
+      },
+      {
+        "position": 34,
+        "title": "Mysterious puzzle on California building finally solved",
+        "source": {
+          "name": "KTLA",
+          "icon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://ktla.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Alix Martichoux"
+          ]
+        },
+        "link": "https://ktla.com/news/california/mysterious-puzzle-on-california-building-finally-solved/",
+        "thumbnail": "https://ktla.com/wp-content/uploads/sites/4/2026/07/Thumbnail-4-e1783968400989.png?strip=1",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNWlaWEJpU0VKclVqSlZSRE53VFJDZkF4ampCU2dLTWdZbFk0YU92UVE",
+        "date": "07/13/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-07-13T07:00:00Z"
+      },
+      {
+        "position": 35,
+        "title": "Santa Clara Valley open space to remain intact as San Jose power reliability plan gets approved",
+        "source": {
+          "name": "ABC7 Bay Area",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://abc7news.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Dustin Dorsey"
+          ]
+        },
+        "link": "https://abc7news.com/post/santa-clara-valley-open-space-remain-intact-san-jose-power-reliability-plan-gets-approved/18742265/",
+        "thumbnail": "https://cdn.abcotvs.com/dip/images/18757397_032026-kgo-coyote-valley-power-img.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNUVSakV5UjNjeWVIVlZkbEIyVFJDZkF4ampCU2dLTWdZQkFJVGxGZ3M",
+        "date": "03/23/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-03-23T07:00:00Z"
+      },
+      {
+        "position": 36,
+        "title": "San Jose, Calif., LS Power Ink Deal for 2 GW of New Transmission Capacity",
+        "source": {
+          "name": "Engineering News-Record",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.enr.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Jim Parsons"
+          ]
+        },
+        "link": "https://www.enr.com/articles/62785-san-jose-calif-ls-power-ink-deal-for-2-gw-of-new-transmission-capacity",
+        "thumbnail": "https://www.enr.com/ext/resources/2026/04/07/Transmission_Deal_ENRwebready.webp?t=1775916826",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iL0NnNUZWbmhaY21ReE9FSjBSMVJZVFJDeEF4akZCU2dLTWdrRk1ZYm5KQ2h6RmdF",
+        "date": "04/07/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-04-07T07:00:00Z"
+      },
+      {
+        "position": 37,
+        "title": "Bank of Italy building in downtown San Jose to be converted into housing",
+        "source": {
+          "name": "NBC Bay Area",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.nbcbayarea.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Robert Handa"
+          ]
+        },
+        "link": "https://www.nbcbayarea.com/news/local/bank-of-italy-building-san-jose-housing/4064460/",
+        "thumbnail": "https://media.nbcbayarea.com/2026/04/47223936990-1080pnbcstations.jpg?quality=85&strip=all&resize=1200%2C675",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNUJlVkYwY0RnMlVXVktNbHBxVFJDZkF4ampCU2dLTWdNUllBQQ",
+        "date": "04/06/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-04-06T07:00:00Z"
+      },
+      {
+        "position": 38,
+        "title": "HITT Contracting Breaks Ground on Microsoft Alviso Data Center",
+        "source": {
+          "name": "Associated Construction Publications",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://acppubs.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://acppubs.com/CBE/article/D6DB92F3-hitt-contracting-breaks-ground-on-microsoft-alviso-data-center",
+        "thumbnail": "https://acp-assets.sfo3.cdn.digitaloceanspaces.com/assets/images/article_images/5B418D4C-C4D3-43D6-8031-71B020759B9F.webp",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNUxPRXR2TjI4M2FWRlpRazVVVFJDM0FSaVRBaWdCTWdZQkFJekFRQVU",
+        "date": "06/26/2026, 10:16 AM, +0000 UTC",
+        "iso_date": "2026-06-26T10:16:14Z"
+      },
+      {
+        "position": 39,
+        "title": "Construction begins on Fairview Road project - SanBenito.com | Hollister, San Juan Bautista, CA",
+        "source": {
+          "name": "SanBenito.com",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://sanbenito.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://sanbenito.com/construction-begins-on-fairview-road-project/",
+        "thumbnail": "https://sanbenito.com/wp-content/uploads/sites/23/2016/03/95e71da4bc6e9f3123908293f0d27183.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNTNjMUpZZGpCS1kyMTZTazVHVFJETUFSaXNBaWdLTWdZUmQ0cElyZ1E",
+        "date": "06/11/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-06-11T07:00:00Z"
+      },
+      {
+        "position": 40,
+        "title": "San Jose launches sweep of the ‘Jungle,’ last major homeless camp in city",
+        "source": {
+          "name": "The Mercury News",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.mercurynews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Grant Stringer"
+          ]
+        },
+        "link": "https://www.mercurynews.com/2026/04/16/san-jose-launches-sweep-of-the-jungle-last-major-homeless-camp-in-city/",
+        "thumbnail": "https://www.mercurynews.com/wp-content/uploads/2026/04/SJM-L-JUNGLE-0416-2.jpg?w=1024",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNXVVVTFHT0RsS2RXdHVkbG8xVFJDX0F4aXVCU2dLTWdhTkVJb0tuUWc",
+        "date": "04/16/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-04-16T07:00:00Z"
+      },
+      {
+        "position": 41,
+        "title": "Supermicro Adds Largest Silicon Valley Campus - New DCBBS Facility to Advance the Delivery of Next-Generation AI Data Centers",
+        "source": {
+          "name": "Supermicro",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://ir.supermicro.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://ir.supermicro.com/news/news-details/2026/Supermicro-Adds-Largest-Silicon-Valley-Campus---New-DCBBS-Facility-to-Advance-the-Delivery-of-Next-Generation-AI-Data-Centers/default.aspx",
+        "thumbnail": "https://mma.prnewswire.com/media/2965621/Supermicro_Expansion_Photo_2026.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNXRhMUY1TUhSSFh6aGthVW80VFJEaEFSaVFBeWdLTWdhTk1ZN3lxQVk",
+        "date": "04/27/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-04-27T07:00:00Z"
+      },
+      {
+        "position": 42,
+        "title": "Westbank, Urban Community kick off latest office-to-resi conversion in downtown San Jose",
+        "source": {
+          "name": "The Real Deal",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://therealdeal.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://therealdeal.com/san-francisco/2026/04/07/westbank-urban-community-begin-bank-of-italy-conversion/",
+        "thumbnail": "https://static.therealdeal.com/wp-content/uploads/2026/04/SFO-SJ-Office-to-Resi-MAIN-700x467.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iL0NnNTFhRUppWld4elpVWkZhWFpRVFJERUF4aW1CU2dLTWdrQkFJY2pUeVFtMVFB",
+        "date": "04/07/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-04-07T07:00:00Z"
+      },
+      {
+        "position": 43,
+        "title": "Royal Pools by Adams Celebrates 52 Years Leading Residential Pool Construction in Northern California",
+        "source": {
+          "name": "Star-Gazette",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.stargazette.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.stargazette.com/press-release/story/14299/royal-pools-by-adams-celebrates-52-years-leading-residential-pool-construction-in-northern-california/",
+        "thumbnail": "https://royalpools.com/wp-content/uploads/2024/02/Feeney-2-Jan-2024_004-scaled.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNWFOV3hSTW1SclZXNXNOWGhEVFJDZkF4ampCU2dLTWdhWkVaQU5uUWM",
+        "date": "05/14/2026, 04:20 PM, +0000 UTC",
+        "iso_date": "2026-05-14T16:20:07Z"
+      },
+      {
+        "position": 44,
+        "title": "Are Californians ready to give up their cars? A San Jose apartment tower put that to the test",
+        "source": {
+          "name": "The Mercury News",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.mercurynews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Julia Prodis Sulek"
+          ]
+        },
+        "link": "https://www.mercurynews.com/2026/06/04/are-californians-ready-to-give-up-their-cars-a-san-jose-apartment-tower-put-that-to-the-test/",
+        "thumbnail": "https://www.mercurynews.com/wp-content/uploads/2026/04/SJM-L-NOPARKING-04XX-1.jpg?w=1024",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNXpObXRYVG1aT1dIUllXR2wyVFJERUF4aW5CU2dLTWdNQmNBbw",
+        "date": "06/04/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-06-04T07:00:00Z"
+      },
+      {
+        "position": 45,
+        "title": "Construction on BART San Jose extension grinds on amid agency's uncertain future",
+        "source": {
+          "name": "CBS News",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.cbsnews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.cbsnews.com/sanfrancisco/video/construction-on-bart-san-jose-extension-grinds-on-amid-agencys-uncertain-future/",
+        "thumbnail": "https://assets1.cbsnewsstatic.com/hub/i/r/2026/03/28/1a9d6731-d4de-4b41-9e82-96874eca8cd0/thumbnail/1280x720/c08d3b346c24c49167098d2f829fa2fb/72ab5c1148bc14d11d9855b1fdcc8524.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNWlXa2RGYUVWRlFrVlJlVFJIVFJDZkF4ampCU2dLTWdZQmtJQlpyQVk",
+        "date": "03/27/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-03-27T07:00:00Z"
+      },
+      {
+        "position": 46,
+        "title": "California earmarks $848M for rail, road projects",
+        "source": {
+          "name": "Construction Dive",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.constructiondive.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Joe Bousquin"
+          ]
+        },
+        "link": "https://www.constructiondive.com/news/california-funding-BART-tunnel-San-Jose/815905/",
+        "thumbnail": "https://imgproxy.divecdn.com/blccZ_wUDR600x9iogxVdWVsSsMpTqf4qXhdvw1aDsw/g:ce/rs:fill:1200:675:1/Z3M6Ly9kaXZlc2l0ZS1zdG9yYWdlL2RpdmVpbWFnZS9HZXR0eUltYWdlcy0xNDY5MzE2NDU4XzEuanBn.webp",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNW1jRGRNWVVOMVpqZEJXbnBpVFJDZkF4ampCU2dLTWdhTmdZaU11UVE",
+        "date": "03/26/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-03-26T07:00:00Z"
+      },
+      {
+        "position": 47,
+        "title": "Why San Jose can’t force Google to build",
+        "source": {
+          "name": "SiliconValley.com",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.siliconvalley.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Julia Prodis Sulek"
+          ]
+        },
+        "link": "https://www.siliconvalley.com/2026/03/12/why-san-jose-cant-force-google-to-build/",
+        "thumbnail": "https://www.siliconvalley.com/wp-content/uploads/2026/03/SJM-L-NEWSOMSC-0521-9.jpg?w=1024",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNTJZMWR4ZFZsRmVUWmpSaTFxVFJERUF4aW5CU2dLTWdhWlJKU3FvUWc",
+        "date": "03/12/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-03-12T07:00:00Z"
+      },
+      {
+        "position": 48,
+        "title": "Rep. Panetta Announces $2 Million in Federal Funding for Yerba Buena Bridge Construction Project",
+        "source": {
+          "name": "Congressman Jimmy Panetta (.gov)",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=http://panetta.house.gov&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "http://panetta.house.gov/media/press-releases/rep-panetta-announces-2-million-federal-funding-yerba-buena-bridge",
+        "thumbnail": "https://panetta.house.gov/sites/evo-subsites/panetta-evo.house.gov/files/styles/evo_featured_image/public/evo-media-image/yerba-buena-bridge-cpf-still-1.jpg?h=790be497&itok=C8CTp0Hm",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iL0NnNHhhalZrU1djd1ZUWkJWblpFVFJDRkFSajdBaWdCTWdrQmdJNlFOU2Z3Q3dJ",
+        "date": "03/13/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-03-13T07:00:00Z"
+      },
+      {
+        "position": 49,
+        "title": "New residents moving in five years after historic San Jose building’s relocation",
+        "source": {
+          "name": "The Mercury News",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.mercurynews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Sal Pizarro"
+          ]
+        },
+        "link": "https://www.mercurynews.com/2026/03/28/new-residents-moving-in-five-years-after-historic-san-jose-buildings-relocation/",
+        "thumbnail": "https://www.mercurynews.com/wp-content/uploads/2026/03/SJM-L-PIZARRO-COL-0329-7.jpg?w=1024",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNXNla2x5U1VKR1dVMTJWMlYyVFJERUF4aW1CU2dLTWdZQmNaSVRMUWc",
+        "date": "03/28/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-03-28T07:00:00Z"
+      },
+      {
+        "position": 50,
+        "title": "Bay Area hospitals race to rebuild, facing new earthquake standards",
+        "source": {
+          "name": "East Bay Times",
+          "icon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.eastbaytimes.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.eastbaytimes.com/2026/06/28/bay-area-hospitals-race-to-rebuild-facing-new-earthquake-standards/amp/",
+        "thumbnail": "https://www.eastbaytimes.com/wp-content/uploads/2026/06/SJM-L-HOSPQUAKE-0626-1-1.jpg?w=1024",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iL0NnNUxhbEZ3ZW1aSU5WRkthWHB0VFJDZkF4ampCU2dLTWdrQlVJQUNMT1ZUdGdB",
+        "date": "06/28/2026, 11:09 AM, +0000 UTC",
+        "iso_date": "2026-06-28T11:09:45Z"
+      },
+      {
+        "position": 51,
+        "title": "Mixed-use building by Barde vanVoltt reflects \"slower rhythm\" of Baja California",
+        "source": {
+          "name": "Dezeen",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.dezeen.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Dan Howarth"
+          ]
+        },
+        "link": "https://www.dezeen.com/2026/05/23/barde-vanvoltt-estero-residences-gamba-cafe-san-jose-del-cabo-mexico/",
+        "thumbnail": "https://static.dezeen.com/uploads/2026/05/estero_barde-vanvoltt_dezeen_2364_col_0.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNURkbXRRZFVSdmExaFhaR3BCVFJERUF4aW1CU2dLTWdNdE13WQ",
+        "date": "05/23/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-05-23T07:00:00Z"
+      },
+      {
+        "position": 52,
+        "title": "San Jose's Blach Construction promotes executives as firm expands across California",
+        "source": {
+          "name": "The Business Journals",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.bizjournals.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Clare A. Fonstein"
+          ]
+        },
+        "link": "https://www.bizjournals.com/sanjose/news/2026/03/24/blach-construction-san-jose.html",
+        "thumbnail": "https://media.bizj.us/view/img/13165263/blach-construction*1200xx1200-675-0-64.png",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iI0NnNU1kbkF5TjJRM04wZFhWMlZwVFJDZkF4ampCU2dLTWdB",
+        "date": "03/24/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-03-24T07:00:00Z"
+      },
+      {
+        "position": 53,
+        "title": "Is Mountain View on track to add 11K homes by 2031?",
+        "source": {
+          "name": "San José Spotlight",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://sanjosespotlight.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Emily Margaretten"
+          ]
+        },
+        "link": "https://sanjosespotlight.com/is-mountain-view-on-track-to-add-11k-homes-by-2031/",
+        "thumbnail": "https://sanjosespotlight.s3.us-east-2.amazonaws.com/wp-content/uploads/2026/03/16093341/Mountain-View-Construction-Embarcadero.webp",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNTZaakJ6UzFGNFUyOXJNVTk1VFJERUF4aW1CU2dLTWdNRmNBZw",
+        "date": "03/16/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-03-16T07:00:00Z"
+      },
+      {
+        "position": 54,
+        "title": "Opulands Landscape Design & Construction Brings Luxury Residential Landscaping to Mountain View, CA",
+        "source": {
+          "name": "24-7 Press Release Newswire",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.24-7pressrelease.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.24-7pressrelease.com/press-release/537185/opulands-landscape-design-construction-brings-luxury-residential-landscaping-to-mountain-view-ca",
+        "thumbnail": "https://www.24-7pressrelease.com/assets/attachments/053/press_release_distribution_0537185_235501.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNUdabEZuTFVwamVsaHpaamt0VFJERUF4aW1CU2dLTWdZQnNJWUdRZ00",
+        "date": "07/28/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-07-28T07:00:00Z"
+      },
+      {
+        "position": 55,
+        "title": "Google widens San Jose holdings with purchase of office building",
+        "source": {
+          "name": "The Mercury News",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.mercurynews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "George Avalos"
+          ]
+        },
+        "link": "https://www.mercurynews.com/2026/03/10/google-san-jose-tech-economy-property-build-real-estate-develop-jobs/",
+        "thumbnail": "https://www.mercurynews.com/wp-content/uploads/2026/03/SJM-L-GOOGALVISO-02.jpg?w=1024",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNUJkRXBNTnpsSll6Um1jRGN5VFJEZ0F4aUFCU2dLTWdPVkFoQQ",
+        "date": "03/10/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-03-10T07:00:00Z"
+      },
+      {
+        "position": 56,
+        "title": "San Jose mayor touts 15-point housing plan for California",
+        "source": {
+          "name": "San José Spotlight",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://sanjosespotlight.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Brandon Pho"
+          ]
+        },
+        "link": "https://sanjosespotlight.com/san-jose-mayor-touts-15-point-housing-plan-for-california/",
+        "thumbnail": "https://sanjosespotlight.s3.us-east-2.amazonaws.com/wp-content/uploads/2024/12/19101026/Trees-overhead-1.png",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNXlTVFpEUlRBMVZXZGZlbWxPVFJEbUF4ajNCQ2dLTWdNQnNBUQ",
+        "date": "03/13/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-03-13T07:00:00Z"
+      },
+      {
+        "position": 57,
+        "title": "Opulands Landscape Design & Construction Elevates Luxury Residential Landscaping in Palo Alto",
+        "source": {
+          "name": "24-7 Press Release Newswire",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.24-7pressrelease.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.24-7pressrelease.com/press-release/533975/opulands-landscape-design-construction-elevates-luxury-residential-landscaping-in-palo-alto",
+        "thumbnail": "https://www.24-7pressrelease.com/assets/attachments/053/press_release_distribution_0533975_231771.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iI0NnNTBSVTl2VEd4dVdXRlhiM1F6VFJERUF4aW1CU2dLTWdB",
+        "date": "04/20/2026, 07:00 AM, +0000 UTC",
+        "iso_date": "2026-04-20T07:00:00Z"
+      },
+      {
+        "position": 58,
+        "title": "Mahan: The key to lower cost housing in California is building at a lower cost",
+        "source": {
+          "name": "The Mercury News",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.mercurynews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.mercurynews.com/2026/03/07/mahan-the-key-to-lower-cost-housing-in-california-is-building-at-a-lower-cost/",
+        "thumbnail": "https://www.mercurynews.com/wp-content/uploads/2026/03/SJM-L-COL-MAHAN-0308-FACTORY-HOUSING.jpg?w=1024",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNURkVzk1YzNrNVZrMVhXVzVoVFJEREF4aW5CU2dLTWdZQlFZUVRUUVE",
+        "date": "03/07/2026, 08:00 AM, +0000 UTC",
+        "iso_date": "2026-03-07T08:00:00Z"
+      },
+      {
+        "position": 59,
+        "title": "Public Review Draft MND: Harker Bucknall Multi-Purpose Building Project (File Nos. SP25-008 & ER25-076) IS/MND",
+        "source": {
+          "name": "City of San Jose (.gov)",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sanjoseca.gov&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.sanjoseca.gov/Home/Components/News/News/7147/4699",
+        "date": "02/06/2026, 08:00 AM, +0000 UTC",
+        "iso_date": "2026-02-06T08:00:00Z"
+      },
+      {
+        "position": 60,
+        "title": "Nail Your Home Improvement New Year’s Resolutions: 5 Building Permits You Need to Know",
+        "source": {
+          "name": "City of San Jose (.gov)",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sanjoseca.gov&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.sanjoseca.gov/Home/Components/News/News/7111/4765",
+        "thumbnail": "https://www.sanjoseca.gov/home/showpublishedimage/26131/639041691665570000",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iL0NnNVBkVkl3Y0RKVU5XeEtUMTlMVFJDM0FSaVRBaWdCTWdrQllJQnFTU010NndF",
+        "date": "01/16/2026, 08:00 AM, +0000 UTC",
+        "iso_date": "2026-01-16T08:00:00Z"
+      },
+      {
+        "position": 61,
+        "title": "NEWS RELEASE: San José Approves First Ministerial Project, Cutting Permitting Time for Major Housing Developments by Half the Time",
+        "source": {
+          "name": "City of San Jose (.gov)",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sanjoseca.gov&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.sanjoseca.gov/Home/Components/News/News/7055/4699",
+        "date": "12/02/2025, 08:00 AM, +0000 UTC",
+        "iso_date": "2025-12-02T08:00:00Z"
+      },
+      {
+        "position": 62,
+        "title": "Public Review Draft EIR: 1605 South 7th Street Project",
+        "source": {
+          "name": "City of San Jose (.gov)",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sanjoseca.gov&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.sanjoseca.gov/Home/Components/News/News/7026/4699",
+        "date": "11/14/2025, 08:00 AM, +0000 UTC",
+        "iso_date": "2025-11-14T08:00:00Z"
+      },
+      {
+        "position": 63,
+        "title": "Construction Financing Secured For 797 South Almaden Avenue, San Jose",
+        "source": {
+          "name": "San Francisco YIMBY",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://sfyimby.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Andrew Nelson"
+          ]
+        },
+        "link": "https://sfyimby.com/2025/11/construction-financing-secured-for-797-south-almaden-avenue-san-jose.html",
+        "thumbnail": "https://sfyimby.com/wp-content/uploads/2021/04/797-South-Almaden-rendering-via-the-East-Bay-Times.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNVRkWFZzYlZVM1VWSnZabTFLVFJDUkF4ajlCU2dLTWdNQjhBQQ",
+        "date": "11/15/2025, 08:00 AM, +0000 UTC",
+        "iso_date": "2025-11-15T08:00:00Z"
+      },
+      {
+        "position": 64,
+        "title": "East San Jose community development ready to break ground",
+        "source": {
+          "name": "San José Spotlight",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://sanjosespotlight.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Lorraine Gabbert"
+          ]
+        },
+        "link": "https://sanjosespotlight.com/east-san-jose-community-development-ready-to-break-ground/",
+        "thumbnail": "https://sanjosespotlight.s3.us-east-2.amazonaws.com/wp-content/uploads/2025/09/26144413/Mexican-Heritage-Plaza-2-1160x560.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNXNXVTA0TlZvelFuVlFNazVYVFJDQkF4aWRCaWdLTWdNbFV3QQ",
+        "date": "01/09/2026, 08:00 AM, +0000 UTC",
+        "iso_date": "2026-01-09T08:00:00Z"
+      },
+      {
+        "position": 65,
+        "title": "Notice of CEQA Posting: 255 West Julian Street (Arbor Building) Project Update Addendum to the Downtown Strategy 2040 FEIR (H24-049 & ER24-214)",
+        "source": {
+          "name": "City of San Jose (.gov)",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sanjoseca.gov&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.sanjoseca.gov/Home/Components/News/News/6913/4699",
+        "date": "09/19/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-09-19T07:00:00Z"
+      },
+      {
+        "position": 66,
+        "title": "Silicon Valley BART Extension construction remains on time, budget",
+        "source": {
+          "name": "ABC7 Bay Area",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://abc7news.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Dustin Dorsey"
+          ]
+        },
+        "link": "https://abc7news.com/post/silicon-valley-bart-extension-construction-remains-time-budget-west-portal-site/18265543/",
+        "thumbnail": "https://cdn.abcotvs.com/dip/images/18265927_1207825-kgo-bart-sj-construction-img.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iMkNnNTRNSG93TVU1cFNETlFkekkwVFJDZkF4ampCU2dLTWdzQlVJSzJSS1daMVJpVmN3",
+        "date": "12/09/2025, 08:00 AM, +0000 UTC",
+        "iso_date": "2025-12-09T08:00:00Z"
+      },
+      {
+        "position": 67,
+        "title": "UPDATE: San Jose eases housing development requirements",
+        "source": {
+          "name": "San José Spotlight",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://sanjosespotlight.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Keith Menconi"
+          ]
+        },
+        "link": "https://sanjosespotlight.com/san-jose-considers-easing-housing-development-requirements/",
+        "thumbnail": "https://sanjosespotlight.s3.us-east-2.amazonaws.com/wp-content/uploads/2024/07/05125559/IMG_0758-scaled-1.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNTRVVE5YY25aR2JsRTRjV2RFVFJEZ0F4aUFCU2dLTWdNSmtBSQ",
+        "date": "01/28/2026, 08:00 AM, +0000 UTC",
+        "iso_date": "2026-01-28T08:00:00Z"
+      },
+      {
+        "position": 68,
+        "title": "Construction Next Year For 470 South Market Street in Downtown San Jose",
+        "source": {
+          "name": "San Francisco YIMBY",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://sfyimby.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Andrew Nelson"
+          ]
+        },
+        "link": "https://sfyimby.com/2025/11/construction-next-year-for-470-south-market-street-in-downtown-san-jose.html",
+        "thumbnail": "https://sfyimby.com/wp-content/uploads/2025/02/Gateway-Tower-evening-view-rendering-by-DLR-Group-777x884.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNUlSSGxpWDNsS01IVnFZMlZuVFJEUEJCaUhCQ2dLTWdNQmdBQQ",
+        "date": "11/05/2025, 08:00 AM, +0000 UTC",
+        "iso_date": "2025-11-05T08:00:00Z"
+      },
+      {
+        "position": 69,
+        "title": "Construction Starts For 525 North Capitol Avenue, San Jose",
+        "source": {
+          "name": "San Francisco YIMBY",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://sfyimby.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Andrew Nelson"
+          ]
+        },
+        "link": "https://sfyimby.com/2025/09/construction-starts-for-525-north-capitol-avenue-san-jose.html",
+        "thumbnail": "https://sfyimby.com/wp-content/uploads/2025/09/525-North-Capitol-Avenue-street-view-rendering-by-David-Baker-Architects.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNUZVMW96VWsweWIwWkpWeTFVVFJDZkF4amlCU2dLTWdNQnNBdw",
+        "date": "09/22/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-09-22T07:00:00Z"
+      },
+      {
+        "position": 70,
+        "title": "San Jose boosts incentives to convert offices to housing",
+        "source": {
+          "name": "San José Spotlight",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://sanjosespotlight.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Keith Menconi"
+          ]
+        },
+        "link": "https://sanjosespotlight.com/san-jose-boosts-incentives-to-convert-offices-to-housing/",
+        "thumbnail": "https://sanjosespotlight.s3.us-east-2.amazonaws.com/wp-content/uploads/2026/01/27144508/San-Jose-building-conversion-1-scaled.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iL0NnNUdTa0ZEVkc1SldUQXhTekpzVFJEZ0F4ai1CQ2dLTWdrQklJRzE4R0RZZUFB",
+        "date": "02/02/2026, 08:00 AM, +0000 UTC",
+        "iso_date": "2026-02-02T08:00:00Z"
+      },
+      {
+        "position": 71,
+        "title": "Downtown Projects will Improve Safety and Traffic over Next Three Years",
+        "source": {
+          "name": "City of San Jose (.gov)",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sanjoseca.gov&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.sanjoseca.gov/Home/Components/News/News/6991/4765",
+        "thumbnail": "https://www.sanjoseca.gov/home/showpublishedimage/21874/638610716639730000",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNXFaSHBHV21KWE56WXlUVmhaVFJEZkF4aUFCU2dLTWdZQndJWVJ5UVE",
+        "date": "10/27/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-10-27T07:00:00Z"
+      },
+      {
+        "position": 72,
+        "title": "Fact Brief: Is San Jose on its way to having the most Costcos of any U.S. city?",
+        "source": {
+          "name": "San José Spotlight",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://sanjosespotlight.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://sanjosespotlight.com/fact-brief-is-san-jose-on-its-way-to-having-the-most-costcos-of-any-u-s-city/",
+        "thumbnail": "https://sanjosespotlight.s3.us-east-2.amazonaws.com/wp-content/uploads/2026/01/13100528/Cosctco-site-1160x560.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNUlTVUV4Y3psYVpFOXNaa1ZQVFJDQkF4aWRCaWdLTWdNQmdBSQ",
+        "date": "01/21/2026, 08:00 AM, +0000 UTC",
+        "iso_date": "2026-01-21T08:00:00Z"
+      },
+      {
+        "position": 73,
+        "title": "Hanover Co. Gets to Work on San Jose Mixed-Use",
+        "source": {
+          "name": "Multifamily Housing News",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.multihousingnews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Dees Stribling"
+          ]
+        },
+        "link": "https://www.multihousingnews.com/hanover-co-breaks-ground-on-san-jose-mixed-use/",
+        "thumbnail": "https://www.multihousingnews.com/wp-content/uploads/sites/57/2025/10/thumbnail_Coyote-Creek-Village_c1.jpg?w=1024",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNUhaa1p0UlVkR1FsSmlNV0ZJVFJDREF4aVlCaWdLTWdNQmtBUQ",
+        "date": "10/29/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-10-29T07:00:00Z"
+      },
+      {
+        "position": 74,
+        "title": "San Jose metro area No. 1 in declining home building permits",
+        "source": {
+          "name": "San José Spotlight",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://sanjosespotlight.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Annalise Freimarck"
+          ]
+        },
+        "link": "https://sanjosespotlight.com/san-jose-metro-area-no-1-in-declining-home-building-permits/",
+        "thumbnail": "https://sanjosespotlight.s3.us-east-2.amazonaws.com/wp-content/uploads/2019/12/06044415/artworks-000656563003-bnaxd6-t3000x3000-scaled-e1675902220116.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNU1OSHByT0c4eFUySkROSEpCVFJESEF4aWlCU2dLTWdhTkk0RWwyZ0E",
+        "date": "10/13/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-10-13T07:00:00Z"
+      },
+      {
+        "position": 75,
+        "title": "Super Micro Computer launches tech campus project at former Fry’s site in San Jose",
+        "source": {
+          "name": "The Mercury News",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.mercurynews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "George Avalos"
+          ]
+        },
+        "link": "https://www.mercurynews.com/2026/01/22/san-jose-super-micro-tech-frys-store-build-economy-property-develop-jobs/",
+        "thumbnail": "https://www.mercurynews.com/wp-content/uploads/2026/01/SJM-L-SJNSUPERMICRO-1.jpg?w=1024",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNHhNRlI0VmxSQmFXcGpObUZmVFJDZkF4ampCU2dLTWdZQlFJQVcwQUk",
+        "date": "01/22/2026, 08:00 AM, +0000 UTC",
+        "iso_date": "2026-01-22T08:00:00Z"
+      },
+      {
+        "position": 76,
+        "title": "Notice of CEQA Posting: Gateway Tower Mixed-Use Development Project Addendum to the Gateway Tower SEIR and the Downtown Strategy 2000 FPEIR",
+        "source": {
+          "name": "City of San Jose (.gov)",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sanjoseca.gov&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.sanjoseca.gov/Home/Components/News/News/6474/4699",
+        "date": "02/14/2025, 08:00 AM, +0000 UTC",
+        "iso_date": "2025-02-14T08:00:00Z"
+      },
+      {
+        "position": 77,
+        "title": "Construction Beginning on San Jose Creek Multipurpose Path Project in Goleta",
+        "source": {
+          "name": "Noozhawk",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.noozhawk.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Pricila Flores"
+          ]
+        },
+        "link": "https://www.noozhawk.com/construction-beginning-on-san-jose-creek-multipurpose-path-project-in-goleta/",
+        "thumbnail": "https://i0.wp.com/www.noozhawk.com/wp-content/uploads/2025/12/122225-San-Jose-Creek-Path-1-pf-2000.jpg?fit=780%2C520&ssl=1",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iI0NnNWlSMW8xWXpaVVRXMHpNSEp3VFJERUF4aW1CU2dLTWdB",
+        "date": "12/24/2025, 08:00 AM, +0000 UTC",
+        "iso_date": "2025-12-24T08:00:00Z"
+      },
+      {
+        "position": 78,
+        "title": "San Jose Creek Multipurpose Path Project Construction Begins THIS Monday, December 15",
+        "source": {
+          "name": "The Santa Barbara Independent",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.independent.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.independent.com/2025/12/12/san-jose-creek-multipurpose-path-project-construction-begins-this-monday-december-15/",
+        "thumbnail": "https://www.independent.com/wp-content/uploads/2025/12/SJC-looking-south-from-UPRR-tracks.jpg?w=640",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNVNkRVptVkhSRVpGZ3hTMWhGVFJEZ0F4aUFCU2dLTWdNbHh3RQ",
+        "date": "12/12/2025, 08:00 AM, +0000 UTC",
+        "iso_date": "2025-12-12T08:00:00Z"
+      },
+      {
+        "position": 79,
+        "title": "A transformative expansion is coming to San Jose's Good Samaritan Hospital",
+        "source": {
+          "name": "ABC7 Bay Area",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://abc7news.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Lilian Pena"
+          ]
+        },
+        "link": "https://abc7news.com/post/transformative-expansion-is-coming-san-joses-good-samaritan-hospital/18445497/",
+        "thumbnail": "https://cdn.abcotvs.com/dip/images/18449709_012226-kgo-good-samaritan-img.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNTRjRmN6V0VSbmFsbHpPSEZLVFJDZkF4ampCU2dLTWdhZFk1aHNxUWM",
+        "date": "01/22/2026, 08:00 AM, +0000 UTC",
+        "iso_date": "2026-01-22T08:00:00Z"
+      },
+      {
+        "position": 80,
+        "title": "Project Launches for 1655 Berryessa Road Transit Oriented Development",
+        "source": {
+          "name": "San Francisco YIMBY",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://sfyimby.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Gabriel Clark-clough"
+          ]
+        },
+        "link": "https://sfyimby.com/2025/10/transit-oriented-development-at-1655-berryessa-road-launches-phase-one.html",
+        "thumbnail": "https://sfyimby.com/wp-content/uploads/2025/10/1655-Berryessa-Road-Rendering-image-via-Swenson-260x152.png",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNVZkRUpKVVdoM1EyaFlNa00zVFJDWUFSaUVBaWdLTWdNQnNBSQ",
+        "date": "10/23/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-10-23T07:00:00Z"
+      },
+      {
+        "position": 81,
+        "title": "Notice of CEQA Posting: 2256 Junction Avenue Project Addendum to the IS/MND",
+        "source": {
+          "name": "City of San Jose (.gov)",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sanjoseca.gov&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.sanjoseca.gov/Home/Components/News/News/6541/4699",
+        "date": "03/21/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-03-21T07:00:00Z"
+      },
+      {
+        "position": 82,
+        "title": "San Jose housing policy change delayed after pushback",
+        "source": {
+          "name": "San José Spotlight",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://sanjosespotlight.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Keith Menconi"
+          ]
+        },
+        "link": "https://sanjosespotlight.com/san-jose-housing-policy-change-delayed-after-pushback/",
+        "thumbnail": "https://sanjosespotlight.s3.us-east-2.amazonaws.com/wp-content/uploads/2020/08/19182539/Construction-continues-on-a-development-in-Santa-Clara-County.-Photo-by-Katie-Lauer.-scaled.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNWlRVzlHUjNvMFRIQTVOM2g0VFJEZ0F4al9CQ2dLTWdNSk1RQQ",
+        "date": "11/18/2025, 08:00 AM, +0000 UTC",
+        "iso_date": "2025-11-18T08:00:00Z"
+      },
+      {
+        "position": 83,
+        "title": "Construction Underway For El Paseo de Saratoga, San Jose",
+        "source": {
+          "name": "San Francisco YIMBY",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://sfyimby.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Andrew Nelson"
+          ]
+        },
+        "link": "https://sfyimby.com/2025/08/construction-underway-for-el-paseo-de-saratoga-san-jose.html",
+        "thumbnail": "https://sfyimby.com/wp-content/uploads/2024/11/El-Paseo-housing-rendering-by-Solomon-Cordwell-Buenz-777x472.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iL0NnNDNibTR3VTB0S1MyOUNkMXBhVFJDdkF4akhCU2dLTWdrQjBvWkZ5V09TendF",
+        "date": "08/15/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-08-15T07:00:00Z"
+      },
+      {
+        "position": 84,
+        "title": "Photo Exhibit Resurrects What Was Lost to I-280 Construction",
+        "source": {
+          "name": "Metro Silicon Valley",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.metrosiliconvalley.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Gary Singh"
+          ]
+        },
+        "link": "https://www.metrosiliconvalley.com/silicon-alleys-san-jose-history-gary-singh-interstate-280/",
+        "thumbnail": "https://www.metrosiliconvalley.com/wp-content/uploads/sites/16/2025/12/msv2550_alleys-1.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNDJjV2hWY2kxMFYydHVZa2RLVFJDbUF4alhCU2dLTWdZaDBJcnN5UVE",
+        "date": "12/10/2025, 08:00 AM, +0000 UTC",
+        "iso_date": "2025-12-10T08:00:00Z"
+      },
+      {
+        "position": 85,
+        "title": "Construction Soon For Aquino in San Jose",
+        "source": {
+          "name": "San Francisco YIMBY",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://sfyimby.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Andrew Nelson"
+          ]
+        },
+        "link": "https://sfyimby.com/2025/09/construction-soon-for-aquino-in-san-jose.html",
+        "thumbnail": "https://sfyimby.com/wp-content/uploads/2021/01/486-498-West-San-Carlos-Street-design-by-Aedis-Architects-777x384.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iNkNnNXpiWFJMV25wUFJESm5TVkZxVFJDQUF4aUpCaWdLTWc0QlFJREdvQ0RRTmFnRERrSmtNQQ",
+        "date": "09/01/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-09-01T07:00:00Z"
+      },
+      {
+        "position": 86,
+        "title": "Preview/Lines #58: Warsofsky on How Analytics Affect Sharks’ Line Construction",
+        "source": {
+          "name": "San Jose Hockey Now",
+          "icon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://sanjosehockeynow.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Sheng Peng"
+          ]
+        },
+        "link": "https://sanjosehockeynow.com/san-jose-sharks-warsofsky-graf-sherwood-reaves-goodrow-preview-lines-58/",
+        "thumbnail": "https://sanjosehockeynow.com/cdn-cgi/image/width=1120%2Cheight=631%2Cfit=crop%2Cquality=75%2Cgravity=auto%2Csharpen=1%2Cmetadata=none%2Cformat=auto%2Conerror=redirect/wp-content/uploads/2026/03/Celebrini-Graf-HS_Sharks_vs_Flames_3816.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNUpSbFZsYm0xc2QyMVlVRkI1VFJDZ0F4amlCU2dLTWdZWklJd3JIUWM",
+        "date": "03/01/2026, 08:00 AM, +0000 UTC",
+        "iso_date": "2026-03-01T08:00:00Z"
+      },
+      {
+        "position": 87,
+        "title": "San Jose City Council Moves Forward on Single-Stair Housing Reform",
+        "source": {
+          "name": "Davis Vanguard",
+          "icon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://davisvanguard.org&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://davisvanguard.org/2025/10/san-jose-single-stair-housing/",
+        "thumbnail": "https://davisvanguard.org/wp-content/uploads/2025/10/San-Jose-Housing.webp",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNVllWEJRTUhKMVZGZDJabmR1VFJERUF4aW1CU2dLTWdNSmNBUQ",
+        "date": "10/29/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-10-29T07:00:00Z"
+      },
+      {
+        "position": 88,
+        "title": "Construction of Wild Animal ‘Safe Passage” across Highway 101 Set for 2028",
+        "source": {
+          "name": "San Jose Inside",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.sanjoseinside.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.sanjoseinside.com/news/construction-of-8-7m-wild-animal-safe-passage-across-highway-101-set-for-2028/",
+        "thumbnail": "https://www.sanjoseinside.com/wp-content/uploads/2020/09/44-Coyote-Valley-1.jpeg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNDFlbVZ5YkdKYWRtWk9Oa2hGVFJEZEFoaUVCaWdLTWdNQkVBYw",
+        "date": "01/13/2026, 08:00 AM, +0000 UTC",
+        "iso_date": "2026-01-13T08:00:00Z"
+      },
+      {
+        "position": 89,
+        "title": "San Jose Is Betting $16 Million in Fee Waivers Can Turn Empty Offices Into Apartments",
+        "source": {
+          "name": "Propmodo",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://propmodo.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Travis Barrington"
+          ]
+        },
+        "link": "https://propmodo.com/playbook/san-jose-is-betting-16-million-in-fee-waivers-can-turn-empty-offices-into-apartments/",
+        "thumbnail": "https://propmodo.com/playbook/wp-content/uploads/2026/02/San-Jose-CA-768x512.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNW9SRWxVUzI1eVYzUmZiR0pPVFJERUF4aW1CU2dLTWdNQjBBQQ",
+        "date": "02/03/2026, 08:00 AM, +0000 UTC",
+        "iso_date": "2026-02-03T08:00:00Z"
+      },
+      {
+        "position": 90,
+        "title": "Sharks, city scramble as ice rink construction costs rise",
+        "source": {
+          "name": "Gilroy Dispatch",
+          "icon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://gilroydispatch.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Michael Moore"
+          ]
+        },
+        "link": "https://gilroydispatch.com/sharks-city-scramble-as-ice-rink-construction-costs-rise/",
+        "thumbnail": "https://gilroydispatch.com/wp-content/uploads/sites/17/2024/05/2419_Sharks-1024x587.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNXlUV1kxZVhsd2RERnRhVzlEVFJDcUFSaXBBaWdCTWdZQmNJVEpPUVE",
+        "date": "02/26/2026, 08:00 AM, +0000 UTC",
+        "iso_date": "2026-02-26T08:00:00Z"
+      },
+      {
+        "position": 91,
+        "title": "VTA hopes to fight downtown San Jose blight by bulldozing building",
+        "source": {
+          "name": "The Mercury News",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.mercurynews.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "George Avalos"
+          ]
+        },
+        "link": "https://www.mercurynews.com/2025/12/08/san-jose-train-build-bart-develop-property-economy-real-estate-blight/",
+        "thumbnail": "https://www.mercurynews.com/wp-content/uploads/2025/12/SJM-L-SJDTVTA-03.jpg?w=1024",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNHlPRmd4U1drM05uWmtSemg2VFJEZ0F4aUFCU2dLTWdZUmtJZ0p3Z1U",
+        "date": "12/08/2025, 08:00 AM, +0000 UTC",
+        "iso_date": "2025-12-08T08:00:00Z"
+      },
+      {
+        "position": 92,
+        "title": "Construction Financing Secured For Affordable Housing at 1271-1279 East Julian Street, San Jose",
+        "source": {
+          "name": "San Francisco YIMBY",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://sfyimby.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Andrew Nelson"
+          ]
+        },
+        "link": "https://sfyimby.com/2025/08/construction-financing-secured-for-affordable-housing-at-1271-1279-east-julian-street-san-jose.html",
+        "thumbnail": "https://sfyimby.com/wp-content/uploads/2024/04/1271-East-Julian-Street-elevation-by-Y-M-Architects-777x395.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iMkNnNWxiR3hZTTBsMWJtRnpYMDQzVFJDTEF4aUpCaWdLTWdzQkVJYWtFV3FoODRpTFJB",
+        "date": "08/08/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-08-08T07:00:00Z"
+      },
+      {
+        "position": 93,
+        "title": "New Housing Complex Proposed for Santana Row in San Jose",
+        "source": {
+          "name": "San Francisco YIMBY",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://sfyimby.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Gabriel Clark-clough"
+          ]
+        },
+        "link": "https://sfyimby.com/2025/07/new-housing-complex-proposed-for-santana-row-in-san-jose.html",
+        "thumbnail": "https://sfyimby.com/wp-content/uploads/2025/07/358-Hatton-Street-Entryway-Rendering-image-by-BDE.png",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNWlMVlJSYmpCeVJsZFZNblE0VFJDa0F4amFCU2dLTWdZQjBJUVpYQUk",
+        "date": "07/08/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-07-08T07:00:00Z"
+      },
+      {
+        "position": 94,
+        "title": "NEWS RELEASE: San José AI Road Safety Pilot Data Shows 97% Accuracy",
+        "source": {
+          "name": "City of San Jose (.gov)",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sanjoseca.gov&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.sanjoseca.gov/Home/Components/News/News/6926/4699",
+        "thumbnail": "https://www.sanjoseca.gov/home/showpublishedimage/7447/636794398603000000",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iL0NnNU1aakJmVG1WQlNrdFhNMkZ5VFJEUEFoaVNCeWdLTWdrQnNvYkpSV081a0FF",
+        "date": "09/29/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-09-29T07:00:00Z"
+      },
+      {
+        "position": 95,
+        "title": "Two Boston firms in legal battle over California apartment tower",
+        "source": {
+          "name": "NBC Boston",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.nbcboston.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Clare A. Fonstein"
+          ]
+        },
+        "link": "https://www.nbcboston.com/boston-business-journal/two-boston-firms-in-legal-battle-over-california-apartment-tower/3852095/",
+        "thumbnail": "https://media.nbcboston.com/2025/11/topping-off-ceremony-for-the-fay-008900xx3900-2600-0-1.jpg?quality=85&strip=all&resize=1200%2C675",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNVhWRTFQUkcxc0xWUk9aSHBzVFJDZkF4ampCU2dLTWdZZEVJYXNFUVk",
+        "date": "11/28/2025, 08:00 AM, +0000 UTC",
+        "iso_date": "2025-11-28T08:00:00Z"
+      },
+      {
+        "position": 96,
+        "title": "Demolition Underway For Parking at CityView Plaza, Downtown San Jose",
+        "source": {
+          "name": "San Francisco YIMBY",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://sfyimby.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Andrew Nelson"
+          ]
+        },
+        "link": "https://sfyimby.com/2025/08/demolition-underway-for-parking-at-cityview-plaza-downtown-san-jose.html",
+        "thumbnail": "https://sfyimby.com/wp-content/uploads/2025/08/185-Park-Avenue-foundation-work-underway-image-by-author-260x195.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNUdSbVJMZG1WQlZWYzFUR3RpVFJEREFSaUVBaWdLTWdNQndBQQ",
+        "date": "08/25/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-08-25T07:00:00Z"
+      },
+      {
+        "position": 97,
+        "title": "Changes Proposed for a Warehouse at 4553 North 1st Street in San Jose",
+        "source": {
+          "name": "San Francisco YIMBY",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://sfyimby.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://sfyimby.com/2025/04/changes-proposed-for-a-warehouse-at-4553-north-1st-street-in-san-jose.html",
+        "thumbnail": "https://sfyimby.com/wp-content/uploads/2025/04/Second-Harvest-Distribution-Center-777x284.png",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iJ0NnNU1PV0p2U2twbmFXRXpTVEZ2VFJDY0FoaUpCaWdLTWdPQnNBZw",
+        "date": "04/09/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-04-09T07:00:00Z"
+      },
+      {
+        "position": 98,
+        "title": "An Arcade turns into Affordable Housing",
+        "source": {
+          "name": "City of San Jose (.gov)",
+          "icon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sanjoseca.gov&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL"
+        },
+        "link": "https://www.sanjoseca.gov/Home/Components/News/News/6779/4699",
+        "date": "07/02/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-07-02T07:00:00Z"
+      },
+      {
+        "position": 99,
+        "title": "New Development in San Jose Projects Summer Start Date",
+        "source": {
+          "name": "San Francisco YIMBY",
+          "icon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://sfyimby.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Gabriel Clark-clough"
+          ]
+        },
+        "link": "https://sfyimby.com/2025/05/new-development-in-san-jose-projects-summer-start-date.html",
+        "thumbnail": "https://sfyimby.com/wp-content/uploads/2025/05/210-Baypointe-Parkway-Sample-Layout-and-Floorplay-image-by-KTGY.png",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iK0NnNUdNbVpKZGtGTU5IRmhhREZwVFJDZEF4am5CU2dLTWdZQlVvZ21KZ2c",
+        "date": "05/16/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-05-16T07:00:00Z"
+      },
+      {
+        "position": 100,
+        "title": "VTA's BART extension construction underway amid delays, funding gaps",
+        "source": {
+          "name": "ABC7 Bay Area",
+          "icon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://abc7news.com&client=NEWS_360&size=96&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+          "authors": [
+            "Dustin Dorsey"
+          ]
+        },
+        "link": "https://abc7news.com/post/vtas-bart-extension-construction-underway-amid-delays-funding-gaps/16829554/",
+        "thumbnail": "https://cdn.abcotvs.com/dip/images/16832609_062325-kgo-sj-bart-img.jpg",
+        "thumbnail_small": "https://news.google.com/api/attachments/CC8iMkNnNUhTbFZCWTNaSFMzRkhXa0ZEVFJDZkF4ampCU2dLTWd1QllJTEF4T0o2ZThnV2ZB",
+        "date": "06/23/2025, 07:00 AM, +0000 UTC",
+        "iso_date": "2025-06-23T07:00:00Z"
+      }
+    ],
+    "menu_links": [
+      {
+        "title": "U.S.",
+        "topic_token": "CAAqIggKIhxDQkFTRHdvSkwyMHZNRGxqTjNjd0VnSmxiaWdBUAE",
+        "serpapi_link": "https://serpapi.com/search.json?engine=google_news&topic_token=CAAqIggKIhxDQkFTRHdvSkwyMHZNRGxqTjNjd0VnSmxiaWdBUAE"
+      },
+      {
+        "title": "World",
+        "topic_token": "CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx1YlY4U0FtVnVHZ0pWVXlnQVAB",
+        "serpapi_link": "https://serpapi.com/search.json?engine=google_news&topic_token=CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx1YlY4U0FtVnVHZ0pWVXlnQVAB"
+      },
+      {
+        "title": "Your local news",
+        "topic_token": "CAAqHAgKIhZDQklTQ2pvSWJHOWpZV3hmZGpJb0FBUAE",
+        "serpapi_link": "https://serpapi.com/search.json?engine=google_news&topic_token=CAAqHAgKIhZDQklTQ2pvSWJHOWpZV3hmZGpJb0FBUAE"
+      },
+      {
+        "title": "Business",
+        "topic_token": "CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx6TVdZU0FtVnVHZ0pWVXlnQVAB",
+        "serpapi_link": "https://serpapi.com/search.json?engine=google_news&topic_token=CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx6TVdZU0FtVnVHZ0pWVXlnQVAB"
+      },
+      {
+        "title": "Technology",
+        "topic_token": "CAAqJggKIiBDQkFTRWdvSUwyMHZNRGRqTVhZU0FtVnVHZ0pWVXlnQVAB",
+        "serpapi_link": "https://serpapi.com/search.json?engine=google_news&topic_token=CAAqJggKIiBDQkFTRWdvSUwyMHZNRGRqTVhZU0FtVnVHZ0pWVXlnQVAB"
+      },
+      {
+        "title": "Entertainment",
+        "topic_token": "CAAqJggKIiBDQkFTRWdvSUwyMHZNREpxYW5RU0FtVnVHZ0pWVXlnQVAB",
+        "serpapi_link": "https://serpapi.com/search.json?engine=google_news&topic_token=CAAqJggKIiBDQkFTRWdvSUwyMHZNREpxYW5RU0FtVnVHZ0pWVXlnQVAB"
+      },
+      {
+        "title": "Sports",
+        "topic_token": "CAAqJggKIiBDQkFTRWdvSUwyMHZNRFp1ZEdvU0FtVnVHZ0pWVXlnQVAB",
+        "serpapi_link": "https://serpapi.com/search.json?engine=google_news&topic_token=CAAqJggKIiBDQkFTRWdvSUwyMHZNRFp1ZEdvU0FtVnVHZ0pWVXlnQVAB"
+      },
+      {
+        "title": "Science",
+        "topic_token": "CAAqJggKIiBDQkFTRWdvSUwyMHZNRFp0Y1RjU0FtVnVHZ0pWVXlnQVAB",
+        "serpapi_link": "https://serpapi.com/search.json?engine=google_news&topic_token=CAAqJggKIiBDQkFTRWdvSUwyMHZNRFp0Y1RjU0FtVnVHZ0pWVXlnQVAB"
+      },
+      {
+        "title": "Health",
+        "topic_token": "CAAqIQgKIhtDQkFTRGdvSUwyMHZNR3QwTlRFU0FtVnVLQUFQAQ",
+        "serpapi_link": "https://serpapi.com/search.json?engine=google_news&topic_token=CAAqIQgKIhtDQkFTRGdvSUwyMHZNR3QwTlRFU0FtVnVLQUFQAQ"
+      }
+    ]
+  }
+}

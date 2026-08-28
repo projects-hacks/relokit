@@ -101,3 +101,46 @@ describe('feasibility', () => {
     expect(infeasibleOps(result.stages, input.registry)).toEqual([])
   })
 })
+
+describe('a signal that reads the candidate response', () => {
+  // The demo query carries no area_signal, so nothing else exercises this path
+  // and an enabled capability would sit unverified until Sunday.
+  const withSignal = {
+    ...constraints,
+    constraints: [
+      ...constraints.constraints,
+      {
+        id: 'c7',
+        type: 'area_signal' as const,
+        hardness: 'soft' as const,
+        weight: 0.4,
+        source_text: 'quiet street',
+        inferred: false,
+        topic: 'construction' as const,
+        polarity: 'negative' as const,
+        lookback_days: 30,
+      },
+    ],
+  }
+  const result = plan({ ...input, constraints: withSignal })
+
+  it('waits for the listings, because that is where the region name comes from', () => {
+    expect(requirementsOf(capability('area_signal.news.region'), 'area_signal')).toEqual([
+      'stage.candidates',
+    ])
+    const order = result.stages.map((s) => s.stage_id)
+    expect(order.indexOf('signals')).toBeGreaterThan(order.indexOf('candidates'))
+    expect(infeasibleOps(result.stages, input.registry)).toEqual([])
+  })
+
+  it('never prunes, whatever it finds', () => {
+    const signals = result.stages.find((s) => s.stage_id === 'signals')!
+    expect(signals.prune).toBeNull()
+  })
+
+  it('goes unbound when there is no candidate search to name the region', () => {
+    const withoutSource = input.registry.filter((c) => c.constraint_type !== 'candidate_source')
+    const orphaned = plan({ ...input, constraints: withSignal, registry: withoutSource })
+    expect(orphaned.unsatisfied).toContainEqual({ constraint_id: 'c7', reason: 'unbound' })
+  })
+})
