@@ -1,5 +1,5 @@
 {
-  "registry_version": "2026-08-28.2",
+  "registry_version": "2026-08-28.3",
   "capabilities": [
     {
       "capability_id": "candidates.zillow.region",
@@ -21,7 +21,8 @@
         "status_type": "rent",
         "map_bounds": "$stage.bounds.north,$stage.bounds.east,$stage.bounds.south,$stage.bounds.west"
       },
-      "notes": "One call per page. The planner emits one op per page, so the native predicates cut the pagination cost as well as the candidate count: the unfiltered San Jose pool is 20 pages, the filtered one is a single page."
+      "notes": "One call per page. The planner emits one op per page, so the native predicates cut the pagination cost as well as the candidate count: the unfiltered San Jose pool is 20 pages, the filtered one is a single page.",
+      "produces": ["entity"]
     },
     {
       "capability_id": "budget.zillow.native",
@@ -41,7 +42,8 @@
       "params_template": {
         "price": "0,$constraint.self.max_dollars"
       },
-      "notes": "Free. Coverage is 0.80 because a fifth of San Jose rental results are apartment buildings that return a units[] band such as \"$2,495+\" rather than a unit price. A band straddling the cap gives unknown, never a guess."
+      "notes": "Free. Coverage is 0.80 because a fifth of San Jose rental results are apartment buildings that return a units[] band such as \"$2,495+\" rather than a unit price. A band straddling the cap gives unknown, never a guess.",
+      "produces": []
     },
     {
       "capability_id": "unit_attribute.zillow.native",
@@ -61,7 +63,8 @@
       "params_template": {
         "beds": "$constraint.self.min,$constraint.self.max"
       },
-      "notes": "Free. Multi-unit buildings carry beds inside units[] rather than at the top level, so an entity is one bed count at one building."
+      "notes": "Free. Multi-unit buildings carry beds inside units[] rather than at the top level, so an entity is one bed count at one building.",
+      "produces": []
     },
     {
       "capability_id": "listing_feature.zillow.native",
@@ -81,7 +84,8 @@
       "params_template": {
         "amenities": "$constraint.self.feature"
       },
-      "notes": "Free, and Zillow guarantees survivors match. The response never restates the amenity per listing, so the evidence is provider asserted: verdict pass at confidence 0.8, citing the search rather than the listing body. Enable listing_feature.zillow.entity to upgrade that to a directly read fact."
+      "notes": "Free, and Zillow guarantees survivors match. The response never restates the amenity per listing, so the evidence is provider asserted: verdict pass at confidence 0.8, citing the search rather than the listing body. Enable listing_feature.zillow.entity to upgrade that to a directly read fact.",
+      "produces": []
     },
     {
       "capability_id": "listing_feature.zillow.entity",
@@ -102,7 +106,8 @@
         "engine": "zillow_property",
         "property_id": "$entity.id"
       },
-      "notes": "One detail call per surviving listing. Expensive, so it runs last and only on survivors."
+      "notes": "One detail call per surviving listing. Expensive, so it runs last and only on survivors.",
+      "produces": []
     },
     {
       "capability_id": "commute.geocode.region",
@@ -124,7 +129,8 @@
         "type": "search",
         "q": "$constraint.self.destination_raw"
       },
-      "notes": "Never prunes. Returns place_results.gps_coordinates for the office address in one call."
+      "notes": "Never prunes. Returns place_results.gps_coordinates for the office address in one call.",
+      "produces": ["constraint.destination_point"]
     },
     {
       "capability_id": "commute.directions.cluster",
@@ -145,9 +151,10 @@
         "engine": "google_maps_directions",
         "start_coords": "$cluster.lat,$cluster.lng",
         "end_coords": "$constraint.self.destination_point",
-        "travel_mode": "$constraint.self.mode"
+        "travel_mode": "$constraint.self.travel_mode_code"
       },
-      "notes": "Prunes with slack only. A listing can be nearer the destination than its own centroid."
+      "notes": "travel_mode is an integer on this engine: 0 driving, 1 cycling, 2 walking, 3 transit. directions[] returns route alternatives and the first is not always the fastest, so the verdict takes the minimum duration across them. duration is already in seconds and distance in meters. Prunes with slack only: a listing can be nearer the destination than its own centroid.",
+      "produces": []
     },
     {
       "capability_id": "commute.directions.entity",
@@ -168,9 +175,10 @@
         "engine": "google_maps_directions",
         "start_coords": "$entity.lat,$entity.lng",
         "end_coords": "$constraint.self.destination_point",
-        "travel_mode": "$constraint.self.mode"
+        "travel_mode": "$constraint.self.travel_mode_code"
       },
-      "notes": "Higher precedence than the cluster row, so the exact door to door time overrides the centroid estimate."
+      "notes": "travel_mode is an integer on this engine: 0 driving, 1 cycling, 2 walking, 3 transit. directions[] returns route alternatives and the first is not always the fastest, so the verdict takes the minimum duration across them. duration is already in seconds and distance in meters.",
+      "produces": []
     },
     {
       "capability_id": "nearby_poi.maps.cluster",
@@ -193,7 +201,8 @@
         "q": "$constraint.self.query",
         "ll": "@$cluster.lat,$cluster.lng,14z"
       },
-      "notes": "google_local ignores ll and answers for the wrong city. google_maps with type=search honours it and carries operating_hours per weekday, which is what makes an opening time answerable rather than a guess."
+      "notes": "google_local ignores ll and answers for the wrong city. google_maps with type=search honours it and carries operating_hours per weekday, which is what makes an opening time answerable rather than a guess.",
+      "produces": []
     },
     {
       "capability_id": "nearby_poi.maps.entity",
@@ -216,7 +225,8 @@
         "q": "$constraint.self.query",
         "ll": "@$entity.lat,$entity.lng,15z"
       },
-      "notes": "google_local ignores ll and answers for the wrong city. google_maps with type=search honours it and carries operating_hours per weekday, which is what makes an opening time answerable rather than a guess."
+      "notes": "google_local ignores ll and answers for the wrong city. google_maps with type=search honours it and carries operating_hours per weekday, which is what makes an opening time answerable rather than a guess.",
+      "produces": []
     },
     {
       "capability_id": "nearby_poi.yelp.cluster",
@@ -238,7 +248,8 @@
         "find_desc": "$constraint.self.query",
         "find_loc": "$cluster.lat,$cluster.lng"
       },
-      "notes": "Answers the same question as Google Local at lower coverage. First thing to cut."
+      "notes": "Answers the same question as Google Local at lower coverage. First thing to cut.",
+      "produces": []
     },
     {
       "capability_id": "nearby_poi.reviews.entity",
@@ -259,7 +270,8 @@
         "engine": "google_maps_reviews",
         "data_id": "$entity.id"
       },
-      "notes": "Confirms hours when Google Local returns a display string we cannot parse. Second thing to cut."
+      "notes": "Confirms hours when Google Local returns a display string we cannot parse. Second thing to cut.",
+      "produces": []
     },
     {
       "capability_id": "area_signal.news.region",
@@ -281,7 +293,8 @@
         "q": "$constraint.self.topic",
         "location": "$stage.bounds.region_name"
       },
-      "notes": "selectivity_prior of 1 because it never prunes. area_signal is always soft."
+      "notes": "selectivity_prior of 1 because it never prunes. area_signal is always soft.",
+      "produces": []
     }
   ]
 }

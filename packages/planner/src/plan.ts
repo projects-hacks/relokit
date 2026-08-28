@@ -1,3 +1,4 @@
+import { bindingForRef, paramRefs } from '@relokit/schema'
 import type {
   CandidateTrace,
   Capability,
@@ -14,6 +15,8 @@ import type {
   Tier,
   UnsatisfiedConstraint,
 } from '@relokit/schema'
+import type { BindingKey } from '@relokit/schema'
+import { closeDerived, isFeasible, requirementsOf } from './binding.ts'
 import { SEED_REGION_CANDIDATES, pagesFor, survivors } from './cardinality.ts'
 import { boxAround, gridClusters, reachRadiusMeters, slackMeters, slackSeconds } from './cluster.ts'
 import { bindSelf, mergeParams, stableHash } from './params.ts'
@@ -24,10 +27,24 @@ export const PLANNER_VERSION = '0.1.0'
 
 const CANDIDATE_SOURCE: ConstraintType = 'candidate_source'
 
+/**
+ * A thing capabilities compete to answer. Usually a user constraint, but the
+ * candidate search is one too: it answers no constraint and yet it is the only
+ * access path that binds `entity`, so it has to compete in the same fixpoint or
+ * nothing that needs a listing can ever become feasible.
+ */
+interface Slot {
+  id: string
+  type: ConstraintType
+  constraint: Constraint | null
+}
+
 interface Selection {
-  constraint: Constraint
+  slot: Slot
   byTier: Map<Tier, Candidate>
 }
+
+const SOURCE_SLOT: Slot = { id: 'source', type: CANDIDATE_SOURCE, constraint: null }
 
 /**
  * Constraints in, execution plan out. Synchronous, total, and free of I/O, the
@@ -48,7 +65,7 @@ export function plan(input: PlanInput): PlanResult {
   const cheapSelections = select(constraints, index, trace, unsatisfied, {
     cluster_count: budget.cluster_count,
     entity_survivors: 0,
-    tiers: ['native', 'region', 'cluster'],
+    max_cost_units: budget.max_cost_units,
   })
   const afterNative = survivors(SEED_REGION_CANDIDATES, chosen(cheapSelections, 'native'))
   const afterCluster = survivors(afterNative, chosen(cheapSelections, 'cluster'))
@@ -60,10 +77,10 @@ export function plan(input: PlanInput): PlanResult {
   const selections = select(constraints, index, trace, unsatisfied, {
     cluster_count: budget.cluster_count,
     entity_survivors: afterCluster,
-    tiers: ['native', 'region', 'cluster', 'entity'],
+    max_cost_units: budget.max_cost_units,
   })
 
-  const stages = assemble(input, selections, index, afterNative, afterCluster, decisions)
+  const stages = assemble(input, selections, afterNative, afterCluster, decisions)
   const plannedCost = stages.reduce((sum, s) => sum + s.estimated_cost_units, 0)
 
   const planTrace: PlanTrace = {
@@ -125,99 +142,164 @@ function boundSearch(input: PlanInput, decisions: { step: string; detail: string
   return { bounds, clusters: gridClusters(bounds, input.budget.cluster_count) }
 }
 
+/**
+ * Selection is a feasibility fixpoint, not a tier walk.
+ *
+ * Each round takes only the capabilities whose required bindings are already
+ * satisfied, keeps the best one per constraint per tier, and adds whatever they
+ * bind. Repeat until nothing more unlocks.
+ *
+ * The ordering that used to be hardcoded falls out of this: a geocode is the
+ * only thing feasible in round one, so it runs first because nothing else can,
+ * not because it was written first. And an unaffordable capability simply never
+ * binds, so everything downstream of it stays infeasible and is reported as
+ * unbound rather than silently dropped.
+ */
 function select(
   constraints: Constraint[],
   index: Map<ConstraintType, Capability[]>,
   trace: CandidateTrace[],
   unsatisfied: UnsatisfiedConstraint[],
-  ctx: { cluster_count: number; entity_survivors: number; tiers: Tier[] },
+  ctx: { cluster_count: number; entity_survivors: number; max_cost_units: number },
 ): Selection[] {
   trace.length = 0
   unsatisfied.length = 0
-  const selections: Selection[] = []
+
+  const slots: Slot[] = [
+    SOURCE_SLOT,
+    ...constraints.map((constraint) => ({ id: constraint.id, type: constraint.type, constraint })),
+  ]
+  const bound = closeDerived(new Set<BindingKey>())
+  const selections = new Map<string, Selection>()
+  const considered = new Set<string>()
+  let spent = 0
+
+  let round = 0
+  for (;;) {
+    round += 1
+    const feasible: { candidate: Candidate; slot: Slot }[] = []
+
+    for (const slot of slots) {
+      for (const capability of index.get(slot.type) ?? []) {
+        const key = `${slot.id}:${capability.capability_id}`
+        if (considered.has(key)) continue
+        if (!isFeasible(requirementsOf(capability, slot.type), bound)) continue
+        feasible.push({
+          candidate: scoreCandidate(
+            capability,
+            slot.id,
+            entitiesRequiringEvaluation(capability.granularity, ctx),
+          ),
+          slot,
+        })
+      }
+    }
+    if (feasible.length === 0) break
+
+    feasible.sort((a, b) => compareCandidates(a.candidate, b.candidate))
+
+    for (const { candidate, slot } of feasible) {
+      considered.add(`${slot.id}:${candidate.capability.capability_id}`)
+
+      const selection = selections.get(slot.id) ?? { slot, byTier: new Map() }
+      if (selection.byTier.has(candidate.tier)) {
+        trace.push(toTrace(candidate, 'lower_score'))
+        continue
+      }
+
+      const invocations = entitiesRequiringEvaluation(candidate.tier, ctx) || 1
+      const cost = candidate.capability.cost_units * invocations
+      if (spent + cost > ctx.max_cost_units) {
+        trace.push(toTrace(candidate, 'over_budget'))
+        continue
+      }
+
+      spent += cost
+      selection.byTier.set(candidate.tier, candidate)
+      selections.set(slot.id, selection)
+      trace.push(toTrace(candidate, 'selected'))
+      for (const produced of candidate.capability.produces) bound.add(produced)
+    }
+
+    closeDerived(bound)
+    if (round > slots.length + DERIVED_ROUNDS_HEADROOM) break
+  }
 
   for (const constraint of constraints) {
     const available = index.get(constraint.type) ?? []
     if (available.length === 0) {
       unsatisfied.push({ constraint_id: constraint.id, reason: 'no_capability' })
-      continue
+    } else if (!selections.has(constraint.id)) {
+      const anyFeasible = available.some((c) =>
+        isFeasible(requirementsOf(c, constraint.type), bound),
+      )
+      unsatisfied.push({
+        constraint_id: constraint.id,
+        reason: anyFeasible ? 'over_budget' : 'unbound',
+      })
     }
-
-    const scored = available
-      .filter((c) => ctx.tiers.includes(c.granularity))
-      .map((c) => scoreCandidate(c, constraint.id, entitiesRequiringEvaluation(c.granularity, ctx)))
-      .sort(compareCandidates)
-
-    const byTier = new Map<Tier, Candidate>()
-    for (const candidate of scored) {
-      const incumbent = byTier.get(candidate.tier)
-      if (!incumbent) byTier.set(candidate.tier, candidate)
-      trace.push(toTrace(candidate, incumbent ? 'lower_score' : 'selected'))
-    }
-
-    if (byTier.size === 0)
-      unsatisfied.push({ constraint_id: constraint.id, reason: 'all_disabled' })
-    else selections.push({ constraint, byTier })
   }
 
-  return selections
+  return [...selections.values()]
 }
+
+/** A fixpoint over a two entry derivation map converges long before this. */
+const DERIVED_ROUNDS_HEADROOM = 4
 
 function assemble(
   input: PlanInput,
   selections: Selection[],
-  index: Map<ConstraintType, Capability[]>,
   afterNative: number,
   afterCluster: number,
   decisions: { step: string; detail: string }[],
 ): Stage[] {
   const stages: Stage[] = []
-  let spent = 0
+  const constraintSelections = selections.filter((s) => s.slot.constraint !== null)
 
-  const affordable = (cost: number) => spent + cost <= input.budget.max_cost_units
-
-  // The box has to exist before anything can be searched inside it, so the
-  // geocode is emitted before the budget is consulted. It scores zero, because
-  // it eliminates nothing, and would lose every comparison it entered.
-  const geocodes = selections
-    .filter((s) => s.constraint.type === 'commute' && !s.constraint.destination.point)
-    .flatMap((s) => {
-      const region = s.byTier.get('region')
-      return region ? [op(region, s.constraint.id, 0)] : []
-    })
+  // The box has to exist before anything can be searched inside it. The geocode
+  // is here because the fixpoint found it feasible in the first round and
+  // nothing else was, not because this line comes first.
+  const geocodes = constraintSelections.flatMap((selection) => {
+    const region = selection.byTier.get('region')
+    const constraint = selection.slot.constraint!
+    if (!region || constraint.type !== 'commute' || constraint.destination.point) return []
+    return [op(region, selection.slot, 0)]
+  })
   if (geocodes.length > 0) {
     // Nothing has been found yet. The box is being built, not searched.
     stages.push(regionStage('bounds', stages.length, geocodes, 0, null))
-    spent += cost(geocodes)
   }
 
   // One search, with every free predicate pushed into it, over as many pages as
   // the estimate needs. The free predicates cut the page count as well as the
   // candidate count, so they pay for the search rather than only filtering it.
-  const source = (index.get(CANDIDATE_SOURCE) ?? [])[0]
+  const sourceSelection = selections.find((s) => s.slot.type === CANDIDATE_SOURCE)
+  const source = sourceSelection?.byTier.get('region')?.capability
   if (source) {
-    const natives = selections.flatMap((s) => {
-      const native = s.byTier.get('native')
-      return native ? [{ candidate: native, constraint_id: s.constraint.id }] : []
+    const natives = constraintSelections.flatMap((selection) => {
+      const native = selection.byTier.get('native')
+      return native ? [{ native, id: selection.slot.id }] : []
     })
     const pages = pagesFor(afterNative)
     const params = mergeParams(
       source.params_template,
-      ...natives.map((n) => bindSelf(n.candidate.capability.params_template, n.constraint_id)),
+      ...natives.map((n) => bindSelf(n.native.capability.params_template, n.id)),
     )
+    const requires = requirementsOf(source, CANDIDATE_SOURCE)
     const ops: Op[] = Array.from({ length: pages }, (_, page) => ({
       op_id: `op_candidates_${page + 1}`,
       capability_id: source.capability_id,
-      constraint_ids: [CANDIDATE_SOURCE, ...natives.map((n) => n.constraint_id)],
+      constraint_ids: [CANDIDATE_SOURCE, ...natives.map((n) => n.id)],
       provider: source.provider,
       endpoint: source.endpoint,
       params: { ...params, page: page + 1 } as Record<string, ParamValue>,
+      requires,
       cost_units: source.cost_units,
       ttl_seconds: source.ttl_seconds,
+      // Without candidates there is nothing to evaluate, so this one is fatal.
       on_error: 'abort' as const,
     }))
     stages.push(regionStage('candidates', stages.length, ops, afterNative, null))
-    spent += cost(ops)
     decisions.push({
       step: 'pushdown',
       detail: `${natives.length} predicates applied inside the search for nothing, taking ${pages} page${pages === 1 ? '' : 's'} rather than ${pagesFor(SEED_REGION_CANDIDATES)}`,
@@ -225,35 +307,29 @@ function assemble(
   }
 
   // Region level signals that rank but never prune.
-  const signals = selections.flatMap((s) => {
-    const region = s.byTier.get('region')
-    if (!region || s.constraint.type === 'commute') return []
-    return affordable(region.capability.cost_units) ? [op(region, s.constraint.id, 0)] : []
+  const signals = constraintSelections.flatMap((selection) => {
+    const region = selection.byTier.get('region')
+    if (!region || selection.slot.constraint!.type === 'commute') return []
+    return [op(region, selection.slot, 0)]
   })
   if (signals.length > 0) {
     stages.push(regionStage('signals', stages.length, signals, afterNative, null))
-    spent += cost(signals)
   }
 
   const clusterOps: Op[] = []
   const clusterSlack: PruneSlack[] = []
   const clusterFails: string[] = []
-  for (const selection of selections) {
+  for (const selection of constraintSelections) {
     const candidate = selection.byTier.get('cluster')
     if (!candidate) continue
-    const opCost = candidate.capability.cost_units * input.budget.cluster_count
-    if (!affordable(opCost)) continue
-    clusterOps.push(op(candidate, selection.constraint.id, clusterOps.length))
-    if (selection.constraint.hardness === 'hard') {
-      clusterFails.push(selection.constraint.id)
-      clusterSlack.push(slackFor(selection.constraint, input.budget))
+    const constraint = selection.slot.constraint!
+    clusterOps.push(op(candidate, selection.slot, clusterOps.length))
+    if (constraint.hardness === 'hard') {
+      clusterFails.push(constraint.id)
+      clusterSlack.push(slackFor(constraint))
     }
   }
   if (clusterOps.length > 0) {
-    const opsCost = clusterOps.reduce(
-      (sum, o) => sum + o.cost_units * input.budget.cluster_count,
-      0,
-    )
     stages.push({
       stage_id: 'clusters',
       index: stages.length,
@@ -261,27 +337,23 @@ function assemble(
       fanout: 'per_cluster',
       ops: clusterOps,
       expected_entities: afterCluster,
-      estimated_cost_units: opsCost,
+      estimated_cost_units: cost(clusterOps) * input.budget.cluster_count,
       estimated_latency_ms: Math.max(...clusterOps.map((o) => latency(o, input.registry))),
       prune: { on_fail: clusterFails, slack: clusterSlack },
     })
-    spent += opsCost
   }
 
   const entityOps: Op[] = []
   const entityFails: string[] = []
   const entityCaps: Capability[] = []
-  for (const selection of selections) {
+  for (const selection of constraintSelections) {
     const candidate = selection.byTier.get('entity')
     if (!candidate) continue
-    const opCost = candidate.capability.cost_units * afterCluster
-    if (!affordable(opCost)) continue
-    entityOps.push(op(candidate, selection.constraint.id, entityOps.length))
+    entityOps.push(op(candidate, selection.slot, entityOps.length))
     entityCaps.push(candidate.capability)
-    if (selection.constraint.hardness === 'hard') entityFails.push(selection.constraint.id)
+    if (selection.slot.constraint!.hardness === 'hard') entityFails.push(selection.slot.id)
   }
   if (entityOps.length > 0) {
-    const opsCost = entityOps.reduce((sum, o) => sum + o.cost_units * afterCluster, 0)
     stages.push({
       stage_id: 'exact',
       index: stages.length,
@@ -289,7 +361,7 @@ function assemble(
       fanout: 'per_entity',
       ops: entityOps,
       expected_entities: survivors(afterCluster, entityCaps),
-      estimated_cost_units: opsCost,
+      estimated_cost_units: cost(entityOps) * afterCluster,
       estimated_latency_ms: Math.max(...entityOps.map((o) => latency(o, input.registry))),
       prune: { on_fail: entityFails, slack: [] },
     })
@@ -298,7 +370,7 @@ function assemble(
   return stages
 }
 
-function slackFor(constraint: Constraint, budget: PlanInput['budget']): PruneSlack {
+function slackFor(constraint: Constraint): PruneSlack {
   // The cell radius is not known until the box is, so slack is expressed against
   // a nominal cell and Xano recomputes it from the real cluster radius.
   const nominalRadius = 800
@@ -311,7 +383,8 @@ function slackFor(constraint: Constraint, budget: PlanInput['budget']): PruneSla
   return { constraint_id: constraint.id, extra_meters: slackMeters(nominalRadius) }
 }
 
-function op(candidate: Candidate, constraintId: string, ordinal: number): Op {
+function op(candidate: Candidate, slot: Slot, ordinal: number): Op {
+  const constraintId = slot.id
   return {
     op_id: `op_${candidate.capability.capability_id.replaceAll('.', '_')}_${ordinal}`,
     capability_id: candidate.capability.capability_id,
@@ -319,6 +392,7 @@ function op(candidate: Candidate, constraintId: string, ordinal: number): Op {
     provider: candidate.capability.provider,
     endpoint: candidate.capability.endpoint,
     params: bindSelf(candidate.capability.params_template, constraintId),
+    requires: requirementsOf(candidate.capability, slot.type),
     cost_units: candidate.capability.cost_units,
     ttl_seconds: candidate.capability.ttl_seconds,
     // A provider failure writes unknown evidence and the run carries on. It never
@@ -363,7 +437,7 @@ function chosen(selections: Selection[], tier: Tier): Capability[] {
 }
 
 function chosenNativeTypes(selections: Selection[]): Set<ConstraintType> {
-  return new Set(selections.filter((s) => s.byTier.has('native')).map((s) => s.constraint.type))
+  return new Set(selections.filter((s) => s.byTier.has('native')).map((s) => s.slot.type))
 }
 
 /**

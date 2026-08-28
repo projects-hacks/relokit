@@ -72,6 +72,13 @@ export const Capability = z.object({
   /** Hard ceiling on ops per stage. The first defence against runaway fan-out. */
   max_fanout: z.number().int().positive(),
   params_template: z.record(z.string(), ParamValue),
+  /**
+   * Bindings this capability makes available to later stages. A geocode produces
+   * constraint.destination_point; a candidate search produces entity. What a
+   * capability *requires* is not declared here, it is read off params_template,
+   * so a row cannot claim to need less than it uses.
+   */
+  produces: z.array(z.string()).default([]),
   notes: z.string().optional(),
 })
 

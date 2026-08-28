@@ -32,6 +32,17 @@ export const SCENARIOS: Record<string, Scenario> = {
     question:
       'How much do the free native predicates prune, and does the response restate the amenity per listing?',
   },
+  'bike-to-office': {
+    slug: 'bike-to-office',
+    engine: 'google_maps_directions',
+    params: {
+      start_coords: '37.30997,-121.95059',
+      end_coords: '37.3726799,-121.9678625',
+      travel_mode: 1,
+    },
+    question:
+      'Does travel_mode take the cycling integer, and where does the route duration in seconds live?',
+  },
   'santa-clara-office': {
     slug: 'santa-clara-office',
     engine: 'google_maps',

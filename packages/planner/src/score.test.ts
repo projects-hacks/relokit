@@ -25,6 +25,7 @@ const cap = (over: Partial<Capability> = {}): Capability => ({
   enabled: true,
   max_fanout: 16,
   params_template: {},
+  produces: [],
   ...over,
 })
 

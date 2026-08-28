@@ -30,6 +30,12 @@ export const Op = z.object({
   provider: Provider,
   endpoint: z.string(),
   params: z.record(z.string(), ParamValue),
+  /**
+   * Bindings that must exist before this op can run, derived from its params.
+   * Xano re-derives them and refuses a plan whose ops are not ordered to satisfy
+   * them, so an infeasible plan cannot spend a call.
+   */
+  requires: z.array(z.string()),
   cost_units: z.number().int().nonnegative(),
   ttl_seconds: z.number().int().positive(),
   /** 'unknown' writes unknown evidence and continues. 'abort' kills the run. */
@@ -73,7 +79,7 @@ export const ClusterSpec = z.object({
 
 export const UnsatisfiedConstraint = z.object({
   constraint_id: z.string(),
-  reason: z.enum(['no_capability', 'all_disabled', 'zero_coverage', 'over_budget']),
+  reason: z.enum(['no_capability', 'all_disabled', 'zero_coverage', 'over_budget', 'unbound']),
 })
 
 export const CandidateTrace = z.object({
@@ -96,6 +102,8 @@ export const CandidateTrace = z.object({
     'zero_coverage',
     'disabled',
     'no_matching_constraint',
+    /** Feasible on its own, but nothing in the plan binds what it needs. */
+    'unbound',
   ]),
 })
 
