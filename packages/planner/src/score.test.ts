@@ -4,6 +4,7 @@ import { Registry, type Capability } from '@relokit/schema'
 import { eliminationPower, passFraction, survivors } from './cardinality.ts'
 import { compareCandidates, roundScore, scoreCandidate, scoreCapability } from './score.ts'
 import { enabledByConstraintType, entitiesRequiringEvaluation } from './registry.ts'
+import { boxAround, gridClusters, refineClusters } from './cluster.ts'
 
 const seed = Registry.parse(
   JSON.parse(readFileSync(new URL('../../../xano/registry.seed.json', import.meta.url), 'utf8')),
@@ -158,5 +159,51 @@ describe('registry', () => {
     // Priors are calibrated to the measured 4,517 rentals down to 56.
     expect(survivors(4517, natives)).toBeGreaterThan(30)
     expect(survivors(4517, natives)).toBeLessThan(80)
+  })
+})
+
+describe('fitting clusters to the listings', () => {
+  const points = [
+    { lat: 37.3, lng: -121.9 },
+    { lat: 37.301, lng: -121.901 },
+    { lat: 37.302, lng: -121.899 },
+    { lat: 37.4, lng: -121.8 },
+    { lat: 37.401, lng: -121.801 },
+  ]
+
+  it('puts neighbours in the same cell', () => {
+    const cells = refineClusters(points, 2)
+    expect(cells).toHaveLength(2)
+    const radii = cells.map((c) => c.radius_m)
+    // Both groups are a couple of hundred metres across, not the fifteen
+    // kilometres that separates them.
+    expect(Math.max(...radii)).toBeLessThan(500)
+  })
+
+  it('gives a much tighter cell than a grid over the same area', () => {
+    // A grid covers the box; listings occupy a small part of it, and a cell wide
+    // enough to span the box forces slack larger than the constraint itself.
+    const box = boxAround({ lat: 37.35, lng: -121.85 }, 8000)
+    const grid = gridClusters(box, 2)
+    const fitted = refineClusters(points, 2)
+    expect(Math.max(...fitted.map((c) => c.radius_m))).toBeLessThan(
+      Math.max(...grid.map((c) => c.radius_m)) / 5,
+    )
+  })
+
+  it('is deterministic however the listings arrive', () => {
+    const forwards = refineClusters(points, 2)
+    const backwards = refineClusters([...points].reverse(), 2)
+    expect(JSON.stringify(forwards)).toBe(JSON.stringify(backwards))
+  })
+
+  it('never asks for more cells than there are listings', () => {
+    expect(refineClusters(points.slice(0, 2), 6)).toHaveLength(2)
+    expect(refineClusters([], 6)).toHaveLength(0)
+  })
+
+  it('sizes each cell by its furthest listing, which is the error to allow for', () => {
+    const cells = refineClusters(points, 1)
+    expect(cells[0]!.radius_m).toBeGreaterThan(5_000)
   })
 })

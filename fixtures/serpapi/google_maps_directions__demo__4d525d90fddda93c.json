@@ -1,0 +1,1195 @@
+{
+  "key": "google_maps_directions__demo__4d525d90fddda93c",
+  "engine": "google_maps_directions",
+  "params": {
+    "engine": "google_maps_directions",
+    "start_coords": "37.34678,-121.878204",
+    "end_coords": "37.3726799,-121.9678625",
+    "travel_mode": "1"
+  },
+  "recorded_at_ms": 1787961116467,
+  "status": 200,
+  "body": {
+    "search_metadata": {
+      "id": "6a921f1bee028a1705b3d060",
+      "status": "Success",
+      "json_endpoint": "https://serpapi.com/searches/t3IBzJOYg1vxbahrdYbAdcXtQf6J5nazARa1Frlc1ec/6a921f1bee028a1705b3d060.json",
+      "markdown_endpoint": "https://serpapi.com/searches/t3IBzJOYg1vxbahrdYbAdcXtQf6J5nazARa1Frlc1ec/6a921f1bee028a1705b3d060.md",
+      "created_at": "2026-08-28 23:51:55 UTC",
+      "processed_at": "2026-08-28 23:51:55 UTC",
+      "google_maps_directions_url": "https://www.google.com/maps/dir/37.3467800%2C+-121.8782040/37.3726799%2C+-121.9678625/data=!3m1!4b1!4m10!4m9!1m3!2m2!1d-121.878204!2d37.346779999999995!1m3!2m2!1d-121.9678625!2d37.3726799!3e1?hl=en",
+      "raw_html_file": "https://serpapi.com/searches/t3IBzJOYg1vxbahrdYbAdcXtQf6J5nazARa1Frlc1ec/6a921f1bee028a1705b3d060.html",
+      "prettify_html_file": "https://serpapi.com/searches/t3IBzJOYg1vxbahrdYbAdcXtQf6J5nazARa1Frlc1ec/6a921f1bee028a1705b3d060.prettify",
+      "total_time_taken": 0.78
+    },
+    "search_parameters": {
+      "engine": "google_maps_directions",
+      "hl": "en",
+      "start_coords": "37.34678,-121.878204",
+      "end_coords": "37.3726799,-121.9678625",
+      "travel_mode": "1"
+    },
+    "places_info": [
+      {
+        "address": "37.3467800, -121.8782040",
+        "gps_coordinates": {
+          "latitude": 37.346779999999995,
+          "longitude": -121.878204
+        }
+      },
+      {
+        "address": "37.3726799, -121.9678625",
+        "gps_coordinates": {
+          "latitude": 37.3726799,
+          "longitude": -121.9678625
+        }
+      }
+    ],
+    "directions": [
+      {
+        "travel_mode": "Cycling",
+        "via": "E Hedding St",
+        "distance": 13024,
+        "duration": 2866,
+        "formatted_distance": "8.1 miles",
+        "formatted_duration": "48 min",
+        "icon": "https://serpapi.com/assets/google_maps_directions/cycling.svg",
+        "elevation_profile": {
+          "ascent": 15,
+          "descent": 27,
+          "max_altitude": 28,
+          "min_altitude": 12,
+          "formatted_ascent": "49 ft",
+          "formatted_descent": "89 ft",
+          "formatted_max_altitude": "92 ft",
+          "formatted_min_altitude": "39 ft"
+        },
+        "trips": [
+          {
+            "travel_mode": "Cycling",
+            "distance": 13024,
+            "duration": 2866,
+            "formatted_distance": "8.1 mi",
+            "formatted_duration": "48 min",
+            "details": [
+              {
+                "title": "Head toward  E Julian St",
+                "action": "straight",
+                "distance": 666,
+                "duration": 138,
+                "formatted_distance": "0.4 mi",
+                "formatted_duration": "2 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=PpSUrWX8F3ns50iQJRM_2w&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=149.27274&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.34677419320318,
+                  "longitude": -121.87783573698044
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  E Empire St",
+                "action": "turn-left",
+                "distance": 105,
+                "duration": 18,
+                "formatted_distance": "344 ft",
+                "formatted_duration": "18 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=BBufBvjSAz_unAi2bkvabA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=329.46796&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.35188815912191,
+                  "longitude": -121.8816464279221
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right",
+                "action": "turn-right",
+                "distance": 9,
+                "duration": 2,
+                "formatted_distance": "30 ft",
+                "formatted_duration": "2 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=_4O3JzyrMkNtewcpg_SuHQ&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=58.967224&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.35164696121941,
+                  "longitude": -121.88263101817641
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left",
+                "action": "turn-left",
+                "distance": 39,
+                "duration": 6,
+                "formatted_distance": "128 ft",
+                "formatted_duration": "6 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right",
+                "action": "turn-right",
+                "distance": 192,
+                "duration": 33,
+                "formatted_distance": "0.1 mi",
+                "formatted_duration": "33 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  toward  Jackson St",
+                "action": "turn-right",
+                "distance": 63,
+                "duration": 10,
+                "formatted_distance": "207 ft",
+                "formatted_duration": "10 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  toward  Jackson St",
+                "action": "turn-right",
+                "distance": 41,
+                "duration": 7,
+                "formatted_distance": "135 ft",
+                "formatted_duration": "7 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  toward  Jackson St",
+                "action": "turn-left",
+                "distance": 42,
+                "duration": 7,
+                "formatted_distance": "138 ft",
+                "formatted_duration": "7 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Jackson St",
+                "action": "turn-left",
+                "distance": 204,
+                "duration": 60,
+                "formatted_distance": "0.1 mi",
+                "formatted_duration": "1 min",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  N 11th St",
+                "action": "turn-right",
+                "distance": 832,
+                "duration": 182,
+                "formatted_distance": "0.5 mi",
+                "formatted_duration": "3 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=osPTlmannXFiKX_z_DKUeg&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=239.0437&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.35206552553845,
+                  "longitude": -121.88784962566625
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  E Hedding St",
+                "action": "turn-left",
+                "distance": 1081,
+                "duration": 277,
+                "formatted_distance": "0.7 mi",
+                "formatted_duration": "5 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=yh2JQ4mkKNIRGPBbNqvOuw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=151.44373&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.358273593371536,
+                  "longitude": -121.89271142553525
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  W Hedding St",
+                "action": "turn-right",
+                "distance": 2845,
+                "duration": 627,
+                "formatted_distance": "1.8 mi",
+                "formatted_duration": "10 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=I3CfC1K0DsucjbOEh1E4YA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=246.27252&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.353550189272184,
+                  "longitude": -121.90308275259125
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  Park Ave",
+                "action": "turn-right",
+                "distance": 1476,
+                "duration": 322,
+                "formatted_distance": "0.9 mi",
+                "formatted_duration": "5 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=SY2biz7Dw_TkXrAjzA1Wuw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=255.44664&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.337278071169514,
+                  "longitude": -121.92771136501705
+                },
+                "extensions": [
+                  "Pass by Round Table Pizza (on the right in 0.8 mi)"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right",
+                "action": "turn-right",
+                "distance": 35,
+                "duration": 7,
+                "formatted_distance": "115 ft",
+                "formatted_duration": "7 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=JKpTw6ciLyYN6E24hpxBig&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=155.42926&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.34722028344659,
+                  "longitude": -121.93788860500327
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left",
+                "action": "turn-left",
+                "distance": 54,
+                "duration": 9,
+                "formatted_distance": "177 ft",
+                "formatted_duration": "9 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=h5mzjvZcYgdua6PxBhc_Uw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=321.97913&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.3473572226778,
+                  "longitude": -121.93803521621433
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right",
+                "action": "turn-right",
+                "distance": 225,
+                "duration": 39,
+                "formatted_distance": "0.1 mi",
+                "formatted_duration": "39 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=0rZQ1xbXNTAjwe-QEeGGAQ&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=170.63493&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.34766089692894,
+                  "longitude": -121.93832670198466
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Slight  right",
+                "action": "turn-slight-right",
+                "distance": 44,
+                "duration": 8,
+                "formatted_distance": "144 ft",
+                "formatted_duration": "8 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=6mZQ2gMRzMqHvrV5TAOb0w&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=294.99316&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.34928000130539,
+                  "longitude": -121.9392885648238
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_slight_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left",
+                "action": "turn-left",
+                "distance": 32,
+                "duration": 6,
+                "formatted_distance": "105 ft",
+                "formatted_duration": "6 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=WmKPpjQOD_AdWJBBTamyTw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=197.64664&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.349689698792055,
+                  "longitude": -121.9393576596014
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  toward  Franklin St",
+                "action": "turn-left",
+                "distance": 19,
+                "duration": 3,
+                "formatted_distance": "62 ft",
+                "formatted_duration": "3 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=uKPOiuDBMaK70LGnrD2rjg&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=317.1325&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.34986789904189,
+                  "longitude": -121.93949194292063
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  toward  Franklin St",
+                "action": "turn-right",
+                "distance": 157,
+                "duration": 25,
+                "formatted_distance": "0.1 mi",
+                "formatted_duration": "25 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=a1yc3W0ynFWDnpYtEBPfSA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=285.74588&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.34999063422069,
+                  "longitude": -121.93965964493516
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  Franklin St",
+                "action": "turn-right",
+                "distance": 11,
+                "duration": 1,
+                "formatted_distance": "36 ft",
+                "formatted_duration": "1 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=DbnBaXVV2_B7zPL_ytCHvA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=4.5863776&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.35103682101956,
+                  "longitude": -121.94049250906967
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  The Alameda",
+                "action": "turn-left",
+                "distance": 114,
+                "duration": 16,
+                "formatted_distance": "374 ft",
+                "formatted_duration": "16 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=gHPQqdCrjnoxJPiXSfMjww&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=247.07874&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.3512294804342,
+                  "longitude": -121.94055500617598
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Benton St",
+                "action": "turn-left",
+                "distance": 743,
+                "duration": 184,
+                "formatted_distance": "0.5 mi",
+                "formatted_duration": "3 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=HuLTOJCN29gU4d5fIHr2iw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=154.69151&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.35206199777198,
+                  "longitude": -121.94091931151775
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  Monroe St",
+                "action": "turn-right",
+                "distance": 2393,
+                "duration": 537,
+                "formatted_distance": "1.5 mi",
+                "formatted_duration": "9 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=DT3hUXLwWS0bTzqIvu5oQA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=65.74873&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.34952876303377,
+                  "longitude": -121.94846060356416
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Slight  left  to stay on  Monroe St",
+                "action": "turn-slight-left",
+                "distance": 245,
+                "duration": 86,
+                "formatted_distance": "0.2 mi",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=4ascHy5Ch3UZkxBy4LW7PQ&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=299.62134&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.36310900966685,
+                  "longitude": -121.96605945069112
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_slight_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  San Tomas Aquino Creek Trail",
+                "action": "turn-right",
+                "distance": 516,
+                "duration": 82,
+                "formatted_distance": "0.3 mi",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=7Cc9IMLZ2_O_NGJdlQlu-Q&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=103.37353&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.364020898443265,
+                  "longitude": -121.96860289586279
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Slight  right  to stay on  San Tomas Aquino Creek Trail",
+                "action": "turn-slight-right",
+                "distance": 515,
+                "duration": 118,
+                "formatted_distance": "0.3 mi",
+                "formatted_duration": "2 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=R74jkG1CN5pVAkE0x5vvKg&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=53.618797&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.36849303051096,
+                  "longitude": -121.96884822078219
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_slight_left_grey800_18dp.png"
+              },
+              {
+                "title": "Continue straight to stay on  San Tomas Aquino Creek Trail",
+                "action": "straight",
+                "distance": 93,
+                "duration": 18,
+                "formatted_distance": "305 ft",
+                "formatted_duration": "18 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  Condensa St",
+                "action": "turn-right",
+                "distance": 104,
+                "duration": 16,
+                "formatted_distance": "341 ft",
+                "formatted_duration": "16 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  to stay on  Condensa St",
+                "action": "turn-right",
+                "distance": 129,
+                "duration": 22,
+                "formatted_distance": "423 ft",
+                "formatted_duration": "22 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=2qnmdTNaVCjWpzu40-iBQQ&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=332.1211&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.373851202241426,
+                  "longitude": -121.96807189179614
+                },
+                "extensions": [
+                  "Destination will be on the left"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "travel_mode": "Cycling",
+        "via": "Guadalupe River Trail",
+        "distance": 13005,
+        "duration": 2846,
+        "formatted_distance": "8.1 miles",
+        "formatted_duration": "47 min",
+        "icon": "https://serpapi.com/assets/google_maps_directions/cycling.svg",
+        "elevation_profile": {
+          "ascent": 12,
+          "descent": 23,
+          "max_altitude": 24,
+          "min_altitude": 9,
+          "formatted_ascent": "39 ft",
+          "formatted_descent": "75 ft",
+          "formatted_max_altitude": "79 ft",
+          "formatted_min_altitude": "30 ft"
+        },
+        "trips": [
+          {
+            "travel_mode": "Cycling",
+            "distance": 13005,
+            "duration": 2846,
+            "formatted_distance": "8.1 mi",
+            "formatted_duration": "47 min",
+            "details": [
+              {
+                "title": "Head toward  E Julian St",
+                "action": "straight",
+                "distance": 666,
+                "duration": 138,
+                "formatted_distance": "0.4 mi",
+                "formatted_duration": "2 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=PpSUrWX8F3ns50iQJRM_2w&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=149.27274&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.34677419320318,
+                  "longitude": -121.87783573698044
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  E Empire St",
+                "action": "turn-left",
+                "distance": 105,
+                "duration": 18,
+                "formatted_distance": "344 ft",
+                "formatted_duration": "18 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=BBufBvjSAz_unAi2bkvabA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=329.46796&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.35188815912191,
+                  "longitude": -121.8816464279221
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right",
+                "action": "turn-right",
+                "distance": 9,
+                "duration": 2,
+                "formatted_distance": "30 ft",
+                "formatted_duration": "2 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=_4O3JzyrMkNtewcpg_SuHQ&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=58.967224&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.35164696121941,
+                  "longitude": -121.88263101817641
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left",
+                "action": "turn-left",
+                "distance": 39,
+                "duration": 6,
+                "formatted_distance": "128 ft",
+                "formatted_duration": "6 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right",
+                "action": "turn-right",
+                "distance": 192,
+                "duration": 33,
+                "formatted_distance": "0.1 mi",
+                "formatted_duration": "33 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  toward  Jackson St",
+                "action": "turn-right",
+                "distance": 63,
+                "duration": 10,
+                "formatted_distance": "207 ft",
+                "formatted_duration": "10 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  toward  Jackson St",
+                "action": "turn-right",
+                "distance": 41,
+                "duration": 7,
+                "formatted_distance": "135 ft",
+                "formatted_duration": "7 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  toward  Jackson St",
+                "action": "turn-left",
+                "distance": 42,
+                "duration": 7,
+                "formatted_distance": "138 ft",
+                "formatted_duration": "7 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Jackson St",
+                "action": "turn-left",
+                "distance": 204,
+                "duration": 60,
+                "formatted_distance": "0.1 mi",
+                "formatted_duration": "1 min",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  N 11th St",
+                "action": "turn-right",
+                "distance": 832,
+                "duration": 182,
+                "formatted_distance": "0.5 mi",
+                "formatted_duration": "3 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=osPTlmannXFiKX_z_DKUeg&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=239.0437&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.35206552553845,
+                  "longitude": -121.88784962566625
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  E Hedding St",
+                "action": "turn-left",
+                "distance": 1081,
+                "duration": 277,
+                "formatted_distance": "0.7 mi",
+                "formatted_duration": "5 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=yh2JQ4mkKNIRGPBbNqvOuw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=151.44373&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.358273593371536,
+                  "longitude": -121.89271142553525
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  W Hedding St",
+                "action": "turn-right",
+                "distance": 798,
+                "duration": 180,
+                "formatted_distance": "0.5 mi",
+                "formatted_duration": "3 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=I3CfC1K0DsucjbOEh1E4YA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=246.27252&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.353550189272184,
+                  "longitude": -121.90308275259125
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right",
+                "action": "turn-right",
+                "distance": 435,
+                "duration": 65,
+                "formatted_distance": "0.3 mi",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=VgzHVfZw8F_D89bYyWv-QQ&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=228.08163&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.34959252194163,
+                  "longitude": -121.9104917102686
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Slight  left  onto  Guadalupe River Trail",
+                "action": "turn-slight-left",
+                "distance": 1299,
+                "duration": 239,
+                "formatted_distance": "0.8 mi",
+                "formatted_duration": "4 min",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_slight_left_grey800_18dp.png"
+              },
+              {
+                "title": "Continue straight to stay on  Guadalupe River Trail",
+                "action": "straight",
+                "distance": 603,
+                "duration": 126,
+                "formatted_distance": "0.4 mi",
+                "formatted_duration": "2 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=dKSxxkAYoT5BjPbVhFc9HQ&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=324.24377&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.36286196302226,
+                  "longitude": -121.91933467744566
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+              },
+              {
+                "title": "Slight  right  to stay on  Guadalupe River Trail",
+                "action": "turn-slight-right",
+                "distance": 175,
+                "duration": 67,
+                "formatted_distance": "0.1 mi",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=sFR3ZwFKB5fJdgwMjrHztA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=1.880928&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.36656245759106,
+                  "longitude": -121.92407025073283
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_slight_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  to stay on  Guadalupe River Trail",
+                "action": "turn-left",
+                "distance": 62,
+                "duration": 14,
+                "formatted_distance": "203 ft",
+                "formatted_duration": "14 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  to stay on  Guadalupe River Trail",
+                "action": "turn-left",
+                "distance": 112,
+                "duration": 20,
+                "formatted_distance": "367 ft",
+                "formatted_duration": "20 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=TWl46sAAW3qIQ_IBa-DIiA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=129.40533&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.36736406892242,
+                  "longitude": -121.92553688542256
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Guadalupe River Trail E",
+                "action": "turn-left",
+                "distance": 846,
+                "duration": 147,
+                "formatted_distance": "0.5 mi",
+                "formatted_duration": "2 min",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Slight  left  onto  Guadalupe River Trail",
+                "action": "turn-slight-left",
+                "distance": 977,
+                "duration": 189,
+                "formatted_distance": "0.6 mi",
+                "formatted_duration": "3 min",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_slight_left_grey800_18dp.png"
+              },
+              {
+                "title": "Slight  left  to stay on  Guadalupe River Trail",
+                "action": "turn-slight-left",
+                "distance": 285,
+                "duration": 76,
+                "formatted_distance": "0.2 mi",
+                "formatted_duration": "1 min",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_slight_left_grey800_18dp.png"
+              },
+              {
+                "title": "Sharp  right  to stay on  Guadalupe River Trail",
+                "action": "turn-sharp-right",
+                "distance": 97,
+                "duration": 21,
+                "formatted_distance": "318 ft",
+                "formatted_duration": "21 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_sharp_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  W Trimble Rd",
+                "action": "turn-right",
+                "distance": 233,
+                "duration": 65,
+                "formatted_distance": "0.1 mi",
+                "formatted_duration": "1 min",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  De La Cruz Blvd",
+                "action": "turn-right",
+                "distance": 12,
+                "duration": 15,
+                "formatted_distance": "39 ft",
+                "formatted_duration": "15 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left",
+                "action": "turn-left",
+                "distance": 924,
+                "duration": 292,
+                "formatted_distance": "0.6 mi",
+                "formatted_duration": "5 min",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  Central Expy",
+                "action": "turn-right",
+                "distance": 2221,
+                "duration": 449,
+                "formatted_distance": "1.4 mi",
+                "formatted_duration": "7 min",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  San Tomas Aquino Creek Trail",
+                "action": "turn-right",
+                "distance": 88,
+                "duration": 11,
+                "formatted_distance": "289 ft",
+                "formatted_duration": "11 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Sharp  right  to stay on  San Tomas Aquino Creek Trail",
+                "action": "turn-sharp-right",
+                "distance": 238,
+                "duration": 71,
+                "formatted_distance": "0.1 mi",
+                "formatted_duration": "1 min",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_sharp_left_grey800_18dp.png"
+              },
+              {
+                "title": "Sharp  right  to stay on  San Tomas Aquino Creek Trail",
+                "action": "turn-sharp-right",
+                "distance": 93,
+                "duration": 21,
+                "formatted_distance": "305 ft",
+                "formatted_duration": "21 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_sharp_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  Condensa St",
+                "action": "turn-right",
+                "distance": 104,
+                "duration": 16,
+                "formatted_distance": "341 ft",
+                "formatted_duration": "16 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  to stay on  Condensa St",
+                "action": "turn-right",
+                "distance": 129,
+                "duration": 22,
+                "formatted_distance": "423 ft",
+                "formatted_duration": "22 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=2qnmdTNaVCjWpzu40-iBQQ&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=332.1211&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.373851202241426,
+                  "longitude": -121.96807189179614
+                },
+                "extensions": [
+                  "Destination will be on the left"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "travel_mode": "Cycling",
+        "via": "Park Ave",
+        "distance": 13625,
+        "duration": 3092,
+        "formatted_distance": "8.5 miles",
+        "formatted_duration": "52 min",
+        "icon": "https://serpapi.com/assets/google_maps_directions/cycling.svg",
+        "elevation_profile": {
+          "ascent": 8,
+          "descent": 19,
+          "max_altitude": 25,
+          "min_altitude": 12,
+          "formatted_ascent": "26 ft",
+          "formatted_descent": "62 ft",
+          "formatted_max_altitude": "82 ft",
+          "formatted_min_altitude": "39 ft"
+        },
+        "trips": [
+          {
+            "travel_mode": "Cycling",
+            "distance": 13625,
+            "duration": 3092,
+            "formatted_distance": "8.5 mi",
+            "formatted_duration": "52 min",
+            "details": [
+              {
+                "title": "Head toward  E St James St",
+                "action": "straight",
+                "distance": 258,
+                "duration": 73,
+                "formatted_distance": "0.2 mi",
+                "formatted_duration": "1 min",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  E St John St",
+                "action": "turn-right",
+                "distance": 385,
+                "duration": 86,
+                "formatted_distance": "0.2 mi",
+                "formatted_duration": "1 min",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  N 12th St",
+                "action": "turn-left",
+                "distance": 193,
+                "duration": 36,
+                "formatted_distance": "0.1 mi",
+                "formatted_duration": "36 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  E Santa Clara St",
+                "action": "turn-right",
+                "distance": 203,
+                "duration": 72,
+                "formatted_distance": "0.1 mi",
+                "formatted_duration": "1 min",
+                "extensions": [
+                  "Pass by 7-Eleven (on the left)"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  S 10th St",
+                "action": "turn-left",
+                "distance": 234,
+                "duration": 58,
+                "formatted_distance": "0.1 mi",
+                "formatted_duration": "58 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  E San Fernando St",
+                "action": "turn-right",
+                "distance": 1867,
+                "duration": 497,
+                "formatted_distance": "1.2 mi",
+                "formatted_duration": "8 min",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Delmas Ave",
+                "action": "turn-left",
+                "distance": 194,
+                "duration": 58,
+                "formatted_distance": "0.1 mi",
+                "formatted_duration": "58 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Slight  right  onto  Park Ave",
+                "action": "turn-slight-right",
+                "distance": 4862,
+                "duration": 1035,
+                "formatted_distance": "3.0 mi",
+                "formatted_duration": "17 min",
+                "extensions": [
+                  "Pass by Round Table Pizza (on the right in 2.9 mi)"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_slight_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right",
+                "action": "turn-right",
+                "distance": 35,
+                "duration": 7,
+                "formatted_distance": "115 ft",
+                "formatted_duration": "7 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=JKpTw6ciLyYN6E24hpxBig&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=155.42926&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.34722028344659,
+                  "longitude": -121.93788860500327
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left",
+                "action": "turn-left",
+                "distance": 54,
+                "duration": 9,
+                "formatted_distance": "177 ft",
+                "formatted_duration": "9 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=h5mzjvZcYgdua6PxBhc_Uw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=321.97913&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.3473572226778,
+                  "longitude": -121.93803521621433
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right",
+                "action": "turn-right",
+                "distance": 225,
+                "duration": 39,
+                "formatted_distance": "0.1 mi",
+                "formatted_duration": "39 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=0rZQ1xbXNTAjwe-QEeGGAQ&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=170.63493&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.34766089692894,
+                  "longitude": -121.93832670198466
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Slight  right",
+                "action": "turn-slight-right",
+                "distance": 44,
+                "duration": 8,
+                "formatted_distance": "144 ft",
+                "formatted_duration": "8 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=6mZQ2gMRzMqHvrV5TAOb0w&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=294.99316&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.34928000130539,
+                  "longitude": -121.9392885648238
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_slight_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left",
+                "action": "turn-left",
+                "distance": 32,
+                "duration": 6,
+                "formatted_distance": "105 ft",
+                "formatted_duration": "6 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=WmKPpjQOD_AdWJBBTamyTw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=197.64664&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.349689698792055,
+                  "longitude": -121.9393576596014
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  toward  Franklin St",
+                "action": "turn-left",
+                "distance": 19,
+                "duration": 3,
+                "formatted_distance": "62 ft",
+                "formatted_duration": "3 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=uKPOiuDBMaK70LGnrD2rjg&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=317.1325&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.34986789904189,
+                  "longitude": -121.93949194292063
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  toward  Franklin St",
+                "action": "turn-right",
+                "distance": 157,
+                "duration": 25,
+                "formatted_distance": "0.1 mi",
+                "formatted_duration": "25 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=a1yc3W0ynFWDnpYtEBPfSA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=285.74588&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.34999063422069,
+                  "longitude": -121.93965964493516
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  Franklin St",
+                "action": "turn-right",
+                "distance": 11,
+                "duration": 1,
+                "formatted_distance": "36 ft",
+                "formatted_duration": "1 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=DbnBaXVV2_B7zPL_ytCHvA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=4.5863776&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.35103682101956,
+                  "longitude": -121.94049250906967
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  The Alameda",
+                "action": "turn-left",
+                "distance": 114,
+                "duration": 16,
+                "formatted_distance": "374 ft",
+                "formatted_duration": "16 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=gHPQqdCrjnoxJPiXSfMjww&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=247.07874&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.3512294804342,
+                  "longitude": -121.94055500617598
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Benton St",
+                "action": "turn-left",
+                "distance": 743,
+                "duration": 184,
+                "formatted_distance": "0.5 mi",
+                "formatted_duration": "3 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=HuLTOJCN29gU4d5fIHr2iw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=154.69151&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.35206199777198,
+                  "longitude": -121.94091931151775
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  Monroe St",
+                "action": "turn-right",
+                "distance": 2393,
+                "duration": 537,
+                "formatted_distance": "1.5 mi",
+                "formatted_duration": "9 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=DT3hUXLwWS0bTzqIvu5oQA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=65.74873&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.34952876303377,
+                  "longitude": -121.94846060356416
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Slight  left  to stay on  Monroe St",
+                "action": "turn-slight-left",
+                "distance": 245,
+                "duration": 86,
+                "formatted_distance": "0.2 mi",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=4ascHy5Ch3UZkxBy4LW7PQ&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=299.62134&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.36310900966685,
+                  "longitude": -121.96605945069112
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_slight_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  San Tomas Aquino Creek Trail",
+                "action": "turn-right",
+                "distance": 516,
+                "duration": 82,
+                "formatted_distance": "0.3 mi",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=7Cc9IMLZ2_O_NGJdlQlu-Q&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=103.37353&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.364020898443265,
+                  "longitude": -121.96860289586279
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Slight  right  to stay on  San Tomas Aquino Creek Trail",
+                "action": "turn-slight-right",
+                "distance": 515,
+                "duration": 118,
+                "formatted_distance": "0.3 mi",
+                "formatted_duration": "2 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=R74jkG1CN5pVAkE0x5vvKg&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=53.618797&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.36849303051096,
+                  "longitude": -121.96884822078219
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_slight_left_grey800_18dp.png"
+              },
+              {
+                "title": "Continue straight to stay on  San Tomas Aquino Creek Trail",
+                "action": "straight",
+                "distance": 93,
+                "duration": 18,
+                "formatted_distance": "305 ft",
+                "formatted_duration": "18 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  Condensa St",
+                "action": "turn-right",
+                "distance": 104,
+                "duration": 16,
+                "formatted_distance": "341 ft",
+                "formatted_duration": "16 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  to stay on  Condensa St",
+                "action": "turn-right",
+                "distance": 129,
+                "duration": 22,
+                "formatted_distance": "423 ft",
+                "formatted_duration": "22 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=2qnmdTNaVCjWpzu40-iBQQ&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=332.1211&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.373851202241426,
+                  "longitude": -121.96807189179614
+                },
+                "extensions": [
+                  "Destination will be on the left"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "durations": [
+      {
+        "travel_mode": "Driving",
+        "duration": 917,
+        "formatted_duration": "15 min"
+      },
+      {
+        "travel_mode": "Transit",
+        "duration": 3840,
+        "formatted_duration": "1 hr 4"
+      },
+      {
+        "travel_mode": "Walking",
+        "duration": 9018,
+        "formatted_duration": "2 hr 30"
+      },
+      {
+        "travel_mode": "Cycling",
+        "duration": 2866,
+        "formatted_duration": "48 min"
+      }
+    ]
+  }
+}

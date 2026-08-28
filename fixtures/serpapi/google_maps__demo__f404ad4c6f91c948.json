@@ -1,0 +1,1804 @@
+{
+  "key": "google_maps__demo__f404ad4c6f91c948",
+  "engine": "google_maps",
+  "params": {
+    "engine": "google_maps",
+    "type": "search",
+    "q": "gym",
+    "ll": "@37.360874,-121.87871,15z"
+  },
+  "recorded_at_ms": 1787960959156,
+  "status": 200,
+  "body": {
+    "search_metadata": {
+      "id": "6a921e7b06ca7f8e4c3eed41",
+      "status": "Success",
+      "json_endpoint": "https://serpapi.com/searches/gOSAE_WCOOmuIWBeCT_0_NYH70aCzahMeGI69Z7X_r8/6a921e7b06ca7f8e4c3eed41.json",
+      "markdown_endpoint": "https://serpapi.com/searches/gOSAE_WCOOmuIWBeCT_0_NYH70aCzahMeGI69Z7X_r8/6a921e7b06ca7f8e4c3eed41.md",
+      "created_at": "2026-08-28 23:49:15 UTC",
+      "processed_at": "2026-08-28 23:49:15 UTC",
+      "google_maps_url": "https://www.google.com/maps/search/gym/@37.360874,-121.87871,15z/data=!3m1!4b1!4m2!2m1!6e5?hl=en",
+      "raw_html_file": "https://serpapi.com/searches/gOSAE_WCOOmuIWBeCT_0_NYH70aCzahMeGI69Z7X_r8/6a921e7b06ca7f8e4c3eed41.html",
+      "prettify_html_file": "https://serpapi.com/searches/gOSAE_WCOOmuIWBeCT_0_NYH70aCzahMeGI69Z7X_r8/6a921e7b06ca7f8e4c3eed41.prettify",
+      "total_time_taken": 3.08
+    },
+    "search_parameters": {
+      "engine": "google_maps",
+      "type": "search",
+      "q": "gym",
+      "ll": "@37.360874,-121.87871,15z",
+      "google_domain": "google.com",
+      "hl": "en"
+    },
+    "search_information": {
+      "local_results_state": "Results for exact spelling",
+      "query_displayed": "gym"
+    },
+    "local_results": [
+      {
+        "position": 1,
+        "title": "Crunch Fitness - Capitol",
+        "place_id": "ChIJwbDEae7Nj4ARbOHuKBjAbCE",
+        "data_id": "0x808fcdee69c4b0c1:0x216cc01828eee16c",
+        "data_cid": "2408511110734864748",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcdee69c4b0c1%3A0x216cc01828eee16c&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcdee69c4b0c1%3A0x216cc01828eee16c&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.371082,
+          "longitude": -121.8468704
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJwbDEae7Nj4ARbOHuKBjAbCE",
+        "provider_id": "/g/11qz8y1ftv",
+        "rating": 3.7,
+        "reviews": 248,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Fitness center",
+          "Indoor cycling",
+          "Nutritionist",
+          "Personal trainer",
+          "Physical fitness program",
+          "Spa and health club",
+          "Weightlifting area",
+          "Yoga instructor"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "fitness_center",
+          "indoor_cycling",
+          "nutritionist",
+          "personal_trainer",
+          "physical_fitness_program",
+          "spa_and_health_club",
+          "weightlifting_area",
+          "yoga_instructor"
+        ],
+        "address": "375A N Capitol Ave, San Jose, CA 95133",
+        "country": "United States",
+        "open_state": "Open · Closes 11 PM",
+        "hours": "Open · Closes 11 PM",
+        "operating_hours": {
+          "friday": "5 AM–11 PM",
+          "saturday": "7 AM–7 PM",
+          "sunday": "7 AM–7 PM",
+          "monday": "5 AM–11 PM",
+          "tuesday": "5 AM–11 PM",
+          "wednesday": "5 AM–11 PM",
+          "thursday": "5 AM–11 PM"
+        },
+        "phone": "(669) 400-0411",
+        "website": "https://www.crunch.com/locations/san-jose",
+        "extensions": [
+          {
+            "service_options": [
+              "Online classes",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Sauna"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom",
+              "Swimming pool",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
+          },
+          {
+            "atmosphere": [
+              "Shower"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          }
+        ],
+        "service_options": {
+          "online_classes": true,
+          "onsite_services": true
+        },
+        "user_review": "\"Crunch kills it they filled the gym with a variety of new equipment\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn1nlD3yIsmNxS004ovYtXAk4g1tHnezqXt554EZkNFrWowf6EabdoFwvEKjz7KJ8LvATOsqIS1GEgjIlLWsP_5pbYJLWPWd4UM7e7BpoAZhmLud_LpyzV6WqbwU-FL-ZR-61k=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/DN_y9nicHcTbDoIgAADQLyJheWltPdjS1KhcN8yXlkq4VMAgLT-wf-hv2joP5_sptZZqahh1OR4xIVhNn4o-csE15XqUi8ZgUoFcAWW4wS4-EI54vRi_Q9VsXnsITdGddeJWJkM64HRoE21ZppdWG_9BRH-zvWtWCL_vvNV9cFbRBHfuYavacI-WHruHNSYqvlgyO0eYxKQwj2uHOnMp3LRs8LO4YPkeTjZps_4IfAzSHbBRNesRhBCU_3PAf0wTRHs"
+      },
+      {
+        "position": 2,
+        "title": "Hyper Strength and Conditioning",
+        "place_id": "ChIJUcSwP2XMj4ARf5BdyzAD70E",
+        "data_id": "0x808fcc653fb0c451:0x41ef0330cb5d907f",
+        "data_cid": "4751019640004382847",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcc653fb0c451%3A0x41ef0330cb5d907f&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcc653fb0c451%3A0x41ef0330cb5d907f&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.354481299999996,
+          "longitude": -121.89325079999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJUcSwP2XMj4ARf5BdyzAD70E",
+        "provider_id": "/g/11cn5rlz95",
+        "rating": 5,
+        "reviews": 149,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Personal trainer"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "personal_trainer"
+        ],
+        "address": "385 E Taylor St Unit 2B, San Jose, CA 95112",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "5 AM–9 PM",
+          "saturday": "7 AM–1 PM",
+          "sunday": "Closed",
+          "monday": "5 AM–9 PM",
+          "tuesday": "5 AM–9 PM",
+          "wednesday": "5 AM–9 PM",
+          "thursday": "5 AM–9 PM"
+        },
+        "phone": "(669) 238-2262",
+        "website": "https://www.hscgym.com/?y_source=1_MzYyMzUxNjMtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Identifies as Asian-owned",
+              "Identifies as women-owned"
+            ]
+          },
+          {
+            "service_options": [
+              "Outdoor services",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly",
+              "Transgender safespace"
+            ]
+          },
+          {
+            "planning": [
+              "Appointment required",
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Online classes"
+            ]
+          }
+        ],
+        "service_options": {
+          "outdoor_services": true,
+          "onsite_services": true,
+          "online_classes": false
+        },
+        "book_online": "https://www.mindbodyonline.com/explore/locations/hyper-strength-and-conditioning-llc?rwg_token=AE37R_gNu9yw50X4ExAfyt6OqawYtaawysA9r6JL15kk79synfhvsnz5B3cqVYe4ql2PsyT6H9XQXrSyK58IbVaaDav5NC-Bag%3D%3D",
+        "user_review": "\"Great gym with supportive environment and great coaches.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmstQL2qkLi6YzHsfOWVzNBhZdzbQidB7oqc0d5N6ll5xvWyySUbuqgQn0gk6nSr3Z8E39fHio7LalebWuHefEKJ6RxpB8jtGo9ScSrIJt8IuNJ50vvE_4rsVBEJXvH7X54alo=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/16eZY3icHcTLDYIwAADQiZAqfxMPkhArEhRRQC9GSilobYEWVAZ0B7cx8R3e91NJ2Yi5qtJKmxDOCcW9wB3iTGImJ4g_VNIIBQlFqEu43x3Sh5BRMGvvQW2eRijKbZqMoVudizGP6sK1eItAYYQmpcZrSN_v-Jj3LYkYIHeTxZ12tj3NKWHNreBKcZ72EJfexjf3r8a1b3LFnRjF3dqX9roPfQMMg3fRO5G4np8N0MoM_Ur54jkFACjVf6SwH6eRRT8"
+      },
+      {
+        "position": 3,
+        "title": "24 Hour Fitness",
+        "place_id": "ChIJk7bsRrHNj4ARYc2ArzpwkY8",
+        "data_id": "0x808fcdb146ecb693:0x8f91703aaf80cd61",
+        "data_cid": "10345173216401608033",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcdb146ecb693%3A0x8f91703aaf80cd61&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcdb146ecb693%3A0x8f91703aaf80cd61&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3669091,
+          "longitude": -121.8501125
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJk7bsRrHNj4ARYc2ArzpwkY8",
+        "provider_id": "/g/11flmvf3t1",
+        "rating": 4.4,
+        "reviews": 1230,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Fitness center",
+          "Indoor cycling",
+          "Indoor swimming pool",
+          "Personal trainer",
+          "Sauna",
+          "Weightlifting area",
+          "Yoga studio"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "fitness_center",
+          "indoor_cycling",
+          "indoor_swimming_pool",
+          "personal_trainer",
+          "sauna",
+          "weightlifting_area",
+          "yoga_studio"
+        ],
+        "address": "2323 McKee Rd, San Jose, CA 95116",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "12 AM–9 PM",
+          "saturday": "5 AM–9 PM",
+          "sunday": "5 AM–9 PM",
+          "monday": "5 AM–12 AM",
+          "tuesday": "Open 24 hours",
+          "wednesday": "Open 24 hours",
+          "thursday": "Open 24 hours"
+        },
+        "phone": "(408) 457-6866",
+        "website": "https://www.24hourfitness.com/gyms/san-jose-ca/east-side-san-jose-super-sport?Adb_id=GGL_LOC_ACQ_CDP",
+        "extensions": [
+          {
+            "service_options": [
+              "Online classes",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Sauna"
+            ]
+          },
+          {
+            "amenities": [
+              "Basketball court",
+              "Restroom",
+              "Swimming pool",
+              "Wi-Fi"
+            ]
+          },
+          {
+            "atmosphere": [
+              "Shower"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "amenities": [
+              "Restaurant"
+            ]
+          }
+        ],
+        "service_options": {
+          "online_classes": true,
+          "onsite_services": true
+        },
+        "user_review": "\"An excellent gym, very well equipped and with a motivating atmosphere.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnkfykJYxCV2vmCBR5iuOlRUTmrxJe_0YDgQBdqaHfwzUKp7tEFpUjosGCERaWi1x21PgEM0YG9UndpRmdFzh6n4kkOgT9_9B7MD5mx7oV4GX76RG6v_ofcfH58zIveJjMUZqIAmQ=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/RJmD7nicHcTbboIwAADQL0KK4yJL9iCIIIaoDYWxF2JKKQq9aCsy_tBP8G-W7Dyc96vTWqpP0xy6jwUVgg7kocgdC64J1wssmEmlMrAylLlO4DEved_-9mk1hcVyZGEAncvjMECUs_uUkhpUG3oKmts5aZ8z2ktPR1uJrkLFYQTP5cWaltaRRhmoYh_xRkLWbOfO5XbfH2ju137gZRuHTZ4o7Pjbc2HsjrVocZs4q3k3kvSaoZ_bbs1OX08LAGB0_2OD_wFJCkWr"
+      },
+      {
+        "position": 4,
+        "title": "Hills Training",
+        "place_id": "ChIJ7fxG0MHNj4ARaXiRWGq2zlE",
+        "data_id": "0x808fcdc1d046fced:0x51ceb66a58917869",
+        "data_cid": "5894849530143275113",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcdc1d046fced%3A0x51ceb66a58917869&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcdc1d046fced%3A0x51ceb66a58917869&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3534965,
+          "longitude": -121.854866
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJ7fxG0MHNj4ARaXiRWGq2zlE",
+        "provider_id": "/g/11gvscxytd",
+        "rating": 4.9,
+        "reviews": 125,
+        "type": "Gym",
+        "types": [
+          "Gym"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym"
+        ],
+        "address": "1783 Alum Rock Ave Ste 40, San Jose, CA 95116",
+        "country": "United States",
+        "open_state": "Open · Closes 7 PM",
+        "hours": "Open · Closes 7 PM",
+        "operating_hours": {
+          "friday": "4–7 PM",
+          "saturday": "Closed",
+          "sunday": "Closed",
+          "monday": "4–8:30 PM",
+          "tuesday": "4–8:30 PM",
+          "wednesday": "4–8:30 PM",
+          "thursday": "4–8:30 PM"
+        },
+        "phone": "(408) 600-7602",
+        "website": "https://m.facebook.com/Hillstraining1/",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Identifies as Asian-owned",
+              "Identifies as Black-owned",
+              "Identifies as Latino-owned",
+              "Identifies as women-owned"
+            ]
+          },
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom",
+              "Wheelchair accessible seating"
+            ]
+          },
+          {
+            "amenities": [
+              "Gender-neutral restroom",
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Online classes"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true,
+          "online_classes": false
+        },
+        "user_review": "\"The best trainers the most amazing atmosphere it a home away from home.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm7a0C9lz-cyHxOAHTnXsTgmLiYjfOt05vs4Byq8OXkLj8_9oaONALtnWw6vByiz0gLzroGW2ZlsUvIjEUgvBo4bliLqskzflMZYAWN_u8hk_OGv8QsxY6n4fnbnpodxLcegj4=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/m4WzJnicHcTdDsEwGADQJ6oVw0hcbCImKUUm29ws1Nb9dO34qrY9oHfwNhLn4nw_udYNLCxL5OMBV4qL9AXpkympU6kHTNUWbwAxQGC5_ukQhPXsildz0SPW-S11_UBGEPCaFHGZUY0nBmyvezg0qkjpJHN1pXuXaBm-p8brih5z0j_VJhxdBJzNtlyfufGUfRMFeUDVZ2J3id1wn7ycvEroxjhHaOOptDN5k426t4SlvLSX7yHGGOX_GZI_uydG5w"
+      },
+      {
+        "position": 5,
+        "title": "Backyard Barbell",
+        "place_id": "ChIJzT9yR_PLj4AROqGzr2pt8as",
+        "data_id": "0x808fcbf347723fcd:0xabf16d6aafb3a13a",
+        "data_cid": "12389804354854691130",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcbf347723fcd%3A0xabf16d6aafb3a13a&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcbf347723fcd%3A0xabf16d6aafb3a13a&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.371761299999996,
+          "longitude": -121.9076535
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJzT9yR_PLj4AROqGzr2pt8as",
+        "provider_id": "/g/11b8_pj5sn",
+        "rating": 4.9,
+        "reviews": 62,
+        "type": "Gym",
+        "types": [
+          "Gym"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym"
+        ],
+        "address": "1604 Remuda Ln, San Jose, CA 95112",
+        "country": "United States",
+        "open_state": "Open 24 hours",
+        "hours": "Open 24 hours",
+        "operating_hours": {
+          "friday": "Open 24 hours",
+          "saturday": "Open 24 hours",
+          "sunday": "Open 24 hours",
+          "monday": "Open 24 hours",
+          "tuesday": "Open 24 hours",
+          "wednesday": "Open 24 hours",
+          "thursday": "Open 24 hours"
+        },
+        "phone": "(408) 500-5929",
+        "website": "http://www.backyardbarbellclub.com/",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking"
+            ]
+          }
+        ],
+        "user_review": "\"After every session I felt stronger, accomplished, and proud of my progress.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnjGLNZHl4eEckZ-36K-M2ZvF3D1Tp51vjPqmVZN_mFPyNspDTWuLcM9iK5CYXZABRUzJa2dN5bi1Gd43UtWQ-TENbwEoPQqEfFQV9LVzs-tKhXwOruPrPttX1d32m1upcEGP8GlEGtC9B2=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/bfH_z3icHcTdboIwGADQJ6pQKstY4oU_pUawKwaB9WaZBUEHtNIPib7krvc2S3Yuzu9PA2Dsm-O0DZnVWtdtNdpqULqHqoeZ0p1TG4uURdZZbg8izfsri7nctvOKqm-JyEuE9p68h2SDU-Pj-1Xcukzyzy4UD27NJs3HWO2DS-SvPwq5XB2Oz92XV3L_dMGsnJMj5AlKKT9NVIvkRs9hkgVx9rQIoqaY3odRDAKgwCXxOjwaRZl4ZS1lsA5W3mLCruui5n-F-j8HNUXK"
+      },
+      {
+        "position": 6,
+        "title": "24 Hour Fitness",
+        "place_id": "ChIJrYuZNI3Lj4ARY8QMl0jFYuc",
+        "data_id": "0x808fcb8d34998bad:0xe762c548970cc463",
+        "data_cid": "16673105686041511011",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb8d34998bad%3A0xe762c548970cc463&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb8d34998bad%3A0xe762c548970cc463&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.371108299999996,
+          "longitude": -121.91103059999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJrYuZNI3Lj4ARY8QMl0jFYuc",
+        "provider_id": "/g/1td58vqm",
+        "rating": 3.1,
+        "reviews": 1175,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Fitness center",
+          "Indoor cycling",
+          "Indoor swimming pool",
+          "Personal trainer",
+          "Sauna",
+          "Weightlifting area",
+          "Yoga studio"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "fitness_center",
+          "indoor_cycling",
+          "indoor_swimming_pool",
+          "personal_trainer",
+          "sauna",
+          "weightlifting_area",
+          "yoga_studio"
+        ],
+        "address": "1610 Crane Ct, San Jose, CA 95112",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "12 AM–9 PM",
+          "saturday": "5 AM–9 PM",
+          "sunday": "5 AM–9 PM",
+          "monday": "5 AM–12 AM",
+          "tuesday": "Open 24 hours",
+          "wednesday": "Open 24 hours",
+          "thursday": "Open 24 hours"
+        },
+        "phone": "(408) 490-3019",
+        "website": "https://www.24hourfitness.com/gyms/san-jose-ca/san-jose-super-sport?Adb_id=GGL_LOC_ACQ_CDP",
+        "extensions": [
+          {
+            "service_options": [
+              "Online classes",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Sauna"
+            ]
+          },
+          {
+            "amenities": [
+              "Basketball court",
+              "Restroom",
+              "Swimming pool",
+              "Wi-Fi"
+            ]
+          },
+          {
+            "atmosphere": [
+              "Shower"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "amenities": [
+              "Restaurant"
+            ]
+          }
+        ],
+        "service_options": {
+          "online_classes": true,
+          "onsite_services": true
+        },
+        "user_review": "\"Sep 2 - great effort to clean - lockers, workout space, and front entrance.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl6cwF1YnaZSpHITBgoEfiOGv62BPyByUnsoqPCJU5CrOlpnTGgvjyi7i_o9h2zLytsW-iyJIk2F2SikBSYOWXuRZUTxP59mqA9ssHcYX79nCUdR0N3S7Zqxemc64b-RG9txrM=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/rxy5uXicHcRLDoIwFADAE1UQFVITF0IUNCqET_hsjFYsVWiBV5V6QO_gbUycxXw_lZQtzDWtriYjKgStyweUPRFcllyOiGg02gIigEBbemEQp7VJXutxzk9F1Hqb2KZidWW--zQNO1C2SjiILnC2yczp_brlsUufN8UsdhS4Mt47JSFFTG03d2NtROxuR7mfZo-wSOIhmOGmW2IAj-SZhbmTXEL9MImsohvKhpjTMwpdLId-v3iNdV1H1X-C-A9uhkTk"
+      },
+      {
+        "position": 7,
+        "title": "GYMGUYZ Silicon Valley",
+        "place_id": "ChIJt_1gMnzNj4ARSauzooPwlVI",
+        "data_id": "0x808fcd7c3260fdb7:0x5295f083a2b3ab49",
+        "data_cid": "5950926930801044297",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcd7c3260fdb7%3A0x5295f083a2b3ab49&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcd7c3260fdb7%3A0x5295f083a2b3ab49&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3424464,
+          "longitude": -121.8936202
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJt_1gMnzNj4ARSauzooPwlVI",
+        "provider_id": "/g/11j02b75d1",
+        "rating": 4.8,
+        "reviews": 196,
+        "type": "Personal trainer",
+        "types": [
+          "Personal trainer",
+          "Nutritionist",
+          "Weight loss service"
+        ],
+        "type_id": "personal_trainer",
+        "type_ids": [
+          "personal_trainer",
+          "nutritionist",
+          "weight_loss_service"
+        ],
+        "address": "350 N 2nd St, San Jose, CA 95112",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "5 AM–9 PM",
+          "saturday": "5 AM–9 PM",
+          "sunday": "5 AM–9 PM",
+          "monday": "5 AM–9 PM",
+          "tuesday": "5 AM–9 PM",
+          "wednesday": "5 AM–9 PM",
+          "thursday": "5 AM–9 PM"
+        },
+        "phone": "(408) 539-2858",
+        "website": "https://www.gymguyz.com/santa-clara-valley/",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Identifies as Black-owned"
+            ]
+          },
+          {
+            "service_options": [
+              "Online classes",
+              "Outdoor services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly"
+            ]
+          },
+          {
+            "planning": [
+              "Appointment required",
+              "Appointments recommended"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          }
+        ],
+        "service_options": {
+          "online_classes": true,
+          "outdoor_services": true
+        },
+        "user_review": "\"They deliver results and keep you consistent and challenged with workouts.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkudYOAdlI6fXqw_Y3sC9b_LbzuoqFVZBHujWVGlMWASI-L2EZILXZ5c1i4mxlVPLKEM7VrAoVFHIe_LdaSMhDj0gKH6AOPo6fMOIKuJ1ta47iM1IvspyPsIU6opEdCoZMpOvTP=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/f_eda3icHcRRboIwGADgE1VAEeMSH6qidLShmVqUF6IFQVf5q211ekHPsNss2ffw_b5ba7X58DzVDnoNQKNqZ-qbhM7Wne1JuHiNNkgaZDycfPF1_u2qXYYrRaLj9voodwMzGx9Keng5uC5EMU3cORdLxXK8Ioj244LQbTGUwSm8_CjBaRqzkbhhEIuE1CWt9ivWzs9-kyYRzjhER5aR1H0Gdh-OTiwgd6Of3JBNBDquZlAwnd3XfPIIfN9H7f8SdX9TvERS"
+      },
+      {
+        "position": 8,
+        "title": "LFBA Studios - SJ Berryessa",
+        "place_id": "ChIJx1A-6nnNj4ARXKtY3bgEjkM",
+        "data_id": "0x808fcd79ea3e50c7:0x438e04b8dd58ab5c",
+        "data_cid": "4867833439268154204",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcd79ea3e50c7%3A0x438e04b8dd58ab5c&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcd79ea3e50c7%3A0x438e04b8dd58ab5c&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3728988,
+          "longitude": -121.87350459999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJx1A-6nnNj4ARXKtY3bgEjkM",
+        "provider_id": "/g/11h714gjks",
+        "rating": 5,
+        "reviews": 405,
+        "type": "Fitness center",
+        "types": [
+          "Fitness center",
+          "Gym",
+          "Pilates studio",
+          "Yoga studio"
+        ],
+        "type_id": "fitness_center",
+        "type_ids": [
+          "fitness_center",
+          "gym",
+          "pilates_studio",
+          "yoga_studio"
+        ],
+        "address": "1710 Berryessa Rd #101, San Jose, CA 95133",
+        "country": "United States",
+        "open_state": "Open · Closes 8 PM",
+        "hours": "Open · Closes 8 PM",
+        "operating_hours": {
+          "friday": "6 AM–8 PM",
+          "saturday": "8 AM–2 PM",
+          "sunday": "8 AM–2 PM",
+          "monday": "6 AM–8 PM",
+          "tuesday": "6 AM–8 PM",
+          "wednesday": "6 AM–8 PM",
+          "thursday": "6 AM–8 PM"
+        },
+        "website": "http://www.lfbastudios.com/",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Identifies as Asian-owned",
+              "Identifies as women-owned"
+            ]
+          },
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Appointment required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Online classes"
+            ]
+          },
+          {
+            "accessibility": [
+              "Assistive hearing loop",
+              "Wheelchair accessible seating"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true,
+          "online_classes": false
+        },
+        "book_online": "https://www.mindbodyonline.com/explore/locations/lfba-studios?rwg_token=AE37R_jbIhK2ZrfdvtS0W9O0zrh6nxgbgndNGWjsRAAdEHGUzHiaFwxwD2m1Ap9dXnxaPY1hSpQWERXLaY6M0iWu7Z6TOylD1w%3D%3D",
+        "user_review": "\"Great workout, clean facilities, and friendly instructors who push you!\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmLyn4r4l1zCgt0QHMwl2mlwSmOq3okJ_lWzKsXxl7cRSAZtybOLxe9v7j5xerEQDSymkEEK0UByHYc8wxcDDUnYmYG0d4pQSw4t30dd2E7kcm8fhvN_RlA8CEWER3dRCOcAqiK=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/ci77iHicHcTdboIwGADQJ0KqsIBLvEBoRkRlFA2yG5J9VFD6g7Ra8AV9hr3NEs_F-Xu1Wvfq07ZZ68waKRtG74oOIIWmQs9AcrvplQXKUnYQk-9DwbeTcAeXzZ9ho1EW7wxbcGZynt4c2W0qVjwTdRqZByQPfvT0m25Hunx414-RDjiL8ol3GCfouJ7iEnwzQhQdRcnLL1S7fZYbVzuorhfY64D75_axrwgL_BAXmDg1CVMIbpdkZeYIIat9D5b4B-fyRWM"
+      },
+      {
+        "position": 9,
+        "title": "City Sports Club",
+        "place_id": "ChIJk2PtgXXLj4ARTZlHYZon1X8",
+        "data_id": "0x808fcb7581ed6393:0x7fd5279a6147994d",
+        "data_cid": "9211312156866746701",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb7581ed6393%3A0x7fd5279a6147994d&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb7581ed6393%3A0x7fd5279a6147994d&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3491815,
+          "longitude": -121.92112639999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJk2PtgXXLj4ARTZlHYZon1X8",
+        "provider_id": "/g/1pp2tlgz5",
+        "rating": 3.8,
+        "reviews": 640,
+        "type": "Gym",
+        "types": [
+          "Gym"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym"
+        ],
+        "address": "610 Newhall Dr, San Jose, CA 95110",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "5 AM–10 PM",
+          "saturday": "8 AM–8 PM",
+          "sunday": "8 AM–8 PM",
+          "monday": "5 AM–11 PM",
+          "tuesday": "5 AM–11 PM",
+          "wednesday": "5 AM–11 PM",
+          "thursday": "5 AM–11 PM"
+        },
+        "phone": "(408) 490-2164",
+        "website": "https://citysportsfitness.com/Pages/clubhome.aspx?clubid=906&utm_source=google&utm_medium=googlemaps&utm_campaign=maps",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Sauna"
+            ]
+          },
+          {
+            "amenities": [
+              "Basketball court",
+              "Restroom",
+              "Swimming pool",
+              "Wi-Fi"
+            ]
+          },
+          {
+            "atmosphere": [
+              "Shower"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true
+        },
+        "user_review": "\"The staff is very friendly, equipments are clean and everyone has a smile.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkrgBmC2WMucumaYz2IqXVXCSXuoZ84WmjVCZENG6FnC6-SMeKsNZcHfMfGlYHSDqHrD1p8epHzCtDWZbFUjfkJRnLH_WvL8JloIPG0WymVgntO3nUgCJQwma68j2j7hWptAIKC9A=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/Tq4D5HicHcRJDoIwAADAF1UQDaKJByxKQXFDKXIx2pQSpIu0aPSHPsHfmDiH-X4qY5SeWFZTDXpMStbQTtOWSGGoMD0iucWUBkQDbflovz3gW8tmHDo46UjHL6e3E93zLIdp3snCG2JeZ7CYr0N3IaAL0oQu9bogqEzKsDmhNLijNugrjyr0hibAxXVxrMtbvBcrdMaPlRc3MtqGNn7xjAmzGYgjg_HuyS-uVzv1qMLK-NESjv3ps2_bNqj-EyB-CR5FWA"
+      },
+      {
+        "position": 10,
+        "title": "Central YMCA",
+        "place_id": "ChIJWcFAx23Lj4AR6b_fwdq6DRA",
+        "data_id": "0x808fcb6dc740c159:0x100dbadac1dfbfe9",
+        "data_cid": "1156786128022388713",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb6dc740c159%3A0x100dbadac1dfbfe9&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb6dc740c159%3A0x100dbadac1dfbfe9&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3378789,
+          "longitude": -121.92023119999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJWcFAx23Lj4AR6b_fwdq6DRA",
+        "provider_id": "/g/1tgkhjdm",
+        "rating": 4.7,
+        "reviews": 588,
+        "type": "Youth organization",
+        "types": [
+          "Youth organization",
+          "Child care agency",
+          "Non-profit organization",
+          "Swimming instructor",
+          "Wellness center"
+        ],
+        "type_id": "youth_organization",
+        "type_ids": [
+          "youth_organization",
+          "child_care_agency",
+          "non_profit_organization",
+          "swimming_instructor",
+          "wellness_center"
+        ],
+        "address": "1717 The Alameda, San Jose, CA 95126",
+        "country": "United States",
+        "open_state": "Open · Closes 8 PM",
+        "hours": "Open · Closes 8 PM",
+        "operating_hours": {
+          "friday": "6 AM–8 PM",
+          "saturday": "8 AM–4 PM",
+          "sunday": "8 AM–4 PM",
+          "monday": "6 AM–9 PM",
+          "tuesday": "6 AM–9 PM",
+          "wednesday": "6 AM–9 PM",
+          "thursday": "6 AM–9 PM"
+        },
+        "phone": "(408) 298-1717",
+        "website": "https://www.ymcasv.org/locations/central-ymca",
+        "description": "Nonprofit center for classes & services. Community-focused nonprofit established in 1844 with recreational programs & services for all ages.",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot"
+            ]
+          }
+        ],
+        "user_review": "\"Friendly staff, proper equipment, clean, organized.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkbF3qMqJ8rVkCQhnznAMWKUUj4RjVG0mqy_PFFUxKfoauGOkGIo3a31gNfJO6aTRCTnGbeqbhSQKGz3K-nyf9VIHl003gkzCy7oqLIanyT8SLhr_CfJAySQn5xZfDJZ85m3j3Wsg=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/3e7TwHicHcRbjoIwFADQFVVqqjOMiR-ECRXwxTvxxwChbXjcWorRskOX4G5MPB_n_RLTdNMby-oFWXAped_cdTPWEqYGpkUtB4vfNKo10pazi89p0VUeUQcV2GPeuZGAGZxDEWZZu4rbnOJBmevZ87JnyGR5p6eO-pKUZMmPLDj9lGnspkCrRlUiiUI6kxCBYX-5v-sxJrybXfMr1d4vwaR2shfj1WWBY5II1s8L-w8u9nogLSk03z6WGGMkvtcIPg1TRX0"
+      },
+      {
+        "position": 11,
+        "title": "Stone Boxing",
+        "place_id": "ChIJk1pVaOHNj4AR5bPHJyGemkg",
+        "data_id": "0x808fcde168555a93:0x489a9e2127c7b3e5",
+        "data_cid": "5231667782382760933",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcde168555a93%3A0x489a9e2127c7b3e5&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcde168555a93%3A0x489a9e2127c7b3e5&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3544315,
+          "longitude": -121.89320529999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJk1pVaOHNj4AR5bPHJyGemkg",
+        "provider_id": "/g/11ltyz3_jl",
+        "rating": 4.7,
+        "reviews": 77,
+        "type": "Boxing gym",
+        "types": [
+          "Boxing gym"
+        ],
+        "type_id": "boxing_gym",
+        "type_ids": [
+          "boxing_gym"
+        ],
+        "address": "385 E Taylor St, San Jose, CA 95112",
+        "country": "United States",
+        "open_state": "Open · Closes 7:45 PM",
+        "hours": "Open · Closes 7:45 PM",
+        "operating_hours": {
+          "friday": "5:15 AM–7:45 PM",
+          "saturday": "8–10 AM",
+          "sunday": "Closed",
+          "monday": "5:15 AM–9 PM",
+          "tuesday": "5:15 AM–9 PM",
+          "wednesday": "5:15 AM–9 PM",
+          "thursday": "5:15 AM–7:45 PM"
+        },
+        "phone": "(209) 519-8955",
+        "website": "https://www.stoneboxingsj.com/",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          },
+          {
+            "children": [
+              "Good for kids"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "On-site parking"
+            ]
+          }
+        ],
+        "user_review": "\"Great ambiance, professional and knowledgeable coaches , and always clean.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkfbfFOdX2qPIzxD2ytIVVdlkTXx-bokVNM__EjlY-sWu8x3qRbVE-LZyXeY34-LUaEYkod6jgyhuL0tNOep4tt0Uu4dertZeyeQbTAGrZPzj9Tu1mRPxrFgvczXtVOrndtWGo=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/doGpz3icHcTdCoIwGADQJ1qulKigiyD7AUsTmz83ktuaqDnbvpX6gL1DbxN0Ls73UwJ0emVZTWlPhJSi4UZzRWULvIUJlQ9LdBpRjbS1OYRBFNf34r7zWTJ7Bsex384GOBLCmjpKelTImpxPee5WTYp0bBa9_QwL4iIvGxKe2g7yrjc3rSWbV2IojYfh7PPOAcBX4zCuIOMDvxTRZq-yYKyWkZk-wqBXO_GiYwLEVy2DeC_X7ynGGJX_KWp_wb9G3w"
+      },
+      {
+        "position": 12,
+        "title": "City Sports Club",
+        "place_id": "ChIJK7xb3gjMj4ARPPZ-r2ppU6s",
+        "data_id": "0x808fcc08de5bbc2b:0xab53696aaf7ef63c",
+        "data_cid": "12345326910484444732",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcc08de5bbc2b%3A0xab53696aaf7ef63c&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcc08de5bbc2b%3A0xab53696aaf7ef63c&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3841496,
+          "longitude": -121.89806089999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJK7xb3gjMj4ARPPZ-r2ppU6s",
+        "provider_id": "/g/11_pnqhfc",
+        "rating": 3.4,
+        "reviews": 657,
+        "type": "Gym",
+        "types": [
+          "Gym"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym"
+        ],
+        "address": "1045 E Brokaw Rd, San Jose, CA 95131",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "5 AM–10 PM",
+          "saturday": "8 AM–8 PM",
+          "sunday": "8 AM–8 PM",
+          "monday": "5 AM–11 PM",
+          "tuesday": "5 AM–11 PM",
+          "wednesday": "5 AM–11 PM",
+          "thursday": "5 AM–11 PM"
+        },
+        "phone": "(408) 273-7185",
+        "website": "https://citysportsfitness.com/Pages/clubhome.aspx?clubid=662&utm_source=google&utm_medium=googlemaps&utm_campaign=maps",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Sauna"
+            ]
+          },
+          {
+            "amenities": [
+              "Basketball court",
+              "Restroom",
+              "Swimming pool",
+              "Wi-Fi"
+            ]
+          },
+          {
+            "atmosphere": [
+              "Shower"
+            ]
+          },
+          {
+            "planning": [
+              "Appointment required",
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true
+        },
+        "user_review": "\"Great gym clean, good friendly staff and atmosphere.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm9H8ks5nKWNA0mZqUCyaqj6megTK53zpCTfvRXfp2kkscYhp262LnMwutrFtqZgL_f4qd5Rp_WVa-oI3Bwwipo8CAVjr-LZbfw1cy_jVyhSqZj4p5RXYfefwuDIwzB_ETa6Tj3=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/F2_NGnicHcRLjoIwAADQE1UQhDgmLhCdaGSMwQ4oG4K1nynSDy02eME5g7cx8S3e659Zq8zC8-4snFAp6R0PBvdICouFnSDZeVQZgAwwXrLNj7Dsvrbz1kRiXx4Sv6v0bzo2mscdpnAfhU-VQvLIz0QFbWvQhakgDjLx4wbbf1td0awmM32LclWXRQPkLlw596fkPE0K3oOsuhI3RWPNi5GddMVnKsrPF4KJG9Y791zVG9jEkIdLN_V9H7DPCIg37eNGhg"
+      },
+      {
+        "position": 13,
+        "title": "Villa Sport Athletic Club",
+        "place_id": "ChIJYY833zXMj4ARW5dLdxEwNDc",
+        "data_id": "0x808fcc35df378f61:0x37343011774b975b",
+        "data_cid": "3977857222449010523",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcc35df378f61%3A0x37343011774b975b&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcc35df378f61%3A0x37343011774b975b&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3862623,
+          "longitude": -121.8632574
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJYY833zXMj4ARW5dLdxEwNDc",
+        "provider_id": "/g/11c37jprvz",
+        "rating": 4.1,
+        "reviews": 816,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Fitness center",
+          "Personal trainer",
+          "Spa and health club"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "fitness_center",
+          "personal_trainer",
+          "spa_and_health_club"
+        ],
+        "address": "1167 N Capitol Ave, San Jose, CA 95132",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "5 AM–9 PM",
+          "saturday": "7 AM–9 PM",
+          "sunday": "7 AM–9 PM",
+          "monday": "5 AM–10 PM",
+          "tuesday": "5 AM–10 PM",
+          "wednesday": "5 AM–10 PM",
+          "thursday": "5 AM–10 PM"
+        },
+        "phone": "(408) 785-0320",
+        "website": "https://www.villasport.com/san-jose/",
+        "description": "Large leisure center with pools & spa. Spacious leisure center branch with a well-equipped gym, swimming pools, café & spa treatments.",
+        "extensions": [
+          {
+            "service_options": [
+              "Outdoor services",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom",
+              "Wheelchair accessible seating"
+            ]
+          },
+          {
+            "offerings": [
+              "Sauna"
+            ]
+          },
+          {
+            "amenities": [
+              "Basketball court",
+              "Child care",
+              "Restroom",
+              "Swimming pool",
+              "Wi-Fi"
+            ]
+          },
+          {
+            "atmosphere": [
+              "Shower"
+            ]
+          },
+          {
+            "planning": [
+              "Appointment required",
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          }
+        ],
+        "service_options": {
+          "outdoor_services": true,
+          "onsite_services": true
+        },
+        "user_review": "\"It's clean, friendly, amazing showers, and lots of nice equipment choices.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnKFmbdBAUhP-IfC64pGzKMkVSckVnuIRyaJUm37_ymUs5AvRHdI-6sSE9E7u2gluERTb4wcBworElO2cvZVMhgnfaDvOx3YizUAQ-_MJKgTX3gTouHXcCZqOaLNeL6lFQcBWYBWw=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/lNdIj3icHcTdEoFAGADQJ1pFZJhxUURJIv2oG5NPdo1tN7YteUOP4G3MOBfn-yF1XYmpolCi9TDnmBZSFE_grC5Y3QNeKrgSCAQSimEHuzBh7rI8X0wjIjvkXOf6sFq9Xe8eH-AeM-kEXb6OSm186spIjIwmsC8O0sXBmlhjOcBUWkF4HrZgtvxpUX8ATRZ7BLNrvmj8l5be3pGxRydv7eLwqOGQS_sI8-zh55ttsdHpcg9mkppJO2v7qqoi8h8Q-wH9YEWf"
+      },
+      {
+        "position": 14,
+        "title": "Lift Pro Fitness",
+        "place_id": "ChIJl54Y8So1joARRQPYL7-mnDU",
+        "data_id": "0x808e352af1189e97:0x359ca6bf2fd80345",
+        "data_cid": "3863145920448693061",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808e352af1189e97%3A0x359ca6bf2fd80345&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808e352af1189e97%3A0x359ca6bf2fd80345&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.339147,
+          "longitude": -121.90041699999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJl54Y8So1joARRQPYL7-mnDU",
+        "provider_id": "/g/11tp266f0k",
+        "rating": 4.4,
+        "reviews": 25,
+        "type": "Fitness center",
+        "types": [
+          "Fitness center",
+          "Gym",
+          "Nutritionist"
+        ],
+        "type_id": "fitness_center",
+        "type_ids": [
+          "fitness_center",
+          "gym",
+          "nutritionist"
+        ],
+        "address": "299 Bassett St, San Jose, CA 95110",
+        "country": "United States",
+        "open_state": "Open · Closes 7 PM",
+        "hours": "Open · Closes 7 PM",
+        "operating_hours": {
+          "friday": "6–10 AM, 4–7 PM",
+          "saturday": "7 AM–12 PM",
+          "sunday": "8–11 AM",
+          "monday": "6–11 AM, 4–8 PM",
+          "tuesday": "6–11 AM, 4–8 PM",
+          "wednesday": "5–10 AM, 4–8 PM",
+          "thursday": "5–10 AM, 4–8 PM"
+        },
+        "phone": "(408) 726-5107",
+        "website": "http://www.liftprofitness.com/",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Identifies as Latino-owned",
+              "Identifies as women-owned"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          }
+        ],
+        "user_review": "\"It's super clean and the staff is very friendly  and helpful.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm7jvXO_dAmA0tBca8knpW6szA8sGdNOQ-LErwq4_Sx4ySiHZlIYTYgifp-1cFzKgLKuvbk9KbQX8MYgWN4sHyepaRMB6HH0hKbcIMxVDu-YJ-59WkYBsyaIUjHaG2ULRrZZBjDCQ=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/9K0oOXicHcRJkoIwFADQEwWiomJXuQCn0IA2OGDYUBDpIGPkBxVv2Efo21jlW7z_v0xKAV-qWmYjhTcNL9MO0pY1tUxrqbCmUrkAxACBahD_5xBU0_x-3kUXozKwNFmsF7UIJvAydNhctjsPOav2cdOi_VPr91cSlhY9UH79FWjA1i-bO3Z3T4qZnXhn3aU82GpA-lTEvmtOCMGZnTDLfZ6WHaLfaDwLCmpCH1vHnMSb4dHx2zA08-XCmz8GGGOUfWaofgMQlkUo"
+      },
+      {
+        "position": 15,
+        "title": "ArmorUp Boxing Club",
+        "place_id": "ChIJZyu4rqvNj4ARenRrP175gk4",
+        "data_id": "0x808fcdabaeb82b67:0x4e82f95e3f6b747a",
+        "data_cid": "5657358265117013114",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcdabaeb82b67%3A0x4e82f95e3f6b747a&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcdabaeb82b67%3A0x4e82f95e3f6b747a&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3732006,
+          "longitude": -121.84326589999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJZyu4rqvNj4ARenRrP175gk4",
+        "provider_id": "/g/11vst94213",
+        "rating": 4.9,
+        "reviews": 17,
+        "type": "Boxing club",
+        "types": [
+          "Boxing club",
+          "Boxing gym",
+          "Boxing ring"
+        ],
+        "type_id": "boxing_club",
+        "type_ids": [
+          "boxing_club",
+          "boxing_gym",
+          "boxing_ring"
+        ],
+        "address": "398 N Capitol Ave, San Jose, CA 95133",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "4–9 PM",
+          "saturday": "Closed",
+          "sunday": "Closed",
+          "monday": "4–9 PM",
+          "tuesday": "4–9 PM",
+          "wednesday": "4–9 PM",
+          "thursday": "4–9 PM"
+        },
+        "phone": "(408) 618-8451",
+        "website": "http://www.armorupboxingclub.com/",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Gender-neutral restroom",
+              "Restroom"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking"
+            ]
+          }
+        ],
+        "user_review": "\"The atmosphere here is great and the coaches are really friendly.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm85BscXsx1CNdXUUppneW-3OcDDAKQCEk_9FRoXdiZAD0mWbwVgt8zi6l1oSCXoSLd77-W4dkeGFwqb6GBhGQfUj1hYN0JiyVQfz7vHBTYIa6jXBKDGiSGyv_zcQ3lj4Ba1Wzy=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/9e4h7nicHcRRboIwAADQE1Xa4ECX-EFB6qZxImKrPwZLpSBQZqsIF_QMu43J3sf7e0ljWv1pWZW0R7lSeSXuWty4aoxozIir2spbDbgG2vIW282O1pMPrDnTT-SvM5YkbdsICuwfHgTeMvLn19M03CqWFUcvgDU9d_vcTIbCqZCKfabiVea6gI6zqyBh93t2CJYkuiQlkoc1_C76fXQZ3McC7w5fqVMyvAxIEZP-cRp4ZFflGKeIDv2sQxBCIP_noHkDKTBEOw"
+      },
+      {
+        "position": 16,
+        "title": "WESTCA",
+        "place_id": "ChIJL2tMGr3Mj4ARF8jxUFQ11XM",
+        "data_id": "0x808fccbd1a4c6b2f:0x73d5355450f1c817",
+        "data_cid": "8346636120652630039",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fccbd1a4c6b2f%3A0x73d5355450f1c817&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fccbd1a4c6b2f%3A0x73d5355450f1c817&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3376563,
+          "longitude": -121.88865299999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJL2tMGr3Mj4ARF8jxUFQ11XM",
+        "provider_id": "/g/11g6rjrzy1",
+        "rating": 4.9,
+        "reviews": 260,
+        "type": "Personal trainer",
+        "types": [
+          "Personal trainer",
+          "Fitness center",
+          "Gym",
+          "Physical fitness program"
+        ],
+        "type_id": "personal_trainer",
+        "type_ids": [
+          "personal_trainer",
+          "fitness_center",
+          "gym",
+          "physical_fitness_program"
+        ],
+        "address": "30 N 3rd St, San Jose, CA 95112",
+        "country": "United States",
+        "open_state": "Open · Closes 8 PM",
+        "hours": "Open · Closes 8 PM",
+        "operating_hours": {
+          "friday": "5 AM–8 PM",
+          "saturday": "7 AM–5 PM",
+          "sunday": "7 AM–5 PM",
+          "monday": "5 AM–10 PM",
+          "tuesday": "5 AM–10 PM",
+          "wednesday": "5 AM–10 PM",
+          "thursday": "5 AM–10 PM"
+        },
+        "phone": "(408) 816-1233",
+        "website": "http://www.westcasj.com/?y_source=1_MjQ5NTUzNzQtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Identifies as Black-owned",
+              "Identifies as women-owned"
+            ]
+          },
+          {
+            "service_options": [
+              "Outdoor services",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom",
+              "Wheelchair accessible seating"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly",
+              "Transgender safespace"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking garage",
+              "Paid parking garage",
+              "Paid parking lot",
+              "Paid street parking"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Online classes"
+            ]
+          }
+        ],
+        "service_options": {
+          "outdoor_services": true,
+          "onsite_services": true,
+          "online_classes": false
+        },
+        "book_online": "https://www.mindbodyonline.com/explore/locations/westca?rwg_token=AE37R_jezlLZxc6lyd5trSRCe7Cl24roczcfPKpD-UguUg01BhB3hwgXyfTEGa1dNeAlr6N8Wn3bqvUA8ZtdrC7MSJg_fzHInw%3D%3D",
+        "user_review": "\"A great gym with good equipment, nice staff, great value of the 1-week pass.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlYr_P100mA-em_2X15gtfb3nhj1msDzq59mtwz5k9_POyWYyKKpRFF3EfAkXHf-af0RLyE34cbteeDTcU2_sQrweWdOgoYG7jRmgdfzT435X5IXGu5tI4zoEOeg9M4H2S48aOm=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/l-9gSXicHc5dCoIwAADgEy1_tlEGPQhaRoVmhvokuraJOmduIXrBztBtil6-5-_zrrUe1NYwuhquuJS8oy9FRyJ7TXu9IlIYfFCAKKAMN4ijJO3ysYgs0xQuoKKwMwtzzSrY140llLc8sSP0tODWKaJwTvP5dBri_R76zG2zgIGSmfF59iEilabUS8jdLtR1nGj6CLnMD-smFvzBlgRBnOFjdnhhfUSL9EPKnQsK7BvalKHYTb-CCeq_BPRfTKNEEw"
+      },
+      {
+        "position": 17,
+        "title": "Condition and Competition Kickboxing",
+        "place_id": "ChIJbWpnVu_Lj4ARnVO9fkCsTTQ",
+        "data_id": "0x808fcbef56676a6d:0x344dac407ebd539d",
+        "data_cid": "3768857856183194525",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcbef56676a6d%3A0x344dac407ebd539d&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcbef56676a6d%3A0x344dac407ebd539d&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3644564,
+          "longitude": -121.89721619999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJbWpnVu_Lj4ARnVO9fkCsTTQ",
+        "provider_id": "/g/1tj3l9rr",
+        "rating": 4.9,
+        "reviews": 115,
+        "type": "Kickboxing school",
+        "types": [
+          "Kickboxing school",
+          "Gym",
+          "Judo club",
+          "Judo school",
+          "Jujitsu school",
+          "Physical fitness program",
+          "Yoga instructor",
+          "Yoga studio"
+        ],
+        "type_id": "kickboxing_school",
+        "type_ids": [
+          "kickboxing_school",
+          "gym",
+          "judo_club",
+          "judo_school",
+          "jujitsu_school",
+          "physical_fitness_program",
+          "yoga_instructor",
+          "yoga_studio"
+        ],
+        "address": "1277 Old Bayshore Hwy, San Jose, CA 95112",
+        "country": "United States",
+        "open_state": "Opens soon · 5 PM",
+        "hours": "Opens soon · 5 PM",
+        "operating_hours": {
+          "friday": "6–7:30 AM, 11:30 AM–12:30 PM, 5–7 PM",
+          "saturday": "9–10 AM",
+          "sunday": "Closed",
+          "monday": "6–7:30 AM, 11:30 AM–12:30 PM, 5–8:30 PM",
+          "tuesday": "11:30 AM–12:30 PM, 6–8:30 PM",
+          "wednesday": "6–7:30 AM, 11:30 AM–12:30 PM, 5–8:30 PM",
+          "thursday": "11:30 AM–12:30 PM, 6–8:30 PM"
+        },
+        "phone": "(408) 634-6163",
+        "website": "https://condition-and-competition-kickboxing.zoca.com/",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom",
+              "Wheelchair accessible seating"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly",
+              "Transgender safespace"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          },
+          {
+            "children": [
+              "Good for kids"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true
+        },
+        "book_online": "https://www.mindbodyonline.com/explore/locations/condition-and-competition-kickboxing-north-san-jose?rwg_token=AE37R_g4Nd994s5v24Ph59S4Hgobvc4__PQb3aaBhKxt6yy3MqcvcFM5H9RLL4d7uMW2cDIqiqxZVd64b3TMX9KDdrPsnvNWXw%3D%3D",
+        "user_review": "\"CCK is an awesome gym with an amazing class of instructors and staff.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmhFxK3U7CTlSHYcay-DzH3QGFkj9VndZnEJs2ywhOye6PuZbqOJV8qo7oXARCmY2ROZg8VKITy4WDwaERVTwLuqOB3378X9OcSUX2N4NViDZwD-KGnRfbwRyewKV-AJLyw-jG9mA=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/BcOjcHicHcThEoEwAADgJ5rSnMqdHxGlnDGZ9I-ZhtpkdTNv6BG8jTvfj-_74W37UCPLqjjslVKWFesUe1IpWibaHpW1VT4UoAooK4jxOtvXfP5K4c6dZtU2PtCjAeE7hptofr_5RJwLMUuUYzRHhg3XXXFqUEK8RroyD_C0PjgYFaVH0kVmBvtQH2eYZHrZNWgCoevlPqLbXe6sBityDQsdgjQS-HLS2DCdEhAkS6PBLfLrYKz7tm0D_p8C8QPHpUSJ"
+      },
+      {
+        "position": 18,
+        "title": "Roosevelt Community Center",
+        "place_id": "ChIJE9jUwunMj4ARkSFRHk2X1t8",
+        "data_id": "0x808fcce9c2d4d813:0xdfd6974d1e512191",
+        "data_cid": "16129245472950919569",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcce9c2d4d813%3A0xdfd6974d1e512191&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcce9c2d4d813%3A0xdfd6974d1e512191&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.345472699999995,
+          "longitude": -121.8718584
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJE9jUwunMj4ARkSFRHk2X1t8",
+        "provider_id": "/g/11btvb5pbj",
+        "rating": 4.3,
+        "reviews": 220,
+        "unclaimed_listing": true,
+        "type": "Community center",
+        "types": [
+          "Community center"
+        ],
+        "type_id": "community_center",
+        "type_ids": [
+          "community_center"
+        ],
+        "address": "901 E Santa Clara St, San Jose, CA 95116",
+        "country": "United States",
+        "open_state": "Open · Closes 6 PM",
+        "hours": "Open · Closes 6 PM",
+        "operating_hours": {
+          "friday": "8 AM–6 PM",
+          "saturday": "9 AM–1 PM",
+          "sunday": "Closed",
+          "monday": "8 AM–6 PM",
+          "tuesday": "8 AM–6 PM",
+          "wednesday": "8 AM–6 PM",
+          "thursday": "8 AM–6 PM"
+        },
+        "phone": "(408) 794-7555",
+        "website": "https://www.sanjoseca.gov/home/components/facilitydirectory/facilitydirectory/76/2028",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot"
+            ]
+          }
+        ],
+        "user_review": "\"Gym has large selection of machines and bathrooms have lockers and showers.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnF_ICDQr_ZfRxE0ORLnw9CgbeWcA-5R_0_BghpC5_7_ya2xzbzJH8MVrvOb_KojhmLMC6kNP1tie3yEaibio3lmwX88XVRWgycnshflhNu9O_LWShXOATd__OhYfe1yck1cugq9OuidMZ9=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/dygMaXicHcTRToMwFADQL-ookimY-IBsZiqss1sG28vN6EovDlqkRcZ-0mf_xsTzcH5_0LnOPnpeg8FMGaMaOVjZC6Od1G4mTOupzhJhifXiFd_scv0Cr8nio4djxa9LyniqxyhRpcxFTOYcKDwr7JI5PMB0urveytvbKsz2_Tcr4d18Yptmyf1lvfFdLYNpearL2gRNOxZhWOx5riahLVYNroeIQZpvsWDx7gzA8FBJfxIXXwzqK2JDfc6O0dPoU0oJ_i-I_gPsx0jW"
+      },
+      {
+        "position": 19,
+        "title": "Independence High School Gym",
+        "place_id": "ChIJ11-FnGfNj4ARz6xJFBW7qqk",
+        "data_id": "0x808fcd679c855fd7:0xa9aabb151449accf",
+        "data_cid": "12225789837659712719",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcd679c855fd7%3A0xa9aabb151449accf&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcd679c855fd7%3A0xa9aabb151449accf&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3705004,
+          "longitude": -121.85880689999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJ11-FnGfNj4ARz6xJFBW7qqk",
+        "provider_id": "/g/11j8_6127k",
+        "unclaimed_listing": true,
+        "type": "Gymnasium school",
+        "types": [
+          "Gymnasium school"
+        ],
+        "type_id": "gymnasium_school",
+        "type_ids": [
+          "gymnasium_school"
+        ],
+        "address": "629 N Jackson Ave, San Jose, CA 95133",
+        "country": "United States",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          }
+        ],
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnuu4JyQWtA4FPqqHL30E_sP5ociCzLFZAzr1lNUp_-s1hOft9cUysbCc9pBBVRKRr4NdMUW_ug_G4Rl8HpRV_yBn3foZQY-5ZwtVkJYKkLoHyRa7-5NV2MrA7s4uPJKzDsU-Eo=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/4JWrTHicHcTdCoIwGADQJ1pqTvqBLrQ0UTMbqeTNqGUa2bb8NkJfsGfobYLOxfl-WqUkLA2ja-1JI0TT1Rrqngmuaq4mTDyNRgJigMBwQ5IdS641joZDqVwcZK9XmNimTyFzBLuvxySo3LG3ujSXFIHV7m9qwfIBLmu2kJ5XkJj0OL3u8pLqhm4x6eahJAUdPG7fRHU4Iad6q-IRneJHIsKBnGfISYvprndngHUWxeMGcuSL1dsyTRO1_xniP22HRG4"
+      },
+      {
+        "position": 20,
+        "title": "Bellarmine South Gym",
+        "place_id": "ChIJa2fny3HLj4ARn2_ZmwNuHMw",
+        "data_id": "0x808fcb71cbe7676b:0xcc1c6e039bd96f9f",
+        "data_cid": "14707751444863872927",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb71cbe7676b%3A0xcc1c6e039bd96f9f&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb71cbe7676b%3A0xcc1c6e039bd96f9f&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3416533,
+          "longitude": -121.9163552
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJa2fny3HLj4ARn2_ZmwNuHMw",
+        "provider_id": "/g/11f2qxshfp",
+        "rating": 5,
+        "reviews": 2,
+        "unclaimed_listing": true,
+        "type": "Gym",
+        "types": [
+          "Gym"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym"
+        ],
+        "address": "798-700 Emory St, San Jose, CA 95126",
+        "country": "United States",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Basketball court",
+              "Restroom",
+              "Swimming pool"
+            ]
+          }
+        ],
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmw5aU37SmPnZ4_6Fx2rrtAEK7lJTz68A28p2f8bnAK5QKth8U9zXqqj7GELet1cGa1hHNPvq8cP7Thb1lxsQs0A-IVyexrTiYP-s6xPIGsRWRgSkjcMLuC1xRC5fF9s2IEiptuow=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/De6vGXicHcRRboIwGADgE1UoClSTPTQGkaGmIoruZdGmUh20wF-k84Y7wm5j4vfw_f9JYxqYOU4lx6NS67ISPYiOa2WEMiOua6dsAHFA4NBlxvKiHvzzfhzuaqa-Jt_BwnpdZ2iUhtVn_gwI9UjjXclF0dTfpkaS_fR5bNt7GEcrYTCPz1guN-zREs7CXF5wZWELLkXJ4VfYLr-dGILAsiSGrMjK3c-dr1f9HNts7l8XU_CS6NaYXg8fA3ZdF8n3HKkXj0xE5Q"
+      }
+    ],
+    "serpapi_pagination": {
+      "next": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&ll=%4037.360874%2C-121.87871%2C15z&q=gym&start=20&type=search"
+    }
+  }
+}

@@ -91,8 +91,9 @@ describe('plan', () => {
     expect(clusters.prune!.on_fail).toContain('c3')
     const commuteSlack = clusters.prune!.slack.find((s) => s.constraint_id === 'c3')!
     expect(commuteSlack.extra_seconds).toBeGreaterThan(0)
-    const poiSlack = clusters.prune!.slack.find((s) => s.constraint_id === 'c4')!
-    expect(poiSlack.extra_meters).toBeGreaterThan(0)
+    // Proximity is no longer checked at cluster level at all: measurement showed
+    // it rules almost nothing out there. See the payback tests below.
+    expect(clusters.prune!.on_fail).not.toContain('c4')
   })
 
   it('never lets an error reject a listing', () => {
@@ -226,5 +227,49 @@ describe('pagination', () => {
     const wide = plan({ ...input, registry: noNatives })
     const stage = wide.stages.find((s) => s.stage_id === 'candidates')!
     expect(stage.estimated_cost_units).toBe(8)
+  })
+})
+
+describe('work that cannot pay for itself', () => {
+  const result = plan(input)
+  const clusterOps = result.stages.find((s) => s.tier === 'cluster')?.ops ?? []
+
+  it('keeps the cluster check that removes more listings than it costs calls', () => {
+    // Measured coverage 0.80 and selectivity 0.44, so it rules out over half of
+    // what it can answer.
+    expect(clusterOps.map((o) => o.capability_id)).toContain('commute.directions.cluster')
+  })
+
+  it('drops the cluster check that rules almost nothing out', () => {
+    // Measured coverage 0.45 and selectivity 0.94: slack leaves most answers
+    // undecided and the rest nearly all pass, so twelve calls buy nothing.
+    expect(clusterOps.map((o) => o.capability_id)).not.toContain('nearby_poi.maps.cluster')
+    const rejected = result.trace.candidates.filter((c) => c.reason === 'no_payback')
+    expect(rejected.map((c) => c.capability_id)).toContain('nearby_poi.maps.cluster')
+  })
+
+  it('still answers the constraint, at the tier that can settle it', () => {
+    // Dropping the cluster shortcut must not drop the question.
+    expect(result.unsatisfied.map((u) => u.constraint_id)).not.toContain('c4')
+    const entityOps = result.stages.find((s) => s.tier === 'entity')!.ops
+    expect(entityOps.flatMap((o) => o.constraint_ids)).toContain('c4')
+  })
+
+  it('never drops entity work, which is the answer rather than a shortcut', () => {
+    const noPayback = result.trace.candidates.filter((c) => c.reason === 'no_payback')
+    expect(noPayback.every((c) => c.tier === 'cluster')).toBe(true)
+  })
+
+  it('keeps the same check once it earns its keep', () => {
+    // The rule is about payback, not about proximity. Give the same capability
+    // numbers that rule listings out and the planner takes it.
+    const better = input.registry.map((c) =>
+      c.capability_id === 'nearby_poi.maps.cluster'
+        ? { ...c, coverage: 0.9, selectivity_prior: 0.4 }
+        : c,
+    )
+    const ops =
+      plan({ ...input, registry: better }).stages.find((s) => s.tier === 'cluster')?.ops ?? []
+    expect(ops.map((o) => o.capability_id)).toContain('nearby_poi.maps.cluster')
   })
 })

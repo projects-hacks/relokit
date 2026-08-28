@@ -1,0 +1,12 @@
+{
+  "name": "@relokit/replay-run",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@relokit/evidence": "workspace:*",
+    "@relokit/planner": "workspace:*",
+    "@relokit/schema": "workspace:*",
+    "@relokit/serpapi": "workspace:*"
+  }
+}

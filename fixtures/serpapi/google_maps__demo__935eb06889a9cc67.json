@@ -1,0 +1,2155 @@
+{
+  "key": "google_maps__demo__935eb06889a9cc67",
+  "engine": "google_maps",
+  "params": {
+    "engine": "google_maps",
+    "type": "search",
+    "q": "grocery",
+    "ll": "@37.360874,-121.87871,15z"
+  },
+  "recorded_at_ms": 1787960984333,
+  "status": 200,
+  "body": {
+    "search_metadata": {
+      "id": "6a921e979d26cfbb56c9b509",
+      "status": "Success",
+      "json_endpoint": "https://serpapi.com/searches/M2Gq2DZcs4-VdIejdQ05nMe0zNTzzFP72_3W3tBn3uA/6a921e979d26cfbb56c9b509.json",
+      "markdown_endpoint": "https://serpapi.com/searches/M2Gq2DZcs4-VdIejdQ05nMe0zNTzzFP72_3W3tBn3uA/6a921e979d26cfbb56c9b509.md",
+      "created_at": "2026-08-28 23:49:43 UTC",
+      "processed_at": "2026-08-28 23:49:43 UTC",
+      "google_maps_url": "https://www.google.com/maps/search/grocery/@37.360874,-121.87871,15z/data=!3m1!4b1!4m2!2m1!6e5?hl=en",
+      "raw_html_file": "https://serpapi.com/searches/M2Gq2DZcs4-VdIejdQ05nMe0zNTzzFP72_3W3tBn3uA/6a921e979d26cfbb56c9b509.html",
+      "prettify_html_file": "https://serpapi.com/searches/M2Gq2DZcs4-VdIejdQ05nMe0zNTzzFP72_3W3tBn3uA/6a921e979d26cfbb56c9b509.prettify",
+      "total_time_taken": 0.9
+    },
+    "search_parameters": {
+      "engine": "google_maps",
+      "type": "search",
+      "q": "grocery",
+      "ll": "@37.360874,-121.87871,15z",
+      "google_domain": "google.com",
+      "hl": "en"
+    },
+    "search_information": {
+      "local_results_state": "Results for exact spelling",
+      "query_displayed": "grocery"
+    },
+    "local_results": [
+      {
+        "position": 1,
+        "title": "Safeway",
+        "place_id": "ChIJfxceAafNj4ARmEJjsIZmmRk",
+        "data_id": "0x808fcda7011e177f:0x19996686b0634298",
+        "data_cid": "1844618251055874712",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcda7011e177f%3A0x19996686b0634298&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcda7011e177f%3A0x19996686b0634298&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.370371999999996,
+          "longitude": -121.881694
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJfxceAafNj4ARmEJjsIZmmRk",
+        "provider_id": "/g/11r9f21n6m",
+        "rating": 4.4,
+        "reviews": 1064,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Bakery",
+          "Butcher shop",
+          "Deli",
+          "E-commerce service",
+          "Florist",
+          "Grocery delivery service",
+          "Organic food store",
+          "Produce market",
+          "Supermarket"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "bakery",
+          "butcher_shop",
+          "deli",
+          "e_commerce_service",
+          "florist",
+          "grocery_delivery_service",
+          "organic_food_store",
+          "produce_market",
+          "supermarket"
+        ],
+        "address": "1455 Berryessa Rd, San Jose, CA 95133",
+        "country": "United States",
+        "open_state": "Open · Closes 12 AM",
+        "hours": "Open · Closes 12 AM",
+        "operating_hours": {
+          "friday": "5 AM–12 AM",
+          "saturday": "5 AM–12 AM",
+          "sunday": "5 AM–12 AM",
+          "monday": "5 AM–12 AM",
+          "tuesday": "5 AM–12 AM",
+          "wednesday": "5 AM–12 AM",
+          "thursday": "5 AM–12 AM"
+        },
+        "phone": "(408) 346-6130",
+        "website": "https://local.safeway.com/safeway/ca/san-jose/1455-berryessa-rd.html",
+        "description": "Supermarket standby for groceries & more. Longtime supermarket chain carrying brand-name & house-label groceries, plus a deli, bakery & more.",
+        "extensions": [
+          {
+            "service_options": [
+              "Curbside pickup",
+              "No-contact delivery",
+              "Delivery",
+              "In-store pickup",
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Flowers",
+              "Food",
+              "Organic products",
+              "Prepared foods"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Checks",
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "On-site parking",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true,
+          "curbside_pickup": true,
+          "delivery": true
+        },
+        "user_review": "\"Well stocked shelves very clean.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmsltxcO63yHvi_gihXlCxUhZQ56leLf8tAVh7oJnqZTEfUpI9jGtcXRaCgH6su_dTf4UpDv12vtzryp6yigLvtibLqqUc3D1w2bjuJAgVngV5K3kIh-A3-1KxqL7gpylKYLVrhXA=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/wWxhxHicHcTRboIwFADQL6qAnehMfGjUDKWJzgBjvphZ4RZX20IvCP6hn7C_Mdl5OH9PiWjd3POUpCMwBlTRuqIRRmOhcSTMzQPriHDEeSw67JOvm1PYi11Ih6irTlDJXC37VB4_J6EqeDlDlsmp2er6mKzL1G7erx8o8sPPEqLQtadLUr6ldtUF4w4fzWDDoQLeYXXmdZ0Kugru4_O13TLINGSTmP5uJGGUBHFf8ynYQcXfPGtkzhb3wPd9Iv8XRL8AxUhHMQ"
+      },
+      {
+        "position": 2,
+        "title": "Grocery Outlet",
+        "place_id": "ChIJLVNR3QfNj4AR74ch9fOQkiA",
+        "data_id": "0x808fcd07dd51532d:0x209290f3f52187ef",
+        "data_cid": "2347097733277517807",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcd07dd51532d%3A0x209290f3f52187ef&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcd07dd51532d%3A0x209290f3f52187ef&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.370042999999995,
+          "longitude": -121.84598869999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJLVNR3QfNj4AR74ch9fOQkiA",
+        "provider_id": "/g/12hqvpn04",
+        "rating": 4.3,
+        "reviews": 970,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "American grocery store",
+          "Discount store",
+          "Discount supermarket",
+          "Supermarket"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "american_grocery_store",
+          "discount_store",
+          "discount_supermarket",
+          "supermarket"
+        ],
+        "address": "331 N Capitol Ave Ste B, San Jose, CA 95133",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "8 AM–9 PM",
+          "saturday": "8 AM–9 PM",
+          "sunday": "8 AM–9 PM",
+          "monday": "8 AM–9 PM",
+          "tuesday": "8 AM–9 PM",
+          "wednesday": "8 AM–9 PM",
+          "thursday": "8 AM–9 PM"
+        },
+        "phone": "(408) 684-5955",
+        "website": "https://www.groceryoutlet.com/circulars/storeid/130",
+        "description": "Source for discount groceries & more. Discount chain carrying brand-name groceries, plus items like gifts & toys (many sell beer & wine).",
+        "extensions": [
+          {
+            "service_options": [
+              "Delivery",
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "offerings": [
+              "Flowers",
+              "Organic products"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "On-site parking"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true,
+          "delivery": true
+        },
+        "user_review": "\"I really like grocery outlet for the quality of the products and low prices.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWknY5xswwi5c5V5z5CKZuwodHYxlWVQsDdCLTn_UeIMeKU3-2WsBaXSuJpMP6wS5Zk0cKrKdhsMDJ09N1hVknGA_7XxTFAAmsRYs8OeMw_RvZmVgZP5D5z67tWpksKQREBiaduk=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/mdM4kHicHcRLDoIwFADAE1Wqpv4SFyh-K4qIIGyIKQ01hZb4iiVe0DN4GxNnMd-PMKaBmeNUYtgrtS4r3gJ_Mq0MV6bHdO2UDSAGCBx3GwZRIlVKOrD2QRiJyZssadZaXWzTrkriM3jF8hCp_Mp3PqfXIRoksLjfLu2-8YORvZBMYkaftBDge3s8PfZFLNXGzce3Llq7bg1hCpMT920evrI6LrOAeOQ9GpukkUDP4WrxuBetnNs-xhiJ_wypH5srRTg"
+      },
+      {
+        "position": 3,
+        "title": "Sprouts Farmers Market",
+        "place_id": "ChIJiSXOawDNj4ARmzjHmirfsHA",
+        "data_id": "0x808fcd006bce2589:0x70b0df2a9ac7389b",
+        "data_cid": "8120235502227372187",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcd006bce2589%3A0x70b0df2a9ac7389b&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcd006bce2589%3A0x70b0df2a9ac7389b&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.370761699999996,
+          "longitude": -121.84689639999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJiSXOawDNj4ARmzjHmirfsHA",
+        "provider_id": "/g/11wjckxnyj",
+        "rating": 4.7,
+        "reviews": 120,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Fresh food market",
+          "Fruit and vegetable store",
+          "Grocery delivery service",
+          "Health food store",
+          "Organic food store",
+          "Produce market",
+          "Supermarket",
+          "Vitamin & supplements store"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "fresh_food_market",
+          "fruit_and_vegetable_store",
+          "grocery_delivery_service",
+          "health_food_store",
+          "organic_food_store",
+          "produce_market",
+          "supermarket",
+          "vitamin_and_supplements_store"
+        ],
+        "address": "375 N Capitol Ave, San Jose, CA 95133",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "7 AM–10 PM",
+          "saturday": "7 AM–10 PM",
+          "sunday": "7 AM–10 PM",
+          "monday": "7 AM–10 PM",
+          "tuesday": "7 AM–10 PM",
+          "wednesday": "7 AM–10 PM",
+          "thursday": "7 AM–10 PM"
+        },
+        "phone": "(408) 503-3250",
+        "website": "https://www.sprouts.com/store/ca/san-jose/n-capitol-ave/",
+        "description": "Natural & organic grocery store. Specialty chain offering a range of natural & organic grocery items, including own-brand goods.",
+        "extensions": [
+          {
+            "service_options": [
+              "No-contact delivery",
+              "Delivery",
+              "In-store pickup",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Flowers",
+              "Food",
+              "Organic products"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Checks",
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "On-site parking"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_pickup": true,
+          "delivery": true
+        },
+        "user_review": "\"Clean, well stocked,  fresh and helpful staff!\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm9HufRwl5KolgdNii9mWJvGOj5f7up3AVUK2eT5KwH9vNVshLgS_D91I_4lvI7_w6ZSmdSmQrSXkSLYhMFpa4x3JuJhmCM6xvAjhaUF0yRq0g-ZWvxwfdzZ6nZdl16AQFEJ4c=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/ek-d0XicHcRdboIwAADgE1WK_BhM9kDcGILipChbX4gp0KotRQst84Dewdss2ffwvZ5sGHq1tCzOnBmVkvJmVM2dyG5oumFGpLBorwBRQFlhnH8VpQjisc0N91LJaZ2dz4EoE_25u3jtYuyd8HhI503hpSYOdHZUbENR9R7Y68rler2ojI-RqJHY39H3FW1-2DbqT-7kJGPCxGrrTzq8sNMhgr_5DVKASz2Ztn5gv8M1t_1wH30kLnkzNoQQsP8J6P4ARPlEpA"
+      },
+      {
+        "position": 4,
+        "title": "Trader Joe's",
+        "place_id": "ChIJn0i78WTLj4ARGOPrICaz1C8",
+        "data_id": "0x808fcb64f1bb489f:0x2fd4b32620ebe318",
+        "data_cid": "3446576591187731224",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb64f1bb489f%3A0x2fd4b32620ebe318&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb64f1bb489f%3A0x2fd4b32620ebe318&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3409702,
+          "longitude": -121.9096556
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJn0i78WTLj4ARGOPrICaz1C8",
+        "provider_id": "/g/1tgmwjcw",
+        "rating": 4.6,
+        "reviews": 2587,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Cheese shop",
+          "Health food store",
+          "Liquor store",
+          "Natural goods store",
+          "Organic food store",
+          "Produce market",
+          "Supermarket",
+          "Wine store"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "cheese_shop",
+          "health_food_store",
+          "liquor_store",
+          "natural_foods_store",
+          "organic_food_store",
+          "produce_market",
+          "supermarket",
+          "wine_store"
+        ],
+        "address": "635 Coleman Ave, San Jose, CA 95110",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "8 AM–9 PM",
+          "saturday": "8 AM–9 PM",
+          "sunday": "8 AM–9 PM",
+          "monday": "8 AM–9 PM",
+          "tuesday": "8 AM–9 PM",
+          "wednesday": "8 AM–9 PM",
+          "thursday": "8 AM–9 PM"
+        },
+        "phone": "(408) 298-9731",
+        "website": "https://locations.traderjoes.com/ca/san-jose/212/?utm_source=gmb&utm_medium=organic&utm_campaign=local",
+        "description": "Specialty grocer with housebrand items. Grocery chain with a variety of signature items, plus produce, dairy & more (most sell wine & beer).",
+        "extensions": [
+          {
+            "service_options": [
+              "In-store pickup",
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Flowers",
+              "Food",
+              "Organic products",
+              "Prepared foods"
+            ]
+          },
+          {
+            "amenities": [
+              "Gender-neutral restroom",
+              "Restroom"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly",
+              "Transgender safespace"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Checks",
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "On-site parking",
+              "Paid street parking"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Delivery"
+            ]
+          },
+          {
+            "accessibility": [
+              "Assistive hearing loop"
+            ]
+          },
+          {
+            "offerings": [
+              "Pharmacy"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true,
+          "in_store_pickup": true
+        },
+        "user_review": "\"Great, healthy grocery selections at very affordable prices.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnjUfl5yzHMgwTQgbb4fc9s7ePWGBk4qfHd19Lnz6eYD28hkQ6kq-Wnm1N3H3L3REaLTVvd65bwFQmFnj7TJcGLWR_HFufleU3MfPIQ2qzUkjuZERXFj4qmd-hnUKsU1-xdfKVF3w=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/Rbdo-nicHcRJDoIwAADAF1XAIi6JB43WqmiAUFAvRkqXsBSxIMoPfYK_MXEO8_3IprnrmWEUEg5EVYmCtZo9aKUappoBrUpD3DWgGmhjgQMvjFVGeDF69_ggutAXSWJzOtVj5sWbZW7XHKfW1FW9w86r4UTmvpPXIFaldYQYujBY39wweqbOKOmQXyKVjcMd3bhxcMWo5QUj8MC9rT-se5Jn7WUdnFBm12UKpCJ7TSzwSvk-QrCbd5ZpmkD-p0D9AN6CRQc"
+      },
+      {
+        "position": 5,
+        "title": "La Plaza Market",
+        "place_id": "ChIJbxpFSH3Mj4ARpSKjRTq2bnM",
+        "data_id": "0x808fcc7d48451a6f:0x736eb63a45a322a5",
+        "data_cid": "8317785923192562341",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcc7d48451a6f%3A0x736eb63a45a322a5&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcc7d48451a6f%3A0x736eb63a45a322a5&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3592837,
+          "longitude": -121.8913747
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJbxpFSH3Mj4ARpSKjRTq2bnM",
+        "provider_id": "/g/1vgw8w2m",
+        "rating": 3.5,
+        "reviews": 253,
+        "type": "Mexican grocery store",
+        "types": [
+          "Mexican grocery store",
+          "ATM",
+          "Supermarket"
+        ],
+        "type_id": "mexican_grocery_store",
+        "type_ids": [
+          "mexican_grocery_store",
+          "atm",
+          "supermarket"
+        ],
+        "address": "901 Oakland Rd, San Jose, CA 95112",
+        "country": "United States",
+        "open_state": "Open · Closes 9:30 PM",
+        "hours": "Open · Closes 9:30 PM",
+        "operating_hours": {
+          "friday": "6:30 AM–9:30 PM",
+          "saturday": "6:30 AM–9:30 PM",
+          "sunday": "6:30 AM–9:30 PM",
+          "monday": "6:30 AM–9:30 PM",
+          "tuesday": "6:30 AM–9:30 PM",
+          "wednesday": "6:30 AM–9:30 PM",
+          "thursday": "6:30 AM–9:30 PM"
+        },
+        "phone": "(408) 297-1163",
+        "website": "http://www.laplazasupermarket.com/",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "offerings": [
+              "Food"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "On-site parking"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Delivery"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true,
+          "delivery": false
+        },
+        "user_review": "\"Great grocery prices, fresh produce and authentic food.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnUN5bHeUZIOIWqP5oMeiONqvyDyAPvriEn3j25A4ucqIoTAiJMuVucUUKQf7lJs8mD9ZojdLoRxBY5lTKD3IayZ8zVzXnDU37K0RF6dn5eY8DeDtM8kmNNfPCpuw-9NxmnP3c3=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/Zg9Qj3icHcRRboIwAADQE1WYtYomfrB1RkRqJVSFv61UwEELtlXhgp7B25jsfbzXszSm1QvHqUs4KpQqamG1uHIljZBmxFXjFK0GXAPt-OuYJkfJCPpdC5YFu-DYUaQiUe1Id-tx79PbtfqW8DJG_sTyLlCJX20ie7CcsXB_ntUb7TV4nqlLvlXx4zNFdRJiGPz0mTcchpPEDM5CN15Nc4lE6mGBTeT9NYSc6Vdr72BOHo2kkMPl_cN1XVD-z4F8A3phRJI"
+      },
+      {
+        "position": 6,
+        "title": "Chavez Supermarket",
+        "place_id": "ChIJo-JznwbNj4ARp2W8t6BRAdc",
+        "data_id": "0x808fcd069f73e2a3:0xd70151a0b7bc65a7",
+        "data_cid": "15492753943850411431",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcd069f73e2a3%3A0xd70151a0b7bc65a7&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcd069f73e2a3%3A0xd70151a0b7bc65a7&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3671553,
+          "longitude": -121.8495445
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJo-JznwbNj4ARp2W8t6BRAdc",
+        "provider_id": "/g/1tfzs4kb",
+        "rating": 4.1,
+        "reviews": 1241,
+        "type": "Mexican grocery store",
+        "types": [
+          "Mexican grocery store",
+          "Bakery",
+          "Check cashing service",
+          "Mexican restaurant",
+          "Money transfer service",
+          "Tortilla shop"
+        ],
+        "type_id": "mexican_grocery_store",
+        "type_ids": [
+          "mexican_grocery_store",
+          "bakery",
+          "check_cashing_service",
+          "mexican_restaurant",
+          "money_transfer_service",
+          "tortilla_shop"
+        ],
+        "address": "2327 McKee Rd, San Jose, CA 95116",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "7 AM–9 PM",
+          "saturday": "7 AM–9 PM",
+          "sunday": "7 AM–9 PM",
+          "monday": "7 AM–9 PM",
+          "tuesday": "7 AM–9 PM",
+          "wednesday": "7 AM–9 PM",
+          "thursday": "7 AM–9 PM"
+        },
+        "phone": "(408) 929-5208",
+        "website": "http://www.chavezsuper.com/",
+        "description": "Mexican grocery store & taqueria. Grocery outlet featuring a selection of traditional Mexican food products & an on-site taqueria.",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Identifies as Latino-owned"
+            ]
+          },
+          {
+            "service_options": [
+              "No-contact delivery",
+              "Delivery",
+              "In-store pickup",
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom",
+              "Wheelchair accessible seating"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Food",
+              "Organic products",
+              "Prepared foods"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true,
+          "in_store_pickup": true,
+          "delivery": true
+        },
+        "user_review": "\"Friendly staff and clean with well stocked shelves.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlgz_TizWIAKPouN7bhTj42X97o_vO6kysnDQ8JCGHKV4pomi3D7K8HLeKeN-XN41_oDVPFJdtoDMbcXJLQj9APD9DEtaYGDyv3NO1kUARNYL2rHSTfsW_5no9-oCUC-nBRe8pr=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/JKAvMXicHcTdEoFAGADQJ1r9UplxkRaprEqUq4a1irJf0y6GF_QM3saMc3G-n1rKTowVpa2NQQVQtewuWE-BS8blgMJNqTqBqEBCcf00zvK2epfZ5Z0v3TCGO7GOdXY19cKxoHysR81LcJzYgbfww53Zwe1iYCu0_YiFjKCCmFoJeBfPg5MEvDrSIoiSq-PG2MEzedgv8OthkLXWbN2U7CO99zfZWeTlkIODwNt6iE9TZnf95Kmpqorq_xTxHwOlQxo"
+      },
+      {
+        "position": 7,
+        "title": "Cardenas Markets",
+        "place_id": "ChIJQ_V7QZfMj4AR0O2nTXvdD1k",
+        "data_id": "0x808fcc97417bf543:0x590fdd7b4da7edd0",
+        "data_cid": "6417591515679813072",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcc97417bf543%3A0x590fdd7b4da7edd0&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcc97417bf543%3A0x590fdd7b4da7edd0&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.343381799999996,
+          "longitude": -121.8894354
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJQ_V7QZfMj4AR0O2nTXvdD1k",
+        "provider_id": "/g/1vl5h06l",
+        "rating": 4,
+        "reviews": 1408,
+        "type": "Supermarket",
+        "types": [
+          "Supermarket",
+          "Mexican grocery store"
+        ],
+        "type_id": "supermarket",
+        "type_ids": [
+          "supermarket",
+          "mexican_grocery_store"
+        ],
+        "address": "235 E Julian St, San Jose, CA 95112",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "7 AM–10 PM",
+          "saturday": "7 AM–10 PM",
+          "sunday": "7 AM–10 PM",
+          "monday": "7 AM–10 PM",
+          "tuesday": "7 AM–10 PM",
+          "wednesday": "7 AM–10 PM",
+          "thursday": "7 AM–10 PM"
+        },
+        "phone": "(408) 292-3177",
+        "website": "https://locations.cardenasmarkets.com/ll/us/ca/san-jose/235-e-julian-st",
+        "description": "Family-owned Mexican-focused supermarket. Mexican-focused market with general groceries plus a juice & fruit bar, tortillas & prepared meals.",
+        "extensions": [
+          {
+            "service_options": [
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Check cashing",
+              "Food",
+              "Organic products",
+              "Prepared foods"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Checks",
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "On-site parking"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Delivery"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true
+        },
+        "user_review": "\"The aisle is consistently clean, with well-organized and stocked shelves.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkXsUp54OotefRRXpk9ZtppWpOhBbw0JSAhaxBOVnPpQkKXHEALdAUdjBRvuA7s6L2jW_KDbeQwDJtnbiUY74tbrbRT7SugYEHI2dEXzy6w5PPiEVmGQUVkPa5tFOk12THIeqg8nRBE-gfx=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/KLZ_aHicHcTbTsIwGADgJyobkzE18aIL1XFI1pWd8MbQrbRQaCv955CX9Nq3MfG7-H5_FIDzz0FwVg8Taa08i8GLa2cNCAOTzl4C6TzqPPIBzhgtG936ysWz3II4MNY6_fQOzjUuVykfw9UWq_0tzWtDXaHXbUbwpsdVf0rZ14ATP99Ep-ZjveCiGBcrMPxY7ZIZ8CtnZbId5I5ky6gn7f17PsaUHkl9eSuqWtN9DK-5nkZlthSf8tGwlCB5uL2M0zAMkfq_Q-YPC_FH7Q"
+      },
+      {
+        "position": 8,
+        "title": "Kumar’s Island Market",
+        "place_id": "ChIJp6CaMOfMj4ARKTLo96QD7JU",
+        "data_id": "0x808fcce7309aa0a7:0x95ec03a4f7e83229",
+        "data_cid": "10803013613223686697",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcce7309aa0a7%3A0x95ec03a4f7e83229&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcce7309aa0a7%3A0x95ec03a4f7e83229&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3491207,
+          "longitude": -121.86267989999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJp6CaMOfMj4ARKTLo96QD7JU",
+        "provider_id": "/g/1pxwlkgs2",
+        "rating": 4.7,
+        "reviews": 72,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Market"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "market"
+        ],
+        "address": "1440 E Santa Clara St, San Jose, CA 95116",
+        "country": "United States",
+        "open_state": "Closes soon · 5 PM · Opens 10 AM Sat",
+        "hours": "Closes soon · 5 PM · Opens 10 AM Sat",
+        "operating_hours": {
+          "friday": "10 AM–5 PM",
+          "saturday": "10 AM–5 PM",
+          "sunday": "10 AM–3 PM",
+          "monday": "10 AM–5 PM",
+          "tuesday": "Closed",
+          "wednesday": "10 AM–5 PM",
+          "thursday": "10 AM–5 PM"
+        },
+        "phone": "(408) 287-0557",
+        "website": "http://botm.oceanikapress.com/resources-2/island-specialty-markets/",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Small business"
+            ]
+          },
+          {
+            "service_options": [
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "offerings": [
+              "Food"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Delivery"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true
+        },
+        "user_review": "\"He has competitive prices.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnoAAALE3T0sAMZp_K7pNP0qMRcC03IYwt9ftUHPEmnFhKYlqnOD_t-34QdqvX7k7QYsc3uo4d-_pa1J0CC4R3PV1jUcoFAIBRx9T4i5zpyQ7PeL3J-0e8Jv0CgJ8YhIaVAd70j=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/Ait_53icHcRJDoIwFADQE1U-KaZq4qKiRnAqBAfcEFMqVbEtto4X9AzexsS3eN-PdM7YnufVErcqrata3Ky4cq2cUK7F9cWrjEXcIuvRScqyjdKU0tkIZ2DpfGeKKTELBs085SHgKH-47sGtJmx0UWM5zetGLYeFQzhIyua-JWeS5Jbjmw5KVJi9H0MYBilma_-04npMo0H67GbBsf02r4QwMcMxAtGJ7xBWcSeX0X5NSwKn_sMHACT_c6R-sWpCJw"
+      },
+      {
+        "position": 9,
+        "title": "Nijiya Market San Jose Store",
+        "place_id": "ChIJR-A04YTMj4ARJ9PY7OYRWoQ",
+        "data_id": "0x808fcc84e134e047:0x845a11e6ecd8d327",
+        "data_cid": "9536954844424229671",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcc84e134e047%3A0x845a11e6ecd8d327&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcc84e134e047%3A0x845a11e6ecd8d327&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3491407,
+          "longitude": -121.89354159999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJR-A04YTMj4ARJ9PY7OYRWoQ",
+        "provider_id": "/g/1vhq3ytd",
+        "rating": 4.5,
+        "reviews": 1265,
+        "type": "Japanese grocery store",
+        "types": [
+          "Japanese grocery store",
+          "Supermarket"
+        ],
+        "type_id": "japanese_grocery_store",
+        "type_ids": [
+          "japanese_grocery_store",
+          "supermarket"
+        ],
+        "address": "240 Jackson St, San Jose, CA 95112",
+        "country": "United States",
+        "open_state": "Open · Closes 8 PM",
+        "hours": "Open · Closes 8 PM",
+        "operating_hours": {
+          "friday": "9 AM–8 PM",
+          "saturday": "9 AM–8 PM",
+          "sunday": "9 AM–8 PM",
+          "monday": "9 AM–8 PM",
+          "tuesday": "9 AM–8 PM",
+          "wednesday": "9 AM–8 PM",
+          "thursday": "9 AM–8 PM"
+        },
+        "phone": "(408) 275-6916",
+        "website": "http://www.nijiya.com/",
+        "description": "Japanese market with produce & dry goods. Japanese supermarket with vegetables, meat, fish & sushi, plus dry goods & a bakery.",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Food",
+              "Prepared foods"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking",
+              "Paid parking lot",
+              "Paid street parking"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Delivery"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true,
+          "delivery": false
+        },
+        "user_review": "\"Clean, decent selection of groceries and produce, friendly staff\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm2vckuK_77faRnaDLjjbujpr5IKi-4hFHAgsxKIlPi1pNEKA9iJZgDOa5EZZ3QHRLHK8uZVppVk8p_Kmu60m0h9Eq4t2imLdDyFk3g3VgPqdyeGK2yGdfNZuAuNrWvqgs1Q6x8=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/xAQeRnicHcTbCoIwAADQL1pO7WJBD4KaNTGTMNhL2NTNy3S6rfIL-4b-Jug8nO-HKSXkzjA6Zi_oMNCu1LKcyNCrslcLMnCDCgmIBNJwwzS53rj1JK1G982mytM-96KmeehGTKsjqsGSBaFL5Rsdu6Q2Rewjd1ufMPXO-crH2L6EaRQiR-NMiKx1xB1xvYYcsq0_LpVV86jw5qC1qZ3RZCzm8oCs-VBUMdaujqfbc6TSvKzfzv5lQggB-09A_wNqvUTk"
+      },
+      {
+        "position": 10,
+        "title": "Chaparral Supermarket",
+        "place_id": "ChIJ38fRNOjMj4ARLmO7SOmHFfA",
+        "data_id": "0x808fcce834d1c7df:0xf01587e948bb632e",
+        "data_cid": "17299882979630998318",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcce834d1c7df%3A0xf01587e948bb632e&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcce834d1c7df%3A0xf01587e948bb632e&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3459443,
+          "longitude": -121.87050579999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJ38fRNOjMj4ARLmO7SOmHFfA",
+        "provider_id": "/g/1td6mx6r",
+        "rating": 4.3,
+        "reviews": 1704,
+        "type": "Mexican grocery store",
+        "types": [
+          "Mexican grocery store",
+          "Grocery store",
+          "Latin American restaurant",
+          "Supermarket"
+        ],
+        "type_id": "mexican_grocery_store",
+        "type_ids": [
+          "mexican_grocery_store",
+          "grocery_store",
+          "latin_american_restaurant",
+          "supermarket"
+        ],
+        "address": "1001 E Santa Clara St, San Jose, CA 95116",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "8 AM–9 PM",
+          "saturday": "8 AM–9 PM",
+          "sunday": "8 AM–9 PM",
+          "monday": "8 AM–9 PM",
+          "tuesday": "8 AM–9 PM",
+          "wednesday": "8 AM–9 PM",
+          "thursday": "8 AM–9 PM"
+        },
+        "phone": "(408) 998-8028",
+        "website": "http://www.chaparralsupermarket.com/",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Small business"
+            ]
+          },
+          {
+            "service_options": [
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Food"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true
+        },
+        "user_review": "\"Very friendly staff, great selection of products, and really good prices.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWklghDtDmFwOS_TqHyx3QQBz4-X4id-ERO9OERFPn0GHkpmR30v-0s0nRgK70xWePh2erVQ3r7nFgw6nzk_ObZ2t-6t-Oy1ay8OSPvhWCa-plzBa5IDabzDURdRSEHEKyeqbT-nEw=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/_EtRdXicHcRLDoIwFADAEz0o4j9xoVLEsCgUFOPGADatAcqnVYQbegRvY-Is5vsRWjdqbZqlsA1e17xkT8W6vJaaSW3kdWXyRkGuQJlbjwZxUpRcONqp3J5Et7j1hrcdhrtxCpfp4w6YkhXB1A0kOnhFU1EbvQApJCn3F-idsEBMWHcO7W4hXd7P5VjcSHadaJhrIIOVDksSBS-R7FNoynGXzo5Omo3Oid5phD3sD6zNYpC43_QWQgjE_xzkD7F1RMQ"
+      },
+      {
+        "position": 11,
+        "title": "The Guru Market #6",
+        "place_id": "ChIJKYPLmILMj4AR1SOGnfX5Wfk",
+        "data_id": "0x808fcc8298cb8329:0xf959f9f59d8623d5",
+        "data_cid": "17967667021676422101",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcc8298cb8329%3A0xf959f9f59d8623d5&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcc8298cb8329%3A0xf959f9f59d8623d5&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3466914,
+          "longitude": -121.90129139999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJKYPLmILMj4AR1SOGnfX5Wfk",
+        "provider_id": "/g/12613xs45",
+        "rating": 3.8,
+        "reviews": 39,
+        "unclaimed_listing": true,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Supermarket"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "supermarket"
+        ],
+        "address": "148 George St, San Jose, CA 95110",
+        "country": "United States",
+        "open_state": "Open · Closes 11 PM",
+        "hours": "Open · Closes 11 PM",
+        "operating_hours": {
+          "friday": "8:30 AM–11 PM",
+          "saturday": "8:30 AM–11 PM",
+          "sunday": "8:30 AM–11 PM",
+          "monday": "8:30 AM–11 PM",
+          "tuesday": "8:30 AM–11 PM",
+          "wednesday": "8:30 AM–11 PM",
+          "thursday": "8:30 AM–11 PM"
+        },
+        "phone": "(408) 295-3344",
+        "extensions": [
+          {
+            "service_options": [
+              "Delivery",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          }
+        ],
+        "service_options": {
+          "delivery": true
+        },
+        "user_review": "\"A corner market with the usual milk beer lotto tickets , and\ngroceries\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWla6XQ3D5qQf3GPjT-qv6PGxxShncV0_n9bJlm1g9ad0QdVqOQIls4nuF9hzB_Wr9rl-0fJ3-0RrJI3IkhqmrQF30UG655esG-pQaDPwYqONPZD66BY3DU50cxEVn5vWRvHIK42lg=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/kDHa-nicHcRRboIwGADgE1V-LW2CiQ8aJsKS2aLC3IthFdtspdAWkXhDj-BtTPwevudD9X3n50GgFZ7ItpW6vvraidb0teknom0C2XkkPPLBcpOzfakr-s1xTCy_4IT97ZEdKEvGcaeMKOBkot9MN1MZVWfg58Jueap9aK7rSN1Xp9JFTiO4ZBhB7rIUp__KNo6vMRwSSkjtE9TxKma3o91-sZ-Y0tURxwcCYvwoDBnKfNikn-FMy8VtCgBIvRfIvAB2DkNp"
+      },
+      {
+        "position": 12,
+        "title": "Rose Market Convenience, Grocery & Liquor",
+        "place_id": "ChIJY_XivefMj4AR-7S0-vO8o6o",
+        "data_id": "0x808fcce7bde2f563:0xaaa3bcf3fab4b4fb",
+        "data_cid": "12295879163720807675",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcce7bde2f563%3A0xaaa3bcf3fab4b4fb&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcce7bde2f563%3A0xaaa3bcf3fab4b4fb&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.347706099999996,
+          "longitude": -121.86593189999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJY_XivefMj4AR-7S0-vO8o6o",
+        "provider_id": "/g/1v5k37p2",
+        "rating": 4.5,
+        "reviews": 63,
+        "type": "Liquor store",
+        "types": [
+          "Liquor store"
+        ],
+        "type_id": "liquor_store",
+        "type_ids": [
+          "liquor_store"
+        ],
+        "address": "1250 E Santa Clara St, San Jose, CA 95116",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "10 AM–10 PM",
+          "saturday": "10 AM–10 PM",
+          "sunday": "10 AM–10 PM",
+          "monday": "10 AM–10 PM",
+          "tuesday": "10 AM–10 PM",
+          "wednesday": "10 AM–10 PM",
+          "thursday": "10 AM–10 PM"
+        },
+        "phone": "(408) 998-7124",
+        "website": "https://www.shoprosemarket.com/",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Identifies as women-owned",
+              "Small business"
+            ]
+          },
+          {
+            "service_options": [
+              "Delivery",
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly",
+              "Transgender safespace"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true,
+          "delivery": true
+        },
+        "user_review": "\"Wide variety of products and great customer service!!\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmZ8-zLc2apiKPBZigQXxMeEzkZXaYjdrplKlkScy9QgCCQdpwp2Qb0zdDRGEAQf33ZWAnWAp_g0UcdrAF0bu87ldOhJC2KZ5oHNDwpqiJUbw7X9TRUSKVs3Mmqr2duga4KS5s=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/I8lF3nicHcRdboIwAADgE1UqaNQle-jAaaxulp-BfVmgxYIUWimkkwN6h91myb6H7_dZDYM2L44jK28mlBKyHE3ZM9UNZTfMmGodoQ1gBhgH7cNznLZ0DaYjc3Nd4_MbrQXJfk7ldmpoll9uvNcSyyZijw0Rvk-4ttolBZx4EO62iFw9j6aoS5H-FjBhvEfvsBjXK8k_q4PvYrpU-4_A6nt9SAq7yjZxmET4y3in9t67fBT5AkdL82rnEEJQ_c9A9wdj-UTB"
+      },
+      {
+        "position": 13,
+        "title": "Sprouts Farmers Market",
+        "place_id": "ChIJQ6bLcgnMj4ARa7zg2-a3x8k",
+        "data_id": "0x808fcc0972cba643:0xc9c7b7e6dbe0bc6b",
+        "data_cid": "14539792124148235371",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcc0972cba643%3A0xc9c7b7e6dbe0bc6b&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcc0972cba643%3A0xc9c7b7e6dbe0bc6b&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3812612,
+          "longitude": -121.8981646
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJQ6bLcgnMj4ARa7zg2-a3x8k",
+        "provider_id": "/g/11c1njsyyr",
+        "rating": 4.4,
+        "reviews": 1318,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Fresh food market",
+          "Fruit and vegetable store",
+          "Grocery delivery service",
+          "Health food store",
+          "Organic food store",
+          "Produce market",
+          "Supermarket",
+          "Vitamin & supplements store"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "fresh_food_market",
+          "fruit_and_vegetable_store",
+          "grocery_delivery_service",
+          "health_food_store",
+          "organic_food_store",
+          "produce_market",
+          "supermarket",
+          "vitamin_and_supplements_store"
+        ],
+        "address": "1028 E Brokaw Rd, San Jose, CA 95131",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "7 AM–10 PM",
+          "saturday": "7 AM–10 PM",
+          "sunday": "7 AM–10 PM",
+          "monday": "7 AM–10 PM",
+          "tuesday": "7 AM–10 PM",
+          "wednesday": "7 AM–10 PM",
+          "thursday": "7 AM–10 PM"
+        },
+        "phone": "(408) 490-3041",
+        "website": "https://sprouts.com/store/ca/san-jose/san-jose-brokaw-rd",
+        "description": "Natural & organic grocery store. Specialty chain offering a range of natural & organic grocery items, including own-brand goods.",
+        "extensions": [
+          {
+            "service_options": [
+              "Curbside pickup",
+              "No-contact delivery",
+              "Delivery",
+              "In-store pickup",
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Flowers",
+              "Food",
+              "Organic products",
+              "Prepared foods"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "recycling": [
+              "Plastic bags"
+            ]
+          },
+          {
+            "payments": [
+              "Checks",
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "On-site parking",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true,
+          "curbside_pickup": true,
+          "delivery": true
+        },
+        "user_review": "\"They always have fresh products, dairy, meats and delicious fruits.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkjvGlEERgI1qVTF8I5L8lWjvCL0WgAr3YDbw-d1P9_QfW9CHrTvSH-v_5-sNfgiOReGId5QN2QFlJNAMa6Zac_GVZ4-eykx53vLXGNueA9hYKabINf9CjMqIGw62HnNgnL7RGV=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/EHnbmnicHcTvEoEwAADwJ5r-CbnzoQtr1Chd4UuXWUtm0bJ4Qs_gbdz5ffh9P1XX3eVU03hlDVjTME6fkrakER0V3YA0N43dJSASSM31422SXWsF-WIRM2Q80mQ5QXYw4VmtvEDPmNtah_mpB2dj6-RRmTme3yZq5wOV20Dikl02MYXobEfYjJZ8hd2wGB0LksP0OAT0fX3Zlgr2ED-p61SHdXFCuHS8Onwg2I9MX2AmgnEM01lv6LoOqv8EiB_DgELH"
+      },
+      {
+        "position": 14,
+        "title": "Lucky 7 Súpermarket King",
+        "place_id": "ChIJvzDOaSTNj4ARMSur7qte6Yk",
+        "data_id": "0x808fcd2469ce30bf:0x89e95eabeeab2b31",
+        "data_cid": "9937578145306323761",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcd2469ce30bf%3A0x89e95eabeeab2b31&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcd2469ce30bf%3A0x89e95eabeeab2b31&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.345684899999995,
+          "longitude": -121.84824289999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJvzDOaSTNj4ARMSur7qte6Yk",
+        "provider_id": "/g/126433bct",
+        "rating": 3.8,
+        "reviews": 307,
+        "type": "Supermarket",
+        "types": [
+          "Supermarket"
+        ],
+        "type_id": "supermarket",
+        "type_ids": [
+          "supermarket"
+        ],
+        "address": "398 S King Rd, San Jose, CA 95116",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "7 AM–9 PM",
+          "saturday": "7 AM–9 PM",
+          "sunday": "7 AM–9 PM",
+          "monday": "7 AM–9 PM",
+          "tuesday": "7 AM–9 PM",
+          "wednesday": "7 AM–9 PM",
+          "thursday": "7 AM–9 PM"
+        },
+        "phone": "(408) 254-4500",
+        "website": "http://www.lucky7super.com/",
+        "extensions": [
+          {
+            "service_options": [
+              "Delivery",
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Check cashing",
+              "Flowers",
+              "Food",
+              "Prepared foods"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "On-site parking"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true,
+          "delivery": true
+        },
+        "user_review": "\"Small grocery store, but offers a huge variety of products.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkPGL4HjTPuCCziIS_yLvs4pG9L2pGDzdQErniU86zu2DE2ut6BvYpq3g_tRvl-b0RbCqokhS8BhNNmDO8Cp_nKFcEEsdtnd2COqv1Cf2UR9DEx8E8SNnYdA0vcEKjHV-6G0_Q=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/Fh-G53icHcRdDoIgAADgE6FEzVFbD4WkLWem_cwnt9DEMsBAKg_YHbpNW9_D9_1wY5SeuW7Lx04tZd1Wva4eTApTCeMweXdrpQHTQLuLME32p1sSRJPwuk96QoZmnRXvyOqJCqYRUoE_lDv6EM0Be0OPfIp64y1trrpxXZjUtuAM0zPp5I1neMnj-O5vMVGF2KwYpbo0okRk29kRuaBDOvXpC1OcxSIvF9AyurmGR-AFsNjNnyMIIeD_GRA_D0JDdw"
+      },
+      {
+        "position": 15,
+        "title": "Target Grocery",
+        "place_id": "ChIJ_1q2DrTNj4ARjpUKN9RAFk0",
+        "data_id": "0x808fcdb40eb65aff:0x4d1640d4370a958e",
+        "data_cid": "5554698470608770446",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcdb40eb65aff%3A0x4d1640d4370a958e&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcdb40eb65aff%3A0x4d1640d4370a958e&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.374415,
+          "longitude": -121.8443408
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJ_1q2DrTNj4ARjpUKN9RAFk0",
+        "provider_id": "/g/11smpg_zzy",
+        "rating": 4,
+        "reviews": 2,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Supermarket"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "supermarket"
+        ],
+        "address": "450 N Capitol Ave, San Jose, CA 95133",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "8 AM–10 PM",
+          "saturday": "8 AM–10 PM",
+          "sunday": "8 AM–10 PM",
+          "monday": "8 AM–10 PM",
+          "tuesday": "8 AM–10 PM",
+          "wednesday": "8 AM–10 PM",
+          "thursday": "8 AM–10 PM"
+        },
+        "phone": "(408) 254-8931",
+        "website": "https://www.target.com/sl/san-jose-capitol/1426/grocery?utm_source=OGS&utm_medium=groceryList&utm_id=1426",
+        "extensions": [
+          {
+            "service_options": [
+              "No-contact delivery",
+              "Delivery",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          }
+        ],
+        "service_options": {
+          "delivery": true
+        },
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkcaExPX4gkwgq-S26el4LBC8oZAOiWRpbFRM_IulP0tu_Ohl68PQlHa2RbGhUSJyzsvbDtQpoVNqTt24oJG7_dO2afzNy1uvFKmWMMWSGGlW5d_xcWrD3oJfbDdJ1Ib_AYKc3h=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/nDMrHXicHcTbEoFAAADQL9ruYsx4iBSRUli87LRbdo3Vxm4u_aBv8DdmnIfz_TClGjnUdc5sjQpBedXK6k5ErapaaURcddpIQCSQujfL0g28kGL6SvcOvTzpDeSWW3FnOZ4MxNFLzjBrcJDFaN7y1FAtShh3B-mazworwyHb5tG7kw_sq3UjdqvbRlmOiMI-KhOrOHWrt9k-gsUVxjHMw5DDXoleBN59W0Qn7JeROcfIOyyIzUZP0zAMwP4TUP8AjnpFEg"
+      },
+      {
+        "position": 16,
+        "title": "Taylor Street Market",
+        "place_id": "ChIJVSfO2YXMj4ARD6rBNyH1BjI",
+        "data_id": "0x808fcc85d9ce2755:0x3206f52137c1aa0f",
+        "data_cid": "3604838074774825487",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcc85d9ce2755%3A0x3206f52137c1aa0f&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcc85d9ce2755%3A0x3206f52137c1aa0f&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.352600599999995,
+          "longitude": -121.8923607
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJVSfO2YXMj4ARD6rBNyH1BjI",
+        "provider_id": "/g/1tls321b",
+        "rating": 3.5,
+        "reviews": 42,
+        "unclaimed_listing": true,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Convenience store",
+          "Liquor store",
+          "Supermarket"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "convenience_store",
+          "liquor_store",
+          "supermarket"
+        ],
+        "address": "360 E Taylor St, San Jose, CA 95112",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "10 AM–9 PM",
+          "saturday": "10 AM–9 PM",
+          "sunday": "10 AM–9 PM",
+          "monday": "10 AM–9 PM",
+          "tuesday": "10 AM–9 PM",
+          "wednesday": "10 AM–9 PM",
+          "thursday": "10 AM–9 PM"
+        },
+        "phone": "(408) 271-9091",
+        "website": "http://taylor-street-market.keeq.io/",
+        "description": "Convenience store with beer & snacks. Small store carrying a modest selection of groceries, beer, packaged ice cream & cigarettes.",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Delivery"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true,
+          "delivery": false
+        },
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkkq7hnhRThCMVKnPgn6o98jIzGDyPKI2mtwLl38YOXJNnM3xJ_1MDuIiVhoQ0Rn5D8jTbBML02v-IYb8otfV75ATNAzmSOsBzft5k67YkAzEQ4vtsgdCy84xwZoXYUJUQxxWRykN-uTg5j=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/6Mm9xnicHcRfE4EwAADwTzSNpHHnIXIUpTKRF3eSTasNW_rzJT37Nu78Hn7fD1XqISeaVlC9R4QgRVbJ7JUKrjKueqkoNfKQIJVAatYqCvCBsadJOY0wnXvxmgeEj8QY5U63tNtg7QxKVW8KHSXbo-tzT2_cc9-zK-ceUxHCiBs2yvFl5m3g4A2c5IKEusWmYWHf6srdVs66mzLYyEyY1S3C4VtJcp23aNjUJ3FM9u4-bJpD1DIfVJgY-bTuQwgB_Z8C_gOYBUeR"
+      },
+      {
+        "position": 17,
+        "title": "Cardenas Markets",
+        "place_id": "ChIJwwmVaQjNj4ARGEL2hFWB8Hg",
+        "data_id": "0x808fcd08699509c3:0x78f0815584f64218",
+        "data_cid": "8714607483264844312",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcd08699509c3%3A0x78f0815584f64218&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcd08699509c3%3A0x78f0815584f64218&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3714234,
+          "longitude": -121.8424787
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJwwmVaQjNj4ARGEL2hFWB8Hg",
+        "provider_id": "/g/1tjg_l_2",
+        "rating": 4.2,
+        "reviews": 1154,
+        "type": "Supermarket",
+        "types": [
+          "Supermarket",
+          "Mexican grocery store"
+        ],
+        "type_id": "supermarket",
+        "type_ids": [
+          "supermarket",
+          "mexican_grocery_store"
+        ],
+        "address": "320 N Capitol Ave, San Jose, CA 95133",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "7 AM–10 PM",
+          "saturday": "7 AM–10 PM",
+          "sunday": "7 AM–10 PM",
+          "monday": "7 AM–10 PM",
+          "tuesday": "7 AM–10 PM",
+          "wednesday": "7 AM–10 PM",
+          "thursday": "7 AM–10 PM"
+        },
+        "phone": "(408) 240-0590",
+        "website": "https://locations.cardenasmarkets.com/ll/us/ca/san-jose/320-n-capitol-ave",
+        "description": "Family-owned Mexican-focused supermarket. Mexican-focused market with general groceries plus a juice & fruit bar, tortillas & prepared meals.",
+        "extensions": [
+          {
+            "service_options": [
+              "No-contact delivery",
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Check cashing",
+              "Food",
+              "Organic products",
+              "Prepared foods"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Checks",
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "On-site parking",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Delivery"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true
+        },
+        "user_review": "\"Shelves always stocked, fresh produce galore, attentive staff.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmPK5NpYjecWJGC7lqgxGdSjc46_jrsy1vgoAGx_5BP0XpkB8le26CXJtMxeJoT5VASJDcPKbSo_56FE2oCrguMKom3EuvWpoZugg7cIB907hR2nTyt8QvMVa2EjMpiG56LJUw=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/synO9nicHcTR0oFAGADQJ0ortjDjopLYZKIINw1rZ5PqW-2WvOD_Dv_bmHEuzv9frpSQM10v89GAA_CStZI1FGrFajWgUOlcSI1KTer2ah8laRUFeCvOBaMp8V2rfPHev8cFHZtZ0cjPsONg-32GnQidxNOZlMww3RNRYc8IJPhox2RBo-AWQ4bNpWeA2_A2DKAaeW2XCri0nFt07UyRle-NOvmoya4Lj1fDK0Lx8LG5IYf3_D1ECGn5b6rVXyUzRCI"
+      },
+      {
+        "position": 18,
+        "title": "Phnom Penh Market",
+        "place_id": "ChIJezxdppbNj4AR4P90C-vx6ac",
+        "data_id": "0x808fcd96a65d3c7b:0xa7e9f1eb0b74ffe0",
+        "data_cid": "12099467865719373792",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcd96a65d3c7b%3A0xa7e9f1eb0b74ffe0&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcd96a65d3c7b%3A0xa7e9f1eb0b74ffe0&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3677888,
+          "longitude": -121.8480963
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJezxdppbNj4AR4P90C-vx6ac",
+        "provider_id": "/g/11h9h1r3y1",
+        "rating": 3.8,
+        "reviews": 4,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store"
+        ],
+        "address": "2365 McKee Rd, San Jose, CA 95116",
+        "country": "United States",
+        "open_state": "Closes soon · 5 PM · Opens 9 AM Sat",
+        "hours": "Closes soon · 5 PM · Opens 9 AM Sat",
+        "operating_hours": {
+          "friday": "9 AM–5 PM",
+          "saturday": "9 AM–5 PM",
+          "sunday": "9 AM–5 PM",
+          "monday": "9 AM–5 PM",
+          "tuesday": "9 AM–5 PM",
+          "wednesday": "Closed",
+          "thursday": "9 AM–5 PM"
+        },
+        "phone": "(408) 655-1091",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Small business"
+            ]
+          },
+          {
+            "service_options": [
+              "In-store shopping"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Delivery"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true
+        },
+        "user_review": "\"My go-to spot for any fruits and vegetables I need for the week.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWliF4tFd0VMrKjeTCMLwVCClqBohaaoLPFiE_xM50dMYlzlGZysTk7ztuuwxcOY6P7XMcjfgRq3Xf7lsXQxhAzHHK-ZtpigmjUPDDYbYdX9xtdcKbicGramM9bpmCEoJlD0Hk4P6A=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/OkvKdHicHcRRDoIgAADQE5E0K1dbH6aZS1nUrLSfpmigoZjgJG_YEbpNW-_jfT9MqVauDIMzc0KFoLzoZdER0aiiURMiaoO2EhAJpGH7JxxdeenNlJfDC-qCqogcFA4Xx-GvjWBpKkLsldu7RnOYo4SPfHd7y-hpjarvB00OyQJbMSLVg55eZvywuIyPmtmj7wfgptqS1tUZu26SJXm81ConQVaSXZfWaJm1tbMVe-5C_znDC3s9TCGEgP0noPkBl-BHEg"
+      },
+      {
+        "position": 19,
+        "title": "La Plaza Market",
+        "place_id": "ChIJ2fxf3gfNj4ARFfC80Ca06QI",
+        "data_id": "0x808fcd07de5ffcd9:0x2e9b426d0bcf015",
+        "data_cid": "209896936453238805",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcd07de5ffcd9%3A0x2e9b426d0bcf015&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcd07de5ffcd9%3A0x2e9b426d0bcf015&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3753446,
+          "longitude": -121.8372235
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJ2fxf3gfNj4ARFfC80Ca06QI",
+        "provider_id": "/g/11tf9k9lc5",
+        "rating": 4,
+        "reviews": 121,
+        "type": "Supermarket",
+        "types": [
+          "Supermarket"
+        ],
+        "type_id": "supermarket",
+        "type_ids": [
+          "supermarket"
+        ],
+        "address": "3065 McKee Rd, San Jose, CA 95127",
+        "country": "United States",
+        "open_state": "Open · Closes 9:30 PM",
+        "hours": "Open · Closes 9:30 PM",
+        "operating_hours": {
+          "friday": "7 AM–9:30 PM",
+          "saturday": "7 AM–9:30 PM",
+          "sunday": "7 AM–9:30 PM",
+          "monday": "7 AM–9:30 PM",
+          "tuesday": "7 AM–9:30 PM",
+          "wednesday": "7 AM–9:30 PM",
+          "thursday": "7 AM–9:30 PM"
+        },
+        "phone": "(408) 333-9708",
+        "website": "http://laplazasupermarket.com/",
+        "extensions": [
+          {
+            "service_options": [
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "offerings": [
+              "Check cashing",
+              "Food",
+              "Prepared foods"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "On-site parking"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true
+        },
+        "user_review": "\"Love the vegetables section always clean nd prices are decent.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkHHY4LnXcjWoEaRbJoFbXiaTkGTn3Ts4b6y0P4n-5Dmw4kAufllfe6uE7bjegDgpZbcCPuJ9n84-77BZlgClOKuf0nBs1WMM8u71u-I5110jkWx6MmwQE-r-XM4-7sQACWHro2=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/eKA_aHicHcpBjoIwFADQE31ptYJj4gIRRR0yaEiK7mxTilBaQmlwTugZvI3GzVu917Mahs4uPU9Vs4k0RirhrOi50YPQw4Sb1pOdBW7BemFyznLaJMmF_OqC19TEtzM7mC0r7re82eV6llvC_H-UEQ3zTTuSJnSlUqXwXRywWsiN7K6MR5k7_OgFgSBYX5WM1N_RlUivLaZpunABdrCfY4zqhj78tB1PMfRQpJ9vT2FEk95MVyNGCEH1lYN-AxrsQuM"
+      },
+      {
+        "position": 20,
+        "title": "Twenty Four Market",
+        "place_id": "ChIJu0QmBTfNj4ARXmXj__KJASg",
+        "data_id": "0x808fcd37052644bb:0x280189f2ffe3655e",
+        "data_cid": "2882736913262011742",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcd37052644bb%3A0x280189f2ffe3655e&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcd37052644bb%3A0x280189f2ffe3655e&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.343494899999996,
+          "longitude": -121.8370547
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJu0QmBTfNj4ARXmXj__KJASg",
+        "provider_id": "/g/1tfd76gz",
+        "rating": 4.4,
+        "reviews": 9,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Bakery",
+          "Convenience store",
+          "Mexican grocery store"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "bakery",
+          "convenience_store",
+          "mexican_grocery_store"
+        ],
+        "address": "2010 Story Rd #20, San Jose, CA 95122",
+        "country": "United States",
+        "open_state": "Open · Closes 12 AM",
+        "hours": "Open · Closes 12 AM",
+        "operating_hours": {
+          "friday": "6 AM–12 AM",
+          "saturday": "6 AM–12 AM",
+          "sunday": "6 AM–11 PM",
+          "monday": "6 AM–11 PM",
+          "tuesday": "6 AM–11 PM",
+          "wednesday": "6 AM–11 PM",
+          "thursday": "6 AM–11 PM"
+        },
+        "phone": "(408) 649-6339",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Small business"
+            ]
+          },
+          {
+            "service_options": [
+              "Delivery",
+              "In-store pickup",
+              "In-store shopping"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Food",
+              "Prepared foods"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "recycling": [
+              "Batteries",
+              "Electronics",
+              "Glass bottles",
+              "Metal cans",
+              "Plastic bags",
+              "Plastic bottles"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking garage",
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true,
+          "in_store_pickup": true,
+          "delivery": true
+        },
+        "user_review": "\"The cashier was super friendly.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl6dIez53GDXNsWj7FJ5O1nuBzCJhGTo2MIjW-8-Bae-kv5UJDyNhIwD69SIesLJqPxj2z2MhhKMzWcf8v5fKlsNoMbZFH7mfbN8PxwTDo7h0SUCqqR8VHo9RmoNcuq8pucuOYZ=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/tRKXQnicHcTdEoFAGADQJ9pKJi0zLqihH21NItyxtnZSfWXbohf0DN7GjHNxvh_edY1YqGrJp0oOkJdMCvakUHes7hQKlZo3AlGBhLpy4ihJy9ndZaMx3donItLC3HhGOKnlerQ8vk1AD9wiRRitrww9euPg2W_C3cGezfcuEzuvjV6FPuoB534wpjTDvZH5pSAQ3C4bx6yyG8HRa0hsMLm2P1htG-OjA_O4AkJlixtJZXi-LIeJpmmI_6eo_gH53URd"
+      }
+    ],
+    "serpapi_pagination": {
+      "next": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&ll=%4037.360874%2C-121.87871%2C15z&q=grocery&start=20&type=search"
+    }
+  }
+}

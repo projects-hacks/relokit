@@ -1,5 +1,5 @@
 {
-  "registry_version": "2026-08-28.5",
+  "registry_version": "2026-08-28.6",
   "capabilities": [
     {
       "capability_id": "candidates.zillow.region",
@@ -141,10 +141,10 @@
       "granularity": "cluster",
       "cost_units": 1,
       "latency_p50_ms": 2400,
-      "selectivity_prior": 0.35,
-      "observation_n": 0,
+      "selectivity_prior": 0.44,
+      "observation_n": 20,
       "ttl_seconds": 604800,
-      "coverage": 0.98,
+      "coverage": 0.8,
       "precedence": 2,
       "enabled": true,
       "max_fanout": 16,
@@ -154,8 +154,9 @@
         "end_coords": "$constraint.self.destination_point",
         "travel_mode": "$constraint.self.travel_mode_code"
       },
-      "notes": "travel_mode is an integer on this engine: 0 driving, 1 cycling, 2 walking, 3 transit. directions[] returns route alternatives and the first is not always the fastest, so the verdict takes the minimum duration across them. duration is already in seconds and distance in meters. Prunes with slack only: a listing can be nearer the destination than its own centroid.",
-      "produces": []
+      "notes": "travel_mode is an integer on this engine: 0 driving, 1 cycling, 2 walking, 3 transit. directions[] returns route alternatives and the first is not always the fastest, so the verdict takes the minimum duration across them. duration is already in seconds and distance in meters. Prunes with slack only: a listing can be nearer the destination than its own centroid. Measured 28 Aug 2026 over 20 answers: coverage 0.80 and selectivity 0.44, once cells are fitted to the listings rather than laid over the box.",
+      "produces": [],
+      "selectivity_observed": 0.44
     },
     {
       "capability_id": "commute.directions.entity",
@@ -165,10 +166,10 @@
       "granularity": "entity",
       "cost_units": 1,
       "latency_p50_ms": 2400,
-      "selectivity_prior": 0.8,
-      "observation_n": 0,
+      "selectivity_prior": 0.7,
+      "observation_n": 10,
       "ttl_seconds": 604800,
-      "coverage": 0.98,
+      "coverage": 1.0,
       "precedence": 1,
       "enabled": true,
       "max_fanout": 24,
@@ -179,7 +180,8 @@
         "travel_mode": "$constraint.self.travel_mode_code"
       },
       "notes": "travel_mode is an integer on this engine: 0 driving, 1 cycling, 2 walking, 3 transit. directions[] returns route alternatives and the first is not always the fastest, so the verdict takes the minimum duration across them. duration is already in seconds and distance in meters.",
-      "produces": []
+      "produces": [],
+      "selectivity_observed": 0.7
     },
     {
       "capability_id": "nearby_poi.maps.cluster",
@@ -189,10 +191,10 @@
       "granularity": "cluster",
       "cost_units": 1,
       "latency_p50_ms": 1600,
-      "selectivity_prior": 0.55,
-      "observation_n": 0,
+      "selectivity_prior": 0.94,
+      "observation_n": 40,
       "ttl_seconds": 2592000,
-      "coverage": 0.95,
+      "coverage": 0.45,
       "precedence": 2,
       "enabled": true,
       "max_fanout": 16,
@@ -202,8 +204,9 @@
         "q": "$constraint.self.query",
         "ll": "@$cluster.lat,$cluster.lng,14z"
       },
-      "notes": "google_local ignores ll and answers for the wrong city. google_maps with type=search honours it and carries operating_hours per weekday, which is what makes an opening time answerable rather than a guess.",
-      "produces": []
+      "notes": "google_local ignores ll and answers for the wrong city. google_maps with type=search honours it and carries operating_hours per weekday, which is what makes an opening time answerable rather than a guess. Measured 28 Aug 2026 over 40 answers: coverage 0.45 and selectivity 0.94. Slack leaves more than half its answers undecided and it rules almost nothing out, so its elimination power is close to zero and the planner is right to leave it out unless the candidate set is very large.",
+      "produces": [],
+      "selectivity_observed": 0.94
     },
     {
       "capability_id": "nearby_poi.maps.entity",
@@ -213,10 +216,10 @@
       "granularity": "entity",
       "cost_units": 1,
       "latency_p50_ms": 1600,
-      "selectivity_prior": 0.9,
-      "observation_n": 0,
+      "selectivity_prior": 0.8,
+      "observation_n": 20,
       "ttl_seconds": 2592000,
-      "coverage": 0.95,
+      "coverage": 1.0,
       "precedence": 1,
       "enabled": true,
       "max_fanout": 24,
@@ -227,7 +230,8 @@
         "ll": "@$entity.lat,$entity.lng,15z"
       },
       "notes": "google_local ignores ll and answers for the wrong city. google_maps with type=search honours it and carries operating_hours per weekday, which is what makes an opening time answerable rather than a guess.",
-      "produces": []
+      "produces": [],
+      "selectivity_observed": 0.8
     },
     {
       "capability_id": "nearby_poi.yelp.cluster",

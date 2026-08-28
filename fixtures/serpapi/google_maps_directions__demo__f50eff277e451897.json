@@ -1,0 +1,625 @@
+{
+  "key": "google_maps_directions__demo__f50eff277e451897",
+  "engine": "google_maps_directions",
+  "params": {
+    "engine": "google_maps_directions",
+    "start_coords": "37.380668,-122.02369",
+    "end_coords": "37.3726799,-121.9678625",
+    "travel_mode": "1"
+  },
+  "recorded_at_ms": 1787961308452,
+  "status": 200,
+  "body": {
+    "search_metadata": {
+      "id": "6a921fdb3d87018d8897999f",
+      "status": "Success",
+      "json_endpoint": "https://serpapi.com/searches/zytMQ1LA_RYS0-7xEOF0znEXLFkRnSduOGfwnFRb_IU/6a921fdb3d87018d8897999f.json",
+      "markdown_endpoint": "https://serpapi.com/searches/zytMQ1LA_RYS0-7xEOF0znEXLFkRnSduOGfwnFRb_IU/6a921fdb3d87018d8897999f.md",
+      "created_at": "2026-08-28 23:55:07 UTC",
+      "processed_at": "2026-08-28 23:55:07 UTC",
+      "google_maps_directions_url": "https://www.google.com/maps/dir/37.3806680%2C+-122.0236900/37.3726799%2C+-121.9678625/data=!3m1!4b1!4m10!4m9!1m3!2m2!1d-122.02368999999999!2d37.380668!1m3!2m2!1d-121.9678625!2d37.3726799!3e1?hl=en",
+      "raw_html_file": "https://serpapi.com/searches/zytMQ1LA_RYS0-7xEOF0znEXLFkRnSduOGfwnFRb_IU/6a921fdb3d87018d8897999f.html",
+      "prettify_html_file": "https://serpapi.com/searches/zytMQ1LA_RYS0-7xEOF0znEXLFkRnSduOGfwnFRb_IU/6a921fdb3d87018d8897999f.prettify",
+      "total_time_taken": 1.35
+    },
+    "search_parameters": {
+      "engine": "google_maps_directions",
+      "hl": "en",
+      "start_coords": "37.380668,-122.02369",
+      "end_coords": "37.3726799,-121.9678625",
+      "travel_mode": "1"
+    },
+    "places_info": [
+      {
+        "address": "37.3806680, -122.0236900",
+        "gps_coordinates": {
+          "latitude": 37.380668,
+          "longitude": -122.02368999999999
+        }
+      },
+      {
+        "address": "37.3726799, -121.9678625",
+        "gps_coordinates": {
+          "latitude": 37.3726799,
+          "longitude": -121.9678625
+        }
+      }
+    ],
+    "directions": [
+      {
+        "travel_mode": "Cycling",
+        "via": "E Arques Ave and Scott Blvd",
+        "distance": 6046,
+        "duration": 1202,
+        "formatted_distance": "6.0 km",
+        "formatted_duration": "20 min",
+        "icon": "https://serpapi.com/assets/google_maps_directions/cycling.svg",
+        "elevation_profile": {
+          "ascent": 3,
+          "descent": 13,
+          "max_altitude": 22,
+          "min_altitude": 11,
+          "formatted_ascent": "3 m",
+          "formatted_descent": "13 m",
+          "formatted_max_altitude": "22 m",
+          "formatted_min_altitude": "11 m"
+        },
+        "trips": [
+          {
+            "travel_mode": "Cycling",
+            "distance": 6046,
+            "duration": 1202,
+            "formatted_distance": "6.0 km",
+            "formatted_duration": "20 min",
+            "details": [
+              {
+                "title": "Head toward  Morse Ave",
+                "action": "straight",
+                "distance": 424,
+                "duration": 68,
+                "formatted_distance": "400 m",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=3MTpbUfuwwMrQ4WoMOGiUg&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=284.87415&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.38064202362549,
+                  "longitude": -122.02387553302506
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Fair Oaks Ave",
+                "action": "turn-left",
+                "distance": 234,
+                "duration": 63,
+                "formatted_distance": "230 m",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=oG-CQKbXMdB2OjTEPumBoA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=279.30698&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.379672433085595,
+                  "longitude": -122.01929189999923
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  E Arques Ave",
+                "action": "turn-right",
+                "distance": 2788,
+                "duration": 569,
+                "formatted_distance": "2.8 km",
+                "formatted_duration": "9 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=0cg5mDENx6IvS7flo3VRQw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=15.116579&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.381455095275854,
+                  "longitude": -122.01845703267821
+                },
+                "extensions": [
+                  "Pass by Subway (on the left in 950m)"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Continue onto  Scott Blvd",
+                "action": "straight",
+                "distance": 1624,
+                "duration": 303,
+                "formatted_distance": "1.6 km",
+                "formatted_duration": "5 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=tUt-n4hq5edgqslGmTak3A&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=90.1656&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.380471007806186,
+                  "longitude": -121.987297042077
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  San Tomas Aquino Creek Trail",
+                "action": "turn-right",
+                "distance": 412,
+                "duration": 72,
+                "formatted_distance": "400 m",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=kik2MG_s7VO_tIbPdbV2Bw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=299.7672&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.37914463659923,
+                  "longitude": -121.96904191166435
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Slight  left  to stay on  San Tomas Aquino Creek Trail",
+                "action": "turn-slight-left",
+                "distance": 238,
+                "duration": 68,
+                "formatted_distance": "240 m",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=03gcmtIZBZY3Ys7CzXzd_Q&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=168.02255&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.375630312271525,
+                  "longitude": -121.96886349391079
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_slight_left_grey800_18dp.png"
+              },
+              {
+                "title": "Sharp  right  to stay on  San Tomas Aquino Creek Trail",
+                "action": "turn-sharp-right",
+                "distance": 93,
+                "duration": 21,
+                "formatted_distance": "93 m",
+                "formatted_duration": "21 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=QzJlnci6ATu-oWku0jsTAA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=154.50705&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.37349549391659,
+                  "longitude": -121.96882348872289
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_sharp_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  Condensa St",
+                "action": "turn-right",
+                "distance": 104,
+                "duration": 16,
+                "formatted_distance": "100 m",
+                "formatted_duration": "16 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  to stay on  Condensa St",
+                "action": "turn-right",
+                "distance": 129,
+                "duration": 22,
+                "formatted_distance": "130 m",
+                "formatted_duration": "22 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=2qnmdTNaVCjWpzu40-iBQQ&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=332.1211&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.373851202241426,
+                  "longitude": -121.96807189179614
+                },
+                "extensions": [
+                  "Destination will be on the left"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "travel_mode": "Cycling",
+        "via": "Kifer Rd",
+        "distance": 5974,
+        "duration": 1157,
+        "formatted_distance": "6.0 km",
+        "formatted_duration": "19 min",
+        "icon": "https://serpapi.com/assets/google_maps_directions/cycling.svg",
+        "elevation_profile": {
+          "ascent": 5,
+          "descent": 15,
+          "max_altitude": 23,
+          "min_altitude": 12,
+          "formatted_ascent": "5 m",
+          "formatted_descent": "15 m",
+          "formatted_max_altitude": "23 m",
+          "formatted_min_altitude": "12 m"
+        },
+        "trips": [
+          {
+            "travel_mode": "Cycling",
+            "distance": 5974,
+            "duration": 1158,
+            "formatted_distance": "6.0 km",
+            "formatted_duration": "19 min",
+            "details": [
+              {
+                "title": "Head toward  Morse Ave",
+                "action": "straight",
+                "distance": 414,
+                "duration": 66,
+                "formatted_distance": "400 m",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=3MTpbUfuwwMrQ4WoMOGiUg&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=284.87415&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.38064202362549,
+                  "longitude": -122.02387553302506
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  Fair Oaks Ave",
+                "action": "turn-right",
+                "distance": 293,
+                "duration": 68,
+                "formatted_distance": "290 m",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=zDBeb2Xz4eMF-j2kT6GfpA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=105.41957&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.37969603139034,
+                  "longitude": -122.01940830384967
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Kifer Rd",
+                "action": "turn-left",
+                "distance": 3822,
+                "duration": 718,
+                "formatted_distance": "3.8 km",
+                "formatted_duration": "12 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=eakcUwJoIfhua1lU74vd3g&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=12.85283&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.37722893954619,
+                  "longitude": -122.01989924569736
+                },
+                "extensions": [
+                  "Pass by Carl's Jr (on the left in 3.8 km)"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Continue onto  Walsh Ave",
+                "action": "straight",
+                "distance": 1012,
+                "duration": 201,
+                "formatted_distance": "1.0 km",
+                "formatted_duration": "3 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=zqtTw7NLSIB8pr0v0ugdDg&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=89.34937&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.374140943998135,
+                  "longitude": -121.9779092378551
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  to stay on  Walsh Ave",
+                "action": "turn-right",
+                "distance": 10,
+                "duration": 3,
+                "formatted_distance": "10 m",
+                "formatted_duration": "3 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=XSvDraBIiSrMQSVoe26W_g&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=112.55064&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.36955022116635,
+                  "longitude": -121.96935796029918
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  to stay on  Walsh Ave",
+                "action": "turn-left",
+                "distance": 75,
+                "duration": 12,
+                "formatted_distance": "75 m",
+                "formatted_duration": "12 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=fcLOXoVTpg_39VBAVo7EWw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=113.84255&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.369531431704935,
+                  "longitude": -121.96912513268647
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Condensa St",
+                "action": "turn-left",
+                "distance": 348,
+                "duration": 90,
+                "formatted_distance": "350 m",
+                "formatted_duration": "2 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=flRMUrJftBRXiKdWyfjDSA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=180.64015&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.36955570862821,
+                  "longitude": -121.96843280822465
+                },
+                "extensions": [
+                  "Destination will be on the right"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "travel_mode": "Cycling",
+        "via": "Kifer Rd and Monroe St",
+        "distance": 7842,
+        "duration": 1497,
+        "formatted_distance": "7.8 km",
+        "formatted_duration": "25 min",
+        "icon": "https://serpapi.com/assets/google_maps_directions/cycling.svg",
+        "elevation_profile": {
+          "ascent": 8,
+          "descent": 18,
+          "max_altitude": 23,
+          "min_altitude": 12,
+          "formatted_ascent": "8 m",
+          "formatted_descent": "18 m",
+          "formatted_max_altitude": "23 m",
+          "formatted_min_altitude": "12 m"
+        },
+        "trips": [
+          {
+            "travel_mode": "Cycling",
+            "distance": 7842,
+            "duration": 1497,
+            "formatted_distance": "7.8 km",
+            "formatted_duration": "25 min",
+            "details": [
+              {
+                "title": "Head toward  Morse Ave",
+                "action": "straight",
+                "distance": 414,
+                "duration": 66,
+                "formatted_distance": "400 m",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=3MTpbUfuwwMrQ4WoMOGiUg&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=284.87415&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.38064202362549,
+                  "longitude": -122.02387553302506
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  Fair Oaks Ave",
+                "action": "turn-right",
+                "distance": 293,
+                "duration": 68,
+                "formatted_distance": "290 m",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=zDBeb2Xz4eMF-j2kT6GfpA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=105.41957&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.37969603139034,
+                  "longitude": -122.01940830384967
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Kifer Rd",
+                "action": "turn-left",
+                "distance": 2119,
+                "duration": 394,
+                "formatted_distance": "2.1 km",
+                "formatted_duration": "7 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=eakcUwJoIfhua1lU74vd3g&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=12.85283&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.37722893954619,
+                  "longitude": -122.01989924569736
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  San Zeno Way",
+                "action": "turn-right",
+                "distance": 327,
+                "duration": 59,
+                "formatted_distance": "350 m",
+                "formatted_duration": "59 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=3kvS_t2EQAh_SlQNHLUMHw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=269.47214&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.37387248451967,
+                  "longitude": -121.99709743781881
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right",
+                "action": "turn-right",
+                "distance": 35,
+                "duration": 7,
+                "formatted_distance": "35 m",
+                "formatted_duration": "7 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=ScV6Mz20KYbnn_2YWtfMXg&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=358.1828&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.37115975329284,
+                  "longitude": -121.9969363303999
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right",
+                "action": "turn-right",
+                "distance": 208,
+                "duration": 38,
+                "formatted_distance": "210 m",
+                "formatted_duration": "38 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=4poKqqmMo9R_1KgHa3duWw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=18.325867&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.37089841307392,
+                  "longitude": -121.9969412755423
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  toward  Willow Ave",
+                "action": "turn-right",
+                "distance": 16,
+                "duration": 3,
+                "formatted_distance": "16 m",
+                "formatted_duration": "3 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=oLFcdZdHl1nILVUmozYH0A&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=186.96385&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.370475979813875,
+                  "longitude": -121.99695888718797
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Willow Ave",
+                "action": "turn-left",
+                "distance": 43,
+                "duration": 8,
+                "formatted_distance": "43 m",
+                "formatted_duration": "8 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=RXRikoz-nJRrBXr9YESaNQ&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=182.39507&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.37046703977409,
+                  "longitude": -121.99673869803463
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Continue onto  French St",
+                "action": "straight",
+                "distance": 101,
+                "duration": 17,
+                "formatted_distance": "100 m",
+                "formatted_duration": "17 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=N9ubtwCO-m4jHI5xGhXWnw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=154.7256&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.370302410609646,
+                  "longitude": -121.99651859519507
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Agate Dr",
+                "action": "turn-left",
+                "distance": 703,
+                "duration": 116,
+                "formatted_distance": "700 m",
+                "formatted_duration": "2 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=9HPV2RKfER8PIYLVhb7zGg&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=179.24017&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.36976330635074,
+                  "longitude": -121.99587034334347
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  Marchese Way",
+                "action": "turn-right",
+                "distance": 329,
+                "duration": 60,
+                "formatted_distance": "350 m",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=UhdzNSBlGUMykYpxlUH3vw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=269.22165&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.36986215242843,
+                  "longitude": -121.98818463963417
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Monroe St",
+                "action": "turn-left",
+                "distance": 1897,
+                "duration": 384,
+                "formatted_distance": "1.9 km",
+                "formatted_duration": "6 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=VHITCu2yByJWlL4AagnqDA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=180.12726&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.36711934955386,
+                  "longitude": -121.9878367161319
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  San Tomas Aquino Creek Trail",
+                "action": "turn-left",
+                "distance": 516,
+                "duration": 103,
+                "formatted_distance": "500 m",
+                "formatted_duration": "2 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=ykMqyTU70n42rd3g07lJ4g&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=99.77354&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.3640957803554,
+                  "longitude": -121.96905093667918
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Slight  right  to stay on  San Tomas Aquino Creek Trail",
+                "action": "turn-slight-right",
+                "distance": 515,
+                "duration": 118,
+                "formatted_distance": "500 m",
+                "formatted_duration": "2 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=R74jkG1CN5pVAkE0x5vvKg&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=53.618797&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.36849303051096,
+                  "longitude": -121.96884822078219
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_slight_left_grey800_18dp.png"
+              },
+              {
+                "title": "Continue straight to stay on  San Tomas Aquino Creek Trail",
+                "action": "straight",
+                "distance": 93,
+                "duration": 18,
+                "formatted_distance": "93 m",
+                "formatted_duration": "18 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  Condensa St",
+                "action": "turn-right",
+                "distance": 104,
+                "duration": 16,
+                "formatted_distance": "100 m",
+                "formatted_duration": "16 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  to stay on  Condensa St",
+                "action": "turn-right",
+                "distance": 129,
+                "duration": 22,
+                "formatted_distance": "130 m",
+                "formatted_duration": "22 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=2qnmdTNaVCjWpzu40-iBQQ&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=332.1211&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.373851202241426,
+                  "longitude": -121.96807189179614
+                },
+                "extensions": [
+                  "Destination will be on the left"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "durations": [
+      {
+        "travel_mode": "Driving",
+        "duration": 464,
+        "formatted_duration": "8 min"
+      },
+      {
+        "travel_mode": "Transit",
+        "duration": 2940,
+        "formatted_duration": "49 min"
+      },
+      {
+        "travel_mode": "Walking",
+        "duration": 5017,
+        "formatted_duration": "1 hr 24"
+      },
+      {
+        "travel_mode": "Cycling",
+        "duration": 1202,
+        "formatted_duration": "20 min"
+      }
+    ]
+  }
+}

@@ -112,6 +112,8 @@ export const CandidateTrace = z.object({
     'no_matching_constraint',
     /** Feasible on its own, but nothing in the plan binds what it needs. */
     'unbound',
+    /** Would cost more calls than the listings it could remove. */
+    'no_payback',
   ]),
 })
 

@@ -1,0 +1,1872 @@
+{
+  "key": "google_maps__demo__d6ddae9a4a3a207b",
+  "engine": "google_maps",
+  "params": {
+    "engine": "google_maps",
+    "type": "search",
+    "q": "gym",
+    "ll": "@37.337585,-121.95238,15z"
+  },
+  "recorded_at_ms": 1787960962699,
+  "status": 200,
+  "body": {
+    "search_metadata": {
+      "id": "6a921e811f758a8cc93f8db4",
+      "status": "Success",
+      "json_endpoint": "https://serpapi.com/searches/bSbeWrZPnZRpBoG1QJnR82yVBZ5BGo9i_dLOQQIhUcY/6a921e811f758a8cc93f8db4.json",
+      "markdown_endpoint": "https://serpapi.com/searches/bSbeWrZPnZRpBoG1QJnR82yVBZ5BGo9i_dLOQQIhUcY/6a921e811f758a8cc93f8db4.md",
+      "created_at": "2026-08-28 23:49:21 UTC",
+      "processed_at": "2026-08-28 23:49:21 UTC",
+      "google_maps_url": "https://www.google.com/maps/search/gym/@37.337585,-121.95238,15z/data=!3m1!4b1!4m2!2m1!6e5?hl=en",
+      "raw_html_file": "https://serpapi.com/searches/bSbeWrZPnZRpBoG1QJnR82yVBZ5BGo9i_dLOQQIhUcY/6a921e811f758a8cc93f8db4.html",
+      "prettify_html_file": "https://serpapi.com/searches/bSbeWrZPnZRpBoG1QJnR82yVBZ5BGo9i_dLOQQIhUcY/6a921e811f758a8cc93f8db4.prettify",
+      "total_time_taken": 0.73
+    },
+    "search_parameters": {
+      "engine": "google_maps",
+      "type": "search",
+      "q": "gym",
+      "ll": "@37.337585,-121.95238,15z",
+      "google_domain": "google.com",
+      "hl": "en"
+    },
+    "search_information": {
+      "local_results_state": "Results for exact spelling",
+      "query_displayed": "gym"
+    },
+    "local_results": [
+      {
+        "position": 1,
+        "title": "FNS Training Center",
+        "place_id": "ChIJQS5nYyHKj4ARo3IaBmlYPXY",
+        "data_id": "0x808fca2163672e41:0x763d5869061a72a3",
+        "data_cid": "8520063278152053411",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fca2163672e41%3A0x763d5869061a72a3&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fca2163672e41%3A0x763d5869061a72a3&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.348259,
+          "longitude": -121.947622
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJQS5nYyHKj4ARo3IaBmlYPXY",
+        "provider_id": "/g/1tgzbljf",
+        "rating": 4.9,
+        "reviews": 224,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Personal trainer"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "personal_trainer"
+        ],
+        "address": "955 Monroe St, Santa Clara, CA 95050",
+        "country": "United States",
+        "open_state": "Open · Closes 6:30 PM",
+        "hours": "Open · Closes 6:30 PM",
+        "operating_hours": {
+          "friday": "5 AM–6:30 PM",
+          "saturday": "7–11:30 AM",
+          "sunday": "Closed",
+          "monday": "5 AM–7:30 PM",
+          "tuesday": "5 AM–7:30 PM",
+          "wednesday": "5 AM–7:30 PM",
+          "thursday": "5 AM–7:30 PM"
+        },
+        "phone": "(408) 235-7624",
+        "website": "https://fns360.com/",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "On-site parking"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Online classes"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true,
+          "online_classes": false
+        },
+        "book_online": "https://www.mindbodyonline.com/explore/locations/fns-training-center?rwg_token=AE37R_i2tdYKVzNn2rDsfJRyFsvHXUsQM7ClMNXcvpdoHlmYyxv_tpdYBTut3YDFiMjK-RMUTtkJS29hQaeL97l3_JqGE7je7w%3D%3D",
+        "user_review": "\"The coaches are incredibly knowledgeable, supportive, and motivating.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkPaSraySA1vkns7pT_5L3dw4OJgNfdlLMvKRl3sKD-4WItIyHHdblwh-i1XGtneNVv8Fdc3Gooj4XL1dCqLazIlAXrCQmUkLs0gEzjczwyamVx5Rdww6tlbPvL9jZcbtvmrKow=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/OzlzsXicHcRJDoIwAADAF1Ug4Jp4IG4gVRE34sVAi0UoLdLaCh_0Df7GxDnM95NLWYuJYdDc7hHOCc1eImsQZzJjsod4ZZBaACSAMFwvCo-XMkwOTdIeXEuVTAzr460Pbayd3Zps75jCjQoiaotgDpyLL_3W83BKdQ4eVrySLNue1WiJkb3ivHBiaOHZEyadT924me2rUwmFSRZdgTrdJtX53Y-w1gNJ01DBcXFFqVRVE3A91ZZpmiD_jwD7AdfURwI"
+      },
+      {
+        "position": 2,
+        "title": "Snap Fitness Santa Clara",
+        "place_id": "ChIJrTibeuHKj4AR15oJHdc4O5E",
+        "data_id": "0x808fcae17a9b38ad:0x913b38d71d099ad7",
+        "data_cid": "10465020655681772247",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcae17a9b38ad%3A0x913b38d71d099ad7&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcae17a9b38ad%3A0x913b38d71d099ad7&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.325306399999995,
+          "longitude": -121.950679
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJrTibeuHKj4AR15oJHdc4O5E",
+        "provider_id": "/g/1v_ncrfg",
+        "rating": 4.6,
+        "reviews": 124,
+        "type": "Gym",
+        "types": [
+          "Gym"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym"
+        ],
+        "address": "60 N Winchester Blvd, Santa Clara, CA 95050",
+        "country": "United States",
+        "open_state": "Open 24 hours",
+        "hours": "Open 24 hours",
+        "operating_hours": {
+          "friday": "Open 24 hours",
+          "saturday": "Open 24 hours",
+          "sunday": "Open 24 hours",
+          "monday": "Open 24 hours",
+          "tuesday": "Open 24 hours",
+          "wednesday": "Open 24 hours",
+          "thursday": "Open 24 hours"
+        },
+        "phone": "(408) 260-1111",
+        "website": "https://www.snapfitness.com/us/gyms/santa-clara-ca/?utm_source=gmb&utm_medium=yext",
+        "extensions": [
+          {
+            "service_options": [
+              "Outdoor services",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
+          },
+          {
+            "planning": [
+              "Appointment required",
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Online classes"
+            ]
+          }
+        ],
+        "service_options": {
+          "outdoor_services": true,
+          "onsite_services": true,
+          "online_classes": false
+        },
+        "user_review": "\"The gym was really clean and their staff was super friendly.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnADTPvjZpGdFeRaVbyuyk_YVZhnmKFc-KYOUVZRnLU9bZtQzOsk9McMutCwTp0Ur0Jglu8QPLRR_ugltuu8FCGmQlOFggaWTsU2AAd7mSYNzB7QyOoJzrNHrFtM-F7tUqWUQo=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/KlSKgnicHcRRDoIgGADgE5FUD1ZbD1ajVplCotMXV-RwhWDyU9MDdodu09b38H0_NUBrF56n6ulIGiNV5WzVCaOh0jASpvFka5GwyHrBjsVJpoNNEr_uRbu9kYpd0mvv-keZp0WtmwMR6JBHPC2YPvL5tQA6RPYxD0XoYP1OWsw7vJfKzWh8ZKx0UoFzM7LeNlRFRMpLllg-CYKb35zz07DyaR-Z_dCddh2BEBEf-DPj1CzfY4wxqv8LpH_KDkYI"
+      },
+      {
+        "position": 3,
+        "title": "Anytime Fitness",
+        "place_id": "ChIJ6_2StmbKj4ARjVA0b13WqAQ",
+        "data_id": "0x808fca66b692fdeb:0x4a8d65d6f34508d",
+        "data_cid": "335753869025104013",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fca66b692fdeb%3A0x4a8d65d6f34508d&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fca66b692fdeb%3A0x4a8d65d6f34508d&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3381487,
+          "longitude": -121.97449999999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJ6_2StmbKj4ARjVA0b13WqAQ",
+        "provider_id": "/g/1hc8cpgh5",
+        "rating": 4.5,
+        "reviews": 497,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Fitness center",
+          "Personal trainer",
+          "Physical fitness program",
+          "Weightlifting area",
+          "Women's personal trainer"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "fitness_center",
+          "personal_trainer",
+          "physical_fitness_program",
+          "weightlifting_area",
+          "womens_personal_trainer"
+        ],
+        "address": "2718 Homestead Rd, Santa Clara, CA 95050",
+        "country": "United States",
+        "open_state": "Open 24 hours",
+        "hours": "Open 24 hours",
+        "operating_hours": {
+          "friday": "Open 24 hours",
+          "saturday": "Open 24 hours",
+          "sunday": "Open 24 hours",
+          "monday": "Open 24 hours",
+          "tuesday": "Open 24 hours",
+          "wednesday": "Open 24 hours",
+          "thursday": "Open 24 hours"
+        },
+        "phone": "(408) 244-2884",
+        "website": "https://www.anytimefitness.com/locations/santa-clara-california-2980/?utm_source=google&utm_medium=organic-businesslisting&utm_campaign=gbp-listing&utm_content=2980",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Gender-neutral restroom",
+              "Restroom",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
+          },
+          {
+            "atmosphere": [
+              "Shower"
+            ]
+          },
+          {
+            "planning": [
+              "Appointment required",
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          },
+          {
+            "parking": [
+              "On-site parking"
+            ]
+          }
+        ],
+        "user_review": "\"Great gym, has a good selection of equipment, clean and not busy\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlqjw3l4O62eCpPgspWaiSbKu5qUlkQWCD2uPiwHNxK_-MAsJ-JeHNAn0PblRx9DUX58J7cvbTGnvg1-t-yuDDxB5rGkBkri_PV1LEQBMzm-W5dVWpgrU0_sHEKr01brk9c_Aa9HQ=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/FNLleHicHcRRToMwGADgE_2jbKLDxAcYhAbcLHNQ38ioTUG60rVloDfcEbyNid_D93vvnNP22fNkt1mJcRSST5YbNirHlVux8eIJbYFZsF6Ej-RE5fVr3siHt8c132kirKbn_r0tpuBayaGku2Q9kX7Gh6VoYB_ZHHKOD5FCpJXHJUyqj2CbP7Fbe8rUTfjg4HtKkiUOTDbEg-kbUvuvaRnvfy5Ag8-aamEq1FicFgb5rRlC1kTnEJcvs48Qgu5_BuoP5VdEyQ"
+      },
+      {
+        "position": 4,
+        "title": "City Sports Club",
+        "place_id": "ChIJk2PtgXXLj4ARTZlHYZon1X8",
+        "data_id": "0x808fcb7581ed6393:0x7fd5279a6147994d",
+        "data_cid": "9211312156866746701",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb7581ed6393%3A0x7fd5279a6147994d&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb7581ed6393%3A0x7fd5279a6147994d&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3491815,
+          "longitude": -121.92112639999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJk2PtgXXLj4ARTZlHYZon1X8",
+        "provider_id": "/g/1pp2tlgz5",
+        "rating": 3.8,
+        "reviews": 640,
+        "type": "Gym",
+        "types": [
+          "Gym"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym"
+        ],
+        "address": "610 Newhall Dr, San Jose, CA 95110",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "5 AM–10 PM",
+          "saturday": "8 AM–8 PM",
+          "sunday": "8 AM–8 PM",
+          "monday": "5 AM–11 PM",
+          "tuesday": "5 AM–11 PM",
+          "wednesday": "5 AM–11 PM",
+          "thursday": "5 AM–11 PM"
+        },
+        "phone": "(408) 490-2164",
+        "website": "https://citysportsfitness.com/Pages/clubhome.aspx?clubid=906&utm_source=google&utm_medium=googlemaps&utm_campaign=maps",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Sauna"
+            ]
+          },
+          {
+            "amenities": [
+              "Basketball court",
+              "Restroom",
+              "Swimming pool",
+              "Wi-Fi"
+            ]
+          },
+          {
+            "atmosphere": [
+              "Shower"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true
+        },
+        "user_review": "\"The staff is very friendly, equipments are clean and everyone has a smile.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkrgBmC2WMucumaYz2IqXVXCSXuoZ84WmjVCZENG6FnC6-SMeKsNZcHfMfGlYHSDqHrD1p8epHzCtDWZbFUjfkJRnLH_WvL8JloIPG0WymVgntO3nUgCJQwma68j2j7hWptAIKC9A=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/Tq4D5HicHcRJDoIwAADAF1UQDaKJByxKQXFDKXIx2pQSpIu0aPSHPsHfmDiH-X4qY5SeWFZTDXpMStbQTtOWSGGoMD0iucWUBkQDbflovz3gW8tmHDo46UjHL6e3E93zLIdp3snCG2JeZ7CYr0N3IaAL0oQu9bogqEzKsDmhNLijNugrjyr0hibAxXVxrMtbvBcrdMaPlRc3MtqGNn7xjAmzGYgjg_HuyS-uVzv1qMLK-NESjv3ps2_bNqj-EyB-CR5FWA"
+      },
+      {
+        "position": 5,
+        "title": "Brick House Fitness",
+        "place_id": "ChIJRRaZClfLj4AR07RjjIUbLko",
+        "data_id": "0x808fcb570a991645:0x4a2e1b858c63b4d3",
+        "data_cid": "5345240068135302355",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb570a991645%3A0x4a2e1b858c63b4d3&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb570a991645%3A0x4a2e1b858c63b4d3&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.323219099999996,
+          "longitude": -121.92813699999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJRRaZClfLj4AR07RjjIUbLko",
+        "provider_id": "/g/1tpf7c8g",
+        "rating": 5,
+        "reviews": 86,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Fitness center",
+          "Nutritionist",
+          "Personal trainer",
+          "Physical fitness program",
+          "Weight loss service",
+          "Weightlifting area"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "fitness_center",
+          "nutritionist",
+          "personal_trainer",
+          "physical_fitness_program",
+          "weight_loss_service",
+          "weightlifting_area"
+        ],
+        "address": "1886 W San Carlos St, San Jose, CA 95128",
+        "country": "United States",
+        "open_state": "Open · Closes 8 PM",
+        "hours": "Open · Closes 8 PM",
+        "operating_hours": {
+          "friday": "6 AM–8 PM",
+          "saturday": "6 AM–8 PM",
+          "sunday": "Closed",
+          "monday": "6 AM–8 PM",
+          "tuesday": "6 AM–8 PM",
+          "wednesday": "6 AM–8 PM",
+          "thursday": "6 AM–8 PM"
+        },
+        "phone": "(408) 444-6940",
+        "website": "http://www.brickhousesj.com/",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          }
+        ],
+        "user_review": "\"All the trainers are awesome and the environment is ideal to max my gains.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnhu9SOeFTI_n4j5QulVPdNCpUq0iok7Gf1CB7_mQCYcwEBqfeI87mbrXnJz06f1IGErPrrFoW_KkeJQ436r_BpgVKP6N4LIEOIcxsNellDXHmqPotkFxUPuIsFTXjCjxwv6oXGAg=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/OQgCi3icHcRRboIwAADQEyElIGwm-xAErBooCopfJHalDEoLbRnEG3oEb7Nk7-O9X43Wg9qYJmvsFRWCMjIpIrHgmnC9wqI36aAMrAxlbvdnlN94M31eUhLlsOJOu84mdkXfSTAUI_gRnRfXVuB7VZ8FdzyH_lgT-OH1D1nywxO4tQXjUCIpI3Grjh05ZI7tysof6PWI3MQ5wTCFeFEJYWxX7vsRCd1FS4EmqKK8bIN2mX9dUcZb-jVbAACj-R8b_A_6ikXu"
+      },
+      {
+        "position": 6,
+        "title": "Bellcore Fitness",
+        "place_id": "ChIJzU9dz8zLj4ARpTNEwOqtte8",
+        "data_id": "0x808fcbcccf5d4fcd:0xefb5adeac04433a5",
+        "data_cid": "17272903169609053093",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcbcccf5d4fcd%3A0xefb5adeac04433a5&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcbcccf5d4fcd%3A0xefb5adeac04433a5&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3520221,
+          "longitude": -121.9899461
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJzU9dz8zLj4ARpTNEwOqtte8",
+        "provider_id": "/g/11lw6x6xr5",
+        "rating": 4.9,
+        "reviews": 57,
+        "type": "Fitness center",
+        "types": [
+          "Fitness center"
+        ],
+        "type_id": "fitness_center",
+        "type_ids": [
+          "fitness_center"
+        ],
+        "address": "3406 El Camino Real Ste 400 4th Floor, Santa Clara, CA 95051",
+        "country": "United States",
+        "open_state": "Open · Closes 11 PM",
+        "hours": "Open · Closes 11 PM",
+        "operating_hours": {
+          "friday": "5 AM–11 PM",
+          "saturday": "7 AM–7 PM",
+          "sunday": "8 AM–2 PM",
+          "monday": "5 AM–11 PM",
+          "tuesday": "5 AM–11 PM",
+          "wednesday": "5 AM–11 PM",
+          "thursday": "5 AM–11 PM"
+        },
+        "phone": "(669) 272-6723",
+        "website": "https://www.bellcorefitness.com/",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Identifies as Asian-owned",
+              "Identifies as women-owned"
+            ]
+          },
+          {
+            "service_options": [
+              "Online classes",
+              "Outdoor services",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Active military discounts"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Gender-neutral restroom",
+              "Restroom",
+              "Swimming pool",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
+          },
+          {
+            "atmosphere": [
+              "Shower"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly",
+              "Transgender safespace"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking garage",
+              "Free parking lot",
+              "On-site parking"
+            ]
+          }
+        ],
+        "service_options": {
+          "online_classes": true,
+          "outdoor_services": true,
+          "onsite_services": true
+        },
+        "user_review": "\"Super clean, great equipment, and a really positive vibe.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkBEVRrRQpIeEc4mLD19-OzdTPVFLk0E_RmTnNh-DB0gEZexiKspDHngQutTxG5E94XcoqdyhNI0FaZbRbZ0SHerR2M4BherWSPFcbNDo8r4c0WRiJVe_czlmF7WXqIL7hff1VzeRS6j3f-=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/87wK4HicHcTRToMwFADQL-ooDjdn4oOEMlBEVggsvCxyd2nnoGVtFyc_6bN_Y-J5OL8_0rnJPnreIJcLobUY8GrRgFYOlVuAHj0xWQKWWO854UXVnENWc8N3U4oMgjGL_A15n49VUcfZmbIDHyuVSxKFVLAWb6dXO0WJErurq27be7YJ9qAvx2-ZpzT-aDvetbRM0PC7tyCUaJqyiKHLI_1gAqANP73UeIB5GON1s7-k2Vr2vV_PyMvV57InT18-pZTI_4GoP1vRRrM"
+      },
+      {
+        "position": 7,
+        "title": "Eternal Strength Gym",
+        "place_id": "ChIJFSlGklbLj4ARpNYz8X2cki0",
+        "data_id": "0x808fcb5692462915:0x2d929c7df133d6a4",
+        "data_cid": "3283859143038064292",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb5692462915%3A0x2d929c7df133d6a4&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb5692462915%3A0x2d929c7df133d6a4&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3565658,
+          "longitude": -121.94580029999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJFSlGklbLj4ARpNYz8X2cki0",
+        "provider_id": "/g/11vdqcd0qr",
+        "rating": 5,
+        "reviews": 31,
+        "type": "Gym",
+        "types": [
+          "Gym"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym"
+        ],
+        "address": "1707 Lafayette St, Santa Clara, CA 95050",
+        "country": "United States",
+        "open_state": "Open 24 hours",
+        "hours": "Open 24 hours",
+        "operating_hours": {
+          "friday": "Open 24 hours",
+          "saturday": "Open 24 hours",
+          "sunday": "Open 24 hours",
+          "monday": "Open 24 hours",
+          "tuesday": "Open 24 hours",
+          "wednesday": "Open 24 hours",
+          "thursday": "Open 24 hours"
+        },
+        "phone": "(408) 206-8083",
+        "website": "https://eternalstrengthgym.com/",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true
+        },
+        "user_review": "\"Gym equipment is new and the atmosphere is so welcoming.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlYehNKk_Txd56Zy4HxbGOyNcxAEiLqUUuCTx3WBPP1RuJWUamVoFKNGOrwOPYy8ANkjluBehQySj2RpjeKKONuk3QAdguN8IxlB6KK4SCbQ22J9aHJdb05P1_SydqX_sL6N8ZdAA=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/FXDFjHicHcTbboMgAADQL7LeWuOW7AGbrU4axNtc-2IqEJlSsUVS-MR9wv6myc7D-fvl67qoV9cVPNwMUg6CacXuRM4rm9cNkVd3WJRDlKNckJa4bsWJcQSnrjZ0F53tNjX9IbeIGPD-c7w1jd7XJmwTjP1SZ21zuX7JD4gO-f2R45ONAZpGoRPGC1uNQbmMDMIc6SksAB00ij-NSCIIt9W-L4Ige7mkGe29Hfa7ytLbd6eOEYrPFIC3h-95nsP_J878BCEWRQk"
+      },
+      {
+        "position": 8,
+        "title": "Anytime Fitness",
+        "place_id": "ChIJB7nQJ9HLj4ARJlXiX6ecjN8",
+        "data_id": "0x808fcbd127d0b907:0xdf8c9ca75fe25526",
+        "data_cid": "16108422209879561510",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcbd127d0b907%3A0xdf8c9ca75fe25526&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcbd127d0b907%3A0xdf8c9ca75fe25526&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3312108,
+          "longitude": -121.9102484
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJB7nQJ9HLj4ARJlXiX6ecjN8",
+        "provider_id": "/g/11w3l9skc1",
+        "rating": 4.7,
+        "reviews": 152,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Fitness center",
+          "Personal trainer",
+          "Physical fitness program",
+          "Weightlifting area",
+          "Women's personal trainer"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "fitness_center",
+          "personal_trainer",
+          "physical_fitness_program",
+          "weightlifting_area",
+          "womens_personal_trainer"
+        ],
+        "address": "1036 The Alameda, San Jose, CA 95126",
+        "country": "United States",
+        "open_state": "Open 24 hours",
+        "hours": "Open 24 hours",
+        "operating_hours": {
+          "friday": "Open 24 hours",
+          "saturday": "Open 24 hours",
+          "sunday": "Open 24 hours",
+          "monday": "Open 24 hours",
+          "tuesday": "Open 24 hours",
+          "wednesday": "Open 24 hours",
+          "thursday": "Open 24 hours"
+        },
+        "phone": "(408) 827-4994",
+        "website": "https://www.anytimefitness.com/locations/san-jose-california-5039",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom",
+              "Wheelchair accessible seating"
+            ]
+          },
+          {
+            "amenities": [
+              "Gender-neutral restroom",
+              "Restroom",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
+          },
+          {
+            "atmosphere": [
+              "Shower"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Online classes"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true,
+          "online_classes": false
+        },
+        "user_review": "\"Great gym, very clean, modern equipment and not busy\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmKPM6POTl4dR0Jru49SreKvT_Z7Lpt-cptQ7TruHZmyR1ovwT4uAIhMGMOUerQvtFIzKA8DqtD_Gc8Fa_vQCbpWZ3bY0G071t5rgr6rPrs7gALBrUyTHAS-e4NMEc4wn9oXgMK=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/IxoTd3icHcTRboIwFADQL6qU2Ima-NDNCQ6rgDVuvJDZNeUBaL29QPQH_Qb_xmTn4TwfNaLzyyBo6unEWGsa3XsNynaoO5wo2wbGeaI88QFPikye2zQTs-wgG_ZX0C_o2eIIOh1kVUY7h0Q5zCMJfVK2tyK0wyhZz7e1iMXhpCEfcLO9p3y-vuK6itV881sN-cfFncvp5YfGNArxDQzMIAMfGb57h9NNJvxINNuLT8XGbmG_jUhXY0gpJfX_inQvXsJEWw"
+      },
+      {
+        "position": 9,
+        "title": "Movement Hub Santa Clara",
+        "place_id": "ChIJyxrYmGfLj4ARfKOOzo9HlTU",
+        "data_id": "0x808fcb6798d81acb:0x3595478fce8ea37c",
+        "data_cid": "3861070938511418236",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb6798d81acb%3A0x3595478fce8ea37c&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb6798d81acb%3A0x3595478fce8ea37c&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.339103699999995,
+          "longitude": -121.93826329999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJyxrYmGfLj4ARfKOOzo9HlTU",
+        "provider_id": "/g/11f8jh411c",
+        "rating": 4.9,
+        "reviews": 63,
+        "type": "Personal trainer",
+        "types": [
+          "Personal trainer",
+          "Fitness center",
+          "Physical fitness program"
+        ],
+        "type_id": "personal_trainer",
+        "type_ids": [
+          "personal_trainer",
+          "fitness_center",
+          "physical_fitness_program"
+        ],
+        "address": "45 Washington St Unit a, Santa Clara, CA 95050",
+        "country": "United States",
+        "open_state": "Closes soon · 5 PM · Opens 8 AM Sat",
+        "hours": "Closes soon · 5 PM · Opens 8 AM Sat",
+        "operating_hours": {
+          "friday": "9 AM–5 PM",
+          "saturday": "8–10:30 AM",
+          "sunday": "Closed",
+          "monday": "9 AM–5 PM",
+          "tuesday": "9 AM–5 PM",
+          "wednesday": "9 AM–5 PM",
+          "thursday": "9 AM–5 PM"
+        },
+        "phone": "(408) 641-6133",
+        "website": "http://www.mvmthub.com/",
+        "extensions": [
+          {
+            "service_options": [
+              "Online classes",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Gender-neutral restroom",
+              "Restroom"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly"
+            ]
+          },
+          {
+            "planning": [
+              "Appointment required",
+              "Appointments recommended"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          }
+        ],
+        "service_options": {
+          "online_classes": true,
+          "onsite_services": true
+        },
+        "user_review": "\"The workouts are well thought out and planned, all within the allotted time.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkeNZJVH3EW_3tRQn2NIF4cKBclP1up6oAuiZ4XY8m2COU9iW2MKkbwWKMhJv7V95_jrG4zdMdhXHs_tCbGgry942EHPb4cQhXCpK9pj-puCy-JGc4J8AuScgu8khm26c1ZKJjp=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/K0CmSXicHcTdboIwGADQJ6pA6Rws8YIRB2uDQ92AcUPCJ2nlrw1tZ_QFfYa9jYnn4vzfhTFKvznOKPwVl5KPndXdAnI23WxWICeHK41AI-1E6SH_LoduV9Mi9bdl45vDfsa7zw8C7B3G3LNqLSN7rkn1G0w4_voJzyXO2NBeSpYJ-vdahC9NvyTkdspOokp1Y-I24cs1JHib5i2BvahixULVI2XjK6IJEBpE9gjcBoOY8Bq8mtFebS6e67pIPAc0PwDpVUN2"
+      },
+      {
+        "position": 10,
+        "title": "House of Muscle USA",
+        "place_id": "ChIJxQj3DijLj4ARFbDMSZuZcTU",
+        "data_id": "0x808fcb280ef708c5:0x3571999b49ccb015",
+        "data_cid": "3851028048615616533",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb280ef708c5%3A0x3571999b49ccb015&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb280ef708c5%3A0x3571999b49ccb015&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3520207,
+          "longitude": -121.98750919999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJxQj3DijLj4ARFbDMSZuZcTU",
+        "provider_id": "/g/11htqwdsnt",
+        "rating": 5,
+        "reviews": 81,
+        "type": "Personal trainer",
+        "types": [
+          "Personal trainer",
+          "Fitness center",
+          "Gym",
+          "Physical fitness program"
+        ],
+        "type_id": "personal_trainer",
+        "type_ids": [
+          "personal_trainer",
+          "fitness_center",
+          "gym",
+          "physical_fitness_program"
+        ],
+        "address": "3330 El Camino Real Ste 201, Santa Clara, CA 95051",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "6:30 AM–10 PM",
+          "saturday": "11 AM–3 PM",
+          "sunday": "Closed",
+          "monday": "6:30 AM–10 PM",
+          "tuesday": "6:30 AM–10 PM",
+          "wednesday": "6:30 AM–10 PM",
+          "thursday": "6:30 AM–10 PM"
+        },
+        "phone": "(408) 886-0117",
+        "website": "http://www.houseofmuscleusa.com/",
+        "extensions": [
+          {
+            "service_options": [
+              "Online classes",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Appointment required",
+              "Appointments recommended"
+            ]
+          },
+          {
+            "payments": [
+              "Checks",
+              "Credit cards",
+              "Debit cards"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking"
+            ]
+          }
+        ],
+        "service_options": {
+          "online_classes": true,
+          "onsite_services": true
+        },
+        "user_review": "\"The gym is clean, well-equipped, and has a great atmosphere.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmHpd-UNz-ZiIdvp5bGjPq-9b1x5oWST4kiAagiaFsOrDcFV7PnauD3V-7sL9F844a2y-qDKpoC3wOTXW_KuJz0jvZTMpxTcnF77cxd5uuKYweHAJ7lA4FPZ7evDQPoCjoUYUknv29WDPw=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/Y2rspnicHcTdboIwGADQJ_oEBdKxZBfEpqJM7WaRyc2CpeFHbKulgD7k7vc2S3Yuzu9P3ffavDpOV3uzSqmqE9aIO1eyF7KfcXV1Km2AGzBOFH9Sll1jXUK6e0LerMtBB-dVS28QnudToLID8y9NVFRNQcz-jjk5IioLi70jIPMekhffLxYPuOFEq6U37tlX9p3YzdNth5xt9cS4JAjxqQysTU6jiKMN6iKf0ByJAX9QtWxVekovcliEGabj2zh3XRfq_znIPyynRqc"
+      },
+      {
+        "position": 11,
+        "title": "Central YMCA",
+        "place_id": "ChIJWcFAx23Lj4AR6b_fwdq6DRA",
+        "data_id": "0x808fcb6dc740c159:0x100dbadac1dfbfe9",
+        "data_cid": "1156786128022388713",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb6dc740c159%3A0x100dbadac1dfbfe9&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb6dc740c159%3A0x100dbadac1dfbfe9&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3378789,
+          "longitude": -121.92023119999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJWcFAx23Lj4AR6b_fwdq6DRA",
+        "provider_id": "/g/1tgkhjdm",
+        "rating": 4.7,
+        "reviews": 588,
+        "type": "Youth organization",
+        "types": [
+          "Youth organization",
+          "Child care agency",
+          "Non-profit organization",
+          "Swimming instructor",
+          "Wellness center"
+        ],
+        "type_id": "youth_organization",
+        "type_ids": [
+          "youth_organization",
+          "child_care_agency",
+          "non_profit_organization",
+          "swimming_instructor",
+          "wellness_center"
+        ],
+        "address": "1717 The Alameda, San Jose, CA 95126",
+        "country": "United States",
+        "open_state": "Open · Closes 8 PM",
+        "hours": "Open · Closes 8 PM",
+        "operating_hours": {
+          "friday": "6 AM–8 PM",
+          "saturday": "8 AM–4 PM",
+          "sunday": "8 AM–4 PM",
+          "monday": "6 AM–9 PM",
+          "tuesday": "6 AM–9 PM",
+          "wednesday": "6 AM–9 PM",
+          "thursday": "6 AM–9 PM"
+        },
+        "phone": "(408) 298-1717",
+        "website": "https://www.ymcasv.org/locations/central-ymca",
+        "description": "Nonprofit center for classes & services. Community-focused nonprofit established in 1844 with recreational programs & services for all ages.",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot"
+            ]
+          }
+        ],
+        "user_review": "\"Friendly staff, proper equipment, clean, organized.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkbF3qMqJ8rVkCQhnznAMWKUUj4RjVG0mqy_PFFUxKfoauGOkGIo3a31gNfJO6aTRCTnGbeqbhSQKGz3K-nyf9VIHl003gkzCy7oqLIanyT8SLhr_CfJAySQn5xZfDJZ85m3j3Wsg=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/3e7TwHicHcRbjoIwFADQFVVqqjOMiR-ECRXwxTvxxwChbXjcWorRskOX4G5MPB_n_RLTdNMby-oFWXAped_cdTPWEqYGpkUtB4vfNKo10pazi89p0VUeUQcV2GPeuZGAGZxDEWZZu4rbnOJBmevZ87JnyGR5p6eO-pKUZMmPLDj9lGnspkCrRlUiiUI6kxCBYX-5v-sxJrybXfMr1d4vwaR2shfj1WWBY5II1s8L-w8u9nogLSk03z6WGGMkvtcIPg1TRX0"
+      },
+      {
+        "position": 12,
+        "title": "Grappling Strength & Performance",
+        "place_id": "ChIJ62zMdLfLj4ARhOv_NBBMN6o",
+        "data_id": "0x808fcbb774cc6ceb:0xaa374c1034ffeb84",
+        "data_cid": "12265355742659210116",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcbb774cc6ceb%3A0xaa374c1034ffeb84&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcbb774cc6ceb%3A0xaa374c1034ffeb84&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.330762199999995,
+          "longitude": -121.911801
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJ62zMdLfLj4ARhOv_NBBMN6o",
+        "provider_id": "/g/11lsn_6jjc",
+        "rating": 5,
+        "reviews": 160,
+        "type": "Personal trainer",
+        "types": [
+          "Personal trainer",
+          "Gym",
+          "Weightlifting area"
+        ],
+        "type_id": "personal_trainer",
+        "type_ids": [
+          "personal_trainer",
+          "gym",
+          "weightlifting_area"
+        ],
+        "address": "32 Race St, San Jose, CA 95126",
+        "country": "United States",
+        "open_state": "Open · Closes 6:45 PM",
+        "hours": "Open · Closes 6:45 PM",
+        "operating_hours": {
+          "friday": "7:30 AM–6:45 PM",
+          "saturday": "6:45 AM–1:30 PM",
+          "sunday": "Closed",
+          "monday": "7:30 AM–7:45 PM",
+          "tuesday": "7:30 AM–7:45 PM",
+          "wednesday": "7:30 AM–7:45 PM",
+          "thursday": "7:30 AM–7:45 PM"
+        },
+        "phone": "(408) 539-3326",
+        "website": "http://www.grapplestrong.com/",
+        "extensions": [
+          {
+            "service_options": [
+              "Online classes",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Gender-neutral restroom",
+              "Restroom"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly"
+            ]
+          },
+          {
+            "planning": [
+              "Appointment required",
+              "Appointments recommended"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          },
+          {
+            "parking": [
+              "Free street parking"
+            ]
+          }
+        ],
+        "service_options": {
+          "online_classes": true,
+          "onsite_services": true
+        },
+        "user_review": "\"The coaches will guide you through the workout but each lift is recorded.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn4ssTZQq7AjFVtbiVWSaH-7OX1JIfKI0yAEgvCWYFD-RDAXQpHBcoMi6LI7szfT6JJUQBmunVCEh4Y9ot_E7QYEDPwjNbtdIFmzwyYF9jqHJtAwW4hR4UEzyDGEjnnXt9895gUxWz0BP1L=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/qNxM5XicHcTBToMwGADgJ-ooGRti4qGMMsA5AYHCLsZ1rB0ZLbP_RHhJz76Nid_h-_2RAIN5tKyrXC6E1uLa3k37ybWCVsGC694Sg0HcIGORKE8LphxjikN2c0kXVnC8VOztI0Lua20n8fk5xhOh4mvDmjBAeUDqbIh8rl8u613smvlcrJOkzPz-rqoNlU7jaXinbtbQIB27_RFOcdjP49SEXneLEiAjc2TulHSegi3tlKrBe_BWovxmM_ZTe_c02hhjJP_nSP0BR7NGhg"
+      },
+      {
+        "position": 13,
+        "title": "The Camp Transformation Center",
+        "place_id": "ChIJbzq7T4fLj4ARsAA4U_m0fWU",
+        "data_id": "0x808fcb874fbb3a6f:0x657db4f9533800b0",
+        "data_cid": "7313200352855589040",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb874fbb3a6f%3A0x657db4f9533800b0&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb874fbb3a6f%3A0x657db4f9533800b0&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.349527099999996,
+          "longitude": -121.96319709999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJbzq7T4fLj4ARsAA4U_m0fWU",
+        "provider_id": "/g/11szjmfqzn",
+        "rating": 4.9,
+        "reviews": 107,
+        "type": "Gym",
+        "types": [
+          "Gym"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym"
+        ],
+        "address": "2078 El Camino Real Ste C, Santa Clara, CA 95050",
+        "country": "United States",
+        "open_state": "Open · Closes 7 PM",
+        "hours": "Open · Closes 7 PM",
+        "operating_hours": {
+          "friday": "5 AM–7 PM",
+          "saturday": "7–9 AM",
+          "sunday": "Closed",
+          "monday": "5 AM–8 PM",
+          "tuesday": "5 AM–8 PM",
+          "wednesday": "5 AM–8 PM",
+          "thursday": "5 AM–8 PM"
+        },
+        "phone": "(408) 831-1214",
+        "website": "https://thecamptc.com/santa-clara-california/",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Gender-neutral restroom",
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          }
+        ],
+        "user_review": "\"Great facility, great energy, great atmosphere, great trainers.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlOfMTHix_DvRknhF7SHUiv8D3a-Qb2KzxldV1gG3atqzq4jvfGok16Aupydtr35YSUw-deMc4-3ODcJCAF3BLl6lUCnwBViGEQcZjjbH-ZV32jWsFLNnvvI5fQNSeQWmW1PMMU=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/g8JLSXicHcRJDoIwAADAF5XFghoTDygCLqiIQORitJS1tGhrUT_oG_yNiXOY76cUouMTVSUlVArGCoIfHN8RowJToSDWqkXHAeKAq5Z32B8Tssv9o1c9z7Y8NLR0RqEXVXJswwsIroP1-0myWC9ceBG3982oZe6yRh9aj-6ViTs0T2HUgwz7yABwZ6PV3HLgbEOGJJrTfhZX7iJAaV1fPZDGcFAn3NlsqZRLMw-2IQ6SNtH3vh9Ne13TNFD-R4D-AGtbREI"
+      },
+      {
+        "position": 14,
+        "title": "24 Hour Fitness",
+        "place_id": "ChIJr5j3jFq1j4AR2KOYMcWkMIw",
+        "data_id": "0x808fb55a8cf798af:0x8c30a4c53198a3d8",
+        "data_cid": "10101755131039622104",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb55a8cf798af%3A0x8c30a4c53198a3d8&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb55a8cf798af%3A0x8c30a4c53198a3d8&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3541296,
+          "longitude": -121.99729029999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJr5j3jFq1j4AR2KOYMcWkMIw",
+        "provider_id": "/g/11sh0mvk60",
+        "rating": 4.1,
+        "reviews": 762,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Fitness center",
+          "Indoor cycling",
+          "Indoor swimming pool",
+          "Personal trainer",
+          "Sauna",
+          "Weightlifting area",
+          "Yoga studio"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "fitness_center",
+          "indoor_cycling",
+          "indoor_swimming_pool",
+          "personal_trainer",
+          "sauna",
+          "weightlifting_area",
+          "yoga_studio"
+        ],
+        "address": "3615 El Camino Real, Santa Clara, CA 95051",
+        "country": "United States",
+        "open_state": "Open 24 hours",
+        "hours": "Open 24 hours",
+        "operating_hours": {
+          "friday": "Open 24 hours",
+          "saturday": "Open 24 hours",
+          "sunday": "Open 24 hours",
+          "monday": "Open 24 hours",
+          "tuesday": "Open 24 hours",
+          "wednesday": "Open 24 hours",
+          "thursday": "Open 24 hours"
+        },
+        "phone": "(669) 212-8994",
+        "website": "https://www.24hourfitness.com/gyms/santa-clara-ca/santa-clara-ultra-sport?Adb_id=GGL_LOC_ACQ_CDP",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Sauna"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom",
+              "Swimming pool",
+              "Wi-Fi"
+            ]
+          },
+          {
+            "atmosphere": [
+              "Shower"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "amenities": [
+              "Restaurant"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true
+        },
+        "user_review": "\"Such great service, well maintained and a wide variety of equipment !\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnKeopA3_-uSbC-2XDACb-6l5iFTb5VjDnGXHvcauW-tK_XZa-QavAsOdVxKdl7XATLSG-TklKPjMarzPzCIITaqxJ8D0DquLPnP7-0_ZoHfa2LQBVeNVLjzYcwaCL2jRvJPf6h=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/5iqeLHicHcRNjoIwGADQE31SMf7EZBYdiKLUmaoNohtSagWxtmgLGi7oGbyNiW_x3q_SudpOPU-Vg15hTKFkY-VdGO2kdj1hrl5RWxAWrIejDWU7HUtT40EGzTYPwE9DHOQwUsPzjOXDpAr1PI1awZsduDhLDxzWvMX2_5g846Map5iR7RzYRcW0WvF7R7tgsWD89lxOQhTeGkI1HQPKDiY6cZ-sfxP5l5Cq24sHD4hfbdolPY3Kn0cfIQTldwH6AwivQ-8"
+      },
+      {
+        "position": 15,
+        "title": "24 Hour Fitness",
+        "place_id": "ChIJE4HRpE7Lj4ARoMK7LEvzC8g",
+        "data_id": "0x808fcb4ea4d18113:0xc80bf34b2cbbc2a0",
+        "data_cid": "14414882536528003744",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb4ea4d18113%3A0xc80bf34b2cbbc2a0&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb4ea4d18113%3A0xc80bf34b2cbbc2a0&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.31784,
+          "longitude": -121.9157717
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJE4HRpE7Lj4ARoMK7LEvzC8g",
+        "provider_id": "/g/1tqt9xrs",
+        "rating": 3.8,
+        "reviews": 546,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Fitness center",
+          "Personal trainer",
+          "Weightlifting area",
+          "Yoga studio"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "fitness_center",
+          "personal_trainer",
+          "weightlifting_area",
+          "yoga_studio"
+        ],
+        "address": "1531 Parkmoor Ave, San Jose, CA 95128",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "5 AM–9 PM",
+          "saturday": "6 AM–8 PM",
+          "sunday": "6 AM–8 PM",
+          "monday": "5 AM–11 PM",
+          "tuesday": "5 AM–11 PM",
+          "wednesday": "5 AM–11 PM",
+          "thursday": "5 AM–11 PM"
+        },
+        "phone": "(408) 295-6666",
+        "website": "https://www.24hourfitness.com/gyms/san-jose-ca/parkmoor-sport?Adb_id=GGL_LOC_ACQ_CDP",
+        "extensions": [
+          {
+            "service_options": [
+              "Online classes",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom",
+              "Wi-Fi"
+            ]
+          },
+          {
+            "atmosphere": [
+              "Shower"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          },
+          {
+            "parking": [
+              "Free street parking"
+            ]
+          }
+        ],
+        "service_options": {
+          "online_classes": true,
+          "onsite_services": true
+        },
+        "user_review": "\"Friendly employees, lots of equipment, not crowded, WiFi available.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnD29gyKnTAXdys8ZABuLKrNtF6RyjoapbrswxV39B9bceRdg3HPbo5_dVJlVRQI13fBCeTYVbreXwHMljLO1nIYyuAsQygeZnw7ikFLDUDx0yAEquj-36thWnuVFrgt8FPzTEt=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/S77zEnicHcRJroIwAADQE1XAxoGfuCgiQUVFgnXYGCm1iNhih2C9oGf4tzHxLd7_p9K6VX-O01Swx4RgDTWKSiK4plz3iHg4rFWAKKAcFGdpvudh32d2yXN0KK0an1BgkqVc62iY2Vpc2kKq7oWhH_gFoVnJYJwWYnAu8aLB2XbuwWswpfkRF5IeunjV1MnG4_OjNUhtLaMn3o1u9ygJd-HLtWj2NDWAQ13tucGRZHocpe98pied57ouqH4TwL_G3kYJ"
+      },
+      {
+        "position": 16,
+        "title": "Evo Sports Expo HQ",
+        "place_id": "ChIJ3zqLD2TLj4ARWZ8UUu8A-iA",
+        "data_id": "0x808fcb640f8b3adf:0x20fa00ef52149f59",
+        "data_cid": "2376212781265624921",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb640f8b3adf%3A0x20fa00ef52149f59&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb640f8b3adf%3A0x20fa00ef52149f59&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3511595,
+          "longitude": -121.9770156
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJ3zqLD2TLj4ARWZ8UUu8A-iA",
+        "provider_id": "/g/11frp8grgj",
+        "rating": 4.8,
+        "reviews": 26,
+        "type": "Gym",
+        "types": [
+          "Gym"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym"
+        ],
+        "address": "2790 El Camino Real, Santa Clara, CA 95051",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "7:15 AM–9 PM",
+          "saturday": "9 AM–2 PM",
+          "sunday": "Closed",
+          "monday": "7:15 AM–9 PM",
+          "tuesday": "7:15 AM–9 PM",
+          "wednesday": "7:15 AM–9 PM",
+          "thursday": "7:15 AM–9 PM"
+        },
+        "phone": "(408) 982-3589",
+        "website": "http://www.evosportsclubs.com/",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Online classes"
+            ]
+          }
+        ],
+        "service_options": {
+          "online_classes": false
+        },
+        "user_review": "\"Small, local gym with a solid selection of equipment and classes\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkAzgntgHqsFj0dKDc_KpxzHdXMSfR-qaHcH2XfbU2eoyQ-L8SWR8nVsthsOCeWAM3gtgUBkfo_86od3103NgoRMcKjKRDlCplAfFKHAYhJy_Yj7K1tMLwqxpDr-HH4utjMLTA=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/t6mtPHicHcTbboMgGADgJ0JRm9U06QWraciQraUH2yuzIULUAsrf9PCAe4e9zZJ-F9_frwHwYRHHg8ki7Zwe1DWoSToLykIk3SXWPiAZUIgJFZt91ZOntqDpGNYdblgha-bvT9qc-K4VaPymkqan9ueQKvfYojLfVSK3xwAmfK1URXimQR_e-9bV-ZtrsgRnn9oJLlnHRDGs_EDaNaPkbD4e9bmbswR4eRvvvpgQpbMrdLzck-UtwRgj81oi-w9qa0TE"
+      },
+      {
+        "position": 17,
+        "title": "Barry's Santana Row",
+        "place_id": "ChIJR9J187rLj4ARwyKzNsBYysw",
+        "data_id": "0x808fcbbaf375d247:0xccca58c036b322c3",
+        "data_cid": "14756704711607526083",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcbbaf375d247%3A0xccca58c036b322c3&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcbbaf375d247%3A0xccca58c036b322c3&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.319024,
+          "longitude": -121.94735399999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJR9J187rLj4ARwyKzNsBYysw",
+        "provider_id": "/g/11h88zff7_",
+        "rating": 4.7,
+        "reviews": 111,
+        "type": "Fitness center",
+        "types": [
+          "Fitness center"
+        ],
+        "type_id": "fitness_center",
+        "type_ids": [
+          "fitness_center"
+        ],
+        "address": "3060 Olsen Dr #120, San Jose, CA 95128",
+        "country": "United States",
+        "open_state": "Open · Closes 6:30 PM",
+        "hours": "Open · Closes 6:30 PM",
+        "operating_hours": {
+          "friday": "6 AM–6:30 PM",
+          "saturday": "7 AM–1 PM",
+          "sunday": "7 AM–1 PM",
+          "monday": "6 AM–7:30 PM",
+          "tuesday": "6 AM–7:30 PM",
+          "wednesday": "6 AM–7:30 PM",
+          "thursday": "6 AM–7:30 PM"
+        },
+        "phone": "(408) 345-0382",
+        "website": "https://www.barrys.com/studio/santana-row",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
+          },
+          {
+            "atmosphere": [
+              "Shower"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly",
+              "Transgender safespace"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking garage"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true
+        },
+        "user_review": "\"Training definitely wiped me into shape but such a rewarding workout!\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWldYcSdvX_lV2H0Zx0GaUw3JZaWU58A3v_PuAN5sAJ4nd27y9ug80em0khVeY3fccd1-or-mqcTGYFDYj24cON-N0i_JQiwyHXiG2q4nGoJG9J3fSMwjAw5iOyBokBfijVDrX0K=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/sN2QGnicHcTRboIwFADQL6pcKURdsocas5KaoZuK4AsxlwJFaJWCHV-4b9jfmOw8nL_fehju9s3z2prOKmOqVo5W9mj0IPUwQ9N51d0StMR6LPreH89tkeGheKZ5m_gRXH6AX0-Oisv1fAqXjD7z_cji0DIR6MJfTKuxWoLs4FYnMqMlYjEnpifdA488-9hkjR_gLiYxqFx8KTdFqeL-I9DcCL4StDx8uoa5UO2mtbmtS9Ukmz6F7bubAwCp_0eiXwOFQ6g"
+      },
+      {
+        "position": 18,
+        "title": "MADabolic Santa Clara",
+        "place_id": "ChIJvRk0MADLj4ARzY1k7ymSoj0",
+        "data_id": "0x808fcb00303419bd:0x3da29229ef648dcd",
+        "data_cid": "4441272891348389325",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb00303419bd%3A0x3da29229ef648dcd&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb00303419bd%3A0x3da29229ef648dcd&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3520203,
+          "longitude": -121.96701829999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJvRk0MADLj4ARzY1k7ymSoj0",
+        "provider_id": "/g/11wmx8xxgf",
+        "rating": 4.8,
+        "reviews": 23,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Fitness center",
+          "Physical fitness program"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "fitness_center",
+          "physical_fitness_program"
+        ],
+        "address": "2350 El Camino Real, Santa Clara, CA 95050",
+        "country": "United States",
+        "open_state": "Open · Closes 7 PM",
+        "hours": "Open · Closes 7 PM",
+        "operating_hours": {
+          "friday": "5 AM–7 PM",
+          "saturday": "8–11 AM",
+          "sunday": "8–11 AM",
+          "monday": "5 AM–7 PM",
+          "tuesday": "5 AM–8 PM",
+          "wednesday": "5 AM–8 PM",
+          "thursday": "5 AM–8 PM"
+        },
+        "phone": "(408) 351-1975",
+        "website": "https://madabolic.com/ca/santa-clara/",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          }
+        ],
+        "book_online": "https://www.mindbodyonline.com/explore/locations/madabolic-santa-clara?rwg_token=AE37R_jtIz3-fcAauZayeb5bT-rQ2yTdjhsoJ8gvcvA5R3y6X8vZuYA_natsAdkrtpzFMnk33F1opJ1Z4WyOcHomXNGKZHUYOQ%3D%3D",
+        "user_review": "\"They walk around correcting form as you work through the exercise.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmTp62BkuD68Ft6aJ7HAI17Z8E62wNvJhiavYECy4Gd1MC5eO7K0unv4jm66pBpkSM2ZwBeh2sjuW1APUvobhmom_PmLVuYnK7xdUDF9tamM9Du4-UjgZfVhSyL19q1rR2y2Zy_jxCeKZZ8=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/GZWm6nicHcRLcoIwAADQE0VISgN0pgs-WhWxjIqO2TgUUyKajyYBOaVrb-OMb_GeD2aM0l-Oc2Efo0bK5kKtprdaCkOFGdWSO43SoNZAO9F0VWx2fKMwis82xcHE4GruT6MZ9EkwxqhfdnN2qrr9OBm8nyPMk0_662euFZ3XcoxVrM7rHJE-pgzp1u5gVJSd_GNc8kPBF1u7F5l_P5bpJDQVz8PUeqBsG_K_ZethAcMrvK3QgMhwaO8JzQgJvnvoui5g72sgXglIRoU"
+      },
+      {
+        "position": 19,
+        "title": "Unbound Fitness & Wellness",
+        "place_id": "ChIJzRf-5xXLj4ARYwKeLsLP038",
+        "data_id": "0x808fcb15e7fe17cd:0x7fd3cfc22e9e0263",
+        "data_cid": "9210934095815508579",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb15e7fe17cd%3A0x7fd3cfc22e9e0263&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb15e7fe17cd%3A0x7fd3cfc22e9e0263&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.330478299999996,
+          "longitude": -121.91180139999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJzRf-5xXLj4ARYwKeLsLP038",
+        "provider_id": "/g/11mdbsq9q4",
+        "rating": 4.9,
+        "reviews": 38,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Boot camp",
+          "Boxing gym",
+          "Fitness center",
+          "Massage therapist",
+          "Personal trainer",
+          "Physical fitness program",
+          "Weight loss service"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "boot_camp",
+          "boxing_gym",
+          "fitness_center",
+          "massage_therapist",
+          "personal_trainer",
+          "physical_fitness_program",
+          "weight_loss_service"
+        ],
+        "address": "46 Race St, San Jose, CA 95126",
+        "country": "United States",
+        "open_state": "Open · Closes 7:30 PM",
+        "hours": "Open · Closes 7:30 PM",
+        "operating_hours": {
+          "friday": "6 AM–7:30 PM",
+          "saturday": "7 AM–12 PM",
+          "sunday": "Closed",
+          "monday": "5 AM–8:30 PM",
+          "tuesday": "5 AM–8:30 PM",
+          "wednesday": "5 AM–8:30 PM",
+          "thursday": "5 AM–8:30 PM"
+        },
+        "phone": "(408) 320-9323",
+        "website": "https://www.unboundfitlife.com/",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Identifies as Asian-owned",
+              "Identifies as Indigenous-owned",
+              "Identifies as Latino-owned",
+              "Identifies as LGBTQ+ owned",
+              "Identifies as women-owned"
+            ]
+          },
+          {
+            "service_options": [
+              "Online classes",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom",
+              "Wheelchair accessible seating"
+            ]
+          },
+          {
+            "offerings": [
+              "Sauna"
+            ]
+          },
+          {
+            "amenities": [
+              "Gender-neutral restroom",
+              "Restroom"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly",
+              "Transgender safespace"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking"
+            ]
+          }
+        ],
+        "service_options": {
+          "online_classes": true,
+          "onsite_services": true
+        },
+        "user_review": "\"It’s a full-body workout and a huge confidence boost\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlDQi_oApTLOIiMc8Mib3lBMiBZCWiuFDhZmz3IonB3NUGmVW3joklUUyqHw_ny1eEmejvCxLTP99DJT9sjKPAj4dBXlNlgNDhliVEtGObg8lLMC5mpoCpQ1ObVslRL2k6-uLPfPdSOiEs=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/U6p1oHicHcTbTsIwGADgJyrbrBpm4sVOAtptBXcw3JBs1Lbj70HbifCQ3vs2Jn4X3--P8N66hyAAgRfcGA5sduxzNNoz7RejUQG3Do0OuSBZ72jTQ76VB5PYhtQbWY7LUg4Y0lKm-6yX81Mu9uqKN0anuGpXquvxZE7QtpeP9fmgLxErFJu-sm_S0DjOn5vYTS80mW6P6RtUwKtcgOwKv6oHvgRSZnfKmsxuo3roHOzIzekezYS-0-NrLQv3eI7CMETi_xHpP5xUR6U"
+      },
+      {
+        "position": 20,
+        "title": "Healthspan Fit",
+        "place_id": "ChIJw1DCETPLj4ARfgGyyNXfkJs",
+        "data_id": "0x808fcb3311c250c3:0x9b90dfd5c8b2017e",
+        "data_cid": "11209705581813301630",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb3311c250c3%3A0x9b90dfd5c8b2017e&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb3311c250c3%3A0x9b90dfd5c8b2017e&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3273538,
+          "longitude": -121.94952819999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJw1DCETPLj4ARfgGyyNXfkJs",
+        "provider_id": "/g/11t6x3rk4s",
+        "rating": 5,
+        "reviews": 12,
+        "type": "Personal trainer",
+        "types": [
+          "Personal trainer",
+          "Fitness center",
+          "Gym",
+          "Physical fitness program"
+        ],
+        "type_id": "personal_trainer",
+        "type_ids": [
+          "personal_trainer",
+          "fitness_center",
+          "gym",
+          "physical_fitness_program"
+        ],
+        "address": "2477 Forest Ave, San Jose, CA 95128",
+        "country": "United States",
+        "open_state": "Open · Closes 7 PM",
+        "hours": "Open · Closes 7 PM",
+        "operating_hours": {
+          "friday": "6 AM–7 PM",
+          "saturday": "6 AM–12 PM",
+          "sunday": "9 AM–3 PM",
+          "monday": "6 AM–7 PM",
+          "tuesday": "6 AM–7 PM",
+          "wednesday": "6 AM–7 PM",
+          "thursday": "6 AM–7 PM"
+        },
+        "phone": "(408) 689-7100",
+        "website": "http://www.healthspanfit.com/",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Appointment required",
+              "Appointments recommended"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Online classes"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true,
+          "online_classes": false
+        },
+        "user_review": "\"Highly recommend trying it out for a safe and healthy fitness lifestyle.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlxTC52sTYfkh5dkMr1SLtj8j6RguT7rvgJdb-y4-5S-OvfJDzNxnbUogbMP-VH9-pYKBiU-6ZXwlBo7YBGZhIR31_KXGr1FLaLhBrxfAWWOTfrOz9OPx7Vz_lbRXItxdvaWIPqUJ0eznuB=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/PAxhaHicHcRNcoIwGADQE30CWqR2pgvTThVEYTAIuHHkL6mmCSYBI5fs2tt0pm_xnr9U6069WRajswkRgrCmV42sBNcN15NK_FikU1ApUNZyncQ4YwZ_uFOFi_ZK3fq6lc4-1JfXyzwhPfbkQIK6hMcLuHuIhjb4HHeGl6kg5TaGw3oBXbFB3ynMj_mdIeEVaHWkfjJzTpt8JZ2v8BxSJE27zLIItzIaF1FsvMN4YmWS-9rUwznz41sa2M3Ie_R-d2zbBvp_BfwPlBZHoQ"
+      }
+    ],
+    "serpapi_pagination": {
+      "next": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&ll=%4037.337585%2C-121.95238%2C15z&q=gym&start=20&type=search"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
-  "plan_id": "bcea1e604a5bf8e8",
+  "plan_id": "6353e2cdbe47069b",
   "planner_version": "0.1.0",
-  "registry_version": "2026-08-28.5",
+  "registry_version": "2026-08-28.6",
   "search_bounds": null,
   "clusters": [],
   "stages": [
@@ -101,71 +101,19 @@
           "cost_units": 1,
           "ttl_seconds": 604800,
           "on_error": "unknown"
-        },
-        {
-          "op_id": "op_nearby_poi_maps_cluster_1",
-          "capability_id": "nearby_poi.maps.cluster",
-          "constraint_ids": [
-            "c4"
-          ],
-          "provider": "google_maps",
-          "endpoint": "google_maps:search",
-          "params": {
-            "engine": "google_maps",
-            "type": "search",
-            "q": "$constraint.c4.query",
-            "ll": "@$cluster.lat,$cluster.lng,14z"
-          },
-          "requires": [
-            "cluster"
-          ],
-          "cost_units": 1,
-          "ttl_seconds": 2592000,
-          "on_error": "unknown"
-        },
-        {
-          "op_id": "op_nearby_poi_maps_cluster_2",
-          "capability_id": "nearby_poi.maps.cluster",
-          "constraint_ids": [
-            "c6"
-          ],
-          "provider": "google_maps",
-          "endpoint": "google_maps:search",
-          "params": {
-            "engine": "google_maps",
-            "type": "search",
-            "q": "$constraint.c6.query",
-            "ll": "@$cluster.lat,$cluster.lng,14z"
-          },
-          "requires": [
-            "cluster"
-          ],
-          "cost_units": 1,
-          "ttl_seconds": 2592000,
-          "on_error": "unknown"
         }
       ],
-      "expected_entities": 7,
-      "estimated_cost_units": 36,
+      "expected_entities": 32,
+      "estimated_cost_units": 12,
       "estimated_latency_ms": 2400,
       "prune": {
         "on_fail": [
-          "c3",
-          "c4",
-          "c6"
+          "c3"
         ],
         "slack": [
           {
             "constraint_id": "c3",
             "extra_seconds": 191
-          },
-          {
-            "constraint_id": "c4",
-            "extra_meters": 800
-          },
-          {
-            "constraint_id": "c6",
-            "extra_meters": 800
           }
         ]
       }
@@ -241,8 +189,8 @@
           "on_error": "unknown"
         }
       ],
-      "expected_entities": 5,
-      "estimated_cost_units": 21,
+      "expected_entities": 14,
+      "estimated_cost_units": 96,
       "estimated_latency_ms": 2400,
       "prune": {
         "on_fail": [
@@ -255,10 +203,10 @@
     }
   ],
   "unsatisfied": [],
-  "estimated_cost_units": 60,
+  "estimated_cost_units": 111,
   "estimated_latency_ms": 8600,
   "trace": {
-    "registry_version": "2026-08-28.5",
+    "registry_version": "2026-08-28.6",
     "planner_version": "0.1.0",
     "cardinality": {
       "region_entities": 4517,
@@ -266,8 +214,8 @@
       "survivors_by_stage": {
         "bounds": 0,
         "candidates": 58,
-        "clusters": 7,
-        "exact": 5
+        "clusters": 32,
+        "exact": 14
       }
     },
     "candidates": [
@@ -340,12 +288,12 @@
         "capability_id": "commute.directions.cluster",
         "constraint_id": "c3",
         "tier": "cluster",
-        "selectivity_prior": 0.35,
-        "coverage": 0.98,
+        "selectivity_prior": 0.44,
+        "coverage": 0.8,
         "cost_units": 1,
         "entities_requiring_evaluation": 12,
-        "score": 0.05308333333333334,
-        "score_rounded": 53083333,
+        "score": 0.037333333333333336,
+        "score_rounded": 37333333,
         "chosen": true,
         "reason": "selected"
       },
@@ -353,38 +301,38 @@
         "capability_id": "nearby_poi.maps.cluster",
         "constraint_id": "c4",
         "tier": "cluster",
-        "selectivity_prior": 0.55,
-        "coverage": 0.95,
+        "selectivity_prior": 0.94,
+        "coverage": 0.45,
         "cost_units": 1,
         "entities_requiring_evaluation": 12,
-        "score": 0.035625,
-        "score_rounded": 35625000,
-        "chosen": true,
-        "reason": "selected"
+        "score": 0.002250000000000002,
+        "score_rounded": 2250000,
+        "chosen": false,
+        "reason": "no_payback"
       },
       {
         "capability_id": "nearby_poi.maps.cluster",
         "constraint_id": "c6",
         "tier": "cluster",
-        "selectivity_prior": 0.55,
-        "coverage": 0.95,
+        "selectivity_prior": 0.94,
+        "coverage": 0.45,
         "cost_units": 1,
         "entities_requiring_evaluation": 12,
-        "score": 0.035625,
-        "score_rounded": 35625000,
-        "chosen": true,
-        "reason": "selected"
+        "score": 0.002250000000000002,
+        "score_rounded": 2250000,
+        "chosen": false,
+        "reason": "no_payback"
       },
       {
         "capability_id": "commute.directions.entity",
         "constraint_id": "c3",
         "tier": "entity",
-        "selectivity_prior": 0.8,
-        "coverage": 0.98,
+        "selectivity_prior": 0.7,
+        "coverage": 1,
         "cost_units": 1,
-        "entities_requiring_evaluation": 7,
-        "score": 0.027999999999999994,
-        "score_rounded": 28000000,
+        "entities_requiring_evaluation": 32,
+        "score": 0.009375000000000001,
+        "score_rounded": 9375000,
         "chosen": true,
         "reason": "selected"
       },
@@ -392,12 +340,12 @@
         "capability_id": "nearby_poi.maps.entity",
         "constraint_id": "c4",
         "tier": "entity",
-        "selectivity_prior": 0.9,
-        "coverage": 0.95,
+        "selectivity_prior": 0.8,
+        "coverage": 1,
         "cost_units": 1,
-        "entities_requiring_evaluation": 7,
-        "score": 0.013571428571428568,
-        "score_rounded": 13571429,
+        "entities_requiring_evaluation": 32,
+        "score": 0.006249999999999999,
+        "score_rounded": 6250000,
         "chosen": true,
         "reason": "selected"
       },
@@ -405,12 +353,12 @@
         "capability_id": "nearby_poi.maps.entity",
         "constraint_id": "c6",
         "tier": "entity",
-        "selectivity_prior": 0.9,
-        "coverage": 0.95,
+        "selectivity_prior": 0.8,
+        "coverage": 1,
         "cost_units": 1,
-        "entities_requiring_evaluation": 7,
-        "score": 0.013571428571428568,
-        "score_rounded": 13571429,
+        "entities_requiring_evaluation": 32,
+        "score": 0.006249999999999999,
+        "score_rounded": 6250000,
         "chosen": true,
         "reason": "selected"
       }
@@ -422,7 +370,7 @@
       },
       {
         "step": "cardinality",
-        "detail": "4517 candidates in the box, about 58 after the free predicates, about 7 after cluster level pruning"
+        "detail": "4517 candidates in the box, about 58 after the free predicates, about 32 after cluster level pruning"
       },
       {
         "step": "pushdown",
@@ -431,6 +379,6 @@
     ],
     "naive_cost_units": 18179,
     "pushdown_only_cost_units": 176,
-    "planned_cost_units": 60
+    "planned_cost_units": 111
   }
 }

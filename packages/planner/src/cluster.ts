@@ -1,4 +1,4 @@
-import type { BBox, ClusterSpec, GeoPoint, TravelMode } from '@relokit/schema'
+import type { BBox, ClusterSpec, GeoPoint, Meters, TravelMode } from '@relokit/schema'
 
 /**
  * There is no isochrone. SerpApi has no such endpoint and Zillow takes a
@@ -80,4 +80,83 @@ export function slackMeters(radiusMeters: number): number {
 
 function round6(value: number): number {
   return Math.round(value * 1e6) / 1e6
+}
+
+/**
+ * Textbook haversine. Duplicated in the evidence package rather than shared,
+ * because the planner is allowed exactly one dependency and eight lines of
+ * arithmetic is a smaller price than that rule.
+ */
+export function haversineMeters(a: GeoPoint, b: GeoPoint): Meters {
+  const dLat = ((b.lat - a.lat) * Math.PI) / 180
+  const dLng = ((b.lng - a.lng) * Math.PI) / 180
+  const lat1 = (a.lat * Math.PI) / 180
+  const lat2 = (b.lat * Math.PI) / 180
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2
+  return Math.round(2 * 6_371_000 * Math.asin(Math.sqrt(h)))
+}
+
+/**
+ * Clusters over where the listings actually are, rather than over the box that
+ * contains them.
+ *
+ * This matters more than it sounds. A grid across a 23 km box gives cells five
+ * kilometres wide, and a cell that wide forces twenty minutes of slack on a
+ * twenty five minute commute, so nothing can ever be ruled out and the whole
+ * tier costs calls for no pruning. Listings sit in neighbourhoods, so clustering
+ * on them gives cells small enough for the slack to be worth paying.
+ *
+ * Deterministic: seeds are taken at even intervals through a sorted list and
+ * Lloyd's iterations are run to a fixed count, so the same listings always give
+ * the same cells.
+ */
+export function refineClusters(points: GeoPoint[], count: number): ClusterSpec[] {
+  if (points.length === 0) return []
+  const k = Math.max(1, Math.min(count, points.length))
+
+  const sorted = [...points].sort((a, b) => a.lat - b.lat || a.lng - b.lng)
+  let centroids = Array.from({ length: k }, (_, i) => sorted[Math.floor((i * sorted.length) / k)]!)
+
+  let members: GeoPoint[][] = []
+  for (let pass = 0; pass < 20; pass++) {
+    members = Array.from({ length: k }, () => [] as GeoPoint[])
+    for (const point of sorted) members[nearest(point, centroids)]!.push(point)
+
+    const moved = centroids.map((centroid, i) => {
+      const group = members[i]!
+      if (group.length === 0) return centroid
+      return {
+        lat: round6(group.reduce((sum, p) => sum + p.lat, 0) / group.length),
+        lng: round6(group.reduce((sum, p) => sum + p.lng, 0) / group.length),
+      }
+    })
+    if (moved.every((c, i) => c.lat === centroids[i]!.lat && c.lng === centroids[i]!.lng)) break
+    centroids = moved
+  }
+
+  return centroids
+    .map((centroid, i) => ({
+      cluster_id: `k${i}`,
+      centroid,
+      // The radius is the furthest listing in the cell, which is exactly the
+      // error a centroid answer can carry, and so exactly the slack to allow.
+      radius_m: (members[i] ?? []).reduce(
+        (max, point) => Math.max(max, haversineMeters(centroid, point)),
+        0,
+      ),
+    }))
+    .filter((_, i) => (members[i] ?? []).length > 0)
+}
+
+function nearest(point: GeoPoint, centroids: GeoPoint[]): number {
+  let best = 0
+  let bestDistance = Number.POSITIVE_INFINITY
+  for (let i = 0; i < centroids.length; i++) {
+    const distance = haversineMeters(point, centroids[i]!)
+    if (distance < bestDistance) {
+      bestDistance = distance
+      best = i
+    }
+  }
+  return best
 }

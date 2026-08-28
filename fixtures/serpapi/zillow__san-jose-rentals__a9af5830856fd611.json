@@ -41,7 +41,9 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/lynhaven/CkBCh6/",
         "status": "FOR_RENT",
         "status_text": "Lynhaven",
-        "badges": ["Special Offer"],
+        "badges": [
+          "Special Offer"
+        ],
         "address": {
           "street": "919 S  Winchester Blvd # 2-435",
           "city": "San Jose",
@@ -119,7 +121,9 @@
         "link": "https://www.zillow.com/apartments/santa-clara-ca/villas-on-the-boulevard/CjYvck/",
         "status": "FOR_RENT",
         "status_text": "Villas on the Boulevard",
-        "badges": ["Special Offer"],
+        "badges": [
+          "Special Offer"
+        ],
         "address": {
           "street": "2615 El Camino Real # 132",
           "city": "Santa Clara",
@@ -220,7 +224,10 @@
         "link": "https://www.zillow.com/apartments/santa-clara-ca/sofia/CkkMDs/",
         "status": "FOR_RENT",
         "status_text": "Sofia",
-        "badges": ["Impressive finishes", "$500 Off"],
+        "badges": [
+          "Impressive finishes",
+          "$500 Off"
+        ],
         "address": {
           "street": "3580 Rambla Pl # 314",
           "city": "Santa Clara",
@@ -316,7 +323,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/monterey-grove/5XjKJb/",
         "status": "FOR_RENT",
         "status_text": "Monterey Grove",
-        "badges": ["Private balconies", "9 available units"],
+        "badges": [
+          "Private balconies",
+          "9 available units"
+        ],
         "address": {
           "street": "6100 Monterey Rd # 3-102",
           "city": "San Jose",
@@ -388,7 +398,10 @@
         "link": "https://www.zillow.com/apartments/santa-clara-ca/orlo-+-alba/CkCPmk/",
         "status": "FOR_RENT",
         "status_text": "Orlo + Alba",
-        "badges": ["Layered eclectic design", "Special offer"],
+        "badges": [
+          "Layered eclectic design",
+          "Special offer"
+        ],
         "address": {
           "street": "1200 Rickabaugh Way # 673",
           "city": "Santa Clara",
@@ -463,7 +476,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/cherrywood/5XkHks/",
         "status": "FOR_RENT",
         "status_text": "Cherrywood",
-        "badges": ["Park-like landscaped setting", "7 available units"],
+        "badges": [
+          "Park-like landscaped setting",
+          "7 available units"
+        ],
         "address": {
           "street": "4951 Cherry Ave # 808489271",
           "city": "San Jose",
@@ -544,7 +560,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 21,
-        "badges": ["Designer interior finishes throughout"],
+        "badges": [
+          "Designer interior finishes throughout"
+        ],
         "price": "$4,800+/mo",
         "extracted_price": 4800,
         "currency": "USD",
@@ -643,7 +661,10 @@
         "link": "https://www.zillow.com/apartments/santa-clara-ca/the-clara/CkQ7MZ/",
         "status": "FOR_RENT",
         "status_text": "The Clara",
-        "badges": ["Updated yesterday", "Special offer"],
+        "badges": [
+          "Updated yesterday",
+          "Special offer"
+        ],
         "address": {
           "street": "5150 Calle Del Sol # 1902",
           "city": "Santa Clara",
@@ -716,7 +737,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/renew-berryessa/5Xk27R/",
         "status": "FOR_RENT",
         "status_text": "ReNew Berryessa",
-        "badges": ["Private balcony", "Special Offer"],
+        "badges": [
+          "Private balcony",
+          "Special Offer"
+        ],
         "address": {
           "street": "1265 N  Capitol Ave # 13-115",
           "city": "San Jose",
@@ -778,7 +802,10 @@
         "link": "https://www.zillow.com/apartments/santa-clara-ca/summerwood-apartments/5XjKK9/",
         "status": "FOR_RENT",
         "status_text": "Summerwood Apartments",
-        "badges": ["Garden-style community", "27 available units"],
+        "badges": [
+          "Garden-style community",
+          "27 available units"
+        ],
         "address": {
           "street": "444 Saratoga Ave  Apt 27G",
           "city": "Santa Clara",
@@ -902,7 +929,11 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/duo-apartments/Ck9p8H/",
         "status": "FOR_RENT",
         "status_text": "Duo Apartments",
-        "badges": ["Stainless steel appliances", "16 available units", "$115"],
+        "badges": [
+          "Stainless steel appliances",
+          "16 available units",
+          "$115"
+        ],
         "address": {
           "street": "6670 Emergent Way # 1-6670215",
           "city": "San Jose",
@@ -1021,7 +1052,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 9,
-        "badges": ["Swimming pool"],
+        "badges": [
+          "Swimming pool"
+        ],
         "price": "$3,750/mo",
         "extracted_price": 3750,
         "currency": "USD",
@@ -1071,7 +1104,10 @@
         "link": "https://www.zillow.com/apartments/santa-clara-ca/santa-clara-square-apartment-homes/CkBDWB/",
         "status": "FOR_RENT",
         "status_text": "Santa Clara Square Apartment Homes",
-        "badges": ["Smart-tech features", "60 available units"],
+        "badges": [
+          "Smart-tech features",
+          "60 available units"
+        ],
         "address": {
           "street": "3320 Montgomery Dr # 2-331",
           "city": "Santa Clara",
@@ -1144,7 +1180,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/sixth-and-jackson/CjmJ4H/",
         "status": "FOR_RENT",
         "status_text": "Sixth & Jackson",
-        "badges": ["Nest thermostats", "34 available units"],
+        "badges": [
+          "Nest thermostats",
+          "34 available units"
+        ],
         "address": {
           "street": "620 N  6th St   # 2645",
           "city": "San Jose",
@@ -1227,7 +1266,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/miro/CgGtVR/",
         "status": "FOR_RENT",
         "status_text": "Miro",
-        "badges": ["Quality finishes", "Special offer"],
+        "badges": [
+          "Quality finishes",
+          "Special offer"
+        ],
         "address": {
           "street": "181 E  Santa Clara St   # W2202",
           "city": "San Jose",
@@ -1302,7 +1344,10 @@
         "link": "https://www.zillow.com/apartments/santa-clara-ca/passero/CpRDhh/",
         "status": "FOR_RENT",
         "status_text": "Passero",
-        "badges": ["High-end amenities", "Special Offer"],
+        "badges": [
+          "High-end amenities",
+          "Special Offer"
+        ],
         "address": {
           "street": "2230 Calle Del Mundo # A-A220",
           "city": "Santa Clara",
@@ -1384,7 +1429,10 @@
         "link": "https://www.zillow.com/apartments/sunnyvale-ca/redwood-place-apartment-homes/CkBCGT/",
         "status": "FOR_RENT",
         "status_text": "Redwood Place Apartment Homes",
-        "badges": ["Brand new apartment homes", "37 available units"],
+        "badges": [
+          "Brand new apartment homes",
+          "37 available units"
+        ],
         "address": {
           "street": "1030 Indian Wells Ave # 1-335",
           "city": "Sunnyvale",
@@ -1449,7 +1497,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/renew-twenty50/5XkFXZ/",
         "status": "FOR_RENT",
         "status_text": "ReNew Twenty50",
-        "badges": ["Sparkling swimming pool", "1 Month Free"],
+        "badges": [
+          "Sparkling swimming pool",
+          "1 Month Free"
+        ],
         "address": {
           "street": "2050 McKee Rd   # 4-120",
           "city": "San Jose",
@@ -1537,7 +1588,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/the-julian/CkkMFr/",
         "status": "FOR_RENT",
         "status_text": "The Julian",
-        "badges": ["3D Tour", "16 available units"],
+        "badges": [
+          "3D Tour",
+          "16 available units"
+        ],
         "address": {
           "street": "171 W  Julian St   # 543",
           "city": "San Jose",
@@ -1605,7 +1659,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/elan-at-river-oaks/5XjLQF/",
         "status": "FOR_RENT",
         "status_text": "Elan at River Oaks",
-        "badges": ["Tennis courts", "24 available units"],
+        "badges": [
+          "Tennis courts",
+          "24 available units"
+        ],
         "address": {
           "street": "345 Village Center Dr # 6-203",
           "city": "San Jose",
@@ -1682,7 +1739,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/crescent-village-apartment-homes/5XjSSW/",
         "status": "FOR_RENT",
         "status_text": "Crescent Village Apartment Homes",
-        "badges": ["Seven saltwater pools", "92 available units"],
+        "badges": [
+          "Seven saltwater pools",
+          "92 available units"
+        ],
         "address": {
           "street": "310 Crescent Village Cir # 3-1387",
           "city": "San Jose",
@@ -1755,7 +1815,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/maxwell-at-bascom/ChhTZT/",
         "status": "FOR_RENT",
         "status_text": "Maxwell at Bascom",
-        "badges": ["3D Tour", "Special offer"],
+        "badges": [
+          "3D Tour",
+          "Special offer"
+        ],
         "address": {
           "street": "1350 S  Bascom Ave # 7010",
           "city": "San Jose",
@@ -1849,7 +1912,9 @@
         "link": "https://www.zillow.com/apartments/campbell-ca/campbell-west-apartments/5XjTHg/",
         "status": "FOR_RENT",
         "status_text": "Campbell West Apartments",
-        "badges": ["3 available units"],
+        "badges": [
+          "3 available units"
+        ],
         "address": {
           "street": "831 Gale Dr Apt 36",
           "city": "Campbell",
@@ -1917,7 +1982,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/terra-house-apartments/5XjL7t/",
         "status": "FOR_RENT",
         "status_text": "Terra House Apartments",
-        "badges": ["Gourmet kitchen", "Special offer"],
+        "badges": [
+          "Gourmet kitchen",
+          "Special offer"
+        ],
         "address": {
           "street": "4501 Snell Ave  Apt 705",
           "city": "San Jose",
@@ -2014,7 +2082,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 10,
-        "badges": ["Two swimming pools"],
+        "badges": [
+          "Two swimming pools"
+        ],
         "price": "$2,695/mo",
         "extracted_price": 2695,
         "currency": "USD",
@@ -2078,7 +2148,10 @@
         "link": "https://www.zillow.com/apartments/santa-clara-ca/mylo-santa-clara/CgrByP/",
         "status": "FOR_RENT",
         "status_text": "Mylo Santa Clara",
-        "badges": ["Pool and spa", "22 available units"],
+        "badges": [
+          "Pool and spa",
+          "22 available units"
+        ],
         "address": {
           "street": "3710 El Camino Real # 6925",
           "city": "Santa Clara",
@@ -2157,7 +2230,9 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/charlotte-park/CkCPX2/",
         "status": "FOR_RENT",
         "status_text": "Charlotte Park",
-        "badges": ["2 available units"],
+        "badges": [
+          "2 available units"
+        ],
         "address": {
           "street": "5875 Charlotte Dr # 73dacec83",
           "city": "San Jose",
@@ -2218,7 +2293,9 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/oak-grove-apartments/CjjCJ5/",
         "status": "FOR_RENT",
         "status_text": "Oak Grove Apartments",
-        "badges": ["2 available units"],
+        "badges": [
+          "2 available units"
+        ],
         "address": {
           "street": "5568 Lexington Ave  # 3e745b621",
           "city": "San Jose",
@@ -2280,7 +2357,10 @@
         "link": "https://www.zillow.com/apartments/sunnyvale-ca/windemere-apartments/5XjSnT/",
         "status": "FOR_RENT",
         "status_text": "Windemere Apartments",
-        "badges": ["Heated swimming pool", "2 available units"],
+        "badges": [
+          "Heated swimming pool",
+          "2 available units"
+        ],
         "address": {
           "street": "395 Ano Nuevo Ave Apt 210",
           "city": "Sunnyvale",
@@ -2358,7 +2438,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/hacienda-creek-senior-apartments/CgqpVx/",
         "status": "FOR_RENT",
         "status_text": "Hacienda Creek Senior Apartments",
-        "badges": ["Three-story bays", "2 available units"],
+        "badges": [
+          "Three-story bays",
+          "2 available units"
+        ],
         "address": {
           "street": "399 Court 3a55b7a30 # 3a55b7a30",
           "city": "San Jose",
@@ -2413,7 +2496,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 329,
-        "badges": ["Stucco finishes"],
+        "badges": [
+          "Stucco finishes"
+        ],
         "price": "$1,993+/mo",
         "extracted_price": 1993,
         "currency": "USD",
@@ -2466,7 +2551,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 85,
-        "badges": ["3D Tour"],
+        "badges": [
+          "3D Tour"
+        ],
         "price": "$3,245/mo",
         "extracted_price": 3245,
         "currency": "USD",
@@ -2537,7 +2624,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/epic/5Xn9bZ/",
         "status": "FOR_RENT",
         "status_text": "Epic",
-        "badges": ["Efficient layouts", "34 available units"],
+        "badges": [
+          "Efficient layouts",
+          "34 available units"
+        ],
         "address": {
           "street": "600 Epic Way  # 3-543",
           "city": "San Jose",
@@ -2616,7 +2706,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 148,
-        "badges": ["Contemporary craftsman style"],
+        "badges": [
+          "Contemporary craftsman style"
+        ],
         "price": "$1,850+/mo",
         "extracted_price": 1850,
         "currency": "USD",
@@ -2653,7 +2745,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/almaden-lake-village/5XjH5M/",
         "status": "FOR_RENT",
         "status_text": "Almaden Lake Village",
-        "badges": ["Updated today", "Special Offer"],
+        "badges": [
+          "Updated today",
+          "Special Offer"
+        ],
         "address": {
           "street": "1045 Coleman Rd # 3307",
           "city": "San Jose",
@@ -2743,7 +2838,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/the-woods/5XkDBf/",
         "status": "FOR_RENT",
         "status_text": "The Woods",
-        "badges": ["Own pool and spa", "36 available units"],
+        "badges": [
+          "Own pool and spa",
+          "36 available units"
+        ],
         "address": {
           "street": "4300 The Woods Dr # 1664489",
           "city": "San Jose",
@@ -2819,7 +2917,9 @@
         "link": "https://www.zillow.com/apartments/sunnyvale-ca/macara-gardens-apartments/5Xk5Db/",
         "status": "FOR_RENT",
         "status_text": "Macara Gardens Apartments",
-        "badges": ["1 Month Free"],
+        "badges": [
+          "1 Month Free"
+        ],
         "address": {
           "street": "955 Escalon Ave  # 1368950",
           "city": "Sunnyvale",
@@ -2888,7 +2988,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 5,
-        "badges": ["5 days ago"],
+        "badges": [
+          "5 days ago"
+        ],
         "price": "$2,799/mo",
         "extracted_price": 2799,
         "currency": "USD",
@@ -2952,7 +3054,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/willow-lake/5hJhkd/",
         "status": "FOR_RENT",
         "status_text": "Willow Lake",
-        "badges": ["Swimming pool", "0.3333333333333333 Months Free"],
+        "badges": [
+          "Swimming pool",
+          "0.3333333333333333 Months Free"
+        ],
         "address": {
           "street": "1331 Lakeshore Cir # 8-1714",
           "city": "San Jose",
@@ -3050,7 +3155,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/santa-palmia-at-palm-valley/CjdzVX/",
         "status": "FOR_RENT",
         "status_text": "Santa Palmia at Palm Valley",
-        "badges": ["European-style cabinetry", "0.3333333333333333 Months Free"],
+        "badges": [
+          "European-style cabinetry",
+          "0.3333333333333333 Months Free"
+        ],
         "address": {
           "street": "150 Palm Valley Blvd # 1111",
           "city": "San Jose",
@@ -3132,7 +3240,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 28,
-        "badges": ["Heated pool"],
+        "badges": [
+          "Heated pool"
+        ],
         "price": "$3,788/mo",
         "extracted_price": 3788,
         "currency": "USD",

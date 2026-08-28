@@ -8,7 +8,10 @@ import { redactParams } from './redact.ts'
  */
 export function paramsHash(engine: Engine, params: SearchParams): string {
   const stable = Object.entries(redactParams(params))
-    .filter(([, v]) => v !== undefined && v !== '')
+    // The engine is already the first component of the key. Leaving it in the
+    // parameters too would make the same call hash differently depending on
+    // whether the caller spelled it out.
+    .filter(([k, v]) => k !== 'engine' && v !== undefined && v !== '')
     .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
   return createHash('sha256')
     .update(JSON.stringify([engine, stable]))

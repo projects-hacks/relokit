@@ -17,7 +17,7 @@ import type {
 } from '@relokit/schema'
 import type { BindingKey } from '@relokit/schema'
 import { closeDerived, isFeasible, requirementsOf } from './binding.ts'
-import { SEED_REGION_CANDIDATES, pagesFor, survivors } from './cardinality.ts'
+import { SEED_REGION_CANDIDATES, eliminationPower, pagesFor, survivors } from './cardinality.ts'
 import { boxAround, gridClusters, reachRadiusMeters, slackMeters, slackSeconds } from './cluster.ts'
 import { bindSelf, mergeParams, stableHash } from './params.ts'
 import { enabledByConstraintType, entitiesRequiringEvaluation } from './registry.ts'
@@ -60,22 +60,31 @@ export function plan(input: PlanInput): PlanResult {
 
   const { bounds, clusters } = boundSearch(input, decisions)
 
-  // Two passes, because the entity tier is scored against the survivor count and
-  // the survivor count is not known until the tiers above it have been chosen.
-  const cheapSelections = select(constraints, index, trace, unsatisfied, {
+  // The tiers below native are scored against the survivor count, and the
+  // survivor count depends on which tiers were chosen. Native predicates break
+  // the circle: they are free, always taken when enabled, and prune at the
+  // source, so their effect can be worked out before anything is selected.
+  const natives = registry.filter((c) => c.enabled && c.granularity === 'native')
+  const afterNative = survivors(SEED_REGION_CANDIDATES, natives)
+
+  const firstPass = select(constraints, index, trace, unsatisfied, {
     cluster_count: budget.cluster_count,
-    entity_survivors: 0,
+    cluster_input_entities: afterNative,
+    entity_survivors: afterNative,
     max_cost_units: budget.max_cost_units,
   })
-  const afterNative = survivors(SEED_REGION_CANDIDATES, chosen(cheapSelections, 'native'))
-  const afterCluster = survivors(afterNative, chosen(cheapSelections, 'cluster'))
+  const afterCluster = survivors(afterNative, chosen(firstPass, 'cluster'))
   decisions.push({
     step: 'cardinality',
-    detail: `${SEED_REGION_CANDIDATES} candidates in the box, about ${afterNative} after the free predicates, about ${afterCluster} after cluster level pruning`,
+    detail:
+      afterCluster < afterNative
+        ? `${SEED_REGION_CANDIDATES} candidates in the box, about ${afterNative} after the free predicates, about ${afterCluster} after cluster level pruning`
+        : `${SEED_REGION_CANDIDATES} candidates in the box, about ${afterNative} after the free predicates, with nothing worth pruning at cluster level`,
   })
 
   const selections = select(constraints, index, trace, unsatisfied, {
     cluster_count: budget.cluster_count,
+    cluster_input_entities: afterNative,
     entity_survivors: afterCluster,
     max_cost_units: budget.max_cost_units,
   })
@@ -160,7 +169,13 @@ function select(
   index: Map<ConstraintType, Capability[]>,
   trace: CandidateTrace[],
   unsatisfied: UnsatisfiedConstraint[],
-  ctx: { cluster_count: number; entity_survivors: number; max_cost_units: number },
+  ctx: {
+    cluster_count: number
+    /** Listings entering the cluster tier, which is what its payback is judged on. */
+    cluster_input_entities: number
+    entity_survivors: number
+    max_cost_units: number
+  },
 ): Selection[] {
   trace.length = 0
   unsatisfied.length = 0
@@ -209,6 +224,12 @@ function select(
 
       const invocations = entitiesRequiringEvaluation(candidate.tier, ctx) || 1
       const cost = candidate.capability.cost_units * invocations
+
+      if (!paysForItself(candidate, cost, ctx)) {
+        trace.push(toTrace(candidate, 'no_payback'))
+        continue
+      }
+
       if (spent + cost > ctx.max_cost_units) {
         trace.push(toTrace(candidate, 'over_budget'))
         continue
@@ -245,6 +266,27 @@ function select(
 
 /** A fixpoint over a two entry derivation map converges long before this. */
 const DERIVED_ROUNDS_HEADROOM = 4
+
+/**
+ * Cluster work is an optimisation and has to earn its place. It answers about a
+ * centroid rather than a listing, so it only helps when it removes more listings
+ * than it costs calls, and a source that rules almost nothing out at that
+ * granularity is worse than not asking.
+ *
+ * Entity work is not optional in the same way: it is where the verdict comes
+ * from, not a shortcut to avoid work later.
+ */
+function paysForItself(
+  candidate: Candidate,
+  cost: number,
+  ctx: { cluster_input_entities: number },
+): boolean {
+  if (candidate.tier !== 'cluster') return true
+  const removed =
+    ctx.cluster_input_entities *
+    eliminationPower(candidate.capability.coverage, candidate.capability.selectivity_prior)
+  return removed > cost
+}
 
 function assemble(
   input: PlanInput,

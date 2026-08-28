@@ -47,7 +47,9 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/the-woods/5XkDBf/",
         "status": "FOR_RENT",
         "status_text": "The Woods",
-        "badges": ["5 available units"],
+        "badges": [
+          "5 available units"
+        ],
         "address": {
           "street": "4300 The Woods Dr # 5207dd9ef",
           "city": "San Jose",
@@ -110,7 +112,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/tanglewood/5XjQP3/",
         "status": "FOR_RENT",
         "status_text": "Tanglewood",
-        "badges": ["3D Tour", "Special Offer"],
+        "badges": [
+          "3D Tour",
+          "Special Offer"
+        ],
         "address": {
           "street": "970 Meridian Ave # 431",
           "city": "San Jose",
@@ -202,7 +207,10 @@
         "link": "https://www.zillow.com/apartments/sunnyvale-ca/sunnyvale-town-center/5XjJ75/",
         "status": "FOR_RENT",
         "status_text": "Sunnyvale Town Center",
-        "badges": ["Mature trees and landscaping", "2 available units"],
+        "badges": [
+          "Mature trees and landscaping",
+          "2 available units"
+        ],
         "address": {
           "street": "201 W  California Ave  Apt 1202",
           "city": "Sunnyvale",
@@ -277,7 +285,10 @@
         "link": "https://www.zillow.com/apartments/san-jose-ca/fairway-glen/5Xk5Wt/",
         "status": "FOR_RENT",
         "status_text": "Fairway Glen",
-        "badges": ["Golf course views", "2 available units"],
+        "badges": [
+          "Golf course views",
+          "2 available units"
+        ],
         "address": {
           "street": "448 Toyon Ave Apt 105",
           "city": "San Jose",
@@ -361,7 +372,11 @@
         "link": "https://www.zillow.com/apartments/santa-clara-ca/marina-playa/5XjKBc/",
         "status": "FOR_RENT",
         "status_text": "Marina Playa",
-        "badges": ["Lakeside living", "4 available units", "$101"],
+        "badges": [
+          "Lakeside living",
+          "4 available units",
+          "$101"
+        ],
         "address": {
           "street": "3500 Granada Ave  # 148",
           "city": "Santa Clara",
@@ -430,7 +445,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 29,
-        "badges": ["29 days ago"],
+        "badges": [
+          "29 days ago"
+        ],
         "price": "$2,750/mo",
         "extracted_price": 2750,
         "currency": "USD",
@@ -496,7 +513,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 18,
-        "badges": ["18 days ago"],
+        "badges": [
+          "18 days ago"
+        ],
         "price": "$2,675/mo",
         "extracted_price": 2675,
         "currency": "USD",
@@ -623,7 +642,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 7,
-        "badges": ["7 days ago"],
+        "badges": [
+          "7 days ago"
+        ],
         "price": "$2,725/mo",
         "extracted_price": 2725,
         "currency": "USD",
@@ -689,7 +710,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 2,
-        "badges": ["2 days ago"],
+        "badges": [
+          "2 days ago"
+        ],
         "price": "$2,399/mo",
         "extracted_price": 2399,
         "currency": "USD",
@@ -958,7 +981,10 @@
         "status_text": "House for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 2,
-        "badges": ["2 days ago", "Apply instantly"],
+        "badges": [
+          "2 days ago",
+          "Apply instantly"
+        ],
         "price": "$2,695/mo",
         "extracted_price": 2695,
         "currency": "USD",
@@ -1032,7 +1058,10 @@
         "status_text": "House for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 29,
-        "badges": ["29 days ago", "Apply instantly"],
+        "badges": [
+          "29 days ago",
+          "Apply instantly"
+        ],
         "price": "$2,400/mo",
         "extracted_price": 2400,
         "currency": "USD",
@@ -1076,7 +1105,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 2,
-        "badges": ["2 days ago"],
+        "badges": [
+          "2 days ago"
+        ],
         "price": "$2,699/mo",
         "extracted_price": 2699,
         "currency": "USD",
@@ -1122,7 +1153,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 28,
-        "badges": ["28 days ago"],
+        "badges": [
+          "28 days ago"
+        ],
         "price": "$2,750/mo",
         "extracted_price": 2750,
         "currency": "USD",
@@ -1180,7 +1213,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 28,
-        "badges": ["28 days ago"],
+        "badges": [
+          "28 days ago"
+        ],
         "price": "$2,620/mo",
         "extracted_price": 2620,
         "currency": "USD",
@@ -1241,7 +1276,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 58,
-        "badges": ["$51"],
+        "badges": [
+          "$51"
+        ],
         "price": "$1,999/mo",
         "extracted_price": 1999,
         "currency": "USD",
@@ -1297,7 +1334,10 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 1,
-        "badges": ["1 day ago", "Apply instantly"],
+        "badges": [
+          "1 day ago",
+          "Apply instantly"
+        ],
         "price": "$2,450/mo",
         "extracted_price": 2450,
         "currency": "USD",
@@ -1342,7 +1382,10 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 1,
-        "badges": ["1 day ago", "Apply instantly"],
+        "badges": [
+          "1 day ago",
+          "Apply instantly"
+        ],
         "price": "$2,500/mo",
         "extracted_price": 2500,
         "currency": "USD",
@@ -1385,7 +1428,10 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 1,
-        "badges": ["1 day ago", "Apply instantly"],
+        "badges": [
+          "1 day ago",
+          "Apply instantly"
+        ],
         "price": "$2,550/mo",
         "extracted_price": 2550,
         "currency": "USD",
@@ -1429,7 +1475,10 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 3,
-        "badges": ["3 days ago", "Apply instantly"],
+        "badges": [
+          "3 days ago",
+          "Apply instantly"
+        ],
         "price": "$2,700/mo",
         "extracted_price": 2700,
         "currency": "USD",
@@ -1487,7 +1536,10 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 11,
-        "badges": ["11 days ago", "Apply instantly"],
+        "badges": [
+          "11 days ago",
+          "Apply instantly"
+        ],
         "price": "$2,250/mo",
         "extracted_price": 2250,
         "currency": "USD",
@@ -1523,7 +1575,10 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 36,
-        "badges": ["36 days ago", "Apply instantly"],
+        "badges": [
+          "36 days ago",
+          "Apply instantly"
+        ],
         "price": "$2,600/mo",
         "extracted_price": 2600,
         "currency": "USD",
@@ -1566,7 +1621,10 @@
         "status_text": "Townhouse for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 14,
-        "badges": ["14 days ago", "Apply instantly"],
+        "badges": [
+          "14 days ago",
+          "Apply instantly"
+        ],
         "price": "$2,000/mo",
         "extracted_price": 2000,
         "currency": "USD",
@@ -1611,7 +1669,10 @@
         "status_text": "House for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 22,
-        "badges": ["22 days ago", "Apply instantly"],
+        "badges": [
+          "22 days ago",
+          "Apply instantly"
+        ],
         "price": "$2,200/mo",
         "extracted_price": 2200,
         "currency": "USD",
@@ -1657,7 +1718,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 0,
-        "badges": ["3D Tour"],
+        "badges": [
+          "3D Tour"
+        ],
         "price": "$2,795/mo",
         "extracted_price": 2795,
         "currency": "USD",
@@ -1705,7 +1768,10 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 22,
-        "badges": ["22 days ago", "$2,960"],
+        "badges": [
+          "22 days ago",
+          "$2,960"
+        ],
         "price": "$2,510/mo",
         "extracted_price": 2510,
         "currency": "USD",
@@ -1759,7 +1825,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 2,
-        "badges": ["2 days ago"],
+        "badges": [
+          "2 days ago"
+        ],
         "price": "$2,400/mo",
         "extracted_price": 2400,
         "currency": "USD",
@@ -1800,7 +1868,9 @@
         "status_text": "House for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 3,
-        "badges": ["3 days ago"],
+        "badges": [
+          "3 days ago"
+        ],
         "price": "$2,195/mo",
         "extracted_price": 2195,
         "currency": "USD",
@@ -1841,7 +1911,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 16,
-        "badges": ["16 days ago"],
+        "badges": [
+          "16 days ago"
+        ],
         "price": "$2,800/mo",
         "extracted_price": 2800,
         "currency": "USD",
@@ -1885,7 +1957,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 7,
-        "badges": ["7 days ago"],
+        "badges": [
+          "7 days ago"
+        ],
         "price": "$2,500/mo",
         "extracted_price": 2500,
         "currency": "USD",
@@ -1917,7 +1991,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 15,
-        "badges": ["15 days ago"],
+        "badges": [
+          "15 days ago"
+        ],
         "price": "$2,100/mo",
         "extracted_price": 2100,
         "currency": "USD",
@@ -1957,7 +2033,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 143,
-        "badges": ["143 days ago"],
+        "badges": [
+          "143 days ago"
+        ],
         "price": "$2,350/mo",
         "extracted_price": 2350,
         "currency": "USD",
@@ -1995,7 +2073,9 @@
         "status_text": "Condo for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 10,
-        "badges": ["10 days ago"],
+        "badges": [
+          "10 days ago"
+        ],
         "price": "$2,000/mo",
         "extracted_price": 2000,
         "currency": "USD",
@@ -2016,7 +2096,9 @@
           "longitude": -122.0154
         },
         "thumbnail": "https://photos.zillowstatic.com/fp/78552bd8e5807202864464f2df44172f-p_e.jpg",
-        "images": ["https://photos.zillowstatic.com/fp/78552bd8e5807202864464f2df44172f-p_e.jpg"],
+        "images": [
+          "https://photos.zillowstatic.com/fp/78552bd8e5807202864464f2df44172f-p_e.jpg"
+        ],
         "availability_date": "2026-08-17 00:00:00",
         "provider_listing_id": "n9utjn905jk0"
       },
@@ -2029,7 +2111,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 6,
-        "badges": ["6 days ago"],
+        "badges": [
+          "6 days ago"
+        ],
         "price": "$800/mo",
         "extracted_price": 800,
         "currency": "USD",
@@ -2115,7 +2199,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 0,
-        "badges": ["3 hours ago"],
+        "badges": [
+          "3 hours ago"
+        ],
         "price": "$2,395+/mo",
         "extracted_price": 2395,
         "currency": "USD",
@@ -2158,7 +2244,9 @@
         "status_text": "Apartment for rent",
         "marketing_status": "For Rent",
         "days_on_zillow": 22,
-        "badges": ["22 days ago"],
+        "badges": [
+          "22 days ago"
+        ],
         "price": "$2,800/mo",
         "extracted_price": 2800,
         "currency": "USD",

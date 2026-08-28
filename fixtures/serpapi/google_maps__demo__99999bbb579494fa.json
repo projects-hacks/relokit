@@ -1,0 +1,2223 @@
+{
+  "key": "google_maps__demo__99999bbb579494fa",
+  "engine": "google_maps",
+  "params": {
+    "engine": "google_maps",
+    "type": "search",
+    "q": "grocery",
+    "ll": "@37.39297,-122.0154,15z"
+  },
+  "recorded_at_ms": 1787961008741,
+  "status": 200,
+  "body": {
+    "search_metadata": {
+      "id": "6a921eaff6e926f96a80fe77",
+      "status": "Success",
+      "json_endpoint": "https://serpapi.com/searches/vlQH1Q8bJKlsEn1Ob3eKnbbteNTsM8TaEI-ivVxW_sU/6a921eaff6e926f96a80fe77.json",
+      "markdown_endpoint": "https://serpapi.com/searches/vlQH1Q8bJKlsEn1Ob3eKnbbteNTsM8TaEI-ivVxW_sU/6a921eaff6e926f96a80fe77.md",
+      "created_at": "2026-08-28 23:50:07 UTC",
+      "processed_at": "2026-08-28 23:50:07 UTC",
+      "google_maps_url": "https://www.google.com/maps/search/grocery/@37.39297,-122.0154,15z/data=!3m1!4b1!4m2!2m1!6e5?hl=en",
+      "raw_html_file": "https://serpapi.com/searches/vlQH1Q8bJKlsEn1Ob3eKnbbteNTsM8TaEI-ivVxW_sU/6a921eaff6e926f96a80fe77.html",
+      "prettify_html_file": "https://serpapi.com/searches/vlQH1Q8bJKlsEn1Ob3eKnbbteNTsM8TaEI-ivVxW_sU/6a921eaff6e926f96a80fe77.prettify",
+      "total_time_taken": 0.95
+    },
+    "search_parameters": {
+      "engine": "google_maps",
+      "type": "search",
+      "q": "grocery",
+      "ll": "@37.39297,-122.0154,15z",
+      "google_domain": "google.com",
+      "hl": "en"
+    },
+    "search_information": {
+      "local_results_state": "Results for exact spelling",
+      "query_displayed": "grocery"
+    },
+    "local_results": [
+      {
+        "position": 1,
+        "title": "Grocery Outlet",
+        "place_id": "ChIJnxssCsy3j4ARMZsggFCvhDI",
+        "data_id": "0x808fb7cc0a2c1b9f:0x3284af5080209b31",
+        "data_cid": "3640227159104068401",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb7cc0a2c1b9f%3A0x3284af5080209b31&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb7cc0a2c1b9f%3A0x3284af5080209b31&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.403226,
+          "longitude": -122.0097437
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJnxssCsy3j4ARMZsggFCvhDI",
+        "provider_id": "/g/11c53qfjs1",
+        "rating": 4.4,
+        "reviews": 1103,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Discount store",
+          "Supermarket"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "discount_store",
+          "supermarket"
+        ],
+        "address": "1180 N Fair Oaks Ave, Sunnyvale, CA 94089",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "7 AM–10 PM",
+          "saturday": "7 AM–10 PM",
+          "sunday": "7 AM–10 PM",
+          "monday": "7 AM–10 PM",
+          "tuesday": "7 AM–10 PM",
+          "wednesday": "7 AM–10 PM",
+          "thursday": "7 AM–10 PM"
+        },
+        "phone": "(408) 962-0297",
+        "website": "https://www.groceryoutlet.com/circulars/storeid/320",
+        "description": "Source for discount groceries & more. Discount chain carrying brand-name groceries, plus items like gifts & toys (many sell beer & wine).",
+        "extensions": [
+          {
+            "service_options": [
+              "Delivery",
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Organic products"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "On-site parking",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true,
+          "delivery": true
+        },
+        "user_review": "\"Clean store, friendly staff and a nice variety of products.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm6dCuD8Yu8h2FvTFr-13Tx9Aast-k7Bb-Qmc3zuXKBvPrYFDDlos8gRiWWUnG4_Jw5gEc-Rtf68UcJeE4DRKAT3dw3kk9Qbu7EnsIUjcBic7vzFiVmWaIltkm1ofXxhUrttKJZ=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/Ijs0WHicHcRBjoIwFADQE1XAquAkLkBgFDZKYFA3Rj7YMtDW0F8wXnDO4G1M5i3e-48jPvSXZfWczphSrG-MbgZQEhuJM1DCYg9NQBNt-bvskJdiVW9N6J2Nx-fxmMcDcWj-XPs3jaRzg4ocBdCXOaXBeBjOcRj2Snssa8uykN-LazItWQQkw_vKKyBpokWYpX5O64l23fpYGTeSel_8QtCCO77i9keUt32PnXDU_fTkxYCYJpfN5Ni2Tfj_QOQHG5lE1g"
+      },
+      {
+        "position": 2,
+        "title": "Lucky",
+        "place_id": "ChIJ8WWsh1G2j4AR8m5FQXxwjkU",
+        "data_id": "0x808fb65187ac65f1:0x458e707c41456ef2",
+        "data_cid": "5012067114283265778",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb65187ac65f1%3A0x458e707c41456ef2&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb65187ac65f1%3A0x458e707c41456ef2&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.388442,
+          "longitude": -122.02950229999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJ8WWsh1G2j4AR8m5FQXxwjkU",
+        "provider_id": "/g/1tfqg0vb",
+        "rating": 4.1,
+        "reviews": 929,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Butcher shop",
+          "Butcher shop deli",
+          "Deli",
+          "Grocery delivery service",
+          "Delivery Restaurant",
+          "Sandwich shop",
+          "Supermarket"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "butcher_shop",
+          "butcher_shop_deli",
+          "deli",
+          "grocery_delivery_service",
+          "meal_delivery",
+          "sandwich_shop",
+          "supermarket"
+        ],
+        "address": "484 N Mathilda Ave, Sunnyvale, CA 94085",
+        "country": "United States",
+        "open_state": "Open · Closes 11 PM",
+        "hours": "Open · Closes 11 PM",
+        "operating_hours": {
+          "friday": "6 AM–11 PM",
+          "saturday": "6 AM–11 PM",
+          "sunday": "6 AM–11 PM",
+          "monday": "6 AM–10 PM",
+          "tuesday": "6 AM–10 PM",
+          "wednesday": "6 AM–10 PM",
+          "thursday": "6 AM–10 PM"
+        },
+        "phone": "(408) 737-1834",
+        "website": "https://www.luckysupermarkets.com/stores/f37f906e-3b46-4968-b952-2aa7992107b3/SUNNYVALE/780/SUNNYVALE",
+        "extensions": [
+          {
+            "service_options": [
+              "Delivery",
+              "In-store pickup",
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Food",
+              "Organic products",
+              "Prepared foods"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Checks",
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "offerings": [
+              "Pharmacy"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true,
+          "in_store_pickup": true,
+          "delivery": true
+        },
+        "user_review": "\"Very nice supermarket, lots of merchandise and good prices\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl5SBzpuP2BU-qyw54oXTmgH_Fpn-e6pkTMwyZ4qw931T-FfvTAfDjsdYb8ek6tpbl000DqzTCnEsqptg__8ZIHsddlMncYEcGR_dkfXKPgDc1fASHn2ZtPPOKRnx7OqrFXWDSi=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/BFAf2XicHcxdEoFAAADgE62KEDMeIsk0xk6tKb00Y9s2WvtjN-GCzuA2jJfv8fu8G2OknlsWa0YDKgRlpNPkhgU3hJsBFleLSg2wBtryowSijI3T5Ut2cLg8APXsx67I0ZVGZSg5IBPZol3_LFzVz0YOAmF9R34dXHR1PHmknRh5YrZtB-qFVnytlTS0LL1iG-mqYjuOj2u8ScqqrfMY0gA7tZ9GfFgYCPdxwh_TvbqFeRak50Xv_B7Q_MWAfwGnGUWO"
+      },
+      {
+        "position": 3,
+        "title": "Whole Foods Market",
+        "place_id": "ChIJF-YNQuG3j4ARpXfiImE3ay8",
+        "data_id": "0x808fb7e1420de617:0x2f6b376122e277a5",
+        "data_cid": "3416885632627275685",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb7e1420de617%3A0x2f6b376122e277a5&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb7e1420de617%3A0x2f6b376122e277a5&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3738083,
+          "longitude": -122.03142249999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJF-YNQuG3j4ARpXfiImE3ay8",
+        "provider_id": "/g/11j95g5g3h",
+        "rating": 4.4,
+        "reviews": 1479,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Bakery",
+          "Deli",
+          "Fresh food market",
+          "Grocery delivery service",
+          "Health food store",
+          "Natural goods store",
+          "Organic food store",
+          "Produce market",
+          "Supermarket"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "bakery",
+          "deli",
+          "fresh_food_market",
+          "grocery_delivery_service",
+          "health_food_store",
+          "natural_foods_store",
+          "organic_food_store",
+          "produce_market",
+          "supermarket"
+        ],
+        "address": "150 E McKinley Ave, Sunnyvale, CA 94086",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "8 AM–10 PM",
+          "saturday": "8 AM–10 PM",
+          "sunday": "8 AM–10 PM",
+          "monday": "8 AM–10 PM",
+          "tuesday": "8 AM–10 PM",
+          "wednesday": "8 AM–10 PM",
+          "thursday": "8 AM–10 PM"
+        },
+        "phone": "(408) 419-1290",
+        "website": "https://www.wholefoodsmarket.com/stores/sunnyvale?utm_source=google&utm_medium=organic&utm_campaign=listings&ref_=US_TRF_ALL_UFG_WFM_FRSOC_1001689",
+        "description": "Mainstay for natural & organic food. Eco-minded chain with natural & organic grocery items, housewares & other products (most sell wine).",
+        "extensions": [
+          {
+            "service_options": [
+              "Curbside pickup",
+              "No-contact delivery",
+              "Delivery",
+              "In-store pickup",
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Flowers",
+              "Food",
+              "Organic products",
+              "Prepared foods",
+              "Salad bar"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "recycling": [
+              "Electronics",
+              "Glass bottles",
+              "Metal cans",
+              "Plastic bags",
+              "Plastic bottles"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking garage",
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true,
+          "curbside_pickup": true,
+          "delivery": true
+        },
+        "user_review": "\"The produce selection is always fresh and I can always find what I need.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkCBvxauZTRghCFBbjDZbuuqkcIK42bpujuKDUIot_QYLWAHNulgSUu-RrhND8t8DU4ckHXHD_5kyFbP94s4lvVLv4PurQDzN5bv2T1sT6i8ukvmIYqmoeL6V30A47PZy3huYWyUw=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/R6NFgHicHcRBjoIwFADQE1VQqqLJLNDGQCQEEUTYGNuQVgsUaX-VueEcYW4zybzF-_0Rxgx66zit8GZcKd42oJuRqd40vZkx1Tl80IhppJ0gzNK8lPud_dyhzjMu9ocdfZKaArwki454QQd4wpEUkTK3UxWXQZhAy88FoGwUCfGNTwrMZHgNyW0ppwNNN1jj1l5ii1MYT-Q7WVK7yOc6Xz18kLaLqlenmnh18dwAr9N68gRU5VS8v95z13WR-J-h_g9VAUYd"
+      },
+      {
+        "position": 4,
+        "title": "Whole Foods Market",
+        "place_id": "ChIJ6SikCPLJj4ARydxZnnuq98M",
+        "data_id": "0x808fc9f208a428e9:0xc3f7aa7b9e59dcc9",
+        "data_cid": "14120942604557868233",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fc9f208a428e9%3A0xc3f7aa7b9e59dcc9&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fc9f208a428e9%3A0xc3f7aa7b9e59dcc9&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3810157,
+          "longitude": -121.97590629999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJ6SikCPLJj4ARydxZnnuq98M",
+        "provider_id": "/g/11c0rt3cd9",
+        "rating": 4.4,
+        "reviews": 3498,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Bakery",
+          "Deli",
+          "Fresh food market",
+          "Grocery delivery service",
+          "Health food store",
+          "Natural goods store",
+          "Organic food store",
+          "Produce market",
+          "Supermarket"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "bakery",
+          "deli",
+          "fresh_food_market",
+          "grocery_delivery_service",
+          "health_food_store",
+          "natural_foods_store",
+          "organic_food_store",
+          "produce_market",
+          "supermarket"
+        ],
+        "address": "2732 Augustine Dr Ste 1600, Santa Clara, CA 95054",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "8 AM–10 PM",
+          "saturday": "8 AM–10 PM",
+          "sunday": "8 AM–10 PM",
+          "monday": "8 AM–10 PM",
+          "tuesday": "8 AM–10 PM",
+          "wednesday": "8 AM–10 PM",
+          "thursday": "8 AM–10 PM"
+        },
+        "phone": "(408) 562-9162",
+        "website": "https://www.wholefoodsmarket.com/stores/santaclara?utm_source=google&utm_medium=organic&utm_campaign=listings&ref_=US_TRF_ALL_UFG_WFM_FRSOC_1001632",
+        "description": "Mainstay for natural & organic food. Eco-minded chain with natural & organic grocery items, housewares & other products (most sell wine).",
+        "extensions": [
+          {
+            "service_options": [
+              "Curbside pickup",
+              "No-contact delivery",
+              "Delivery",
+              "In-store pickup",
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Flowers",
+              "Food",
+              "Organic products",
+              "Prepared foods",
+              "Salad bar"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "recycling": [
+              "Electronics",
+              "Glass bottles",
+              "Metal cans",
+              "Plastic bags",
+              "Plastic bottles"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking",
+              "Paid parking lot",
+              "Paid street parking"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true,
+          "curbside_pickup": true,
+          "delivery": true
+        },
+        "user_review": "\"Great clean location and lots of good expensive groceries to find\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlCrhEIw_odlzGHaC7YqxuWBjWlbC9DiGfnT2H1-Gjf3oa4SOrE2egunHCNKsi8RmAEiM5sXMyNeftPfUov4X7169FLj1ODrNz6CGTJWF8cHKy4QDsrShwoXInYEFaWsfocI5hyAQ=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/ybGNL3icHcRbUoMwFADQFaVAS1_O-EHDI1hLX3RCvxyMCYFJk5obRLpDl-BunPF8nN8f6dwdnjxPydmkMaZRvAdumdGOazdh5uY1d0AMEHgROR1KqrCVST68mQ_1yEiNl9fP755uOqre8TpuM6HLKQlQ1omZqcPz3iZT3vSa4GIL7ep0i5J2N4dqNxZcuIO4mK-wWgaLdfraBfvYFo8FzsoXmq4Y2Y7hMQZ7loOpcn1N0pqCMCyfyzE6Pg-B7_tI_s-Q_gP-1UVQ"
+      },
+      {
+        "position": 5,
+        "title": "Walmart Neighborhood Market",
+        "place_id": "ChIJMcjCStzJj4ARatfT398YVfw",
+        "data_id": "0x808fc9dc4ac2c831:0xfc5518dfdfd3d76a",
+        "data_cid": "18182466420390221674",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fc9dc4ac2c831%3A0xfc5518dfdfd3d76a&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fc9dc4ac2c831%3A0xfc5518dfdfd3d76a&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.390084,
+          "longitude": -121.9854336
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJMcjCStzJj4ARatfT398YVfw",
+        "provider_id": "/g/11b5wmjtn3",
+        "rating": 4,
+        "reviews": 2978,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Bakery",
+          "Cake shop",
+          "Deli",
+          "Department store",
+          "Discount store",
+          "Discount supermarket",
+          "Produce market",
+          "Supermarket"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "bakery",
+          "cake_shop",
+          "deli",
+          "department_store",
+          "discount_store",
+          "discount_supermarket",
+          "produce_market",
+          "supermarket"
+        ],
+        "address": "3255 Mission College Blvd, Santa Clara, CA 95054",
+        "country": "United States",
+        "open_state": "Open · Closes 11 PM",
+        "hours": "Open · Closes 11 PM",
+        "operating_hours": {
+          "friday": "6 AM–11 PM",
+          "saturday": "6 AM–11 PM",
+          "sunday": "6 AM–11 PM",
+          "monday": "6 AM–11 PM",
+          "tuesday": "6 AM–11 PM",
+          "wednesday": "6 AM–11 PM",
+          "thursday": "6 AM–11 PM"
+        },
+        "phone": "(408) 961-3599",
+        "website": "https://www.walmart.com/store/3123-santa-clara-ca/?veh=seo_loc",
+        "extensions": [
+          {
+            "service_options": [
+              "No-contact delivery",
+              "In-store pickup",
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Flowers",
+              "Pharmacy"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "recycling": [
+              "Plastic bags"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "On-site parking",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true,
+          "in_store_pickup": true
+        },
+        "user_review": "\"Wide aisles, good selection, unique items.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmNF6uioDt5Ny7TDKdaqjyk0TC0nJBMrliMFznGK7TaYBwSJRhvXmRNg0ebEL8NCrOpVWGrh7KoToKQHpd7wf94MxKrHqjpwuwBTR207hnh0Z6On5bvFewcSBe2UcIWThOBoBnI3A=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/ObtvinicHcRRksEwAADQE1WzaIMZHw1bJdpSsV37R2QbtEkkqbA3dIS9jRnv4_0_ubXKjHy_5r1OJWVVs9YwTaWwTNgOlY1fKeNR4xk_SooVKZssDtuTnNoge0Ayxcf99fy4ADIBYoFSXZ_S-E_MMCT7HXKbRcFv302RVYAdPpeDbKJz9VXONIdYEonXiTpC9zvsp3esk-tZudYhUnQB5IKDnzAXweEWM0c3iHW3dF4SniOJxLwXjd0HAMDj76knXhnLRY0"
+      },
+      {
+        "position": 6,
+        "title": "Chavez Supermarket",
+        "place_id": "ChIJoelnuDe2j4AR6Pkcx2OLqfY",
+        "data_id": "0x808fb637b867e9a1:0xf6a98b63c71cf9e8",
+        "data_cid": "17773890665052961256",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb637b867e9a1%3A0xf6a98b63c71cf9e8&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb637b867e9a1%3A0xf6a98b63c71cf9e8&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3902022,
+          "longitude": -122.014124
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJoelnuDe2j4AR6Pkcx2OLqfY",
+        "provider_id": "/g/1trxkh_t",
+        "rating": 4.1,
+        "reviews": 1784,
+        "type": "Mexican grocery store",
+        "types": [
+          "Mexican grocery store",
+          "Check cashing service",
+          "Deli",
+          "Money transfer service",
+          "Restaurant"
+        ],
+        "type_id": "mexican_grocery_store",
+        "type_ids": [
+          "mexican_grocery_store",
+          "check_cashing_service",
+          "deli",
+          "money_transfer_service",
+          "restaurant"
+        ],
+        "address": "666 N Fair Oaks Ave, Sunnyvale, CA 94085",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "7 AM–9 PM",
+          "saturday": "7 AM–9 PM",
+          "sunday": "7 AM–9 PM",
+          "monday": "7 AM–9 PM",
+          "tuesday": "7 AM–9 PM",
+          "wednesday": "7 AM–9 PM",
+          "thursday": "7 AM–9 PM"
+        },
+        "phone": "(408) 736-3793",
+        "website": "http://www.chavezsuper.com/",
+        "description": "Mexican grocery store & taqueria. Grocery outlet featuring a selection of traditional Mexican food products & an on-site taqueria.",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Identifies as Latino-owned"
+            ]
+          },
+          {
+            "service_options": [
+              "No-contact delivery",
+              "Delivery",
+              "In-store pickup",
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Flowers",
+              "Food",
+              "Organic products",
+              "Prepared foods"
+            ]
+          },
+          {
+            "amenities": [
+              "Gender-neutral restroom",
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true,
+          "in_store_pickup": true,
+          "delivery": true
+        },
+        "user_review": "\"Good prices and a huge selection.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkq5Nft9EcwfTXcycNwJCvvIHhphVhHhlUsw3hFX0mVbE2NaS1XPMxoSM-52Az59y1kjy7Payi5JuJIK4uIniz9ew0vHXFuc6yVh_RQPvfIG6zkhp844d46uaXWfK9DUkBmFvKrbQ=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/hMhFjXicHcRZcoIwGADgE0WCAhVnfLCtlGVkcMO8dTAFfmUJms1wQ4_gbZzp9_C9niDEwBeW1cJsUjNWt6Xk5Z2yXpS9mFDWWfXAEeWIW6twlx1Ozc1NK-Gvqa4OhBqa6vhLqSiEAXIIoT1yPYOA4C4_r6dpsbdJtnmw_Qa509Xo-sZuruYjK8zFjWUcJY6M-svolxqrkASSeiaH3902U1X0440NDHPH-XM8WZBTlfjfx-azC1RyP2-X2sYYI_ifov4NS4lGAw"
+      },
+      {
+        "position": 7,
+        "title": "Felipe's Market",
+        "place_id": "ChIJRx8-i-62j4ARwS_JBUBFCec",
+        "data_id": "0x808fb6ee8b3e1f47:0xe709454005c92fc1",
+        "data_cid": "16647913638829043649",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb6ee8b3e1f47%3A0xe709454005c92fc1&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb6ee8b3e1f47%3A0xe709454005c92fc1&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3731199,
+          "longitude": -122.0523664
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJRx8-i-62j4ARwS_JBUBFCec",
+        "provider_id": "/g/1vgx0_6j",
+        "rating": 4.6,
+        "reviews": 1980,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Market",
+          "Produce market"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "market",
+          "produce_market"
+        ],
+        "address": "1101 W El Camino Real, Sunnyvale, CA 94087",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "7 AM–10 PM",
+          "saturday": "7 AM–10 PM",
+          "sunday": "7 AM–10 PM",
+          "monday": "7 AM–10 PM",
+          "tuesday": "7 AM–10 PM",
+          "wednesday": "7 AM–10 PM",
+          "thursday": "7 AM–10 PM"
+        },
+        "phone": "(408) 720-8111",
+        "description": "Grocery store with fresh produce. This store carries a wide selection of produce, plus meat, dairy & grocery staples.",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "On-site parking",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Delivery"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true,
+          "delivery": false
+        },
+        "user_review": "\"Courteous staff, affordable prices and fresh from the farm groceries.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlkYn8U38h70XkUrg8iNdCjlUTuC4FetG3rssYUwU0Mslmug7HTbqXlUvap-FxItFcG_c2ZvrLZEWAVBhHg2EC8QhjLeP5VpJ2YOcGkClIusGFpcHhnCzG_qGsH-yJdlooOzn-L=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/iDM6WHicHcRbjsIgFADQFWGx1diY-OEQC5r6mhRr_TGKBLQI2Et9bXDWMLsx8Xyc_z8dgodhFBmddJRzysgWZCOcDdKGjnDXSHlAAhBEY_a7KkpTVzblSaoHeFvzRqXnxYlcDC9a0stkoEkDUPEHx3Mw11YNWHG8bQ2_HzzKntOQCboX8e7e5LtJOd78aKbiCUnX-pLLVX_jZ3G1FLQmZtoCzbxg2pI33d8oMPSanYxzy7dF-ejRxRgj_V0g-wGhOkWV"
+      },
+      {
+        "position": 8,
+        "title": "Apni Mandi Farmers Market Sunnyvale",
+        "place_id": "ChIJKRbl5oG3j4ARwuvPGUmtCj0",
+        "data_id": "0x808fb781e6e51629:0x3d0aad4919cfebc2",
+        "data_cid": "4398518515557985218",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb781e6e51629%3A0x3d0aad4919cfebc2&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb781e6e51629%3A0x3d0aad4919cfebc2&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3737199,
+          "longitude": -122.0522958
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJKRbl5oG3j4ARwuvPGUmtCj0",
+        "provider_id": "/g/11hdj6gmv7",
+        "rating": 4,
+        "reviews": 1714,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Asian grocery store",
+          "Cake shop",
+          "Indian grocery store",
+          "Indian restaurant",
+          "Indian takeaway",
+          "Supermarket"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "asian_grocery_store",
+          "cake_shop",
+          "indian_grocery_store",
+          "indian_restaurant",
+          "indian_takeaway",
+          "supermarket"
+        ],
+        "address": "1111 W El Camino Real, Sunnyvale, CA 94087",
+        "country": "United States",
+        "open_state": "Open 24 hours",
+        "hours": "Open 24 hours",
+        "operating_hours": {
+          "friday": "Open 24 hours",
+          "saturday": "Open 24 hours",
+          "sunday": "Open 24 hours",
+          "monday": "Open 24 hours",
+          "tuesday": "Open 24 hours",
+          "wednesday": "Open 24 hours",
+          "thursday": "Open 24 hours"
+        },
+        "phone": "(408) 746-5966",
+        "website": "https://apnimandi.net/",
+        "extensions": [
+          {
+            "service_options": [
+              "No-contact delivery",
+              "Delivery",
+              "In-store pickup",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom",
+              "Wheelchair accessible seating"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Food",
+              "Organic products",
+              "Prepared foods"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Checks",
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_pickup": true,
+          "delivery": true
+        },
+        "user_review": "\"Excellent  grocery store very neat and clean with reasonable prices.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkW6AWsz_JgDAemwOGR4zK-Wc6C8qYSi7gSECk7OqedE1aCrjFf8wU31OdEjw6Llk57tMNPpoTLRVsG7YLGB3z0A40ONF9gnI-SXw4ejKAh7u_zlS4EuPucgshXHqPNUQIOmeU=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/Qf44aHicHcRLjoIwAADQE1VKYKiauKiI-EGKfAZdGVM77fAr2JImHNA7eBsT3-K9X0LrXi0tqxHOjEvJGzYq9qSy06zTMypbi_cKUAWUhXdpkpd16eFSTbcD32DWGhKm7nQEJfX8-XDN_hHPAr9GZGCPwL77z2r7NzeFY5NHUBkvauofpE9x0ss8Sn9ViK5RuHYmiF1I4u2Cd3uQXYzLqiMWaLxNTeYGYzJSrsRlNyRxcd6TlhUrY0MIgfhOQfcBtOlDWA"
+      },
+      {
+        "position": 9,
+        "title": "Taj Mahal Fresh Market",
+        "place_id": "ChIJs_4i2CS2j4ARYtxhT-Y8FtQ",
+        "data_id": "0x808fb624d822feb3:0xd4163ce64f61dc62",
+        "data_cid": "15282469345400314978",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb624d822feb3%3A0xd4163ce64f61dc62&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb624d822feb3%3A0xd4163ce64f61dc62&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.389282,
+          "longitude": -122.00345
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJs_4i2CS2j4ARYtxhT-Y8FtQ",
+        "provider_id": "/g/11b6j7pqnz",
+        "rating": 4,
+        "reviews": 2907,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Discount supermarket",
+          "Indian grocery store",
+          "Middle Eastern restaurant",
+          "Pakistani restaurant"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "discount_supermarket",
+          "indian_grocery_store",
+          "middle_eastern_restaurant",
+          "pakistani_restaurant"
+        ],
+        "address": "933 E Duane Ave, Sunnyvale, CA 94085",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "8 AM–9 PM",
+          "saturday": "8 AM–9 PM",
+          "sunday": "8 AM–9 PM",
+          "monday": "8 AM–9 PM",
+          "tuesday": "8 AM–9 PM",
+          "wednesday": "8 AM–9 PM",
+          "thursday": "8 AM–9 PM"
+        },
+        "phone": "(408) 962-0477",
+        "website": "https://www.tajfresh.com/",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly",
+              "Transgender safespace"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "recycling": [
+              "Plastic bags"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Delivery"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true,
+          "delivery": false
+        },
+        "user_review": "\"Fresh reasonably priced produce and goods from all over the world.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlW3Xosyr8T98F0uC-HboESjnyu_IX7fktpMXkymbVmKvxRI02v73-YDxPnXeuazNEccNyXMT-l-wRBcQLjLylSUfv2pMgv2k2KC4ayec5xLppGs3tsdPZKilwmcF46fsO8pv_glxevmOfB=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/OSAsuXicHcTLcoIwFADQL4pEsEo700W1vgZQilSjG0dvQ6jkNSYE0p903b_pTM_i_D5qa7V5CQJeRwOmFOO0NfQOSloq7QCUCJg2CAwywduqyMsDP0REGX-Py-d4gdsZWl3VfHeTvj2vyaRqrM5I48V1LxLXF2scukmEju99LgltLz-bOcDGk6xEHHXFFD7SW-r57rNyoc6YC5swmY0unsJTn2q9NJE1X_kp-eadgMVoXJltrN2Z8Z46sa2mr90QY4zq_wHJPzEVSYE"
+      },
+      {
+        "position": 10,
+        "title": "Guadalajara Market",
+        "place_id": "ChIJNSlTErO3j4ARWYVqiOi7AWk",
+        "data_id": "0x808fb7b312532935:0x6901bbe8886a8559",
+        "data_cid": "7566535456354633049",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb7b312532935%3A0x6901bbe8886a8559&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb7b312532935%3A0x6901bbe8886a8559&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3970826,
+          "longitude": -122.0232606
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJNSlTErO3j4ARWYVqiOi7AWk",
+        "provider_id": "/g/1vl5h043",
+        "rating": 4.4,
+        "reviews": 262,
+        "type": "Mexican grocery store",
+        "types": [
+          "Mexican grocery store",
+          "Supermarket"
+        ],
+        "type_id": "mexican_grocery_store",
+        "type_ids": [
+          "mexican_grocery_store",
+          "supermarket"
+        ],
+        "address": "829 Borregas Ave, Sunnyvale, CA 94085",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "7 AM–9 PM",
+          "saturday": "7 AM–9 PM",
+          "sunday": "7 AM–9 PM",
+          "monday": "7 AM–9 PM",
+          "tuesday": "7 AM–9 PM",
+          "wednesday": "7 AM–9 PM",
+          "thursday": "7 AM–9 PM"
+        },
+        "phone": "(408) 734-9621",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Food"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Delivery"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true,
+          "delivery": false
+        },
+        "user_review": "\"Great customer service huge inventory\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkQVkjKQNDF9PkXPPqPwDMVXgFq1jpr8kgodnK4-ucKc-dKRcuas30QU7jLpzUkUdEN6rmLLWm9Xy5q5j-CXn2kGsO63xGOMerSAC88gKhVz92m9q6EPZtqrm-61UE25BP4LETsZQ=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/O_57eHicHcRJDoIwAADAF1U2QTDx4IKaFLCgIPFmCimhtqULUfmhT_A3Js5hvp_OmEEvLevReTMiBHm0o24VFty03MywYBYZNMAaaGt9LNDlSvOK9jDPdvsI0RohiZ67tKrJXjr9oEJKRMPhHIwYYtDAAo937dl5ueiTYSpp2cRZoFiSXFlUv33p92Bbc5ce9CnwXodT2qrzehuGBHbVFLkskkGMbkYqBgKnjF1_g-ZJfNG3fPV0bNsG3X8M-A_VmkQr"
+      },
+      {
+        "position": 11,
+        "title": "New Wing Yuan Market",
+        "place_id": "ChIJxTylaim2j4ARUhhgkk8d2FM",
+        "data_id": "0x808fb6296aa53cc5:0x53d81d4f92601852",
+        "data_cid": "6041611127712913490",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb6296aa53cc5%3A0x53d81d4f92601852&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb6296aa53cc5%3A0x53d81d4f92601852&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3976377,
+          "longitude": -121.99716
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJxTylaim2j4ARUhhgkk8d2FM",
+        "provider_id": "/g/1tf0qvxv",
+        "rating": 4.1,
+        "reviews": 365,
+        "type": "Asian grocery store",
+        "types": [
+          "Asian grocery store",
+          "Supermarket"
+        ],
+        "type_id": "asian_grocery_store",
+        "type_ids": [
+          "asian_grocery_store",
+          "supermarket"
+        ],
+        "address": "1151 Lawrence Expy, Sunnyvale, CA 94089",
+        "country": "United States",
+        "open_state": "Open · Closes 7 PM",
+        "hours": "Open · Closes 7 PM",
+        "operating_hours": {
+          "friday": "9 AM–7 PM",
+          "saturday": "9 AM–7 PM",
+          "sunday": "9 AM–7 PM",
+          "monday": "9 AM–7 PM",
+          "tuesday": "9 AM–7 PM",
+          "wednesday": "9 AM–7 PM",
+          "thursday": "9 AM–7 PM"
+        },
+        "phone": "(408) 400-9288",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Small business"
+            ]
+          },
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "On-site parking"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Delivery"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true,
+          "delivery": false
+        },
+        "user_review": "\"This market offers the most competitive prices in the entire area.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWliC0zrKhaYUtwHbL1hJxia68ZNVMa0c-Ilx5bA5c5yPMx_y1OKvTGmn0j6WaAuRFhAw2MQr9Xpu13EyREY2w0aMgRnHxfN4bqpJ5XyiTBIX8-l3og-RdJr7yJAcxM-npRxqH_L=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/8Hj0E3icHcRRbsIgAADQE2Gptc6Z7AONWqs4Jd2s_hjKOuiCgIVa8II7w25jsvfx_n6Fc8ZOo0iKZMC15rLubN0yrVyt3IDpa8SNBcwCG6GM7IujbObw0W4EPX24Pqu2sch9Q8eT8-4TU8jAWvq0QilLwx77S4jfN_didVXwZ3ykqCNLgfohPrSvpeniZBHI4jTsIcWcqMx_70bVzeRpGZpiti4nQCaaA_KVty8hR8xjoAzxt-yyfetjCCEQ_zOgnlh0RH8"
+      },
+      {
+        "position": 12,
+        "title": "Namaste Plaza",
+        "place_id": "ChIJde3_VwC3j4AR_z00S16VYHU",
+        "data_id": "0x808fb70057ffed75:0x7560955e4b343dff",
+        "data_cid": "8457924332422970879",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb70057ffed75%3A0x7560955e4b343dff&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb70057ffed75%3A0x7560955e4b343dff&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3904632,
+          "longitude": -122.0420231
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJde3_VwC3j4AR_z00S16VYHU",
+        "provider_id": "/g/11n3x_tz1t",
+        "rating": 4.5,
+        "reviews": 24,
+        "type": "Indian grocery store",
+        "types": [
+          "Indian grocery store"
+        ],
+        "type_id": "indian_grocery_store",
+        "type_ids": [
+          "indian_grocery_store"
+        ],
+        "address": "415 N Mary Ave Ste 115, Sunnyvale, CA 94085",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "9 AM–9 PM",
+          "saturday": "9 AM–9 PM",
+          "sunday": "9 AM–9 PM",
+          "monday": "9 AM–9 PM",
+          "tuesday": "9 AM–9 PM",
+          "wednesday": "9 AM–9 PM",
+          "thursday": "9 AM–9 PM"
+        },
+        "phone": "(408) 743-5777",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true
+        },
+        "user_review": "\"Good quality fresh produce and well organized.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnVL-jXkao3phPMLuLqA7-m1Y7y96amVd1ZLWKZfGs-euqAvWIaAJQlx6F_f3ifFbmCNmhmVYCXvfLii5CAyXmA1nf8ALDmhQizXvfaHvtfnnDS2xtwkV6OvGJSgyIyCk3B5OYXjuUmT9pd=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/5ax38nicHclJDoIwFADQE1VAIg6Ji4rBqc7KtDGIlCL8Fm1B8ZKuvY3Gzdu8z5spVcqBphXMbKVCpEVSyeQeC64SrlqxAC0tJYolkhqe7jYHj7sEXf08EmbJNktSkRvuIjCCbtO3InAvRki8RUgnEiXVDdfeLMLzbfG0nBM1M-qcwV4BAzew_ZqSLOvYuPEBG5z2MBkD22avX0TTWlHOx_v2Uz1y11rXk_k-bWaNnZujzjrwr9URDv3yMnwYuq4j9jdG_AvSCEh5"
+      },
+      {
+        "position": 13,
+        "title": "Safeway",
+        "place_id": "ChIJteQ0Fum2j4ARGi3tqK4Zm14",
+        "data_id": "0x808fb6e91634e4b5:0x5e9b19aea8ed2d1a",
+        "data_cid": "6817070698904497434",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb6e91634e4b5%3A0x5e9b19aea8ed2d1a&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb6e91634e4b5%3A0x5e9b19aea8ed2d1a&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3727912,
+          "longitude": -122.0581172
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJteQ0Fum2j4ARGi3tqK4Zm14",
+        "provider_id": "/g/1tcxvgyx",
+        "rating": 4.2,
+        "reviews": 1425,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Bakery",
+          "Butcher shop",
+          "Deli",
+          "E-commerce service",
+          "Florist",
+          "Grocery delivery service",
+          "Organic food store",
+          "Produce market",
+          "Supermarket"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "bakery",
+          "butcher_shop",
+          "deli",
+          "e_commerce_service",
+          "florist",
+          "grocery_delivery_service",
+          "organic_food_store",
+          "produce_market",
+          "supermarket"
+        ],
+        "address": "639 S Bernardo Ave, Sunnyvale, CA 94087",
+        "country": "United States",
+        "open_state": "Open · Closes 2 AM",
+        "hours": "Open · Closes 2 AM",
+        "operating_hours": {
+          "friday": "5 AM–2 AM",
+          "saturday": "5 AM–2 AM",
+          "sunday": "5 AM–2 AM",
+          "monday": "5 AM–2 AM",
+          "tuesday": "5 AM–2 AM",
+          "wednesday": "5 AM–2 AM",
+          "thursday": "5 AM–2 AM"
+        },
+        "phone": "(408) 732-5900",
+        "website": "https://local.safeway.com/safeway/ca/sunnyvale/639-s-bernardo-ave.html",
+        "description": "Supermarket standby for groceries & more. Longtime supermarket chain carrying brand-name & house-label groceries, plus a deli, bakery & more.",
+        "extensions": [
+          {
+            "service_options": [
+              "Curbside pickup",
+              "No-contact delivery",
+              "Delivery",
+              "In-store pickup",
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Flowers",
+              "Food",
+              "Organic products",
+              "Pharmacy",
+              "Prepared foods"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Checks",
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "On-site parking",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true,
+          "curbside_pickup": true,
+          "delivery": true
+        },
+        "user_review": "\"Aisles always clean and never a long wait in line.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnE-SOrpdfKdLSADaUDV4fcHDAY1BJNZAx4c1yIaI1la_eqMmq2q9SRZL-OWVoQhiqWOxhGKPf15Pp4kFZxOyqdhYDmzo8f4-N9y2WkCYPmlw2mE0vMBh4s8epjSxI4vZcbbIeDBA=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/NbtaxXicHcTbDoIgAADQLyLFaKu2HjC62E3LyulLM0SpRCCstD_sE_qbts7D-X54XSsztKySdzuFlEXJHobdqaxqVtUdKoVVKAOoAcbC812wj6oJCP27yvJltgoxSQ_kiHI6JziG7mKT4AZR2HqpB8v0xPRaaEcPwl2yAn50lFt-0ZHf8NkyyGEvUOg2TRq_1RmPiXjLfo7AZtA60W0cB6J8OWJiP9cuR6bP1DVsPPRM6PnsMeLi0Qvatg34fwqqH7JqRPk"
+      },
+      {
+        "position": 14,
+        "title": "Save N Go",
+        "place_id": "ChIJU6ZiBU-2j4ARz6ldFvwSqvM",
+        "data_id": "0x808fb64f0562a653:0xf3aa12fc165da9cf",
+        "data_cid": "17557866971173595599",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb64f0562a653%3A0xf3aa12fc165da9cf&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb64f0562a653%3A0xf3aa12fc165da9cf&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.387647799999996,
+          "longitude": -122.0234701
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJU6ZiBU-2j4ARz6ldFvwSqvM",
+        "provider_id": "/g/1tlbjt4z",
+        "rating": 3.9,
+        "reviews": 15,
+        "unclaimed_listing": true,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Convenience store",
+          "Liquor store"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "convenience_store",
+          "liquor_store"
+        ],
+        "address": "343 E Maude Ave, Sunnyvale, CA 94085",
+        "country": "United States",
+        "open_state": "Open · Closes 11 PM",
+        "hours": "Open · Closes 11 PM",
+        "operating_hours": {
+          "friday": "7 AM–11 PM",
+          "saturday": "7 AM–12 AM",
+          "sunday": "7 AM–11 PM",
+          "monday": "8 AM–11 PM",
+          "tuesday": "7 AM–11 PM",
+          "wednesday": "7 AM–11 PM",
+          "thursday": "7 AM–11 PM"
+        },
+        "phone": "(408) 736-3711",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Delivery"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true,
+          "delivery": false
+        },
+        "user_review": "\"even cheaper than the local grocery store.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk1MyOdtyWbU5qYSULSBXN8aNBQBTbLdr2j9kbC3eHt3BhdPxER9hZkmKr45NyiE04PJrMoukZa-QCn0thvZMD7bqEVitcjNLi9CTy_Y83vLHbharB6af6WFkBKFEwf_r78Lsmx=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/do3JunicHcRLEoIgAADQE5GUfbSZFmE6TqFZWZYbR9DESCmgjyfsDN2mmd7ifT9M65uaGsaVmb1KiOpaPlQpqWh12eoeFY1R3RSgCihj7m-jOOH9oFsXukvIfnQ_7fZ4h46hlYdog2KCCzm42Jw4ZulrE7Eiertbm6W8WcnhKOxqFw6jpQzEg6c52Dgt1OyZBosJubuHWtNLiGvbibvsZJlP7BOWSzTOz-PE42jlua9zJicWVs179upDCAH7T0H7A0yNRJM"
+      },
+      {
+        "position": 15,
+        "title": "Madras Groceries",
+        "place_id": "ChIJuzOjw-i2j4ARAk792bTTfrk",
+        "data_id": "0x808fb6e8c3a333bb:0xb97ed3b4d9fd4e02",
+        "data_cid": "13366353517787041282",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb6e8c3a333bb%3A0xb97ed3b4d9fd4e02&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb6e8c3a333bb%3A0xb97ed3b4d9fd4e02&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3744027,
+          "longitude": -122.05534379999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJuzOjw-i2j4ARAk792bTTfrk",
+        "provider_id": "/g/1tvrzz93",
+        "rating": 4.3,
+        "reviews": 3079,
+        "type": "Indian grocery store",
+        "types": [
+          "Indian grocery store",
+          "Grocery store"
+        ],
+        "type_id": "indian_grocery_store",
+        "type_ids": [
+          "indian_grocery_store",
+          "grocery_store"
+        ],
+        "address": "1187 W El Camino Real, Sunnyvale, CA 94087",
+        "country": "United States",
+        "open_state": "Open · Closes 11 PM",
+        "hours": "Open · Closes 11 PM",
+        "operating_hours": {
+          "friday": "9 AM–11 PM",
+          "saturday": "9 AM–11 PM",
+          "sunday": "9 AM–11 PM",
+          "monday": "9 AM–10 PM",
+          "tuesday": "9 AM–10 PM",
+          "wednesday": "9 AM–10 PM",
+          "thursday": "9 AM–10 PM"
+        },
+        "phone": "(408) 746-0808",
+        "website": "http://madrasgroceries.com/index.php",
+        "description": "Indian food market with all the staples. Small Indian supermarket carrying packaged & frozen foods, produce, household goods, spices & more.",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Small business"
+            ]
+          },
+          {
+            "service_options": [
+              "Curbside pickup",
+              "Delivery",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "offerings": [
+              "Flowers",
+              "Food"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "On-site parking",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "service_options": {
+          "curbside_pickup": true,
+          "delivery": true
+        },
+        "user_review": "\"Fresh stock , good veggies, reasonable prices\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk592mfysbIWBU-CgR8uvtbFEyyOlLDNfZeU82RiC84QwVw9ENLU4Rkrlx1ZWBuI_-BAjkIYF3AIu-5ipmrKzoj8feEXRa4HXBmjlG2hnSJg8ircR4ghlwLwGgiO-YShuSejpi0=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/RYw0IHicHcRdToMwAADgE3X8DJJi4gNMYCjZtAxhezHSlLZQKKGtFS_oGbzNEr-H7--Xab2oB8cRbL-jUlJBjCIrlrMms95hOTl0UQAroJz4iF4vzRhG_tRvqiuapAYHiqD50l2WbttZlE-n_kZq6CN-gMGbfbdReirrAI2r-PZuTWKKD5DEw1hcs31cGBDyZVpffuQAe5K26DM4tsk0iNxnc_VMIV8xCigTtrQ55WdwrZipyLBw99F6rusC9j8G8x1H70Td"
+      },
+      {
+        "position": 16,
+        "title": "Mi Ranchito Produce",
+        "place_id": "ChIJvaO2AE-2j4ARmrzz0bw9sD0",
+        "data_id": "0x808fb64f00b6a3bd:0x3db03dbcd1f3bc9a",
+        "data_cid": "4445120713400237210",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb64f00b6a3bd%3A0x3db03dbcd1f3bc9a&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb64f00b6a3bd%3A0x3db03dbcd1f3bc9a&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.387860599999996,
+          "longitude": -122.0238026
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJvaO2AE-2j4ARmrzz0bw9sD0",
+        "provider_id": "/g/1v_sngn9",
+        "rating": 4.2,
+        "reviews": 276,
+        "unclaimed_listing": true,
+        "type": "Mexican grocery store",
+        "types": [
+          "Mexican grocery store",
+          "Produce market",
+          "Supermarket"
+        ],
+        "type_id": "mexican_grocery_store",
+        "type_ids": [
+          "mexican_grocery_store",
+          "produce_market",
+          "supermarket"
+        ],
+        "address": "259 E Maude Ave, Sunnyvale, CA 94085",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "7 AM–9 PM",
+          "saturday": "7 AM–9 PM",
+          "sunday": "7 AM–9 PM",
+          "monday": "7 AM–9 PM",
+          "tuesday": "7 AM–9 PM",
+          "wednesday": "7 AM–9 PM",
+          "thursday": "7 AM–9 PM"
+        },
+        "phone": "(408) 245-1500",
+        "description": "Basic market for Mexican foods & produce. Simple market stocking a wide selection of produce & Mexican grocery items in a functional interior.",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "offerings": [
+              "Food"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Delivery"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true,
+          "delivery": false
+        },
+        "user_review": "\"Good choice of fresh meats\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmCFdtcqFxnhHtDL938bYqQeextUapsFi7fqRCYArFI1u5_yiDo1Et2mYK9aHFwhWBHLCPgUqwjIEQ-32mJ-QNjjm-Uyn0B9orBjHj1_Igsbt3273mLLzTwtvg4iy2p7bQbb-V25A=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/Zy8Qc3icHcRRboMgGADgE1EV1jiX7EFtCXZmqU1d41NTGAVJAZW_s-6GO8Jus2Tfw_f7owGG8BJFN01Wynt1k_cgJ-EdSAcr4W2khoBEQCHK2WF_PNmSfoIY6cNpBps6I8-8GxspH9BehkD79Doeyi6faJXc1-el3_hkC9h2b9mF0VmfClaXe9WOs6m2DSLY7lDzboxF7eLiIvNTYZhJzpUKHAhOia3r7-MMX-qpX_CQ8oZz9IHX-eucxHGM9P8CuT8UqUUa"
+      },
+      {
+        "position": 17,
+        "title": "Target Grocery",
+        "place_id": "ChIJrTrdpOK3j4ARtnS_gjAiA2Y",
+        "data_id": "0x808fb7e2a4dd3aad:0x6603223082bf74b6",
+        "data_cid": "7350756608546141366",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb7e2a4dd3aad%3A0x6603223082bf74b6&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb7e2a4dd3aad%3A0x6603223082bf74b6&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.373736799999996,
+          "longitude": -122.03242429999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJrTrdpOK3j4ARtnS_gjAiA2Y",
+        "provider_id": "/g/11vyg3bpnj",
+        "rating": 4.8,
+        "reviews": 8,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Supermarket"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "supermarket"
+        ],
+        "address": "298 W McKinley Ave, Sunnyvale, CA 94086",
+        "country": "United States",
+        "open_state": "Open · Closes 11 PM",
+        "hours": "Open · Closes 11 PM",
+        "operating_hours": {
+          "friday": "7 AM–11 PM",
+          "saturday": "7 AM–11 PM",
+          "sunday": "7 AM–11 PM",
+          "monday": "7 AM–11 PM",
+          "tuesday": "7 AM–11 PM",
+          "wednesday": "7 AM–11 PM",
+          "thursday": "7 AM–11 PM"
+        },
+        "phone": "(408) 702-1012",
+        "website": "https://www.target.com/sl/sunnyvale/2584/grocery?utm_source=OGS&utm_medium=groceryList&utm_id=2584",
+        "extensions": [
+          {
+            "service_options": [
+              "No-contact delivery",
+              "Delivery",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Pharmacy"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          }
+        ],
+        "service_options": {
+          "delivery": true
+        },
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl7RSXf577oqrOHfqTThYZwuZsMjud5Hx4PXVKbN3Ygd-EjWpgSyrNYx8PR2xu7mlTnpE6xC5DO07rJ6-t9e6o-osciAANJCCQhZbyelJtymDjYh9eYT6nEceaoScVRM-qKR2N5Gw=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/9Fw0iHicHcRdDoIgAADgE5H2o1RbD85czpYZMgvfighyCCo49Ygdodu09T1834-wtjFbx5FiOeNac8l6wzqqlWXKzqiuHd4YQA0wThCjDF8lRPnt5UGo2-4cv1qMBSmHvjSnqn968bjKbsXxkS4Jf4KoujY8n7qUjOsMLcYe1hKrJvLH0NufXdglPrAb5mugDX0HQZqE4UWUj4nJxE71viJiwwj2VUTZXee0QCfQHtEi9Q7Dbpi7rgvEfwrUDx-ERZs"
+      },
+      {
+        "position": 18,
+        "title": "Whole Foods Pickup",
+        "place_id": "ChIJBUUOnI23j4AREMTvzR3Uqgc",
+        "data_id": "0x808fb78d9c0e4505:0x7aad41dcdefc410",
+        "data_cid": "552487128780489744",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb78d9c0e4505%3A0x7aad41dcdefc410&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb78d9c0e4505%3A0x7aad41dcdefc410&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.374136799999995,
+          "longitude": -122.0313508
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJBUUOnI23j4AREMTvzR3Uqgc",
+        "provider_id": "/g/11n00psgv_",
+        "rating": 4,
+        "reviews": 10,
+        "unclaimed_listing": true,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store"
+        ],
+        "address": "379 S Sunnyvale Ave, Sunnyvale, CA 94086",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "8 AM–10 PM",
+          "saturday": "8 AM–10 PM",
+          "sunday": "8 AM–10 PM",
+          "monday": "8 AM–10 PM",
+          "tuesday": "8 AM–10 PM",
+          "wednesday": "8 AM–10 PM",
+          "thursday": "8 AM–10 PM"
+        },
+        "website": "https://www.wholefoodsmarket.com/grocery-pickup",
+        "extensions": [
+          {
+            "service_options": [
+              "No-contact delivery",
+              "Delivery",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Flowers",
+              "Food"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          },
+          {
+            "parking": [
+              "On-site parking",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "service_options": {
+          "delivery": true
+        },
+        "user_review": "\"Easy access from Murphy Street and you can easily walk up to Whole Foods.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmFCInSgU5WR5HFIgBbW7pQW142SJWsesTejpUUo2ITfKZtq6zpg713GdOZpL-htaBAo8QPTJNvnidYr0NbkpreB9meSruIDN1LYrGEbhAI9jKjOagiiGxJB_whM3B-Iehn1AAd=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/X4zEJnicHcRJroIwAADQE1WoOCcuWgcsKg5AGt0YgdqC0ta2DvkX_GfwNia-xfv8C-e0HXneTQQtrhS_sYdlplDSMelahWo8ri0oLLAeWuy3KW3mEyITnnXpvruYE45z2tc7CjvtJKKW2ZTVOstUm6SX5dHde3-a92EQlpujXgHhzhipwW6bRvFTVuXB-HF-1YbhYcMS8yDTGK4OJpzlApFhvaw3Z15V4TvCp5dYBxgQJiREqBy_oO_7QPwugPwCKgFEMw"
+      },
+      {
+        "position": 19,
+        "title": "Western Pacific Filipino Grocery",
+        "place_id": "ChIJZc5kLju2j4ARphFuN9Aypmk",
+        "data_id": "0x808fb63b2e64ce65:0x69a632d0376e11a6",
+        "data_cid": "7612828089980948902",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb63b2e64ce65%3A0x69a632d0376e11a6&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb63b2e64ce65%3A0x69a632d0376e11a6&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3889476,
+          "longitude": -122.00463459999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJZc5kLju2j4ARphFuN9Aypmk",
+        "provider_id": "/g/1tdh8phb",
+        "rating": 4.4,
+        "reviews": 69,
+        "type": "Asian grocery store",
+        "types": [
+          "Asian grocery store",
+          "Oriental goods store"
+        ],
+        "type_id": "asian_grocery_store",
+        "type_ids": [
+          "asian_grocery_store",
+          "oriental_goods_store"
+        ],
+        "address": "905 E Duane Ave, Sunnyvale, CA 94085",
+        "country": "United States",
+        "open_state": "Open · Closes 7 PM",
+        "hours": "Open · Closes 7 PM",
+        "operating_hours": {
+          "friday": "9:30 AM–7 PM",
+          "saturday": "9:30 AM–7 PM",
+          "sunday": "10 AM–6 PM",
+          "monday": "9:30 AM–7 PM",
+          "tuesday": "9:30 AM–7 PM",
+          "wednesday": "9:30 AM–7 PM",
+          "thursday": "9:30 AM–7 PM"
+        },
+        "phone": "(408) 720-1006",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Small business"
+            ]
+          },
+          {
+            "service_options": [
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Delivery"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true
+        },
+        "user_review": "\"Fruits and vegetables are good and cheaper.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmX2djl1yX9Z2rIpW-U-YpUFEkmFr34S5jHG68dHJVnM2-6Yq5vywyzlnA-2gCMoSE7jg1N-iaIFbfJ__shSnUfq18YKJXEn_NLFReNc9X1Wot_rVtfgeYTRILs7RQ6bbT26ncV=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/XU1sX3icHcRLroIwFADQFV2hVfGTODAGBJ4S5Y8TIrUUedAirRrcoGtwNyaewfm8K6U6udS0phqPmBCsoXdJeyK4olyNiGg11kkgEqS2tv1DmLQpvtQNGtLFCfdOl0AEWRdZ5n9r9eNJMK3trTG_2G7M9xiM7DZ9DM_h1fA1YLbZi8Cc1Qx5cD07VlG6eS6rgEflDc2zPzc1ee7tLJ96ZJGiRKi8j1XJaBb6zk7O_KNRFCE2OIlXT6TrOlS_CfAv9aJDtQ"
+      },
+      {
+        "position": 20,
+        "title": "Sprouts Farmers Market",
+        "place_id": "ChIJO_7dW2S2j4AR0rWx4gcEDOU",
+        "data_id": "0x808fb6645bddfe3b:0xe50c0407e2b1b5d2",
+        "data_cid": "16504571166320604626",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb6645bddfe3b%3A0xe50c0407e2b1b5d2&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb6645bddfe3b%3A0xe50c0407e2b1b5d2&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.367463799999996,
+          "longitude": -122.03025609999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJO_7dW2S2j4AR0rWx4gcEDOU",
+        "provider_id": "/g/1tdcb0yv",
+        "rating": 4.5,
+        "reviews": 1341,
+        "type": "Grocery store",
+        "types": [
+          "Grocery store",
+          "Fresh food market",
+          "Fruit and vegetable store",
+          "Grocery delivery service",
+          "Health food store",
+          "Organic food store",
+          "Produce market",
+          "Supermarket",
+          "Vitamin & supplements store"
+        ],
+        "type_id": "grocery_store",
+        "type_ids": [
+          "grocery_store",
+          "fresh_food_market",
+          "fruit_and_vegetable_store",
+          "grocery_delivery_service",
+          "health_food_store",
+          "organic_food_store",
+          "produce_market",
+          "supermarket",
+          "vitamin_and_supplements_store"
+        ],
+        "address": "111 E El Camino Real, Sunnyvale, CA 94087",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "7 AM–10 PM",
+          "saturday": "7 AM–10 PM",
+          "sunday": "7 AM–10 PM",
+          "monday": "7 AM–10 PM",
+          "tuesday": "7 AM–10 PM",
+          "wednesday": "7 AM–10 PM",
+          "thursday": "7 AM–10 PM"
+        },
+        "phone": "(408) 702-1172",
+        "website": "https://sprouts.com/store/ca/sunnyvale/sunnyvale",
+        "description": "Natural & organic grocery store. Specialty chain offering a range of natural & organic grocery items, including own-brand goods.",
+        "extensions": [
+          {
+            "service_options": [
+              "Curbside pickup",
+              "No-contact delivery",
+              "Delivery",
+              "In-store pickup",
+              "In-store shopping",
+              "Onsite services"
+            ]
+          },
+          {
+            "highlights": [
+              "Great produce"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Bakery",
+              "Flowers",
+              "Food",
+              "Organic products",
+              "Prepared foods"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Quick visit"
+            ]
+          },
+          {
+            "recycling": [
+              "Plastic bags"
+            ]
+          },
+          {
+            "payments": [
+              "Checks",
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments",
+              "SNAP/EBT"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "On-site parking",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "service_options": {
+          "in_store_shopping": true,
+          "curbside_pickup": true,
+          "delivery": true
+        },
+        "user_review": "\"Good quality produce, great quality nuts, oats and granola.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkUwKJLftue0Dh7JBLP8mZzIGAgJ2X23-Lv51TWW-MgNbfpLZ3kWFmn6Q76EUFybaGbvL02ox2rHnp1wvucI5MxicuU4srbf5m7Tp6mcFfBLeUEnxCKCgcPFZBeC_30LHyyORCy9w=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/T6A8aXicHcRJDoIwAADAF1UKCKiJB0ERsSoaCIaLkaYUo11Cy-YPfYK_MXEO8_3UWku1MIxXbU-oEPRFWkUaLLgmXE-wYAaVCmAFlLGKLkmaP7N-H6NKtwSuay_2UTJjxXu3XdHYulo2QJ1jpnkODvRYVhIV9jMPGXfPnrvJwrG8b8sOQUsMVhNxafZdi3fOYXjgNpuqpqwc5qXSZTisfESyDR-CfUBxEhY-CW42RNE4ni7BOO-XvQkhBPV_DPgPihREkw"
+      }
+    ],
+    "serpapi_pagination": {
+      "next": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&ll=%4037.39297%2C-122.0154%2C15z&q=grocery&start=20&type=search"
+    }
+  }
+}

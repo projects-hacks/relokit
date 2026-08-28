@@ -91,7 +91,10 @@
         "website": "https://www.crunch.com/locations/san-jose",
         "extensions": [
           {
-            "service_options": ["Online classes", "Onsite services"]
+            "service_options": [
+              "Online classes",
+              "Onsite services"
+            ]
           },
           {
             "accessibility": [
@@ -101,19 +104,34 @@
             ]
           },
           {
-            "offerings": ["Sauna"]
+            "offerings": [
+              "Sauna"
+            ]
           },
           {
-            "amenities": ["Restroom", "Swimming pool", "Wi-Fi", "Free Wi-Fi"]
+            "amenities": [
+              "Restroom",
+              "Swimming pool",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
           },
           {
-            "atmosphere": ["Shower"]
+            "atmosphere": [
+              "Shower"
+            ]
           },
           {
-            "planning": ["Membership required"]
+            "planning": [
+              "Membership required"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards", "NFC mobile payments"]
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
           }
         ],
         "service_options": {
@@ -141,9 +159,15 @@
         "rating": 5,
         "reviews": 149,
         "type": "Gym",
-        "types": ["Gym", "Personal trainer"],
+        "types": [
+          "Gym",
+          "Personal trainer"
+        ],
         "type_id": "gym",
-        "type_ids": ["gym", "personal_trainer"],
+        "type_ids": [
+          "gym",
+          "personal_trainer"
+        ],
         "address": "385 E Taylor St Unit 2B, San Jose, CA 95112",
         "country": "United States",
         "open_state": "Open · Closes 9 PM",
@@ -161,10 +185,16 @@
         "website": "https://www.hscgym.com/?y_source=1_MzYyMzUxNjMtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
         "extensions": [
           {
-            "from_the_business": ["Identifies as Asian-owned", "Identifies as women-owned"]
+            "from_the_business": [
+              "Identifies as Asian-owned",
+              "Identifies as women-owned"
+            ]
           },
           {
-            "service_options": ["Outdoor services", "Onsite services"]
+            "service_options": [
+              "Outdoor services",
+              "Onsite services"
+            ]
           },
           {
             "accessibility": [
@@ -174,21 +204,34 @@
             ]
           },
           {
-            "amenities": ["Restroom"]
+            "amenities": [
+              "Restroom"
+            ]
           },
           {
-            "crowd": ["LGBTQ+ friendly", "Transgender safespace"]
+            "crowd": [
+              "LGBTQ+ friendly",
+              "Transgender safespace"
+            ]
           },
           {
-            "planning": ["Appointment required", "Membership required"]
+            "planning": [
+              "Appointment required",
+              "Membership required"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards"]
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
           }
         ],
         "unsupported_extensions": [
           {
-            "service_options": ["Online classes"]
+            "service_options": [
+              "Online classes"
+            ]
           }
         ],
         "service_options": {
@@ -256,7 +299,10 @@
         "website": "https://www.24hourfitness.com/gyms/san-jose-ca/east-side-san-jose-super-sport?Adb_id=GGL_LOC_ACQ_CDP",
         "extensions": [
           {
-            "service_options": ["Online classes", "Onsite services"]
+            "service_options": [
+              "Online classes",
+              "Onsite services"
+            ]
           },
           {
             "accessibility": [
@@ -266,24 +312,41 @@
             ]
           },
           {
-            "offerings": ["Sauna"]
+            "offerings": [
+              "Sauna"
+            ]
           },
           {
-            "amenities": ["Basketball court", "Restroom", "Swimming pool", "Wi-Fi"]
+            "amenities": [
+              "Basketball court",
+              "Restroom",
+              "Swimming pool",
+              "Wi-Fi"
+            ]
           },
           {
-            "atmosphere": ["Shower"]
+            "atmosphere": [
+              "Shower"
+            ]
           },
           {
-            "planning": ["Membership required"]
+            "planning": [
+              "Membership required"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards", "NFC mobile payments"]
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
           }
         ],
         "unsupported_extensions": [
           {
-            "amenities": ["Restaurant"]
+            "amenities": [
+              "Restaurant"
+            ]
           }
         ],
         "service_options": {
@@ -311,9 +374,13 @@
         "rating": 4.6,
         "reviews": 122,
         "type": "Gym",
-        "types": ["Gym"],
+        "types": [
+          "Gym"
+        ],
         "type_id": "gym",
-        "type_ids": ["gym"],
+        "type_ids": [
+          "gym"
+        ],
         "address": "60 N Winchester Blvd, Santa Clara, CA 95050",
         "country": "United States",
         "open_state": "Open 24 hours",
@@ -331,7 +398,10 @@
         "website": "https://www.snapfitness.com/us/gyms/santa-clara-ca/?utm_source=gmb&utm_medium=yext",
         "extensions": [
           {
-            "service_options": ["Outdoor services", "Onsite services"]
+            "service_options": [
+              "Outdoor services",
+              "Onsite services"
+            ]
           },
           {
             "accessibility": [
@@ -341,18 +411,30 @@
             ]
           },
           {
-            "amenities": ["Restroom", "Wi-Fi", "Free Wi-Fi"]
+            "amenities": [
+              "Restroom",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
           },
           {
-            "planning": ["Appointment required", "Membership required"]
+            "planning": [
+              "Appointment required",
+              "Membership required"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards"]
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
           }
         ],
         "unsupported_extensions": [
           {
-            "service_options": ["Online classes"]
+            "service_options": [
+              "Online classes"
+            ]
           }
         ],
         "service_options": {
@@ -381,9 +463,13 @@
         "rating": 3.8,
         "reviews": 640,
         "type": "Gym",
-        "types": ["Gym"],
+        "types": [
+          "Gym"
+        ],
         "type_id": "gym",
-        "type_ids": ["gym"],
+        "type_ids": [
+          "gym"
+        ],
         "address": "610 Newhall Dr, San Jose, CA 95110",
         "country": "United States",
         "open_state": "Open · Closes 10 PM",
@@ -401,7 +487,9 @@
         "website": "https://citysportsfitness.com/Pages/clubhome.aspx?clubid=906&utm_source=google&utm_medium=googlemaps&utm_campaign=maps",
         "extensions": [
           {
-            "service_options": ["Onsite services"]
+            "service_options": [
+              "Onsite services"
+            ]
           },
           {
             "accessibility": [
@@ -411,22 +499,40 @@
             ]
           },
           {
-            "offerings": ["Sauna"]
+            "offerings": [
+              "Sauna"
+            ]
           },
           {
-            "amenities": ["Basketball court", "Restroom", "Swimming pool", "Wi-Fi"]
+            "amenities": [
+              "Basketball court",
+              "Restroom",
+              "Swimming pool",
+              "Wi-Fi"
+            ]
           },
           {
-            "atmosphere": ["Shower"]
+            "atmosphere": [
+              "Shower"
+            ]
           },
           {
-            "planning": ["Membership required"]
+            "planning": [
+              "Membership required"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards", "NFC mobile payments"]
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
           },
           {
-            "parking": ["Free parking lot", "Paid parking lot"]
+            "parking": [
+              "Free parking lot",
+              "Paid parking lot"
+            ]
           }
         ],
         "service_options": {
@@ -487,7 +593,9 @@
         "website": "https://www.anytimefitness.com/locations/san-jose-california-5039",
         "extensions": [
           {
-            "service_options": ["Onsite services"]
+            "service_options": [
+              "Onsite services"
+            ]
           },
           {
             "accessibility": [
@@ -498,24 +606,42 @@
             ]
           },
           {
-            "amenities": ["Gender-neutral restroom", "Restroom", "Wi-Fi", "Free Wi-Fi"]
+            "amenities": [
+              "Gender-neutral restroom",
+              "Restroom",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
           },
           {
-            "atmosphere": ["Shower"]
+            "atmosphere": [
+              "Shower"
+            ]
           },
           {
-            "planning": ["Membership required"]
+            "planning": [
+              "Membership required"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards"]
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
           },
           {
-            "parking": ["Free parking lot", "Free street parking", "On-site parking"]
+            "parking": [
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking"
+            ]
           }
         ],
         "unsupported_extensions": [
           {
-            "service_options": ["Online classes"]
+            "service_options": [
+              "Online classes"
+            ]
           }
         ],
         "service_options": {
@@ -543,9 +669,13 @@
         "rating": 4.9,
         "reviews": 62,
         "type": "Gym",
-        "types": ["Gym"],
+        "types": [
+          "Gym"
+        ],
         "type_id": "gym",
-        "type_ids": ["gym"],
+        "type_ids": [
+          "gym"
+        ],
         "address": "1604 Remuda Ln, San Jose, CA 95112",
         "country": "United States",
         "open_state": "Open 24 hours",
@@ -570,16 +700,26 @@
             ]
           },
           {
-            "amenities": ["Restroom"]
+            "amenities": [
+              "Restroom"
+            ]
           },
           {
-            "planning": ["Membership required"]
+            "planning": [
+              "Membership required"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards"]
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
           },
           {
-            "parking": ["Free parking lot", "Free street parking"]
+            "parking": [
+              "Free parking lot",
+              "Free street parking"
+            ]
           }
         ],
         "user_review": "\"The gym itself has 5+ squat racks, great equipment and 24 hours access.\"",
@@ -636,13 +776,21 @@
         "description": "Nonprofit center for classes & services. Community-focused nonprofit established in 1844 with recreational programs & services for all ages.",
         "extensions": [
           {
-            "accessibility": ["Wheelchair accessible entrance", "Wheelchair accessible parking lot"]
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards"]
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
           },
           {
-            "parking": ["Free parking lot"]
+            "parking": [
+              "Free parking lot"
+            ]
           }
         ],
         "user_review": "\"The equipment works great, and the staff are always friendly and welcoming.\"",
@@ -666,9 +814,13 @@
         "rating": 5,
         "reviews": 41,
         "type": "Gym",
-        "types": ["Gym"],
+        "types": [
+          "Gym"
+        ],
         "type_id": "gym",
-        "type_ids": ["gym"],
+        "type_ids": [
+          "gym"
+        ],
         "address": "899 S 1st St, San Jose, CA 95110",
         "country": "United States",
         "open_state": "Open · Closes 9 PM",
@@ -686,13 +838,21 @@
         "website": "https://www.warfitnessbayarea.com/",
         "extensions": [
           {
-            "accessibility": ["Wheelchair accessible entrance", "Wheelchair accessible parking lot"]
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
           },
           {
-            "amenities": ["Restroom"]
+            "amenities": [
+              "Restroom"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards"]
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
           }
         ],
         "user_review": "\"Excellent trainer, clean gym and very motivating environment\"",
@@ -754,7 +914,10 @@
         "website": "https://www.24hourfitness.com/gyms/san-jose-ca/san-jose-super-sport?Adb_id=GGL_LOC_ACQ_CDP",
         "extensions": [
           {
-            "service_options": ["Online classes", "Onsite services"]
+            "service_options": [
+              "Online classes",
+              "Onsite services"
+            ]
           },
           {
             "accessibility": [
@@ -764,27 +927,47 @@
             ]
           },
           {
-            "offerings": ["Sauna"]
+            "offerings": [
+              "Sauna"
+            ]
           },
           {
-            "amenities": ["Basketball court", "Restroom", "Swimming pool", "Wi-Fi"]
+            "amenities": [
+              "Basketball court",
+              "Restroom",
+              "Swimming pool",
+              "Wi-Fi"
+            ]
           },
           {
-            "atmosphere": ["Shower"]
+            "atmosphere": [
+              "Shower"
+            ]
           },
           {
-            "planning": ["Membership required"]
+            "planning": [
+              "Membership required"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards", "NFC mobile payments"]
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
           },
           {
-            "parking": ["Free parking lot", "Paid parking lot"]
+            "parking": [
+              "Free parking lot",
+              "Paid parking lot"
+            ]
           }
         ],
         "unsupported_extensions": [
           {
-            "amenities": ["Restaurant"]
+            "amenities": [
+              "Restaurant"
+            ]
           }
         ],
         "service_options": {
@@ -852,7 +1035,9 @@
         "website": "https://www.24hourfitness.com/gyms/san-jose-ca/eastridge-super-sport?Adb_id=GGL_LOC_ACQ_CDP",
         "extensions": [
           {
-            "service_options": ["Onsite services"]
+            "service_options": [
+              "Onsite services"
+            ]
           },
           {
             "accessibility": [
@@ -862,27 +1047,45 @@
             ]
           },
           {
-            "offerings": ["Sauna"]
+            "offerings": [
+              "Sauna"
+            ]
           },
           {
-            "amenities": ["Restroom", "Swimming pool", "Wi-Fi"]
+            "amenities": [
+              "Restroom",
+              "Swimming pool",
+              "Wi-Fi"
+            ]
           },
           {
-            "atmosphere": ["Shower"]
+            "atmosphere": [
+              "Shower"
+            ]
           },
           {
-            "planning": ["Membership required"]
+            "planning": [
+              "Membership required"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards", "NFC mobile payments"]
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
           },
           {
-            "parking": ["Paid parking lot"]
+            "parking": [
+              "Paid parking lot"
+            ]
           }
         ],
         "unsupported_extensions": [
           {
-            "amenities": ["Restaurant"]
+            "amenities": [
+              "Restaurant"
+            ]
           }
         ],
         "service_options": {
@@ -909,9 +1112,15 @@
         "rating": 5,
         "reviews": 18,
         "type": "Gym",
-        "types": ["Gym", "Fitness center"],
+        "types": [
+          "Gym",
+          "Fitness center"
+        ],
         "type_id": "gym",
-        "type_ids": ["gym", "fitness_center"],
+        "type_ids": [
+          "gym",
+          "fitness_center"
+        ],
         "address": "1049 Lincoln Ave, San Jose, CA 95125",
         "country": "United States",
         "open_state": "Open · Closes 7 PM",
@@ -936,16 +1145,27 @@
             ]
           },
           {
-            "amenities": ["Restroom"]
+            "amenities": [
+              "Restroom"
+            ]
           },
           {
-            "planning": ["Membership required"]
+            "planning": [
+              "Membership required"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards", "NFC mobile payments"]
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
           },
           {
-            "parking": ["Free street parking", "On-site parking"]
+            "parking": [
+              "Free street parking",
+              "On-site parking"
+            ]
           }
         ],
         "user_review": "\"They actually care about how you move, not just getting through a workout.\"",
@@ -969,9 +1189,15 @@
         "rating": 4.9,
         "reviews": 224,
         "type": "Gym",
-        "types": ["Gym", "Personal trainer"],
+        "types": [
+          "Gym",
+          "Personal trainer"
+        ],
         "type_id": "gym",
-        "type_ids": ["gym", "personal_trainer"],
+        "type_ids": [
+          "gym",
+          "personal_trainer"
+        ],
         "address": "955 Monroe St, Santa Clara, CA 95050",
         "country": "United States",
         "open_state": "Open · Closes 6:30 PM",
@@ -989,7 +1215,9 @@
         "website": "https://fns360.com/",
         "extensions": [
           {
-            "service_options": ["Onsite services"]
+            "service_options": [
+              "Onsite services"
+            ]
           },
           {
             "accessibility": [
@@ -999,21 +1227,35 @@
             ]
           },
           {
-            "amenities": ["Restroom", "Wi-Fi", "Free Wi-Fi"]
+            "amenities": [
+              "Restroom",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
           },
           {
-            "planning": ["Membership required"]
+            "planning": [
+              "Membership required"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards"]
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
           },
           {
-            "parking": ["Free parking lot", "On-site parking"]
+            "parking": [
+              "Free parking lot",
+              "On-site parking"
+            ]
           }
         ],
         "unsupported_extensions": [
           {
-            "service_options": ["Online classes"]
+            "service_options": [
+              "Online classes"
+            ]
           }
         ],
         "service_options": {
@@ -1042,9 +1284,13 @@
         "rating": 5,
         "reviews": 31,
         "type": "Gym",
-        "types": ["Gym"],
+        "types": [
+          "Gym"
+        ],
         "type_id": "gym",
-        "type_ids": ["gym"],
+        "type_ids": [
+          "gym"
+        ],
         "address": "1707 Lafayette St, Santa Clara, CA 95050",
         "country": "United States",
         "open_state": "Open 24 hours",
@@ -1062,16 +1308,26 @@
         "website": "https://eternalstrengthgym.com/",
         "extensions": [
           {
-            "service_options": ["Onsite services"]
+            "service_options": [
+              "Onsite services"
+            ]
           },
           {
-            "accessibility": ["Wheelchair accessible entrance", "Wheelchair accessible parking lot"]
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
           },
           {
-            "amenities": ["Restroom"]
+            "amenities": [
+              "Restroom"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards"]
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
           }
         ],
         "service_options": {
@@ -1098,9 +1354,17 @@
         "rating": 4.2,
         "reviews": 57,
         "type": "Fitness center",
-        "types": ["Fitness center", "Fitness equipment wholesaler", "Gym"],
+        "types": [
+          "Fitness center",
+          "Fitness equipment wholesaler",
+          "Gym"
+        ],
         "type_id": "fitness_center",
-        "type_ids": ["fitness_center", "fitness_equipment_wholesaler", "gym"],
+        "type_ids": [
+          "fitness_center",
+          "fitness_equipment_wholesaler",
+          "gym"
+        ],
         "address": "2023 Monterey Rd, San Jose, CA 95112",
         "country": "United States",
         "open_state": "Open · Closes 10 PM",
@@ -1118,7 +1382,9 @@
         "website": "https://www.eliteprofitca.com/",
         "extensions": [
           {
-            "from_the_business": ["Identifies as veteran-owned"]
+            "from_the_business": [
+              "Identifies as veteran-owned"
+            ]
           },
           {
             "accessibility": [
@@ -1128,13 +1394,21 @@
             ]
           },
           {
-            "amenities": ["Restroom"]
+            "amenities": [
+              "Restroom"
+            ]
           },
           {
-            "planning": ["Membership required"]
+            "planning": [
+              "Membership required"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards", "NFC mobile payments"]
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
           }
         ],
         "book_online": "https://www.mindbodyonline.com/explore/locations/elite-pro?rwg_token=AE37R_i8xyLRC4AmhPrStChpzqFr83IGeW_XgyPl2iRzOck4O5BdYjDUWqj8XhWN2eBSVevW4kdizpDwMwlBBSF30eUGY40HIA%3D%3D",
@@ -1159,9 +1433,13 @@
         "rating": 4.9,
         "reviews": 125,
         "type": "Gym",
-        "types": ["Gym"],
+        "types": [
+          "Gym"
+        ],
         "type_id": "gym",
-        "type_ids": ["gym"],
+        "type_ids": [
+          "gym"
+        ],
         "address": "1783 Alum Rock Ave Ste 40, San Jose, CA 95116",
         "country": "United States",
         "open_state": "Closed · Opens 4 PM",
@@ -1187,7 +1465,9 @@
             ]
           },
           {
-            "service_options": ["Onsite services"]
+            "service_options": [
+              "Onsite services"
+            ]
           },
           {
             "accessibility": [
@@ -1198,21 +1478,36 @@
             ]
           },
           {
-            "amenities": ["Gender-neutral restroom", "Restroom"]
+            "amenities": [
+              "Gender-neutral restroom",
+              "Restroom"
+            ]
           },
           {
-            "planning": ["Membership required"]
+            "planning": [
+              "Membership required"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards", "NFC mobile payments"]
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
           },
           {
-            "parking": ["Free parking lot", "Free street parking", "On-site parking"]
+            "parking": [
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking"
+            ]
           }
         ],
         "unsupported_extensions": [
           {
-            "service_options": ["Online classes"]
+            "service_options": [
+              "Online classes"
+            ]
           }
         ],
         "service_options": {
@@ -1240,7 +1535,13 @@
         "rating": 3.8,
         "reviews": 546,
         "type": "Gym",
-        "types": ["Gym", "Fitness center", "Personal trainer", "Weightlifting area", "Yoga studio"],
+        "types": [
+          "Gym",
+          "Fitness center",
+          "Personal trainer",
+          "Weightlifting area",
+          "Yoga studio"
+        ],
         "type_id": "gym",
         "type_ids": [
           "gym",
@@ -1266,7 +1567,10 @@
         "website": "https://www.24hourfitness.com/gyms/san-jose-ca/parkmoor-sport?Adb_id=GGL_LOC_ACQ_CDP",
         "extensions": [
           {
-            "service_options": ["Online classes", "Onsite services"]
+            "service_options": [
+              "Online classes",
+              "Onsite services"
+            ]
           },
           {
             "accessibility": [
@@ -1276,19 +1580,32 @@
             ]
           },
           {
-            "amenities": ["Restroom", "Wi-Fi"]
+            "amenities": [
+              "Restroom",
+              "Wi-Fi"
+            ]
           },
           {
-            "atmosphere": ["Shower"]
+            "atmosphere": [
+              "Shower"
+            ]
           },
           {
-            "planning": ["Membership required"]
+            "planning": [
+              "Membership required"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards", "NFC mobile payments"]
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
           },
           {
-            "parking": ["Free street parking"]
+            "parking": [
+              "Free street parking"
+            ]
           }
         ],
         "service_options": {
@@ -1316,9 +1633,19 @@
         "rating": 4.9,
         "reviews": 260,
         "type": "Personal trainer",
-        "types": ["Personal trainer", "Fitness center", "Gym", "Physical fitness program"],
+        "types": [
+          "Personal trainer",
+          "Fitness center",
+          "Gym",
+          "Physical fitness program"
+        ],
         "type_id": "personal_trainer",
-        "type_ids": ["personal_trainer", "fitness_center", "gym", "physical_fitness_program"],
+        "type_ids": [
+          "personal_trainer",
+          "fitness_center",
+          "gym",
+          "physical_fitness_program"
+        ],
         "address": "30 N 3rd St, San Jose, CA 95112",
         "country": "United States",
         "open_state": "Open · Closes 8 PM",
@@ -1336,10 +1663,16 @@
         "website": "http://www.westcasj.com/?y_source=1_MjQ5NTUzNzQtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
         "extensions": [
           {
-            "from_the_business": ["Identifies as Black-owned", "Identifies as women-owned"]
+            "from_the_business": [
+              "Identifies as Black-owned",
+              "Identifies as women-owned"
+            ]
           },
           {
-            "service_options": ["Outdoor services", "Onsite services"]
+            "service_options": [
+              "Outdoor services",
+              "Onsite services"
+            ]
           },
           {
             "accessibility": [
@@ -1350,13 +1683,22 @@
             ]
           },
           {
-            "amenities": ["Restroom"]
+            "amenities": [
+              "Restroom"
+            ]
           },
           {
-            "crowd": ["LGBTQ+ friendly", "Transgender safespace"]
+            "crowd": [
+              "LGBTQ+ friendly",
+              "Transgender safespace"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards", "NFC mobile payments"]
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
           },
           {
             "parking": [
@@ -1369,7 +1711,9 @@
         ],
         "unsupported_extensions": [
           {
-            "service_options": ["Online classes"]
+            "service_options": [
+              "Online classes"
+            ]
           }
         ],
         "service_options": {
@@ -1442,13 +1786,20 @@
             ]
           },
           {
-            "amenities": ["Restroom"]
+            "amenities": [
+              "Restroom"
+            ]
           },
           {
-            "planning": ["Membership required"]
+            "planning": [
+              "Membership required"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards"]
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
           }
         ],
         "user_review": "\"All the trainers are awesome and the environment is ideal to max my gains.\"",
@@ -1508,10 +1859,16 @@
         "website": "https://www.gymcheckpro.com/",
         "extensions": [
           {
-            "from_the_business": ["Identifies as Latino-owned", "Identifies as women-owned"]
+            "from_the_business": [
+              "Identifies as Latino-owned",
+              "Identifies as women-owned"
+            ]
           },
           {
-            "service_options": ["Online classes", "Onsite services"]
+            "service_options": [
+              "Online classes",
+              "Onsite services"
+            ]
           },
           {
             "accessibility": [
@@ -1521,16 +1878,27 @@
             ]
           },
           {
-            "amenities": ["Restroom"]
+            "amenities": [
+              "Restroom"
+            ]
           },
           {
-            "planning": ["Appointment required", "Membership required"]
+            "planning": [
+              "Appointment required",
+              "Membership required"
+            ]
           },
           {
-            "payments": ["Credit cards", "Debit cards"]
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
           },
           {
-            "parking": ["Free parking lot", "On-site parking"]
+            "parking": [
+              "Free parking lot",
+              "On-site parking"
+            ]
           }
         ],
         "service_options": {

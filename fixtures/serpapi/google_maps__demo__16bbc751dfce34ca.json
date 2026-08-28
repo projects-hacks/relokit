@@ -1,0 +1,1664 @@
+{
+  "key": "google_maps__demo__16bbc751dfce34ca",
+  "engine": "google_maps",
+  "params": {
+    "engine": "google_maps",
+    "type": "search",
+    "q": "gym",
+    "ll": "@37.39297,-122.0154,15z"
+  },
+  "recorded_at_ms": 1787960975655,
+  "status": 200,
+  "body": {
+    "search_metadata": {
+      "id": "6a921e8e97f1cccbd2a3d257",
+      "status": "Success",
+      "json_endpoint": "https://serpapi.com/searches/G0slNafWcM1u-gi50CMJeRu98bpeGmJfXjy0ilsgMh8/6a921e8e97f1cccbd2a3d257.json",
+      "markdown_endpoint": "https://serpapi.com/searches/G0slNafWcM1u-gi50CMJeRu98bpeGmJfXjy0ilsgMh8/6a921e8e97f1cccbd2a3d257.md",
+      "created_at": "2026-08-28 23:49:34 UTC",
+      "processed_at": "2026-08-28 23:49:34 UTC",
+      "google_maps_url": "https://www.google.com/maps/search/gym/@37.39297,-122.0154,15z/data=!3m1!4b1!4m2!2m1!6e5?hl=en",
+      "raw_html_file": "https://serpapi.com/searches/G0slNafWcM1u-gi50CMJeRu98bpeGmJfXjy0ilsgMh8/6a921e8e97f1cccbd2a3d257.html",
+      "prettify_html_file": "https://serpapi.com/searches/G0slNafWcM1u-gi50CMJeRu98bpeGmJfXjy0ilsgMh8/6a921e8e97f1cccbd2a3d257.prettify",
+      "total_time_taken": 0.7
+    },
+    "search_parameters": {
+      "engine": "google_maps",
+      "type": "search",
+      "q": "gym",
+      "ll": "@37.39297,-122.0154,15z",
+      "google_domain": "google.com",
+      "hl": "en"
+    },
+    "search_information": {
+      "local_results_state": "Results for exact spelling",
+      "query_displayed": "gym"
+    },
+    "local_results": [
+      {
+        "position": 1,
+        "title": "Moffett Towers Club",
+        "place_id": "ChIJscQfx6C3j4ARvZpp21SN8h8",
+        "data_id": "0x808fb7a0c71fc4b1:0x1ff28d54db699abd",
+        "data_cid": "2302057755137645245",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb7a0c71fc4b1%3A0x1ff28d54db699abd&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb7a0c71fc4b1%3A0x1ff28d54db699abd&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.4067878,
+          "longitude": -122.0364532
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJscQfx6C3j4ARvZpp21SN8h8",
+        "provider_id": "/g/1tkjlfm5",
+        "rating": 4.7,
+        "reviews": 199,
+        "type": "Gym",
+        "types": [
+          "Gym"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym"
+        ],
+        "address": "1080 Enterprise Way, Sunnyvale, CA 94089",
+        "country": "United States",
+        "open_state": "Open · Closes 7 PM",
+        "hours": "Open · Closes 7 PM",
+        "operating_hours": {
+          "friday": "6 AM–7 PM",
+          "saturday": "Closed",
+          "sunday": "Closed",
+          "monday": "6 AM–9 PM",
+          "tuesday": "6 AM–9 PM",
+          "wednesday": "6 AM–9 PM",
+          "thursday": "6 AM–9 PM"
+        },
+        "phone": "(408) 419-4730",
+        "website": "http://www.moffett-towers-club.com/",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Sauna"
+            ]
+          },
+          {
+            "amenities": [
+              "Basketball court",
+              "Restroom",
+              "Swimming pool",
+              "Wi-Fi"
+            ]
+          },
+          {
+            "atmosphere": [
+              "Shower"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Debit cards"
+            ]
+          }
+        ],
+        "user_review": "\"A spacious locker room with sonna and steaming room.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmTNy6HDi7OjvcfVIHfaAt2IBW8QwfLyWd0cgZ98Sv7cPruTzUp4ngfBlRBQFzzMOr9xWCVUj_gc313-CdSsrEJFsnssfbg5IjB_hkuHgLxy_6uReHquHnc6jMU53QYUOPbUVk=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/q-4ru3icHcRbjoIwFADQFVVQFHWS-RAfKRMdHlKI_hC90iJiQW6rwgLdg7sx8Xyc9ytXqsYfwyhzqyeqSpSZxqyBSqpMqh5UV0PUSAAJGjMa-lFyjf5bmy7OY6-4A49dyg8zNXCdZBI8-LpNTiaI_XSyvY_Bb3TUsXooBXfK0AlWXbfxmukzmcesSAVYfYvMT1tsln8rlIj8KEZu4aT5RVOxfraprcOM3jSVYBcbNrKCHfP8I4svv4--aZok_w5EfgBemkVS"
+      },
+      {
+        "position": 2,
+        "title": "City Sports Club",
+        "place_id": "ChIJwQQy2R62j4ARUQzN8PLr4yk",
+        "data_id": "0x808fb61ed93204c1:0x29e3ebf2f0cd0c51",
+        "data_cid": "3018515603922947153",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb61ed93204c1%3A0x29e3ebf2f0cd0c51&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb61ed93204c1%3A0x29e3ebf2f0cd0c51&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.380928,
+          "longitude": -121.99800499999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJwQQy2R62j4ARUQzN8PLr4yk",
+        "provider_id": "/g/11b6dpqqm9",
+        "rating": 3.7,
+        "reviews": 799,
+        "type": "Gym",
+        "types": [
+          "Gym"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym"
+        ],
+        "address": "1165 E Arques Ave, Sunnyvale, CA 94085",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "5 AM–10 PM",
+          "saturday": "8 AM–8 PM",
+          "sunday": "8 AM–8 PM",
+          "monday": "5 AM–11 PM",
+          "tuesday": "5 AM–11 PM",
+          "wednesday": "5 AM–11 PM",
+          "thursday": "5 AM–11 PM"
+        },
+        "phone": "(408) 990-2216",
+        "website": "https://citysportsfitness.com/Pages/clubhome.aspx?clubid=1056&utm_source=google&utm_medium=googlemaps&utm_campaign=maps",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "offerings": [
+              "Sauna"
+            ]
+          },
+          {
+            "amenities": [
+              "Basketball court",
+              "Restroom",
+              "Swimming pool",
+              "Wi-Fi",
+              "Free Wi-Fi"
+            ]
+          },
+          {
+            "atmosphere": [
+              "Shower"
+            ]
+          },
+          {
+            "planning": [
+              "Appointment required",
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true
+        },
+        "user_review": "\"The gym space is clean and the staff was really welcoming.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnFquvItJ-b4QLDQAsT6erJQcxOol6SyydY4OM043boIF-7QCmHo0_VCgIYjHkSaYoF2_oj59w8ofBFV4IdYG35pUwEBdd77YJtuNKqIH-HlDtwNU5fZydp_XYMqAyGA3rjNnc=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/s8gTxXicHcRNcoIwGADQE0WigKgzXeAPJrRgEaGNG0YThEHMByRIuWDv4G0607d4r99S60atDKMuzUkBUNR5r_KOg9S51BMOD6NoFOIKKcMlx8_Tl_Ta_km1j65W9LGNXHWa550f8Z8D1PN4HAWzDgG2zCtQDznR5kEAZ-mmoKwi9_jCwJtlUNnLYQG3tZdaVLC9aTfJsFsL4TjM13343lKCSL3VQ5jYt_MomuybBa077l2zq0LJ34YpxhiV_3Mk_wDXlEO9"
+      },
+      {
+        "position": 3,
+        "title": "BBA Gym",
+        "place_id": "ChIJCTqUuKy3j4ARTOHef7QgL3w",
+        "data_id": "0x808fb7acb8943a09:0x7c2f20b47fdee14c",
+        "data_cid": "8948406944219980108",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb7acb8943a09%3A0x7c2f20b47fdee14c&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb7acb8943a09%3A0x7c2f20b47fdee14c&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.404157,
+          "longitude": -121.9920961
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJCTqUuKy3j4ARTOHef7QgL3w",
+        "provider_id": "/g/11cmm3l1p8",
+        "rating": 4.8,
+        "reviews": 75,
+        "type": "Personal trainer",
+        "types": [
+          "Personal trainer"
+        ],
+        "type_id": "personal_trainer",
+        "type_ids": [
+          "personal_trainer"
+        ],
+        "address": "1242 Birchwood Dr, Sunnyvale, CA 94089",
+        "country": "United States",
+        "open_state": "Open 24 hours",
+        "hours": "Open 24 hours",
+        "operating_hours": {
+          "friday": "Open 24 hours",
+          "saturday": "Open 24 hours",
+          "sunday": "Open 24 hours",
+          "monday": "Open 24 hours",
+          "tuesday": "Open 24 hours",
+          "wednesday": "Open 24 hours",
+          "thursday": "Open 24 hours"
+        },
+        "phone": "(484) 225-3731",
+        "website": "http://www.bbagym.com/",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "atmosphere": [
+              "Shower"
+            ]
+          },
+          {
+            "planning": [
+              "Appointments recommended"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          }
+        ],
+        "user_review": "\"It's a clean gym, with good equipment, and good trainers.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk3d6EHz7rg7XMTK5x7YnrnWU3Y9D28aVj66gaHpOgmZm9RwqyJOGJisTD0nGs6K8BhoZBvZdNcer2CHN7NTJcwB3GMdEiQY2WxzzZTq7E_SxqVgMT3_i4KWVW7aEJv4GAQDUcR=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/wSTwanicHcThDkJAAADgJxI5ObX1IzHGqHS5-NPs2FHc4RR5wZ6ht2nr-_F9P-UwtGIjy3UJFpRzWhdPUfSEs6Fgw4LwRqatkIiQhLxzoyPCD5DrtjvDnsJrgPzVBBPWM3wBydpSjSy-6zrN3PZAm7RZR2P39g6OVwlkKcwRum-YJU_NV5qHpOjVvRvCEHlkNIET5HZ1SlQ8zXOKOmjfzlMX0wCBW6X5OMYws72X5uxO1oVE23GpKIpU_icS-wEK0EOf"
+      },
+      {
+        "position": 4,
+        "title": "Smash Gyms Sunnyvale",
+        "place_id": "ChIJbRYCwNTJj4ARRFTVYAxk1a4",
+        "data_id": "0x808fc9d4c002166d:0xaed5640c60d55444",
+        "data_cid": "12598085536965809220",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fc9d4c002166d%3A0xaed5640c60d55444&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fc9d4c002166d%3A0xaed5640c60d55444&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.404541,
+          "longitude": -121.9891052
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJbRYCwNTJj4ARRFTVYAxk1a4",
+        "provider_id": "/g/1tsbmc02",
+        "rating": 4.6,
+        "reviews": 32,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "After school program",
+          "Judo school",
+          "Jujitsu school",
+          "Karate school",
+          "Kickboxing school",
+          "Martial arts school",
+          "Personal trainer",
+          "Physical fitness program",
+          "Sports club"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "after_school_program",
+          "judo_school",
+          "jujitsu_school",
+          "karate_school",
+          "kickboxing_school",
+          "martial_arts_school",
+          "personal_trainer",
+          "physical_fitness_program",
+          "sports_club"
+        ],
+        "address": "1239 Reamwood Ave, Sunnyvale, CA 94089",
+        "country": "United States",
+        "open_state": "Open · Closes 8 PM",
+        "hours": "Open · Closes 8 PM",
+        "operating_hours": {
+          "friday": "12–1:30 PM, 4–8 PM",
+          "saturday": "10 AM–2 PM",
+          "sunday": "Closed",
+          "monday": "12–1:30 PM, 3:30–8 PM",
+          "tuesday": "12–1:30 PM, 3:30–8 PM",
+          "wednesday": "12–1:30 PM, 3:30–8 PM",
+          "thursday": "12–1:30 PM, 3:30–8 PM"
+        },
+        "phone": "(408) 744-6334",
+        "website": "http://www.smashsunnyvale.com/",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          }
+        ],
+        "user_review": "\"Have gone to a commercial gym for over 10 years.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm2BA_oDZCY9xf8-ugoceQTdag0BbXvr91_oy3cmdoE66Jk5EJdwtBeJM52jL-lfkL0ljtH2BR0tPb35yo1hgD3e_Adyv1NhB8263-M2AEXQZeiJxIn3avF4iRTS4jFoCjgtiap=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/UYfExHicHcTdCoIwGADQJ1rOLcWCLlwaJhVlQj83onNtmvpJW5ZP2DP0NkHn4nw_yphezy2rUXQiAWQjnlo8OHRGdGbCobVkrxHXSFt-lOzTU0uYn0FwXV5m75uHnhK4OKRlLjErzsNjZmcwUt6WELpufHfCuHwZJuKtQ-oNam73DW5qExGWYLMvqDOCrWRAReaX42DvFPOIS9GW-OH5cBVV_F53NB9W0ypJj9N6BctamirvFy8bY4zUf466HwBLQ3s"
+      },
+      {
+        "position": 5,
+        "title": "The Club at Moffett Towers 2",
+        "place_id": "ChIJTTEf9VW3j4ARpvgz2dHMcZo",
+        "data_id": "0x808fb755f51f314d:0x9a71ccd1d933f8a6",
+        "data_cid": "11128901355873499302",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb755f51f314d%3A0x9a71ccd1d933f8a6&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb755f51f314d%3A0x9a71ccd1d933f8a6&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.4084284,
+          "longitude": -122.03421139999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJTTEf9VW3j4ARpvgz2dHMcZo",
+        "provider_id": "/g/11grbvktnw",
+        "rating": 4.8,
+        "reviews": 42,
+        "unclaimed_listing": true,
+        "type": "Gym",
+        "types": [
+          "Gym"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym"
+        ],
+        "address": "1170 Discovery Wy, Sunnyvale, CA 94089",
+        "country": "United States",
+        "open_state": "Open · Closes 7 PM",
+        "hours": "Open · Closes 7 PM",
+        "operating_hours": {
+          "friday": "6 AM–7 PM",
+          "saturday": "Closed",
+          "sunday": "Closed",
+          "monday": "6 AM–9 PM",
+          "tuesday": "6 AM–9 PM",
+          "wednesday": "6 AM–9 PM",
+          "thursday": "6 AM–9 PM"
+        },
+        "phone": "(408) 419-2700",
+        "website": "http://www.mt2club.com/",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Basketball court",
+              "Restroom",
+              "Swimming pool",
+              "Wi-Fi"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          }
+        ],
+        "user_review": "\"Bu the way and front desk and the instructors onsite are really nice.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkyvz2cA8VwERu8I48Y3WSd_5pji56XJJ6UEPgfWrRg67ABBmcUZPkfa7-SO5dLmt_inNCtdTHNmZLoO5LB__JDivOn3ecGO5mRDTYqGmfZff6dCCc4xGwX46LbHxoVkeEInmGR=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/xmXTJ3icHcRRboIwAADQE1WY0EpM_AAkICFCKoryQ1xpC8O2aKuoF9wZdpslvo_399sZM-qlZV06Z8aV4hd61_RGlDRUmhlRwuKjBkQDbfkJLspqeD3ec-J7hynCd2_jeien2rUNHH96iI5pivZRwVl1wxwt_CAQZF8XAzsvwC6HbSZM08ttaNoy2Yo6UznMgqZJ1_0jlw4lcQ4FXpenayxYzRhqw5C4z3g6uij7Tp7qMNBoI0WMV9OXbdug-0yA_AcXLEQa"
+      },
+      {
+        "position": 6,
+        "title": "Movement Sunnyvale",
+        "place_id": "ChIJUzd2sz62j4ARaPfiq1rRSNQ",
+        "data_id": "0x808fb63eb3763753:0xd448d15aabe2f768",
+        "data_cid": "15296706321724929896",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb63eb3763753%3A0xd448d15aabe2f768&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb63eb3763753%3A0xd448d15aabe2f768&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3842062,
+          "longitude": -122.01075589999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJUzd2sz62j4ARaPfiq1rRSNQ",
+        "provider_id": "/g/1tfshmzd",
+        "rating": 4.5,
+        "reviews": 620,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Fitness center",
+          "Rock climbing gym",
+          "Rock climbing",
+          "Rock climbing instructor",
+          "Yoga instructor",
+          "Yoga studio"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "fitness_center",
+          "rock_climbing_centre",
+          "rock_climbing",
+          "rock_climbing_instructor",
+          "yoga_instructor",
+          "yoga_studio"
+        ],
+        "address": "815 Stewart Dr, Sunnyvale, CA 94085",
+        "country": "United States",
+        "open_state": "Open · Closes 11 PM",
+        "hours": "Open · Closes 11 PM",
+        "operating_hours": {
+          "friday": "6 AM–11 PM",
+          "saturday": "8 AM–8 PM",
+          "sunday": "8 AM–6 PM",
+          "monday": "6 AM–11 PM",
+          "tuesday": "6 AM–11 PM",
+          "wednesday": "6 AM–11 PM",
+          "thursday": "6 AM–11 PM"
+        },
+        "phone": "(408) 991-9090",
+        "website": "https://movementgyms.com/sunnyvale/?utm_source=google-my-business&utm_medium=organic&utm_campaign=sunnyvale",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly",
+              "Transgender safespace"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true
+        },
+        "user_review": "\"Amazing staff and they regularly clean gym and bathroom.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnJsyhJ1zAqia7RFM_ji8wKfSvbnKuuniOwHVVea8792QEz2DUYXH8uDcS6aOCfeuvzu7f2OZINKCvO-l6UklAQgu_DOYMgqauL-0yKWItTvO1ayS2yDS4p2NiMwFud8PM3Iqen=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/COcFlXicHcRLDoIwFADAE1WgGkETF0Q0IGJV_G9MraWgWMD2QeCCnsHbmDiL-X5SrUs1Now87fdEUYicg-JvVkjNpe6x4mWIUiGmkDJcf7veHeVCtenC6twqo_Z2Hl0fmdOESVzfZAggM9L4hwOnjj3Cm1mHvf355DvgsXhIyTThUHdgJ5hcglU4rQnKh_tn7m4EXD1yjkRFYYnMNjwGelcTi7Yxbr14UOJVFjVzuDvrqB9UXE4ayzRNlP5nSP4AqchFHw"
+      },
+      {
+        "position": 7,
+        "title": "Ironwill Fitness",
+        "place_id": "ChIJKfGm8lO2j4ARGlHR2g4zego",
+        "data_id": "0x808fb653f2a6f129:0xa7a330edad1511a",
+        "data_cid": "754972026431688986",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb653f2a6f129%3A0xa7a330edad1511a&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb653f2a6f129%3A0xa7a330edad1511a&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3889047,
+          "longitude": -122.032575
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJKfGm8lO2j4ARGlHR2g4zego",
+        "provider_id": "/g/11b6gr_pkt",
+        "rating": 4.9,
+        "reviews": 35,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Personal trainer",
+          "Physical fitness program",
+          "Weight loss service"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "personal_trainer",
+          "physical_fitness_program",
+          "weight_loss_service"
+        ],
+        "address": "477 N Mathilda Ave, Sunnyvale, CA 94085",
+        "country": "United States",
+        "open_state": "Opens soon · 5 PM",
+        "hours": "Opens soon · 5 PM",
+        "operating_hours": {
+          "friday": "5–8 PM",
+          "saturday": "10–11 AM",
+          "sunday": "10–11 AM",
+          "monday": "5–8 PM",
+          "tuesday": "5–8 PM",
+          "wednesday": "5–8 PM",
+          "thursday": "5–8 PM"
+        },
+        "phone": "(408) 390-0844",
+        "website": "http://ironwill-fit.com/",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          }
+        ],
+        "user_review": "\"He can adjust the workout so you feel comfortable but also using 150%!!\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmhBd1U75fYBNJ6-NLT8weCLvkO9VYrAHRvvXPZwlaJ4zLzIZE4ik6naoWNCudc5NT0sGJK_Te5Nd06QsLjRnjdqnmbjUwVn_tqjQdI-EPqEw7i5S_6Lfs2LBcwSmIG6pOQBPsE7w=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/OyDCr3icHcpLjoIwGADgE1XqgzJj4mIwRGGaCojPDdG2gggt-BeaeEOPMLeZyWy-1ffzLo1pYe44dTkdFVoXtexBPrlWRioz4rpxihYQBwTO1zqNs0NT-mK889zbyWcRQYxmH1Yu6fDYfO5Pz78zDMf4bOtLNHvRV3gOZvcHURd9YMtecJdlGFbRd55JlwlMEqBVqirRqeZa7exe5aarEhGiIO4C693dbU7oDSbU53bbhCvSbhI_hsCzCzvGGKPyX47UL81BRUU"
+      },
+      {
+        "position": 8,
+        "title": "Bay Club Santa Clara",
+        "place_id": "ChIJuWS3T_vJj4ARryUe6nCH_50",
+        "data_id": "0x808fc9fb4fb764b9:0x9dff8770ea1e25af",
+        "data_cid": "11384967302049834415",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fc9fb4fb764b9%3A0x9dff8770ea1e25af&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fc9fb4fb764b9%3A0x9dff8770ea1e25af&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.376835799999995,
+          "longitude": -121.9860288
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJuWS3T_vJj4ARryUe6nCH_50",
+        "provider_id": "/g/1vkxmhkz",
+        "rating": 3.8,
+        "reviews": 443,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Fitness center",
+          "Sports club",
+          "Outdoor swimming pool",
+          "Pickleball court",
+          "Squash club",
+          "Tennis club",
+          "Yoga studio"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "fitness_center",
+          "sports_club",
+          "outdoor_swimming_pool",
+          "pickleball_court",
+          "squash_club",
+          "tennis_club",
+          "yoga_studio"
+        ],
+        "address": "3250 Central Expy, Santa Clara, CA 95051",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "6 AM–10 PM",
+          "saturday": "7 AM–8 PM",
+          "sunday": "7 AM–8 PM",
+          "monday": "6 AM–10 PM",
+          "tuesday": "6 AM–10 PM",
+          "wednesday": "6 AM–10 PM",
+          "thursday": "6 AM–10 PM"
+        },
+        "phone": "(408) 738-2582",
+        "website": "https://www.bayclubs.com/santaclara/?utm_source=Chatmeter&utm_medium=Google&utm_campaign=ClubPage&utm_content=SantaClaraCH",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom",
+              "Free Wi-Fi"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "parking": [
+              "On-site parking",
+              "Paid parking lot"
+            ]
+          }
+        ],
+        "user_review": "\"Staff is friendly and the selection of facilities are decent.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk4iimrPj1PQfOVdFl5AJ8aIN0RSojj2s483KY_4KyIPYIhfnKFF3IcSwYH-Z5PEmDE6nBEO2SpJrefB7L4suhzstaY3Qf2IVyveoquAgkqfkG6Lez5SGPKKe9I-3IpA_wHXFk=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/aqJDdHicHcTbDoIgAADQLyJN1C5bD7a8EK0oW2UvrRFIXsAEc_WB_UN_09Z5ON-PMKbRU8uqBBzkSuUV6zRrqZKGSTOgqrbyRgOqgbaCZEf2x9K93-uWFEOy5ZvDLaq8YDm-orW9S1VRONodQ5xdXPxCJEOCSxxFENG0zxJw9khYL0JfzsONkzbLlvH5aOXqTry1uWZwyx10eD2ZenRBXj54Gfsr9vbSmGDMJghA1ASXPjlF5awf2rYNxH8K5A-wYUNW"
+      },
+      {
+        "position": 9,
+        "title": "XP360 Strength & Conditioning",
+        "place_id": "ChIJq8Pg7SnIj4AR5hffH_qIDyw",
+        "data_id": "0x808fc829ede0c3ab:0x2c0f88fa1fdf17e6",
+        "data_cid": "3174906870177404902",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fc829ede0c3ab%3A0x2c0f88fa1fdf17e6&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fc829ede0c3ab%3A0x2c0f88fa1fdf17e6&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.4103274,
+          "longitude": -121.9907128
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJq8Pg7SnIj4AR5hffH_qIDyw",
+        "provider_id": "/g/11bw511z0x",
+        "rating": 5,
+        "reviews": 43,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Personal trainer"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "personal_trainer"
+        ],
+        "address": "1206 Mountain View -Alviso Rd C, Sunnyvale, CA 94089",
+        "country": "United States",
+        "open_state": "Opens soon · 5 PM",
+        "hours": "Opens soon · 5 PM",
+        "operating_hours": {
+          "friday": "5:30–8:30 AM, 5–6:30 PM",
+          "saturday": "8–10 AM",
+          "sunday": "Closed",
+          "monday": "5:30–8:30 AM, 5–7:30 PM",
+          "tuesday": "5:30–7:30 AM, 5–7:30 PM",
+          "wednesday": "5:30–8:30 AM, 5–7:30 PM",
+          "thursday": "5:30–7:30 AM, 5–7:30 PM"
+        },
+        "phone": "(408) 752-5210",
+        "website": "https://www.xp360fit.com/",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Gender-neutral restroom",
+              "Restroom"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly",
+              "Transgender safespace"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Online classes",
+              "Onsite services"
+            ]
+          }
+        ],
+        "service_options": {
+          "online_classes": false,
+          "onsite_services": false
+        },
+        "user_review": "\"Highly recommend to both experienced fitness geeks and scared beginners.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlESzDFkwibJytd5WdcPFgMwrzGxlVRtRWpwF9hZkGc536lLMROB9u8qwHc2fPibJ9FxMXtjAUJC5aXbEtrQqvTaUty7gWNamnWokJSWcTJMoIbgf4-ubsxbKUvk13GgNaaEwbHHQ=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/pQ7DOXicHctNcoIwGADQE0WgFC2d6YJafqTFIoJhuksiBEskSD4MekOP0NvYcfN27-_WAPTq1TBEY8-4lFxUo6oGJjuoOpgxeTR4rxBTSBlelKU5Fv72-hG0-kDjC-wdvGdpwBM9XMNJ7DLIcK8Dt_lpQ-bYc_GVZN_v7vhy0hF7qtP_5AZTUsKvV8RLh5TUh2FzOuekgMuC4zU5dli28RazPE7kivL6GY1UTfSzOLeWHfI1Ib6mUbR505Zpmqh5yFB3B52ZRx4"
+      },
+      {
+        "position": 10,
+        "title": "3Fit",
+        "place_id": "ChIJ07baZRy2j4ARMFADaT97f90",
+        "data_id": "0x808fb61c65dab6d3:0xdd7f7b3f69035030",
+        "data_cid": "15960611116699308080",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb61c65dab6d3%3A0xdd7f7b3f69035030&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb61c65dab6d3%3A0xdd7f7b3f69035030&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.377092499999996,
+          "longitude": -121.9971537
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJ07baZRy2j4ARMFADaT97f90",
+        "provider_id": "/g/1hjgk0njf",
+        "rating": 4.9,
+        "reviews": 61,
+        "type": "Personal trainer",
+        "types": [
+          "Personal trainer",
+          "Boot camp",
+          "Weight loss service"
+        ],
+        "type_id": "personal_trainer",
+        "type_ids": [
+          "personal_trainer",
+          "boot_camp",
+          "weight_loss_service"
+        ],
+        "address": "3685 Enochs St, Santa Clara, CA 95051",
+        "country": "United States",
+        "open_state": "Open · Closes 7 PM",
+        "hours": "Open · Closes 7 PM",
+        "operating_hours": {
+          "friday": "5 AM–7 PM",
+          "saturday": "8 AM–3 PM",
+          "sunday": "8 AM–3 PM",
+          "monday": "5 AM–9 PM",
+          "tuesday": "5 AM–9 PM",
+          "wednesday": "5 AM–9 PM",
+          "thursday": "5 AM–9 PM"
+        },
+        "phone": "(408) 649-0017",
+        "website": "http://www.my3fit.com/",
+        "extensions": [
+          {
+            "service_options": [
+              "Online classes",
+              "Outdoor services",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Gender-neutral restroom",
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Appointment required",
+              "Appointments recommended"
+            ]
+          },
+          {
+            "payments": [
+              "Checks",
+              "Credit cards",
+              "Debit cards"
+            ]
+          }
+        ],
+        "service_options": {
+          "online_classes": true,
+          "outdoor_services": true,
+          "onsite_services": true
+        },
+        "user_review": "\"Marcel will tailor the training based on your needs and conditions.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnMAZB0qKEZ1ZTj-Og2dnj-oV2YugNThcbqHjij9djmkWNVJScirEjJCf_VJlkntmSZ9ZoxFes8P7i28KbbG0DZyds9Vb0GCNgNnS9j3j1JbJaWN9FLN1CiSeUhOVUzO3VF49o=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/bNGUo3icHcRRbsIgAADQE2Fpu2Ri4od2rQY3amylkR8jlEGxBRWM0wN6h93GxPfx_p86hJOfRFGv05FyTvXy6uVFOBukDSPhhkidPBAe-Gi23Kzrxv7M2ByeVzmLWW1AqZLWGuBosrsqUmvBz0vTGdSa4dgQiivRXXKDs989xf3RhqFiiLm_Qvrx-rNLxivOF_CL3VuPKIeLjChiK2RSE2OODw1BxTeJs66SW13S7aNMafGB3PQWQwiBfi-AfQEVTEOy"
+      },
+      {
+        "position": 11,
+        "title": "Silicon Valley Athletics - Personal Trainers Sunnyvale",
+        "place_id": "ChIJcf4cfbS3j4ARNqpYES5dTI4",
+        "data_id": "0x808fb7b47d1cfe71:0x8e4c5d2e1158aa36",
+        "data_cid": "10253672904056678966",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb7b47d1cfe71%3A0x8e4c5d2e1158aa36&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb7b47d1cfe71%3A0x8e4c5d2e1158aa36&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3939843,
+          "longitude": -122.02825019999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJcf4cfbS3j4ARNqpYES5dTI4",
+        "provider_id": "/g/11g6ycgg0r",
+        "rating": 4.9,
+        "reviews": 109,
+        "type": "Personal trainer",
+        "types": [
+          "Personal trainer",
+          "Fitness center",
+          "Gym",
+          "Weight loss service",
+          "Weightlifting area",
+          "Women's personal trainer"
+        ],
+        "type_id": "personal_trainer",
+        "type_ids": [
+          "personal_trainer",
+          "fitness_center",
+          "gym",
+          "weight_loss_service",
+          "weightlifting_area",
+          "womens_personal_trainer"
+        ],
+        "address": "725 San Aleso Ave #2, Sunnyvale, CA 94085",
+        "country": "United States",
+        "open_state": "Open · Closes 8 PM",
+        "hours": "Open · Closes 8 PM",
+        "operating_hours": {
+          "friday": "5 AM–8 PM",
+          "saturday": "6 AM–5 PM",
+          "sunday": "6 AM–5 PM",
+          "monday": "5 AM–9 PM",
+          "tuesday": "5 AM–9 PM",
+          "wednesday": "5 AM–9 PM",
+          "thursday": "5 AM–9 PM"
+        },
+        "phone": "(408) 469-9405",
+        "website": "https://siliconvalleyathletics.com/",
+        "extensions": [
+          {
+            "service_options": [
+              "Online classes",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom",
+              "Wheelchair accessible seating"
+            ]
+          },
+          {
+            "amenities": [
+              "Gender-neutral restroom",
+              "Restroom"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly",
+              "Transgender safespace"
+            ]
+          },
+          {
+            "planning": [
+              "Appointment required",
+              "Appointments recommended"
+            ]
+          },
+          {
+            "payments": [
+              "Checks",
+              "Credit cards",
+              "Debit cards"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking garage",
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "accessibility": [
+              "Assistive hearing loop"
+            ]
+          }
+        ],
+        "service_options": {
+          "online_classes": true,
+          "onsite_services": true
+        },
+        "book_online": "https://www.mindbodyonline.com/explore/locations/silicon-valley-athletics?rwg_token=AE37R_h8Jf4iA9vuUyjePNZmgAgyGsyNwtFECnwaHC9lodD0Fl0Plxup_ipGcHRQGll14io7opbhH-6iAuiGesf8V1Vh9hlGKQ%3D%3D",
+        "user_review": "\"Great coaches, well-equipped gym, communicative staff and owner!\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmz_hOMrngG7_Rkuf8J3HLOFzkYMWSRhJqsi7GzAGrEhfNKVjuP7b_SRJsMpWQZbipMpSMXnweofKC5iB6dBkEtaRKCcQyZzlJ_mJktxtKe9DK6p-KVenkCOvFtv1fpFqU7RpCrTQ=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/kynLmXicHcRdboIwAADgE1UwRtlMfFAUTGsFihP1hcyuUFZoCy3-cMMdwdss8Xv4Xn_cWm3mjlPzyahUqqxZb1hHlbRM2hFVjVNqA6gBxlluSXzImiHnEe5kGXo5EX3xASfbXRQM4oyzlHDYmsoLh2XYbXixR8ffPvaueUqgwTpLLtdKY53ik7wzVSB_Wq1mPyuxsd8E-TR5XoYa5g0U9mER-1yjmQboyKTwo1tgb-NCB-2XR7TfHZLFfey6LuDvKZD_jTVHIg"
+      },
+      {
+        "position": 12,
+        "title": "Orangetheory Fitness",
+        "place_id": "ChIJr-q0OFy2j4ARL82oNR0R-Ag",
+        "data_id": "0x808fb65c38b4eaaf:0x8f8111d35a8cd2f",
+        "data_cid": "646285363679644975",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb65c38b4eaaf%3A0x8f8111d35a8cd2f&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb65c38b4eaaf%3A0x8f8111d35a8cd2f&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3766001,
+          "longitude": -122.0315827
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJr-q0OFy2j4ARL82oNR0R-Ag",
+        "provider_id": "/g/11ckv58b95",
+        "rating": 4.5,
+        "reviews": 318,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Fitness center",
+          "Personal trainer",
+          "Physical fitness program"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "fitness_center",
+          "personal_trainer",
+          "physical_fitness_program"
+        ],
+        "address": "155 S Frances St, Sunnyvale, CA 94086",
+        "country": "United States",
+        "open_state": "Open · Closes 6:30 PM",
+        "hours": "Open · Closes 6:30 PM",
+        "operating_hours": {
+          "friday": "5 AM–6:30 PM",
+          "saturday": "7 AM–12 PM",
+          "sunday": "7 AM–12 PM",
+          "monday": "5 AM–8 PM",
+          "tuesday": "5 AM–8 PM",
+          "wednesday": "5 AM–8 PM",
+          "thursday": "5 AM–8 PM"
+        },
+        "phone": "(408) 508-6724",
+        "website": "https://www.orangetheory.com/en-us/locations/sunnyvale-california-0431?utm_medium=seo&utm_source=gg&utm_term=corporate&utm_campaign=soci",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards",
+              "NFC mobile payments"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking garage",
+              "Free parking lot",
+              "Free street parking",
+              "Paid street parking"
+            ]
+          }
+        ],
+        "user_review": "\"Fantastic coaches, super motivating workouts, great way to get into shape!\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl-e3iwlXJ64KJZLtw3bj7SjJ5AIkQrfPyKFwb9ngzRJsh0XmGe1_B0EcxX-CKRcolii3569-wU6xiHujb7Bt1kwV0gdjJxBhX1ADWloqsjHkUrdWCWKQPiALwOFPkevahPdguZdQ=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/6d8BgXicHcRLjoIwAADQE1VKUIwmswB_WEws-IG4MVJqP1Tq0DJFbzhHmNuYzFu8v19u7dPMPU_xYMS0Zor2hnZEt5a2dkT0w2NPA4gBxouSHB8LBWggnCpROE7RZWddUMnpQaJJtG2y7o5f6dpVs5a9c2Q4LB8b6l9juCJDCRZpTrQSIpiEM-BO4SCSXlbT2PqNO0NWSzTEvPSjZaH0t5FJc-rqYlGkGRbRzu3XuKE_N45r1l_q7Mv5EELA_yeg_QDnX0Xn"
+      },
+      {
+        "position": 13,
+        "title": "F45 Training North Sunnyvale",
+        "place_id": "ChIJE5WbrRO3j4ARUdK9jWPP-CU",
+        "data_id": "0x808fb713ad9b9513:0x25f8cf638dbdd251",
+        "data_cid": "2736164800114315857",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb713ad9b9513%3A0x25f8cf638dbdd251&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb713ad9b9513%3A0x25f8cf638dbdd251&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.403345699999996,
+          "longitude": -122.0086291
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJE5WbrRO3j4ARUdK9jWPP-CU",
+        "provider_id": "/g/11f712t6n3",
+        "rating": 4.7,
+        "reviews": 111,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Fitness center",
+          "Personal trainer"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "fitness_center",
+          "personal_trainer"
+        ],
+        "address": "671 Tasman Dr, Sunnyvale, CA 94089",
+        "country": "United States",
+        "open_state": "Open · Closes 6:30 PM",
+        "hours": "Open · Closes 6:30 PM",
+        "operating_hours": {
+          "friday": "5:30–10:30 AM, 4:30–6:30 PM",
+          "saturday": "7:30–11:30 AM",
+          "sunday": "Closed",
+          "monday": "5:30 AM–8 PM",
+          "tuesday": "5:30 AM–8 PM",
+          "wednesday": "5:30 AM–8 PM",
+          "thursday": "5:30 AM–8 PM"
+        },
+        "phone": "(408) 598-7324",
+        "website": "http://f45training.com/northsunnyvale",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly",
+              "Transgender safespace"
+            ]
+          },
+          {
+            "planning": [
+              "Appointment required",
+              "Membership required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          }
+        ],
+        "unsupported_extensions": [
+          {
+            "service_options": [
+              "Online classes"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true,
+          "online_classes": false
+        },
+        "user_review": "\"Love the class and the instructors are super friendly and helpful.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlNjk0Br3Onw9cLJNu3yymHXO09xsCXsprBvTNn3k4127_umOtCb9UsAE4YyO88L6qduil3o4L_GuZRt8bktuzeoQS0QJjhir5UwarTFaX_8g7Qq2pX1vrglUHUCbmACCQWuPgDPQ=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/0K99IHicHcRdboIwAADgEyHFsgEme8C6SQwB6iCiL0Q6UpDSYn9EvOGO4G1M_B6-53-r9ahWts1auKBCUNYY1UgiuG64XhAx2HRUFlGWssNon-UHllx6sJYw5VNA4l1i4DwPUZmC4K5QqUa5vuUJh73rLL3KDKlGdVCo8Ns9zqnvx5_XP9MxKNy42prTXvt1r82jEfgX4N2l7eRHMZ1l_nMuK596-LocS-cmKSuiAtVDiBA-mIxuMvw1OQAAq31PLP4CIKhF-Q"
+      },
+      {
+        "position": 14,
+        "title": "Tori Diaz Fitness",
+        "place_id": "ChIJSWSv62HJj4AR5eKXI9Pa0B4",
+        "data_id": "0x808fc961ebaf6449:0x1ed0dad32397e2e5",
+        "data_cid": "2220515216663765733",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fc961ebaf6449%3A0x1ed0dad32397e2e5&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fc961ebaf6449%3A0x1ed0dad32397e2e5&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.404157,
+          "longitude": -121.9920961
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJSWSv62HJj4AR5eKXI9Pa0B4",
+        "provider_id": "/g/11q2sxrvyp",
+        "rating": 5,
+        "reviews": 36,
+        "type": "Personal trainer",
+        "types": [
+          "Personal trainer"
+        ],
+        "type_id": "personal_trainer",
+        "type_ids": [
+          "personal_trainer"
+        ],
+        "address": "1242 Birchwood Dr, Sunnyvale, CA 94089",
+        "country": "United States",
+        "open_state": "Open · Closes 7 PM",
+        "hours": "Open · Closes 7 PM",
+        "operating_hours": {
+          "friday": "8–11 AM, 4–7 PM",
+          "saturday": "Closed",
+          "sunday": "Closed",
+          "monday": "8 AM–12 PM, 4–8 PM",
+          "tuesday": "8 AM–12 PM, 4–8 PM",
+          "wednesday": "8 AM–12 PM, 4–8 PM",
+          "thursday": "8 AM–12 PM, 4–8 PM"
+        },
+        "phone": "(408) 598-6073",
+        "website": "https://linktr.ee/Toridiazfit",
+        "extensions": [
+          {
+            "from_the_business": [
+              "Identifies as Latino-owned",
+              "Identifies as women-owned"
+            ]
+          },
+          {
+            "service_options": [
+              "Online classes",
+              "Outdoor services",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "amenities": [
+              "Gender-neutral restroom",
+              "Restroom"
+            ]
+          },
+          {
+            "atmosphere": [
+              "Shower"
+            ]
+          },
+          {
+            "crowd": [
+              "LGBTQ+ friendly",
+              "Transgender safespace"
+            ]
+          },
+          {
+            "planning": [
+              "Appointment required",
+              "Appointments recommended"
+            ]
+          },
+          {
+            "payments": [
+              "Checks",
+              "Debit cards"
+            ]
+          },
+          {
+            "parking": [
+              "Free parking lot",
+              "Free street parking",
+              "On-site parking"
+            ]
+          }
+        ],
+        "service_options": {
+          "online_classes": true,
+          "outdoor_services": true,
+          "onsite_services": true
+        },
+        "user_review": "\"Now I feel confident when in the gym and feel like I belong!\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnrarNJcT4Ff8i_tPSWJ-7kNnl56QpfJq5lNkSEyYkxYC5qd1JxD7tCW-g6K4ISK0bkdq83y1YI1IZV8ZBC6GFk6gzw3azrt7RdlF5DBYIBJVJIs6PYHk6XTU1ZfKO1CbS693fA56jBsdGM=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/mwrKDHicHcTbboIwAADQL6rQYAsz2YPg0JbImKBYXhYtULZ25dIuXn5yz_sbE8_D-f_rrB3MwnFU581E3wvV_Jpm4r22jbYz3v84YjCAG2Cc5WaXFaWeTlNKeTGP2-Dr02Z5SYEvU60Q_hhaOiKVyvztxuSVRWisIb2ufBuVQOBkTvLEPct6DLwbZASS6hBUYYTXscTifvFO98n6u1rFaBUyEtIDJQZnbCPxsdjDqk3eYXTO8YvXLhH-Dk293r5eoOu6oHvOgX4AFitE4Q"
+      },
+      {
+        "position": 15,
+        "title": "The Arches Gym",
+        "place_id": "ChIJk1rkSQC3j4ARBur5i81K-WI",
+        "data_id": "0x808fb70049e45a93:0x62f94acd8bf9ea06",
+        "data_cid": "7131813731595053574",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb70049e45a93%3A0x62f94acd8bf9ea06&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb70049e45a93%3A0x62f94acd8bf9ea06&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3922065,
+          "longitude": -121.99313869999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJk1rkSQC3j4ARBur5i81K-WI",
+        "provider_id": "/g/11nhz8kj2y",
+        "unclaimed_listing": true,
+        "type": "Gym",
+        "types": [
+          "Gym"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym"
+        ],
+        "address": "1235 Wildwood Ave, Sunnyvale, CA 94089",
+        "country": "United States",
+        "open_state": "Open · Closes 10 PM",
+        "hours": "Open · Closes 10 PM",
+        "operating_hours": {
+          "friday": "6 AM–10 PM",
+          "saturday": "6 AM–10 PM",
+          "sunday": "6 AM–10 PM",
+          "monday": "6 AM–10 PM",
+          "tuesday": "6 AM–10 PM",
+          "wednesday": "6 AM–10 PM",
+          "thursday": "6 AM–10 PM"
+        },
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          }
+        ]
+      },
+      {
+        "position": 16,
+        "title": "RK Total Fitness",
+        "place_id": "ChIJcbgIBEbJj4AR-UOvfoKgrEs",
+        "data_id": "0x808fc9460408b871:0x4baca0827eaf43f9",
+        "data_cid": "5452909731170436089",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fc9460408b871%3A0x4baca0827eaf43f9&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fc9460408b871%3A0x4baca0827eaf43f9&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.404157,
+          "longitude": -121.9920961
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJcbgIBEbJj4AR-UOvfoKgrEs",
+        "provider_id": "/g/11h70rsmql",
+        "rating": 4.6,
+        "reviews": 10,
+        "type": "Personal trainer",
+        "types": [
+          "Personal trainer"
+        ],
+        "type_id": "personal_trainer",
+        "type_ids": [
+          "personal_trainer"
+        ],
+        "address": "1242 Birchwood Dr, Sunnyvale, CA 94089",
+        "country": "United States",
+        "open_state": "Open · Closes 9 PM",
+        "hours": "Open · Closes 9 PM",
+        "operating_hours": {
+          "friday": "9 AM–9 PM",
+          "saturday": "Closed",
+          "sunday": "9 AM–2 PM",
+          "monday": "9 AM–9 PM",
+          "tuesday": "9 AM–9 PM",
+          "wednesday": "9 AM–9 PM",
+          "thursday": "9 AM–9 PM"
+        },
+        "phone": "(408) 500-2098",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Appointments recommended"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          }
+        ],
+        "user_review": "\"Probably one of the best trainers I ever been to in San Jose.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnwlZUHNhLBzV01vska5v540s1deWDFyaRfl1VxA9wkoxiREX2JilK-DnXxyGio06v9ckNR9UKY4kGFb3aDS5Qfe1Ohrn6jtnMZM9cQTUMD4SNNo88VbUaAbw4BB2ryjerIK_I=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/7jUrFnicHcTvEoEwAADwJ5o2qpM7H-oipBAVvriaaWk216Y_HtA7eBt3fh9-3w9V6iknmsboaFAIUTDykqTGgivC1QCLh1Y8JcASSM1eRNtDylt2jhchXTvvBKJGVpnRGDqU6EpSd95n0Y2hpLOtthJdGc2Ow1XJfODyY9d7pYBmY-EqjKzYP-mVN89Hmbs3djeCNrTm5l3x4BxYeHeIA1ffh6EYj5M8zuy81R1nWPd3Ui_9y3LaIgghoP8x4D8SU0Pa"
+      },
+      {
+        "position": 17,
+        "title": "Columbia Neighborhood Gym",
+        "place_id": "ChIJu6tZRb63j4AR_r9eGI6Gld8",
+        "data_id": "0x808fb7be4559abbb:0xdf95868e185ebffe",
+        "data_cid": "16110931186840158206",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb7be4559abbb%3A0xdf95868e185ebffe&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb7be4559abbb%3A0xdf95868e185ebffe&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.394945799999995,
+          "longitude": -122.0187579
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJu6tZRb63j4AR_r9eGI6Gld8",
+        "provider_id": "/g/11kqkxq0qv",
+        "unclaimed_listing": true,
+        "type": "Gym",
+        "types": [
+          "Gym"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym"
+        ],
+        "address": "785 Morse Ave, Sunnyvale, CA 94085",
+        "country": "United States",
+        "open_state": "Open · Closes 8 PM",
+        "hours": "Open · Closes 8 PM",
+        "operating_hours": {
+          "friday": "3:30–8 PM",
+          "saturday": "9 AM–12 PM",
+          "sunday": "Closed",
+          "monday": "3:30–8 PM",
+          "tuesday": "3:30–8 PM",
+          "wednesday": "3:30–8 PM",
+          "thursday": "3:30–8 PM"
+        },
+        "website": "https://www.sunnyvale.ca.gov/recreation-and-community/community-centers/columbia-neighborhood-center/recreation-and-fitness",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Basketball court",
+              "Restroom"
+            ]
+          }
+        ],
+        "thumbnail": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=sSlWm10NUB0hTEuNJhfz-g&cb_client=search.gws-prod.gps&w=80&h=92&yaw=200.79935&pitch=0&thumbfov=100",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/P7nt8nicHc1BCsIwEADA3-TWZFsRrbAIghcPvah4lDRNk0DahG7aqK_xW_5G8QMzn7dNKdJOCEqT1mlxOkf30J6KKLkJwXgtoyOuwiCWUiQ7D-0ond9HOQbXIZ39bSihuR7AXo5zc7L9qzBMtXflnR4TkpaTstzknziFjptILOMWmMW6Yk-ZsQLgm7perVl0SVkE9l_6sGAJ8AVrGTlh"
+      },
+      {
+        "position": 18,
+        "title": "Swyft Fitness",
+        "place_id": "ChIJQQx6j123j4AR_ij7aNgCzmI",
+        "data_id": "0x808fb75d8f7a0c41:0x62ce02d868fb28fe",
+        "data_cid": "7119631189416814846",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fb75d8f7a0c41%3A0x62ce02d868fb28fe&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fb75d8f7a0c41%3A0x62ce02d868fb28fe&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.3762577,
+          "longitude": -122.03278139999999
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJQQx6j123j4AR_ij7aNgCzmI",
+        "provider_id": "/g/11fl9k4c6p",
+        "rating": 5,
+        "reviews": 10,
+        "type": "Fitness center",
+        "types": [
+          "Fitness center",
+          "Apartment building",
+          "Corporate campus",
+          "Event planner",
+          "Physical fitness program"
+        ],
+        "type_id": "fitness_center",
+        "type_ids": [
+          "fitness_center",
+          "apartment_building",
+          "corporate_campus",
+          "event_planner",
+          "physical_fitness_program"
+        ],
+        "address": "300 W Washington Ave, Sunnyvale, CA 94086",
+        "country": "United States",
+        "open_state": "Open · Closes 8 PM",
+        "hours": "Open · Closes 8 PM",
+        "operating_hours": {
+          "friday": "8 AM–8 PM",
+          "saturday": "8 AM–8 PM",
+          "sunday": "8 AM–8 PM",
+          "monday": "8 AM–8 PM",
+          "tuesday": "8 AM–8 PM",
+          "wednesday": "8 AM–8 PM",
+          "thursday": "8 AM–8 PM"
+        },
+        "phone": "(415) 527-0320",
+        "website": "http://swyftfitness.com/",
+        "extensions": [
+          {
+            "service_options": [
+              "Online classes",
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          }
+        ],
+        "service_options": {
+          "online_classes": true,
+          "onsite_services": true
+        },
+        "user_review": "\"They're always positive, professional and ready with new workouts.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkxlks0rrdj6VZ6YuaOrUOhakaSyYywOWEkW8BO4FN3-bApA9SbJrdXgIetoDbF0wQetgNSmo4KWFaR7eeOWPEGSLvUum9oh6n9afxcC8WY8wxjyEcGz3qpqUfnllmbsLjk4l-i=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/gLLSXHicHcRRToMwAADQE3XUQBBM_EAH29yyzjHs8K90XSstLWuLgBfcGbyNie_j_d6F9717CgIlwgU3his2OGap0Z5pv6CmC3jvAHXABdn6eDhhOSnpoLWXNv74jOuBIFshQSQp53oeEc4lTl5QVOxD0GR9lpbNm72c-YZ5s2wKOL4zz_dlZ6ItLsjxkTGED_mq3H1XQ5caEeuUXCf6muA6Gad2zunqJ7z1t-qqleoat2tlpMDX8_gAIQTifwr0H_gJRqA"
+      },
+      {
+        "position": 19,
+        "title": "Defy Gravity",
+        "place_id": "ChIJY7WnbK7Lj4AR4fe9xawj93Q",
+        "data_id": "0x808fcbae6ca7b563:0x74f723acc5bdf7e1",
+        "data_cid": "8428244452606080993",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcbae6ca7b563%3A0x74f723acc5bdf7e1&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fcbae6ca7b563%3A0x74f723acc5bdf7e1&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.4041736,
+          "longitude": -121.9920279
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJY7WnbK7Lj4AR4fe9xawj93Q",
+        "provider_id": "/g/11hz6fwlng",
+        "rating": 5,
+        "reviews": 17,
+        "type": "Gym",
+        "types": [
+          "Gym",
+          "Physical fitness program",
+          "Personal trainer"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym",
+          "physical_fitness_program",
+          "personal_trainer"
+        ],
+        "address": "1242 Birchwood Dr, Sunnyvale, CA 94089",
+        "country": "United States",
+        "open_state": "Open · Closes 8 PM",
+        "hours": "Open · Closes 8 PM",
+        "operating_hours": {
+          "friday": "8:30 AM–8 PM",
+          "saturday": "8:30 AM–12 PM",
+          "sunday": "8 AM–12 PM",
+          "monday": "8:30 AM–8 PM",
+          "tuesday": "8:30 AM–8 PM",
+          "wednesday": "8:30 AM–8 PM",
+          "thursday": "8:30 AM–8 PM"
+        },
+        "phone": "(510) 648-5297",
+        "extensions": [
+          {
+            "service_options": [
+              "Onsite services"
+            ]
+          },
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot"
+            ]
+          },
+          {
+            "amenities": [
+              "Restroom"
+            ]
+          },
+          {
+            "planning": [
+              "Appointment required"
+            ]
+          },
+          {
+            "payments": [
+              "Credit cards",
+              "Debit cards"
+            ]
+          }
+        ],
+        "service_options": {
+          "onsite_services": true
+        },
+        "user_review": "\"This makes it a lot easier to do accessories and cardio.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmJTbsDB1romSaJ5gIBsN9qUwnmnNP3OE87u01iuVH2TuxqSBnEPMUd-Vyt1p6x2EoxbE5ljf70cVEKn-d2JCwGW_1_EQ9ZCfi9OcMwHF4wFnWLiVCEaURb6xbetou3hi7h7T8t2GZvCjc=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/xA_6ynicHcTbDoIgAADQLyJBM7OthzTK7GblZfOlJZnYFCwg7Cd772_aOg_n-6FSdmJiGA21BhXnVVMqUT4JZ7JkckB4a1SdAEQAYcyCYxRnbRgXYu6hJ29Pl9CuVp7YuY9Es5btImuPx46CqFZpYMaqf5w8hqNtcgXpW6Ju1JuY9wW2m_vNgSTFawauZujrZXZGZ3xwc_9Wu3uy1cFiqBcs29Spjy_JsRj1RSm5smjtUCceS3OZv_w7mWoEIQT0PwHsByOjRmc"
+      },
+      {
+        "position": 20,
+        "title": "Mission College Gym",
+        "place_id": "ChIJAQDAjNzJj4AROJaH-XVDADQ",
+        "data_id": "0x808fc9dc8cc00001:0x34004375f9879638",
+        "data_cid": "3747069063948899896",
+        "reviews_link": "https://serpapi.com/search.json?data_id=0x808fc9dc8cc00001%3A0x34004375f9879638&engine=google_maps_reviews&hl=en",
+        "photos_link": "https://serpapi.com/search.json?data_id=0x808fc9dc8cc00001%3A0x34004375f9879638&engine=google_maps_photos&hl=en",
+        "gps_coordinates": {
+          "latitude": 37.391607799999996,
+          "longitude": -121.9838405
+        },
+        "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJAQDAjNzJj4AROJaH-XVDADQ",
+        "provider_id": "/g/11hck03rdh",
+        "rating": 4,
+        "reviews": 13,
+        "unclaimed_listing": true,
+        "type": "Gym",
+        "types": [
+          "Gym"
+        ],
+        "type_id": "gym",
+        "type_ids": [
+          "gym"
+        ],
+        "address": "Gymnasium, Santa Clara, CA 95054",
+        "country": "United States",
+        "extensions": [
+          {
+            "accessibility": [
+              "Wheelchair accessible entrance",
+              "Wheelchair accessible parking lot",
+              "Wheelchair accessible restroom"
+            ]
+          },
+          {
+            "amenities": [
+              "Basketball court",
+              "Restroom",
+              "Volleyball court"
+            ]
+          }
+        ],
+        "user_review": "\"State of the art equipment.\"",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk6qVWz2eZRGLtfCmuAcYNevxmhkQiW0ASRJQFBcoAyjoW3dM7jUj9jfuIsSbEKNii-0_jicGp1i4ZObfO-Fwq3_T1L5qmYByyEG1h9KMugqvHKOb7u5X9MBBLQKN-FwDI81WCK=w1000-h1000-c-n",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/opQJ63icHcpLcoIwAADQE0WSorU40wVYRRs-gtpUN86QBpIoBJpExQv2DN5Gp5u3evc_bkyrJ45z4u6gUqo6MavZL1WNYY0ZUFU7VasB1UA7_iJfbcjxtfsitxe2z8PIlNPa-nSXsPO15sdMEOiv889sHlDl91IR9ycey630ZGmXel3McCIEgAcpaNgiMdynRZmC-aVzDxsUjbp6F_T9LETcw7GtuvMCp8XYjr69OAiiDCfP-rF8Q2SK3y8IQgj4vxQ0D41yRAE"
+      }
+    ],
+    "serpapi_pagination": {
+      "next": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&ll=%4037.39297%2C-122.0154%2C15z&q=gym&start=20&type=search"
+    }
+  }
+}
