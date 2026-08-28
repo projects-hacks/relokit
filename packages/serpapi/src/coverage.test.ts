@@ -167,3 +167,32 @@ describe('google maps directions', () => {
     expect(Math.min(...durations)).toBeLessThan(durations[0])
   })
 })
+
+describe('the registry and the fixtures agree', () => {
+  const registry = JSON.parse(
+    readFileSync(new URL('../../../xano/registry.seed.json', import.meta.url), 'utf8'),
+  ) as {
+    capabilities: {
+      capability_id: string
+      enabled: boolean
+      params_template: Record<string, unknown>
+    }[]
+  }
+
+  const recordedEngines = new Set(
+    readdirSync(DIR)
+      .filter((f) => f.endsWith('.json'))
+      .map((f) => f.split('__')[0]),
+  )
+
+  const enabled = registry.capabilities.filter((c) => c.enabled)
+
+  it.each(enabled.map((c) => [c.capability_id, String(c.params_template.engine ?? 'zillow')]))(
+    'has called %s at least once, on %s',
+    (_id, engine) => {
+      // Turning a capability on without ever calling it is how a template with a
+      // wrong parameter name survives until the day it matters.
+      expect(recordedEngines).toContain(engine)
+    },
+  )
+})
