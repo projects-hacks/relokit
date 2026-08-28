@@ -12,7 +12,8 @@ constraints by how many candidates each removes per API call, and evaluates each
 one at the cheapest granularity that can settle it. Every fact it reports carries
 a source, a timestamp and an expiry.
 
-For the demo query that is **60 searches instead of 18,179**.
+For the demo query that is **41 searches instead of 18,179**, and the numbers are
+measured rather than estimated: run `pnpm replay` and see.
 
 ## Try it
 
@@ -77,9 +78,17 @@ bindings: each round takes what can actually run, keeps the best per constraint,
 and adds whatever it makes available. The tier order above falls out of that
 rather than being imposed on it.
 
-For the San Jose query that means Zillow's own filters take 4,517 rentals to 58
-for nothing, twelve cluster centroids settle the commute and the amenities, and
-only the survivors get an exact door-to-door route.
+For the San Jose query that means Zillow's own filters take 4,517 rentals to 20
+for a single call, six cluster centroids settle the commute for six more, and
+only the eleven survivors get an exact route and a search for a gym and a
+grocery. One home comes back verified on all six constraints, four unverified,
+and fifteen rejected with the reason attached.
+
+Cluster work has to earn its place. A cluster call answers about a centroid
+rather than a listing, so the planner runs one only when it removes more listings
+than it costs calls. Measurement showed the proximity check at that level rules
+almost nothing out, so it is not run, and the constraint is settled per listing
+instead.
 
 ### Three buckets, not two
 

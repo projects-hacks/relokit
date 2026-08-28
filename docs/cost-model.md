@@ -127,35 +127,69 @@ The canonical query: under $2,800, one bedroom, 25 minutes by bike to an office 
 Santa Clara, gym within 805m open before 6am, in-unit laundry, grocery within
 1600m open past 10pm. Six constraints, five sources.
 
-Naive means evaluating every constraint on every candidate at entity granularity.
-Put that definition on screen next to the number, or the comparison is marketing.
+These are measured, from `pnpm replay` against recorded responses, not estimates.
 
-| naive                                | calls     |
-| ------------------------------------ | --------- |
-| Zillow search, 8 pages               | 8         |
-| listing_feature detail, 312 listings | 312       |
-| commute, 312 listings                | 312       |
-| gym search, 312 listings             | 312       |
-| grocery search, 312 listings         | 312       |
-| area news, 312 listings              | 312       |
-| **total**                            | **1,568** |
+Naive means evaluating every constraint on every candidate at entity
+granularity. Put that definition on screen next to the number, or the comparison
+is marketing.
 
-| planned                                                                                     | calls  | candidates after |
-| ------------------------------------------------------------------------------------------- | ------ | ---------------- |
-| region: geocode the office                                                                  | 1      |                  |
-| region: Zillow search inside the box, with price, beds and keyword filters applied natively | 8      | 312              |
-| native: budget, beds and laundry read out of that same response                             | 0      | 84               |
-| region: area news over the surviving neighbourhoods, soft, ranks only                       | 3      | 84               |
-| cluster: bike route from 12 centroids, prune with slack                                     | 12     | 19               |
-| cluster: gym and grocery around the 5 surviving centroids                                   | 5      | 19               |
-| entity: exact door to door route for the 18 that are left                                   | 18     | 4                |
-| **total**                                                                                   | **47** | **4**            |
+| naive                                                                    | calls      |
+| ------------------------------------------------------------------------ | ---------- |
+| enumerate the bounded box, 111 pages                                     | 111        |
+| listing detail, commute, gym, grocery and news, on 4,517 candidates each | 18,068     |
+| **total**                                                                | **18,179** |
 
-47 against 1,568, so 33 times fewer calls for the same answer.
+| planned                                                           | calls  | candidates after |
+| ----------------------------------------------------------------- | ------ | ---------------- |
+| geocode the office                                                | 1      |                  |
+| Zillow search with price, beds and laundry applied natively       | 1      | 20               |
+| bike route from 6 cells fitted to the listings, pruned with slack | 6      | 11               |
+| exact route, gym and grocery for each of the eleven that are left | 33     | 5                |
+| **total**                                                         | **41** | **5**            |
+
+41 against 18,179. One verified home, four unverified, fifteen rejected with a
+reason, and the nearest miss is a listing 26 minutes away against a 25 minute
+limit.
 
 Both numbers are computed from `PlanTrace` at runtime and rendered as whatever is
-actually true for the query that just ran. Neither is hardcoded anywhere, and if
-the real numbers come out different, the script changes rather than the code.
+true for the query that just ran. Neither is hardcoded, and if the real numbers
+change the script changes rather than the code.
+
+## Cells have to fit the listings
+
+The first version laid a grid over the bounding box. Across a 23 km box six cells
+are about 5 km wide, and a cell that wide forces twenty minutes of slack onto a
+twenty five minute commute. Nothing could ever be ruled out, so the stage cost
+eighteen calls and pruned nothing at all.
+
+Listings sit in neighbourhoods rather than spread evenly, so fitting cells to
+them is a different problem. It takes the median cell radius from 4,922 m to
+1,673 m and the stage now removes about half the candidates.
+
+The plan still emits a grid, because entity coordinates do not exist when it is
+written. The executor replaces it as soon as there are listings to fit to.
+
+## Work that cannot pay for itself
+
+Cluster work is an optimisation and has to earn its place. A cluster call answers
+about a centroid rather than a listing, so it only helps if it removes more
+listings than it costs calls:
+
+```
+entities_entering_the_tier * elimination_power > cost_units * cluster_count
+```
+
+Measured over forty answers, proximity at cluster level has coverage 0.45 and
+selectivity 0.94: slack leaves most answers undecided and nearly all the rest
+pass. Twelve calls to remove about one listing. The planner drops it, the entity
+tier still answers the constraint, and the run goes from 80 calls to 41 with an
+identical result.
+
+Commute at cluster level measures 0.80 and 0.44 once cells are fitted, so it
+stays. The rule is about payback, not about which constraint it is.
+
+Entity work is never dropped this way. It is where the verdict comes from rather
+than a shortcut to avoid work later.
 
 ## Why the second query is cheaper
 
