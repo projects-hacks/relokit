@@ -58,6 +58,12 @@ importers:
         specifier: ^8.2.2
         version: 8.2.2(@types/node@26.4.0)(esbuild@0.28.2)(tsx@4.23.12)
 
+  packages/evidence:
+    dependencies:
+      '@relokit/schema':
+        specifier: workspace:*
+        version: link:../schema
+
   packages/mcp:
     dependencies:
       '@modelcontextprotocol/sdk':

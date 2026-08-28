@@ -90,6 +90,12 @@ back `unknown` while looking like a data problem rather than a parser bug.
 
 `"5 AM–12 AM"` closes at midnight, which is 86400 seconds of day and not 0.
 
+A fourth form turned up once the parser met the whole sample: when both ends
+share a meridiem Google drops it from the opening time, so `"6–11 AM"` is six in
+the morning until eleven and `"4–8:30 PM"` is the afternoon. Seven strings in one
+sample of twenty gyms take that shape. Reading them as unparsed would have lost
+the constraint quietly rather than loudly.
+
 `nearby_poi` coverage is raised to 0.95.
 
 ## 6. Directions takes an integer for the mode
