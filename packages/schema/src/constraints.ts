@@ -2,6 +2,12 @@ import { z } from 'zod'
 import { Cents, Meters, PlaceRef, SecondsOfDay, Seconds, Weekday } from './units.ts'
 
 export const ConstraintType = z.enum([
+  /**
+   * Not a user constraint. The registry join key for the operator that generates
+   * candidates in the first place, which costs real calls (Zillow paginates) and
+   * so has to appear in the cost trace. The parser never emits one.
+   */
+  'candidate_source',
   'budget',
   'unit_attribute',
   'listing_feature',

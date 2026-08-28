@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
-import { AreaSignalConstraint, ConstraintSet } from './constraints.ts'
-import { Capability, ParamValue } from './capability.ts'
+import { AreaSignalConstraint, ConstraintSet, ConstraintType } from './constraints.ts'
+import { Capability, ParamRefPattern, ParamValue, Registry, paramRefs } from './capability.ts'
 import { EvidenceRow } from './evidence.ts'
 
 const demoQuery = JSON.parse(
@@ -146,5 +146,48 @@ describe('evidence', () => {
       source: 'zillow',
     })
     expect(range.value_canonical_upper).toBe(310000)
+  })
+})
+
+describe('registry seed', () => {
+  const seed = JSON.parse(
+    readFileSync(new URL('../../../xano/registry.seed.json', import.meta.url), 'utf8'),
+  )
+
+  it('validates every row', () => {
+    const parsed = Registry.parse(seed)
+    expect(parsed.capabilities.length).toBeGreaterThan(0)
+  })
+
+  it('gives every capability a unique id', () => {
+    const ids = seed.capabilities.map((c: { capability_id: string }) => c.capability_id)
+    expect(new Set(ids).size).toBe(ids.length)
+  })
+
+  it('prices native capabilities at zero and everything else above it', () => {
+    for (const c of Registry.parse(seed).capabilities) {
+      if (c.granularity === 'native') expect(c.cost_units).toBe(0)
+      else expect(c.cost_units).toBeGreaterThan(0)
+    }
+  })
+
+  it('covers every constraint type the parser can emit', () => {
+    const answered = new Set(Registry.parse(seed).capabilities.map((c) => c.constraint_type))
+    for (const type of ConstraintType.options) expect(answered).toContain(type)
+  })
+
+  it('keeps every param ref inside the closed set', () => {
+    for (const c of Registry.parse(seed).capabilities) {
+      for (const value of Object.values(c.params_template)) {
+        for (const ref of paramRefs(value)) expect(ref).toMatch(ParamRefPattern)
+      }
+    }
+  })
+
+  it('resolves a source conflict by precedence, entity over cluster', () => {
+    const rows = Registry.parse(seed).capabilities
+    const cluster = rows.find((c) => c.capability_id === 'commute.directions.cluster')!
+    const entity = rows.find((c) => c.capability_id === 'commute.directions.entity')!
+    expect(entity.precedence).toBeLessThan(cluster.precedence)
   })
 })
