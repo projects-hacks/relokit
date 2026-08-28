@@ -1,0 +1,77 @@
+{
+  "query_id": "q_demo_relocation",
+  "raw_query": "Under $2,800, one bedroom, no more than 25 minutes by bike to 2788 San Tomas Expressway, gym within half a mile open before 6am, in-unit laundry, grocery open past 10pm.",
+  "locale": { "tz": "America/Los_Angeles", "currency": "USD" },
+  "search_anchor": { "raw": "San Jose, CA" },
+  "parser_version": "parse.v1.md",
+  "parsed_at_ms": 1756400000000,
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "budget",
+      "basis": "rent_monthly",
+      "hardness": "hard",
+      "weight": 1,
+      "source_text": "Under $2,800",
+      "inferred": false,
+      "max_cents": 280000,
+      "includes_fees": false
+    },
+    {
+      "id": "c2",
+      "type": "unit_attribute",
+      "attribute": "beds",
+      "hardness": "hard",
+      "weight": 1,
+      "source_text": "one bedroom",
+      "inferred": false,
+      "min": 1,
+      "max": 1
+    },
+    {
+      "id": "c3",
+      "type": "commute",
+      "hardness": "hard",
+      "weight": 1,
+      "source_text": "no more than 25 minutes by bike to 2788 San Tomas Expressway",
+      "inferred": false,
+      "destination": { "raw": "2788 San Tomas Expressway, Santa Clara, CA" },
+      "mode": "bike",
+      "max_seconds": 1500
+    },
+    {
+      "id": "c4",
+      "type": "nearby_poi",
+      "category": "gym",
+      "hardness": "hard",
+      "weight": 1,
+      "source_text": "gym within half a mile open before 6am",
+      "inferred": false,
+      "radius_m": 805,
+      "min_count": 1,
+      "open_window": { "opens_by_s": 21600 }
+    },
+    {
+      "id": "c5",
+      "type": "listing_feature",
+      "feature": "in_unit_laundry",
+      "hardness": "hard",
+      "weight": 1,
+      "source_text": "in-unit laundry",
+      "inferred": false,
+      "required": true
+    },
+    {
+      "id": "c6",
+      "type": "nearby_poi",
+      "category": "grocery",
+      "hardness": "hard",
+      "weight": 1,
+      "source_text": "grocery open past 10pm",
+      "inferred": true,
+      "radius_m": 1600,
+      "min_count": 1,
+      "open_window": { "closes_after_s": 79200 }
+    }
+  ]
+}

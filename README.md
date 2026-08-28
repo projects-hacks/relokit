@@ -20,18 +20,18 @@ Tests run offline against committed fixtures. No API keys required.
 
 ## Layout
 
-| path | purpose |
-| --- | --- |
-| `packages/schema` | Shared contracts. Every other package depends on this one. |
-| `packages/planner` | Pure planner. Constraints and a capability registry in, an execution plan out. |
-| `packages/serpapi` | Typed SerpApi client with fixture record and replay. |
-| `xano/` | Capability registry seed and table definitions. |
-| `fixtures/serpapi/` | Recorded provider responses, redacted and committed. |
+| path                | purpose                                                                        |
+| ------------------- | ------------------------------------------------------------------------------ |
+| `packages/schema`   | Shared contracts. Every other package depends on this one.                     |
+| `packages/planner`  | Pure planner. Constraints and a capability registry in, an execution plan out. |
+| `packages/serpapi`  | Typed SerpApi client with fixture record and replay.                           |
+| `xano/`             | Capability registry seed and table definitions.                                |
+| `fixtures/serpapi/` | Recorded provider responses, redacted and committed.                           |
 
 ## Scripts
 
-| command | does |
-| --- | --- |
-| `pnpm test` | Runs the suite offline. |
+| command          | does                                  |
+| ---------------- | ------------------------------------- |
+| `pnpm test`      | Runs the suite offline.               |
 | `pnpm typecheck` | Typechecks every package in one pass. |
-| `pnpm format` | Prettier. |
+| `pnpm format`    | Prettier.                             |
