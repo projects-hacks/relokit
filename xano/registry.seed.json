@@ -1,5 +1,5 @@
 {
-  "registry_version": "2026-08-28.3",
+  "registry_version": "2026-08-28.4",
   "capabilities": [
     {
       "capability_id": "candidates.zillow.region",
@@ -15,13 +15,14 @@
       "coverage": 1,
       "precedence": 1,
       "enabled": true,
-      "max_fanout": 1,
+      "max_fanout": 8,
       "params_template": {
         "engine": "zillow",
         "status_type": "rent",
-        "map_bounds": "$stage.bounds.north,$stage.bounds.east,$stage.bounds.south,$stage.bounds.west"
+        "map_bounds": "$stage.bounds.north,$stage.bounds.east,$stage.bounds.south,$stage.bounds.west",
+        "page": 1
       },
-      "notes": "One call per page. The planner emits one op per page, so the native predicates cut the pagination cost as well as the candidate count: the unfiltered San Jose pool is 20 pages, the filtered one is a single page.",
+      "notes": "One call per page. The plan emits a single op and the executor repeats it while the response reports more pages, up to max_fanout, because the page count is data and the plan is written before any of it exists. The free predicates cut the page count as well as the candidate count: the unfiltered San Jose pool is 20 pages, the filtered one is a single page.",
       "produces": ["entity"]
     },
     {

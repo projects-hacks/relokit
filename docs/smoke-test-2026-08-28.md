@@ -141,7 +141,22 @@ A `durations` array also comes back with one entry per mode, free, in the same
 call. Worth knowing if a second commute constraint in a different mode ever
 appears: it is answerable without a second call.
 
-## 8. Geocoding is clean
+## 8. Pagination works and page counts are not knowable in advance
+
+`page=2` returns 41 listings with zero overlap against page 1, and every response
+carries `total_pages` plus a `serpapi_pagination.next` link.
+
+Which means the plan cannot say how many pages there are. It was emitting a fixed
+number of page ops from an estimate, which spends a call on a page that may not
+exist. The candidates stage now emits one op and a **page budget**: the executor
+repeats it while the response reports more pages, up to the capability's
+`max_fanout`. Stage fanout `paged` says so explicitly.
+
+`total_results` also drifted between the two calls, 4,517 then 4,495. Live
+inventory moves under you, which is another reason the plan states a budget and
+the run reports what it actually spent.
+
+## 9. Geocoding is clean
 
 `2788 San Tomas Expressway, Santa Clara, CA` resolves in one call to
 `place_results.gps_coordinates`, 37.3726799 / -121.9678625, with no ambiguity to
@@ -166,6 +181,4 @@ between the three is provisional until each filter is recorded on its own, and
 
 ## Still open
 
-- Pagination parameter for Zillow past page 1. The filtered demo query fits in one
-  page, so this is not on the demo path, but Watch over a wider box will need it.
 - Yelp and Google News are unrecorded. Both are on the cut list, so that is fine.

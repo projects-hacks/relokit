@@ -62,7 +62,15 @@ export const Stage = z.object({
   stage_id: z.string(),
   index: z.number().int().nonnegative(),
   tier: Tier,
-  fanout: z.enum(['once', 'per_cluster', 'per_entity']),
+  /**
+   * once        one op, run once.
+   * paged       one op, repeated for as many pages as the provider reports, up
+   *             to the capability's max_fanout. The page count is data, so it
+   *             cannot be known when the plan is written.
+   * per_cluster one op per cluster centroid.
+   * per_entity  one op per surviving entity.
+   */
+  fanout: z.enum(['once', 'paged', 'per_cluster', 'per_entity']),
   /** Ops within a stage are independent and may run concurrently. */
   ops: z.array(Op),
   expected_entities: z.number().int().nonnegative(),

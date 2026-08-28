@@ -1,0 +1,2933 @@
+{
+  "key": "zillow__san-jose-rentals-p2__decd35d5177c27ec",
+  "engine": "zillow",
+  "params": {
+    "status_type": "rent",
+    "map_bounds": "37.45,-121.75,37.20,-122.05",
+    "page": 2
+  },
+  "recorded_at_ms": 1787955447099,
+  "status": 200,
+  "body": {
+    "search_metadata": {
+      "id": "6a9208f5cf8870ae34cd8153",
+      "status": "Success",
+      "json_endpoint": "https://serpapi.com/searches/XS6H5TqDYvXBJ25bNpcbYNcZkhRR4pGMRzqgS5jXinw/6a9208f5cf8870ae34cd8153.json",
+      "markdown_endpoint": "https://serpapi.com/searches/XS6H5TqDYvXBJ25bNpcbYNcZkhRR4pGMRzqgS5jXinw/6a9208f5cf8870ae34cd8153.md",
+      "created_at": "2026-08-28 22:17:25 UTC",
+      "processed_at": "2026-08-28 22:17:25 UTC",
+      "zillow_url": "https://www.zillow.com/homes/",
+      "raw_html_file": "https://serpapi.com/searches/XS6H5TqDYvXBJ25bNpcbYNcZkhRR4pGMRzqgS5jXinw/6a9208f5cf8870ae34cd8153.html",
+      "prettify_html_file": "https://serpapi.com/searches/XS6H5TqDYvXBJ25bNpcbYNcZkhRR4pGMRzqgS5jXinw/6a9208f5cf8870ae34cd8153.prettify",
+      "total_time_taken": 1.67
+    },
+    "search_parameters": {
+      "engine": "zillow",
+      "map_bounds": "37.45,-121.75,37.20,-122.05",
+      "status_type": "rent",
+      "page": "2"
+    },
+    "search_information": {
+      "region": {
+        "name": "San Jose CA 95110"
+      },
+      "title": "Rental Listings",
+      "total_results": 4495,
+      "results_per_page": 41,
+      "total_pages": 20
+    },
+    "organic_results": [
+      {
+        "position": 1,
+        "zpid": "2080176558",
+        "title": "Santana Terrace, 190 N Winchester Blvd #B1u104, Santa Clara, CA 95050",
+        "link": "https://www.zillow.com/apartments/santa-clara-ca/santana-terrace/CkBDqN/",
+        "status": "FOR_RENT",
+        "status_text": "Apartment for rent",
+        "marketing_status": "For Rent",
+        "days_on_zillow": 23,
+        "badges": [
+          "Modern cabinetry",
+          "1 Week Free"
+        ],
+        "price": "$4,009/mo",
+        "extracted_price": 4009,
+        "currency": "USD",
+        "price_change": 107,
+        "price_change_date": "2026-08-26",
+        "rent_zestimate": 3337,
+        "address": {
+          "street": "190 N Winchester Blvd #B1u104",
+          "city": "Santa Clara",
+          "state": "CA",
+          "zipcode": "95050"
+        },
+        "beds": 1,
+        "baths": 1,
+        "square_feet": 742,
+        "home_type": "APARTMENT",
+        "unit_number": "# B1U104",
+        "gps_coordinates": {
+          "latitude": 37.328697,
+          "longitude": -121.95117
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/c065ef40fc3b225ae60a8ca5751705e1-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/c065ef40fc3b225ae60a8ca5751705e1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/876d158227fee86e05044dde656fdc3e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1875c62b6715d9f493c2679b38808aee-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/80a465f1a038c042af5418fc8056a383-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a0a8555dd3d266824bb76aa1f18105f4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5ab08960f628ef1f916a1d8d93837acf-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1d1fd82c7d46ed8ef8b70a6411c49511-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1420b1d55c882d6a64608dc32d491812-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8ee954326bb9c2ed7a2d06522e34dde6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ccdefd3b1ee2cb39a54db4f4cd58f4f8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8a3eae1a954bc3132eab16b839e7c60e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a552f2cffb4b8bbe960296f2b6eba0bd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d577f7c26d1b66f41f0ff7c0f40cb95d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/55eddf022df8a4cc5ffcc44af329efa2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/52d15d584173b38b11659023d7daa84c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f43588aae6af6e881e31eb5e6f587f19-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e1eace581248abfe43ba3a02d1cd524c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/504405b00d9a119bdd3bebeba02c94cd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/61834e3b9bd1ee3d20e353a79d45caa0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/561d880bd694122fe2be1bedd40f98ea-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d579922fd77eaad6bd46bfe1fed334f8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f06b782022501818c0d099bba23398ee-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fca58ca6cc9c0224cab623a4f42aa6d3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5224b113d64624e45db635b94332cc4e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a2e58a86ed401fdec31c60036ffdf6fc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/47ad8eeacf960002ca587ef755ce916b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ef1fe23df90e38882331dc56ec85c02a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d40f82e6c5714e77d5118e3f08bda28a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d6594abb922e6c8af218d45c590f7197-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b4b3c0f2d1cbd4d873d83f69dd9bfa3b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f8c73a168800cbb7027943bf2ccce7d6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7e6e388d858af37b0206d4f4f217192d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/430151ca7ef5d67d56764bf4d47bb144-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8b2a65373899e61202f299ceb954ec8c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f06991d6799c69f0a9df3d55f9dd740a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a4c3dd2a407c1e3af310143a32be0926-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fafbbe2a11085efe4f3dcc4404fb079e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5653000f6ca31d9e443105698acf009f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7e560e86cdd14fd46c365e0dcb7a048a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b54f30ef38d2ef59d984e8b04f0856c3-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "phone": "408-889-7285",
+        "amenity_highlight": "Clubhouse",
+        "availability_date": "2026-08-26 00:00:00",
+        "provider_listing_id": "2vjtutuyv41b7"
+      },
+      {
+        "position": 2,
+        "title": "1901 Halford Ave, Santa Clara, CA",
+        "link": "https://www.zillow.com/apartments/santa-clara-ca/halford-gardens/5Xk3dJ/",
+        "status": "FOR_RENT",
+        "status_text": "Halford Gardens",
+        "badges": [
+          "Three resort-style swimming pools",
+          "$1,000 Off"
+        ],
+        "address": {
+          "street": "1901 Halford Ave Apt 189",
+          "city": "Santa Clara",
+          "state": "CA",
+          "zipcode": "95051"
+        },
+        "gps_coordinates": {
+          "latitude": 37.35805,
+          "longitude": -121.997086
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/1f6f576d912ccb0c83ef657f577fcbfc-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/1f6f576d912ccb0c83ef657f577fcbfc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6dd09665d43ee96157d6d97ac431b0f2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/89c58a3bbb2069dd63502bd7bc0a7d68-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a22d23bd2b749a47ad919343b51d09f8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2d4b8a245f713433e91ef7d32bc4dc1f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/36a8740bfc65ebc67b660f6034ad0da8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6864ec41bb377573520ddcec28dbaf2e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d1ff8b6bc4d5eb0c1cf5b4adc394dae9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fdb5c133bb4a988ecd279c54a6bef9a2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d765c8d0275915d2b7a0cf90644b8b1d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b10b2e1b5aeacd72aeda2dda53c48ad7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/81548699f636293e029edfd9dcb337ff-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/78c11b3c7fbde1e9baa2e7d9b041a559-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/59db0d96d78ffd48737fc43d5c6c1a87-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9e8eb7dc1682307830075978fb0b7626-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/dfdf0973d15c88a7dc3cd3f9556fdcc4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e9441c529a991a782627a7ee8fee51e1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/dbbc77f4112bf1d2daf72248a3ecb39c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6c513793dfe0e3a82b2fb2a7b1c812ae-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/92d54f18c3619e42c7f2b1ca3b641445-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/928890f75a80d7643026288505bd487d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0ad90a7d3ad5bd50315b26beb3844013-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/486afd86aa38c28d402ba15270a080ec-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d4a732a422351dfbfba5b63609798c4d-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "Halford Gardens",
+        "units": [
+          {
+            "price": "$3,245+",
+            "beds": "1"
+          },
+          {
+            "price": "$4,095+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 8,
+        "lot_id": 1001549871,
+        "phone": "408-477-1564",
+        "amenity_highlight": "Patio",
+        "provider_listing_id": "ze393gwcvch6"
+      },
+      {
+        "position": 3,
+        "title": "650 E Capitol Ave, Milpitas, CA",
+        "link": "https://www.zillow.com/apartments/milpitas-ca/capitol-650/ChHLtq/",
+        "status": "FOR_RENT",
+        "status_text": "Capitol 650",
+        "badges": [
+          "Resort-style pool",
+          "18 available units"
+        ],
+        "address": {
+          "street": "650 E  Capitol Ave  Apt 457",
+          "city": "Milpitas",
+          "state": "CA",
+          "zipcode": "95035"
+        },
+        "gps_coordinates": {
+          "latitude": 37.409126,
+          "longitude": -121.89371
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/ecb64fda4d77bd8ed2b9af522cb2530c-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/ecb64fda4d77bd8ed2b9af522cb2530c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/cdd38e63bb3df85d444193e5a18a37c6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6aa2e184e495857fd085fec2f83b4527-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/42d6d198dd9d2b8aee7202073bc0756b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e2f5ac436dcd2515bed39004ecdca74f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e31d4e54526fc733fb84fcccf58bf8b0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8d9e1270e68a344e5c5331fb8c282657-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f1477c1a8eacc22ff4bdd00649d9567b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3f10eac45794b5610fbef804d1d75ddc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/23ed5deb36ee01f6aba8a878f66b608a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/76616a75d21f065791028eebd435533d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/32a90807310c5170eebbc621de1b1a80-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d1be20bf1bbe2758e4658ca59f1b39e1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/cdfec8066b5cc6bc32cda43d388893b3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/36d154422fa8875675f59af0c5d58896-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/712ddb17cd1b94d2cdda00ace769e4d4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/93658652866fe6f314ffe3e0eca6444f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4ca84d70a18cf6c7d4f17fdf3778dbc1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5a7b2170936c1406daf91f851ece8cd0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/32f3950efe7ca1e82fc5031f1d5d8cbd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/eb0d8b664aaa48cb3416d0d528606dfe-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a8f741f2a7c9b76ee771f143a7619dcf-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d409aa21b96e553fe5b86e6b6bd44669-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/05e13ac3a936e3f17165ab95b4456508-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d06e64ef47834f5b0000a2a6b0d3fe0c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7887e41f25ef8ee15c19ac85e5258fa9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1a389d4f25f93e47736363c955dacd3c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f52137626848acda1979caa244f081c1-p_e.jpg"
+        ],
+        "has_3d_model": true,
+        "is_featured_listing": true,
+        "building_name": "Capitol 650",
+        "units": [
+          {
+            "price": "$3,372+",
+            "beds": "1"
+          },
+          {
+            "price": "$4,346+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 18,
+        "min_base_rent": 3372,
+        "max_base_rent": 4490,
+        "monthly_fees_included": true,
+        "is_instant_tour_enabled": true,
+        "lot_id": 2739850475,
+        "provider_listing_id": "51k30p3vku57m"
+      },
+      {
+        "position": 4,
+        "title": "20691 Forge Way, Cupertino, CA",
+        "link": "https://www.zillow.com/apartments/cupertino-ca/forge-homestead-apartments/5XjFqz/",
+        "status": "FOR_RENT",
+        "status_text": "Forge Homestead Apartments",
+        "badges": [
+          "Beautifully landscaped grounds",
+          "3 available units"
+        ],
+        "address": {
+          "street": "20691 Forge Way # 2cb500f4d",
+          "city": "Cupertino",
+          "state": "CA",
+          "zipcode": "95014"
+        },
+        "gps_coordinates": {
+          "latitude": 37.337723,
+          "longitude": -122.035286
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/04b8bc6b3b89f63c52d00ee363344752-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/04b8bc6b3b89f63c52d00ee363344752-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/993f116e9f06afe0c25f80bbce5eb937-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/febfb1e862df6df59dca0ad73060ef28-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/96bc2ce1a2f723460303f261f78636d0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/658f42eaedbfeeb9d3b32c0b4377898d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fe8687716baefb03e921e3c4881a4feb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5247fa633f8127004393a055e329c641-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/435f8fac1d43be01c6346ecae4e73b16-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3ea10601cc87efc5a77e0aaa14332ecc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/62067f8b789dc3202658cdeea2fba472-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/960b06266ac7cb1a5398e1c86dae59f6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f2a826cb2a1a946007401c41711852a5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/be2133010c6b70931049352a06e1f5f7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a63cdf2990d5ac98826e1c6df95cea7e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2d62ca4c6cb4ef4b6cc056bdaef2bf41-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0721322c9499d83c3c02d772f5031565-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6e7fa931bd8847bbff1cf40012dd5582-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c2c51d36506a2a9934a55b064c85fe85-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c859b401d4a482d5ca3f2336913bbc71-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b74461b21311040ca1026b0c5693aed8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7a78a25282514312f72e150b96b35540-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/83b87c3a03d65aacb30537016b9adcd6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bbda7ae8eb6630c314f6fc6edfa7f869-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1974c4f25f6b48b6c52cea4ff4d9a2b1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/32b04a8bf3dc15ba388156df79f74cda-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/075afd47e8ae20f68215c03401817d15-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/88d03147a2955c58b687192a0618b677-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ca0e5328d1f70bc0d4fea5f7ba42914a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/07896cfc0ec508355cf28b61f9807136-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a4c2313ce7f9562a8dc8cab3981bef66-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/983341739c53ad6db39f1a40dd583fa7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/31a2942a0779b5ba22ee32dc6e684223-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/38a52be5b841da8b0c69d3769f27b9bb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f7f116f9abf416ef6b0d4c89643f7e49-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2a2c84291c7e39271750e78f076caa17-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f33b7e67cc26644ca4a98e7d3ebf969a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e2610f26871de1d6b906c2125c6708dd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/17d83d7a861907f0753ccbd2bc2d27d8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/95127c32af1e44dc0ee4a8e394280ab0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/eb361a5d96c55625835f882e39a95273-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8fe67a2d70a3da44384b5debc6fc034e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/584ac3c2d060f584eaddb866effa3afe-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ae0de3e075840cb32c49294b5417987b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/291ec76856253b3ce8f6d58fbd2af09c-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "Forge Homestead Apartments",
+        "units": [
+          {
+            "price": "$3,550+",
+            "beds": "1"
+          },
+          {
+            "price": "$4,500+",
+            "beds": "2"
+          },
+          {
+            "price": "$5,700+",
+            "beds": "3"
+          }
+        ],
+        "available_units": 3,
+        "lot_id": 1001456707,
+        "phone": "669-721-9754",
+        "amenity_highlight": "Business center",
+        "provider_listing_id": "4ybdnv3ea068t"
+      },
+      {
+        "position": 5,
+        "title": "1600 Nantucket Cir, Santa Clara, CA",
+        "link": "https://www.zillow.com/apartments/santa-clara-ca/nantucket/5Z6XsB/",
+        "status": "FOR_RENT",
+        "status_text": "Nantucket",
+        "badges": [
+          "Stunning outdoor swimming pool",
+          "13 available units"
+        ],
+        "address": {
+          "street": "1600 Nantucket Cir # 61-114",
+          "city": "Santa Clara",
+          "state": "CA",
+          "zipcode": "95054"
+        },
+        "gps_coordinates": {
+          "latitude": 37.404846,
+          "longitude": -121.95677
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/d8518ac2bbf8e0f6c98ca183cce4a90c-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/d8518ac2bbf8e0f6c98ca183cce4a90c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9d5971f5c7e5e9ab269ee98ed7f374b8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a1b1c609d1d2adadacc83b726b8d49e4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f2159b9f20aa5d996ef38086a4c8f019-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d5125d4e73a2cc7eb8999c68076cbb40-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/853a4cbc990329a5bc78c1bcac5ec083-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ae37e5b56c53570352a0fa20a9df20ad-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/471a072088f325faa1d38370f8a2681a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/baf6761b598ca5183e7acd378b207b2c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b1921c27acd86b6260008553e04af34a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/309b1dd0430eef86aac1a395bf8f8b11-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5705639f5923f068dd0cc79b4d294b79-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8dfa3ca7e8a55b00b87776a1d0604356-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/aa740b0f95f9dbec8d1e4542124a7bd8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2e9607b92f498459a326048bad2caca5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/63c7cd6be152de1d5b84c994710e6b29-p_e.jpg"
+        ],
+        "has_3d_model": true,
+        "is_featured_listing": true,
+        "building_name": "Nantucket",
+        "units": [
+          {
+            "price": "$3,550+",
+            "beds": "1"
+          },
+          {
+            "price": "$4,160+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 13,
+        "lot_id": 1009375263,
+        "phone": "408-706-7436",
+        "amenity_highlight": "Rare laundry feature",
+        "provider_listing_id": "15f8fp97m5krm"
+      },
+      {
+        "position": 6,
+        "title": "1000 Escalon Ave, Sunnyvale, CA",
+        "link": "https://www.zillow.com/apartments/sunnyvale-ca/the-meadows/5Xj9ys/",
+        "status": "FOR_RENT",
+        "status_text": "The Meadows",
+        "badges": [
+          "Lush gardens",
+          "5 available units"
+        ],
+        "address": {
+          "street": "1000 Escalon Ave Apt P1121",
+          "city": "Sunnyvale",
+          "state": "CA",
+          "zipcode": "94085"
+        },
+        "gps_coordinates": {
+          "latitude": 37.387848,
+          "longitude": -122.04576
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/25f08f69e74c8e83e7f18dadffd05f0c-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/25f08f69e74c8e83e7f18dadffd05f0c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/de5229b8ff3b9e0f811c1638f2f5f720-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e0dfdb77979200495a54e43175d98e4e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e67aff0d041b531419ae30abcb3407fc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a246120bf187aa26d813189628a09af8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/84f44eba46cee49818daaa196c7b458b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/31abfa57bc1bf16cf6ccc5a2c65b8ee0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/669218fdba1a8e0b3d8c675d7cb099c3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fbd2183793c06931ab0eee373d273f71-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/eee8072de34afebc920749077ae63b97-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/82bca6cd8909cb6c9777b87928278c51-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9adffa0694a612d6668444ba100d48f5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/80610d3e4aaebe5b7cfca427a1aa5271-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/19cf65f4b760cd51361d5af0b70662d0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/50659380f8d0d40d1b9b17f2eddcdee0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1c573c63e521159f840f036fee2e6fc5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a947b6a41bc4f92aca837f480cf35775-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d15140ad2280b43a2e8929ea225b5717-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/78f226969d24b46ced2feba27741e465-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/40c5518d5ecb55bb00c574051044e577-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/364b8411a66e51871904aad976d90e1d-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "The Meadows",
+        "units": [
+          {
+            "price": "$3,510+",
+            "beds": "1"
+          },
+          {
+            "price": "$4,300+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 5,
+        "is_instant_tour_enabled": true,
+        "lot_id": 1001447440,
+        "phone": "408-412-5625",
+        "amenity_highlight": "Clubhouse",
+        "provider_listing_id": "4y8a6288ebvd9"
+      },
+      {
+        "position": 7,
+        "title": "730 Agnew Rd, Santa Clara, CA",
+        "link": "https://www.zillow.com/apartments/santa-clara-ca/river-terrace/5Xk2Ng/",
+        "status": "FOR_RENT",
+        "status_text": "River Terrace",
+        "badges": [
+          "7 available units"
+        ],
+        "address": {
+          "street": "730 Agnew Rd   # 149",
+          "city": "Santa Clara",
+          "state": "CA",
+          "zipcode": "95054"
+        },
+        "gps_coordinates": {
+          "latitude": 37.393524,
+          "longitude": -121.94876
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/1bd8a51ddbe0c002b320f9a1b4e28586-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/1bd8a51ddbe0c002b320f9a1b4e28586-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9eac5f606174f1fbbaef26152186b998-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bf9b820c5cf0ad761cc9422c8594ff99-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c23abfc65e9c039693c637ad06244906-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bda93756ad9ca66ce64ab14733ab0e31-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e613b4069e4c84db8c3607a9773787f7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/252626453e1f72fc3896dac6c8ff8e90-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f2af253463c5ac281b7c689348d60caf-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/77b09cf8c93e2771e31c94ecaf10be52-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/04a146dfbd9fdfd77d188fff4e68ea0a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/df359ba5d3aba1bb00dc37a51a177baf-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/327cd211a175d9128258a549b5d5f041-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bd8cc7e26e1ade4233422002c76c86ec-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a3189abc7f564ce06b6a12914dd91a6b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/19ee7ba023efb0b8709682bbd50b7b35-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d12106b22ce231dd6b871b13dd7eaa5c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e35e34d7118a85e1b64119e1b8bd4d09-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1853364b533a065ba937d4eea53f026a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/273aae179553c70034fbd298e66648b4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7476d47b7c665fec24dea72128da158d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e85b191bd7a12704986d7bcb09e86744-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/29bc1752db8fdc1a0dfbde995bf1ec1c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c7b6acef2a467b9c12db7e28475d5217-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4f00dc6862ecf3e110618e3dfdb9c73e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0357492d6d18811ddf08c7633804a334-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0b9be53d9157059e5cf34981a3920a50-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a5658f3c6b16679c62cafcfa4fb9004b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c97c5f5f9eb5b5e2ca2fd58a252f8932-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c601e347e5429f1efd52797fae27c600-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/458d61aa3a6a39a7b84113a105b9fc0b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bcfefdfb8264c7225ec51aeb4841bbd0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6b919336dfa75ca30836fbb276725dcd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a95ce14af6ee31d3c5b63e7b83ac9752-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0c8dfcac6f78547637a13c4af4161125-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1fedc20af8c41401c0c151bd02a104e5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3d22e16d136f515d47846535a6d91e0f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3cbeca2fcc39f47be5b8f63f117f04cf-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5a1dc9a16463ea6ef058f040da0673d0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d037bd11dc5dca2970a4ad9e9da606f4-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "River Terrace",
+        "units": [
+          {
+            "price": "$3,442+",
+            "beds": "1"
+          },
+          {
+            "price": "$3,997+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 7,
+        "is_instant_tour_enabled": true,
+        "lot_id": 1001546852,
+        "phone": "408-478-9303",
+        "amenity_highlight": "Lounge",
+        "provider_listing_id": "43ywp2b9xws80"
+      },
+      {
+        "position": 8,
+        "zpid": "462779238",
+        "title": "101 Glen Eyrie Avenue, 101 Glen Eyrie Ave #302, San Jose, CA 95125",
+        "link": "https://www.zillow.com/apartments/san-jose-ca/101-glen-eyrie-avenue/5XjBk5/",
+        "status": "FOR_RENT",
+        "status_text": "Apartment for rent",
+        "marketing_status": "For Rent",
+        "days_on_zillow": 90,
+        "badges": [
+          "Newly remodeled"
+        ],
+        "price": "$2,900/mo",
+        "extracted_price": 2900,
+        "currency": "USD",
+        "price_change": 400,
+        "price_change_date": "2026-06-30",
+        "rent_zestimate": 2748,
+        "address": {
+          "street": "101 Glen Eyrie Ave #302",
+          "city": "San Jose",
+          "state": "CA",
+          "zipcode": "95125"
+        },
+        "beds": 2,
+        "baths": 1,
+        "home_type": "APARTMENT",
+        "unit_number": "# 302",
+        "gps_coordinates": {
+          "latitude": 37.311253,
+          "longitude": -121.9067
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/63123d8793ac0e547f8b06a58c2fe3ef-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/63123d8793ac0e547f8b06a58c2fe3ef-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d2d57d9b6b277e843bad32e8286e94f6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/200f6c2f8acdd194ba0dae0eca795cac-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b93a2b7eaa6a8c64a98e1b9bd24ab468-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/921ce0daf094c6f355b5296d27ab6130-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b612f2e77d33f00b3ecfba421cb6bb0f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/212ba39b73e0b29363713dcb38b29d9d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e7c21e1fdf492bf2c221607bfa77fbdf-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1c3238079aba585c1fb512bc98ee9a10-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/474086fbdefbde2de90bf6bc67107910-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b40872187d514971b32e954b296cb13b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d7fd0941cb00b17ee268b7da0a0bca44-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "phone": "510-694-0517",
+        "provider_listing_id": "4ceu1uusfen2q"
+      },
+      {
+        "position": 9,
+        "title": "250 W El Camino Real, Sunnyvale, CA",
+        "link": "https://www.zillow.com/apartments/sunnyvale-ca/cherry-orchard-apartment-homes/5XjNZ4/",
+        "status": "FOR_RENT",
+        "status_text": "Cherry Orchard Apartment Homes",
+        "badges": [
+          "Gourmet kitchens",
+          "7 available units"
+        ],
+        "address": {
+          "street": "250 W  El Camino Real # 1-1213",
+          "city": "Sunnyvale",
+          "state": "CA",
+          "zipcode": "94087"
+        },
+        "gps_coordinates": {
+          "latitude": 37.36723,
+          "longitude": -122.03503
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/5ec6500ec7cf04ae5ac528ebb35e52da-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/5ec6500ec7cf04ae5ac528ebb35e52da-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b130d05c660511f10e020172f56e8818-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/be6256d080e6672232ec498ec64f1825-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b438ed5ae78ad191e16a424be242dd4e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/af897e96a16ba6ff08d9aa99e2c822a8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2aa6340743ba29dec8bdf3871b402043-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f702b30009512b1f42f00fd08ca49eec-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f3fefe93b7bf9c48f8d34e8f5798f793-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9a4eb89f7da8ff284453d798049dbce6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6abcb565efdf500d941b1c480bded658-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4c2d9310322b5d19fd437dd6176b623a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9a5920d7655c21f57d49ff88525c24ad-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7b5a9306f4313f52017717c39c0f94de-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/130fbf10c80ad13c6c955290244d758b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3a3fa9101673202631a8a4b35d77fdcf-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/00acb72d9d00b43b027b11b10cfdf283-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "Cherry Orchard Apartment Homes",
+        "units": [
+          {
+            "price": "$5,055+",
+            "beds": "2"
+          },
+          {
+            "price": "$7,045+",
+            "beds": "3"
+          }
+        ],
+        "available_units": 7,
+        "is_instant_tour_enabled": true,
+        "lot_id": 1001472880,
+        "phone": "408-478-9063",
+        "amenity_highlight": "Clubhouse",
+        "provider_listing_id": "1n1bbqygauh7n"
+      },
+      {
+        "position": 10,
+        "title": "1821 S Milpitas Blvd, Milpitas, CA",
+        "link": "https://www.zillow.com/apartments/milpitas-ca/the-harlowe/CmQBkq/",
+        "status": "FOR_RENT",
+        "status_text": "The Harlowe",
+        "badges": [
+          "Modern perks",
+          "Special Offer"
+        ],
+        "address": {
+          "street": "1821 S  Milpitas Blvd # 467",
+          "city": "Milpitas",
+          "state": "CA",
+          "zipcode": "95035"
+        },
+        "gps_coordinates": {
+          "latitude": 37.408268,
+          "longitude": -121.89167
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/1838f8edbb4b8e08d84ebe2e7a264af8-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/1838f8edbb4b8e08d84ebe2e7a264af8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/eb7987f7c5ee2f9fdd5464c2be3edbf1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bfe8e5b1273cee18624f3195afedd694-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f1b879f3b169a644c872ad878d97d58b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/295a379cc2a4dac8f419ab065b39fa19-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ef172c82856f80d983cf1a8f3c0e15af-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8c3b301e7507862280ddca7437221230-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b4477301ad0e5accd0f859bb76d0dc26-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3dae6faf53305d31293354e5aefccdf3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/db03b32b5ce982db1101cd10a1303f98-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4a7d0cecb3dab456d525c60f11799cee-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/483b4ef48a95355a39fbfbd6c1944acf-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/854c52626b54f2d38e579e9736bcab20-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ea0d47033f669c79c22e964d6a643e47-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0074882b6660cec10535eb5ab1441065-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c1c47a279a9b43bca442eb855467eb2f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/194f03b6b20f5abf3ca5b373f354610e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f3d0b3cebff3b587471452e9f6a65cad-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/25d0f579dc0e691255ab07d9b189e4d2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/518b38e2084b2ea1e810cf45d2cf2a45-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f1971692d686bc0f1ada186fc536cec6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c047aeae2f224a01956281e7fce2f687-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/01b728eea8bfbc8ac5d5dc732762dbd6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/878f013033b944b8c6e73c1277822e9e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bec7422abdebfe194275e9fd3040806e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0ec9bf4135e816c2b83d5774936fb514-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/631595ccc903250b142eec80ad9572ac-p_e.jpg"
+        ],
+        "has_3d_model": true,
+        "is_featured_listing": true,
+        "building_name": "The Harlowe",
+        "units": [
+          {
+            "price": "$3,188+",
+            "beds": "0"
+          },
+          {
+            "price": "$3,336+",
+            "beds": "1"
+          },
+          {
+            "price": "$3,995+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 15,
+        "is_instant_tour_enabled": true,
+        "lot_id": 2757948870,
+        "phone": "408-716-3485",
+        "amenity_highlight": "Pet washing station",
+        "provider_listing_id": "442q6sg0mz4jj"
+      },
+      {
+        "position": 11,
+        "title": "970 Meridian Ave, San Jose, CA",
+        "link": "https://www.zillow.com/apartments/san-jose-ca/tanglewood/5XjQP3/",
+        "status": "FOR_RENT",
+        "status_text": "Tanglewood",
+        "badges": [
+          "3D Tour",
+          "Special Offer"
+        ],
+        "address": {
+          "street": "970 Meridian Ave # 431",
+          "city": "San Jose",
+          "state": "CA",
+          "zipcode": "95126"
+        },
+        "gps_coordinates": {
+          "latitude": 37.30858,
+          "longitude": -121.912735
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/abe07ace8b0952a2c30a24867256950a-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/abe07ace8b0952a2c30a24867256950a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a627739de950817076b77f3fea053d3b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/27c0947a3abe4dd36b86bf43bbc8a1e9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6288aef585e777141a751ac6239b77e9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/57f40c10940cbddaafb76887eac3f833-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/21259744a321e528e18c27dc09d174ea-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/019aac1741cb3bc65120b860b046b14f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/23f748772ff5187484bd12075528df12-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/653918568f99bfb16283062234c67446-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7a3763b24e18998c63896ffd9d00f721-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e54e6dbc07ea8b876071ecd5b6d61ca5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8f0b692947427580b177c110bd9f54ac-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/89ce444a29ae9b9abe448ea85531fdc0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/92ceba12356122e47f74507cc463e95c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/af09ff0f9f36d3cced8e238bf6f64259-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/84a19f8019329f7293c4442912ebdb50-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fdbc43aa0a86f78665641cd686f3edc0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e6afa410c7f052a05a5c55ba5343e8cb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f245c151b526deb6cff3fa0ca9018dd8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ef5b0fe8e600760baac2f54adc25a45f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f609fb9af27753c5ec11cd4d39b9cfc7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/829536c8911981a68861dcb4e06c9795-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/81ef63b237f17c7092fd4a1a5c62f2b9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/52eae4a302ebcb50b1727b1ea9d2046e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3bc2e514f0da4c0a6a70944c40fed524-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b663426f2aec155f3a32ac2fcc4a6b6b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7ec2c51fdc334ff45787a31623293d03-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e657f7ce97e39ab4213f33be35879560-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/12df11e3430911ef3f403f426b6b9f33-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b761da087e3d0443cba5ea46604545b5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b5e182a4bfdaa3a5e73d193ea3cb08d2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b4fa9f5eaa77b7e2c780adc192f3ba20-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0324ada84b3a5f7701298fb5fdcd7ad6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/443ab866e654238b49ab8e2b409a7f5f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ad1dca1c18774592d9d006391c42c593-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/06ad7e9b7a0c5ab884e0302f3b07c177-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f44ebb81fbb36fa0b19e93b7bb5cfa49-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9a221fe28173bca9f42177746fa6af8b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fc5749492b49c53f3ce86939dc97f4ab-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c70ddf41fe310650c7decc202610c282-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/50a066b1f02cf3aff881ee4dc44e667c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d5832a4afd7a3df577d02f6041d5f40a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e7a343baf7bcbb2d89459d952ac49519-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e0e107601bbc378385a4885fe8577577-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2029c549e528cd5659f54ccec90dc05c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/71440cc385d2857c683842900ed2f9c6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8701bec435ddf0a218e1e73e190b7de1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/478f1293484de26c62051c700e8ab9e1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5785469b0412f96ddec44aded91d43a6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3c1446da5a05147c5d209a020b7aaa69-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/be17a2e01e1199cd42c638f5b6c2affb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5dd29919c9e2513534483277c85a39c8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/50eccb851451923740f8ba45fb1bfdb3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f5ee873b2de1795b236adade698f9cc6-p_e.jpg"
+        ],
+        "has_3d_model": true,
+        "is_featured_listing": true,
+        "building_name": "Tanglewood",
+        "units": [
+          {
+            "price": "$2,695+",
+            "beds": "1"
+          }
+        ],
+        "available_units": 2,
+        "min_base_rent": 2695,
+        "max_base_rent": 2735,
+        "monthly_fees_included": true,
+        "lot_id": 1001477240,
+        "phone": "669-231-3386",
+        "amenity_highlight": "Clubhouse",
+        "provider_listing_id": "48a0bswy21328"
+      },
+      {
+        "position": 12,
+        "title": "1070 Foxchase Dr, San Jose, CA",
+        "link": "https://www.zillow.com/apartments/san-jose-ca/avana-almaden/5XkHJc/",
+        "status": "FOR_RENT",
+        "status_text": "Avana Almaden",
+        "badges": [
+          "Special Offer"
+        ],
+        "address": {
+          "street": "1070 Foxchase Dr # 219",
+          "city": "San Jose",
+          "state": "CA",
+          "zipcode": "95123"
+        },
+        "gps_coordinates": {
+          "latitude": 37.252674,
+          "longitude": -121.87289
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/b8329ee3b7617cc5c687bf07a89b13d3-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/b8329ee3b7617cc5c687bf07a89b13d3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c62d1929778e5609fe7d6ccc5fed4161-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d38f3048821a5a99b617983e3debefb1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0f25ff876c3a7586544e9f1714e9321d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b93dc1ddf5fdaa38f67693d389317878-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/32f27cbbdcc569a5d383f40be19d4ae4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/01729148532953e7118b7b1d88d1d339-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d2c51d8e22d094b71cf54e766e6a86fd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/94246b16e0e3858deacfc0e42f8d9841-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/24e6d175dbe9481681870382e9c53857-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1a08c61c0b39ddfd3e9da58de45467eb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/173f00b765ae70b96403ca70e38bfe41-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ee797348196083d53d44b99666111a3b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/37491ec4af57e6b7d5a9c3d8942c4d3d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3cbc16468494b9d9b8eba60112d66993-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4e475bd3be73444239591ffd23fe935c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7a68fb1d958079e39c5513bc95a4b2ca-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0a3a85b69754812564b33fdc5567f065-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/02ad82c60a18dc96c501c6ed6501ed8d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6d0feb3d52f7b19539ac23d3916ab4ba-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/66ca2551c5dd0a1f41d397ef0de00323-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/77c3bed41b51e8d0283da8f3a5201143-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2d33298270783e73de31c2b2603871d2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5a80c82057d31c727642a149ecea33fa-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ec38d8e57111570ebecce47b45b18e65-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0632ef89584a586364a33a024f491177-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/183790eed573ecd90dd023b86813a4f4-p_e.jpg"
+        ],
+        "has_3d_model": true,
+        "is_featured_listing": true,
+        "building_name": "Avana Almaden",
+        "units": [
+          {
+            "price": "$2,902+",
+            "beds": "1"
+          },
+          {
+            "price": "$3,301+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 13,
+        "min_base_rent": 2864,
+        "max_base_rent": 3566,
+        "monthly_fees_included": true,
+        "min_required_monthly_fee": 38,
+        "max_required_monthly_fee": 38,
+        "is_instant_tour_enabled": true,
+        "lot_id": 1001577866,
+        "phone": "562-457-6918",
+        "amenity_highlight": "In-unit laundry",
+        "provider_listing_id": "3j4thqnx2qjb"
+      },
+      {
+        "position": 13,
+        "title": "717 W Julian St, San Jose, CA",
+        "link": "https://www.zillow.com/apartments/san-jose-ca/diridon-west/CgqHJz/",
+        "status": "FOR_RENT",
+        "status_text": "Diridon West",
+        "badges": [
+          "Updated today",
+          "8 available units"
+        ],
+        "address": {
+          "street": "717 W  Julian St # 427",
+          "city": "San Jose",
+          "state": "CA",
+          "zipcode": "95126"
+        },
+        "gps_coordinates": {
+          "latitude": 37.333794,
+          "longitude": -121.90652
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/716d13f98d9d4a5a62e0359acf88343d-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/716d13f98d9d4a5a62e0359acf88343d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2ec951861bebe2e387ea2df72db77828-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/06af7f1ed674b1253675cc8b82f3e080-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/36e58fb8b2f1e2814ea318d11133d5c4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b0f4c64d71b67f528218225f6d15f129-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7b64515af9f690b08e4af6657626e606-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b142106f25d55604acfd1c1782aa71d7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4076275c09a21f984395eafa776a54e1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/be0f674991e4564d46e04894e8087f3a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5c452aa4ec40da6a55ab5d374f27f0b9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0e004d87956e5e244e73a101a3bd7f7f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/596472f0655575400866cc1869c4ee00-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a4587981abfc45ae425c8e933d481e37-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a472791c59e80f176a08fb10eb66e838-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1be09d28182d8ac2f2198e2ddd437e5f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/70d037e8361612c06557e13ffe9175fa-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b8d942d59bbab1ef1f88affaee58b77b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7f5de11418c58b4b6f64d3055d6402e1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/97d95eb9c10f533fbad587c080fad303-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d2a00406d2c9babd85264754b0459ead-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6c063b780c21eff67c85216f84709519-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1873c0abdae9dcc52e2d1315c60759bb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5b2b556fa06e67bfa88047ef5851cd01-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/390618df212c6f5e666e2d5385ab3785-p_e.jpg"
+        ],
+        "has_3d_model": true,
+        "is_featured_listing": true,
+        "building_name": "Diridon West",
+        "units": [
+          {
+            "price": "$3,521+",
+            "beds": "1"
+          },
+          {
+            "price": "$4,795+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 8,
+        "is_instant_tour_enabled": true,
+        "lot_id": 2737253581,
+        "amenity_highlight": "Clubhouse",
+        "provider_listing_id": "zsgttew81967"
+      },
+      {
+        "position": 14,
+        "title": "250 Brandon St, San Jose, CA",
+        "link": "https://www.zillow.com/apartments/san-jose-ca/river-view-apartment-homes/CkQbR2/",
+        "status": "FOR_RENT",
+        "status_text": "River View Apartment Homes",
+        "badges": [
+          "Large windows",
+          "43 available units"
+        ],
+        "address": {
+          "street": "250 Brandon St # 6-401",
+          "city": "San Jose",
+          "state": "CA",
+          "zipcode": "95134"
+        },
+        "gps_coordinates": {
+          "latitude": 37.402428,
+          "longitude": -121.94297
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/94618ec8dfd7f5c9736175dd79025c42-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/94618ec8dfd7f5c9736175dd79025c42-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1bb32bf45d745aa26752475bad3c557e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bdcd8402c691e66e7d54ff0bf81fbbdc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/727c042d152c39eedeb391a2c034ad9b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/554cb6abcfd63c6dd1c206e1de9c1dfa-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4b6dcb965be448bf69426cb506fcb04f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9c07d4484774f8e4ff1ba68cb0dddca4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2ab715f4bb90e632fa2106affe2673d0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0a9ce15e0df1675ad36565c7babfe26d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1e23dcdc46fdd3be028dd7eaec5f1b56-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0e8d36e308bda5f8f56f7c503194c442-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3fc61f1ac14c6306f3400103050dac2c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3ebe678b0c9582423af817988b891324-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/169a20f1c733ac2d4c1c75f0f77996ba-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/29cad0338a90701f67d33a92229a7dac-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/cdd650b566214f1fb7dcc978e62271f3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a9633dd92b73f7babb04d8ed19c1e91c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/26434de10e6b1d5757a1addbe55e173c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/55f1e45ceb435d6a4060ccb3edd00d92-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/26016f3b9275966db2d6d5074aca74de-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/40999407d10dfb94c4a725efb3ab63f8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0aea842793c4f633055fab5a180efe5d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/54d84235a1d59356d3b59ad8e25ce8ff-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/628b40f75bfb9e92d978c69ae1586b0e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/70f898fd06b2856b5ad413d1d88e6d6e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/183a7fd6ed0fc7cafa9b6fd693b3c3e5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/401cd660e6ebd23d9640906a9105984c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ce01fb545fb2275b573cd1afa7b79676-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9df0ade546fa458c3be1b33146383397-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c1a08e19eebf829539536ae25ab9329b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1cd22d30b979f8bcd2c5c640615152f8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/471da0681d6e701065ced129c183376c-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "River View Apartment Homes",
+        "units": [
+          {
+            "price": "$3,480+",
+            "beds": "0"
+          },
+          {
+            "price": "$3,680+",
+            "beds": "1"
+          },
+          {
+            "price": "$4,410+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 43,
+        "is_instant_tour_enabled": true,
+        "lot_id": 2752233715,
+        "phone": "628-299-7937",
+        "amenity_highlight": "Clubhouse",
+        "provider_listing_id": "29xnbhtretg9z"
+      },
+      {
+        "position": 15,
+        "title": "3555 Monroe St, Santa Clara, CA",
+        "link": "https://www.zillow.com/apartments/santa-clara-ca/monticello-apartment-homes/ChVZXG/",
+        "status": "FOR_RENT",
+        "status_text": "Monticello Apartment Homes",
+        "badges": [
+          "Updated today",
+          "40 available units"
+        ],
+        "address": {
+          "street": "3555 Monroe St # 5-554",
+          "city": "Santa Clara",
+          "state": "CA",
+          "zipcode": "95051"
+        },
+        "gps_coordinates": {
+          "latitude": 37.368004,
+          "longitude": -121.99322
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/cbcb83581fb8cf3bd08b93c18544efd6-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/cbcb83581fb8cf3bd08b93c18544efd6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a3c5912f15c46c7facb1da9a2d04a89d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/931574d3c3b82e2222f104017ebb5b37-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/664779c2c012fe453991ca617965ce29-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/19c76daf69dfae7da5866f64369fc57d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ae48bb6571788cbbb9dcca095c152e31-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a71c060566ecc5bf3b29cd4b09c620a8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/14e2c5942d2c656660468437b7f349b5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c6e3052936f21400414896d810b3a58a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/885d8edf91717f94a3d06fc05ff666f7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8ac447e738a383b14bc9df6528f01060-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f723a2efcdcaaa11c5be70396911ae12-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5e5280feaeb284cda91b0a4128bde069-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d8c1b803d139c1d39e1089673000f442-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5b53d69fbaa6f3f2f43f9a127296b2d8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/967a05df191398366c4f6012af43f34c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/07a6559d0e150b8a8147bb16671675aa-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7bddb71338f418c1cd742b59ad07812b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/cb0d5a06270ea930233810277f181b78-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "Monticello Apartment Homes",
+        "units": [
+          {
+            "price": "$3,820+",
+            "beds": "1"
+          },
+          {
+            "price": "$4,910+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 40,
+        "is_instant_tour_enabled": true,
+        "lot_id": 2741172565,
+        "phone": "408-684-0935",
+        "amenity_highlight": "Clubhouse",
+        "provider_listing_id": "29qnxcstfkxk9"
+      },
+      {
+        "position": 16,
+        "title": "498 Boynton Ave, San Jose, CA",
+        "link": "https://www.zillow.com/apartments/san-jose-ca/renew-4ninetyeight/5Xxkf5/",
+        "status": "FOR_RENT",
+        "status_text": "ReNew 4NinetyEight",
+        "badges": [
+          "Surrounded by lush landscaping",
+          "1 Month Free"
+        ],
+        "address": {
+          "street": "498 Boynton Ave  # 1-16",
+          "city": "San Jose",
+          "state": "CA",
+          "zipcode": "95117"
+        },
+        "gps_coordinates": {
+          "latitude": 37.317966,
+          "longitude": -121.96519
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/0879b9bbabf796da08e6d9fbd44f9be0-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/0879b9bbabf796da08e6d9fbd44f9be0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/92d211bed363737bec3cb9ac3318e91a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b6151099874d50717fd2871f537675d8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8c31a8b937821f6c00eb8027ef31b3a7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2ed4c055d5964a387be98dea3cc4d232-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/80187fd3bcf43700b4710572dc5e6de6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8e8412a093ecb6233190dcef2c01d978-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/300c5a80f153cec47cf714aae0173d85-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/013539a12616122ca5ee096a81900ee9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5c995d896eadc2e82037783a372613d7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4fd9e81d278924c5f1c49269b8852e10-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/be3ac84d50c57a07cc6814a84e25129b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3a7af85a8b697b1c102ffcc64db0671b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bb828a584c0ccec562f16267bf21366a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/06e765896cedcda81ffc80a3c6ede774-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e7b808d666dbbbd28cd34b503d359ea4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a7a22dd4452e3104058f7cfe289d9d3f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d381783bd27531653a3acd7863e7716e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9d8f993d9bb5a4fecad112615e97c735-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a6046aa2f49bb9cdc5e2e2a54c319234-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6f6771a18d5f4e2681d2a0957d901ca7-p_e.jpg"
+        ],
+        "has_3d_model": true,
+        "is_featured_listing": true,
+        "building_name": "ReNew 4NinetyEight",
+        "units": [
+          {
+            "price": "$3,079+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 4,
+        "is_instant_tour_enabled": true,
+        "lot_id": 1002810434,
+        "phone": "209-391-1684",
+        "provider_listing_id": "1wvpfd3r3v6vs"
+      },
+      {
+        "position": 17,
+        "zpid": "454862495",
+        "title": "The Flair, 5475 Prospect Rd #75-102, San Jose, CA 95129",
+        "link": "https://www.zillow.com/apartments/san-jose-ca/the-flair/Cjf8fR/",
+        "status": "FOR_RENT",
+        "status_text": "Apartment for rent",
+        "marketing_status": "For Rent",
+        "days_on_zillow": 31,
+        "badges": [
+          "2 Weeks Free"
+        ],
+        "price": "$3,150/mo",
+        "extracted_price": 3150,
+        "currency": "USD",
+        "price_change": 155,
+        "price_change_date": "2026-07-31",
+        "rent_zestimate": 2524,
+        "address": {
+          "street": "5475 Prospect Rd #75-102",
+          "city": "San Jose",
+          "state": "CA",
+          "zipcode": "95129"
+        },
+        "beds": 2,
+        "baths": 2,
+        "square_feet": 1050,
+        "home_type": "APARTMENT",
+        "unit_number": "# 75-102",
+        "gps_coordinates": {
+          "latitude": 37.293026,
+          "longitude": -121.999084
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/0f54be58e44c4f8e6bf3dd8f9bd4dc83-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/0f54be58e44c4f8e6bf3dd8f9bd4dc83-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/420350e46a93c865cb476fca7bcc7c9e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/99947e0415820b4e0863ad2996dfffac-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/389854d607a1ca19bf642a917aafabfb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ef428af097d023e8d9207fbff1bc441f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b40373d2429b0dc811e21d0b6792e469-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c987e06c74daaabe421cfb7ce3aace3d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/17440a4dbdedc55fe352f6b1d095f45d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0efe6f0e07265ce5c28a1012a56347d0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5d8d33d581b48bb7bc6694545d06a33b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fc1eaf40abfa971319bcbb2107aa378d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/95000da0023b1766635e9ced56c140f3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/78ef9ac61ab463b9e6a7fd02e17d196e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/715a949a9597f7cc273b9fa3b6eaabc3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/294e99ffef69dddbbb2c21bac9c946c8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d001098de8d9b0c6f6d79e1fd6ac6d12-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/dcf048f9ccb536c19b0ca1b426af4b52-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3ef08607b3d41e394592bc3dc6259e37-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b80dd0dbd4b5dc62eae2fc7329ec0683-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4086f9668833d265ee296f00d66277e5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/88c2b35fd72bf0d48315f82fa1469135-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "phone": "408-609-3698",
+        "amenity_highlight": "In-unit laundry",
+        "availability_date": "2026-09-04 00:00:00",
+        "provider_listing_id": "2qqcbxcf9jtp2"
+      },
+      {
+        "position": 18,
+        "title": "190 Ryland St, San Jose, CA",
+        "link": "https://www.zillow.com/apartments/san-jose-ca/legacy-fountain-plaza/5XjSM3/",
+        "status": "FOR_RENT",
+        "status_text": "Legacy Fountain Plaza",
+        "badges": [
+          "Modern finishes",
+          "2 Weeks Free"
+        ],
+        "address": {
+          "street": "190 Ryland St   Apt 5217",
+          "city": "San Jose",
+          "state": "CA",
+          "zipcode": "95110"
+        },
+        "gps_coordinates": {
+          "latitude": 37.340946,
+          "longitude": -121.898415
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/b9026c17e0881fba332ea011ba46f4b4-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/b9026c17e0881fba332ea011ba46f4b4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d35599f101130c5e894e41ae3bdea010-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1a0e98ee30826e5f58bbffa4aff5859b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/50de1b31f7b547cfb1a75933c7aba0a9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/49befdbe23a6c4be932b163cf051e024-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8643c4e1612c78630e5184f7c0727236-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0aae19947cd2fb010eb777e2c7d14d50-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3f4cd633416e50cebe7dbe4d2d6aaba1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3cf19c034c28979e9a6e58f424703ba2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/43a10b0952f99c10996a23a28dad3e13-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/165fe001899583892f44cc963c4cbe53-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9aaefc540c67e160e601b736629578a4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a2c50241279e6fe764f04fe2b54e648b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f97aaf549532d70967cc30ede23d85b2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b56dc12ce5ae1c13fa25ab426fd4ec74-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c253b2f687d1d027d65c5e25ea1e6fd5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e0cbbc8b7969f682c0ec859d0ad24c4a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/dca8716f195e13e954b24955dcf6f320-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/124bde59252ca849124116b165b46aa3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fe87a76f7af6477c187ef757fc3ad214-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3a0936c82b66a7ddb12f2ccd9946ac0e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3847f0d0cd2bfe7cfd8de5727a9f8c8c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bcc5f418495ecddc874f206a971f97f6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8bf5fdd4541a88e164904140751286fb-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "Legacy Fountain Plaza",
+        "units": [
+          {
+            "price": "$3,081+",
+            "beds": "0"
+          },
+          {
+            "price": "$2,999+",
+            "beds": "1"
+          },
+          {
+            "price": "$3,956+",
+            "beds": "2"
+          },
+          {
+            "price": "$4,885+",
+            "beds": "3"
+          }
+        ],
+        "available_units": 14,
+        "is_instant_tour_enabled": true,
+        "lot_id": 1001481944,
+        "phone": "669-310-3245",
+        "amenity_highlight": "Fitness center",
+        "provider_listing_id": "301az99qwua51"
+      },
+      {
+        "position": 19,
+        "zpid": "452131289",
+        "title": "San Jose - Downtown, 1560 N 1st St, San Jose, CA 95112",
+        "link": "https://www.zillow.com/apartments/san-jose-ca/san-jose-downtown/Cm5hgH/",
+        "status": "FOR_RENT",
+        "status_text": "Apartment for rent",
+        "marketing_status": "For Rent",
+        "days_on_zillow": 466,
+        "price": "$3,749+/mo",
+        "extracted_price": 3749,
+        "currency": "USD",
+        "price_change": 18,
+        "price_change_date": "2026-05-21",
+        "rent_zestimate": 2474,
+        "address": {
+          "street": "1560 N 1st St #9610",
+          "city": "San Jose",
+          "state": "CA",
+          "zipcode": "95112"
+        },
+        "beds": 0,
+        "baths": 1,
+        "square_feet": 300,
+        "home_type": "APARTMENT",
+        "unit_number": "# 9610",
+        "gps_coordinates": {
+          "latitude": 37.364902,
+          "longitude": -121.910805
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/92a25a7059a56cad24631c528f9704ea-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/92a25a7059a56cad24631c528f9704ea-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a87704ec4b24447502565aa7f625168b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2486e5a8b5e2ee6dfd12710b149a8347-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fc033aecd08a240d508da35e1f934bc5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ffdcd9de0ed33b07bab780afe7ca572e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a56e677d59da1d5ed726e22639555e19-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/881e96d76b80513bf4dd8f1a84ce76ca-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6139b6502972fa44ccf05d8b5f23c864-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/341d3fc539d23492fa7088381a4a3777-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6e01056a7f9f4b9e456e75533cc50167-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/52c5917c58bc785f910c639e27b6f335-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8b7ca81e7d0d437064b94d7097c24d21-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6bfb8d7a95ed28083cb8dabbac1dd8d4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b26f428485d91d4d754c69b1e973a726-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7ecff70c7696f898f3d0164e69c51212-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/92b7568053cccd7b2fbc52956e5de509-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2f161108d409b3852d64af3985dccddf-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/132db3948c38a047d42cd84e0a4cb03f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/acec8320bbcb9277067222d130de251b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/10994875f0ed8545677e8ddf379747a2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a20684b008319bc1422519ed11128985-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fbbc23f3e32b9e5eb845b86a740c3536-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/08a16d54cb40a0c746ad47cfd97e7ac8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d50d7e5765b9bb46e2f14f1c33f88263-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ae0b098929be178d9df596fde1ca9265-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3e558870e3ff3a40fb3ae36ebf1ebbf6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/39ffc7df53c44320f3834de6cd5fd7b0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/383455480ae393c4c26a02dc7c32770e-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "provider_listing_id": "2hey1gbwrtw7y"
+      },
+      {
+        "position": 20,
+        "title": "3507 S Bascom Ave, Campbell, CA",
+        "link": "https://www.zillow.com/apartments/campbell-ca/sedona-lane/5Xqy6F/",
+        "status": "FOR_RENT",
+        "status_text": "Sedona Lane",
+        "badges": [
+          "Heated pool",
+          "Special Offer"
+        ],
+        "address": {
+          "street": "3507 S  Bascom Ave # L-5",
+          "city": "Campbell",
+          "state": "CA",
+          "zipcode": "95008"
+        },
+        "gps_coordinates": {
+          "latitude": 37.262615,
+          "longitude": -121.945786
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/2596c2981b5f21ae25ca81b637eb28c7-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/2596c2981b5f21ae25ca81b637eb28c7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8bdf762c36fc10f32dd2d7599b6017c1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8fa146b11dc7d434a7bd1cbdb0877caf-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9ab0900e2803e707956a324a2a731e91-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3cccd9b43e2a45624cf7da7e2d9caca9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2154cd9090f1aa5c08ca765039dd08fc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/985f301cabf25c2b9f2e8b517f746f95-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4f25d1714926128128cc162bcb8ce3cc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c2e89a2b312961cc6949dbd1e5269e42-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ed18216fc66a9d8f675af95cd11c94a7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d88a7ffade193505de625a62e4840dfa-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d745a126b48d05ed57b198f24c50bb6a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6679c7a628803034bb80af1476346a14-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "Sedona Lane",
+        "units": [
+          {
+            "price": "$2,700+",
+            "beds": "1"
+          },
+          {
+            "price": "$3,100+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 2,
+        "lot_id": 1002129587,
+        "phone": "669-356-6552",
+        "provider_listing_id": "zthf63kkp72"
+      },
+      {
+        "position": 21,
+        "title": "2388 Madden Ave, San Jose, CA",
+        "link": "https://www.zillow.com/apartments/san-jose-ca/aviara/5XrqK7/",
+        "status": "FOR_RENT",
+        "status_text": "Aviara",
+        "badges": [
+          "Picnic and bbq areas",
+          "Special Offer"
+        ],
+        "address": {
+          "street": "2388 Madden Ave  Unit 112",
+          "city": "San Jose",
+          "state": "CA",
+          "zipcode": "95116"
+        },
+        "gps_coordinates": {
+          "latitude": 37.36187,
+          "longitude": -121.84417
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/9a5421e5554816b8ec17cbca26c5fbc7-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/9a5421e5554816b8ec17cbca26c5fbc7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b500fc4efbd076bc140b9fa2d0e3218a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/cde8f2721d9d53aa5a36f5564f514e56-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0d924612f991b7fb0a6d3a12e34debc0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/74b125d7eb6b55fb01d191b87fde85cb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/831fe3482fe648b5c7b1cebfad074833-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a3a95df4fbb3189a1ca6213011aed22c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/85d6e44f833c8b00753a64da3fc92414-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7580bb6116e86caaeb5bff9363c7d252-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d15ce116b3d26b1eae9d0ad5fe3635ba-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2cbc2369f5b5fb74aba6fa59b1989235-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/dbd746f2834c655042392fa7b6371bc9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/52be2651ae4b4b240de43c29776cadda-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8d94fe3e9835bdf31cf6c6fa51b9f01d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/766ac3e32d4a650d28fee48c494f9552-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fea5af67829d59021d9cb9311eeca126-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a7ba3a312fb1fdbdc2a6069a93a31153-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d47da26bef84e43cf684b40bb5cdb948-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8e956154fc419130b88a095f789a72c9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9d47231a47675e2058d31becfecc8d47-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/eb538625ff333913bd939cf1eb2caf93-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7dd5578161d15a55ea6aba59576c3b18-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a963b281653169ce414581c14a394387-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/11870f0f2c2eac9b85faf87d0952e699-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5d9bcd2ff1f3b17c7d5433b17760e5c3-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "Aviara",
+        "units": [
+          {
+            "price": "$3,420+",
+            "beds": "2"
+          },
+          {
+            "price": "$3,995+",
+            "beds": "3"
+          }
+        ],
+        "available_units": 3,
+        "is_instant_tour_enabled": true,
+        "lot_id": 1002230962,
+        "phone": "408-637-4910",
+        "amenity_highlight": "Fitness center",
+        "provider_listing_id": "4dmw5n3vegasv"
+      },
+      {
+        "position": 22,
+        "title": "19500 Pruneridge Ave, Cupertino, CA",
+        "link": "https://www.zillow.com/apartments/cupertino-ca/the-hamptons-apartment-homes/5XkFWz/",
+        "status": "FOR_RENT",
+        "status_text": "The Hamptons Apartment Homes",
+        "badges": [
+          "Basketball courts",
+          "12 available units"
+        ],
+        "address": {
+          "street": "19500 Pruneridge Ave # 138361",
+          "city": "Cupertino",
+          "state": "CA",
+          "zipcode": "95014"
+        },
+        "gps_coordinates": {
+          "latitude": 37.332542,
+          "longitude": -122.0128
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/c5ed7787fdf136f2485b516bfb6128ad-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/c5ed7787fdf136f2485b516bfb6128ad-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2a110002cb7f3d4eeb3d09a845f924df-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/652e5ffa9642f299b043de2ad11b2dc7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/aa5db0f5aca091876eeba84cbb0c6e14-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/19ea953a522cbc83b37064c6b309dd67-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/49545137ef7ccb29d78e4d4cb9005558-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6f7235ca07c604c33c57b8c543df5801-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/402a39a8bac59b8a015b9f9d2e63aa4b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/679ea6113d3430c964c27034cc3c3a92-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e83e930753fef397a77ee669b22334dc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ef6e7750720773c15f1051ed8fd8d074-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/eb76e39cbaa0ddacfe95069b4c69726d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6580dfa3f267c6d35b4641cb59c5585a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b37dc4a0f84481076ed19aa53a8b5967-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d0f522dd1fb988f2f22120a4fc1d937e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4b86d370d6f2edc534a9d97bfbf33f17-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d94f2b9508adb2a22f98b816472f1b6f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d386860f0f28079e2b0188692c2d77bc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/627eff3d913ed416ff1b4d4106fc4a7b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8fde12f846d8582c1f371bbc5dd3ea1b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/63ef19eb1e26b8229b94ae8708239c92-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c6a27aaa18c0f0fdef320be74d9b25f1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/89003ff36e9f09fbf3ecbbd69df7d619-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5a4fe568196c888727fe3ad184438ea0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/48b9528639d988a7f227841099e618c7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/877208b2f400127271aee79a120888c2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/308af2cd3bbdc18965e21d8c7736fec8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f794ed1648690ab0af76eb2e2745b910-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "The Hamptons Apartment Homes",
+        "units": [
+          {
+            "price": "$3,970+",
+            "beds": "1"
+          },
+          {
+            "price": "$4,370+",
+            "beds": "2"
+          },
+          {
+            "price": "$5,675+",
+            "beds": "3"
+          }
+        ],
+        "available_units": 12,
+        "is_instant_tour_enabled": true,
+        "lot_id": 1001573621,
+        "phone": "408-477-1646",
+        "amenity_highlight": "Business center",
+        "provider_listing_id": "15uavcrh31msq"
+      },
+      {
+        "position": 23,
+        "title": "10100 Mary Ave, Cupertino, CA",
+        "link": "https://www.zillow.com/apartments/cupertino-ca/glenbrook/5XkGB6/",
+        "status": "FOR_RENT",
+        "status_text": "Glenbrook",
+        "badges": [
+          "3D Tour",
+          "$1,000 Off"
+        ],
+        "address": {
+          "street": "10100 Mary Ave # 5107",
+          "city": "Cupertino",
+          "state": "CA",
+          "zipcode": "95014"
+        },
+        "gps_coordinates": {
+          "latitude": 37.323204,
+          "longitude": -122.046135
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/b06cb1b58bd2b837fb4c4320bbf9fd9f-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/b06cb1b58bd2b837fb4c4320bbf9fd9f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6ec23104c8028d45dac29bf713230173-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5ee8345972d4fade8bdcbc9480a664bc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b83919bb6a66cc49ff2f41c195bd7ac0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2c4c69c1c34b753452ad965d2876983c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5eccd2015f78ebeaa06c3edd7beca0d1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/38f9c7dab6489e6082167d09af8206e9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/521fa137f00524f64ad870b43d6f4c1a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/84b150937a416bb3442128f0b6fb60da-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d3efac51953aaa4de2e3ba975abafb3b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ab8de50d29c62bdaee46976dd6ebc024-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c6a409a4f31a1a21d7602e2044a4b193-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0b06342b8f09ac9ba9aa6a141b0345ed-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/67771fc9aee7e50b1af3163a0771f29f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9050e0957eb1c25f58f37368cc3d4fc5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9a6e4665cb9be2eb4b802ec6ffb18a60-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b0419b6852e44a5511b2211c7d6b7f60-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d892ecdb8502e606cbd12001f418dc46-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bce83e8a818c336c2247e6e6ec7654d9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b23bf2e9b37927e4a725ec9f8f3f75c3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fc4350137459b5c9e79cd261540885c8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4d6a8b9204125cfecaa90626ab8b80d9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5e060060164f169b45eacc5939c08ca6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2707865b29d35383ae77a70de1be539a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f7633a5ac0f4d3f14affb71d62af6abd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/cf7e4db3694c395fb9deb89a3c33e428-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/03c7465a726cb49bbe09d69ac0dfb953-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/41e1397ed7c40c47c6b62fc762c65f7d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4b1e15b93224cb82f7287fd7860a0eec-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/72d66d85bb7236db66b07415e8414614-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8f9d52cc48a14714324b580a84b1e1e8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c6aced61e69f2cf1d810033ec3baa9c0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3dc535751c89a901707cbc2b0b0d4249-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6d9f8525119ce1321286d776ec8079d2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/615c6004c4b30194ad0d12408144d06f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bdbb658010ac1b9def5453623d8b9892-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b3203a3f049de9c94cca50e7800e606a-p_e.jpg"
+        ],
+        "has_3d_model": true,
+        "is_featured_listing": true,
+        "building_name": "Glenbrook",
+        "units": [
+          {
+            "price": "$3,445+",
+            "beds": "1"
+          },
+          {
+            "price": "$4,545+",
+            "beds": "2"
+          },
+          {
+            "price": "$5,695+",
+            "beds": "3"
+          }
+        ],
+        "available_units": 21,
+        "lot_id": 1001575145,
+        "phone": "408-477-1602",
+        "amenity_highlight": "Game room",
+        "provider_listing_id": "5fhy2q39c73tp"
+      },
+      {
+        "position": 24,
+        "title": "28 N Almaden Ave, San Jose, CA",
+        "link": "https://www.zillow.com/b/modera-san-pedro-square-san-jose-ca-CkCPgm/",
+        "status": "FOR_RENT",
+        "status_text": "Modera San Pedro Square",
+        "badges": [
+          "Smart thermostats",
+          "13 available units"
+        ],
+        "address": {
+          "street": "28 N  Almaden Ave  # 726",
+          "city": "San Jose",
+          "state": "CA",
+          "zipcode": "95110"
+        },
+        "gps_coordinates": {
+          "latitude": 37.33537,
+          "longitude": -121.89391
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/40745fb430550c5c88425aa0254cdc2a-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/40745fb430550c5c88425aa0254cdc2a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/31f6820be68114fe2f61099842f5c11e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/eadf7b040bd397c2603dcb14d3e8462e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d727bc64397b806acfee698fa35d3268-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2554157598ec205c85a05c1789ae4442-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4476a0a02e0efd51df799ac0a649b15b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/514447041a9a71abdf559038b294ba1f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/03acfb8e1ea0b39a8796e3c877b80a65-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c9d06d131e2d1397b3e951b8f6980d2f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e42b191a7f14e6e7c51b123fd41e582a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5d2315afdac8f9b99eb70f3e99995276-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/86f41e89061006875df20a7ce97edd17-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5620070022bd4e792e9ec65472eb26fc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/12fa9eb179e3e59c472ebfb975811ad3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2d8e70c8bc1fd7f4e1c4aea779b9f02d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4f8172ff6bb3b22e06269c3155555a83-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a4755782311f448a29bb8b43cfc25ae4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/28657b7da65309b95743705e7e2715ce-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5da1bf127b6bfee894efd9c1e39ea0ec-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0dcd3f7423a23a89356d2e6476a01cdb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d6b3e216127eb1372570483c7a7d1ba2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c291511c454b3e2c1a48edacccbc1733-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/79af946655fc8b27788b7a4e20256003-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d6264a25a886f660b986c0d27ae43f92-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/926d6f82cbb3fbafffa69b12679a7b83-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/40ed5692e548f70ebcd0c32148db8281-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/976f75737ab841a20c652fd6566794f3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/166b00fa7d3fad638f0cee2c3a4f549d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/70e7c66ead75dc2bbdb068dae0f08b6c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6ab34d94778fbebde203817f69ad4029-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/215f15079cd202c9b2b60d1a1f6d5121-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d3ca9b007b6d03541bf8f8c4eb88ca60-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/cf6686e2bf6bd9210e9a463f77c98972-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d37e693bf245ca9bfa76d4e87bd82613-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/90f302dacb587961c1f2ddfc7dd62f90-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5e9619708e365df68d1b7ce511fd422b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f39da2ed2026c93dc1454d1fa4402449-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ac444c7ca0313d5441ee12d51bc1b1e6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/21999a7a2eb2880db1da3940eabea2fb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9e34cd6499d92b020f29cad71bd59dc3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/af2f0918b087ce0c9e542995c7f34566-p_e.jpg"
+        ],
+        "has_3d_model": true,
+        "is_featured_listing": true,
+        "building_name": "Modera San Pedro Square",
+        "units": [
+          {
+            "price": "$3,121+",
+            "beds": "1"
+          },
+          {
+            "price": "$3,780+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 13,
+        "is_instant_tour_enabled": true,
+        "lot_id": 2750916191,
+        "phone": "650-629-1102",
+        "provider_listing_id": "z4xh7xy7ew5u"
+      },
+      {
+        "position": 25,
+        "zpid": "2066695045",
+        "title": "Oakridge Apartments, 3655 Pruneridge Ave #E9f96cb2e, Santa Clara, CA 95051",
+        "link": "https://www.zillow.com/apartments/santa-clara-ca/oakridge-apartments/5XjR7C/",
+        "status": "FOR_RENT",
+        "status_text": "Apartment for rent",
+        "marketing_status": "For Rent",
+        "days_on_zillow": 196,
+        "price": "Contact Landlord",
+        "currency": "USD",
+        "rent_zestimate": 3185,
+        "address": {
+          "street": "3655 Pruneridge Ave #E9f96cb2e",
+          "city": "Santa Clara",
+          "state": "CA",
+          "zipcode": "95051"
+        },
+        "beds": 1,
+        "baths": 1,
+        "square_feet": 740,
+        "home_type": "APARTMENT",
+        "unit_number": "# e9f96cb2e",
+        "gps_coordinates": {
+          "latitude": 37.333466,
+          "longitude": -121.99674
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/336815fcbbc2da80967f191a7ebc96e2-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/336815fcbbc2da80967f191a7ebc96e2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4ef849340e6d5baabf8b1c5910b4e4cd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/950402b09c078fb7774446b64e050f3a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2d48ed3d7eb0ebbdad1f796f38157add-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2556f6ad9c990271e126f13d4c5a04e2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8a62911caf9e98b7eb214f601b044e9a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bad320a29fba727323efd7d970d0862d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fcf7b37d370162c00ef93189c33d5c53-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/12fb1aacaee4874846641e23c9b01342-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5861ed49b063784fa90f93fac65eac1f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/86e4fc18a97aa026ae768acd5de011fd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/da9b1757a4300ea614ef9b2783926e51-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/14d0fa5b5acdbd33521dd59b75108246-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6b4396070a7d811b8018ac4917450c4a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7b1258230e876f5ed0639d191df19bd7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0599bb5316534b8c54662472d74d2247-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/cb7f2925a41c351a1f43c2432ac7e450-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/81fd7f7e5ba10b3bb1433a1a7e636179-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/df0c3e063bfe730894b08d6bac455b39-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6d7196db3f08a104e580b0de46169615-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/82d2bdf76f25bce144d98657239435a9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7180fbaa600f15b00153fd4799f1832b-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "phone": "628-209-5524",
+        "amenity_highlight": "Clubhouse",
+        "provider_listing_id": "f5wq9zsf5tr"
+      },
+      {
+        "position": 26,
+        "zpid": "460051759",
+        "title": "Lake Terrace, 3665 Benton St #1086bbc3b, Santa Clara, CA 95051",
+        "link": "https://www.zillow.com/apartments/santa-clara-ca/lake-terrace/5XjQ9y/",
+        "status": "FOR_RENT",
+        "status_text": "Apartment for rent",
+        "marketing_status": "For Rent",
+        "days_on_zillow": 211,
+        "badges": [
+          "Serene garden oasis"
+        ],
+        "price": "Contact Landlord",
+        "currency": "USD",
+        "rent_zestimate": 3234,
+        "address": {
+          "street": "3665 Benton St #1086bbc3b",
+          "city": "Santa Clara",
+          "state": "CA",
+          "zipcode": "95051"
+        },
+        "beds": 1,
+        "baths": 1,
+        "square_feet": 841,
+        "home_type": "APARTMENT",
+        "unit_number": "# 1086bbc3b",
+        "gps_coordinates": {
+          "latitude": 37.34635,
+          "longitude": -121.996864
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/33d4a289b09a06454645306084216e9a-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/33d4a289b09a06454645306084216e9a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a5c8672c4749a35810f900580f6ddd59-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/14de6a14280126dea21c759028db74bb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9e17426ae35384c2c940f4e203ce7b95-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f0c7fd6e81c105ac9a5bee5619945b78-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9e67904abccba3a4553af35591be414e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/219c3e052f6978f12fec594f246d4940-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/28be8a28d88ce3f89ab4dff01a7769c8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a9315c01d6d0a453d9dc83528e0ae1b9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/87da2f71bf4c1ff8be19574401b3c559-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3691738ab3ef546c4f4dc8bcfc95ec26-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/de6ea6234bf6f52c8b14148ab72a7833-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7bdaf467fef95d1e0b0695e52d52a6fc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/20f979b83eea6f01a01a0de1efe10048-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "phone": "408-676-4511",
+        "amenity_highlight": "Clubhouse",
+        "provider_listing_id": "4kxzqkjbqnav5"
+      },
+      {
+        "position": 27,
+        "zpid": "460640714",
+        "title": "Wildwood Manor, 260 N Mathilda Ave #13fdad58c, Sunnyvale, CA 94086",
+        "link": "https://www.zillow.com/apartments/sunnyvale-ca/wildwood-manor/5XkHr4/",
+        "status": "FOR_RENT",
+        "status_text": "Apartment for rent",
+        "marketing_status": "For Rent",
+        "days_on_zillow": 28,
+        "badges": [
+          "Lush garden complex"
+        ],
+        "price": "Contact Landlord",
+        "currency": "USD",
+        "rent_zestimate": 3339,
+        "address": {
+          "street": "260 N Mathilda Ave #13fdad58c",
+          "city": "Sunnyvale",
+          "state": "CA",
+          "zipcode": "94086"
+        },
+        "beds": 1,
+        "baths": 1,
+        "square_feet": 650,
+        "home_type": "APARTMENT",
+        "unit_number": "# 13fdad58c",
+        "gps_coordinates": {
+          "latitude": 37.383213,
+          "longitude": -122.03123
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/f1fab3c5b9a703ed7027519f7c1cf867-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/f1fab3c5b9a703ed7027519f7c1cf867-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/82605aad07da4f2aae20cc2592c06609-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3c429642bef3679f62e2323d884e7edd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/17c25a6335c690ee58a9d1f00c353fc0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1c0e02e615442990b4b9fed763e33f73-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/55c9ae230d8d46cac799299c3e24a66a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/89338c44c50d28e3e7f6a0ff83193c52-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/92813bcb64bbe6bd9798c0088732665e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8b69bbf0a5b667f699160597e0d4808f-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "phone": "408-549-8314",
+        "amenity_highlight": "Clubhouse",
+        "provider_listing_id": "1ubuhw3cb8ppr"
+      },
+      {
+        "position": 28,
+        "zpid": "455582688",
+        "title": "Royal Ambassador Apartments, 3450 Granada Ave #0d231d15e, Santa Clara, CA 95051",
+        "link": "https://www.zillow.com/apartments/santa-clara-ca/royal-ambassador-apartments/5XjTTv/",
+        "status": "FOR_RENT",
+        "status_text": "Apartment for rent",
+        "marketing_status": "For Rent",
+        "days_on_zillow": 8,
+        "badges": [
+          "Three swimming pools"
+        ],
+        "price": "Contact Landlord",
+        "currency": "USD",
+        "rent_zestimate": 3451,
+        "address": {
+          "street": "3450 Granada Ave #0d231d15e",
+          "city": "Santa Clara",
+          "state": "CA",
+          "zipcode": "95051"
+        },
+        "beds": 2,
+        "baths": 2,
+        "square_feet": 1215,
+        "home_type": "APARTMENT",
+        "unit_number": "# 0d231d15e",
+        "gps_coordinates": {
+          "latitude": 37.348656,
+          "longitude": -121.990425
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/feba5d14e33b3ac03157c7abe5750697-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/feba5d14e33b3ac03157c7abe5750697-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0210bb4c856fe1da032eba5f365215b4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a34582a27d845f146061db62b5fdd7ba-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f26197614eea01806023e599b5b7e962-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/37d95fe7bed096e891724d38d35ef696-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/dc4af71633c27576130dc38acd9d40c5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f05c42b8a4228146774a87c1d533d0bd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/01598274ae5d35f856877676ade79462-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0ed31f9482a783308a10f2fc8da17fb0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7b958d6a9df07949e27ce90d52b8619e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/63a116ce545c0d05536ea36d6051c642-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/55062e2aee8d0bccbe18ee878be5d7e2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2fde3ec750c8d652dda5c58fc67d4c25-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e371edc612783776d6abe93664adbd0e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0864020a4118f7beee9c383a5804c7c5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f9bafcf63d6cc4a323eca36cfc0effd0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9fe7c9880bc539eb43e57f9ad8d682ba-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/de7ed3d946c9649d617ad35d2c2adce4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6e3b4214e13b0d956510af3f3e9d928d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/00424f8b247984a87648ff88f15aeca7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f83b1011e01795b501d4e26aa50ef558-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ac7cc3b016f561c11a2600bfdf72fb8c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/82061f0663393f82091bbe097a80da64-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a8abceb912847253e5e444edf2a5fbbf-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/db1b342b532395e2420ad84506bf22e1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/aee2c0974876a7b3b0b4486db9aa20a9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/197593c9449dac7360034a40e1386363-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c7f784e80edeada4deb43b533fc65c56-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e992f4820d1eec211575159da9e924e5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/566940098fc19de4a17c67d21872a345-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/47f804f6c062226a906fc26191ff14c2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b3e60ada19360719c1f7e33f664e81aa-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9ac81d1795f3e9fdd0d43e05ed49a9d7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c140f068683d3b6732200fd13d7e49af-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/af500252959b554360eef58d06d6b27b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/37d95fe7bed096e891724d38d35ef696-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "phone": "408-882-1778",
+        "provider_listing_id": "e0h8vttv48he"
+      },
+      {
+        "position": 29,
+        "zpid": "464525020",
+        "title": "Shelter Creek Apartments, 2050 Southwest Expwy #50, San Jose, CA 95126",
+        "link": "https://www.zillow.com/apartments/san-jose-ca/shelter-creek-apartments/CkM64T/",
+        "status": "FOR_RENT",
+        "status_text": "Apartment for rent",
+        "marketing_status": "For Rent",
+        "days_on_zillow": 42,
+        "price": "$2,500/mo",
+        "extracted_price": 2500,
+        "currency": "USD",
+        "price_change": 100,
+        "price_change_date": "2026-08-13",
+        "rent_zestimate": 2383,
+        "address": {
+          "street": "2050 Southwest Expwy #50",
+          "city": "San Jose",
+          "state": "CA",
+          "zipcode": "95126"
+        },
+        "beds": 1,
+        "baths": 1,
+        "square_feet": 630,
+        "home_type": "APARTMENT",
+        "unit_number": "# 50",
+        "gps_coordinates": {
+          "latitude": 37.299095,
+          "longitude": -121.928986
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/01fa9da1fa30d307a79536e9a64faefe-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/01fa9da1fa30d307a79536e9a64faefe-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5368de32f0f3c0afcef9aec869e29529-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a24e547e2088f5110d5143bb30721937-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a52ea2f750b40fa069fc06c5c1d10f4e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/05ee4c63432636b1e02d4ae28e6ccd6e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/855453c4ca8b4fcd12914b8e171046c9-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "availability_date": "2026-09-28 00:00:00",
+        "provider_listing_id": "21g7zsvkg391c"
+      },
+      {
+        "position": 30,
+        "title": "874 E El Camino Real, Sunnyvale, CA",
+        "link": "https://www.zillow.com/apartments/sunnyvale-ca/the-maddox-sunnyvale/95xGsB/",
+        "status": "FOR_RENT",
+        "status_text": "The Maddox Sunnyvale",
+        "badges": [
+          "4 available units"
+        ],
+        "address": {
+          "street": "874 E  El Camino Real # 6247244",
+          "city": "Sunnyvale",
+          "state": "CA",
+          "zipcode": "94087"
+        },
+        "gps_coordinates": {
+          "latitude": 37.35373,
+          "longitude": -122.01675
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/57d081aaf07a6839ecb2d40825d96b83-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/57d081aaf07a6839ecb2d40825d96b83-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0837da1bf4dec60d87b35886f6b0fd73-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3001354929129451b88fbb81bf6d9b5b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/52db150c78a403550ef787dc1764dc8c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/dc1480601a1e69fcdd9e4017b5b76bdb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6c7e3564b7943df466f4be37f38d1ab4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1474ef801724e5dd604ec0132f1c2ab7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d655c2e474f7fdeacaa925efba34bd18-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f2ff9af17b7b7619e91389f5c081edc2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ba0125256dd31b1f1e1e5a13d5834c73-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/36897e8456aa4af8232d3cb27ff08f35-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1b720341115d8a33094248330e6da3ac-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/03ffbe9f5747a2d8d8cdedf97192e8e9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7289d34ebcf0dfb615f04058ae710f70-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/da497e808ec7de00c19bf783bc59cfdb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/63eacc9107e006326010a043131da455-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f8243bf3b3781490abfe9e270947293e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bf67851fc1504401744fe67a2c4a1616-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/944e2f9125587676194276fab33747d4-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "The Maddox Sunnyvale",
+        "units": [
+          {
+            "price": "$2,842+",
+            "beds": "0"
+          },
+          {
+            "price": "$3,320+",
+            "beds": "1"
+          },
+          {
+            "price": "$3,753+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 4,
+        "is_instant_tour_enabled": true,
+        "lot_id": 2000063878,
+        "phone": "669-332-4282",
+        "provider_listing_id": "2n0y8xnccv10e"
+      },
+      {
+        "position": 31,
+        "title": "575 W Hacienda Ave, Campbell, CA",
+        "link": "https://www.zillow.com/apartments/campbell-ca/newport/5XjLjQ/",
+        "status": "FOR_RENT",
+        "status_text": "Newport",
+        "badges": [
+          "3D Tour"
+        ],
+        "address": {
+          "street": "575 W  Hacienda Ave # 75301",
+          "city": "Campbell",
+          "state": "CA",
+          "zipcode": "95008"
+        },
+        "gps_coordinates": {
+          "latitude": 37.270027,
+          "longitude": -121.95987
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/02d6d5db782a1f447f66b123bae79c62-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/02d6d5db782a1f447f66b123bae79c62-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/511a37cc9ee3d09d2108b1263b444764-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/db5ff9e8f36c17bf56f075008bc65ee2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e179317f1c11097e4e2cf5bea9459b68-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/75318eb60e5c3f2be19660082b4aa3a6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/50f1ee6b5791dea9cc2ba2591dbd5b2e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7c559df026466ab6408030cf48f48d72-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/84b4b9f2e064502d33fd15026e205c9d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a1f93678bc875b49e078a1e1bcfc7728-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ab8ac948021e0ed38f1f2892e4ba0f6c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/be3e675f51b0388f8680bddd8da9b3e8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/dbbe1e2dcef5e049c1321ff78ba3efdb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/69c68659cfc952a9cc9cf3d63ab166d1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c46b1d7581bb927ba746b6f677970d77-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b9c0d679363aa7dece9fd395034dd5a4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3bff4177050b09ed549a9064cf119d73-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b525e557e15c0f97ca27cde795fcf3cc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2228c9273b6875ea7ce2b523982edb20-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1ef48eae051b643ff732ca1fc6407058-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6c513793dfe0e3a82b2fb2a7b1c812ae-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c543d77e7acbd437f1a21a7d20e3906f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bdd6bbac6e787b926dca1587b7d17d1b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/da2d423c0f6cebfcabab923855f89cff-p_e.jpg"
+        ],
+        "has_3d_model": true,
+        "is_featured_listing": true,
+        "building_name": "Newport",
+        "units": [
+          {
+            "price": "$2,695+",
+            "beds": "0"
+          },
+          {
+            "price": "$3,195+",
+            "beds": "1"
+          },
+          {
+            "price": "$3,345+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 10,
+        "lot_id": 1001468439,
+        "provider_listing_id": "1qzh8zsu21qg2"
+      },
+      {
+        "position": 32,
+        "title": "201 W California Ave, Sunnyvale, CA",
+        "link": "https://www.zillow.com/apartments/sunnyvale-ca/sunnyvale-town-center/5XjJ75/",
+        "status": "FOR_RENT",
+        "status_text": "Sunnyvale Town Center",
+        "badges": [
+          "Mature trees and landscaping",
+          "2 available units"
+        ],
+        "address": {
+          "street": "201 W  California Ave  Apt 1202",
+          "city": "Sunnyvale",
+          "state": "CA",
+          "zipcode": "94086"
+        },
+        "gps_coordinates": {
+          "latitude": 37.38253,
+          "longitude": -122.02925
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/98374f58157ae4f9e8e753bc262d34fe-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/98374f58157ae4f9e8e753bc262d34fe-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ae5a031567bd24f18446493a8dc7c21b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/26d2754ae4af93f527dedba5ebd094c6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4491a9444d5090efc2f8b405e4caa082-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fe71737f1b12e20399b737fc01614503-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d10c0d77a84d113401af902f783c7900-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0c4f14f953b9c010ee8271d17e5fad91-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/376da650a1e0edebf29e6f9adfec5eec-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e51fd8097c6a93bc7edae22940f2c022-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/14a5518e4d2f71c4fb278a60ea687944-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d46c74807f3e9c16b362530c2806730e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0f6272288971d2b9fc136a5dd0742916-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1e3ee9666355dbdb511a448f7b923e06-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6f7d0eb941e7e1cbe650bcdb7a44bb89-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/253c13c9afc7080ebb09f38531a587c8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7f5ee9be6f6d8dec7f5b54f69cf551de-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f3694500dbcce8979d5ac3277a8f393d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/874519612462435ab607c5c192fb0b2d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/db3a46cf28825daf3e6543a5f0a680d8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/886d52e20bf6c1a50ab4684493eb2b0c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a6bc865f24e945d79593f92b14b9e62b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3b50e07464c498dde3beff0793b5529b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9e3e9e926c0e59a79cf109dafbddb887-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8a25d901dcb7d8d805ba06267c54bed5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9d79ccbd933527fc43f32e50d0b88d8b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a3fb2087a0e2a6ef6733583012154959-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b84202f0d6a471dbf7c596c158fe7248-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fce35f5e9749e1c6bd78141316c26e5a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6beaec173ad2cb6291af0d33ec7125ed-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d2930b29a5be73875a29104ee51dcfae-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0ab5d70c81ca2cc7dcd60e6628268705-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b08f192e0046eee0e28dbded261dee5f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/62bdabfa1f9568008db01781346d43f3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9a8e57245938bdc73393e201d8f83fe3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bdecd996cb50a900676016f82a7d7d27-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d480addbbbe625adc05cfc268cb0d258-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bf8f9aac17ca000398819d10e892ca41-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/34e3618dd379025f8f3471e887168c66-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8269434aac9fe54225cef53119d82cf5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a1a6473824a1af89407a1940538a7f17-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a2f49389398640fc770850ae0d89a9d3-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "Sunnyvale Town Center",
+        "units": [
+          {
+            "price": "$2,550+",
+            "beds": "1"
+          }
+        ],
+        "available_units": 2,
+        "lot_id": 1001462150,
+        "phone": "408-692-2035",
+        "amenity_highlight": "Patio",
+        "provider_listing_id": "4hkpr30n1p5rr"
+      },
+      {
+        "position": 33,
+        "title": "3500 Palmilla Dr, San Jose, CA",
+        "link": "https://www.zillow.com/apartments/san-jose-ca/north-park-apartment-homes/5XjLFd/",
+        "status": "FOR_RENT",
+        "status_text": "North Park Apartment Homes",
+        "badges": [
+          "Spectacular five-acre park",
+          "96 available units"
+        ],
+        "address": {
+          "street": "3500 Palmilla Dr # 1-5009",
+          "city": "San Jose",
+          "state": "CA",
+          "zipcode": "95134"
+        },
+        "gps_coordinates": {
+          "latitude": 37.407707,
+          "longitude": -121.93836
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/33c972f83afe2b6f20fc3e172dc1015d-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/33c972f83afe2b6f20fc3e172dc1015d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c32d77e56e87afe553b4690db2140a6e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fb94124926429f3671f3478f5c7a37c1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c5d9cdc2469900117678b16aae1084e3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1845d3c64da8f071d26e852ebaa45fcb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3d9a2b0ccdd9acc5ffc1ee78d7580239-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fe0edde786bed51dfc06026ad6621b0e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fc958c7e63f200af63b363db8c2c8494-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6b6619e19f206f020963fcbb988b6a09-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/34bb9ba1142cb135be768bd65a0c7f8f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7effc05455515d8796c6d5f63e148805-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/766c9f7e09d2ed0dc813280d49b011e6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c0b32eb6d6f2ffc477afca1163d4b8d6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8c065f33997fe933c58b687392aa7d1c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ca52a93edaca5e792267c050012388ff-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9170ddea739f835041611ceb8a739086-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/22157275ba25e4643abaa7be2cdabce5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c702a41fe857e57112e47e844c5dc629-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/88b99e1bf871591a7a770bf8d6efb77d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b37297cdf2cfb33e3a2997d7b204a8df-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/aa860443a9fcc9dcefa2168337ac2bbe-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9e4c15d8d68b61b7a689142b13d0306a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/703fd99724341c6c095057c9fe822996-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f04050c95476f71014c1ccde956453e4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/896d7359403b4918ca4597f53f325aae-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/044ecc84c45e2b65dfe194ac8b33e9a7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2686ab848aa5b4f2ba3dc428709acdac-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b2d4dedf77fd1b1597610de2b78367e5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/cd33e6d246cc395dc622740ad514aecc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c3c8d46ce5d39f8bd14b7f3543fa6cde-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9c1862400b518120d584bf5a248439af-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "North Park Apartment Homes",
+        "units": [
+          {
+            "price": "$3,035+",
+            "beds": "0"
+          },
+          {
+            "price": "$3,355+",
+            "beds": "1"
+          },
+          {
+            "price": "$3,940+",
+            "beds": "2"
+          },
+          {
+            "price": "$5,590+",
+            "beds": "3"
+          }
+        ],
+        "available_units": 96,
+        "is_instant_tour_enabled": true,
+        "lot_id": 1001467274,
+        "phone": "408-478-9667",
+        "amenity_highlight": "Clubhouse",
+        "provider_listing_id": "hf3wf1u7px31"
+      },
+      {
+        "position": 34,
+        "title": "21230 Homestead Rd, Cupertino, CA",
+        "link": "https://www.zillow.com/apartments/cupertino-ca/village-green/5Xk7k8/",
+        "status": "FOR_RENT",
+        "status_text": "Village Green",
+        "badges": [
+          "3D Tour"
+        ],
+        "address": {
+          "street": "21230 Homestead Rd Apt 95",
+          "city": "Cupertino",
+          "state": "CA",
+          "zipcode": "95014"
+        },
+        "gps_coordinates": {
+          "latitude": 37.335938,
+          "longitude": -122.04541
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/25c272f4eaca34235eef9306da0ab095-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/25c272f4eaca34235eef9306da0ab095-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1915fe4682cd140dfe9c793a11404203-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e84d5a2412d2eadaeaf4fd50fb0e692d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fbbbb0db44db32957c3d5309bec362cc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e6141bb9035dd9e009d60e6f83549c6b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/646e8c9cf085de18fde59e971545338e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bc4cb7c7dd74bf2316f9f4dfbb17ba51-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f72de259d153b3cfcbcc194fd587cb2d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/63a7f5a6e6c82e0fc1664b6569bbd352-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7b52b00a2c77568b6efc5cedcad431f8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/71095702f910e63f9f49a4d3f1e7359f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/902c9518462b1ebf6f3162a180971819-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/63160d72bf89a2b48a67c5c4480f44c8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/30583ee2928e0182d8dda86d8103999d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/41aed9620052a6a7e5188d605a32f738-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ea75e0da26c1be121c2ab07dcad7ddea-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3977f74b4600c0a793daed9de3db737c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ac14927183bf9565f0bcc32ba1b266fe-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7262afb971eea4d2e8009524844e6c8b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/30d26d1cff1b8ebe5d1dc2e2df303bbd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f4eaf0fe47c13cb500c23e04a1bd6f37-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8a7a763505a1a5f9eb10261c6c2e9a0c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d1cdd9160cdb6cbbb724a4adba19aa47-p_e.jpg"
+        ],
+        "has_3d_model": true,
+        "is_featured_listing": true,
+        "building_name": "Village Green",
+        "units": [
+          {
+            "price": "$3,495+",
+            "beds": "1"
+          }
+        ],
+        "available_units": 3,
+        "lot_id": 1001559712,
+        "provider_listing_id": "sta7ywhj72dm"
+      },
+      {
+        "position": 35,
+        "title": "355 Kiely Blvd, San Jose, CA",
+        "link": "https://www.zillow.com/apartments/san-jose-ca/park-kiely/5XjQp3/",
+        "status": "FOR_RENT",
+        "status_text": "Park Kiely",
+        "badges": [
+          "3D Tour",
+          "48 available units"
+        ],
+        "address": {
+          "street": "355 Kiely Blvd # CC-210",
+          "city": "San Jose",
+          "state": "CA",
+          "zipcode": "95129"
+        },
+        "gps_coordinates": {
+          "latitude": 37.31932,
+          "longitude": -121.97633
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/8ac4570728cbb0d250ce0dc784f46bff-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/8ac4570728cbb0d250ce0dc784f46bff-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/facedaf804c7002e292f958a0689f274-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8b7c4a0b97842c1c2a80fe723440f7d0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/245d7740ce68976aa463b35e0f7e78c0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6215bc45477278221b3d48031f0c3ed7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a27da7847903d3e1682eb8bcad7a2dd5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6bfee2255fc6b103d5d7cb30af1f1f15-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e0bb4f7f8e7d4f7432cd7da8054090ca-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a57d3e900fd83bf3a237518fd45e3189-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/62ecf2086b13a5b148bbc07241f57f41-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/442a29a5b38ee1e545f8eb09886cd724-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7156e98c3c4ac40bc8451c455a9222db-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ba7590aa63b45fe2f9b6856f0bbb4927-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f9fe6de06f0f11c2fc8302ef63d06b1e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bcdedf1a98c28d9685b2a70fa9cc56b2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ec36cbc596281bbe57d3b00e06d4682f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8b0840d83f1055fe31d505856aa7dde7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1073278e15247b7ada833655d53d2743-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b9641f3e77d5283961060d157900c63e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fe44113b7c3c70bab715659ad0b36d54-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/40f29aa95795e161999b180a960bc140-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3a3640e8f515c62c00a99979e277feaf-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/be73d5cdd611c71f104141b32c4ed5a7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2aac82a70b37897f74906d6eb959b666-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/49fb4b9f3bdedbd264af5aa086ec1d7f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3c305e38c5246eaba507cfd7091611fd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/dc3e0f26337f8e84a78e10ae5d154524-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4efd32acf1828e679192cb692a0696b4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1e20ed79d12482a2582418114abbb72f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2f9efd1e55151a4db5a4d8c2596c90bf-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7b941aa639baae7a9a666f79edf9ae71-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1c8ad89dc2908cbb0938badc80ad3489-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/868d3e2b51484629eaa8b7dc45563fac-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/64d45e3a77e92e163f2d71d6db3650b1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c8aacd69e71bacd6f6e8ee82ce0b9d77-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1c16ccb40069937b1bf75081296e5d91-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6ea00cbe6da636e40d98e56c0d6ded9e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/beca7522e2098f88b1f53204299c6149-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/07b1d0e942f8ca8cd20e3293bfd1834f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/32938cd64209867b223b0cbabdbe62cc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a595b099e90c02c6706cb29439f00885-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ee681cb5c4cb3413869f1faeea10d0ef-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/747b619196f080d06c30bb66b623fa57-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/174472a2a5ef76f08b620163bf74dfba-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/dc5b25f03aba93db7cd5ebae3ed7d347-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e5a8e9cb0242815170b472bb02f13c63-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6c84bfceaf935ee49a82653afcafc769-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/cc38b8469c577ee8e70c799571d3b953-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e5b792a377b358457a8168b15750c0de-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d41ad5d450feec44b08c1d7da1276cc1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b1f79310972a25a94da8c2897e80b5ae-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/eca019c6195e652c17555fff62b7aed4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ce7e12982bfb3de45799ec014a758b22-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4bbb5024b9a276df4db006e4a56c3d0a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2deb902330e9bd7324cef0f227293aaa-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/acfbcac182c8c7a734447ac447b45fbb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/84f7c4cf539fc32809c3bbb69e83dbd3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c5cbd81108c60d22f10127de951e641c-p_e.jpg"
+        ],
+        "has_3d_model": true,
+        "is_featured_listing": true,
+        "building_name": "Park Kiely",
+        "units": [
+          {
+            "price": "$2,315+",
+            "beds": "0"
+          },
+          {
+            "price": "$2,257+",
+            "beds": "1"
+          },
+          {
+            "price": "$2,963+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 48,
+        "lot_id": 1001478220,
+        "amenity_highlight": "Fitness center",
+        "provider_listing_id": "kz7d6h6qt5s6"
+      },
+      {
+        "position": 36,
+        "title": "98 N 1st St, San Jose, CA",
+        "link": "https://www.zillow.com/apartments/san-jose-ca/the-james/Ck4ZfN/",
+        "status": "FOR_RENT",
+        "status_text": "The James",
+        "badges": [
+          "Updated yesterday"
+        ],
+        "address": {
+          "street": "98 N  1st St   # 536",
+          "city": "San Jose",
+          "state": "CA",
+          "zipcode": "95113"
+        },
+        "gps_coordinates": {
+          "latitude": 37.33734,
+          "longitude": -121.890816
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/361718b5d474b1de3fa0ea4f8a9d19a3-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/361718b5d474b1de3fa0ea4f8a9d19a3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e7cf5234f75bf54fb08374ba4a168243-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a334ce3b51535fa99ef0cda8925be1ee-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d36d00e66a5db14deb74b1ddc911467f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d33ece3586c15d663287f41f7f51196b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/38cc42ba9a376fb37a6ad6186fa50ec5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/2f9960934625f1e21303175beee7e7d8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/070adc2697a7361f71bff54ed208fdf2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/424e76e92b801b5bfa94ec2414f97393-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a2637a0d2574f61b6d9f5aaa47dcd1d0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4457c1aeb0ac09e692cd5cc3861f8e78-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/689d8b761d05366d8729759e0b44bc52-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/35a4db69299ab3e91694b453c3c3c197-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/38ba6b533e580cd6fd41faf96e002ba8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ceb6091927aa81b63d5b6c9877235b9f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/869bef0dfdfbfd676b0232cb4e777549-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0e6ea93e27ea327917b2f6639e7f160d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/90459549725312dd4e62e83bd1c9d296-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/51b8b9e323cbeb6183e8c3c920f61246-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/873a8612432addd3779a13873b874ae0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a9ca8e2bcc3188424e9fe695ee62d82e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0d81a2c73fa21649a671d52acdf2c77a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5fed532e25e1d438007b9d54a39b753d-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "The James",
+        "units": [
+          {
+            "price": "$3,013+",
+            "beds": "0"
+          },
+          {
+            "price": "$3,285+",
+            "beds": "1"
+          },
+          {
+            "price": "$4,645+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 13,
+        "lot_id": 2750114189,
+        "provider_listing_id": "51zajfqdwpnqc"
+      },
+      {
+        "position": 37,
+        "title": "718 Old San Francisco Rd, Sunnyvale, CA",
+        "link": "https://www.zillow.com/apartments/sunnyvale-ca/renaissance-apartments/5XjTWc/",
+        "status": "FOR_RENT",
+        "status_text": "Renaissance Apartments",
+        "badges": [
+          "Modern finishes",
+          "6 available units"
+        ],
+        "address": {
+          "street": "718 Old San Francisco Rd # 265",
+          "city": "Sunnyvale",
+          "state": "CA",
+          "zipcode": "94086"
+        },
+        "gps_coordinates": {
+          "latitude": 37.365757,
+          "longitude": -122.01862
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/365ff9379afa4cf2036a7d1939734e52-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/365ff9379afa4cf2036a7d1939734e52-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/69c08d0a1a70f274f49c67c114e02587-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a8f36373536f96710d2d1f6ece3b72ad-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/095fefbf18e79b382c2ec1578b4645ee-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/26117418a0b425c9f700466a21eac453-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/08ae6c08e1c5c64699302826e2dc98c7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4c3d7848f0751fb37362171d979faab3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/820533ef4b2b17901813a036a47e1b04-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/07eaa48d673a6cbce3d51bdd463240cd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b4054f7b0d4ac6a59ab625e0eda3440b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/908ea2cebbd3ae161d292f61370333ea-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/33161c8fcc34b36554f5af22c33d93f8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/175577e1d8e86c7791a4a3a14a631851-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c3504db24da407446e3a7ba0a75c6e93-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6a911b19de751951aa00910dfd056e8c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1deedc6a7dee81190e8a1b6f40dc09b5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6fb2fae073ed05fef2092b501841dbbc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f8a115102df9af5532e9a5f172ff82c4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/604710194cfd05d8d61f21ea5615176a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/91515fc75d4174fd893ca6587f32fa5e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0d300daf2ecb7ec2a400adb8ec957f2d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/41a3e9fe55445b046a69af814f60f1a9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a53a2c058876d031f87bd38c85329a41-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/da1ee952420cb55070bca8046b967575-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/89a43dc17df45d5f1bc5fa04a4a4aa7b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/51cc930c2ee54b1b9d4bc59e7972a5b6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a4c0a2057f6dbc65e2ae1f578f97b148-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e46af8554e33de43c8f606819d84076c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/02a7542723b792408d39b1fc3e7c4c44-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8e90ea91cf2322f255428dd9f4119619-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4175c5f7d3dc280b74affd47b17dbefb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b5b62a638622761b54d3428e90ebf733-p_e.jpg"
+        ],
+        "has_3d_model": true,
+        "is_featured_listing": true,
+        "building_name": "Renaissance Apartments",
+        "units": [
+          {
+            "price": "$3,995+",
+            "beds": "2"
+          },
+          {
+            "price": "$5,145+",
+            "beds": "3"
+          }
+        ],
+        "available_units": 6,
+        "lot_id": 1001484766,
+        "phone": "4084771223",
+        "amenity_highlight": "Deck",
+        "provider_listing_id": "hvet4f5u03ja"
+      },
+      {
+        "position": 38,
+        "title": "3560 Rambla Pl, Santa Clara, CA",
+        "link": "https://www.zillow.com/apartments/santa-clara-ca/prado/CkBDpX/",
+        "status": "FOR_RENT",
+        "status_text": "Prado",
+        "badges": [
+          "Updated yesterday"
+        ],
+        "address": {
+          "street": "3560 Rambla Pl   # 330",
+          "city": "Santa Clara",
+          "state": "CA",
+          "zipcode": "95051"
+        },
+        "gps_coordinates": {
+          "latitude": 37.374256,
+          "longitude": -121.994545
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/df6f531c1dea23b51a436830eaf3b332-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/df6f531c1dea23b51a436830eaf3b332-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1c32199b37cfcbdc2dda45beeddcdaa6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b4fc478958f5820c222f2e4161f5e18c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/153e9a2ca44e239cec9423a5e6f28d14-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/df51d3e6557c9d9c77a6fd47fbfccc8b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/25347379dff1530f1f3a75b771bfdf96-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/cd061bd0ecdeed72771c4a06f19f7458-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c51db0e8e7483a384bc8e2b579e557c0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b3d2a85656f7adf616a46aaa3e0b87a1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/611293149737369d9e092a9212d53532-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bdc8427b99b6935dc5b85f5504dc040c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/937848e6a21e046f1c87d3be60a3fa62-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8b598976186cf6bffc95d536454888a1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4197a65dac8a9b3e8a796e98ebb13027-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4e23dedaba6289dda743ac8592a65db0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a3ba7058751d9e6b77ad56a1ce48a0bc-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8d36d4a21a9c88f07d317a5d0250a3df-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/cf5a02a2dad3cbc3e2fc0d64088e2337-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c3134638c7ed4f0458062d55c3e8fef2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d3ae54de2a5a7fe5d4678c7a2d2e3925-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/32d0d83a07ca59c6e8de999e2b3a0e89-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bf085806efd0d3c9bf7b964c26289f0c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ffe5cc7de96c9bb17b7e647e0629645c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e3e0092807e0746c61b8e0e457f835e4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/30d0a9139fde6749fd8a3616fd989022-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f9cd88f5173882114e133a322a9bfe47-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/89c10f77d2e8ff7695caf6bbb4df7a37-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8a99a3f697b7799c23734b0bc22cf1b9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d3dba4436261d9bb22f3e67d0c9b2ec0-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/41483ba73086de03857ad09875d1634a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fe0e80d36330b79ff4bc591edea5622f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/145291db5b273ef06d25dffc7ad43b1f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/dfe97bdbd562e49bd1feb105a5840329-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3a4879f2f512d22e25d4654cfa15abdb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e50e9e70bae0e1aa505914fdcf4ec3d2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/552427b772e702021276fbf086636c85-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d15a8d2c291824b7fda039596bff01ae-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8a5c68c31d0f68f59faea388301adf48-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8a3bdfba9a451a86a1fc27741d9720cd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e91ce33403f4b4d4771a4664afd2faa7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c39ca6da94fe337a06a1e6d2ee25bdbb-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8f5066eb32519b7dc5c97b6f4cd1d584-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1c5ad1eebc876b29ff46086a646e23d2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/1fb310abb447e389b74245996f3770e4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/83173eb534cacfad467954b784a605ac-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7f305ee4746bea76292c3fd1f2cbca75-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/34a233f87202d85dc04c7901bf5f174d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/87afb1fd8631057bca192b7a6a8ad598-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/08c3f2cc1de261fc5eca5c4724cc4838-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4d59d24d56daea8e9a615c47d922b610-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/695e307c89cefed322e735f8a4e35792-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/363694f6392d69ef8b8efd9098b93558-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/02357b651912532ed84a4fdb647e2923-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/597172875b9baa707b039adf8a4912e9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f064e0de28f8eda8649002b14c61ac3c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d35e0f4267dc9f75f52b92e2fcf4b897-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d6470241baee5cef43e660e126eb5fbf-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e8cf8c8cdb5c240c3c2fbdd52dc83a93-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5967ee4211f60cac36d09d7688c8c35d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7e0619dd8213d15c51c49c81545b8d66-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/79eba9e976f356f27879305f80018dda-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/07591385c02c5607bb0a6993a7ab41e6-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "Prado",
+        "units": [
+          {
+            "price": "$3,210+",
+            "beds": "1"
+          },
+          {
+            "price": "$4,949+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 14,
+        "min_base_rent": 3210,
+        "max_base_rent": 5731,
+        "monthly_fees_included": true,
+        "min_required_monthly_fee": 9,
+        "max_required_monthly_fee": 9,
+        "lot_id": 2750777216,
+        "provider_listing_id": "3m3sp2je8u10z"
+      },
+      {
+        "position": 39,
+        "title": "100 Buckingham Dr, Santa Clara, CA",
+        "link": "https://www.zillow.com/apartments/santa-clara-ca/spring-creek/5XjW7V/",
+        "status": "FOR_RENT",
+        "status_text": "Spring Creek",
+        "address": {
+          "street": "100 Buckingham Dr # 144",
+          "city": "Santa Clara",
+          "state": "CA",
+          "zipcode": "95051"
+        },
+        "gps_coordinates": {
+          "latitude": 37.32598,
+          "longitude": -121.97237
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/976d0d2d618c87886d83ddeaf8962fe7-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/976d0d2d618c87886d83ddeaf8962fe7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/367da2a6ff52198f7adef742b8b06787-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d3452a51dc7917f278796bf8b49286ae-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a490afe6dad694d56ee48eeb5608c3e4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ce555893d6f65dc63735bfd3ee5d246a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9ce343379556e7a6f0bafb748d981ab6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/14641e037a10245c7197e13606ba6fc4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/94004476e44ea81753834d10736c49cd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/146791c86a45875c1e9a142110517dd3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/964e770afd8214e018b5391fac9d6993-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a98ff22e5523c3c45539b675f98c97d3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/68311af7d798d9a6e6edbc7b04c475c1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8b4e8feb10a946de350f6bdcc312111f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e53b6c7ef17ba865dc96396d85298a16-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e50847382877793cdbbc0cb2d44c654a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/19b8a3c92d6e4121ca959b0405e0f78c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c2207f5712d5a1eea56f1c64aac32996-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a52b7bce7385669fc37a1c507a147b7e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/cab1c053c831f01117d97d34d8f755cd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/809b8e14867c02ba1f59d1cfa2082f9e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/04123cbd3374a3f420d09498c0f1dd35-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e92c133cdd657db84317f01c6b7bd4e4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/12b107a7fd96a36dbeb3241f891eeae6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f946582920eaefa05f57a06810065f66-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e827f395ae7e03c8a578cd5417e1c481-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a680a4c555d2c160d4e6c10b2e0b16ed-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bbba386b4ebbfdd93ce7b155c6390687-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c88db20b2e0b13753acb28cb10975667-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/af9e7291ea71538154b7d4dfe5878859-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b7b9ad63de357653f1d6639daaecc652-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "Spring Creek",
+        "units": [
+          {
+            "price": "$3,345+",
+            "beds": "1"
+          },
+          {
+            "price": "$4,145+",
+            "beds": "2"
+          },
+          {
+            "price": "$5,195+",
+            "beds": "3"
+          }
+        ],
+        "available_units": 9,
+        "lot_id": 1001488582,
+        "provider_listing_id": "8ndcrby00rsd"
+      },
+      {
+        "position": 40,
+        "title": "2130 Southwest Expy, San Jose, CA",
+        "link": "https://www.zillow.com/apartments/san-jose-ca/los-gatos-landing/ChLPPM/",
+        "status": "FOR_RENT",
+        "status_text": "Los Gatos Landing",
+        "badges": [
+          "Sparkling swimming pools",
+          "7 available units"
+        ],
+        "address": {
+          "street": "2130 Southwest Expy # 4",
+          "city": "San Jose",
+          "state": "CA",
+          "zipcode": "95128"
+        },
+        "gps_coordinates": {
+          "latitude": 37.298176,
+          "longitude": -121.93014
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/0720f482fb5a0d102d24d0f065ed12f2-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/0720f482fb5a0d102d24d0f065ed12f2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/91ed72860d57c307be889e08e68ad6c4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/05f8661d12e85e633d591efbcad7c84c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6995cdc0af27efd4f914bfa8876f734d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e13c15f55dcc147af39722e946fa80e7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/342900277f14903efe8eca4e5906c610-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/72b2adef3914c9e1caf9a95c46ef6998-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/887583e3b1c01f05480ab7e1458b6813-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/41489787676e8ef7fb872ee349bf24f9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/7d1a26777c6e8b88f17a3b297065b6c6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e4a40b929dee808c1ce126ac39c9a7ad-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3083dcef2122901cd60200c58cd41a6e-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a45389afe20f6960ea6d8986c70ccd26-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/bffdb5210b427974a5b86231cbab723c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c54a3e758d0cb9a4b00a0b76724a33cd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d62240fe0046480b8cfc9c37ed9b8e76-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/9c86a47960ea7acb2564787eb0dae5f1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/98864113570f64eb5e16b8c99655c3f2-p_e.jpg"
+        ],
+        "has_3d_model": true,
+        "is_featured_listing": true,
+        "building_name": "Los Gatos Landing",
+        "units": [
+          {
+            "price": "$2,898+",
+            "beds": "1"
+          },
+          {
+            "price": "$3,367+",
+            "beds": "2"
+          }
+        ],
+        "available_units": 7,
+        "is_instant_tour_enabled": true,
+        "lot_id": 2740209426,
+        "phone": "669-257-6386",
+        "amenity_highlight": "Fitness center",
+        "provider_listing_id": "2npytkwd6hvpc"
+      },
+      {
+        "position": 41,
+        "title": "448 Toyon Ave, San Jose, CA",
+        "link": "https://www.zillow.com/apartments/san-jose-ca/fairway-glen/5Xk5Wt/",
+        "status": "FOR_RENT",
+        "status_text": "Fairway Glen",
+        "badges": [
+          "Golf course views",
+          "4 available units"
+        ],
+        "address": {
+          "street": "448 Toyon Ave # 153",
+          "city": "San Jose",
+          "state": "CA",
+          "zipcode": "95127"
+        },
+        "gps_coordinates": {
+          "latitude": 37.381954,
+          "longitude": -121.826195
+        },
+        "thumbnail": "https://photos.zillowstatic.com/fp/f9cae83503744bacb455ff4ec406a44d-p_e.jpg",
+        "images": [
+          "https://photos.zillowstatic.com/fp/f9cae83503744bacb455ff4ec406a44d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d9bd22203249b13e69e37916919ab620-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c60221f1ae5e3b35604dee7e7e4ace58-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/69f6492d358c87c026d8bb32f234cb12-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6926e81592e88e7e62b2f0f64963baf3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/92236c3a83c531ad389e1f01d9514ebe-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5d7aa5ba74e23b25688f4954db99ecd5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/ebf9fcf67db4aae571171e4d2d00658b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/e2cf65c0e0e89ee24bce6edffe997d01-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4792f4d23b9c6f7057f6c6bcaee03d00-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d425cbb3d62a2410ef4adffffca16798-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4c052f4827fd59871e267d24420b4f2d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8eaa5b5155579b6e8cf6cebb2f317295-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/016e50be3a62ea46efe742fea19a8de4-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b7b95570ce2694d83845e6e38ca9095b-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/adca0ffef628ffc8022c15d7addcdfae-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/f03b9d1d60a506f0198ee9fb68239d3c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/dc7863fb13769508c68314ca3b875348-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/4c50e5976614881d149bba0e7fbf196c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/00db14433f2b91128668187ecc2e9840-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/64de8dd71b88bd6a6ae20956bc6901d9-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/042c820c77729048e5fa38bd9d152ae3-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/0fa1764312b41af9c5b3fe2d48a399d1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/442107bd1438b43f7b6a1412fede3073-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/8dfc89a1cd4445a8441bfc966799e579-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/d9146d9629dfb64a20a5b1bebe7be1e7-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/af0d6f09b1004663f1e5847be9c37663-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/efb98bc4641720c718709789cdf14475-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a844cc057f7599da0b092fb26b940b4f-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6f02bcc534cf3090daf1f669502f28c5-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5f6b45939bf70bebaefabb24c272ea5c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/c6f7abf1b6991673fafb5778461c83e8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/57e9f2333b29c35aeb18e6d093a8a865-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/3f48d22e8e57ee139454baf3ec8d8fe8-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6e871b2b2b4ca30ded72d2d9df057d5c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/91874365fc8eeaa090ce65e632c128d6-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fd747b1b2764e15ca925f962ddf32ea1-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/6f75ea679aabbbfbbb1ebe0e9602f2ce-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/95fd81362d9bd667f47c4766d3e4d235-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/b79524d6340b81f33e2d3e3e6f9f62c2-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/fe333a5151327245a8b6fbcd5d376618-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5bf4386190a5735fcaa5112e88da8add-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/df98e5cbe618e87163224b69883e4e51-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/92ce1ff639ac0eaa194153b392d18e9a-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/29917c65cd45088e74132ccfd081845d-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/135f266c91f391f2df22f4ce8310eb85-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/5b9785f0a10ab35d9bd03179cd0534cd-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/a831528bd9a72adf21822450c9c6b09c-p_e.jpg",
+          "https://photos.zillowstatic.com/fp/08c3d88b30e047228f7d02a78e1597fc-p_e.jpg"
+        ],
+        "is_featured_listing": true,
+        "building_name": "Fairway Glen",
+        "units": [
+          {
+            "price": "$2,673+",
+            "beds": "1"
+          }
+        ],
+        "available_units": 4,
+        "is_instant_tour_enabled": true,
+        "lot_id": 1001554408,
+        "phone": "408-662-1514",
+        "amenity_highlight": "Fitness center",
+        "provider_listing_id": "3t23hbnn1s5ds"
+      }
+    ],
+    "pagination": {
+      "current": 2,
+      "previous": "https://www.zillow.com/homes/for_rent/",
+      "next": "https://www.zillow.com/homes/for_rent/3_p/",
+      "other_pages": {
+        "1": "https://www.zillow.com/homes/for_rent/",
+        "3": "https://www.zillow.com/homes/for_rent/3_p/",
+        "4": "https://www.zillow.com/homes/for_rent/4_p/",
+        "5": "https://www.zillow.com/homes/for_rent/5_p/"
+      }
+    },
+    "serpapi_pagination": {
+      "current": 2,
+      "previous": "https://serpapi.com/search.json?engine=zillow&map_bounds=37.45%2C-121.75%2C37.20%2C-122.05&page=1&status_type=rent",
+      "next": "https://serpapi.com/search.json?engine=zillow&map_bounds=37.45%2C-121.75%2C37.20%2C-122.05&page=3&status_type=rent",
+      "other_pages": {
+        "1": "https://serpapi.com/search.json?engine=zillow&map_bounds=37.45%2C-121.75%2C37.20%2C-122.05&page=1&status_type=rent",
+        "3": "https://serpapi.com/search.json?engine=zillow&map_bounds=37.45%2C-121.75%2C37.20%2C-122.05&page=3&status_type=rent",
+        "4": "https://serpapi.com/search.json?engine=zillow&map_bounds=37.45%2C-121.75%2C37.20%2C-122.05&page=4&status_type=rent",
+        "5": "https://serpapi.com/search.json?engine=zillow&map_bounds=37.45%2C-121.75%2C37.20%2C-122.05&page=5&status_type=rent"
+      }
+    }
+  }
+}

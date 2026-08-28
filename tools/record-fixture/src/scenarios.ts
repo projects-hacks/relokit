@@ -19,6 +19,12 @@ export const SCENARIOS: Record<string, Scenario> = {
     params: { status_type: 'rent', map_bounds: SAN_JOSE_BOUNDS },
     question: 'How large is the unfiltered candidate pool, and what fields does a listing carry?',
   },
+  'san-jose-rentals-p2': {
+    slug: 'san-jose-rentals-p2',
+    engine: 'zillow',
+    params: { status_type: 'rent', map_bounds: SAN_JOSE_BOUNDS, page: 2 },
+    question: 'Does page take a number, and does page 2 return different listings?',
+  },
   'san-jose-1bed': {
     slug: 'san-jose-1bed',
     engine: 'zillow',

@@ -280,29 +280,44 @@ function assemble(
       const native = selection.byTier.get('native')
       return native ? [{ native, id: selection.slot.id }] : []
     })
-    const pages = pagesFor(afterNative)
+    // A page budget, not a page count. Nothing knows how many pages there are
+    // until the first response says so, and the estimate is usually wrong: the
+    // free predicates take San Jose from twenty pages to one.
+    const pageBudget = Math.min(source.max_fanout, pagesFor(afterNative))
     const params = mergeParams(
       source.params_template,
       ...natives.map((n) => bindSelf(n.native.capability.params_template, n.id)),
     )
     const requires = requirementsOf(source, CANDIDATE_SOURCE)
-    const ops: Op[] = Array.from({ length: pages }, (_, page) => ({
-      op_id: `op_candidates_${page + 1}`,
-      capability_id: source.capability_id,
-      constraint_ids: [CANDIDATE_SOURCE, ...natives.map((n) => n.id)],
-      provider: source.provider,
-      endpoint: source.endpoint,
-      params: { ...params, page: page + 1 } as Record<string, ParamValue>,
-      requires,
-      cost_units: source.cost_units,
-      ttl_seconds: source.ttl_seconds,
-      // Without candidates there is nothing to evaluate, so this one is fatal.
-      on_error: 'abort' as const,
-    }))
-    stages.push(regionStage('candidates', stages.length, ops, afterNative, null))
+    const ops: Op[] = [
+      {
+        op_id: 'op_candidates',
+        capability_id: source.capability_id,
+        constraint_ids: [CANDIDATE_SOURCE, ...natives.map((n) => n.id)],
+        provider: source.provider,
+        endpoint: source.endpoint,
+        params: { ...params, page: 1 } as Record<string, ParamValue>,
+        requires,
+        cost_units: source.cost_units,
+        ttl_seconds: source.ttl_seconds,
+        // Without candidates there is nothing to evaluate, so this one is fatal.
+        on_error: 'abort' as const,
+      },
+    ]
+    stages.push({
+      stage_id: 'candidates',
+      index: stages.length,
+      tier: 'region',
+      fanout: 'paged',
+      ops,
+      expected_entities: afterNative,
+      estimated_cost_units: source.cost_units * pageBudget,
+      estimated_latency_ms: source.latency_p50_ms * pageBudget,
+      prune: null,
+    })
     decisions.push({
       step: 'pushdown',
-      detail: `${natives.length} predicates applied inside the search for nothing, taking ${pages} page${pages === 1 ? '' : 's'} rather than ${pagesFor(SEED_REGION_CANDIDATES)}`,
+      detail: `${natives.length} predicates applied inside the search for nothing, budgeting ${pageBudget} page${pageBudget === 1 ? '' : 's'} rather than the ${pagesFor(SEED_REGION_CANDIDATES)} the unfiltered box would need`,
     })
   }
 

@@ -1,7 +1,7 @@
 {
-  "plan_id": "ed60fdee6285dd82",
+  "plan_id": "60c85a2bd670eb35",
   "planner_version": "0.1.0",
-  "registry_version": "2026-08-28.3",
+  "registry_version": "2026-08-28.4",
   "search_bounds": null,
   "clusters": [],
   "stages": [
@@ -39,10 +39,10 @@
       "stage_id": "candidates",
       "index": 1,
       "tier": "region",
-      "fanout": "once",
+      "fanout": "paged",
       "ops": [
         {
-          "op_id": "op_candidates_1",
+          "op_id": "op_candidates",
           "capability_id": "candidates.zillow.region",
           "constraint_ids": [
             "candidate_source",
@@ -56,37 +56,10 @@
             "engine": "zillow",
             "status_type": "rent",
             "map_bounds": "$stage.bounds.north,$stage.bounds.east,$stage.bounds.south,$stage.bounds.west",
+            "page": 1,
             "price": "0,$constraint.c1.max_dollars",
             "beds": "$constraint.c2.min,$constraint.c2.max",
-            "amenities": "$constraint.c5.feature",
-            "page": 1
-          },
-          "requires": [
-            "stage.bounds"
-          ],
-          "cost_units": 1,
-          "ttl_seconds": 21600,
-          "on_error": "abort"
-        },
-        {
-          "op_id": "op_candidates_2",
-          "capability_id": "candidates.zillow.region",
-          "constraint_ids": [
-            "candidate_source",
-            "c1",
-            "c2",
-            "c5"
-          ],
-          "provider": "zillow",
-          "endpoint": "zillow:search",
-          "params": {
-            "engine": "zillow",
-            "status_type": "rent",
-            "map_bounds": "$stage.bounds.north,$stage.bounds.east,$stage.bounds.south,$stage.bounds.west",
-            "price": "0,$constraint.c1.max_dollars",
-            "beds": "$constraint.c2.min,$constraint.c2.max",
-            "amenities": "$constraint.c5.feature",
-            "page": 2
+            "amenities": "$constraint.c5.feature"
           },
           "requires": [
             "stage.bounds"
@@ -98,7 +71,7 @@
       ],
       "expected_entities": 58,
       "estimated_cost_units": 2,
-      "estimated_latency_ms": 0,
+      "estimated_latency_ms": 3800,
       "prune": null
     },
     {
@@ -283,9 +256,9 @@
   ],
   "unsatisfied": [],
   "estimated_cost_units": 60,
-  "estimated_latency_ms": 4800,
+  "estimated_latency_ms": 8600,
   "trace": {
-    "registry_version": "2026-08-28.3",
+    "registry_version": "2026-08-28.4",
     "planner_version": "0.1.0",
     "cardinality": {
       "region_entities": 4517,
@@ -453,7 +426,7 @@
       },
       {
         "step": "pushdown",
-        "detail": "3 predicates applied inside the search for nothing, taking 2 pages rather than 111"
+        "detail": "3 predicates applied inside the search for nothing, budgeting 2 pages rather than the 111 the unfiltered box would need"
       }
     ],
     "naive_cost_units": 18179,

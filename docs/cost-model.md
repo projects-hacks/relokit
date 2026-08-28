@@ -100,6 +100,16 @@ Overshoot generously. Straight lines are not roads, and a prefilter that is too
 tight discards the right answer before anything has looked at it. The later stages
 prune; the box only bounds.
 
+## Pages are a budget, not a count
+
+Candidate generation costs one call per page and no one knows how many pages
+there are until the first response says so. The plan therefore states a page
+budget, capped by the capability's `max_fanout`, and the executor stops when the
+provider runs out of pages or the budget does.
+
+This is where the free predicates earn twice. The unfiltered San Jose box is 20
+pages; with price, beds and laundry pushed into the same search it is one.
+
 ## Reading a duration
 
 Directions returns route alternatives, and the first is not always the fastest.

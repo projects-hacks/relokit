@@ -197,3 +197,34 @@ describe('golden plan', () => {
     )
   })
 })
+
+describe('pagination', () => {
+  const result = plan(input)
+  const candidates = result.stages.find((s) => s.stage_id === 'candidates')!
+
+  it('emits one op and a page budget, because the page count is data', () => {
+    expect(candidates.ops).toHaveLength(1)
+    expect(candidates.fanout).toBe('paged')
+    expect(candidates.ops[0]!.params.page).toBe(1)
+  })
+
+  it('reserves budget for the pages the estimate expects', () => {
+    expect(candidates.estimated_cost_units).toBeGreaterThan(candidates.ops[0]!.cost_units)
+  })
+
+  it('never budgets past the capability ceiling', () => {
+    const source = input.registry.find((c) => c.capability_id === 'candidates.zillow.region')!
+    expect(candidates.estimated_cost_units).toBeLessThanOrEqual(
+      source.max_fanout * source.cost_units,
+    )
+  })
+
+  it('caps the budget even when the estimate is far larger', () => {
+    // Drop the free predicates and the box holds thousands of listings, which
+    // would be a hundred pages if nothing bounded it.
+    const noNatives = input.registry.filter((c) => c.granularity !== 'native')
+    const wide = plan({ ...input, registry: noNatives })
+    const stage = wide.stages.find((s) => s.stage_id === 'candidates')!
+    expect(stage.estimated_cost_units).toBe(8)
+  })
+})
