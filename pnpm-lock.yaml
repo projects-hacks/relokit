@@ -29,6 +29,14 @@ importers:
         specifier: ^4.0.0
         version: 4.5.1
 
+  packages/serpapi: {}
+
+  tools/record-fixture:
+    dependencies:
+      '@relokit/serpapi':
+        specifier: workspace:*
+        version: link:../../packages/serpapi
+
 packages:
   '@esbuild/aix-ppc64@0.28.2':
     resolution:

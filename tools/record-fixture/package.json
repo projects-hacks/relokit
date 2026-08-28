@@ -1,0 +1,12 @@
+{
+  "name": "@relokit/record-fixture",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "record-fixture": "./src/main.ts"
+  },
+  "dependencies": {
+    "@relokit/serpapi": "workspace:*"
+  }
+}
