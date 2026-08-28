@@ -29,7 +29,12 @@ export const OpStatus = z.enum([
 export const ListingSummary = z.object({
   entity_id: z.string(),
   title: z.string(),
-  point: GeoPoint,
+  /**
+   * Null for the small share of listings the provider returns without
+   * coordinates. They stay in the run and go unverified on anything positional,
+   * because dropping them would be a silent answer to a question nobody asked.
+   */
+  point: GeoPoint.nullable(),
   price_cents: z.number().int().nullable(),
   price_cents_upper: z.number().int().nullable(),
   beds: z.number().nullable(),
