@@ -1,0 +1,503 @@
+{
+  "key": "google_local__san-jose-gyms__ba16063041805979",
+  "engine": "google_local",
+  "params": {
+    "q": "gym",
+    "ll": "@37.3382,-121.8863,14z"
+  },
+  "recorded_at_ms": 1787952319919,
+  "status": 200,
+  "body": {
+    "search_metadata": {
+      "id": "6a91fcb7ae678cc3edc4dbe5",
+      "status": "Success",
+      "json_endpoint": "https://serpapi.com/searches/go1nhk7dYygEyB9SV5yM6g4MwQoXkm6TZx7gz7b9oP4/6a91fcb7ae678cc3edc4dbe5.json",
+      "markdown_endpoint": "https://serpapi.com/searches/go1nhk7dYygEyB9SV5yM6g4MwQoXkm6TZx7gz7b9oP4/6a91fcb7ae678cc3edc4dbe5.md",
+      "created_at": "2026-08-28 21:25:11 UTC",
+      "processed_at": "2026-08-28 21:25:11 UTC",
+      "google_local_url": "https://www.google.com/search?q=gym&hl=en&gl=us&udm=1",
+      "raw_html_file": "https://serpapi.com/searches/go1nhk7dYygEyB9SV5yM6g4MwQoXkm6TZx7gz7b9oP4/6a91fcb7ae678cc3edc4dbe5.html",
+      "total_time_taken": 8.27
+    },
+    "search_parameters": {
+      "engine": "google_local",
+      "q": "gym",
+      "google_domain": "google.com",
+      "hl": "en",
+      "gl": "us",
+      "device": "desktop"
+    },
+    "local_map": {
+      "gps_coordinates": {
+        "latitude": 33.284619968887675,
+        "longitude": -90
+      }
+    },
+    "local_results": [
+      {
+        "position": 1,
+        "rating": 4.6,
+        "reviews": 432,
+        "reviews_original": "(432)",
+        "description": "Onsite services",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAESZAHrOzAVgG8VMevMMXCBNgCEkEmWX1BCpObvOqX-kawGtHv8F5iou9a5Hf5G8l8hllKTsYNRMsLkS4lrz_Jx3wOUTzUWoRwvyG_G0woQS73Qjmwpv5dDsHHN_BIDLkPPB69eQIs",
+          "directions": "https://www.google.com/maps/dir//Workout+Anytime+Seymour,+104+Simmons+Rd,+Seymour,+TN+37865/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x885c1b64fd843dd7:0x559e9e095bdf0a69?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQIJRAA&hl=en&gl=us"
+        },
+        "place_id": "6169542302577396329",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=6169542302577396329&q=gym",
+        "provider_id": "/g/11h887d21r",
+        "gps_coordinates": {
+          "latitude": 35.875035,
+          "longitude": -83.764758
+        },
+        "title": "Workout Anytime Seymour",
+        "type": "Gym",
+        "years_in_business": "5+ years in business",
+        "address": "Seymour, TN",
+        "phone": "(865) 773-0107",
+        "hours": "Open 24 hours"
+      },
+      {
+        "position": 2,
+        "rating": 4.7,
+        "reviews": 750,
+        "reviews_original": "(750)",
+        "description": "Onsite services",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAESiAEB6zswFen_uoiUNs3YziRY2QXiB4KUdGjuJjg-kAnw2HAExU6JwhTl8RlDwLiIY0LCEN6LT3T4uwn2AxfNozTfUSD7awIgcs8ZL33ptLi_QNKIM6WNA0VVJ65msH5jUgueKfKi8QlAMtHSztsziTwwiL-Ntca3y2ZZwgPaKAnv-F9REexchCI8",
+          "directions": "https://www.google.com/maps/dir//Planet+Fitness,+1539+Martin+Luther+King+Blvd,+Houma,+LA+70360/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x86211aa95667ea23:0xc0bc2e900a9adeb6?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQIJBAA&hl=en&gl=us"
+        },
+        "place_id": "13888026547091857078",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=13888026547091857078&q=gym",
+        "provider_id": "/g/11f6nr4yhy",
+        "gps_coordinates": {
+          "latitude": 29.607341,
+          "longitude": -90.748932
+        },
+        "title": "Planet Fitness",
+        "type": "Gym",
+        "years_in_business": "7+ years in business",
+        "address": "Houma, LA",
+        "phone": "(985) 208-3727",
+        "hours": "Open · Closes 10 PM"
+      },
+      {
+        "position": 3,
+        "rating": 4.4,
+        "reviews": 292,
+        "reviews_original": "(292)",
+        "description": "Online classes·Shower",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAESZAHrOzAVcpdLCU452-lY2M7gY5AWF0U2u5INXxN9SkEm26KGvPqzdi_8vj725_prJTOe3aHDKSh1WKqlL2_zVcnF-aAM49kMEKc5LkC1EL2PvVYYs25cRoSF2mSk_Wxwj32myRY",
+          "directions": "https://www.google.com/maps/dir//Workout+Anytime+Decatur,+2836+Lavista+Rd,+Decatur,+GA+30033/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x88f507ea0b64b0b3:0x27e676f131c771ba?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQILBAA&hl=en&gl=us"
+        },
+        "place_id": "2875116190416990650",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=2875116190416990650&q=gym",
+        "provider_id": "/g/1tc_xfs0",
+        "gps_coordinates": {
+          "latitude": 33.825935,
+          "longitude": -84.290511
+        },
+        "title": "Workout Anytime Decatur",
+        "type": "Gym",
+        "years_in_business": "15+ years in business",
+        "address": "Decatur, GA",
+        "phone": "(404) 248-9777",
+        "hours": "Open 24 hours"
+      },
+      {
+        "position": 4,
+        "rating": 4.6,
+        "reviews": 401,
+        "reviews_original": "(401)",
+        "description": "Sauna·Shower",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAESYwHrOzAVhYxosK18fdbV9CDN8q9y9WwTS_yYaxxyDI6KDlsCDnQl7k0kq4q8-HiGsbo595ySXC91hXGtfdsCNKqzumdCrZP6kozcPHNOt1PrDHi_Rbp9pAh-yJPTr1CN03l7eA",
+          "directions": "https://www.google.com/maps/dir//Workout+Anytime,+921+Decatur+Pike,+Athens,+TN+37303/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x886266668c22b67d:0xc70aa0fc2d6b79e?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQINhAA&hl=en&gl=us"
+        },
+        "place_id": "896403310516811678",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=896403310516811678&q=gym",
+        "provider_id": "/g/11b6b90w_n",
+        "gps_coordinates": {
+          "latitude": 35.446763,
+          "longitude": -84.612728
+        },
+        "title": "Workout Anytime",
+        "type": "Gym",
+        "years_in_business": "7+ years in business",
+        "address": "Athens, TN",
+        "phone": "(423) 453-5398",
+        "hours": "Open 24 hours"
+      },
+      {
+        "position": 5,
+        "rating": 4.7,
+        "reviews": 23,
+        "reviews_original": "(23)",
+        "description": "Onsite services",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAESZgHrOzAVu3KW2_pay-vNlGOcHveNSrmZoz-OfDrn6snRrBbeI5Pc0LFLRmpcNGvEE90-DeL8I-mGqIiTV6I2CCTy62eYqDX9kIDOFz8zldHHbbyx4ZwjioN117xX2dW1cP1czLSmpQ",
+          "directions": "https://www.google.com/maps/dir//Freedom+Fitness,+208+E+Main+St,+Oak+Grove,+LA+71263/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x862ebaef1b604b13:0xd24af8d722b3c676?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQIIxAA&hl=en&gl=us"
+        },
+        "place_id": "15153197499125319286",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=15153197499125319286&q=gym",
+        "provider_id": "/g/1tfpvmt6",
+        "gps_coordinates": {
+          "latitude": 32.861069,
+          "longitude": -91.391675
+        },
+        "title": "Freedom Fitness",
+        "type": "Gym",
+        "years_in_business": "15+ years in business",
+        "address": "Oak Grove, LA",
+        "phone": "(318) 428-4055",
+        "hours": "Open 24 hours"
+      },
+      {
+        "position": 6,
+        "rating": 4.7,
+        "reviews": 90,
+        "reviews_original": "(90)",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAESWgHrOzAVxozgh3NuFYusAf6g3UFT6uL40szDDaMSfgyMCCR6PpnKqOml2aK9oRrMzzhOUJOqDM2yxFBLKVHnK3pLP2i33bHoeq7qytAvipr9xY_ABLud8ev_Mg",
+          "directions": "https://www.google.com/maps/dir//Melanie+B's+Gym,+6803+W+Park+Ave,+Houma,+LA+70364/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x86211aaffc8dbe3f:0x7381c781aba0368a?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQINBAA&hl=en&gl=us"
+        },
+        "place_id": "8323152946101499530",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=8323152946101499530&q=gym",
+        "provider_id": "/g/11bxgnvzc1",
+        "gps_coordinates": {
+          "latitude": 29.612484,
+          "longitude": -90.744012
+        },
+        "title": "Melanie B's Gym",
+        "type": "Gym",
+        "years_in_business": "10+ years in business",
+        "address": "Houma, LA",
+        "phone": "(985) 746-5765",
+        "hours": "Open 24 hours"
+      },
+      {
+        "position": 7,
+        "rating": 4.9,
+        "reviews": 30,
+        "reviews_original": "(30)",
+        "description": "Onsite services",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAESUAHrOzAVzTILlvCKpRv2PwCSt8dR8rqGyJg8ZQfVrwskpbY4IwNmgi3DzDQNckwJX41BK-L_OHS0FH9AdK3esLKkGet3-oRlFEjat_0v1DZx",
+          "directions": "https://www.google.com/maps/dir//The+Arc+Gym,+10277+SH+30+Ste+402,+College+Station,+TX+77845/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x864685ac0c48d9eb:0x28b1a16ec793454a?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQINRAA&hl=en&gl=us"
+        },
+        "place_id": "2932302329561695562",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=2932302329561695562&q=gym",
+        "provider_id": "/g/11twj5h0lf",
+        "gps_coordinates": {
+          "latitude": 30.652693,
+          "longitude": -96.268822
+        },
+        "title": "The Arc Gym",
+        "type": "Gym",
+        "years_in_business": "3+ years in business",
+        "address": "College Station, TX",
+        "phone": "(979) 485-1386",
+        "hours": "Open 24 hours"
+      },
+      {
+        "position": 8,
+        "rating": 4.4,
+        "reviews": 446,
+        "reviews_original": "(446)",
+        "description": "Sauna·Shower",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAESZgHrOzAV6qUFUIm6KODWLHz8w6NZRmZk2hXO4uRSOJrMSoZDNYkwfUv7nuo1l_f2vAWUl9u0Qdt5brZtGjIebPudOhM1ZHsdiyWTm0sdtnV6vtY63eqqkA8KbCt3CGwssE2pSN2wcg",
+          "directions": "https://www.google.com/maps/dir//Workout+Anytime+Athens+AL,+611+US+Hwy+72+E+Ste+150,+Athens,+AL+35611/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x885e155624f588f9:0xfe6c80ed3381f422?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQIMxAA&hl=en&gl=us"
+        },
+        "place_id": "18333169939378205730",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=18333169939378205730&q=gym",
+        "provider_id": "/g/11cm05vkhc",
+        "gps_coordinates": {
+          "latitude": 34.78852,
+          "longitude": -86.975638
+        },
+        "title": "Workout Anytime Athens AL",
+        "type": "Gym",
+        "years_in_business": "10+ years in business",
+        "address": "Athens, AL",
+        "phone": "(256) 434-1176",
+        "hours": "Open 24 hours"
+      },
+      {
+        "position": 9,
+        "rating": 4,
+        "reviews": 111,
+        "reviews_original": "(111)",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAESZQHrOzAV9Y8EFtwzvmdHMXom6VJ4ah5n5bpC_Mhz6-L5z1sHoA9K9HZ2hUKXHkUrddqJgFXQRQJny8UXZ-UOo4QQFoWCmZaoT9s1ZuQXjyhJrwCjdipzCfQ1N0EZJQtmOZpvAPVC",
+          "directions": "https://www.google.com/maps/dir//Bayouland+YMCA,+103+Valhi+Blvd,+Houma,+LA+70360/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x8621053f02e45d95:0xe60f2da5a136cf5?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQILRAA&hl=en&gl=us"
+        },
+        "place_id": "1036094933923228917",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=1036094933923228917&q=gym",
+        "provider_id": "/g/1wt3nsfk",
+        "gps_coordinates": {
+          "latitude": 29.581095,
+          "longitude": -90.730156
+        },
+        "title": "Bayouland YMCA",
+        "type": "Non-profit organization",
+        "address": "Houma, LA",
+        "phone": "(985) 873-9622",
+        "hours": "Open · Closes 9 PM"
+      },
+      {
+        "position": 10,
+        "rating": 4.7,
+        "reviews": 48,
+        "reviews_original": "(48)",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAES2QEB6zswFdNH7dtkFgh47fgcuEKrUtcL5yINcetOcu_8C4i0D84nH_7cDCIHtLo8_kj7gzsy2SjFmgfpcqms-t1fmSHpTti0ERf2UIQYx9qYyXGOqxAfDqGRk-x9yjNtRFgEW2Fn2IK-ghLwRtHqR4_GxXtkjqA_D_QwNanZoznOudOcdqwVQO4Vj9sIW0y2lQ2fgBiVzzNzQ3Fp6T_-PzGOLoF7Suj0IiSLbozK393AQlkrCiifWbVSQW70Ls1c3Vyslx716Q296FLhbhzYPE-2GQIVYFnkQfpK",
+          "directions": "https://www.google.com/maps/dir//Anytime+Fitness,+1812+Main+St,+Franklin,+LA+70538/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x8623eac1342765db:0x29678511c631dfb6?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQIMhAA&hl=en&gl=us"
+        },
+        "place_id": "2983499589542338486",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=2983499589542338486&q=gym",
+        "provider_id": "/g/1tmk8vzf",
+        "gps_coordinates": {
+          "latitude": 29.807847,
+          "longitude": -91.506134
+        },
+        "title": "Anytime Fitness",
+        "type": "Gym",
+        "years_in_business": "15+ years in business",
+        "address": "Franklin, LA",
+        "phone": "(337) 907-6600",
+        "hours": "Open 24 hours"
+      },
+      {
+        "position": 11,
+        "rating": 4.2,
+        "reviews": 71,
+        "reviews_original": "(71)",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAES1gEB6zswFXR9LMid0QZ2TYAII2A-zd8xcnKlDV8pDHJeiCTm_9IcQFE3ONkstq_G_sHgekBD2o2jIHRnTLIP63ShhNBeNNjU534SP2KjDQfENI9Hc7rSiN4kBHLrehzofZ-omZrJ6CAls8-jhir3JXxtR6gbvzqmfVsZKL4ItSGpsjpCfmlccuh6i72x_yeTfbVTxy5IrTK4fyvt97fkYHCbNtFyOGiaetcy11ewEbuDyz6-d8CXV27UyyJ00bazjCx24qxmxlGwv1BorLkSa9PTYiH17ziH",
+          "directions": "https://www.google.com/maps/dir//Anytime+Fitness,+1128+Grand+Caillou+Rd,+Houma,+LA+70363/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x862105b280da0e5d:0xacb686cc6adaa6e8?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQIMBAA&hl=en&gl=us"
+        },
+        "place_id": "12445282832809109224",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=12445282832809109224&q=gym",
+        "provider_id": "/g/11f6dm3v_j",
+        "gps_coordinates": {
+          "latitude": 29.57855,
+          "longitude": -90.690593
+        },
+        "title": "Anytime Fitness",
+        "type": "Gym",
+        "years_in_business": "7+ years in business",
+        "address": "Houma, LA",
+        "phone": "(985) 308-9599",
+        "hours": "Open 24 hours"
+      },
+      {
+        "position": 12,
+        "rating": 4.9,
+        "reviews": 16,
+        "reviews_original": "(16)",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAESxQEB6zswFYrky4-LQVFYcJJ6Jn25wAKMiWvUThVoQIIho2D2CXqMZoXb2jx1s76FyNpSPf6-bbA3YbmombA4bqSoTQ6J7_OGdGNUmx6BWey247RyS0iQBbs4jRQdM7WdN9X8Sr3DrFmqbY_NUjoyhw6NQf3vDDow9S_UfZWc7yGI0sme7V3qUotSLDfKv4TOKFnH6un_5mymnXkwTcA9FjjggkupEur_3juEywF3RDXuyz51lNE2I14NcI7sswqzq8uuquSRig",
+          "directions": "https://www.google.com/maps/dir//Underdog+Fitness,+509+S+Main+St,+Jay,+OK+74346/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x87c9c9ad96308fed:0xbe51878001f6645c?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQIJxAA&hl=en&gl=us"
+        },
+        "place_id": "13713891324178359388",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=13713891324178359388&q=gym",
+        "provider_id": "/g/11y6nthv0h",
+        "gps_coordinates": {
+          "latitude": 36.421312,
+          "longitude": -94.797695
+        },
+        "title": "Underdog Fitness",
+        "type": "Gym",
+        "address": "Jay, OK",
+        "phone": "(918) 353-8375",
+        "hours": "Open 24 hours"
+      },
+      {
+        "position": 13,
+        "rating": 4.3,
+        "reviews": 163,
+        "reviews_original": "(163)",
+        "description": "Sauna·Child care·Shower",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAESYwHrOzAVgxU9E7foqmHrW7rCNkbf7TMYbbo1MXSrPKT51rWcKZvMSa2weg3kIYtR8vJD3WT53pprFmgeE-ULXblwqOxcbALow0GN3xjp5ZS9uKGzoMDHM4ZQxoDDAsLCt5movw",
+          "directions": "https://www.google.com/maps/dir//CLUB4+Fitness+Houma,+1779+Martin+Luther+King+Blvd+%23500,+Houma,+LA+70360/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x8621112fbc064c3d:0xad39a6afd8c8a9c6?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQIKBAA&hl=en&gl=us"
+        },
+        "place_id": "12482191116420557254",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=12482191116420557254&q=gym",
+        "provider_id": "/g/11k9h5j_pm",
+        "gps_coordinates": {
+          "latitude": 29.617055,
+          "longitude": -90.760368
+        },
+        "title": "CLUB4 Fitness Houma",
+        "type": "Fitness center",
+        "years_in_business": "3+ years in business",
+        "address": "Houma, LA",
+        "phone": "(985) 333-8054",
+        "hours": "Open 24 hours"
+      },
+      {
+        "position": 14,
+        "rating": 4.8,
+        "reviews": 146,
+        "reviews_original": "(146)",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAESagHrOzAVzNP8o4zAhkXR4cfzUU4ObxziWvo3gFP-16OdUpz7SbNaHghspMI5znd324KV049pt9J6TTPbKPm_9nrsKbBAIZ31rIGHqAyBJ0VEE8tT6Cc5QwyMg0z29Y4r2vk3tXQ9UVv_LJk",
+          "directions": "https://www.google.com/maps/dir//Workout+Anytime+Muscle+Shoals,+300+S+Wilson+Dam+Rd,+Muscle+Shoals,+AL+35661/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x887d49497ca346ef:0x7596ea310feb9f03?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQIJhAA&hl=en&gl=us"
+        },
+        "place_id": "8473217245385563907",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=8473217245385563907&q=gym",
+        "provider_id": "/g/11gck52qgh",
+        "gps_coordinates": {
+          "latitude": 34.757069,
+          "longitude": -87.635224
+        },
+        "title": "Workout Anytime Muscle Shoals",
+        "type": "Gym",
+        "years_in_business": "7+ years in business",
+        "address": "Muscle Shoals, AL",
+        "phone": "(256) 978-4376",
+        "hours": "Open 24 hours"
+      },
+      {
+        "position": 15,
+        "rating": 4.9,
+        "reviews": 75,
+        "reviews_original": "(75)",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAESdQHrOzAVeiriQ1B-RoUUaXDPsTWWpv-6ZWiHcLoHFN-ugskjMsl59iEV2at81oBSOqnkslxGfBuc7gWonlaletv4yuJGBxhhcvc7MZkDvva2eCQu-kF_-lvJLIZBAaf45EVS8TjBp0O0X5jyxJ2GzQf17awvcg",
+          "directions": "https://www.google.com/maps/dir//Anytime+Fitness,+745+E+Hwy+30+bldg.+2+suites+A-F,+St+Gabriel,+LA+70776/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x8626af670d3c2901:0x559c6e4dd677f6ee?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQIKRAA&hl=en&gl=us"
+        },
+        "place_id": "6168926870180460270",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=6168926870180460270&q=gym",
+        "provider_id": "/g/11h_bncqg4",
+        "gps_coordinates": {
+          "latitude": 30.307064,
+          "longitude": -91.121297
+        },
+        "title": "Anytime Fitness",
+        "type": "Gym",
+        "years_in_business": "5+ years in business",
+        "address": "St Gabriel, LA",
+        "phone": "(225) 319-7700",
+        "hours": "Open 24 hours"
+      },
+      {
+        "position": 16,
+        "rating": 4.2,
+        "reviews": 198,
+        "reviews_original": "(198)",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAESVAHrOzAVYdi_pZQlWTV8pb443SJ_3uf8iurjDvH2ReApyhSZLc8OfkCnZ2DmzRSI6Wa3RrHZuzgc2ZN0xJLGCMvGTYEQC_jOGXXnlybeDQtPlFnC9A",
+          "directions": "https://www.google.com/maps/dir//Max+Fitness,+7347+Highland+Rd,+Baton+Rouge,+LA+70808/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x8626a67939ffeead:0x8a9a8fc179960f5d?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQILhAA&hl=en&gl=us"
+        },
+        "place_id": "9987453184778833757",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=9987453184778833757&q=gym",
+        "provider_id": "/g/1tvgvq33",
+        "gps_coordinates": {
+          "latitude": 30.379807,
+          "longitude": -91.138509
+        },
+        "title": "Max Fitness",
+        "type": "Gym",
+        "years_in_business": "15+ years in business",
+        "address": "Baton Rouge, LA",
+        "phone": "(225) 768-7150",
+        "hours": "Open · Closes 9 PM"
+      },
+      {
+        "position": 17,
+        "rating": 4.2,
+        "reviews": 117,
+        "reviews_original": "(117)",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAESjgEB6zswFWv99StwXADLGNDGfr5oXkX4N24k6epPSiaGZaVEgLINIF5kAhoCgF0znhK-Q--LkLb__U3qwGfBZX-FJsI_yERj7oNtGvnrsUEZ7UrinJdxgd_6P6ygT3U-IWSu1n4LSHD4-02B8D3c92T2gs6kU0CpFBcRXISUiKxdDoYyhrws0zr1sohJsTZV",
+          "directions": "https://www.google.com/maps/dir//Nautilus+Fitness+of+Gainesville,+1311+N+Grand+Ave+Ste+150,+Gainesville,+TX+76240/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x864d01aafd06aa9f:0xfe6b092b21420885?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQIKhAA&hl=en&gl=us"
+        },
+        "place_id": "18332756788987955333",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=18332756788987955333&q=gym",
+        "provider_id": "/g/1tfv0z2b",
+        "gps_coordinates": {
+          "latitude": 33.639269,
+          "longitude": -97.134848
+        },
+        "title": "Nautilus Fitness of Gainesville",
+        "type": "Gym",
+        "years_in_business": "5+ years in business",
+        "address": "Gainesville, TX",
+        "phone": "(940) 295-5200",
+        "hours": "Open · Closes 7 PM"
+      },
+      {
+        "position": 18,
+        "rating": 4.7,
+        "reviews": 147,
+        "reviews_original": "(147)",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAESaQHrOzAVqkcg6bnJyC-2j4sKk5Rk783wrYOoILHX61NlnJ5ueqJGPmFyuE6sXZDnxCJKIDQdJpM-rbPDbZsctMhvtpU09FBLYM-B2Fd81g76LYAcWcj5SlHVjTjLXwngJ3w1MSJlXA-pKg",
+          "directions": "https://www.google.com/maps/dir//Thibodaux+Regional+Fitness+Center,+726+N+Acadia+Rd,+Thibodaux,+LA+70301/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x8621162445da5ee7:0x80587a5d6a80e8cd?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQIMRAA&hl=en&gl=us"
+        },
+        "place_id": "9248276376442693837",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=9248276376442693837&q=gym",
+        "provider_id": "/g/11c2j0x72v",
+        "gps_coordinates": {
+          "latitude": 29.779194,
+          "longitude": -90.80257
+        },
+        "title": "Thibodaux Regional Fitness Center",
+        "type": "Gym",
+        "years_in_business": "7+ years in business",
+        "address": "Thibodaux, LA",
+        "phone": "(985) 493-4950",
+        "hours": "Open · Closes 10 PM"
+      },
+      {
+        "position": 19,
+        "rating": 4.1,
+        "reviews": 362,
+        "reviews_original": "(362)",
+        "description": "Onsite services not available",
+        "links": {
+          "website": "https://www.google.com/goto?url=CAESZAHrOzAVF3T7EkUwyr4Srq3dZvZJfY_tRJtZ9jtTeEgC1pRihR03Dz61yenVvd3nKqumq0O996byKLmgcY3dAqpuoWFqWj0gBqCvIrmqQ7V2kFIRFNMm1klxrXF95gT1lo8UEtA",
+          "directions": "https://www.google.com/maps/dir//YouFit+Gyms+Harvey,+2424+Manhattan+Blvd,+Harvey,+LA+70058/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x8620a133cea9628d:0x63ae429184ba83f8?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQILxAA&hl=en&gl=us"
+        },
+        "place_id": "7182751648467026936",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=7182751648467026936&q=gym",
+        "provider_id": "/g/11bv1czd0f",
+        "gps_coordinates": {
+          "latitude": 29.877564,
+          "longitude": -90.051732
+        },
+        "title": "YouFit Gyms Harvey",
+        "type": "Fitness center",
+        "years_in_business": "7+ years in business",
+        "address": "Harvey, LA",
+        "phone": "(888) 968-3481",
+        "hours": "Open · Closes 10 PM"
+      },
+      {
+        "position": 20,
+        "rating": 4.5,
+        "reviews": 96,
+        "reviews_original": "(96)",
+        "links": {
+          "directions": "https://www.google.com/maps/dir//Fuse+Fitness,+2503+Gallatin+Ave+Ste+101,+Nashville,+TN+37206/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x8864670007b49401:0x39c23df4068095da?sa=X&ved=2ahUKEwiVov22ocSWAxWIQzABHSLcHYkQ48ADegQIKxAA&hl=en&gl=us"
+        },
+        "place_id": "4161957123934164442",
+        "place_id_search": "https://serpapi.com/search.json?device=desktop&engine=google_local&gl=us&google_domain=google.com&hl=en&ludocid=4161957123934164442&q=gym",
+        "provider_id": "/g/11w9gzhfc3",
+        "gps_coordinates": {
+          "latitude": 36.195299,
+          "longitude": -86.743416
+        },
+        "title": "Fuse Fitness",
+        "type": "Fitness center",
+        "address": "Nashville, TN",
+        "phone": "(802) 349-5708"
+      }
+    ]
+  }
+}

@@ -1,0 +1,453 @@
+{
+  "key": "google_maps__santa-clara-office__666d59e8b5196b79",
+  "engine": "google_maps",
+  "params": {
+    "q": "2788 San Tomas Expressway, Santa Clara, CA",
+    "type": "search"
+  },
+  "recorded_at_ms": 1787952311126,
+  "status": 200,
+  "body": {
+    "search_metadata": {
+      "id": "6a91fcb62efef84b77af41a0",
+      "status": "Success",
+      "json_endpoint": "https://serpapi.com/searches/UVO9DtrqWCj-eUbf4spjtFBKMvQk9oIFXC2Vu8weAL4/6a91fcb62efef84b77af41a0.json",
+      "markdown_endpoint": "https://serpapi.com/searches/UVO9DtrqWCj-eUbf4spjtFBKMvQk9oIFXC2Vu8weAL4/6a91fcb62efef84b77af41a0.md",
+      "created_at": "2026-08-28 21:25:10 UTC",
+      "processed_at": "2026-08-28 21:25:10 UTC",
+      "google_maps_url": "https://www.google.com/maps/search/2788+San+Tomas+Expressway%2C+Santa+Clara%2C+CA//data=!3m1!4b1!4m2!2m1!6e5?hl=en",
+      "raw_html_file": "https://serpapi.com/searches/UVO9DtrqWCj-eUbf4spjtFBKMvQk9oIFXC2Vu8weAL4/6a91fcb62efef84b77af41a0.html",
+      "prettify_html_file": "https://serpapi.com/searches/UVO9DtrqWCj-eUbf4spjtFBKMvQk9oIFXC2Vu8weAL4/6a91fcb62efef84b77af41a0.prettify",
+      "total_time_taken": 0.87
+    },
+    "search_parameters": {
+      "engine": "google_maps",
+      "type": "search",
+      "q": "2788 San Tomas Expressway, Santa Clara, CA",
+      "google_domain": "google.com",
+      "hl": "en"
+    },
+    "search_information": {
+      "local_results_state": "Showing results for type: \"place\" instead of type: \"search\"",
+      "query_displayed": "2788 San Tomas Expressway, Santa Clara, CA"
+    },
+    "place_results": {
+      "title": "2788 San Tomas Expy",
+      "place_id": "ChIJsckHtybKj4ARRutrPRrkPPs",
+      "data_id": "0x808fca26b707c9b1:0xfb3ce41a3d6beb46",
+      "data_cid": "18103595403473316678",
+      "reviews_link": "https://serpapi.com/search.json?data_id=0x808fca26b707c9b1%3A0xfb3ce41a3d6beb46&engine=google_maps_reviews&hl=en",
+      "photos_link": "https://serpapi.com/search.json?data_id=0x808fca26b707c9b1%3A0xfb3ce41a3d6beb46&engine=google_maps_photos&hl=en",
+      "gps_coordinates": {
+        "latitude": 37.3726799,
+        "longitude": -121.9678625
+      },
+      "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJsckHtybKj4ARRutrPRrkPPs",
+      "provider_id": "/g/11b8txrd22",
+      "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkucN0P6AQk6FufnuODWEfTTQ4tzL5IofzeipFodIeYBwvkwEFpsjICYOPwHl0rzeQK_dxg1Dl7bImJRPrihqSn4MrEei9afmQyFKLy9GR70Kazz-N3Ir5D_7BglP3E3ZVQRjMb=w1000-h1000-c-n",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/6VWbXXicHcRRboIwAADQE1VqUIlL_MAB2qHSIpnRH6O1FKS02BbRXnBn2G2W7H2835_K2s58eJ6o_BFXigvWG6apkpZJO6Kq9XhnADXAeOE6x8Wh6ekO4llImlnSl7LPokNcFgWZWLeZIlU6VneJuiF2XA7PZoiTztzR5zHDw1pA7RhJz7cXH0ciuKL2K8e6rh57OdnqmNXzS9mSd5Ju3vNVHsD04hzY-UhPo3Ow5AL7sX_6Jvl9e10MYwghqP6nQP4B0FJFSQ",
+      "address": "2788 San Tomas Expy, Santa Clara, CA 95051",
+      "country": "United States",
+      "images": [
+        {
+          "title": "All",
+          "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkucN0P6AQk6FufnuODWEfTTQ4tzL5IofzeipFodIeYBwvkwEFpsjICYOPwHl0rzeQK_dxg1Dl7bImJRPrihqSn4MrEei9afmQyFKLy9GR70Kazz-N3Ir5D_7BglP3E3ZVQRjMb=w1000-h1000-c-n",
+          "serpapi_thumbnail": "https://serpapi.com/images/url/6VWbXXicHcRRboIwAADQE1VqUIlL_MAB2qHSIpnRH6O1FKS02BbRXnBn2G2W7H2835_K2s58eJ6o_BFXigvWG6apkpZJO6Kq9XhnADXAeOE6x8Wh6ekO4llImlnSl7LPokNcFgWZWLeZIlU6VneJuiF2XA7PZoiTztzR5zHDw1pA7RhJz7cXH0ciuKL2K8e6rh57OdnqmNXzS9mSd5Ju3vNVHsD04hzY-UhPo3Ow5AL7sX_6Jvl9e10MYwghqP6nQP4B0FJFSQ"
+        }
+      ],
+      "at_this_place": {
+        "type": [
+          {
+            "title": "Services",
+            "places": 1
+          },
+          {
+            "title": "Health & Beauty",
+            "places": 1
+          },
+          {
+            "title": "Other",
+            "places": 15
+          }
+        ],
+        "places": [
+          {
+            "position": 1,
+            "title": "NVIDIA",
+            "data_id": "0x808fca2702c480db:0x76527847b95e08c9",
+            "data_cid": "8526009294013728969",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x808fca2702c480db%3A0x76527847b95e08c9&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x808fca2702c480db%3A0x76527847b95e08c9&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 37.3706254,
+              "longitude": -121.9671894
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x808fca2702c480db%3A0x76527847b95e08c9%218m2%213d37.3706254%214d-121.9671894&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "rating": 4.6,
+            "reviews": 628,
+            "type": "Corporate office",
+            "type_id": "corporate_office",
+            "address": "2788 San Tomas Expy, Santa Clara, CA 95051",
+            "location": "Floor 1",
+            "open_state": "Open · Closes 5 PM",
+            "hours": [
+              {
+                "friday": "8 AM–5 PM"
+              },
+              {
+                "saturday": "Closed"
+              },
+              {
+                "sunday": "Closed"
+              },
+              {
+                "monday": "9 AM–6 PM"
+              },
+              {
+                "tuesday": "8 AM–5 PM"
+              },
+              {
+                "wednesday": "8 AM–5 PM"
+              },
+              {
+                "thursday": "8 AM–5 PM"
+              }
+            ],
+            "thumbanil": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlNhP5Axw3LJSA5e0DKkFO1awXlqVqY5BDJahLdyXFikca0hPOuNBg5lk3Q2uTwTNNkCd9hg6Id6Ne9Sh4xJAKKKsrmARCe8avdQe2lIFH35fRXBYwyrsOCvmq4izi5F4X7x1pP=w107-h107-n-k-no",
+            "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlNhP5Axw3LJSA5e0DKkFO1awXlqVqY5BDJahLdyXFikca0hPOuNBg5lk3Q2uTwTNNkCd9hg6Id6Ne9Sh4xJAKKKsrmARCe8avdQe2lIFH35fRXBYwyrsOCvmq4izi5F4X7x1pP=w107-h107-n-k-no"
+          },
+          {
+            "position": 2,
+            "title": "NVIDIA Voyager",
+            "data_id": "0x808fcb4e51a72a79:0xf34274eee76e8783",
+            "data_cid": "17528701269113210755",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb4e51a72a79%3A0xf34274eee76e8783&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb4e51a72a79%3A0xf34274eee76e8783&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 37.3726498,
+              "longitude": -121.9671749
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x808fcb4e51a72a79%3A0xf34274eee76e8783%218m2%213d37.3726498%214d-121.9671749&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "rating": 4.9,
+            "reviews": 182,
+            "type": "Corporate office",
+            "type_id": "corporate_office",
+            "address": "2888 San Tomas Expy, Santa Clara, CA 95051",
+            "location": "Floor 1",
+            "thumbanil": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkwH2MYTYC2odO7BThVjTdvJ7udr3v8vCWKcxdz1CGov1EGimmcRnvsXPBI1ecxSxNKcNlno1W3pUSV_SKb2ZpK72okt2wnUkQ5DJo66QID1t6rneE0SmsOjorOTJVjdP5otRtT5Q=w107-h107-n-k-no",
+            "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkwH2MYTYC2odO7BThVjTdvJ7udr3v8vCWKcxdz1CGov1EGimmcRnvsXPBI1ecxSxNKcNlno1W3pUSV_SKb2ZpK72okt2wnUkQ5DJo66QID1t6rneE0SmsOjorOTJVjdP5otRtT5Q=w107-h107-n-k-no"
+          },
+          {
+            "position": 3,
+            "title": "NVIDIA Building A",
+            "data_id": "0x808fcb7f47238acf:0xa1dce2451f59bf7d",
+            "data_cid": "11663445921489338237",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb7f47238acf%3A0xa1dce2451f59bf7d&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb7f47238acf%3A0xa1dce2451f59bf7d&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 37.3707923,
+              "longitude": -121.9644246
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x808fcb7f47238acf%3A0xa1dce2451f59bf7d%218m2%213d37.3707923%214d-121.9644246&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "rating": 4.7,
+            "reviews": 13,
+            "type": "Corporate office",
+            "type_id": "corporate_office",
+            "address": "2721 San Tomas Expy, Santa Clara, CA 95051",
+            "location": "Floor 1",
+            "open_state": "Open · Closes 5 PM",
+            "hours": [
+              {
+                "friday": "8 AM–5 PM"
+              },
+              {
+                "saturday": "Closed"
+              },
+              {
+                "sunday": "Closed"
+              },
+              {
+                "monday": "8 AM–5 PM"
+              },
+              {
+                "tuesday": "8 AM–5 PM"
+              },
+              {
+                "wednesday": "8 AM–5 PM"
+              },
+              {
+                "thursday": "8 AM–5 PM"
+              }
+            ],
+            "thumbanil": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk-crEsU_YpsgBeqgOdCKgG87yx3LHJ_5cBZVHpl9EBWBNZ-PB7n6-2HG2X-9B1rgTStp7MV-wKfp7up6fwTR1eIlvgSeir3wQlBW6TEGhOqhgOyHI3BGNcmxgvPpYDdD7mC_ODog=w107-h107-n-k-no",
+            "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk-crEsU_YpsgBeqgOdCKgG87yx3LHJ_5cBZVHpl9EBWBNZ-PB7n6-2HG2X-9B1rgTStp7MV-wKfp7up6fwTR1eIlvgSeir3wQlBW6TEGhOqhgOyHI3BGNcmxgvPpYDdD7mC_ODog=w107-h107-n-k-no"
+          },
+          {
+            "position": 4,
+            "title": "NVIDIA Building E",
+            "data_id": "0x808fcb940f4268e7:0xbd0d188329702760",
+            "data_cid": "13622571399480616800",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb940f4268e7%3A0xbd0d188329702760&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb940f4268e7%3A0xbd0d188329702760&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 37.3711564,
+              "longitude": -121.9609423
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x808fcb940f4268e7%3A0xbd0d188329702760%218m2%213d37.3711564%214d-121.9609423&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "rating": 4.7,
+            "reviews": 13,
+            "type": "Corporate office",
+            "type_id": "corporate_office",
+            "address": "2800 Scott Blvd, Santa Clara, CA 95050",
+            "location": "Floor 1",
+            "thumbanil": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl830XCjpsPSt3fKTMVzf4drT6Kx6AtbI0njrVfPVKmMd_ttnVGUcgbTD8SbHYcG53FrAel2EvLMTg5OXHfaseNA8XVi4DthVLlH2l_ItCSXU-QKAp1g_-OuPTfYv7Tcgmh3Ps=w107-h107-n-k-no",
+            "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl830XCjpsPSt3fKTMVzf4drT6Kx6AtbI0njrVfPVKmMd_ttnVGUcgbTD8SbHYcG53FrAel2EvLMTg5OXHfaseNA8XVi4DthVLlH2l_ItCSXU-QKAp1g_-OuPTfYv7Tcgmh3Ps=w107-h107-n-k-no"
+          },
+          {
+            "position": 5,
+            "title": "NVIDIA Building D",
+            "data_id": "0x808fcbaf525066fb:0x3681e6ec511dfd8",
+            "data_cid": "245479640793210840",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcbaf525066fb%3A0x3681e6ec511dfd8&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x808fcbaf525066fb%3A0x3681e6ec511dfd8&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 37.3700253,
+              "longitude": -121.9638325
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x808fcbaf525066fb%3A0x3681e6ec511dfd8%218m2%213d37.3700253%214d-121.9638325&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "rating": 4.2,
+            "reviews": 12,
+            "type": "Corporate office",
+            "type_id": "corporate_office",
+            "address": "2701 San Tomas Expy, Santa Clara, CA 95050",
+            "location": "Floor 1",
+            "open_state": "Open · Closes 5 PM",
+            "hours": [
+              {
+                "friday": "8 AM–5 PM"
+              },
+              {
+                "saturday": "Closed"
+              },
+              {
+                "sunday": "Closed"
+              },
+              {
+                "monday": "8 AM–5 PM"
+              },
+              {
+                "tuesday": "8 AM–5 PM"
+              },
+              {
+                "wednesday": "8 AM–5 PM"
+              },
+              {
+                "thursday": "8 AM–5 PM"
+              }
+            ],
+            "thumbanil": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlXNXx1zEzUvqkJhUGW4vrV7NNWQFDkveViqAFSNNHhwCbD9eUDPaiDZihatq2CW3eFTxllCyPRZT_mHeUR43G0BwpWiWg6hFMeNBtADA7wDADfHILo3WlkyEsYpSXp7tp6mrDc_wRG-EUy=w107-h107-n-k-no",
+            "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlXNXx1zEzUvqkJhUGW4vrV7NNWQFDkveViqAFSNNHhwCbD9eUDPaiDZihatq2CW3eFTxllCyPRZT_mHeUR43G0BwpWiWg6hFMeNBtADA7wDADfHILo3WlkyEsYpSXp7tp6mrDc_wRG-EUy=w107-h107-n-k-no"
+          },
+          {
+            "position": 6,
+            "title": "NVIDIA Building B",
+            "data_id": "0x808fcb7dff30788f:0xf218f7b7f2adf0c3",
+            "data_cid": "17444965526042177731",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb7dff30788f%3A0xf218f7b7f2adf0c3&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb7dff30788f%3A0xf218f7b7f2adf0c3&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 37.3715332,
+              "longitude": -121.9638858
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x808fcb7dff30788f%3A0xf218f7b7f2adf0c3%218m2%213d37.3715332%214d-121.9638858&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "type": "Corporate office",
+            "type_id": "corporate_office"
+          },
+          {
+            "position": 7,
+            "title": "NVIDIA Building G",
+            "data_id": "0x808fcb6ddebdf325:0xb777af7b9ea41865",
+            "data_cid": "13220228176646772837",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb6ddebdf325%3A0xb777af7b9ea41865&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb6ddebdf325%3A0xb777af7b9ea41865&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 37.3699017,
+              "longitude": -121.96086349999999
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x808fcb6ddebdf325%3A0xb777af7b9ea41865%218m2%213d37.3699017%214d-121.96086349999999&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "type": "Corporate office",
+            "type_id": "corporate_office"
+          },
+          {
+            "position": 8,
+            "title": "NVIDIA Building C",
+            "data_id": "0x808fcb3b7f4ab1e1:0x3d8dcbae7da6c9ea",
+            "data_cid": "4435425158322637290",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb3b7f4ab1e1%3A0x3d8dcbae7da6c9ea&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb3b7f4ab1e1%3A0x3d8dcbae7da6c9ea&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 37.3707977,
+              "longitude": -121.96308599999999
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x808fcb3b7f4ab1e1%3A0x3d8dcbae7da6c9ea%218m2%213d37.3707977%214d-121.96308599999999&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "type": "Corporate office",
+            "type_id": "corporate_office"
+          },
+          {
+            "position": 9,
+            "title": "Family Lovers Forever",
+            "data_id": "0x8085817824570db9:0xae198d459c264d1e",
+            "data_cid": "12545213567129242910",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x8085817824570db9%3A0xae198d459c264d1e&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x8085817824570db9%3A0xae198d459c264d1e&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 37.369561700000006,
+              "longitude": -121.9680028
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x8085817824570db9%3A0xae198d459c264d1e%218m2%213d37.369561700000006%214d-121.9680028&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "type": "Contractor",
+            "type_id": "contractor"
+          },
+          {
+            "position": 10,
+            "title": "Onsite Dental",
+            "data_id": "0x808fcbfea594af3b:0xb90a4c845e8900e3",
+            "data_cid": "13333553778189205731",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcbfea594af3b%3A0xb90a4c845e8900e3&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x808fcbfea594af3b%3A0xb90a4c845e8900e3&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 37.3711564,
+              "longitude": -121.9609423
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x808fcbfea594af3b%3A0xb90a4c845e8900e3%218m2%213d37.3711564%214d-121.9609423&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "type": "Dentist",
+            "type_id": "dentist"
+          },
+          {
+            "position": 11,
+            "title": "NVIDIA Building C Parking",
+            "data_id": "0x808fcb0077a91133:0xf5723f36512c3385",
+            "data_cid": "17686268189159994245",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb0077a91133%3A0xf5723f36512c3385&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb0077a91133%3A0xf5723f36512c3385&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 37.3715504,
+              "longitude": -121.96282549999998
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x808fcb0077a91133%3A0xf5723f36512c3385%218m2%213d37.3715504%214d-121.96282549999998&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "type": "Corporate office",
+            "type_id": "corporate_office"
+          },
+          {
+            "position": 12,
+            "title": "Walsh & San Tomas",
+            "data_id": "0x808fca217a024b3b:0x19adb2bf4191e6f0",
+            "data_cid": "1850331556427720432",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x808fca217a024b3b%3A0x19adb2bf4191e6f0&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x808fca217a024b3b%3A0x19adb2bf4191e6f0&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 37.3696284,
+              "longitude": -121.9669061
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x808fca217a024b3b%3A0x19adb2bf4191e6f0%218m2%213d37.3696284%214d-121.9669061&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "type": "Bus stop",
+            "type_id": "bus_stop"
+          },
+          {
+            "position": 13,
+            "title": "Walsh & Scott",
+            "data_id": "0x808fca25b86a51b3:0xbe80e52e097037f1",
+            "data_cid": "13727223650114877425",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x808fca25b86a51b3%3A0xbe80e52e097037f1&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x808fca25b86a51b3%3A0xbe80e52e097037f1&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 37.3696031,
+              "longitude": -121.9607176
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x808fca25b86a51b3%3A0xbe80e52e097037f1%218m2%213d37.3696031%214d-121.9607176&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "type": "Bus stop",
+            "type_id": "bus_stop"
+          },
+          {
+            "position": 14,
+            "title": "NVIDIA Building 2806",
+            "data_id": "0x808fcb00750cb203:0xd79265625e31d12f",
+            "data_cid": "15533589537915785519",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb00750cb203%3A0xd79265625e31d12f&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb00750cb203%3A0xd79265625e31d12f&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 37.37079380000001,
+              "longitude": -121.9620911
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x808fcb00750cb203%3A0xd79265625e31d12f%218m2%213d37.37079380000001%214d-121.9620911&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "type": "Corporate office",
+            "type_id": "corporate_office"
+          },
+          {
+            "position": 15,
+            "title": "Walsh & Martin",
+            "data_id": "0x808fca2404eadcd5:0xf01a9f7ad40de222",
+            "data_cid": "17301316268389687842",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x808fca2404eadcd5%3A0xf01a9f7ad40de222&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x808fca2404eadcd5%3A0xf01a9f7ad40de222&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 37.3696318,
+              "longitude": -121.96382679999999
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x808fca2404eadcd5%3A0xf01a9f7ad40de222%218m2%213d37.3696318%214d-121.96382679999999&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "type": "Bus stop",
+            "type_id": "bus_stop"
+          },
+          {
+            "position": 16,
+            "title": "Scott & Central",
+            "data_id": "0x808fca2616159bc9:0x3c0149abc6558666",
+            "data_cid": "4323818119368115814",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x808fca2616159bc9%3A0x3c0149abc6558666&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x808fca2616159bc9%3A0x3c0149abc6558666&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 37.3723801,
+              "longitude": -121.9597381
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x808fca2616159bc9%3A0x3c0149abc6558666%218m2%213d37.3723801%214d-121.9597381&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "type": "Bus stop",
+            "type_id": "bus_stop"
+          },
+          {
+            "position": 17,
+            "title": "Fairytale Dream Venue",
+            "data_id": "0x808fcba1faf81017:0xf3460de338bd45fa",
+            "data_cid": "17529713869146899962",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcba1faf81017%3A0xf3460de338bd45fa&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x808fcba1faf81017%3A0xf3460de338bd45fa&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 37.3695361,
+              "longitude": -121.9612631
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x808fcba1faf81017%3A0xf3460de338bd45fa%218m2%213d37.3695361%214d-121.9612631&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "type": "Event venue",
+            "type_id": "event_venue"
+          }
+        ]
+      },
+      "at_this_location": [
+        {
+          "position": 1,
+          "title": "NVIDIA",
+          "data_id": "0x808fca2702c480db:0x76527847b95e08c9",
+          "data_cid": "8526009294013728969",
+          "reviews_link": "https://serpapi.com/search.json?data_id=0x808fca2702c480db%3A0x76527847b95e08c9&engine=google_maps_reviews&hl=en",
+          "photos_link": "https://serpapi.com/search.json?data_id=0x808fca2702c480db%3A0x76527847b95e08c9&engine=google_maps_photos&hl=en",
+          "gps_coordinates": {
+            "latitude": 37.3706254,
+            "longitude": -121.9671894
+          },
+          "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x808fca2702c480db%3A0x76527847b95e08c9%218m2%213d37.3706254%214d-121.9671894&engine=google_maps&google_domain=google.com&hl=en&type=place",
+          "rating": 4.6
+        }
+      ],
+      "web_results_link": "https://www.google.com/search?q=local+guide+program&ibp=gwp;0,26,OikKJyIjMjc4OCBTYW4gVG9tYXMgRXhweSBTYW50YSBDbGFyYSwgQ0EoAg&pcl=lp",
+      "serpapi_web_results_link": "https://serpapi.com/search.json?device=desktop&engine=google&google_domain=google.com&ibp=gwp%3B0%2C26%2COikKJyIjMjc4OCBTYW4gVG9tYXMgRXhweSBTYW50YSBDbGFyYSwgQ0EoAg&q=local+guide+program"
+    }
+  }
+}

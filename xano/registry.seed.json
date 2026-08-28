@@ -1,5 +1,5 @@
 {
-  "registry_version": "2026-08-28.1",
+  "registry_version": "2026-08-28.2",
   "capabilities": [
     {
       "capability_id": "candidates.zillow.region",
@@ -7,7 +7,7 @@
       "provider": "zillow",
       "endpoint": "zillow:search",
       "granularity": "region",
-      "cost_units": 8,
+      "cost_units": 1,
       "latency_p50_ms": 1900,
       "selectivity_prior": 1,
       "observation_n": 0,
@@ -18,13 +18,10 @@
       "max_fanout": 1,
       "params_template": {
         "engine": "zillow",
-        "listing_status": "For_Rent",
-        "ne_lat": "$stage.bounds.ne_lat",
-        "ne_long": "$stage.bounds.ne_lng",
-        "sw_lat": "$stage.bounds.sw_lat",
-        "sw_long": "$stage.bounds.sw_lng"
+        "status_type": "rent",
+        "map_bounds": "$stage.bounds.north,$stage.bounds.east,$stage.bounds.south,$stage.bounds.west"
       },
-      "notes": "cost_units is the page count, not one call. Zillow paginates at about 40 results a page."
+      "notes": "One call per page. The planner emits one op per page, so the native predicates cut the pagination cost as well as the candidate count: the unfiltered San Jose pool is 20 pages, the filtered one is a single page."
     },
     {
       "capability_id": "budget.zillow.native",
@@ -34,15 +31,17 @@
       "granularity": "native",
       "cost_units": 0,
       "latency_p50_ms": 0,
-      "selectivity_prior": 0.45,
+      "selectivity_prior": 0.3,
       "observation_n": 0,
       "ttl_seconds": 21600,
-      "coverage": 0.97,
+      "coverage": 0.8,
       "precedence": 1,
       "enabled": true,
       "max_fanout": 1,
-      "params_template": { "price_max": "$constraint.self.max_cents" },
-      "notes": "Free. Zillow applies it inside the search we were making anyway. Coverage is under 1 because multi-unit buildings return a price band rather than a price."
+      "params_template": {
+        "price": "0,$constraint.self.max_dollars"
+      },
+      "notes": "Free. Coverage is 0.80 because a fifth of San Jose rental results are apartment buildings that return a units[] band such as \"$2,495+\" rather than a unit price. A band straddling the cap gives unknown, never a guess."
     },
     {
       "capability_id": "unit_attribute.zillow.native",
@@ -52,17 +51,17 @@
       "granularity": "native",
       "cost_units": 0,
       "latency_p50_ms": 0,
-      "selectivity_prior": 0.3,
+      "selectivity_prior": 0.25,
       "observation_n": 0,
       "ttl_seconds": 21600,
-      "coverage": 0.99,
+      "coverage": 0.8,
       "precedence": 1,
       "enabled": true,
       "max_fanout": 1,
       "params_template": {
-        "beds_min": "$constraint.self.min",
-        "beds_max": "$constraint.self.max"
-      }
+        "beds": "$constraint.self.min,$constraint.self.max"
+      },
+      "notes": "Free. Multi-unit buildings carry beds inside units[] rather than at the top level, so an entity is one bed count at one building."
     },
     {
       "capability_id": "listing_feature.zillow.native",
@@ -72,15 +71,17 @@
       "granularity": "native",
       "cost_units": 0,
       "latency_p50_ms": 0,
-      "selectivity_prior": 0.35,
+      "selectivity_prior": 0.17,
       "observation_n": 0,
       "ttl_seconds": 21600,
-      "coverage": 0.55,
+      "coverage": 1.0,
       "precedence": 2,
       "enabled": true,
       "max_fanout": 1,
-      "params_template": { "keywords": "$constraint.self.feature" },
-      "notes": "Enabled pending the day 2 smoke test. If the search response does not carry amenities, disable this and enable listing_feature.zillow.entity instead. Coverage of 0.55 is a guess."
+      "params_template": {
+        "amenities": "$constraint.self.feature"
+      },
+      "notes": "Free, and Zillow guarantees survivors match. The response never restates the amenity per listing, so the evidence is provider asserted: verdict pass at confidence 0.8, citing the search rather than the listing body. Enable listing_feature.zillow.entity to upgrade that to a directly read fact."
     },
     {
       "capability_id": "listing_feature.zillow.entity",
@@ -97,7 +98,10 @@
       "precedence": 1,
       "enabled": false,
       "max_fanout": 24,
-      "params_template": { "engine": "zillow_property", "property_id": "$entity.id" },
+      "params_template": {
+        "engine": "zillow_property",
+        "property_id": "$entity.id"
+      },
       "notes": "One detail call per surviving listing. Expensive, so it runs last and only on survivors."
     },
     {
@@ -115,8 +119,12 @@
       "precedence": 1,
       "enabled": true,
       "max_fanout": 4,
-      "params_template": { "engine": "google_maps", "q": "$constraint.self.destination_raw" },
-      "notes": "Never prunes. Turns the commute destination into a point so the bounding box and every later route have something to aim at."
+      "params_template": {
+        "engine": "google_maps",
+        "type": "search",
+        "q": "$constraint.self.destination_raw"
+      },
+      "notes": "Never prunes. Returns place_results.gps_coordinates for the office address in one call."
     },
     {
       "capability_id": "commute.directions.cluster",
@@ -165,47 +173,50 @@
       "notes": "Higher precedence than the cluster row, so the exact door to door time overrides the centroid estimate."
     },
     {
-      "capability_id": "nearby_poi.local.cluster",
+      "capability_id": "nearby_poi.maps.cluster",
       "constraint_type": "nearby_poi",
-      "provider": "google_local",
-      "endpoint": "google_local:search",
+      "provider": "google_maps",
+      "endpoint": "google_maps:search",
       "granularity": "cluster",
       "cost_units": 1,
       "latency_p50_ms": 1600,
       "selectivity_prior": 0.55,
       "observation_n": 0,
       "ttl_seconds": 2592000,
-      "coverage": 0.85,
+      "coverage": 0.95,
       "precedence": 2,
       "enabled": true,
       "max_fanout": 16,
       "params_template": {
-        "engine": "google_local",
+        "engine": "google_maps",
+        "type": "search",
         "q": "$constraint.self.query",
-        "ll": "$cluster.lat,$cluster.lng"
+        "ll": "@$cluster.lat,$cluster.lng,14z"
       },
-      "notes": "Coverage is limited by opening hours, which often arrive as a display string rather than an interval."
+      "notes": "google_local ignores ll and answers for the wrong city. google_maps with type=search honours it and carries operating_hours per weekday, which is what makes an opening time answerable rather than a guess."
     },
     {
-      "capability_id": "nearby_poi.local.entity",
+      "capability_id": "nearby_poi.maps.entity",
       "constraint_type": "nearby_poi",
-      "provider": "google_local",
-      "endpoint": "google_local:search",
+      "provider": "google_maps",
+      "endpoint": "google_maps:search",
       "granularity": "entity",
       "cost_units": 1,
       "latency_p50_ms": 1600,
       "selectivity_prior": 0.9,
       "observation_n": 0,
       "ttl_seconds": 2592000,
-      "coverage": 0.85,
+      "coverage": 0.95,
       "precedence": 1,
       "enabled": true,
       "max_fanout": 24,
       "params_template": {
-        "engine": "google_local",
+        "engine": "google_maps",
+        "type": "search",
         "q": "$constraint.self.query",
-        "ll": "$entity.lat,$entity.lng"
-      }
+        "ll": "@$entity.lat,$entity.lng,15z"
+      },
+      "notes": "google_local ignores ll and answers for the wrong city. google_maps with type=search honours it and carries operating_hours per weekday, which is what makes an opening time answerable rather than a guess."
     },
     {
       "capability_id": "nearby_poi.yelp.cluster",
@@ -244,7 +255,10 @@
       "precedence": 4,
       "enabled": false,
       "max_fanout": 12,
-      "params_template": { "engine": "google_maps_reviews", "data_id": "$entity.id" },
+      "params_template": {
+        "engine": "google_maps_reviews",
+        "data_id": "$entity.id"
+      },
       "notes": "Confirms hours when Google Local returns a display string we cannot parse. Second thing to cut."
     },
     {

@@ -8,19 +8,29 @@ export interface Scenario {
   question: string
 }
 
-/**
- * San Jose bounds, wide enough to hold every neighbourhood the demo query could
- * reach by bike from Santa Clara.
- */
-const SAN_JOSE = { ne_lat: 37.45, ne_long: -121.75, sw_lat: 37.2, sw_long: -122.05 }
+/** Zillow takes map_bounds as north,east,south,west. Wide enough to hold every
+ * neighbourhood the demo query could reach by bike from Santa Clara. */
+const SAN_JOSE_BOUNDS = '37.45,-121.75,37.20,-122.05'
 
 export const SCENARIOS: Record<string, Scenario> = {
+  'san-jose-rentals': {
+    slug: 'san-jose-rentals',
+    engine: 'zillow',
+    params: { status_type: 'rent', map_bounds: SAN_JOSE_BOUNDS },
+    question: 'How large is the unfiltered candidate pool, and what fields does a listing carry?',
+  },
   'san-jose-1bed': {
     slug: 'san-jose-1bed',
     engine: 'zillow',
-    params: { ...SAN_JOSE, listing_status: 'For_Rent' },
+    params: {
+      status_type: 'rent',
+      map_bounds: SAN_JOSE_BOUNDS,
+      price: '0,2800',
+      beds: '1,1',
+      amenities: 'in_unit_laundry',
+    },
     question:
-      'Does the search response carry price, beds, coordinates and any amenity signal, or does in-unit laundry need a per-property detail call?',
+      'How much do the free native predicates prune, and does the response restate the amenity per listing?',
   },
   'santa-clara-office': {
     slug: 'santa-clara-office',
@@ -33,5 +43,11 @@ export const SCENARIOS: Record<string, Scenario> = {
     engine: 'google_local',
     params: { q: 'gym', ll: '@37.3382,-121.8863,14z' },
     question: 'Are opening hours structured intervals or display strings?',
+  },
+  'san-jose-gyms-maps': {
+    slug: 'san-jose-gyms-maps',
+    engine: 'google_maps',
+    params: { q: 'gym', ll: '@37.3382,-121.8863,14z', type: 'search' },
+    question: 'Does google_maps honour ll, where google_local did not?',
   },
 }
