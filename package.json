@@ -6,13 +6,14 @@
     "node": ">=22"
   },
   "scripts": {
-    "typecheck": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json && pnpm --filter @relokit/web typecheck",
     "test": "vitest run",
     "test:watch": "vitest",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "record": "tsx tools/record-fixture/src/main.ts",
-    "plan": "tsx tools/plan-preview/src/main.ts"
+    "plan": "tsx tools/plan-preview/src/main.ts",
+    "dev:web": "pnpm --filter @relokit/web dev"
   },
   "devDependencies": {
     "@types/node": "^26.4.0",
