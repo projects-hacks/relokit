@@ -92,7 +92,56 @@ back `unknown` while looking like a data problem rather than a parser bug.
 
 `nearby_poi` coverage is raised to 0.95.
 
-## 6. Geocoding is clean
+## 6. Directions takes an integer for the mode
+
+`travel_mode` is not a word. It is `0` driving, `1` cycling, `2` walking, `3`
+transit. The registry was sending `"bike"`, which the engine accepts without
+complaint and answers as driving. Every commute verdict in the demo would have
+been wrong, and wrong in the direction that makes listings look closer than they
+are.
+
+Fixed by a derived constraint field, `travel_mode_code`. See the resolver
+contract in [contracts.md](contracts.md).
+
+`start_coords` and `end_coords` do take `"lat,lng"`, as the templates assumed.
+
+## 7. Directions returns alternatives, and the first is not the fastest
+
+From the Lynhaven building to the office:
+
+```json
+[
+  {
+    "travel_mode": "Cycling",
+    "duration": 2026,
+    "formatted_duration": "34 min",
+    "via": "S Monroe St"
+  },
+  {
+    "travel_mode": "Cycling",
+    "duration": 1821,
+    "formatted_duration": "30 min",
+    "via": "San Tomas Aquino Creek Trail"
+  }
+]
+```
+
+Taking `directions[0]` would report 34 minutes for a place you can reach in 30.
+On a 25 minute constraint that is the difference between a rejection and a near
+miss, and the rejection list is where a judge decides whether to trust the thing.
+
+**The verdict takes the minimum duration across the returned routes for the
+requested mode.** The question is "can I get there in 25 minutes", so any route
+that achieves it answers yes.
+
+`duration` is already in seconds and `distance` in meters, so both go straight
+into `value_canonical` with no conversion.
+
+A `durations` array also comes back with one entry per mode, free, in the same
+call. Worth knowing if a second commute constraint in a different mode ever
+appears: it is answerable without a second call.
+
+## 8. Geocoding is clean
 
 `2788 San Tomas Expressway, Santa Clara, CA` resolves in one call to
 `place_results.gps_coordinates`, 37.3726799 / -121.9678625, with no ambiguity to
@@ -119,6 +168,4 @@ between the three is provisional until each filter is recorded on its own, and
 
 - Pagination parameter for Zillow past page 1. The filtered demo query fits in one
   page, so this is not on the demo path, but Watch over a wider box will need it.
-- Whether `google_maps_directions` accepts `start_coords` as `lat,lng` in the form
-  the registry template assumes. First thing to record on Saturday.
 - Yelp and Google News are unrecorded. Both are on the cut list, so that is fine.

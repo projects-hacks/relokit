@@ -41,6 +41,21 @@ Ties break on rounded score, then `precedence`, then `capability_id`. The score 
 compared as `Math.round(score * 1e9)` rather than with an epsilon, because an
 epsilon comparator is not transitive and makes sort order undefined.
 
+## Feasibility comes before cost
+
+Cost only decides between capabilities that can actually run. A geocode removes
+no candidates, so this formula scores it zero, and yet dropping it makes every
+commute row unusable.
+
+Selection is therefore a fixpoint over bindings rather than a sort. Each round
+considers only the capabilities whose required bindings already exist, picks the
+best one per constraint per tier, and adds whatever they bind. See the access
+patterns section of [contracts.md](contracts.md).
+
+The tier order below falls out of that rather than being imposed on it, which is
+a useful check: the ordering we would have written by hand is the one the
+bindings produce.
+
 ## Execution order
 
 Free predicates, then region, then cluster, then entity. Never the reverse. The
@@ -84,6 +99,17 @@ radius_m = mode_speed_mps * max_seconds * overshoot_factor
 Overshoot generously. Straight lines are not roads, and a prefilter that is too
 tight discards the right answer before anything has looked at it. The later stages
 prune; the box only bounds.
+
+## Reading a duration
+
+Directions returns route alternatives, and the first is not always the fastest.
+From one San Jose building to the demo office it offers 34 minutes via S Monroe
+St and 30 minutes via the creek trail, in that order.
+
+The verdict takes the **minimum** duration across the routes returned for the
+requested mode. The constraint asks whether the trip can be made in 25 minutes,
+so any route that manages it answers the question. Reading the first route would
+put a listing in the rejection list for a journey it does not have to make.
 
 ## Worked example
 

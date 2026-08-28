@@ -69,6 +69,14 @@ Execution runs free predicates first, then region, then cluster, then entity.
 The per-entity tier is the only one that scales with the candidate count, so it
 runs last against the smallest set that is still correct.
 
+Cost is not the whole story, because some sources cannot be read at all until
+something else has run. Directions needs a destination point, and producing one
+eliminates no candidates, so on pruning power alone a geocode scores zero and
+loses every comparison it enters. Selection is therefore a fixpoint over
+bindings: each round takes what can actually run, keeps the best per constraint,
+and adds whatever it makes available. The tier order above falls out of that
+rather than being imposed on it.
+
 For the San Jose query that means Zillow's own filters take 4,517 rentals to 58
 for nothing, twelve cluster centroids settle the commute and the amenities, and
 only the survivors get an exact door-to-door route.
