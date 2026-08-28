@@ -84,8 +84,10 @@ export const CandidateTrace = z.object({
   coverage: z.number(),
   cost_units: z.number(),
   entities_requiring_evaluation: z.number(),
-  score: z.number(),
-  score_rounded: z.number(),
+  /** Null for a native capability. Free predicates are not scored: they run
+   * first, ordered by precedence, and a score over zero cost is meaningless. */
+  score: z.number().nullable(),
+  score_rounded: z.number().nullable(),
   chosen: z.boolean(),
   reason: z.enum([
     'selected',
@@ -107,8 +109,14 @@ export const PlanTrace = z.object({
   }),
   candidates: z.array(CandidateTrace),
   decisions: z.array(z.object({ step: z.string(), detail: z.string() })),
-  /** Cost of evaluating every constraint on every candidate at entity granularity. */
+  /** Every constraint on every candidate at entity granularity, no pushdown. */
   naive_cost_units: z.number().int().nonnegative(),
+  /**
+   * Native predicates pushed down, but nothing clustered. The middle bar, and the
+   * one that isolates what the planner contributes from what the provider's own
+   * filters would have done anyway.
+   */
+  pushdown_only_cost_units: z.number().int().nonnegative(),
   planned_cost_units: z.number().int().nonnegative(),
 })
 

@@ -1,0 +1,10 @@
+{
+  "name": "@relokit/plan-preview",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@relokit/planner": "workspace:*",
+    "@relokit/schema": "workspace:*"
+  }
+}

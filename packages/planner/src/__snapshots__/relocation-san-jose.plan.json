@@ -1,0 +1,423 @@
+{
+  "plan_id": "0c6b2331ee9acfcf",
+  "planner_version": "0.1.0",
+  "registry_version": "2026-08-28.2",
+  "search_bounds": null,
+  "clusters": [],
+  "stages": [
+    {
+      "stage_id": "bounds",
+      "index": 0,
+      "tier": "region",
+      "fanout": "once",
+      "ops": [
+        {
+          "op_id": "op_commute_geocode_region_0",
+          "capability_id": "commute.geocode.region",
+          "constraint_ids": [
+            "c3"
+          ],
+          "provider": "google_maps",
+          "endpoint": "google_maps:search",
+          "params": {
+            "engine": "google_maps",
+            "type": "search",
+            "q": "$constraint.c3.destination_raw"
+          },
+          "cost_units": 1,
+          "ttl_seconds": 2592000,
+          "on_error": "unknown"
+        }
+      ],
+      "expected_entities": 0,
+      "estimated_cost_units": 1,
+      "estimated_latency_ms": 0,
+      "prune": null
+    },
+    {
+      "stage_id": "candidates",
+      "index": 1,
+      "tier": "region",
+      "fanout": "once",
+      "ops": [
+        {
+          "op_id": "op_candidates_1",
+          "capability_id": "candidates.zillow.region",
+          "constraint_ids": [
+            "candidate_source",
+            "c1",
+            "c2",
+            "c5"
+          ],
+          "provider": "zillow",
+          "endpoint": "zillow:search",
+          "params": {
+            "engine": "zillow",
+            "status_type": "rent",
+            "map_bounds": "$stage.bounds.north,$stage.bounds.east,$stage.bounds.south,$stage.bounds.west",
+            "price": "0,$constraint.c1.max_dollars",
+            "beds": "$constraint.c2.min,$constraint.c2.max",
+            "amenities": "$constraint.c5.feature",
+            "page": 1
+          },
+          "cost_units": 1,
+          "ttl_seconds": 21600,
+          "on_error": "abort"
+        },
+        {
+          "op_id": "op_candidates_2",
+          "capability_id": "candidates.zillow.region",
+          "constraint_ids": [
+            "candidate_source",
+            "c1",
+            "c2",
+            "c5"
+          ],
+          "provider": "zillow",
+          "endpoint": "zillow:search",
+          "params": {
+            "engine": "zillow",
+            "status_type": "rent",
+            "map_bounds": "$stage.bounds.north,$stage.bounds.east,$stage.bounds.south,$stage.bounds.west",
+            "price": "0,$constraint.c1.max_dollars",
+            "beds": "$constraint.c2.min,$constraint.c2.max",
+            "amenities": "$constraint.c5.feature",
+            "page": 2
+          },
+          "cost_units": 1,
+          "ttl_seconds": 21600,
+          "on_error": "abort"
+        }
+      ],
+      "expected_entities": 58,
+      "estimated_cost_units": 2,
+      "estimated_latency_ms": 0,
+      "prune": null
+    },
+    {
+      "stage_id": "clusters",
+      "index": 2,
+      "tier": "cluster",
+      "fanout": "per_cluster",
+      "ops": [
+        {
+          "op_id": "op_commute_directions_cluster_0",
+          "capability_id": "commute.directions.cluster",
+          "constraint_ids": [
+            "c3"
+          ],
+          "provider": "google_maps_directions",
+          "endpoint": "google_maps_directions:route",
+          "params": {
+            "engine": "google_maps_directions",
+            "start_coords": "$cluster.lat,$cluster.lng",
+            "end_coords": "$constraint.c3.destination_point",
+            "travel_mode": "$constraint.c3.mode"
+          },
+          "cost_units": 1,
+          "ttl_seconds": 604800,
+          "on_error": "unknown"
+        },
+        {
+          "op_id": "op_nearby_poi_maps_cluster_1",
+          "capability_id": "nearby_poi.maps.cluster",
+          "constraint_ids": [
+            "c4"
+          ],
+          "provider": "google_maps",
+          "endpoint": "google_maps:search",
+          "params": {
+            "engine": "google_maps",
+            "type": "search",
+            "q": "$constraint.c4.query",
+            "ll": "@$cluster.lat,$cluster.lng,14z"
+          },
+          "cost_units": 1,
+          "ttl_seconds": 2592000,
+          "on_error": "unknown"
+        },
+        {
+          "op_id": "op_nearby_poi_maps_cluster_2",
+          "capability_id": "nearby_poi.maps.cluster",
+          "constraint_ids": [
+            "c6"
+          ],
+          "provider": "google_maps",
+          "endpoint": "google_maps:search",
+          "params": {
+            "engine": "google_maps",
+            "type": "search",
+            "q": "$constraint.c6.query",
+            "ll": "@$cluster.lat,$cluster.lng,14z"
+          },
+          "cost_units": 1,
+          "ttl_seconds": 2592000,
+          "on_error": "unknown"
+        }
+      ],
+      "expected_entities": 7,
+      "estimated_cost_units": 36,
+      "estimated_latency_ms": 2400,
+      "prune": {
+        "on_fail": [
+          "c3",
+          "c4",
+          "c6"
+        ],
+        "slack": [
+          {
+            "constraint_id": "c3",
+            "extra_seconds": 191
+          },
+          {
+            "constraint_id": "c4",
+            "extra_meters": 800
+          },
+          {
+            "constraint_id": "c6",
+            "extra_meters": 800
+          }
+        ]
+      }
+    },
+    {
+      "stage_id": "exact",
+      "index": 3,
+      "tier": "entity",
+      "fanout": "per_entity",
+      "ops": [
+        {
+          "op_id": "op_commute_directions_entity_0",
+          "capability_id": "commute.directions.entity",
+          "constraint_ids": [
+            "c3"
+          ],
+          "provider": "google_maps_directions",
+          "endpoint": "google_maps_directions:route",
+          "params": {
+            "engine": "google_maps_directions",
+            "start_coords": "$entity.lat,$entity.lng",
+            "end_coords": "$constraint.c3.destination_point",
+            "travel_mode": "$constraint.c3.mode"
+          },
+          "cost_units": 1,
+          "ttl_seconds": 604800,
+          "on_error": "unknown"
+        },
+        {
+          "op_id": "op_nearby_poi_maps_entity_1",
+          "capability_id": "nearby_poi.maps.entity",
+          "constraint_ids": [
+            "c4"
+          ],
+          "provider": "google_maps",
+          "endpoint": "google_maps:search",
+          "params": {
+            "engine": "google_maps",
+            "type": "search",
+            "q": "$constraint.c4.query",
+            "ll": "@$entity.lat,$entity.lng,15z"
+          },
+          "cost_units": 1,
+          "ttl_seconds": 2592000,
+          "on_error": "unknown"
+        },
+        {
+          "op_id": "op_nearby_poi_maps_entity_2",
+          "capability_id": "nearby_poi.maps.entity",
+          "constraint_ids": [
+            "c6"
+          ],
+          "provider": "google_maps",
+          "endpoint": "google_maps:search",
+          "params": {
+            "engine": "google_maps",
+            "type": "search",
+            "q": "$constraint.c6.query",
+            "ll": "@$entity.lat,$entity.lng,15z"
+          },
+          "cost_units": 1,
+          "ttl_seconds": 2592000,
+          "on_error": "unknown"
+        }
+      ],
+      "expected_entities": 5,
+      "estimated_cost_units": 21,
+      "estimated_latency_ms": 2400,
+      "prune": {
+        "on_fail": [
+          "c3",
+          "c4",
+          "c6"
+        ],
+        "slack": []
+      }
+    }
+  ],
+  "unsatisfied": [],
+  "estimated_cost_units": 60,
+  "estimated_latency_ms": 4800,
+  "trace": {
+    "registry_version": "2026-08-28.2",
+    "planner_version": "0.1.0",
+    "cardinality": {
+      "region_entities": 4517,
+      "cluster_count": 12,
+      "survivors_by_stage": {
+        "bounds": 0,
+        "candidates": 58,
+        "clusters": 7,
+        "exact": 5
+      }
+    },
+    "candidates": [
+      {
+        "capability_id": "budget.zillow.native",
+        "constraint_id": "c1",
+        "tier": "native",
+        "selectivity_prior": 0.3,
+        "coverage": 0.8,
+        "cost_units": 0,
+        "entities_requiring_evaluation": 0,
+        "score": null,
+        "score_rounded": null,
+        "chosen": true,
+        "reason": "selected"
+      },
+      {
+        "capability_id": "unit_attribute.zillow.native",
+        "constraint_id": "c2",
+        "tier": "native",
+        "selectivity_prior": 0.25,
+        "coverage": 0.8,
+        "cost_units": 0,
+        "entities_requiring_evaluation": 0,
+        "score": null,
+        "score_rounded": null,
+        "chosen": true,
+        "reason": "selected"
+      },
+      {
+        "capability_id": "commute.geocode.region",
+        "constraint_id": "c3",
+        "tier": "region",
+        "selectivity_prior": 1,
+        "coverage": 0.99,
+        "cost_units": 1,
+        "entities_requiring_evaluation": 1,
+        "score": 0,
+        "score_rounded": 0,
+        "chosen": true,
+        "reason": "selected"
+      },
+      {
+        "capability_id": "commute.directions.cluster",
+        "constraint_id": "c3",
+        "tier": "cluster",
+        "selectivity_prior": 0.35,
+        "coverage": 0.98,
+        "cost_units": 1,
+        "entities_requiring_evaluation": 12,
+        "score": 0.05308333333333334,
+        "score_rounded": 53083333,
+        "chosen": true,
+        "reason": "selected"
+      },
+      {
+        "capability_id": "commute.directions.entity",
+        "constraint_id": "c3",
+        "tier": "entity",
+        "selectivity_prior": 0.8,
+        "coverage": 0.98,
+        "cost_units": 1,
+        "entities_requiring_evaluation": 7,
+        "score": 0.027999999999999994,
+        "score_rounded": 28000000,
+        "chosen": true,
+        "reason": "selected"
+      },
+      {
+        "capability_id": "nearby_poi.maps.cluster",
+        "constraint_id": "c4",
+        "tier": "cluster",
+        "selectivity_prior": 0.55,
+        "coverage": 0.95,
+        "cost_units": 1,
+        "entities_requiring_evaluation": 12,
+        "score": 0.035625,
+        "score_rounded": 35625000,
+        "chosen": true,
+        "reason": "selected"
+      },
+      {
+        "capability_id": "nearby_poi.maps.entity",
+        "constraint_id": "c4",
+        "tier": "entity",
+        "selectivity_prior": 0.9,
+        "coverage": 0.95,
+        "cost_units": 1,
+        "entities_requiring_evaluation": 7,
+        "score": 0.013571428571428568,
+        "score_rounded": 13571429,
+        "chosen": true,
+        "reason": "selected"
+      },
+      {
+        "capability_id": "listing_feature.zillow.native",
+        "constraint_id": "c5",
+        "tier": "native",
+        "selectivity_prior": 0.17,
+        "coverage": 1,
+        "cost_units": 0,
+        "entities_requiring_evaluation": 0,
+        "score": null,
+        "score_rounded": null,
+        "chosen": true,
+        "reason": "selected"
+      },
+      {
+        "capability_id": "nearby_poi.maps.cluster",
+        "constraint_id": "c6",
+        "tier": "cluster",
+        "selectivity_prior": 0.55,
+        "coverage": 0.95,
+        "cost_units": 1,
+        "entities_requiring_evaluation": 12,
+        "score": 0.035625,
+        "score_rounded": 35625000,
+        "chosen": true,
+        "reason": "selected"
+      },
+      {
+        "capability_id": "nearby_poi.maps.entity",
+        "constraint_id": "c6",
+        "tier": "entity",
+        "selectivity_prior": 0.9,
+        "coverage": 0.95,
+        "cost_units": 1,
+        "entities_requiring_evaluation": 7,
+        "score": 0.013571428571428568,
+        "score_rounded": 13571429,
+        "chosen": true,
+        "reason": "selected"
+      }
+    ],
+    "decisions": [
+      {
+        "step": "bounds",
+        "detail": "destination is not geocoded yet, so the box is computed during the first stage"
+      },
+      {
+        "step": "cardinality",
+        "detail": "4517 candidates in the box, about 58 after the free predicates, about 7 after cluster level pruning"
+      },
+      {
+        "step": "pushdown",
+        "detail": "3 predicates applied inside the search for nothing, taking 2 pages rather than 111"
+      }
+    ],
+    "naive_cost_units": 18179,
+    "pushdown_only_cost_units": 176,
+    "planned_cost_units": 60
+  }
+}

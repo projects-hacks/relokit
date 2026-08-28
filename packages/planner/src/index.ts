@@ -1,3 +1,6 @@
 export * from './cardinality.ts'
 export * from './score.ts'
 export * from './registry.ts'
+export * from './cluster.ts'
+export * from './params.ts'
+export * from './plan.ts'

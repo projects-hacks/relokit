@@ -11,7 +11,8 @@
     "test:watch": "vitest",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "record": "tsx tools/record-fixture/src/main.ts"
+    "record": "tsx tools/record-fixture/src/main.ts",
+    "plan": "tsx tools/plan-preview/src/main.ts"
   },
   "devDependencies": {
     "@types/node": "^26.4.0",
