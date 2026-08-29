@@ -6,6 +6,8 @@ import { Ledger } from './panels/Ledger.tsx'
 import { Counter } from './panels/Counter.tsx'
 import { Brief } from './panels/Brief.tsx'
 import { Findings } from './findings/Findings.tsx'
+import { Nothing } from './findings/Nothing.tsx'
+import { FindingsSkeleton } from './findings/Skeleton.tsx'
 import { Offers } from './findings/Offers.tsx'
 import { Map } from './map/Map.tsx'
 
@@ -28,10 +30,10 @@ export function App() {
         {result && (
           <div className="ledger-inline">
             <span>
-              spent <b>{result.cost.actual_units}</b>
+              <b>{result.buckets.results.length}</b> verified
             </span>
             <span>
-              instead of <b>{result.cost.naive_units.toLocaleString()}</b>
+              <b>{result.entities.length}</b> looked at
             </span>
           </div>
         )}
@@ -46,7 +48,6 @@ export function App() {
             </p>
           )}
           <Plan plan={plan} events={events} />
-          {result && <Ledger result={result} />}
         </aside>
 
         <main className="stage">
@@ -58,10 +59,10 @@ export function App() {
           {status === 'idle' && <Brief />}
 
           {status === 'running' && !result && (
-            <div className="pending">
-              <span className="pulse" />
-              {describe(events)}
-            </div>
+            <>
+              <p className="pending">{describe(events)}</p>
+              <FindingsSkeleton />
+            </>
           )}
 
           {status === 'failed' && (
@@ -73,8 +74,15 @@ export function App() {
 
           {result && (
             <>
-              <Findings result={result} />
+              {result.buckets.results.length === 0 &&
+              result.buckets.unverified.length === 0 &&
+              result.buckets.rejections.length === 0 ? (
+                <Nothing result={result} />
+              ) : (
+                <Findings result={result} />
+              )}
               <Offers result={result} />
+              <Ledger result={result} />
             </>
           )}
         </section>

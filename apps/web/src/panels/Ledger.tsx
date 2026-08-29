@@ -15,8 +15,8 @@ export function Ledger({ result }: { result: AskResult }) {
   const planned = result.cost.planned_units
 
   return (
-    <section>
-      <p className="eyebrow">What it cost</p>
+    <section className="footnote">
+      <p className="eyebrow">What this took</p>
       <dl className="tally">
         <div>
           <dt>Every requirement, one listing at a time</dt>
@@ -32,7 +32,8 @@ export function Ledger({ result }: { result: AskResult }) {
         </div>
       </dl>
       <p className="ratio">
-        <b>{Math.round(naive / Math.max(1, planned))}×</b> fewer searches
+        <b>{Math.round(naive / Math.max(1, planned))}×</b> fewer searches than checking every
+        requirement against every listing
       </p>
       <p className="note">
         {result.cost.actual_units === 0
