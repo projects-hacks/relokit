@@ -1,13 +1,13 @@
-// The only write path to the capability registry.
-//
-// The registry is what makes the planner data rather than code: which source can
-// answer which constraint, at what granularity, cost and freshness. Change a row
-// and the plan changes, with no deploy.
-//
-// That only holds while the rows match what is in the repository. A row edited
-// by hand in the dashboard passes every test in git and quietly changes what the
-// demo does, so an import replaces a whole version at once and nothing else
-// writes here.
+//  The only write path to the capability registry.
+// 
+//  The registry is what makes the planner data rather than code: which source can
+//  answer which constraint, at what granularity, cost and freshness. Change a row
+//  and the plan changes, with no deploy.
+// 
+//  That only holds while the rows match what is in the repository. A row edited
+//  by hand in the dashboard passes every test in git and quietly changes what the
+//  demo does, so an import replaces a whole version at once and nothing else
+//  writes here.
 query "admin/registry/import" verb=POST {
   api_group = "Relokit"
 
@@ -21,16 +21,16 @@ query "admin/registry/import" verb=POST {
       error_type = "unauthorized"
       error = "Relokit has no admin key configured on this instance."
     }
-
+  
     precondition ($env.$request_auth_token == $env.relokit_admin_key) {
       error_type = "unauthorized"
       error = "Admin key missing or wrong."
     }
-
+  
     precondition (($input.capabilities|count) > 0) {
       error = "A registry with no capabilities would answer nothing."
     }
-
+  
     // Replace the version rather than merge into it. A merge leaves rows behind
     // that the repository no longer has, and a capability nobody remembers
     // adding is worse than one that is missing.
@@ -38,7 +38,7 @@ query "admin/registry/import" verb=POST {
       where = $db.relokit_capability.registry_version == $input.registry_version
       return = {type: "list"}
     } as $existing
-
+  
     foreach ($existing) {
       each as $old {
         db.del relokit_capability {
@@ -47,7 +47,7 @@ query "admin/registry/import" verb=POST {
         }
       }
     }
-
+  
     foreach ($input.capabilities) {
       each as $capability {
         // Written out field by field rather than passed through. It is longer,
@@ -83,8 +83,9 @@ query "admin/registry/import" verb=POST {
 
   response = {
     registry_version: $input.registry_version
-    replaced        : ($existing|count)
-    imported        : ($input.capabilities|count)
+    replaced        : $existing|count
+    imported        : $input.capabilities|count
   }
+
   guid = "oCG2CBARHuCrJ9QWOnhaHLXJXaY"
 }

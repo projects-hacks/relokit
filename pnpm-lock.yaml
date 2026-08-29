@@ -138,6 +138,15 @@ importers:
         specifier: workspace:*
         version: link:../../packages/serpapi
 
+  tools/xano-seed:
+    dependencies:
+      '@relokit/llm':
+        specifier: workspace:*
+        version: link:../../packages/llm
+      '@relokit/schema':
+        specifier: workspace:*
+        version: link:../../packages/schema
+
 packages:
 
   '@esbuild/aix-ppc64@0.28.2':
