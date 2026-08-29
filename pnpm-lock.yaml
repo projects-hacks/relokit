@@ -125,6 +125,9 @@ importers:
 
   tools/relokit-query:
     dependencies:
+      '@relokit/evidence':
+        specifier: workspace:*
+        version: link:../../packages/evidence
       '@relokit/llm':
         specifier: workspace:*
         version: link:../../packages/llm
@@ -134,6 +137,9 @@ importers:
       '@relokit/schema':
         specifier: workspace:*
         version: link:../../packages/schema
+      '@relokit/serpapi':
+        specifier: workspace:*
+        version: link:../../packages/serpapi
 
   tools/replay-run:
     dependencies:
@@ -155,6 +161,12 @@ importers:
       '@relokit/llm':
         specifier: workspace:*
         version: link:../../packages/llm
+      '@relokit/schema':
+        specifier: workspace:*
+        version: link:../../packages/schema
+
+  tools/xano-warm:
+    dependencies:
       '@relokit/schema':
         specifier: workspace:*
         version: link:../../packages/schema

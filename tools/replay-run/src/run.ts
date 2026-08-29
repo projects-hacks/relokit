@@ -67,9 +67,25 @@ export interface RunOutcome {
   stages: { stage_id: string; entities_in: number; entities_out: number; calls: number }[]
 }
 
+/**
+ * How a call gets made. Against recorded responses it reads a file; against the
+ * live backend it posts to /op, which decides whether the call happens at all.
+ * The context is what /op needs to decide that: which listings the call is
+ * about, and how long its answer stays true.
+ */
+export interface OpContext {
+  op_id: string
+  capability_id: string
+  endpoint: string
+  ttl_seconds: number
+  constraint_ids: string[]
+  entity_ids: string[]
+}
+
 type Search = (
   engine: Engine,
   params: Record<string, string | number | boolean>,
+  context: OpContext,
 ) => Promise<unknown>
 
 export async function replayRun(
@@ -192,7 +208,14 @@ export async function replayRun(
       const engine = String(params.engine ?? 'zillow') as Engine
       let body: unknown
       try {
-        body = await search(engine, params)
+        body = await search(engine, params, {
+          op_id: op.op_id,
+          capability_id: op.capability_id,
+          endpoint: op.endpoint,
+          ttl_seconds: op.ttl_seconds,
+          constraint_ids: op.constraint_ids,
+          entity_ids: targetEntitiesSafe(bindings),
+        })
         outcome.calls += 1
       } catch {
         outcome.missing.push({ op_id: op.op_id, engine, params })

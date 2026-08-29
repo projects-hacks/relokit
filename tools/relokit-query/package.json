@@ -6,6 +6,8 @@
   "dependencies": {
     "@relokit/llm": "workspace:*",
     "@relokit/planner": "workspace:*",
-    "@relokit/schema": "workspace:*"
+    "@relokit/schema": "workspace:*",
+    "@relokit/evidence": "workspace:*",
+    "@relokit/serpapi": "workspace:*"
   }
 }

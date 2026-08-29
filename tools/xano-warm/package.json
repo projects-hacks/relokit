@@ -1,0 +1,9 @@
+{
+  "name": "@relokit/xano-warm",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@relokit/schema": "workspace:*"
+  }
+}
