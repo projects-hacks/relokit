@@ -2,7 +2,7 @@ import { useState } from 'react'
 import type { AskEvent } from '@relokit/client'
 import { useAsk } from './useAsk.ts'
 import { useSaved } from './lib/saved.ts'
-import { money } from './lib/format.ts'
+import { ago, money } from './lib/format.ts'
 import { Ask } from './panels/Ask.tsx'
 import { Plan } from './panels/Plan.tsx'
 import { Ledger } from './panels/Ledger.tsx'
@@ -17,7 +17,7 @@ import { Offers } from './findings/Offers.tsx'
 import { Map } from './map/Map.tsx'
 
 export function App() {
-  const { status, events, result, error, run, configured } = useAsk()
+  const { status, events, result, error, restored, run, dismiss, configured } = useAsk()
   const [openId, setOpenId] = useState<string | null>(null)
   // Selecting shows a home on the map. Opening covers the map, so it is a
   // separate act rather than the same click doing both.
@@ -27,7 +27,9 @@ export function App() {
   const planned = events.find(
     (event): event is Extract<AskEvent, { kind: 'planned' }> => event.kind === 'planned',
   )
-  const plan = planned?.plan ?? null
+  // A restored run carries no events, so the plan comes off the result instead.
+  // Without this the map never fits its bounds and sits on a hardcoded centre.
+  const plan = planned?.plan ?? result?.plan ?? null
   const open = openId ? result?.entities.find((e) => e.entity_id === openId) : undefined
   const openEvidence =
     result && openId
@@ -69,7 +71,7 @@ export function App() {
 
       <div className="columns">
         <aside className="rail">
-          <Ask onAsk={run} busy={status === 'running'} />
+          <Ask onAsk={run} busy={status === 'running'} configured={configured} />
           {!configured && (
             <p className="note">
               No backend is configured. Set VITE_RELOKIT_API and VITE_RELOKIT_ORG_KEY, then reload.
@@ -125,6 +127,23 @@ export function App() {
               <p className="eyebrow">The run stopped</p>
               <p className="note">{error}</p>
             </div>
+          )}
+
+          {restored && (
+            <div className="restored">
+              <span>
+                Showing what you asked {ago(restored.at)}: “{restored.query.slice(0, 54)}
+                {restored.query.length > 54 ? '…' : ''}”
+              </span>
+              <button onClick={dismiss}>Clear</button>
+            </div>
+          )}
+
+          {result && result.problems.length > 0 && result.entities.length > 0 && (
+            <p className="note partial">
+              {result.problems.length} {result.problems.length === 1 ? 'call' : 'calls'} did not
+              happen, so some homes were checked less thoroughly than others.
+            </p>
           )}
 
           {result && (

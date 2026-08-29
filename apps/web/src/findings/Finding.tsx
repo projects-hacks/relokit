@@ -56,7 +56,14 @@ export function Finding({
     >
       {entity.photo_url && (
         <div className="shot">
-          <img src={entity.photo_url} alt="" loading="lazy" decoding="async" />
+          <img
+            src={entity.photo_url}
+            alt=""
+            width={640}
+            height={360}
+            loading="lazy"
+            decoding="async"
+          />
           {entity.photos.length > 1 && <span className="shot-count">{entity.photos.length}</span>}
           {onSave && (
             <Tip
@@ -66,7 +73,12 @@ export function Finding({
               <button
                 className="pin"
                 data-saved={String(Boolean(saved))}
-                onClick={onSave}
+                // Keeping a home should not also fly the map to it. Without
+                // this the click reaches the card behind and does both.
+                onClick={(event) => {
+                  event.stopPropagation()
+                  onSave()
+                }}
                 aria-label={saved ? 'Saved' : 'Save this home'}
               >
                 {saved ? '★' : '☆'}

@@ -144,11 +144,6 @@ body {
   color: var(--ink-dim);
 }
 
-.num {
-  font-family: var(--mono);
-  font-variant-numeric: tabular-nums;
-}
-
 /* ---------- asking ---------- */
 
 .ask {
@@ -331,38 +326,6 @@ button:focus-visible,
   margin-right: 6px;
 }
 
-.bar {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: calc(var(--step) * 2);
-  align-items: baseline;
-  font-size: 12.5px;
-}
-
-.bar-track {
-  grid-column: 1 / -1;
-  height: 6px;
-  background: rgb(147 169 196 / 16%);
-  border-radius: 1px;
-  overflow: hidden;
-}
-
-.bar-fill {
-  display: block;
-  height: 100%;
-  background: var(--chalk-faint);
-}
-
-.bar[data-emphasis='true'] .bar-fill {
-  background: var(--measure);
-}
-
-.bar-value {
-  font-family: var(--mono);
-  font-variant-numeric: tabular-nums;
-  color: var(--chalk);
-}
-
 /* ---------- map ---------- */
 
 .map {
@@ -474,7 +437,18 @@ button:focus-visible,
 
 /* A finding is a marked-up survey line: a verdict in the margin, the fact, and
    where it came from. */
+.finding-list {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--step) * 3);
+}
+
 .finding {
+  cursor: pointer;
+  /* Eighty-eight cards is a lot of paint for a list only a few of which are
+     ever on screen. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 320px;
   border: 1px solid var(--paper-edge);
   border-left: 3px solid var(--mark);
   border-radius: var(--radius);
@@ -483,10 +457,6 @@ button:focus-visible,
   display: flex;
   flex-direction: column;
   gap: calc(var(--step) * 2.5);
-}
-
-.finding + .finding {
-  margin-top: calc(var(--step) * 3);
 }
 
 .finding-head {
@@ -607,7 +577,6 @@ button:focus-visible,
 
 /* ---------- states ---------- */
 
-.empty,
 .failure {
   margin: auto;
   max-width: 320px;
@@ -627,24 +596,6 @@ button:focus-visible,
   gap: calc(var(--step) * 2);
   font-size: 12.5px;
   color: var(--ink-dim);
-}
-
-.pulse {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--measure);
-  animation: breathe 1.4s ease-in-out infinite;
-}
-
-@keyframes breathe {
-  0%,
-  100% {
-    opacity: 0.25;
-  }
-  50% {
-    opacity: 1;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -754,7 +705,7 @@ button:focus-visible,
 }
 
 .finding[data-selected='true'] {
-  box-shadow: 0 0 0 1px var(--mark);
+  box-shadow: 0 0 0 2px var(--mark);
 }
 
 /* ---------- tooltips ---------- */
@@ -1242,17 +1193,16 @@ button:focus-visible,
   flex: 0 0 auto;
 }
 
-.finding {
-  cursor: pointer;
-}
-
-.finding[data-selected='true'] {
-  box-shadow: 0 0 0 2px var(--mark);
-}
-
 .as-link.open {
   align-self: flex-start;
   font-size: 12px;
   color: var(--ink-dim);
   border-bottom-style: dotted;
+}
+
+.partial {
+  padding: calc(var(--step) * 2) calc(var(--step) * 3);
+  background: #fff;
+  border-left: 3px solid var(--unsure);
+  border-radius: 2px;
 }

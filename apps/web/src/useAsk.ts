@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 import { ask, httpTransport, type AskEvent, type AskResult } from '@relokit/client'
-import { recall, remember } from './lib/remember.ts'
+import { forget, recall, remember } from './lib/remember.ts'
 
 /**
  * One question, and everything that happened on the way to answering it.
@@ -15,6 +15,8 @@ export interface AskState {
   events: AskEvent[]
   result: AskResult | null
   error: string | null
+  /** True while showing an answer from a previous visit rather than this one. */
+  restored: { query: string; at: number } | null
 }
 
 const api = import.meta.env.VITE_RELOKIT_API ?? ''
@@ -26,12 +28,18 @@ export function useAsk() {
   const [state, setState] = useState<AskState>(() => {
     const previous = recall()
     return previous
-      ? { status: 'done', events: [], result: previous.result, error: null }
-      : { status: 'idle', events: [], result: null, error: null }
+      ? {
+          status: 'done',
+          events: [],
+          result: previous.result,
+          error: null,
+          restored: { query: previous.query, at: previous.at },
+        }
+      : { status: 'idle', events: [], result: null, error: null, restored: null }
   })
 
   const run = useCallback(async (query: string) => {
-    setState({ status: 'running', events: [], result: null, error: null })
+    setState({ status: 'running', events: [], result: null, error: null, restored: null })
     try {
       const result = await ask(httpTransport(api, orgKey), query, {
         onProgress: (event) =>
@@ -48,5 +56,12 @@ export function useAsk() {
     }
   }, [])
 
-  return { ...state, run, configured: api !== '' && orgKey !== '' }
+  // Throwing away the previous answer is a deliberate act, not a side effect of
+  // arriving on the page.
+  const dismiss = useCallback(() => {
+    forget()
+    setState({ status: 'idle', events: [], result: null, error: null, restored: null })
+  }, [])
+
+  return { ...state, run, dismiss, configured: api !== '' && orgKey !== '' }
 }

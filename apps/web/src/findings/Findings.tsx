@@ -29,7 +29,9 @@ export function Findings({
 }) {
   const [open, setOpen] = useState<Bucket>('verified')
   const { results, unverified, rejections } = result.buckets
-  const entity = (id: string) => result.entities.find((e) => e.entity_id === id)!
+  // A bucket entry naming a listing that never arrived is a bug somewhere else,
+  // and it should not take the whole page down with it.
+  const entity = (id: string) => result.entities.find((e) => e.entity_id === id)
   const constraints = result.constraint_set.constraints
 
   // Nothing was verified if nothing was asked. A question that is only a place
@@ -86,7 +88,9 @@ export function Findings({
         ))}
       </div>
 
-      <div>
+      {/* The gap lives on the list. An adjacent-sibling rule cannot work here,
+          because every card is wrapped and no two are ever siblings. */}
+      <div className="finding-list">
         {shown.length === 0 ? (
           <p className="note">
             {open === 'verified'
@@ -96,22 +100,26 @@ export function Findings({
                 : 'Nothing was ruled out.'}
           </p>
         ) : (
-          shown.map(({ entry, blocking, mark }) => (
-            <div key={entry.entity_id} style={{ '--mark': mark } as React.CSSProperties}>
-              <Finding
-                entity={entity(entry.entity_id)}
-                evidence={entry.evidence}
-                constraints={constraints}
-                blocking={blocking}
-                prominent={open === 'verified'}
-                saved={isSaved(entry.entity_id)}
-                selected={selected === entry.entity_id}
-                onSave={() => onSave(entity(entry.entity_id))}
-                onSelect={() => onSelect(entry.entity_id)}
-                onOpen={() => onOpen(entry.entity_id)}
-              />
-            </div>
-          ))
+          shown.map(({ entry, blocking, mark }) => {
+            const home = entity(entry.entity_id)
+            if (!home) return null
+            return (
+              <div key={entry.entity_id} style={{ '--mark': mark } as React.CSSProperties}>
+                <Finding
+                  entity={home}
+                  evidence={entry.evidence}
+                  constraints={constraints}
+                  blocking={blocking}
+                  prominent={open === 'verified'}
+                  saved={isSaved(home.entity_id)}
+                  selected={selected === home.entity_id}
+                  onSave={() => onSave(home)}
+                  onSelect={() => onSelect(home.entity_id)}
+                  onOpen={() => onOpen(home.entity_id)}
+                />
+              </div>
+            )
+          })
         )}
       </div>
     </>
