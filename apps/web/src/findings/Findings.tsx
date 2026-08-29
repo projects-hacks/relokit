@@ -1,6 +1,15 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import type { AskResult } from '@relokit/client'
+import {
+  NO_FILTERS,
+  availableSorts,
+  filterEntries,
+  sortEntries,
+  type Filters,
+  type SortKey,
+} from '@relokit/evidence'
 import type { ListingSummary } from '@relokit/schema'
+import { Controls } from './Controls.tsx'
 import { Finding } from './Finding.tsx'
 
 type Bucket = 'verified' | 'unsure' | 'out'
@@ -28,6 +37,8 @@ export function Findings({
   selected: string | null
 }) {
   const [open, setOpen] = useState<Bucket>('verified')
+  const [sort, setSort] = useState<SortKey>('best')
+  const [filters, setFilters] = useState<Filters>(NO_FILTERS)
   const { results, unverified, rejections } = result.buckets
   // A bucket entry naming a listing that never arrived is a bug somewhere else,
   // and it should not take the whole page down with it.
@@ -54,7 +65,7 @@ export function Findings({
     { id: 'out', label: 'Ruled out', count: rejections.length, mark: 'var(--ruled-out)' },
   ]
 
-  const shown =
+  const bucket =
     open === 'verified'
       ? results.map((entry) => ({ entry, blocking: undefined, mark: 'var(--verified)' }))
       : open === 'unsure'
@@ -68,6 +79,27 @@ export function Findings({
             blocking: entry.failed_constraint_ids,
             mark: 'var(--ruled-out)',
           }))
+
+  const sorts = useMemo(
+    () =>
+      availableSorts(
+        bucket.map((row) => row.entry),
+        open === 'verified' && asked,
+      ),
+    [bucket, open, asked],
+  )
+
+  const active = sorts.includes(sort) ? sort : sorts[0]!
+
+  const shown = useMemo(() => {
+    const rows = new Map(bucket.map((row) => [row.entry.entity_id, row]))
+    const kept = filterEntries(
+      bucket.map((row) => row.entry),
+      result.entities,
+      filters,
+    )
+    return sortEntries(kept, result.entities, active).map((entry) => rows.get(entry.entity_id)!)
+  }, [bucket, result.entities, filters, active])
 
   const shownTabs = asked ? tabs : tabs.filter((tab) => tab.count > 0)
 
@@ -88,16 +120,31 @@ export function Findings({
         ))}
       </div>
 
+      {bucket.length > 0 && (
+        <Controls
+          sorts={sorts}
+          sort={active}
+          onSort={setSort}
+          filters={filters}
+          onFilters={setFilters}
+          constraints={constraints}
+          showing={shown.length}
+          total={bucket.length}
+        />
+      )}
+
       {/* The gap lives on the list. An adjacent-sibling rule cannot work here,
           because every card is wrapped and no two are ever siblings. */}
       <div className="finding-list">
         {shown.length === 0 ? (
           <p className="note">
-            {open === 'verified'
-              ? 'Nothing cleared every requirement. What would take the fewest changes is below.'
-              : open === 'unsure'
-                ? 'Everything that was checked could be settled one way or the other.'
-                : 'Nothing was ruled out.'}
+            {bucket.length > 0
+              ? 'Nothing here matches what you narrowed to. Widen it above.'
+              : open === 'verified'
+                ? 'Nothing cleared every requirement. What would take the fewest changes is below.'
+                : open === 'unsure'
+                  ? 'Everything that was checked could be settled one way or the other.'
+                  : 'Nothing was ruled out.'}
           </p>
         ) : (
           shown.map(({ entry, blocking, mark }) => {
