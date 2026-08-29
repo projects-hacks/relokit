@@ -44,18 +44,31 @@ function numeric(raw: string): number | null {
   return WORD_NUMBERS[cleaned] ?? null
 }
 
-/** "$2,800" or "2800 dollars" or "2.8k" to cents. */
+/** Words that make a bare number a rent rather than a bedroom count. */
+const RENT_CONTEXT = /\b(?:a|per)\s*month\b|\bmonthly\b|\/\s*mo\b|\brent\b|\bbudget\b/i
+
+/** "$2,800", "2800 dollars", "2.8k", or "under 3400 a month" to cents. */
 export function moneyCents(text: string): number | null {
-  const match =
+  const marked =
     /\$\s*([\d,]+(?:\.\d+)?)\s*(k\b)?|([\d,]+(?:\.\d+)?)\s*(?:k\b)?\s*(?:dollars|usd|bucks)/i.exec(
       text,
     )
-  if (!match) return null
-  const raw = match[1] ?? match[3]
-  const value = numeric(raw ?? '')
+  if (marked) {
+    const value = numeric(marked[1] ?? marked[3] ?? '')
+    if (value === null) return null
+    const thousands = marked[2] !== undefined || /\dk\b/i.test(text)
+    return Math.round(value * (thousands ? 1000 : 1) * 100)
+  }
+
+  // People write a rent without a currency mark more often than not, and the
+  // amount is still theirs rather than an assumption of ours. A bare number is
+  // only money when the phrase says it is a rent, so "2 bed" never is.
+  if (!RENT_CONTEXT.test(text)) return null
+  const bare = /\b([\d,]{3,})(k\b)?/i.exec(text)
+  if (!bare) return null
+  const value = numeric(bare[1]!)
   if (value === null) return null
-  const thousands = match[2] !== undefined || /\dk\b/i.test(text)
-  return Math.round(value * (thousands ? 1000 : 1) * 100)
+  return Math.round(value * (bare[2] ? 1000 : 1) * 100)
 }
 
 /** "25 minutes", "an hour and a half", "90 min" to seconds. */

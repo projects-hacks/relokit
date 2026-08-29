@@ -1,0 +1,10 @@
+{
+  "name": "@relokit/parse-query",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@relokit/llm": "workspace:*",
+    "@relokit/schema": "workspace:*"
+  }
+}

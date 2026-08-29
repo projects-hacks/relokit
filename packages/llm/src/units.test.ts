@@ -73,3 +73,20 @@ describe('which end of the day', () => {
     expect(windowSide('gym nearby')).toBeNull()
   })
 })
+
+describe('a rent written without a currency mark', () => {
+  it('reads a bare amount when the phrase says it is a rent', () => {
+    // People write it this way more often than not, and the number is still
+    // theirs rather than an assumption of ours.
+    expect(moneyCents('under 3400 a month')).toBe(340_000)
+    expect(moneyCents('3400/mo')).toBe(340_000)
+    expect(moneyCents('monthly rent below 2950')).toBe(295_000)
+    expect(moneyCents('budget 2200')).toBe(220_000)
+  })
+
+  it('does not read a bedroom count as money', () => {
+    expect(moneyCents('2 bed')).toBeNull()
+    expect(moneyCents('within 800 m')).toBeNull()
+    expect(moneyCents('25 minutes by bike')).toBeNull()
+  })
+})

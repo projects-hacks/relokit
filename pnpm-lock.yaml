@@ -99,6 +99,15 @@ importers:
 
   packages/serpapi: {}
 
+  tools/parse-query:
+    dependencies:
+      '@relokit/llm':
+        specifier: workspace:*
+        version: link:../../packages/llm
+      '@relokit/schema':
+        specifier: workspace:*
+        version: link:../../packages/schema
+
   tools/plan-preview:
     dependencies:
       '@relokit/planner':
