@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { ConstraintSet, Registry } from '@relokit/schema'
 import { plan } from '@relokit/planner'
 import { createClient } from '@relokit/serpapi'
+import { relaxations } from '@relokit/evidence'
 import { replayRun } from './run.ts'
 
 /**
@@ -76,6 +77,17 @@ if (rejections.length > 0) {
     const entity = outcome.entities.find((e) => e.entity_id === entry.entity_id)!
     const why = entry.evidence.find((e) => entry.failed_constraint_ids.includes(e.constraint_id))!
     console.log(`  ${entity.title.slice(0, 46)}  failed ${why.constraint_id}: ${why.display_value}`)
+  }
+}
+
+const relax = relaxations(outcome.buckets, constraints.constraints)
+if (relax.length > 0) {
+  console.log('\nwhat one change would buy, at no further cost')
+  for (const option of relax) {
+    console.log(`  ${option.source_text}  (now ${option.display_from})`)
+    for (const step of option.steps) {
+      console.log(`      ${step.display_to.padEnd(10)} unlocks ${step.unlocks}`)
+    }
   }
 }
 
