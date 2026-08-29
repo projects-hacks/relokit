@@ -97,8 +97,13 @@ function "Relokit/watch_once" {
           value = "zillow:" ~ ($listing|get:"provider_listing_id":($listing|get:"zpid":"?"))
         }
 
+        // Held as an object rather than a bare number. Whether a home was here
+        // last night is a question about the key, and a bare rent of zero reads
+        // as absent to every way of asking that: four band listings priced at
+        // zero were reported as arriving and leaving on the same night. An
+        // object is never mistaken for nothing.
         var $now_listings {
-          value = $now_listings|set:$listing_id:($listing|get:"extracted_price":($listing|get:"min_base_rent":0))
+          value = $now_listings|set:$listing_id:({}|set:"price":($listing|get:"extracted_price":($listing|get:"min_base_rent":0)))
         }
       }
     }
@@ -107,18 +112,26 @@ function "Relokit/watch_once" {
       value = $saved|get:"last_listings":{}
     }
 
+    var $was_ids {
+      value = $was_listings|keys
+    }
+
+    var $now_ids {
+      value = $now_listings|keys
+    }
+
     // There is nothing to report against the first time a question is watched,
     // and announcing every home as new would be noise rather than news.
     conditional {
-      if (($was_listings|keys|count) > 0) {
-        foreach ($now_listings|keys) {
+      if (($was_ids|count) > 0) {
+        foreach ($now_ids) {
           each as $id {
             var $before {
               value = $was_listings|get:$id:null
             }
 
             var $after {
-              value = $now_listings|get:$id:0
+              value = $now_listings|get:$id:null
             }
 
             conditional {
@@ -130,14 +143,14 @@ function "Relokit/watch_once" {
                     prev_run_id: $parent.id
                     entity_id  : $id
                     change_type: "entered_pass"
-                    after      : {price: $after}
+                    after      : $after
                   }
                 }
               }
             }
 
             conditional {
-              if ($before != null && $before != $after) {
+              if ($before != null && ($before|get:"price":0) != ($after|get:"price":0)) {
                 db.add relokit_run_diff {
                   data = {
                     created_at : "now"
@@ -145,8 +158,8 @@ function "Relokit/watch_once" {
                     prev_run_id: $parent.id
                     entity_id  : $id
                     change_type: "value_change"
-                    before     : {price: $before}
-                    after      : {price: $after}
+                    before     : $before
+                    after      : $after
                   }
                 }
               }
@@ -154,14 +167,14 @@ function "Relokit/watch_once" {
           }
         }
 
-        foreach ($was_listings|keys) {
+        foreach ($was_ids) {
           each as $gone {
-            var $still {
+            var $still_here {
               value = $now_listings|get:$gone:null
             }
 
             conditional {
-              if ($still == null) {
+              if ($still_here == null) {
                 db.add relokit_run_diff {
                   data = {
                     created_at : "now"
@@ -169,7 +182,7 @@ function "Relokit/watch_once" {
                     prev_run_id: $parent.id
                     entity_id  : $gone
                     change_type: "left_pass"
-                    before     : {price: ($was_listings|get:$gone:0)}
+                    before     : ($was_listings|get:$gone:null)
                   }
                 }
               }
@@ -198,6 +211,7 @@ function "Relokit/watch_once" {
   response = {
     run_id  : $child.id
     listings: ($now_listings|keys|count)
+    previous: ($was_ids|count)
     spent   : $fresh.cost_units
   }
   guid = "0qgGRnqCbjEmKr8r0GKcTvAiWLs"
