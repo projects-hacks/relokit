@@ -61,6 +61,24 @@ export function Map({
           'line-opacity': 0.7,
         },
       })
+      // The journey the number was measured on. Drawn under everything else,
+      // because it is the ground the pins stand on rather than a thing to read.
+      instance.addSource('route', { type: 'geojson', data: empty() })
+      instance.addLayer({
+        id: 'route-casing',
+        type: 'line',
+        source: 'route',
+        layout: { 'line-cap': 'round', 'line-join': 'round' },
+        paint: { 'line-color': 'rgba(8,23,41,0.8)', 'line-width': 6 },
+      })
+      instance.addLayer({
+        id: 'route-line',
+        type: 'line',
+        source: 'route',
+        layout: { 'line-cap': 'round', 'line-join': 'round' },
+        paint: { 'line-color': '#4da3ff', 'line-width': 3, 'line-opacity': 0.95 },
+      })
+
       // What the question asked for, rather than only what was found. A line
       // from the home to where you are going, the places that satisfied each
       // proximity requirement, and the requirement's own words on each.
@@ -326,7 +344,25 @@ export function Map({
         : []
     const places = [...anchor.filter((a) => !checked.some((c) => c.label === a.label)), ...checked]
 
+    // Where the real journey is known, it stands in for the straight connector.
+    // Drawing both would put a shortcut next to the route it is not.
+    const routes = (entry?.evidence ?? []).filter((row) => row.route && row.route.length > 2)
+    const routed = new Set(routes.map((row) => row.about?.label).filter(Boolean))
+
     const draw = () => {
+      const line = instance.getSource('route') as GeoJSONSource | undefined
+      line?.setData({
+        type: 'FeatureCollection',
+        features: routes.map((row) => ({
+          type: 'Feature' as const,
+          properties: { said: row.display_value },
+          geometry: {
+            type: 'LineString' as const,
+            coordinates: row.route!.map((point) => [point.lng, point.lat]),
+          },
+        })),
+      })
+
       const asked = instance.getSource('asked') as GeoJSONSource | undefined
       asked?.setData({
         type: 'FeatureCollection',
@@ -342,7 +378,7 @@ export function Map({
         type: 'FeatureCollection',
         features:
           home?.point && places.length > 0
-            ? places.map((place) => ({
+            ? places.filter((place) => !routed.has(place.label)).map((place) => ({
                 type: 'Feature' as const,
                 properties: { said: place.said },
                 geometry: {
@@ -361,7 +397,11 @@ export function Map({
     else instance.once('load', draw)
 
     if (home?.point) {
-      const points = [home.point, ...places.map((place) => place.point)]
+      const points = [
+        home.point,
+        ...places.map((place) => place.point),
+        ...routes.flatMap((row) => row.route!),
+      ]
       const lats = points.map((point) => point.lat)
       const lngs = points.map((point) => point.lng)
       instance.fitBounds(

@@ -59,6 +59,15 @@ export const EvidenceRow = z.object({
       point: GeoPoint,
     })
     .optional(),
+  /**
+   * The way the journey actually goes, as the turn points the provider returned.
+   *
+   * A straight line between two places is not the trip, and drawing one invites
+   * the reader to judge a distance nobody would travel. This is one point per
+   * manoeuvre rather than a road-traced path, so it cuts corners, but it follows
+   * the streets that produced the number beside it.
+   */
+  route: z.array(GeoPoint).optional(),
 })
 
 export type Verdict = z.infer<typeof Verdict>

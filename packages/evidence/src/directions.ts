@@ -16,8 +16,15 @@ const MODE_LABEL: Record<TravelMode, string> = {
   transit: 'Transit',
 }
 
+interface DirectionsRoute {
+  travel_mode?: string
+  duration?: number
+  distance?: number
+  trips?: { details?: { gps_coordinates?: { latitude?: number; longitude?: number } }[] }[]
+}
+
 interface DirectionsBody {
-  directions?: { travel_mode?: string; duration?: number; distance?: number }[]
+  directions?: DirectionsRoute[]
   durations?: { travel_mode?: string; duration?: number }[]
 }
 
@@ -49,9 +56,11 @@ export function mapDirections(
 ): EvidenceRow[] {
   const parsed = body as DirectionsBody
   const label = MODE_LABEL[constraint.mode]
-  const durations = [...(parsed.directions ?? []), ...(parsed.durations ?? [])]
-    .filter((r) => r.travel_mode === label && typeof r.duration === 'number')
-    .map((r) => r.duration!)
+  const matching = [...(parsed.directions ?? []), ...(parsed.durations ?? [])].filter(
+    (route): route is DirectionsRoute =>
+      route.travel_mode === label && typeof route.duration === 'number',
+  )
+  const durations = matching.map((route) => route.duration!)
 
   if (durations.length === 0) {
     return [
@@ -66,6 +75,17 @@ export function mapDirections(
   }
 
   const seconds = Math.min(...durations)
+  // Google answers twice: alternatives with turn by turn detail, and a summary
+  // line per mode carrying only a total. The summary sometimes holds the
+  // quickest number and never holds a shape, so the drawn line is the fastest
+  // route that has one. It is the same journey by the same mode; where the two
+  // disagree it is by a minute, and a line no one can draw is worse than a line
+  // drawn from the next best alternative.
+  const route = shapeOf(
+    (parsed.directions ?? [])
+      .filter((candidate) => candidate.travel_mode === label)
+      .sort((a, b) => (a.duration ?? Infinity) - (b.duration ?? Infinity))[0],
+  )
   const slack = options.slack_seconds ?? 0
   const overBySlack = seconds - slack > constraint.max_seconds
   const within = seconds <= constraint.max_seconds
@@ -86,6 +106,17 @@ export function mapDirections(
         options.origin && options.destination
           ? `https://www.google.com/maps/dir/?api=1&origin=${options.origin.lat},${options.origin.lng}&destination=${options.destination.lat},${options.destination.lng}&travelmode=${MODE_URL[constraint.mode]}`
           : null,
+      route,
+      // The far end of the journey, so the map can name where this number was
+      // measured to instead of drawing a line into unlabelled space.
+      about:
+        options.destination && options.destination_label
+          ? {
+              label: options.destination_label,
+              kind: 'destination' as const,
+              point: options.destination,
+            }
+          : undefined,
       confidence: slack > 0 ? 0.7 : 1,
       eval_state: 'evaluated',
       // Only where the number alone does not explain itself. A rejection at
@@ -97,4 +128,23 @@ export function mapDirections(
           : undefined,
     }),
   ]
+}
+
+/**
+ * The turn points of a route, in order.
+ *
+ * Two points describe a straight line and say nothing a connector did not
+ * already say, so anything shorter than that is dropped rather than drawn.
+ */
+function shapeOf(route: DirectionsRoute | undefined): { lat: number; lng: number }[] | undefined {
+  const points = (route?.trips ?? [])
+    .flatMap((trip) => trip.details ?? [])
+    .map((step) => step.gps_coordinates)
+    .filter(
+      (point): point is { latitude: number; longitude: number } =>
+        typeof point?.latitude === 'number' && typeof point?.longitude === 'number',
+    )
+    .map((point) => ({ lat: point.latitude, lng: point.longitude }))
+
+  return points.length > 2 ? points : undefined
 }

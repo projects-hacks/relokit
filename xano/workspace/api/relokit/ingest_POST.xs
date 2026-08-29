@@ -101,6 +101,7 @@ query ingest verb=POST {
             precedence           : $row|get:"precedence":1
             reason               : $row|get:"reason":null
             about                : $row|get:"about":null
+            route                : $row|get:"route":null
           }
         }
       }

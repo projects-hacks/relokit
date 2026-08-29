@@ -95,6 +95,20 @@ describe('commute', () => {
     expect(evidence!.verdict).toBe('fail')
   })
 
+  it('draws the route that produced the number, not the one listed first', () => {
+    const [evidence] = mapDirections(route, commute, context, { entity_id: 'e1' })
+    // Both alternatives leave from the same doorstep, so the shape is what
+    // separates them: 13 turns along the creek trail against 12 via S Monroe St.
+    expect(evidence!.value_canonical).toBe(1821)
+    expect(evidence!.route).toHaveLength(13)
+  })
+
+  it('leaves the route off when there is no shape worth drawing', () => {
+    const bare = { directions: [{ travel_mode: 'Cycling', duration: 900 }] }
+    const [evidence] = mapDirections(bare, commute, context, { entity_id: 'e1' })
+    expect(evidence!.route).toBeUndefined()
+  })
+
   it('ignores routes for a mode nobody asked about', () => {
     const [evidence] = mapDirections(route, { ...commute, mode: 'walk' }, context, {
       entity_id: 'e1',

@@ -70,6 +70,10 @@ table relokit_evidence {
     // or the far end of the journey. A proximity claim is a claim about
     // somewhere, and a map cannot show it otherwise.
     json about?
+
+    // The turn points of a journey, so the map can trace the way it actually
+    // goes rather than a straight line nobody would travel.
+    json route?
   }
 
   index = [
