@@ -122,3 +122,36 @@ describe('robustness', () => {
     ).toBeUndefined()
   })
 })
+
+describe('two models, one answer', () => {
+  // The point of re-reading numbers from the query is that the answer should not
+  // depend on which model produced it. These two disagreed on almost everything
+  // numeric; after repair they agree.
+  const gemini = JSON.parse(
+    readFileSync(
+      new URL('../../../fixtures/llm/parse-relocation-xano-gemini.json', import.meta.url),
+      'utf8',
+    ),
+  )
+
+  const repaired = (fx: { raw: unknown; query: string }) =>
+    normalizeConstraintSet(fx.raw, fx.query, meta).constraint_set.constraints
+
+  it('produces the same constraints from either model', () => {
+    expect(JSON.stringify(repaired(gemini))).toBe(JSON.stringify(repaired(fixture)))
+  })
+
+  it('needed far less repairing of the better one', () => {
+    // Gemini put the opening time under opening and the closing time under
+    // closing. The fallback got both backwards.
+    const geminiRepairs = normalizeConstraintSet(gemini.raw, gemini.query, meta).repairs
+    expect(geminiRepairs.filter((r) => r.field === 'open_window')).toHaveLength(0)
+    expect(repairs.filter((r) => r.field === 'open_window')).toHaveLength(2)
+  })
+
+  it('still corrects the rounding neither model got right', () => {
+    // Half a mile is 805 metres. One model said 804, the other 804.672.
+    const gymRadius = (repaired(gemini).find((c) => c.id === 'c4') as NearbyPoiConstraint).radius_m
+    expect(gymRadius).toBe(805)
+  })
+})
