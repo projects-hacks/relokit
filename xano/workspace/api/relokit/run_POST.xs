@@ -24,6 +24,7 @@ query run verb=POST {
     function.run "Relokit/require_org" {
       input = {org_key: $input.org_key}
     } as $org
+  
     precondition ($input.plan.registry_version != null) {
       error = "The plan does not say which registry version it was built from."
     }

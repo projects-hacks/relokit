@@ -56,29 +56,30 @@ query "admin/registry/import" verb=POST {
         // the table and start affecting plans.
         db.add relokit_capability {
           data = {
-            created_at          : "now"
-            registry_version    : $input.registry_version
-            capability_id       : $capability.capability_id
-            constraint_type     : $capability.constraint_type
-            provider            : $capability.provider
-            endpoint            : $capability.endpoint
-            granularity         : $capability.granularity
-            cost_units          : $capability.cost_units
-            latency_p50_ms      : $capability.latency_p50_ms
-            selectivity_prior   : $capability.selectivity_prior
-            // Read with a default. XanoScript raises on a key an object does
-            // not have rather than answering null, and most capabilities have
-            // never been observed.
-            selectivity_observed: ($capability|get:"selectivity_observed":null)
-            observation_n       : ($capability|get:"observation_n":0)
-            ttl_seconds         : $capability.ttl_seconds
-            coverage            : $capability.coverage
-            precedence          : $capability.precedence
-            enabled             : $capability.enabled
-            max_fanout          : $capability.max_fanout
-            params_template     : $capability.params_template
-            produces            : $capability.produces
-            notes               : ($capability|get:"notes":null)
+            created_at                                                         : "now"
+            registry_version                                                   : $input.registry_version
+            capability_id                                                      : $capability.capability_id
+            constraint_type                                                    : $capability.constraint_type
+            provider                                                           : $capability.provider
+            endpoint                                                           : $capability.endpoint
+            granularity                                                        : $capability.granularity
+            cost_units                                                         : $capability.cost_units
+            latency_p50_ms                                                     : $capability.latency_p50_ms
+            selectivity_prior                                                  : $capability.selectivity_prior
+            "// Read with a default. XanoScript raises on a key an object does": ``
+            "// not have rather than answering null"                           : ``
+            "and most capabilities have"                                       : ``
+            "// never been observed."                                          : ``
+            selectivity_observed                                               : $capability|get:"selectivity_observed":null
+            observation_n                                                      : $capability|get:"observation_n":0
+            ttl_seconds                                                        : $capability.ttl_seconds
+            coverage                                                           : $capability.coverage
+            precedence                                                         : $capability.precedence
+            enabled                                                            : $capability.enabled
+            max_fanout                                                         : $capability.max_fanout
+            params_template                                                    : $capability.params_template
+            produces                                                           : $capability.produces
+            notes                                                              : $capability|get:"notes":null
           }
         }
       }
