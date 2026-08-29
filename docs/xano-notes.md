@@ -44,6 +44,21 @@ The doubled form is for Xano's own built-ins.
 absent, rather than answering null. Anything optional has to be read with a
 default: `$capability|get:"selectivity_observed":null`.
 
+## get returns its default for a value that is merely falsy
+
+The default is not reserved for a missing key. `$prices|get:"listing-7":null` also
+answers null when the stored value is `0`, `false` or `""`, so there is no way to
+tell "absent" from "present and zero" with it.
+
+The watch compares last night's listings against tonight's, and four homes carry a
+rent of zero because they advertise a band rather than a price. Both sides read
+them as absent, so every night it reported the same four arriving and the same
+four leaving. A watch that cries wolf teaches you to ignore it.
+
+Storing each value as an object, `{price: n}`, fixes it, because an object is never
+falsy. `|contains:` on an array of keys is not the answer either: it is a text
+filter, and it matches on substrings of the joined text rather than membership.
+
 ## db.add data will not take a variable
 
 `data = $row` fails with `Invalid kind for data`. It must be an object literal, so
