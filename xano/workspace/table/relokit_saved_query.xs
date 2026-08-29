@@ -21,6 +21,12 @@ table relokit_saved_query {
     timestamp next_due_at?
     int last_run_id?
     text notify_email? filters=trim|lower
+  
+    // What was on the market when this question was last asked, as listing id
+    // against rent. Kept here rather than derived from entities because the
+    // comparison is about this question over time, and entity rows are shared
+    // by every question this org has ever asked.
+    json last_listings?
   }
 
   index = [

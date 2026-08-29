@@ -65,7 +65,7 @@ table relokit_evidence {
     int precedence?=1
   
     text reason?
-
+  
     // The place a fact is about, when it is about one: the gym that was found,
     // or the far end of the journey. A proximity claim is a claim about
     // somewhere, and a map cannot show it otherwise.
