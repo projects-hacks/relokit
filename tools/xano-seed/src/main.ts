@@ -28,11 +28,16 @@ if (!adminKey)
 
 const api = `${base}/api:${group}`
 
-async function post(path: string, body: unknown, key: string) {
+/**
+ * The key travels in the body rather than in an Authorization header. Xano's
+ * $request_auth_token is its own token format and mangles anything else: a
+ * sixty four character key arrives one character short.
+ */
+async function post(path: string, body: Record<string, unknown>, key: string) {
   const response = await fetch(`${api}${path}`, {
     method: 'POST',
-    headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
-    body: JSON.stringify(body),
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ ...body, admin_key: key }),
   })
   const text = await response.text()
   if (!response.ok) throw new Error(`${path} returned ${response.status}: ${text.slice(0, 300)}`)

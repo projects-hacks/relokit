@@ -17,7 +17,8 @@
     "replay": "tsx tools/replay-run/src/main.ts",
     "replay:record": "tsx tools/replay-run/src/record.ts",
     "parse": "tsx tools/parse-query/src/main.ts",
-    "xano:seed": "tsx tools/xano-seed/src/main.ts"
+    "xano:seed": "tsx tools/xano-seed/src/main.ts",
+    "ask": "tsx tools/relokit-query/src/main.ts"
   },
   "devDependencies": {
     "@types/node": "^26.4.0",

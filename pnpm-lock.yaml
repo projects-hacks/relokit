@@ -123,6 +123,18 @@ importers:
         specifier: workspace:*
         version: link:../../packages/serpapi
 
+  tools/relokit-query:
+    dependencies:
+      '@relokit/llm':
+        specifier: workspace:*
+        version: link:../../packages/llm
+      '@relokit/planner':
+        specifier: workspace:*
+        version: link:../../packages/planner
+      '@relokit/schema':
+        specifier: workspace:*
+        version: link:../../packages/schema
+
   tools/replay-run:
     dependencies:
       '@relokit/evidence':

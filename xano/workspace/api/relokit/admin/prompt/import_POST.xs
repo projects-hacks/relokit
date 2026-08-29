@@ -6,6 +6,7 @@ query "admin/prompt/import" verb=POST {
   api_group = "Relokit"
 
   input {
+    text admin_key filters=trim
     text version filters=trim
     text body
     text model? filters=trim
@@ -17,7 +18,7 @@ query "admin/prompt/import" verb=POST {
       error = "Relokit has no admin key configured on this instance."
     }
 
-    precondition ($env.$request_auth_token == $env.relokit_admin_key) {
+    precondition ($input.admin_key == $env.relokit_admin_key) {
       error_type = "unauthorized"
       error = "Admin key missing or wrong."
     }

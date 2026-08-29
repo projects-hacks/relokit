@@ -14,13 +14,16 @@ query run verb=POST {
   api_group = "Relokit"
 
   input {
+    text org_key filters=trim
     json constraint_set
     json plan
     int ceiling_cost_units?=200
   }
 
   stack {
-    function.run "Relokit/require_org" as $org
+    function.run "Relokit/require_org" {
+      input = {org_key: $input.org_key}
+    } as $org
     precondition ($input.plan.registry_version != null) {
       error = "The plan does not say which registry version it was built from."
     }

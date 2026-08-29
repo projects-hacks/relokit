@@ -403,11 +403,16 @@ function assemble(
   const entityOps: Op[] = []
   const entityFails: string[] = []
   const entityCaps: Capability[] = []
+  let entityFanout = afterCluster
   for (const selection of constraintSelections) {
     const candidate = selection.byTier.get('entity')
     if (!candidate) continue
     entityOps.push(op(candidate, selection.slot, entityOps.length))
     entityCaps.push(candidate.capability)
+    // A capability states how many times it may be invoked in one stage, and
+    // planning past that is planning something that will not happen. Survivors
+    // beyond the ceiling are left unverified rather than quietly evaluated.
+    entityFanout = Math.min(entityFanout, candidate.capability.max_fanout)
     if (selection.slot.constraint!.hardness === 'hard') entityFails.push(selection.slot.id)
   }
   if (entityOps.length > 0) {
@@ -417,8 +422,8 @@ function assemble(
       tier: 'entity',
       fanout: 'per_entity',
       ops: entityOps,
-      expected_entities: survivors(afterCluster, entityCaps),
-      estimated_cost_units: cost(entityOps) * afterCluster,
+      expected_entities: survivors(entityFanout, entityCaps),
+      estimated_cost_units: cost(entityOps) * entityFanout,
       estimated_latency_ms: Math.max(...entityOps.map((o) => latency(o, input.registry))),
       prune: { on_fail: entityFails, slack: [] },
     })

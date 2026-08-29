@@ -12,6 +12,7 @@ query "admin/registry/import" verb=POST {
   api_group = "Relokit"
 
   input {
+    text admin_key filters=trim
     text registry_version filters=trim
     json capabilities
   }
@@ -22,7 +23,7 @@ query "admin/registry/import" verb=POST {
       error = "Relokit has no admin key configured on this instance."
     }
   
-    precondition ($env.$request_auth_token == $env.relokit_admin_key) {
+    precondition ($input.admin_key == $env.relokit_admin_key) {
       error_type = "unauthorized"
       error = "Admin key missing or wrong."
     }
@@ -65,8 +66,11 @@ query "admin/registry/import" verb=POST {
             cost_units          : $capability.cost_units
             latency_p50_ms      : $capability.latency_p50_ms
             selectivity_prior   : $capability.selectivity_prior
-            selectivity_observed: $capability.selectivity_observed
-            observation_n       : $capability.observation_n
+            // Read with a default. XanoScript raises on a key an object does
+            // not have rather than answering null, and most capabilities have
+            // never been observed.
+            selectivity_observed: ($capability|get:"selectivity_observed":null)
+            observation_n       : ($capability|get:"observation_n":0)
             ttl_seconds         : $capability.ttl_seconds
             coverage            : $capability.coverage
             precedence          : $capability.precedence
@@ -74,7 +78,7 @@ query "admin/registry/import" verb=POST {
             max_fanout          : $capability.max_fanout
             params_template     : $capability.params_template
             produces            : $capability.produces
-            notes               : $capability.notes
+            notes               : ($capability|get:"notes":null)
           }
         }
       }

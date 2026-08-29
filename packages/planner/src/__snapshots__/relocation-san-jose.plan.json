@@ -189,8 +189,8 @@
           "on_error": "unknown"
         }
       ],
-      "expected_entities": 14,
-      "estimated_cost_units": 96,
+      "expected_entities": 11,
+      "estimated_cost_units": 72,
       "estimated_latency_ms": 2400,
       "prune": {
         "on_fail": [
@@ -203,7 +203,7 @@
     }
   ],
   "unsatisfied": [],
-  "estimated_cost_units": 111,
+  "estimated_cost_units": 87,
   "estimated_latency_ms": 8600,
   "trace": {
     "registry_version": "2026-08-28.6",
@@ -215,7 +215,7 @@
         "bounds": 0,
         "candidates": 58,
         "clusters": 32,
-        "exact": 14
+        "exact": 11
       }
     },
     "candidates": [
@@ -379,6 +379,6 @@
     ],
     "naive_cost_units": 18179,
     "pushdown_only_cost_units": 176,
-    "planned_cost_units": 111
+    "planned_cost_units": 87
   }
 }

@@ -1,0 +1,11 @@
+{
+  "name": "@relokit/query",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@relokit/llm": "workspace:*",
+    "@relokit/planner": "workspace:*",
+    "@relokit/schema": "workspace:*"
+  }
+}

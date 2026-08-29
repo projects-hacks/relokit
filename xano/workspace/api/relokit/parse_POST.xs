@@ -25,6 +25,7 @@ query parse verb=POST {
   api_group = "Relokit"
 
   input {
+    text org_key filters=trim
     text query filters=trim
     text prompt_version?="parse.v1.md"
     // xano uses the model key included with the instance. nvidia is the
@@ -34,7 +35,9 @@ query parse verb=POST {
   }
 
   stack {
-    function.run "Relokit/require_org" as $org
+    function.run "Relokit/require_org" {
+      input = {org_key: $input.org_key}
+    } as $org
 
     db.query relokit_prompt {
       where = $db.relokit_prompt.version == $input.prompt_version
@@ -48,7 +51,7 @@ query parse verb=POST {
     // The same question under the same prompt is the same answer. This is the
     // one call in the system whose meaning does not expire.
     var $cache_key {
-      value = ($input.query ~ "|" ~ $input.prompt_version)|hash_sha256
+      value = ($input.query ~ "|" ~ $input.prompt_version)|sha256
     }
 
     db.query relokit_provider_cache {

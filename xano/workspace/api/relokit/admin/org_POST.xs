@@ -11,6 +11,7 @@ query "admin/org" verb=POST {
   api_group = "Relokit"
 
   input {
+    text admin_key filters=trim
     text name filters=trim
   }
 
@@ -20,7 +21,7 @@ query "admin/org" verb=POST {
       error = "Relokit has no admin key configured on this instance."
     }
   
-    precondition ($env.$request_auth_token == $env.relokit_admin_key) {
+    precondition ($input.admin_key == $env.relokit_admin_key) {
       error_type = "unauthorized"
       error = "Admin key missing or wrong."
     }
@@ -30,7 +31,7 @@ query "admin/org" verb=POST {
       data = {
         created_at            : "now"
         name                  : $input.name
-        api_key_hash          : $api_key|hash_sha256
+        api_key_hash          : $api_key|sha256
         monthly_cost_units_cap: 5000
       }
     } as $org

@@ -273,3 +273,32 @@ describe('work that cannot pay for itself', () => {
     expect(ops.map((o) => o.capability_id)).toContain('nearby_poi.maps.cluster')
   })
 })
+
+describe('the ceiling a capability states', () => {
+  it('never plans more invocations than the registry permits', () => {
+    const result = plan(input)
+    const exact = result.stages.find((s) => s.tier === 'entity')!
+    const ceiling = Math.min(
+      ...exact.ops.map(
+        (o) => input.registry.find((c) => c.capability_id === o.capability_id)!.max_fanout,
+      ),
+    )
+    // Planning past max_fanout is planning something that will not happen, and
+    // it makes the plan's own estimate exceed the worst case the backend prices.
+    expect(exact.estimated_cost_units).toBeLessThanOrEqual(exact.ops.length * ceiling)
+  })
+
+  it('stays under the worst case the backend would price', () => {
+    // The backend accepts a plan by pricing every op at its capability's
+    // max_fanout. A plan estimating more than that would be accepted and then
+    // cost more than the number it was accepted on.
+    const result = plan(input)
+    const worstCase = result.stages
+      .flatMap((s) => s.ops)
+      .reduce((sum, o) => {
+        const capability = input.registry.find((c) => c.capability_id === o.capability_id)!
+        return sum + capability.cost_units * capability.max_fanout
+      }, 0)
+    expect(result.estimated_cost_units).toBeLessThanOrEqual(worstCase)
+  })
+})
