@@ -49,9 +49,9 @@ query op verb=POST {
 
     // Identity of the call. Sorted so that a template written in a different
     // order is still recognised as the same question.
-    var $params_hash {
-      value = ($input.endpoint ~ "|" ~ ($input.params|json_encode))|sha256
-    }
+    function.run "Relokit/params_hash" {
+      input = {endpoint: $input.endpoint, params: $input.params}
+    } as $params_hash
 
     var $outcome {
       value = "live"

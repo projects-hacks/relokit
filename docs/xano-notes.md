@@ -77,3 +77,24 @@ comes back.
 validates a push and creates tables, and it cannot answer an HTTP request or run
 a background task. Direct workspace push is the setting that matters, under
 Workspace Settings, CLI.
+
+## Ordering became part of a cache key, invisibly
+
+The call identity was `sha256(endpoint + json_encode(params))`. `json_encode`
+preserves insertion order, so the same call written two ways hashed two ways. The
+cache was warmed with `engine` written last and the executor asked with `engine`
+written first, nothing matched, and thirty eight searches were spent proving it.
+
+The key is now built from sorted parameter names in `Relokit/params_hash`, which
+both the executor and the warmer call, so there is one definition of what makes
+two calls the same. The property is checkable directly: warm the same parameters
+in two orders and the second reports `warmed: false`.
+
+## Other things that bite
+
+A query parameter arrives as text. `db.get` on an int column with one fails with
+`Not numeric.`, which names the symptom and not the cause. Use `|to_int`.
+
+A counter incremented inside nested conditionals inside a `foreach` stops being
+numeric. Totals that matter are kept on a row and updated as they change, rather
+than recomputed by walking rows in a stack.

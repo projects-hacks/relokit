@@ -9,9 +9,9 @@
 // interface shows its real age. A recording older than its capability's TTL is
 // simply stale, and the executor will pay to ask again.
 //
-// The hash is computed here with the same expression /op uses, so a warmed entry
-// is found by the same key the executor will look under. Accepting a hash from
-// the caller would let the two drift apart silently.
+// The key is computed by the same function /op uses, so a warmed entry is found
+// under the key the executor will look for. Accepting a hash from the caller, or
+// computing it twice, is how the two silently stop agreeing.
 query "admin/cache/warm" verb=POST {
   api_group = "Relokit"
 
@@ -38,9 +38,9 @@ query "admin/cache/warm" verb=POST {
       error = "Admin key missing or wrong."
     }
 
-    var $params_hash {
-      value = ($input.endpoint ~ "|" ~ ($input.params|json_encode))|sha256
-    }
+    function.run "Relokit/params_hash" {
+      input = {endpoint: $input.endpoint, params: $input.params}
+    } as $params_hash
 
     db.query relokit_provider_cache {
       where = $db.relokit_provider_cache.endpoint == $input.endpoint && $db.relokit_provider_cache.params_hash == $params_hash
