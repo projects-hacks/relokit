@@ -107,16 +107,33 @@ export function Findings({
 
   const shownTabs = asked ? tabs : tabs.filter((tab) => tab.count > 0)
 
+  // Arrow keys move between tabs and only the selected one is a tab stop, so
+  // Tab passes over the whole group rather than through every bucket in it.
+  const step = (delta: number) => {
+    const at = shownTabs.findIndex((tab) => tab.id === open)
+    const next = shownTabs[(at + delta + shownTabs.length) % shownTabs.length]
+    if (!next) return
+    setOpen(next.id)
+    document.getElementById(`tab-${next.id}`)?.focus()
+  }
+
   return (
     <>
-      <div className="bucket-tabs" role="tablist">
+      <div className="bucket-tabs" role="tablist" aria-label="What was found">
         {shownTabs.map((tab) => (
           <button
             key={tab.id}
+            id={`tab-${tab.id}`}
             role="tab"
             aria-selected={open === tab.id}
+            aria-controls={`panel-${tab.id}`}
+            tabIndex={open === tab.id ? 0 : -1}
             style={{ '--mark': tab.mark } as React.CSSProperties}
             onClick={() => setOpen(tab.id)}
+            onKeyDown={(event) => {
+              if (event.key === 'ArrowRight') step(1)
+              if (event.key === 'ArrowLeft') step(-1)
+            }}
           >
             <b>{tab.count}</b>
             {tab.label}
@@ -139,7 +156,12 @@ export function Findings({
 
       {/* The gap lives on the list. An adjacent-sibling rule cannot work here,
           because every card is wrapped and no two are ever siblings. */}
-      <div className="finding-list">
+      <div
+        className="finding-list"
+        id={`panel-${open}`}
+        role="tabpanel"
+        aria-labelledby={`tab-${open}`}
+      >
         {shown.length === 0 ? (
           <p className="note">
             {bucket.length > 0

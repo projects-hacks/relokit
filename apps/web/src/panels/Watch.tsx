@@ -1,5 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
-import { httpTransport, readWatch, setWatch, type AskResult, type WatchState } from '@relokit/client'
+import {
+  httpTransport,
+  readWatch,
+  setWatch,
+  type AskResult,
+  type WatchState,
+} from '@relokit/client'
 import type { ListingSummary } from '@relokit/schema'
 import { ago, money } from '../lib/format.ts'
 
@@ -105,7 +111,8 @@ export function Watch({ result }: { result: AskResult }) {
  */
 function describe(change: Change, entities: ListingSummary[]): string {
   const home = entities.find(
-    (entity) => entity.entity_id === change.entity_id || entity.entity_id.startsWith(`${change.entity_id}#`),
+    (entity) =>
+      entity.entity_id === change.entity_id || entity.entity_id.startsWith(`${change.entity_id}#`),
   )
   const name = home ? home.title.slice(0, 44) : 'A home'
 

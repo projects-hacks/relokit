@@ -378,17 +378,19 @@ export function Map({
         type: 'FeatureCollection',
         features:
           home?.point && places.length > 0
-            ? places.filter((place) => !routed.has(place.label)).map((place) => ({
-                type: 'Feature' as const,
-                properties: { said: place.said },
-                geometry: {
-                  type: 'LineString' as const,
-                  coordinates: [
-                    [home.point!.lng, home.point!.lat],
-                    [place.point.lng, place.point.lat],
-                  ],
-                },
-              }))
+            ? places
+                .filter((place) => !routed.has(place.label))
+                .map((place) => ({
+                  type: 'Feature' as const,
+                  properties: { said: place.said },
+                  geometry: {
+                    type: 'LineString' as const,
+                    coordinates: [
+                      [home.point!.lng, home.point!.lat],
+                      [place.point.lng, place.point.lat],
+                    ],
+                  },
+                }))
             : [],
       })
     }

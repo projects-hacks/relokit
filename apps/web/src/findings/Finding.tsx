@@ -1,5 +1,5 @@
 import type { Constraint, EvidenceRow, ListingSummary } from '@relokit/schema'
-import { ago, money, sourceName } from '../lib/format.ts'
+import { ago, money, sourceName, tight } from '../lib/format.ts'
 import { Tip } from '../lib/tooltip.tsx'
 
 const MARK: Record<string, string> = { pass: '✓', fail: '✕', unknown: '?' }
@@ -97,7 +97,22 @@ export function Finding({
       )}
 
       <header className="finding-head">
-        <h3 className="finding-title">{entity.title}</h3>
+        {/* The title is the way to this home on the map. A card that only
+            answers a click leaves the whole flow out of reach of a keyboard,
+            and wrapping the card itself would nest the save and open buttons
+            inside a control. */}
+        <h3 className="finding-title">
+          <button
+            className="as-link title"
+            onClick={(event) => {
+              event.stopPropagation()
+              onSelect?.()
+            }}
+            aria-pressed={Boolean(selected)}
+          >
+            {entity.title}
+          </button>
+        </h3>
         {price && <span className="finding-price">{price}</span>}
       </header>
 
@@ -124,7 +139,7 @@ export function Finding({
               </span>
             </Tip>
             <span className="check-fact">
-              {row.display_value}
+              {tight(row.display_value)}
               <span className="check-said">{said.get(row.constraint_id)}</span>
             </span>
             <Tip

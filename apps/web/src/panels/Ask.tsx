@@ -26,7 +26,7 @@ export function Ask({
       <textarea
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        placeholder="Say what you need. Rent, bedrooms, how far you'll travel and by what, what has to be nearby and when it has to be open."
+        placeholder="Say what you need. Rent, bedrooms, how far you’ll travel and by what, what has to be nearby and when it has to be open."
         aria-label="Your requirements"
       />
       {/* Asking with no backend fails as a network error the page already knows

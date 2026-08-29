@@ -1,7 +1,8 @@
-import { useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import type { AskResult } from '@relokit/client'
 import type { EvidenceRow, ListingSummary } from '@relokit/schema'
-import { ago, money, sourceName } from '../lib/format.ts'
+import { ago, money, sourceName, tight } from '../lib/format.ts'
+import { useDialog } from '../lib/dialog.ts'
 
 const MARK: Record<string, string> = { pass: '✓', fail: '✕', unknown: '?' }
 
@@ -27,25 +28,25 @@ export function Detail({
   onSave: () => void
   onClose: () => void
 }) {
-  useEffect(() => {
-    const escape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose()
-    }
-    addEventListener('keydown', escape)
-    return () => removeEventListener('keydown', escape)
-  }, [onClose])
+  const dialog = useDialog<HTMLElement>(onClose)
 
   const said = new Map(result.constraint_set.constraints.map((c) => [c.id, c.source_text]))
   const photos =
     entity.photos.length > 0 ? entity.photos : entity.photo_url ? [entity.photo_url] : []
   const price = money(entity.price_cents)
 
-  return (
+  // Rendered outside the application root so the root itself can be made
+  // inert while this is open. A dialog nested inside what it disables would
+  // disable itself.
+  return createPortal(
     <div className="detail-scrim" onClick={onClose}>
       <aside
         className="detail"
+        ref={dialog}
         role="dialog"
+        aria-modal="true"
         aria-label={entity.title}
+        tabIndex={-1}
         onClick={(event) => event.stopPropagation()}
       >
         <header className="detail-head">
@@ -69,7 +70,15 @@ export function Detail({
         {photos.length > 0 && (
           <div className="gallery">
             {photos.map((photo) => (
-              <img key={photo} src={photo} alt="" loading="lazy" decoding="async" />
+              <img
+                key={photo}
+                src={photo}
+                alt=""
+                width={560}
+                height={340}
+                loading="lazy"
+                decoding="async"
+              />
             ))}
           </div>
         )}
@@ -97,7 +106,7 @@ export function Detail({
               >
                 <span className="check-mark">{MARK[row.verdict]}</span>
                 <span className="check-fact">
-                  {row.display_value}
+                  {tight(row.display_value)}
                   <span className="check-said">{said.get(row.constraint_id)}</span>
                   {row.reason && <span className="check-said">{row.reason}</span>}
                 </span>
@@ -116,7 +125,8 @@ export function Detail({
             ))}
         </div>
       </aside>
-    </div>
+    </div>,
+    document.body,
   )
 }
 

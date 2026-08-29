@@ -24,3 +24,16 @@ export function sourceName(source: string): string {
   }
   return names[source] ?? source
 }
+
+/**
+ * Keeps a number and its unit on the same line.
+ *
+ * "20 min by bike" broken after the 20 reads as two facts. The canonical strings
+ * stay plain, because they are compared and stored; the typography belongs here,
+ * where the words are put on a screen.
+ */
+const UNIT = /(\d)\s(min|hr|sec|mi|km|ft|bed|bath|beds|baths)\b/g
+
+export function tight(text: string): string {
+  return text.replace(UNIT, '$1\u00a0$2')
+}

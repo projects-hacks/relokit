@@ -72,9 +72,15 @@ export function useSaved(query: string) {
     [query],
   )
 
+  // Hands back what was cleared, so the caller can offer it again.
   const clear = useCallback(() => {
+    const previous = read()
     write([])
     setHomes([])
+    return () => {
+      write(previous)
+      setHomes(previous)
+    }
   }, [])
 
   return { homes, toggle, clear, isSaved: (id: string) => homes.some((h) => h.entity_id === id) }

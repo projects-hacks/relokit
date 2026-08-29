@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import type { AskEvent } from '@relokit/client'
 import { applyRelaxation } from '@relokit/evidence'
 import { useAsk } from './useAsk.ts'
+import { useDeferred } from './lib/deferred.ts'
 import { useSaved } from './lib/saved.ts'
+import { Toast, useToast } from './lib/toast.tsx'
 import { ago, money } from './lib/format.ts'
 import { Ask } from './panels/Ask.tsx'
 import { Plan } from './panels/Plan.tsx'
@@ -29,6 +31,17 @@ export function App() {
   // both. Pointing at a pin should not mean hunting for its card.
   const [fromMap, setFromMap] = useState(false)
   const saved = useSaved(result?.constraint_set.raw_query ?? '')
+  const working = useDeferred(status === 'running' && !result)
+  const notice = useToast()
+  // The end of the run is as much a thing to be told as the middle of it.
+  const progress =
+    status === 'running'
+      ? describe(events)
+      : result
+        ? `${result.buckets.results.length} of ${result.entities.length} homes cleared every requirement`
+        : status === 'failed'
+          ? `The run stopped: ${error ?? 'no reason given'}`
+          : ''
 
   const planned = events.find(
     (event): event is Extract<AskEvent, { kind: 'planned' }> => event.kind === 'planned',
@@ -55,6 +68,16 @@ export function App() {
 
   return (
     <div className="shell">
+      {/* One region, present from the start, so a reader is told how the run is
+          going rather than left with a page that silently rearranges itself. */}
+      <div className="sr-only" role="status" aria-live="polite">
+        {progress}
+      </div>
+
+      <a className="skip" href="#results">
+        Skip to results
+      </a>
+
       <header className="masthead">
         <h1 className="wordmark">
           Relo<span>kit</span>
@@ -109,7 +132,7 @@ export function App() {
           <Counter events={events} />
         </main>
 
-        <section className="paper">
+        <section className="paper" id="results">
           {status === 'idle' && saved.homes.length === 0 && <Brief />}
 
           {status === 'idle' && saved.homes.length > 0 && (
@@ -124,7 +147,16 @@ export function App() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    {home.photo_url && <img src={home.photo_url} alt="" />}
+                    {home.photo_url && (
+                      <img
+                        src={home.photo_url}
+                        alt=""
+                        width={96}
+                        height={64}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    )}
                     <span>
                       <b>{money(home.price_cents) ?? '—'}</b>
                       <br />
@@ -133,15 +165,21 @@ export function App() {
                   </a>
                 ))}
               </div>
-              <button className="as-link" onClick={saved.clear}>
+              <button
+                className="as-link"
+                onClick={() => {
+                  const restore = saved.clear()
+                  notice.show('Shortlist cleared.', restore)
+                }}
+              >
                 Clear the shortlist
               </button>
             </section>
           )}
 
-          {status === 'running' && !result && (
+          {working && (
             <>
-              <p className="pending">{describe(events)}</p>
+              <p className="pending">{progress}</p>
               <FindingsSkeleton />
             </>
           )}
@@ -170,7 +208,7 @@ export function App() {
             </p>
           )}
 
-          {result && (
+          {result && !working && (
             <>
               {result.entities.length === 0 ? (
                 <Nothing result={result} />
@@ -178,7 +216,10 @@ export function App() {
                 <Findings
                   result={result}
                   isSaved={saved.isSaved}
-                  onSave={saved.toggle}
+                  onSave={(home) => {
+                    notice.show(saved.isSaved(home.entity_id) ? 'Removed.' : 'Saved.')
+                    saved.toggle(home)
+                  }}
                   onOpen={setOpenId}
                   onSelect={setSelectedId}
                   onHover={(id) => {
@@ -212,6 +253,8 @@ export function App() {
           )}
         </section>
       </div>
+
+      <Toast toast={notice.toast} onDismiss={notice.dismiss} />
 
       {open && openEvidence && result && (
         <Detail
