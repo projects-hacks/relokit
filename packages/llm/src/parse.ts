@@ -1,8 +1,8 @@
 import { readFileSync } from 'node:fs'
 import { complete, type ProviderOptions } from './provider.ts'
-import { normalizeConstraintSet, type NormalizeResult } from './normalize.ts'
+import { PARSER_VERSION, normalizeConstraintSet, type NormalizeResult } from './normalize.ts'
 
-export const PARSER_VERSION = 'parse.v1.md'
+export { PARSER_VERSION }
 
 export function parsePrompt(): string {
   return readFileSync(new URL('./prompts/parse.v1.md', import.meta.url), 'utf8')

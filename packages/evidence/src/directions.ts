@@ -71,12 +71,13 @@ export function mapDirections(
       source_url: null,
       confidence: slack > 0 ? 0.7 : 1,
       eval_state: 'evaluated',
+      // Only where the number alone does not explain itself. A rejection at
+      // 42 minutes against a 25 minute limit needs no sentence; a result held
+      // back because it was measured from the middle of a neighbourhood does.
       reason:
         verdict === 'unknown'
-          ? `measured from the cluster centre, within ${Math.round(slack / 60)} min of the limit`
-          : verdict === 'fail' && slack > 0
-            ? 'too far even allowing for the width of the cluster'
-            : undefined,
+          ? 'Measured from the middle of the neighbourhood, and close enough to the limit that this home needs checking on its own.'
+          : undefined,
     }),
   ]
 }

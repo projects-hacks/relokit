@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import { ConstraintSet, Registry } from '@relokit/schema'
 import { plan } from '@relokit/planner'
 import { createClient, type Engine } from '@relokit/serpapi'
-import { replayRun } from './run.ts'
+import { replayRun } from '@relokit/executor'
 
 /**
  * Records whatever the demo run is missing, one stage at a time.

@@ -1,13 +1,15 @@
 {
-  "name": "@relokit/replay-run",
+  "name": "@relokit/executor",
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "dependencies": {
     "@relokit/evidence": "workspace:*",
     "@relokit/planner": "workspace:*",
     "@relokit/schema": "workspace:*",
-    "@relokit/serpapi": "workspace:*",
-    "@relokit/executor": "workspace:*"
+    "@relokit/serpapi": "workspace:*"
   }
 }

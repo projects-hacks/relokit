@@ -3,7 +3,7 @@ import { ConstraintSet, Registry } from '@relokit/schema'
 import { plan } from '@relokit/planner'
 import { createClient } from '@relokit/serpapi'
 import { relaxations } from '@relokit/evidence'
-import { replayRun } from './run.ts'
+import { replayRun } from '@relokit/executor'
 
 /**
  * Runs the demo query end to end against recorded fixtures.

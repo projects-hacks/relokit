@@ -10,6 +10,10 @@ import { clockSeconds, distanceMeters, durationSeconds, moneyCents, windowSide }
  * something the user asked for.
  */
 
+/** The prompt that produced a constraint set, recorded on it so an answer can
+ * always be traced back to the words that asked for it. */
+export const PARSER_VERSION = 'parse.v1.md'
+
 export interface Repair {
   constraint_id: string
   field: string

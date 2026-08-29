@@ -83,7 +83,7 @@ describe('commute', () => {
     })
     expect(evidence!.verdict).toBe('unknown')
     expect(evidence!.confidence).toBe(0.7)
-    expect(evidence!.reason).toContain('cluster centre')
+    expect(evidence!.reason).toContain('middle of the neighbourhood')
   })
 
   it('rejects from a centroid when even the slack cannot save it', () => {
@@ -145,7 +145,7 @@ describe('nearby places', () => {
       evaluation_days: ['tue'],
     })
     expect(evidence!.verdict).toBe('unknown')
-    expect(evidence!.reason).toContain('only just outside')
+    expect(evidence!.reason).toContain('Just outside')
   })
 
   it('does not count a gym that opens too late', () => {

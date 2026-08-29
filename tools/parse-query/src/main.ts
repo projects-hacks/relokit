@@ -1,4 +1,4 @@
-import { parseQuery } from '@relokit/llm'
+import { parseQuery } from '@relokit/llm/node'
 
 try {
   process.loadEnvFile('.env')

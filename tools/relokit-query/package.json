@@ -4,10 +4,6 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@relokit/llm": "workspace:*",
-    "@relokit/planner": "workspace:*",
-    "@relokit/schema": "workspace:*",
-    "@relokit/evidence": "workspace:*",
-    "@relokit/serpapi": "workspace:*"
+    "@relokit/client": "workspace:*"
   }
 }

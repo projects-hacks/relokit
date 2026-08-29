@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { Registry } from '@relokit/schema'
-import { PARSER_VERSION, parsePrompt } from '@relokit/llm'
+import { PARSER_VERSION, parsePrompt } from '@relokit/llm/node'
 
 /**
  * Loads this repository into a Xano instance.

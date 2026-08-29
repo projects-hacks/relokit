@@ -26,6 +26,12 @@ importers:
 
   apps/web:
     dependencies:
+      '@relokit/client':
+        specifier: workspace:*
+        version: link:../../packages/client
+      '@relokit/evidence':
+        specifier: workspace:*
+        version: link:../../packages/evidence
       '@relokit/planner':
         specifier: workspace:*
         version: link:../../packages/planner
@@ -42,6 +48,9 @@ importers:
         specifier: ^19.2.8
         version: 19.2.8(react@19.2.8)
     devDependencies:
+      '@types/geojson':
+        specifier: ^7946.0.16
+        version: 7946.0.16
       '@types/react':
         specifier: ^19.2.18
         version: 19.2.18
@@ -58,11 +67,44 @@ importers:
         specifier: ^8.2.2
         version: 8.2.2(@types/node@26.4.0)(esbuild@0.28.2)(tsx@4.23.12)
 
+  packages/client:
+    dependencies:
+      '@relokit/evidence':
+        specifier: workspace:*
+        version: link:../evidence
+      '@relokit/executor':
+        specifier: workspace:*
+        version: link:../executor
+      '@relokit/llm':
+        specifier: workspace:*
+        version: link:../llm
+      '@relokit/planner':
+        specifier: workspace:*
+        version: link:../planner
+      '@relokit/schema':
+        specifier: workspace:*
+        version: link:../schema
+
   packages/evidence:
     dependencies:
       '@relokit/schema':
         specifier: workspace:*
         version: link:../schema
+
+  packages/executor:
+    dependencies:
+      '@relokit/evidence':
+        specifier: workspace:*
+        version: link:../evidence
+      '@relokit/planner':
+        specifier: workspace:*
+        version: link:../planner
+      '@relokit/schema':
+        specifier: workspace:*
+        version: link:../schema
+      '@relokit/serpapi':
+        specifier: workspace:*
+        version: link:../serpapi
 
   packages/llm:
     dependencies:
@@ -125,27 +167,18 @@ importers:
 
   tools/relokit-query:
     dependencies:
-      '@relokit/evidence':
+      '@relokit/client':
         specifier: workspace:*
-        version: link:../../packages/evidence
-      '@relokit/llm':
-        specifier: workspace:*
-        version: link:../../packages/llm
-      '@relokit/planner':
-        specifier: workspace:*
-        version: link:../../packages/planner
-      '@relokit/schema':
-        specifier: workspace:*
-        version: link:../../packages/schema
-      '@relokit/serpapi':
-        specifier: workspace:*
-        version: link:../../packages/serpapi
+        version: link:../../packages/client
 
   tools/replay-run:
     dependencies:
       '@relokit/evidence':
         specifier: workspace:*
         version: link:../../packages/evidence
+      '@relokit/executor':
+        specifier: workspace:*
+        version: link:../../packages/executor
       '@relokit/planner':
         specifier: workspace:*
         version: link:../../packages/planner

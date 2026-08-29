@@ -69,7 +69,10 @@ export function mapNearbyPlaces(
         source_url: null,
         confidence: slack > 0 ? 0.7 : 1,
         eval_state: 'evaluated',
-        reason: slack > 0 ? 'measured from the cluster centre' : undefined,
+        reason:
+          slack > 0
+            ? 'Measured from the middle of the neighbourhood rather than from this address.'
+            : undefined,
       }),
     ]
   }
@@ -113,7 +116,9 @@ export function mapNearbyPlaces(
         source_url: null,
         confidence: slack > 0 ? 0.7 : 1,
         eval_state: 'evaluated',
-        reason: outsideRadius ? 'only just outside, measured from the cluster centre' : undefined,
+        reason: outsideRadius
+          ? 'Just outside, and measured from the middle of the neighbourhood rather than from this address.'
+          : undefined,
       }),
     ]
   }

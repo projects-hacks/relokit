@@ -1,0 +1,48 @@
+import { useCallback, useState } from 'react'
+import { ask, httpTransport, type AskEvent, type AskResult } from '@relokit/client'
+
+/**
+ * One question, and everything that happened on the way to answering it.
+ *
+ * The events arrive as the run proceeds, so the interface can show the plan
+ * before any call has been made and the narrowing as each stage reports. What is
+ * shown is always what has actually happened, never an animation towards a
+ * number already known.
+ */
+export interface AskState {
+  status: 'idle' | 'running' | 'done' | 'failed'
+  events: AskEvent[]
+  result: AskResult | null
+  error: string | null
+}
+
+const api = import.meta.env.VITE_RELOKIT_API ?? ''
+const orgKey = import.meta.env.VITE_RELOKIT_ORG_KEY ?? ''
+
+export function useAsk() {
+  const [state, setState] = useState<AskState>({
+    status: 'idle',
+    events: [],
+    result: null,
+    error: null,
+  })
+
+  const run = useCallback(async (query: string) => {
+    setState({ status: 'running', events: [], result: null, error: null })
+    try {
+      const result = await ask(httpTransport(api, orgKey), query, {
+        onProgress: (event) =>
+          setState((previous) => ({ ...previous, events: [...previous.events, event] })),
+      })
+      setState((previous) => ({ ...previous, status: 'done', result }))
+    } catch (error) {
+      setState((previous) => ({
+        ...previous,
+        status: 'failed',
+        error: error instanceof Error ? error.message : String(error),
+      }))
+    }
+  }, [])
+
+  return { ...state, run, configured: api !== '' && orgKey !== '' }
+}
