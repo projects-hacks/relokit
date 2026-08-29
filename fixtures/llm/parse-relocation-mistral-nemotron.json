@@ -1,0 +1,17 @@
+{
+  "model": "mistralai/mistral-nemotron",
+  "prompt_version": "parse.v1.md",
+  "recorded_at": "2026-08-28",
+  "query": "Under $2,800, one bedroom, no more than 25 minutes by bike to 2788 San Tomas Expressway, gym within half a mile open before 6am, in-unit laundry, grocery open past 10pm.",
+  "note": "Verbatim model output, mistakes included. Two of them are invisible to the schema: it filed 'open before 6am' under closes_after_s, and read 'past 10pm' as 36000, which is ten in the morning.",
+  "raw": {
+    "constraints": [
+      { "id": "c1", "type": "budget", "hardness": "hard", "weight": 1, "basis": "rent_monthly", "max_cents": 280000, "source_text": "Under $2,800" },
+      { "id": "c2", "type": "unit_attribute", "hardness": "hard", "weight": 1, "attribute": "beds", "min": 1, "max": 1, "source_text": "one bedroom" },
+      { "id": "c3", "type": "commute", "hardness": "hard", "weight": 1, "destination": "2788 San Tomas Expressway", "mode": "bike", "max_seconds": 1500, "source_text": "no more than 25 minutes by bike to 2788 San Tomas Expressway" },
+      { "id": "c4", "type": "nearby_poi", "hardness": "hard", "weight": 1, "category": "gym", "radius_m": 804.672, "min_count": 1, "open_window": { "closes_after_s": 21600 }, "source_text": "gym within half a mile open before 6am" },
+      { "id": "c5", "type": "listing_feature", "hardness": "hard", "weight": 1, "feature": "in_unit_laundry", "required": true, "source_text": "in-unit laundry" },
+      { "id": "c6", "type": "nearby_poi", "hardness": "hard", "weight": 1, "category": "grocery", "radius_m": 804.672, "min_count": 1, "open_window": { "opens_by_s": 36000 }, "source_text": "grocery open past 10pm" }
+    ]
+  }
+}
