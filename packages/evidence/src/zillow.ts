@@ -35,6 +35,7 @@ interface ZillowResult {
   building_name?: string
   units?: { price?: string; beds?: string }[]
   gps_coordinates?: { latitude: number; longitude: number }
+  images?: string[]
 }
 
 export interface Price {
@@ -85,6 +86,8 @@ function expand(result: ZillowResult): ListingSummary[] {
     point,
     url: result.link ?? null,
     photo_url: result.thumbnail ?? null,
+    // Enough to look at without carrying a whole gallery through the ledger.
+    photos: (result.images ?? []).slice(0, 6),
   }
 
   if (!result.units || result.units.length === 0) {

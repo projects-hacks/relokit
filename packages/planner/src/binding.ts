@@ -1,5 +1,6 @@
 import {
   BINDING_BOUNDS,
+  BINDING_ANCHOR,
   BINDING_CLUSTER,
   BINDING_ENTITY,
   bindingForRef,
@@ -18,9 +19,12 @@ import {
  * them here keeps them in the same feasibility check as everything else instead
  * of being enforced by the order the code happens to run in.
  */
-export const DERIVED_BINDINGS: Record<BindingKey, BindingKey[]> = {
-  [BINDING_BOUNDS]: ['constraint.destination_point'],
-  [BINDING_CLUSTER]: [BINDING_BOUNDS, BINDING_ENTITY],
+export const DERIVED_BINDINGS: Record<BindingKey, BindingKey[][]> = {
+  // Either will do. A question naming only a town can still be searched, and a
+  // question naming only a place of work is searched around that. Requiring the
+  // commute was why "an apartment in Santa Clara" returned nothing at all.
+  [BINDING_BOUNDS]: [['constraint.destination_point'], [BINDING_ANCHOR]],
+  [BINDING_CLUSTER]: [[BINDING_BOUNDS, BINDING_ENTITY]],
 }
 
 /** What a capability needs bound before it can run, read off its own params. */
@@ -50,9 +54,9 @@ export function closeDerived(bound: Set<BindingKey>): Set<BindingKey> {
   let changed = true
   while (changed) {
     changed = false
-    for (const [produced, inputs] of Object.entries(DERIVED_BINDINGS)) {
+    for (const [produced, alternatives] of Object.entries(DERIVED_BINDINGS)) {
       if (bound.has(produced)) continue
-      if (inputs.every((key) => bound.has(key))) {
+      if (alternatives.some((inputs) => inputs.every((key) => bound.has(key)))) {
         bound.add(produced)
         changed = true
       }

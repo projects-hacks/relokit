@@ -4,7 +4,11 @@ Output only JSON. No prose, no code fence, no explanation.
 
 Shape:
 
-{"constraints": [ ... ]}
+{"location": "where they are looking", "constraints": [ ... ]}
+
+location is the town, city or area being searched, copied as written. If the
+question names no area but names a place to travel to, use that place. This is
+the one field that is always needed: without it there is nowhere to search.
 
 Every constraint carries:
 
@@ -41,7 +45,8 @@ belongs.
 it closes. They are different fields.
 
 If the question does not give a number, leave the field out rather than guessing
-one.
+one. "Near the office" is still a commute constraint; leave out max_seconds and a
+sensible limit is filled in and marked as an assumption.
 
 One phrase can produce one constraint. Do not split "a gym within half a mile
 open before 6am" into two.

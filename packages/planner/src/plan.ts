@@ -26,6 +26,7 @@ import { compareCandidates, scoreCandidate, type Candidate } from './score.ts'
 export const PLANNER_VERSION = '0.1.0'
 
 const CANDIDATE_SOURCE: ConstraintType = 'candidate_source'
+const SEARCH_AREA: ConstraintType = 'search_area'
 
 /**
  * A thing capabilities compete to answer. Usually a user constraint, but the
@@ -45,6 +46,7 @@ interface Selection {
 }
 
 const SOURCE_SLOT: Slot = { id: 'source', type: CANDIDATE_SOURCE, constraint: null }
+const AREA_SLOT: Slot = { id: 'area', type: SEARCH_AREA, constraint: null }
 
 /**
  * Constraints in, execution plan out. Synchronous, total, and free of I/O, the
@@ -181,6 +183,7 @@ function select(
   unsatisfied.length = 0
 
   const slots: Slot[] = [
+    AREA_SLOT,
     SOURCE_SLOT,
     ...constraints.map((constraint) => ({ id: constraint.id, type: constraint.type, constraint })),
   ]
@@ -298,15 +301,22 @@ function assemble(
   const stages: Stage[] = []
   const constraintSelections = selections.filter((s) => s.slot.constraint !== null)
 
-  // The box has to exist before anything can be searched inside it. The geocode
-  // is here because the fixpoint found it feasible in the first round and
-  // nothing else was, not because this line comes first.
-  const geocodes = constraintSelections.flatMap((selection) => {
-    const region = selection.byTier.get('region')
-    const constraint = selection.slot.constraint!
-    if (!region || constraint.type !== 'commute' || constraint.destination.point) return []
-    return [op(region, selection.slot, 0)]
-  })
+  // The box has to exist before anything can be searched inside it, and two
+  // things can produce one: the place being searched, and the place being
+  // travelled to. Either is enough, which is what makes a question naming only
+  // a town answerable. Requiring the commute was why "an apartment in Santa
+  // Clara" returned nothing while reporting how efficient it had been.
+  const areaSelection = selections.find((selection) => selection.slot.type === SEARCH_AREA)
+  const areaCandidate = areaSelection?.byTier.get('region')
+  const geocodes = [
+    ...(areaCandidate ? [op(areaCandidate, areaSelection!.slot, 0)] : []),
+    ...constraintSelections.flatMap((selection) => {
+      const region = selection.byTier.get('region')
+      const constraint = selection.slot.constraint!
+      if (!region || constraint.type !== 'commute' || constraint.destination.point) return []
+      return [op(region, selection.slot, 1)]
+    }),
+  ]
   if (geocodes.length > 0) {
     // Nothing has been found yet. The box is being built, not searched.
     stages.push(regionStage('bounds', stages.length, geocodes, 0, null))

@@ -229,3 +229,42 @@ describe('area signal', () => {
     expect(narrow!.value_canonical).toBeLessThanOrEqual(wide!.value_canonical as number)
   })
 })
+
+describe('geocoding a place named loosely', () => {
+  it('reads the best match when a search returns a list rather than one place', () => {
+    // "NVIDIA office" is a search, not an address, so google_maps answers with
+    // businesses. Reading only place_results meant a question naming a
+    // workplace produced no point, no bounds and no results, silently.
+    const asSearch = {
+      local_results: [
+        { title: 'NVIDIA', gps_coordinates: { latitude: 37.3705, longitude: -121.9646 } },
+        { title: 'NVIDIA Endeavor', gps_coordinates: { latitude: 37.371, longitude: -121.965 } },
+      ],
+    }
+    expect(mapGeocode(asSearch)).toEqual({
+      point: { lat: 37.3705, lng: -121.9646 },
+      title: 'NVIDIA',
+    })
+  })
+
+  it('still prefers a single place when there is one', () => {
+    const both = {
+      place_results: {
+        title: 'Santa Clara',
+        gps_coordinates: { latitude: 37.35, longitude: -121.95 },
+      },
+      local_results: [{ title: 'Somewhere else', gps_coordinates: { latitude: 1, longitude: 2 } }],
+    }
+    expect(mapGeocode(both)!.title).toBe('Santa Clara')
+  })
+
+  it('skips a result with no coordinates rather than taking it', () => {
+    const patchy = {
+      local_results: [
+        { title: 'No pin' },
+        { title: 'Has one', gps_coordinates: { latitude: 5, longitude: 6 } },
+      ],
+    }
+    expect(mapGeocode(patchy)!.title).toBe('Has one')
+  })
+})

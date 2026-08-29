@@ -150,18 +150,41 @@ export function mapNearbyPlaces(
   ]
 }
 
-/** The geocode is a binding rather than a fact, so it produces a point and no evidence. */
+/**
+ * The geocode is a binding rather than a fact, so it produces a point and no
+ * evidence.
+ *
+ * People name places loosely. "2788 San Tomas Expressway" and "Santa Clara, CA"
+ * both come back as a single place; "NVIDIA office" comes back as a list of
+ * businesses, because that is a search rather than an address. Reading only the
+ * single place meant a question naming a workplace produced no point, no search
+ * bounds, and no results at all, without saying so.
+ */
 export function mapGeocode(body: unknown): { point: GeoPoint; title: string } | null {
-  const place = (
-    body as {
-      place_results?: { title?: string; gps_coordinates?: { latitude: number; longitude: number } }
-    }
-  ).place_results
-  if (!place?.gps_coordinates) return null
-  return {
-    point: { lat: place.gps_coordinates.latitude, lng: place.gps_coordinates.longitude },
-    title: place.title ?? '',
+  const parsed = body as {
+    place_results?: { title?: string; gps_coordinates?: { latitude: number; longitude: number } }
+    local_results?: { title?: string; gps_coordinates?: { latitude: number; longitude: number } }[]
   }
+
+  const place = parsed.place_results
+  if (place?.gps_coordinates) {
+    return {
+      point: { lat: place.gps_coordinates.latitude, lng: place.gps_coordinates.longitude },
+      title: place.title ?? '',
+    }
+  }
+
+  // The best match of a search. Not as exact as an address, and better than
+  // refusing to answer where someone works.
+  const first = parsed.local_results?.find((result) => result.gps_coordinates)
+  if (first?.gps_coordinates) {
+    return {
+      point: { lat: first.gps_coordinates.latitude, lng: first.gps_coordinates.longitude },
+      title: first.title ?? '',
+    }
+  }
+
+  return null
 }
 
 interface NewsResult {

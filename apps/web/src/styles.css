@@ -702,3 +702,179 @@ button:focus-visible,
   color: var(--ink-dim);
   white-space: nowrap;
 }
+
+/* ---------- photographs ---------- */
+
+.shot {
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--paper-edge);
+  aspect-ratio: 16 / 9;
+}
+
+.finding[data-prominent='false'] .shot {
+  aspect-ratio: 21 / 9;
+}
+
+.shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shot-count {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  padding: 2px 7px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: #fff;
+  background: rgb(11 31 58 / 72%);
+  border-radius: 999px;
+}
+
+.finding-title a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--paper-edge);
+}
+
+.finding-title a:hover {
+  border-bottom-color: var(--ink-dim);
+}
+
+.finding[data-selected='true'] {
+  box-shadow: 0 0 0 1px var(--mark);
+}
+
+/* ---------- tooltips ---------- */
+
+.tip-anchor {
+  position: relative;
+  display: inline-flex;
+}
+
+.tip {
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  transform: translateY(-50%);
+  width: max-content;
+  max-width: 230px;
+  padding: calc(var(--step) * 2) calc(var(--step) * 2.5);
+  font-family: var(--sans);
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--chalk);
+  background: var(--ground-sunk);
+  border: 1px solid rgb(147 169 196 / 28%);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgb(8 23 41 / 28%);
+  pointer-events: none;
+}
+
+.tip[data-side='right'] {
+  left: calc(100% + 8px);
+}
+
+.tip[data-side='left'] {
+  right: calc(100% + 8px);
+}
+
+.tip[data-side='above'] {
+  top: auto;
+  bottom: calc(100% + 8px);
+  left: 0;
+  transform: none;
+}
+
+/* ---------- skeletons ---------- */
+
+.skeleton-stack {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--step) * 4);
+}
+
+.skeleton-line,
+.skeleton-dot,
+.skeleton-block {
+  display: block;
+  background: linear-gradient(90deg, var(--paper-edge) 0%, #dfe7ef 40%, var(--paper-edge) 80%);
+  background-size: 220% 100%;
+  animation: sweep 1.5s ease-in-out infinite;
+  border-radius: 2px;
+}
+
+.skeleton-line {
+  height: 10px;
+}
+
+.skeleton-line.faint {
+  opacity: 0.55;
+}
+
+.skeleton-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.finding.skeleton {
+  border-left-color: var(--paper-edge);
+}
+
+.bucket-tabs.skeleton span {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: calc(var(--step) * 2.5) calc(var(--step) * 2);
+  background: var(--paper);
+}
+
+@keyframes sweep {
+  from {
+    background-position: 120% 0;
+  }
+  to {
+    background-position: -20% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-line,
+  .skeleton-dot,
+  .skeleton-block {
+    animation: none;
+  }
+}
+
+/* ---------- restored answers ---------- */
+
+.restored {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--step) * 3);
+  padding: calc(var(--step) * 2) calc(var(--step) * 3);
+  font-size: 12px;
+  color: var(--ink-dim);
+  background: #fff;
+  border: 1px dashed var(--paper-edge);
+  border-radius: var(--radius);
+}
+
+.restored button {
+  font: 500 12px/1 var(--sans);
+  color: var(--ink);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--ink-dim);
+  padding: 0 0 1px;
+  cursor: pointer;
+}

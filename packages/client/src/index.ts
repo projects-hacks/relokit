@@ -40,6 +40,12 @@ export type AskEvent =
   | { kind: 'stage'; stage_id: string; entities_in: number; entities_out: number; calls: number }
   | { kind: 'skipped'; stage_id: string; reason: string }
 
+/** Something that stopped a call from happening, in words a person can act on. */
+export interface Problem {
+  op_id: string
+  detail: string
+}
+
 export interface AskResult {
   run_id: number
   constraint_set: ConstraintSet
@@ -49,6 +55,10 @@ export interface AskResult {
   evidence: EvidenceRow[]
   buckets: Buckets
   relaxations: Relaxation[]
+  /** Empty when everything ran. Never hidden: a run that found nothing has to
+   * be able to say why, or it is just a confident blank page. */
+  problems: Problem[]
+  unanswered: { constraint_id: string; reason: string }[]
   cost: {
     naive_units: number
     planned_units: number
@@ -170,6 +180,20 @@ export async function ask(
     evidence: outcome.evidence,
     buckets,
     relaxations: relaxations(buckets, constraint_set.constraints),
+    problems: [
+      ...outcome.unresolved.map((entry) => ({
+        op_id: entry.op_id,
+        detail: `nothing had established ${entry.ref} by the time it was needed`,
+      })),
+      ...outcome.missing.map((entry) => ({
+        op_id: entry.op_id,
+        detail: `${entry.engine} did not answer`,
+      })),
+    ],
+    unanswered: planned.unsatisfied.map((entry) => ({
+      constraint_id: entry.constraint_id,
+      reason: UNANSWERED[entry.reason] ?? entry.reason,
+    })),
     cost: {
       naive_units: stored.cost.naive_units,
       planned_units: stored.cost.planned_units,
@@ -212,4 +236,13 @@ export function httpTransport(api: string, orgKey: string): Transport {
       return JSON.parse(text)
     },
   }
+}
+
+/** Why a requirement could not be checked, said plainly. */
+const UNANSWERED: Record<string, string> = {
+  no_capability: 'nothing here knows how to check this',
+  all_disabled: 'the only source that could check this is switched off',
+  zero_coverage: 'the source that could check this never answers it',
+  over_budget: 'checking this would have cost more than the run was allowed',
+  unbound: 'it depends on something earlier that never arrived',
 }

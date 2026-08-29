@@ -227,7 +227,13 @@ export async function replayRun(
   }
 
   function base(extra: Partial<Bindings>): Bindings {
-    return { constraints: constraints.constraints, produced, stage: stageOutputs, ...extra }
+    return {
+      constraints: constraints.constraints,
+      anchor: constraints.search_anchor?.raw ?? '',
+      produced,
+      stage: stageOutputs,
+      ...extra,
+    }
   }
 
   function context(op: Op): MapperContext {
@@ -241,6 +247,18 @@ export async function replayRun(
   }
 
   function absorb(op: Op, stage: Stage, bindings: Bindings, body: unknown) {
+    // The place being searched. A question naming only a town has no commute to
+    // aim at, so this is the only thing that says where to look.
+    if (op.capability_id === 'candidates.anchor.geocode') {
+      const geocoded = mapGeocode(body)
+      if (!geocoded) return
+      produced['query.anchor_point'] = `${geocoded.point.lat},${geocoded.point.lng}`
+      // A commute says how far someone will travel. Without one, a town sized
+      // box, which is wide enough to hold the answer and narrow enough to search.
+      if (!stageOutputs.bounds) setBounds(geocoded.point, DEFAULT_SEARCH_RADIUS_M)
+      return
+    }
+
     if (op.capability_id === 'commute.geocode.region') {
       const geocoded = mapGeocode(body)
       if (!geocoded) return
@@ -382,7 +400,27 @@ export async function replayRun(
     }
     return surviving.map((e) => e.entity_id)
   }
+
+  function setBounds(centre: { lat: number; lng: number }, radiusMeters: number) {
+    const box = boxAround(centre, radiusMeters)
+    stageOutputs.bounds = {
+      north: box.ne.lat,
+      east: box.ne.lng,
+      south: box.sw.lat,
+      west: box.sw.lng,
+      lat: centre.lat,
+      lng: centre.lng,
+    }
+    // Entity coordinates do not exist yet, so the plan lays a grid over the box.
+    // It is replaced with cells fitted to the listings as soon as there are any:
+    // a grid across a 23 km box gives cells wide enough that the slack swallows
+    // the whole constraint.
+    clusters = gridClusters(box, plan.trace.cardinality.cluster_count)
+  }
 }
+
+/** About the width of a town, when nobody said how far they would travel. */
+const DEFAULT_SEARCH_RADIUS_M = 8000
 
 /** Nearest centroid wins, so every listing belongs to exactly one cell. */
 function inCell(

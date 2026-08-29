@@ -23,6 +23,8 @@ export type BindingKey = string
 export const BINDING_ENTITY = 'entity'
 export const BINDING_CLUSTER = 'cluster'
 export const BINDING_BOUNDS = 'stage.bounds'
+/** Where the search happens. Named on the question, not on any one constraint. */
+export const BINDING_ANCHOR = 'query.anchor_point'
 
 /** A constraint field that no call can produce, e.g. `constraint.destination_point`. */
 export function constraintBinding(field: string): BindingKey {
@@ -104,6 +106,7 @@ export function resolveConstraintField(
 /** Fields the resolver can produce without a call, used to decide feasibility. */
 export const FREE_CONSTRAINT_FIELDS: Record<ConstraintType, readonly string[]> = {
   candidate_source: [],
+  search_area: [],
   budget: ['max_cents', 'min_cents', 'max_dollars', 'min_dollars'],
   unit_attribute: ['attribute', 'min', 'max'],
   listing_feature: ['feature', 'required'],
@@ -128,6 +131,10 @@ export const FREE_CONSTRAINT_FIELDS: Record<ConstraintType, readonly string[]> =
 export function bindingForRef(ref: string, constraintType: ConstraintType): BindingKey | null {
   const [namespace, ...rest] = ref.replace(/^\$/, '').split('.')
   switch (namespace) {
+    case 'query':
+      // The place itself is on the question and needs nothing. Its coordinates
+      // have to be found first.
+      return rest[0] === 'anchor' ? null : BINDING_ANCHOR
     case 'entity':
       return BINDING_ENTITY
     case 'cluster':

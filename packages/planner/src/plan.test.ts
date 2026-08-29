@@ -180,7 +180,7 @@ describe('bounding box', () => {
 
 describe('plan identity', () => {
   it('changes when the registry version changes, so a row edit is traceable', () => {
-    const other = plan({ ...input, registry_version: '2026-08-29.1' })
+    const other = plan({ ...input, registry_version: 'some-other-version' })
     expect(other.plan_id).not.toBe(plan(input).plan_id)
   })
 
@@ -300,5 +300,50 @@ describe('the ceiling a capability states', () => {
         return sum + capability.cost_units * capability.max_fanout
       }, 0)
     expect(result.estimated_cost_units).toBeLessThanOrEqual(worstCase)
+  })
+})
+
+describe('a question that names only a place', () => {
+  // "An apartment in Santa Clara" has no commute in it, and for a while that
+  // meant nothing could be searched at all: the only thing that produced search
+  // bounds was a geocoded commute destination. The run reported zero results and
+  // congratulated itself on the searches it had saved.
+  const placeOnly = ConstraintSet.parse({
+    query_id: 'q_place',
+    raw_query: 'a one bedroom in Santa Clara',
+    locale: { tz: 'America/Los_Angeles', currency: 'USD' },
+    search_anchor: { raw: 'Santa Clara, CA' },
+    parser_version: 'parse.v1.md',
+    parsed_at_ms: 1_756_400_000_000,
+    constraints: [
+      {
+        id: 'c1',
+        type: 'unit_attribute',
+        attribute: 'beds',
+        hardness: 'hard',
+        weight: 1,
+        source_text: 'one bedroom',
+        inferred: false,
+        min: 1,
+        max: 1,
+      },
+    ],
+  })
+
+  const result = plan({ ...input, constraints: placeOnly })
+
+  it('can still be searched', () => {
+    expect(result.stages.map((s) => s.stage_id)).toContain('candidates')
+    expect(result.estimated_cost_units).toBeGreaterThan(0)
+  })
+
+  it('finds the place first, because nothing can be bounded without it', () => {
+    const first = result.stages[0]!
+    expect(first.stage_id).toBe('bounds')
+    expect(first.ops.map((o) => o.capability_id)).toContain('candidates.anchor.geocode')
+  })
+
+  it('leaves no constraint unanswered', () => {
+    expect(result.unsatisfied).toEqual([])
   })
 })

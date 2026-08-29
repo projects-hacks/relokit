@@ -11,6 +11,9 @@ import { resolveConstraintField, type Constraint, type ParamValue } from '@relok
  */
 export interface Bindings {
   constraints: Constraint[]
+  /** Where the search happens. Named on the question rather than on any one
+   * constraint, which is why it needs its own namespace. */
+  anchor: string
   /**
    * Constraint fields an earlier op bound, keyed by the full ref, such as
    * `constraint.c3.destination_point`. These are the ones no amount of reading
@@ -57,6 +60,11 @@ export function resolveParams(
 
 function resolveRef(ref: string, bindings: Bindings): string | number | undefined {
   const [namespace, a, b] = ref.replace(/^\$/, '').split('.')
+
+  if (namespace === 'query') {
+    if (a === 'anchor') return bindings.anchor === '' ? undefined : bindings.anchor
+    return bindings.produced['query.anchor_point']
+  }
 
   if (namespace === 'entity' && bindings.entity) {
     if (a === 'id') return bindings.entity.id

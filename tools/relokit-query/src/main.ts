@@ -59,6 +59,9 @@ console.log(
   `  ${result.cost.live} live, ${result.cost.cache_hits} already fetched, ${result.cost.ledger_hits} already known`,
 )
 
+for (const problem of result.problems) console.log(`  ! ${problem.op_id}: ${problem.detail}`)
+for (const entry of result.unanswered) console.log(`  ! ${entry.constraint_id}: ${entry.reason}`)
+
 const { results, unverified, rejections } = result.buckets
 console.log(
   `\n${results.length} verified, ${unverified.length} unverified, ${rejections.length} rejected`,

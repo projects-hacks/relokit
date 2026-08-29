@@ -8,6 +8,12 @@ export const ConstraintType = z.enum([
    * so has to appear in the cost trace. The parser never emits one.
    */
   'candidate_source',
+  /**
+   * Also not a user constraint. The join key for turning the place being
+   * searched into somewhere a search can be bounded to. Separate from
+   * candidate_source because both are region wide and one has to happen first.
+   */
+  'search_area',
   'budget',
   'unit_attribute',
   'listing_feature',

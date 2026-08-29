@@ -41,6 +41,8 @@ export const ListingSummary = z.object({
   baths: z.number().nullable(),
   url: z.string().nullable(),
   photo_url: z.string().nullable(),
+  /** More of the same listing, for anyone who wants to look before checking. */
+  photos: z.array(z.string()).default([]),
 })
 
 export const StageProgress = z.object({

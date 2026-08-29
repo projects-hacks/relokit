@@ -22,6 +22,7 @@ const listing = (id: string): ListingSummary => ({
   baths: 1,
   url: null,
   photo_url: null,
+  photos: [],
 })
 
 const evidence = (

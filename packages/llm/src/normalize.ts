@@ -42,6 +42,19 @@ const DEFAULT_RADIUS_M: Partial<Record<string, number>> = {
 
 const DEFAULT_LOOKBACK_DAYS = 30
 
+/**
+ * How far "near" is, by how you are travelling. Used when someone says near the
+ * office and gives no time, which is the ordinary way to say it. Marked
+ * inferred, so the interface shows it as an assumption rather than a
+ * requirement.
+ */
+const DEFAULT_COMMUTE_SECONDS: Record<string, number> = {
+  walk: 900,
+  bike: 1200,
+  transit: 2400,
+  drive: 1800,
+}
+
 export function normalizeConstraintSet(
   raw: unknown,
   query: string,
@@ -70,11 +83,21 @@ export function normalizeConstraintSet(
     constraints.push(parsed.data)
   })
 
+  // Where to look. Without it there is nowhere to search, so it is taken from
+  // the model, and failing that from wherever the person said they were
+  // travelling to.
+  const anchor =
+    typeof (raw as { location?: unknown }).location === 'string' &&
+    (raw as { location: string }).location.trim() !== ''
+      ? (raw as { location: string }).location.trim()
+      : (constraints.find((c) => c.type === 'commute')?.destination.raw ?? '')
+
   return {
     constraint_set: ConstraintSet.parse({
       query_id: meta.query_id,
       raw_query: query,
       locale: { tz: meta.tz ?? 'America/Los_Angeles', currency: 'USD' },
+      ...(anchor === '' ? {} : { search_anchor: { raw: anchor } }),
       constraints,
       parser_version: meta.parser_version,
       parsed_at_ms: meta.parsed_at_ms,
@@ -135,8 +158,15 @@ function build(
       return { ...base, feature: entry.feature, required: entry.required !== false }
 
     case 'commute': {
+      const mode = String(entry.mode ?? 'drive')
       const fromText = durationSeconds(span)
-      const value = fromText ?? (entry.max_seconds as number | undefined)
+      // A commute with no time is not a broken constraint, it is how people
+      // speak. Dropping it loses the most important thing in the question.
+      const value =
+        fromText ??
+        (entry.max_seconds as number | undefined) ??
+        DEFAULT_COMMUTE_SECONDS[mode] ??
+        1800
       note('max_seconds', entry.max_seconds, value, 'read from the phrase')
       const destination = entry.destination
       const raw =
@@ -147,8 +177,8 @@ function build(
         ...base,
         inferred: fromText === null,
         destination: { raw },
-        mode: entry.mode ?? 'drive',
-        ...(value === undefined ? {} : { max_seconds: Math.round(value) }),
+        mode,
+        max_seconds: Math.round(value),
       }
     }
 

@@ -26,7 +26,7 @@ export const Granularity = z.enum(['native', 'region', 'cluster', 'entity'])
  * /run rejects any op carrying a ref outside it.
  */
 export const ParamRefPattern =
-  /^\$(entity\.(id|lat|lng)|cluster\.(id|lat|lng|radius_m)|(constraint|stage)\.[a-z0-9_]+\.[a-z0-9_]+)$/
+  /^\$(query\.(anchor|anchor_point)|entity\.(id|lat|lng)|cluster\.(id|lat|lng|radius_m)|(constraint|stage)\.[a-z0-9_]+\.[a-z0-9_]+)$/
 
 /** Refs may be interpolated, because Directions wants "lat,lng" in one field. */
 const REF_TOKEN = /\$[a-z_]+(?:\.[a-z0-9_]+)+/g

@@ -1,36 +1,71 @@
 import type { Constraint, EvidenceRow, ListingSummary } from '@relokit/schema'
+import { ago, money, sourceName } from '../lib/format.ts'
+import { Tip } from '../lib/tooltip.tsx'
 
 const MARK: Record<string, string> = { pass: '✓', fail: '✕', unknown: '?' }
 
+const EXPLAIN: Record<string, string> = {
+  pass: 'Checked against the source that holds it, and it holds.',
+  fail: 'Checked against the source that holds it, and it does not.',
+  unknown: 'Asked, but the source could not settle it. Not counted either way.',
+}
+
 /**
- * A marked up survey line. The verdict sits in the margin, the fact reads
- * plainly, and where it came from and how old it is sit beside it rather than
- * behind a hover. That last part is the whole argument: a judge will zoom into
- * one of these before believing any of it.
+ * A home, then the case for it.
+ *
+ * The photograph comes first because that is how anyone actually looks at a
+ * place. Underneath it the same survey line as before: a verdict in the margin,
+ * the fact in plain words, and where it came from and how old it is beside it
+ * rather than behind a hover. The picture invites; the margin is what earns
+ * belief.
  */
 export function Finding({
   entity,
   evidence,
   constraints,
   blocking,
+  prominent,
+  selected,
+  onSelect,
 }: {
   entity: ListingSummary
   evidence: EvidenceRow[]
   constraints: Constraint[]
   blocking?: string[]
+  prominent?: boolean
+  selected?: boolean
+  onSelect?: (entityId: string) => void
 }) {
   const said = new Map(constraints.map((c) => [c.id, c.source_text]))
   const ordered = [...evidence].sort((a, b) => (a.constraint_id < b.constraint_id ? -1 : 1))
+  const reason = reasonFor(ordered, blocking)
+  const price = money(entity.price_cents)
 
   return (
-    <article className="finding">
+    <article
+      className="finding"
+      data-prominent={String(Boolean(prominent))}
+      data-selected={String(Boolean(selected))}
+      onMouseEnter={() => onSelect?.(entity.entity_id)}
+    >
+      {entity.photo_url && (
+        <div className="shot">
+          <img src={entity.photo_url} alt="" loading="lazy" decoding="async" />
+          {entity.photos.length > 1 && <span className="shot-count">{entity.photos.length}</span>}
+        </div>
+      )}
+
       <header className="finding-head">
-        <h3 className="finding-title">{entity.title}</h3>
-        {entity.price_cents !== null && (
-          <span className="finding-price">
-            ${Math.round(entity.price_cents / 100).toLocaleString()}
-          </span>
-        )}
+        <h3 className="finding-title">
+          {entity.url ? (
+            <a href={entity.url} target="_blank" rel="noreferrer">
+              {entity.title}
+            </a>
+          ) : (
+            entity.title
+          )}
+        </h3>
+        {price && <span className="finding-price">{price}</span>}
       </header>
 
       <div className="checks">
@@ -40,23 +75,30 @@ export function Finding({
             key={row.constraint_id}
             style={{ '--mark': markColour(row) } as React.CSSProperties}
           >
-            <span className="check-mark" aria-hidden="true">
-              {MARK[row.verdict]}
-            </span>
+            <Tip text={EXPLAIN[row.verdict] ?? ''} side="right">
+              <span className="check-mark" aria-label={row.verdict}>
+                {MARK[row.verdict]}
+              </span>
+            </Tip>
             <span className="check-fact">
               {row.display_value}
               <span className="check-said">{said.get(row.constraint_id)}</span>
             </span>
-            <span className="provenance" data-stale={String(isStale(row))}>
-              {sourceName(row.source)}
-              <br />
-              {age(row.fetched_at_ms)}
-            </span>
+            <Tip
+              text={`${sourceName(row.source)} answered this ${ago(row.fetched_at_ms)}. It stays good for ${Math.round(row.ttl_seconds / 3600)} hours.`}
+              side="left"
+            >
+              <span className="provenance" data-stale={String(row.expires_at_ms < Date.now())}>
+                {sourceName(row.source)}
+                <br />
+                {ago(row.fetched_at_ms)}
+              </span>
+            </Tip>
           </div>
         ))}
       </div>
 
-      {reasonFor(ordered, blocking) && <p className="reason">{reasonFor(ordered, blocking)}</p>}
+      {reason && <p className="reason">{reason}</p>}
     </article>
   )
 }
@@ -65,33 +107,6 @@ function markColour(row: EvidenceRow): string {
   if (row.verdict === 'pass') return 'var(--verified)'
   if (row.verdict === 'fail') return 'var(--ruled-out)'
   return 'var(--unsure)'
-}
-
-/** Named the way a person would say it, not the way the registry stores it. */
-function sourceName(source: string): string {
-  const names: Record<string, string> = {
-    zillow: 'Zillow',
-    google_maps: 'Google Maps',
-    google_maps_directions: 'Directions',
-    google_local: 'Google',
-    google_maps_reviews: 'Reviews',
-    google_news: 'Google News',
-    yelp: 'Yelp',
-  }
-  return names[source] ?? source
-}
-
-function age(fetchedAtMs: number): string {
-  const minutes = Math.max(0, Math.round((Date.now() - fetchedAtMs) / 60_000))
-  if (minutes < 1) return 'just now'
-  if (minutes < 60) return `${minutes}m ago`
-  const hours = Math.round(minutes / 60)
-  if (hours < 48) return `${hours}h ago`
-  return `${Math.round(hours / 24)}d ago`
-}
-
-function isStale(row: EvidenceRow): boolean {
-  return row.expires_at_ms < Date.now()
 }
 
 /**

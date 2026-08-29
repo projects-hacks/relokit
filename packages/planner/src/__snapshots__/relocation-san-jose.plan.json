@@ -1,7 +1,7 @@
 {
-  "plan_id": "6353e2cdbe47069b",
+  "plan_id": "4be3be334dc74077",
   "planner_version": "0.1.0",
-  "registry_version": "2026-08-28.6",
+  "registry_version": "2026-08-29.1",
   "search_bounds": null,
   "clusters": [],
   "stages": [
@@ -12,7 +12,25 @@
       "fanout": "once",
       "ops": [
         {
-          "op_id": "op_commute_geocode_region_0",
+          "op_id": "op_candidates_anchor_geocode_0",
+          "capability_id": "candidates.anchor.geocode",
+          "constraint_ids": [
+            "area"
+          ],
+          "provider": "google_maps",
+          "endpoint": "google_maps:search",
+          "params": {
+            "engine": "google_maps",
+            "type": "search",
+            "q": "$query.anchor"
+          },
+          "requires": [],
+          "cost_units": 1,
+          "ttl_seconds": 2592000,
+          "on_error": "unknown"
+        },
+        {
+          "op_id": "op_commute_geocode_region_1",
           "capability_id": "commute.geocode.region",
           "constraint_ids": [
             "c3"
@@ -31,7 +49,7 @@
         }
       ],
       "expected_entities": 0,
-      "estimated_cost_units": 1,
+      "estimated_cost_units": 2,
       "estimated_latency_ms": 0,
       "prune": null
     },
@@ -203,10 +221,10 @@
     }
   ],
   "unsatisfied": [],
-  "estimated_cost_units": 87,
+  "estimated_cost_units": 88,
   "estimated_latency_ms": 8600,
   "trace": {
-    "registry_version": "2026-08-28.6",
+    "registry_version": "2026-08-29.1",
     "planner_version": "0.1.0",
     "cardinality": {
       "region_entities": 4517,
@@ -255,6 +273,19 @@
         "entities_requiring_evaluation": 0,
         "score": null,
         "score_rounded": null,
+        "chosen": true,
+        "reason": "selected"
+      },
+      {
+        "capability_id": "candidates.anchor.geocode",
+        "constraint_id": "area",
+        "tier": "region",
+        "selectivity_prior": 1,
+        "coverage": 0.99,
+        "cost_units": 1,
+        "entities_requiring_evaluation": 1,
+        "score": 0,
+        "score_rounded": 0,
         "chosen": true,
         "reason": "selected"
       },
@@ -379,6 +410,6 @@
     ],
     "naive_cost_units": 18179,
     "pushdown_only_cost_units": 176,
-    "planned_cost_units": 87
+    "planned_cost_units": 88
   }
 }
