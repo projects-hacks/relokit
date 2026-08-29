@@ -76,6 +76,15 @@ export interface AskOptions {
   now_ms?: number
   evaluation_days?: Weekday[]
   onProgress?: AskProgress
+  /**
+   * Ask the same question with a requirement changed.
+   *
+   * The parse still happens, because the registry and the budget come back with
+   * it and it is answered from cache anyway, but these constraints are used
+   * instead of the ones the model produced. That is what lets "twenty six
+   * minutes would add one more" be a thing you can press.
+   */
+  constraints?: ConstraintSet
 }
 
 export async function ask(
@@ -105,7 +114,8 @@ export async function ask(
       'That question could not be turned into anything to check. Try naming a place, and what has to be true about a home there.',
     )
   }
-  const { constraint_set, repairs } = normalized
+  const { constraint_set: parsedSet, repairs } = normalized
+  const constraint_set = options.constraints ?? parsedSet
   report({ kind: 'parsed', answered_by: String(parsed.answered_by), constraint_set, repairs })
 
   const registry = Registry.parse({
@@ -204,7 +214,7 @@ export async function ask(
       })),
       ...outcome.missing.map((entry) => ({
         op_id: entry.op_id,
-        detail: entry.detail || `${entry.engine} did not answer`,
+        detail: readable(entry.detail, entry.engine),
       })),
     ],
     unanswered: planned.unsatisfied.map((entry) => ({
@@ -262,4 +272,25 @@ const UNANSWERED: Record<string, string> = {
   zero_coverage: 'the source that could check this never answers it',
   over_budget: 'checking this would have cost more than the run was allowed',
   unbound: 'it depends on something earlier that never arrived',
+}
+
+/**
+ * What a reader can do something about.
+ *
+ * A transport error is a wall of JSON with an HTTP code inside it. The two that
+ * actually happen have plain names, and saying "the search allowance for this
+ * month is used up" is the difference between a person knowing to wait and a
+ * person thinking the product is broken.
+ */
+function readable(detail: string, engine: string): string {
+  if (!detail) return `${engine} did not answer`
+  if (detail.includes('run out of searches') || detail.includes(' 429')) {
+    return 'the search allowance for this month is used up, so nothing new could be looked up'
+  }
+  if (detail.includes(' 401') || detail.includes('unauthorized')) {
+    return 'the search key on this instance was refused'
+  }
+  const refused = /refused this call with (\d+)/.exec(detail)
+  if (refused) return `${engine} refused the request with ${refused[1]}`
+  return `${engine} did not answer`
 }

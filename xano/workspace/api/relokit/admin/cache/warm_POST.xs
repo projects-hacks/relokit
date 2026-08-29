@@ -48,6 +48,24 @@ query "admin/cache/warm" verb=POST {
       return = {type: "single"}
     } as $existing
   
+    // Re-warming refreshes what is already there. An entry loaded under an
+    // earlier lifetime keeps that lifetime otherwise, so raising a TTL in the
+    // registry would have no effect on anything already stored and the cache
+    // would stay expired with no way to say so.
+    conditional {
+      if ($existing != null) {
+        db.edit relokit_provider_cache {
+          field_name = "id"
+          field_value = $existing.id
+          data = {
+            raw_response: $input.raw_response
+            ttl_seconds : $input.ttl_seconds
+            expires_at  : $input.fetched_at_ms + ($input.ttl_seconds * 1000)
+          }
+        }
+      }
+    }
+
     conditional {
       if ($existing == null) {
         db.add relokit_provider_cache {

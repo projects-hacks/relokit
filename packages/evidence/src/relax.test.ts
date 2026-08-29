@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import { ConstraintSet, type EvidenceRow, type ListingSummary } from '@relokit/schema'
 import { bucket } from './buckets.ts'
-import { relaxations } from './relax.ts'
+import { applyRelaxation, relaxations } from './relax.ts'
 
 const constraints = ConstraintSet.parse(
   JSON.parse(
@@ -147,5 +147,29 @@ describe('what one change would buy', () => {
         ['fine'],
       ),
     ).toHaveLength(0)
+  })
+})
+
+describe('accepting an offer', () => {
+  it('moves only the bound that was offered', () => {
+    const moved = applyRelaxation(constraints, 'c3', 1560)
+    const commute = moved.find((c) => c.id === 'c3')!
+    expect(commute.type === 'commute' && commute.max_seconds).toBe(1560)
+    expect(moved.filter((c) => c.id !== 'c3')).toEqual(constraints.filter((c) => c.id !== 'c3'))
+  })
+
+  it('marks the moved requirement as no longer the one that was asked for', () => {
+    const moved = applyRelaxation(constraints, 'c1', 300_000)
+    expect(moved.find((c) => c.id === 'c1')!.inferred).toBe(true)
+  })
+
+  it('leaves a requirement with no number to move alone', () => {
+    // In-unit laundry is not something to nudge. Dropping it is a change to the
+    // question, not to a bound.
+    expect(applyRelaxation(constraints, 'c5', 0)).toEqual(constraints)
+  })
+
+  it('does nothing for an id that is not there', () => {
+    expect(applyRelaxation(constraints, 'c99', 1)).toEqual(constraints)
   })
 })

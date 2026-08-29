@@ -1,5 +1,5 @@
 {
-  "registry_version": "2026-08-29.1",
+  "registry_version": "2026-08-29.2",
   "capabilities": [
     {
       "capability_id": "candidates.anchor.geocode",
@@ -34,7 +34,7 @@
       "latency_p50_ms": 1900,
       "selectivity_prior": 1,
       "observation_n": 0,
-      "ttl_seconds": 21600,
+      "ttl_seconds": 172800,
       "coverage": 1,
       "precedence": 1,
       "enabled": true,
@@ -45,7 +45,7 @@
         "map_bounds": "$stage.bounds.north,$stage.bounds.east,$stage.bounds.south,$stage.bounds.west",
         "page": 1
       },
-      "notes": "One call per page. The plan emits a single op and the executor repeats it while the response reports more pages, up to max_fanout, because the page count is data and the plan is written before any of it exists. The free predicates cut the page count as well as the candidate count: the unfiltered San Jose pool is 20 pages, the filtered one is a single page.",
+      "notes": "One call per page. The plan emits a single op and the executor repeats it while the response reports more pages, up to max_fanout, because the page count is data and the plan is written before any of it exists. The free predicates cut the page count as well as the candidate count: the unfiltered San Jose pool is 20 pages, the filtered one is a single page. A listing price is stable over days rather than hours, and the six hour life it had before meant a second question about the same city an hour later paid for the whole candidate set again, which is the opposite of what the ledger is for. Forty eight hours, and the interface shows the real age of every fact either way.",
       "produces": ["entity", "stage.candidates"]
     },
     {
@@ -58,7 +58,7 @@
       "latency_p50_ms": 0,
       "selectivity_prior": 0.3,
       "observation_n": 0,
-      "ttl_seconds": 21600,
+      "ttl_seconds": 172800,
       "coverage": 0.8,
       "precedence": 1,
       "enabled": true,
@@ -66,7 +66,7 @@
       "params_template": {
         "price": "0,$constraint.self.max_dollars"
       },
-      "notes": "Free. Coverage is 0.80 because a fifth of San Jose rental results are apartment buildings that return a units[] band such as \"$2,495+\" rather than a unit price. A band straddling the cap gives unknown, never a guess.",
+      "notes": "Free. Coverage is 0.80 because a fifth of San Jose rental results are apartment buildings that return a units[] band such as \"$2,495+\" rather than a unit price. A band straddling the cap gives unknown, never a guess. A listing price is stable over days rather than hours, and the six hour life it had before meant a second question about the same city an hour later paid for the whole candidate set again, which is the opposite of what the ledger is for. Forty eight hours, and the interface shows the real age of every fact either way.",
       "produces": []
     },
     {
@@ -79,7 +79,7 @@
       "latency_p50_ms": 0,
       "selectivity_prior": 0.25,
       "observation_n": 0,
-      "ttl_seconds": 21600,
+      "ttl_seconds": 172800,
       "coverage": 0.8,
       "precedence": 1,
       "enabled": true,
@@ -87,7 +87,7 @@
       "params_template": {
         "beds": "$constraint.self.min,$constraint.self.max"
       },
-      "notes": "Free. Multi-unit buildings carry beds inside units[] rather than at the top level, so an entity is one bed count at one building.",
+      "notes": "Free. Multi-unit buildings carry beds inside units[] rather than at the top level, so an entity is one bed count at one building. A listing price is stable over days rather than hours, and the six hour life it had before meant a second question about the same city an hour later paid for the whole candidate set again, which is the opposite of what the ledger is for. Forty eight hours, and the interface shows the real age of every fact either way.",
       "produces": []
     },
     {
@@ -100,7 +100,7 @@
       "latency_p50_ms": 0,
       "selectivity_prior": 0.17,
       "observation_n": 0,
-      "ttl_seconds": 21600,
+      "ttl_seconds": 172800,
       "coverage": 1.0,
       "precedence": 2,
       "enabled": true,
@@ -108,7 +108,7 @@
       "params_template": {
         "amenities": "$constraint.self.feature"
       },
-      "notes": "Free, and Zillow guarantees survivors match. The response never restates the amenity per listing, so the evidence is provider asserted: verdict pass at confidence 0.8, citing the search rather than the listing body. Enable listing_feature.zillow.entity to upgrade that to a directly read fact.",
+      "notes": "Free, and Zillow guarantees survivors match. The response never restates the amenity per listing, so the evidence is provider asserted: verdict pass at confidence 0.8, citing the search rather than the listing body. Enable listing_feature.zillow.entity to upgrade that to a directly read fact. A listing price is stable over days rather than hours, and the six hour life it had before meant a second question about the same city an hour later paid for the whole candidate set again, which is the opposite of what the ledger is for. Forty eight hours, and the interface shows the real age of every fact either way.",
       "produces": []
     },
     {
@@ -121,7 +121,7 @@
       "latency_p50_ms": 1400,
       "selectivity_prior": 0.35,
       "observation_n": 0,
-      "ttl_seconds": 21600,
+      "ttl_seconds": 172800,
       "coverage": 0.92,
       "precedence": 1,
       "enabled": false,

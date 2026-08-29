@@ -159,6 +159,15 @@ query op verb=POST {
         var $body {
           value = $call.response.result
         }
+
+        // A refusal is not an answer. Handing back an error body as though it
+        // were results turns a bad request into an empty search: the executor
+        // maps nothing, reports no failure, and the reader is told nothing was
+        // found. Say what the provider said instead.
+        precondition ($call.response.status == 200) {
+          error_type = "badrequest"
+          error = "the search provider refused this call with " ~ ($call.response.status) ~ ": " ~ ($body|json_encode)
+        }
       
         // An answer that has expired is still an answer that was stored, and a
         // call has one identity. Inserting a second row for the same call fails

@@ -18,15 +18,26 @@ export function Map({
   plan,
   result,
   selected,
+  hovered,
   onSelect,
+  onHover,
+  onOpen,
 }: {
   plan: PlanResult | null
   result: AskResult | null
   selected: string | null
+  hovered: string | null
   onSelect: (entityId: string) => void
+  onHover: (entityId: string | null) => void
+  onOpen: (entityId: string) => void
 }) {
   const container = useRef<HTMLDivElement>(null)
   const map = useRef<MapLibreMap | null>(null)
+  // feature-state is addressed by feature id, so the map keeps its own index of
+  // which id belongs to which home. A plain record, because this component is
+  // itself called Map and shadows the constructor.
+  const featureIds = useRef<Record<string, number>>({})
+  const lit = useRef<number | null>(null)
 
   useEffect(() => {
     if (!container.current || map.current) return
@@ -97,13 +108,54 @@ export function Map({
         },
       })
 
-      instance.addSource('homes', { type: 'geojson', data: empty() })
+      // Eighty-eight homes downtown land on top of each other and only the
+      // topmost can be clicked. Grouping them says how many are there and gives
+      // a way in.
+      instance.addSource('homes', {
+        type: 'geojson',
+        data: empty(),
+        cluster: true,
+        clusterRadius: 38,
+        clusterMaxZoom: 13,
+      })
+      instance.addLayer({
+        id: 'homes-cluster',
+        type: 'circle',
+        source: 'homes',
+        filter: ['has', 'point_count'],
+        paint: {
+          'circle-radius': ['step', ['get', 'point_count'], 14, 10, 18, 30, 23],
+          'circle-color': 'rgba(47,211,159,0.22)',
+          'circle-stroke-width': 1.5,
+          'circle-stroke-color': 'rgba(47,211,159,0.65)',
+        },
+      })
+      instance.addLayer({
+        id: 'homes-cluster-count',
+        type: 'symbol',
+        source: 'homes',
+        filter: ['has', 'point_count'],
+        layout: {
+          'text-field': ['get', 'point_count_abbreviated'],
+          'text-size': 12,
+          'text-font': ['Noto Sans Regular'],
+        },
+        paint: { 'text-color': '#e8eef5' },
+      })
       instance.addLayer({
         id: 'homes-dot',
         type: 'circle',
         source: 'homes',
+        filter: ['!', ['has', 'point_count']],
         paint: {
-          'circle-radius': ['case', ['==', ['get', 'verdict'], 'verified'], 7, 5],
+          'circle-radius': [
+            'case',
+            ['boolean', ['feature-state', 'lit'], false],
+            10,
+            ['==', ['get', 'verdict'], 'verified'],
+            7,
+            5,
+          ],
           'circle-color': [
             'match',
             ['get', 'verdict'],
@@ -116,23 +168,53 @@ export function Map({
             '#7a90ad',
           ],
           'circle-opacity': ['case', ['==', ['get', 'verdict'], 'out'], 0.35, 0.95],
-          'circle-stroke-width': ['case', ['==', ['get', 'verdict'], 'verified'], 2, 0],
-          'circle-stroke-color': 'rgba(47,211,159,0.35)',
+          'circle-stroke-width': [
+            'case',
+            ['boolean', ['feature-state', 'lit'], false],
+            3,
+            ['==', ['get', 'verdict'], 'verified'],
+            2,
+            0,
+          ],
+          'circle-stroke-color': 'rgba(232,238,245,0.55)',
         },
       })
     })
-    // A pin is a home. Clicking one should open it, the same as clicking its
-    // card, or the map is decoration.
+    // A pin is a home. Clicking one opens it, the same as clicking its card, or
+    // the map is decoration.
     instance.on('click', 'homes-dot', (event) => {
       const id = event.features?.[0]?.properties?.entity_id
-      if (typeof id === 'string') onSelect(id)
+      if (typeof id === 'string') {
+        onSelect(id)
+        onOpen(id)
+      }
     })
-    instance.on('mouseenter', 'homes-dot', () => {
+    instance.on('click', 'homes-cluster', (event) => {
+      const feature = event.features?.[0]
+      if (!feature) return
+      instance.easeTo({
+        center: (feature.geometry as GeoJSON.Point).coordinates as [number, number],
+        zoom: Math.min(16, instance.getZoom() + 2),
+        duration: 500,
+      })
+    })
+    instance.on('mousemove', 'homes-dot', (event) => {
       instance.getCanvas().style.cursor = 'pointer'
+      const id = event.features?.[0]?.properties?.entity_id
+      if (typeof id === 'string') onHover(id)
     })
     instance.on('mouseleave', 'homes-dot', () => {
       instance.getCanvas().style.cursor = ''
+      onHover(null)
     })
+    for (const layer of ['homes-cluster']) {
+      instance.on('mouseenter', layer, () => {
+        instance.getCanvas().style.cursor = 'pointer'
+      })
+      instance.on('mouseleave', layer, () => {
+        instance.getCanvas().style.cursor = ''
+      })
+    }
 
     map.current = instance
     return () => {
@@ -183,13 +265,18 @@ export function Map({
     for (const entry of result.buckets.results) verdicts[entry.entity_id] = 'verified'
 
     const draw = () => {
+      const withPoints = result.entities.filter((entity) => entity.point)
+      featureIds.current = Object.fromEntries(
+        withPoints.map((entity, index) => [entity.entity_id, index]),
+      )
       const source = instance.getSource('homes') as GeoJSONSource | undefined
       source?.setData({
         type: 'FeatureCollection',
         features: result.entities
           .filter((entity) => entity.point)
-          .map((entity) => ({
+          .map((entity, index) => ({
             type: 'Feature' as const,
+            id: index,
             properties: {
               verdict: verdicts[entity.entity_id] ?? 'unchecked',
               title: entity.title,
@@ -286,6 +373,21 @@ export function Map({
       )
     }
   }, [selected, result])
+
+  // One pin is lit at a time: whichever home the pointer or the list is on.
+  useEffect(() => {
+    const instance = map.current
+    if (!instance || !instance.getSource('homes')) return
+    const next = featureIds.current[hovered ?? selected ?? '']
+
+    if (lit.current !== null && lit.current !== next) {
+      instance.setFeatureState({ source: 'homes', id: lit.current }, { lit: false })
+    }
+    if (next !== undefined) {
+      instance.setFeatureState({ source: 'homes', id: next }, { lit: true })
+    }
+    lit.current = next ?? null
+  }, [hovered, selected, result])
 
   return (
     <>

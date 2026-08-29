@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
 import { ask, httpTransport, type AskEvent, type AskResult } from '@relokit/client'
+import type { ConstraintSet } from '@relokit/schema'
 import { forget, recall, remember } from './lib/remember.ts'
 
 /**
@@ -38,12 +39,13 @@ export function useAsk() {
       : { status: 'idle', events: [], result: null, error: null, restored: null }
   })
 
-  const run = useCallback(async (query: string) => {
+  const run = useCallback(async (query: string, constraints?: ConstraintSet) => {
     setState({ status: 'running', events: [], result: null, error: null, restored: null })
     try {
       const result = await ask(httpTransport(api, orgKey), query, {
         onProgress: (event) =>
           setState((previous) => ({ ...previous, events: [...previous.events, event] })),
+        ...(constraints ? { constraints } : {}),
       })
       remember(query, result)
       setState((previous) => ({ ...previous, status: 'done', result }))

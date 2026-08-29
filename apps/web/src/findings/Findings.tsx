@@ -27,14 +27,18 @@ export function Findings({
   onSave,
   onOpen,
   onSelect,
+  onHover,
   selected,
+  hovered,
 }: {
   result: AskResult
   isSaved: (entityId: string) => boolean
   onSave: (entity: ListingSummary) => void
   onOpen: (entityId: string) => void
   onSelect: (entityId: string) => void
+  onHover: (entityId: string | null) => void
   selected: string | null
+  hovered: string | null
 }) {
   const [open, setOpen] = useState<Bucket>('verified')
   const [sort, setSort] = useState<SortKey>('best')
@@ -160,8 +164,10 @@ export function Findings({
                   prominent={open === 'verified'}
                   saved={isSaved(home.entity_id)}
                   selected={selected === home.entity_id}
+                  hovered={hovered === home.entity_id}
                   onSave={() => onSave(home)}
                   onSelect={() => onSelect(home.entity_id)}
+                  onHover={(over) => onHover(over ? home.entity_id : null)}
                   onOpen={() => onOpen(home.entity_id)}
                 />
               </div>

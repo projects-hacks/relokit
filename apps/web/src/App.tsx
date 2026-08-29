@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { AskEvent } from '@relokit/client'
+import { applyRelaxation } from '@relokit/evidence'
 import { useAsk } from './useAsk.ts'
 import { useSaved } from './lib/saved.ts'
 import { ago, money } from './lib/format.ts'
@@ -22,6 +23,10 @@ export function App() {
   // Selecting shows a home on the map. Opening covers the map, so it is a
   // separate act rather than the same click doing both.
   const [selectedId, setSelectedId] = useState<string | null>(null)
+  const [hoveredId, setHoveredId] = useState<string | null>(null)
+  // Whether the pointer is over the map or the list, the same home is lit in
+  // both. Pointing at a pin should not mean hunting for its card.
+  const [fromMap, setFromMap] = useState(false)
   const saved = useSaved(result?.constraint_set.raw_query ?? '')
 
   const planned = events.find(
@@ -30,6 +35,13 @@ export function App() {
   // A restored run carries no events, so the plan comes off the result instead.
   // Without this the map never fits its bounds and sits on a hardcoded centre.
   const plan = planned?.plan ?? result?.plan ?? null
+  useEffect(() => {
+    if (!fromMap || !hoveredId) return
+    document
+      .querySelector(`[data-entity="${CSS.escape(hoveredId)}"]`)
+      ?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+  }, [fromMap, hoveredId])
+
   const open = openId ? result?.entities.find((e) => e.entity_id === openId) : undefined
   const openEvidence =
     result && openId
@@ -81,7 +93,18 @@ export function App() {
         </aside>
 
         <main className="stage">
-          <Map plan={plan} result={result} selected={selectedId} onSelect={setSelectedId} />
+          <Map
+            plan={plan}
+            result={result}
+            selected={selectedId}
+            hovered={hoveredId}
+            onSelect={setSelectedId}
+            onHover={(id) => {
+              setFromMap(id !== null)
+              setHoveredId(id)
+            }}
+            onOpen={setOpenId}
+          />
           <Counter events={events} />
         </main>
 
@@ -157,10 +180,30 @@ export function App() {
                   onSave={saved.toggle}
                   onOpen={setOpenId}
                   onSelect={setSelectedId}
+                  onHover={(id) => {
+                    setFromMap(false)
+                    setHoveredId(id)
+                  }}
                   selected={selectedId}
+                  hovered={hoveredId}
                 />
               )}
-              <Offers result={result} />
+              <Offers
+                result={result}
+                onRelax={(constraintId, to) => {
+                  // Asking again with one bound moved. Only that bound changes,
+                  // and it is marked as ours so the interface can say the
+                  // number stopped being theirs.
+                  run(result.constraint_set.raw_query, {
+                    ...result.constraint_set,
+                    constraints: applyRelaxation(
+                      result.constraint_set.constraints,
+                      constraintId,
+                      to,
+                    ),
+                  })
+                }}
+              />
               <Working result={result} />
               <Ledger result={result} />
             </>

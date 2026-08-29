@@ -558,6 +558,14 @@ button:focus-visible,
 }
 
 .offer-step {
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  text-align: left;
   display: flex;
   justify-content: space-between;
   gap: calc(var(--step) * 3);
@@ -568,6 +576,15 @@ button:focus-visible,
 
 .offer-step:last-child {
   border-bottom: none;
+}
+
+.offer-step:hover:not(:disabled) {
+  background: var(--paper);
+}
+
+.offer-step:disabled {
+  cursor: default;
+  color: var(--ink-dim);
 }
 
 .offer-step b {
@@ -1258,4 +1275,8 @@ button:focus-visible,
   font-variant-numeric: tabular-nums;
   font-size: 11.5px;
   color: var(--ink-dim);
+}
+
+.finding[data-hovered='true'] {
+  border-color: var(--mark);
 }

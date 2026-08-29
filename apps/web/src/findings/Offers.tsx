@@ -8,7 +8,13 @@ import type { AskResult } from '@relokit/client'
  * appear: relaxing one of two blockers reaches nobody, and offering it would be
  * a promise the evidence cannot keep.
  */
-export function Offers({ result }: { result: AskResult }) {
+export function Offers({
+  result,
+  onRelax,
+}: {
+  result: AskResult
+  onRelax: (constraintId: string, to: number) => void
+}) {
   if (result.relaxations.length === 0) return null
 
   return (
@@ -23,7 +29,17 @@ export function Offers({ result }: { result: AskResult }) {
             reaches.
           </p>
           {offer.steps.map((step) => (
-            <div className="offer-step" key={step.to}>
+            <button
+              className="offer-step"
+              key={step.to}
+              onClick={() => onRelax(offer.constraint_id, step.to)}
+              disabled={offer.kind !== 'raise_bound'}
+              title={
+                offer.kind === 'raise_bound'
+                  ? `Ask again with ${step.display_to} instead`
+                  : 'Removing a requirement has to be done in the question itself'
+              }
+            >
               <span>
                 {offer.kind === 'raise_bound' ? (
                   <>
@@ -36,7 +52,7 @@ export function Offers({ result }: { result: AskResult }) {
               <span>
                 adds <b>{step.unlocks}</b>
               </span>
-            </div>
+            </button>
           ))}
         </div>
       ))}

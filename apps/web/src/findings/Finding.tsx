@@ -27,8 +27,10 @@ export function Finding({
   prominent,
   saved,
   selected,
+  hovered,
   onSave,
   onSelect,
+  onHover,
   onOpen,
 }: {
   entity: ListingSummary
@@ -38,8 +40,10 @@ export function Finding({
   prominent?: boolean
   saved?: boolean
   selected?: boolean
+  hovered?: boolean
   onSave?: () => void
   onSelect?: () => void
+  onHover?: (over: boolean) => void
   onOpen?: () => void
 }) {
   const said = new Map(constraints.map((c) => [c.id, c.source_text]))
@@ -52,7 +56,11 @@ export function Finding({
       className="finding"
       data-prominent={String(Boolean(prominent))}
       data-selected={String(Boolean(selected))}
+      data-hovered={String(Boolean(hovered))}
+      data-entity={entity.entity_id}
       onClick={onSelect}
+      onMouseEnter={() => onHover?.(true)}
+      onMouseLeave={() => onHover?.(false)}
     >
       {entity.photo_url && (
         <div className="shot">

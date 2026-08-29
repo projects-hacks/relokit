@@ -180,3 +180,32 @@ function format(constraint: Constraint, value: number): string {
 export function beyondReach(buckets: Buckets): (RejectedEntity | UnverifiedEntity)[] {
   return buckets.rejections.filter((r) => r.failed_constraint_ids.length > 1)
 }
+
+/**
+ * The inverse of an offer: the same question with one bound moved.
+ *
+ * Only the named requirement changes, and it is marked inferred, because the
+ * number stopped being the one the person wrote the moment they accepted a
+ * different one.
+ */
+export function applyRelaxation(
+  constraints: Constraint[],
+  constraintId: string,
+  to: number,
+): Constraint[] {
+  return constraints.map((constraint) => {
+    if (constraint.id !== constraintId) return constraint
+    switch (constraint.type) {
+      case 'budget':
+        return { ...constraint, max_cents: Math.round(to), inferred: true }
+      case 'commute':
+        return { ...constraint, max_seconds: Math.round(to), inferred: true }
+      case 'nearby_poi':
+        return { ...constraint, radius_m: Math.round(to), inferred: true }
+      default:
+        // Nothing else has a number to move. A requirement without one is
+        // dropped in the question rather than nudged here.
+        return constraint
+    }
+  })
+}
