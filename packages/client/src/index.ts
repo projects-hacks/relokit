@@ -294,3 +294,39 @@ function readable(detail: string, engine: string): string {
   if (refused) return `${engine} refused the request with ${refused[1]}`
   return `${engine} did not answer`
 }
+
+/** What changed since a question was last asked, and what asking again cost. */
+export interface Change {
+  entity_id: string
+  change_type: 'entered_pass' | 'left_pass' | 'value_change' | 'verdict_flip'
+  before: { price?: number } | null
+  after: { price?: number } | null
+}
+
+export interface WatchState {
+  watching: boolean
+  due_at: number | null
+  re_asked: number
+  first_cost: number
+  last_cost: number | null
+  asked_at: number | null
+  changes: Change[]
+}
+
+export async function readWatch(transport: Transport, runId: number): Promise<WatchState> {
+  return (await transport.get(`/changes?run_id=${runId}`)) as unknown as WatchState
+}
+
+/**
+ * Keep asking this question. There is no separate save: a question worth
+ * watching is a question worth keeping, and asking someone to do both would be
+ * asking twice.
+ */
+export async function setWatch(
+  transport: Transport,
+  runId: number,
+  name: string,
+  enabled: boolean,
+): Promise<void> {
+  await transport.post('/watch', { run_id: runId, name, enabled })
+}

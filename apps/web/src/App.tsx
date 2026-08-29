@@ -10,6 +10,7 @@ import { Ledger } from './panels/Ledger.tsx'
 import { Counter } from './panels/Counter.tsx'
 import { Working } from './panels/Working.tsx'
 import { Brief } from './panels/Brief.tsx'
+import { Watch } from './panels/Watch.tsx'
 import { Findings } from './findings/Findings.tsx'
 import { Detail } from './findings/Detail.tsx'
 import { Nothing } from './findings/Nothing.tsx'
@@ -204,6 +205,7 @@ export function App() {
                   })
                 }}
               />
+              <Watch result={result} />
               <Working result={result} />
               <Ledger result={result} />
             </>

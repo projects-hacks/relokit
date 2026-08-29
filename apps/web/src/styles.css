@@ -592,6 +592,114 @@ button:focus-visible,
   font-weight: 500;
 }
 
+/* ---------- keep asking ---------- */
+
+.watch {
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--radius);
+  padding: calc(var(--step) * 3.5);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--step) * 2.5);
+}
+
+.watch-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: calc(var(--step) * 4);
+}
+
+.watch-head .note {
+  margin: calc(var(--step) * 0.5) 0 0;
+  max-width: 34ch;
+}
+
+.watch button {
+  flex: none;
+  font: inherit;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  padding: calc(var(--step) * 1.75) calc(var(--step) * 3);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.watch button.watch-on {
+  color: #fff;
+  background: var(--ground);
+  border: 1px solid var(--ground);
+}
+
+/* Once it is on, the control stops advertising itself and just reports. */
+.watch button.watching {
+  color: var(--verified);
+  background: none;
+  border: 1px solid var(--verified);
+}
+
+.watch button.watching::before {
+  content: '\25CF';
+  font-size: 8px;
+  vertical-align: 2px;
+  margin-right: calc(var(--step) * 1.5);
+}
+
+.watch button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.watch-cost b {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.changes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--paper-edge);
+  font-size: 12.5px;
+}
+
+.changes li {
+  padding: calc(var(--step) * 1.75) 0 calc(var(--step) * 1.75) calc(var(--step) * 5);
+  border-bottom: 1px solid var(--paper-edge);
+  position: relative;
+}
+
+.changes li:last-child {
+  border-bottom: none;
+}
+
+/* The glyph says which way it moved before the sentence does. */
+.changes li::before {
+  position: absolute;
+  left: 0;
+  font-family: var(--mono);
+  color: var(--ink-dim);
+}
+
+.changes li[data-kind='entered_pass']::before {
+  content: '+';
+  color: var(--verified);
+}
+
+.changes li[data-kind='left_pass']::before {
+  content: '\2212';
+  color: var(--ruled-out);
+}
+
+.changes li[data-kind='value_change']::before,
+.changes li[data-kind='verdict_flip']::before {
+  content: '\2192';
+  color: var(--unsure);
+}
+
 /* ---------- states ---------- */
 
 .failure {

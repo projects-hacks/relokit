@@ -30,16 +30,60 @@ query changes verb=GET {
       return = {type: "single"}
     } as $saved
   
-    // Every re-asking of this question, newest first.
+    // Asking the same question again produces a new run, but the watch keeps
+    // hanging its nights off the run that started it. Reading the history
+    // through the saved question rather than the run in hand is what lets a
+    // re-ask still show what has moved since.
+    var $anchor_id {
+      value = $run.id
+    }
+  
+    conditional {
+      if ($saved != null) {
+        var $anchor_id {
+          value = $saved.last_run_id
+        }
+      }
+    }
+  
+    db.get relokit_run {
+      field_name = "id"
+      field_value = $anchor_id
+    } as $anchor
+  
+    // Every re-asking of this question, oldest first.
     db.query relokit_run {
-      where = $db.relokit_run.org_id == $org.id && $db.relokit_run.parent_run_id == $run.id
+      where = $db.relokit_run.org_id == $org.id && $db.relokit_run.parent_run_id == $anchor_id
       return = {type: "list"}
     } as $children
   
-    db.query relokit_run_diff {
-      where = $db.relokit_run_diff.prev_run_id == $run.id
-      return = {type: "list"}
-    } as $changes
+    // Only the most recent asking. A question watched for a week has a week of
+    // diffs behind it, and showing them together would present last Tuesday as
+    // news. What changed since you asked is one night's worth.
+    var $latest {
+      value = $children|last
+    }
+  
+    var $changes {
+      value = []
+    }
+  
+    var $last_asked_at {
+      value = null
+    }
+  
+    conditional {
+      if (($children|count) > 0) {
+        db.query relokit_run_diff {
+          where = $db.relokit_run_diff.run_id == $latest.id
+          return = {type: "list"}
+        } as $changes
+      
+        var $last_asked_at {
+          value = $latest.created_at
+        }
+      }
+    }
   
     var $watching {
       value = false
@@ -70,7 +114,7 @@ query changes verb=GET {
     conditional {
       if (($children|count) > 0) {
         var $last_cost {
-          value = $children|last|get:"actual_cost_units"
+          value = $latest|get:"actual_cost_units":0
         }
       }
     }
@@ -81,7 +125,8 @@ query changes verb=GET {
     due_at    : $due_at
     re_asked  : $children|count
     last_cost : $last_cost
-    first_cost: $run.actual_cost_units
+    first_cost: $anchor|get:"actual_cost_units":0
+    asked_at  : $last_asked_at
     changes   : $changes
   }
 
