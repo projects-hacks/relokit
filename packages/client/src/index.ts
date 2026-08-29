@@ -187,7 +187,7 @@ export async function ask(
       })),
       ...outcome.missing.map((entry) => ({
         op_id: entry.op_id,
-        detail: `${entry.engine} did not answer`,
+        detail: entry.detail || `${entry.engine} did not answer`,
       })),
     ],
     unanswered: planned.unsatisfied.map((entry) => ({

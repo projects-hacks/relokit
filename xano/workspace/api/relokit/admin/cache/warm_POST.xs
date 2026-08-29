@@ -1,17 +1,17 @@
-// Loads a recorded provider answer into the cache.
-//
-// The demo query's responses are recorded in the repository, redacted and
-// committed, and this puts them where the executor will look. That is the
-// pre-warming a live demo needs, and it costs no searches at all.
-//
-// It is not a shortcut around the truth. fetched_at is the time the answer was
-// really recorded, so expiry is computed from when it was really learned and the
-// interface shows its real age. A recording older than its capability's TTL is
-// simply stale, and the executor will pay to ask again.
-//
-// The key is computed by the same function /op uses, so a warmed entry is found
-// under the key the executor will look for. Accepting a hash from the caller, or
-// computing it twice, is how the two silently stop agreeing.
+//  Loads a recorded provider answer into the cache.
+// 
+//  The demo query's responses are recorded in the repository, redacted and
+//  committed, and this puts them where the executor will look. That is the
+//  pre-warming a live demo needs, and it costs no searches at all.
+// 
+//  It is not a shortcut around the truth. fetched_at is the time the answer was
+//  really recorded, so expiry is computed from when it was really learned and the
+//  interface shows its real age. A recording older than its capability's TTL is
+//  simply stale, and the executor will pay to ask again.
+// 
+//  The key is computed by the same function /op uses, so a warmed entry is found
+//  under the key the executor will look for. Accepting a hash from the caller, or
+//  computing it twice, is how the two silently stop agreeing.
 query "admin/cache/warm" verb=POST {
   api_group = "Relokit"
 
@@ -21,6 +21,7 @@ query "admin/cache/warm" verb=POST {
     json params
     json raw_response
     int ttl_seconds
+  
     // Milliseconds since the epoch, when the answer was actually recorded.
     // Xano stores a timestamp as epoch milliseconds, so this needs no
     // conversion filter and there is none that does it.
@@ -32,21 +33,21 @@ query "admin/cache/warm" verb=POST {
       error_type = "unauthorized"
       error = "Relokit has no admin key configured on this instance."
     }
-
+  
     precondition ($input.admin_key == $env.relokit_admin_key) {
       error_type = "unauthorized"
       error = "Admin key missing or wrong."
     }
-
+  
     function.run "Relokit/params_hash" {
       input = {endpoint: $input.endpoint, params: $input.params}
     } as $params_hash
-
+  
     db.query relokit_provider_cache {
       where = $db.relokit_provider_cache.endpoint == $input.endpoint && $db.relokit_provider_cache.params_hash == $params_hash
       return = {type: "single"}
     } as $existing
-
+  
     conditional {
       if ($existing == null) {
         db.add relokit_provider_cache {

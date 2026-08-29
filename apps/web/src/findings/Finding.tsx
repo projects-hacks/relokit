@@ -25,16 +25,18 @@ export function Finding({
   constraints,
   blocking,
   prominent,
-  selected,
-  onSelect,
+  saved,
+  onSave,
+  onOpen,
 }: {
   entity: ListingSummary
   evidence: EvidenceRow[]
   constraints: Constraint[]
   blocking?: string[]
   prominent?: boolean
-  selected?: boolean
-  onSelect?: (entityId: string) => void
+  saved?: boolean
+  onSave?: () => void
+  onOpen?: () => void
 }) {
   const said = new Map(constraints.map((c) => [c.id, c.source_text]))
   const ordered = [...evidence].sort((a, b) => (a.constraint_id < b.constraint_id ? -1 : 1))
@@ -42,28 +44,34 @@ export function Finding({
   const price = money(entity.price_cents)
 
   return (
-    <article
-      className="finding"
-      data-prominent={String(Boolean(prominent))}
-      data-selected={String(Boolean(selected))}
-      onMouseEnter={() => onSelect?.(entity.entity_id)}
-    >
+    <article className="finding" data-prominent={String(Boolean(prominent))}>
       {entity.photo_url && (
         <div className="shot">
           <img src={entity.photo_url} alt="" loading="lazy" decoding="async" />
           {entity.photos.length > 1 && <span className="shot-count">{entity.photos.length}</span>}
+          {onSave && (
+            <Tip
+              text={saved ? 'Remove from your shortlist' : 'Keep this one to come back to'}
+              side="left"
+            >
+              <button
+                className="pin"
+                data-saved={String(Boolean(saved))}
+                onClick={onSave}
+                aria-label={saved ? 'Saved' : 'Save this home'}
+              >
+                {saved ? '★' : '☆'}
+              </button>
+            </Tip>
+          )}
         </div>
       )}
 
       <header className="finding-head">
         <h3 className="finding-title">
-          {entity.url ? (
-            <a href={entity.url} target="_blank" rel="noreferrer">
-              {entity.title}
-            </a>
-          ) : (
-            entity.title
-          )}
+          <button className="as-link" onClick={onOpen}>
+            {entity.title}
+          </button>
         </h3>
         {price && <span className="finding-price">{price}</span>}
       </header>

@@ -1,11 +1,16 @@
+import { useState } from 'react'
 import type { AskEvent } from '@relokit/client'
 import { useAsk } from './useAsk.ts'
+import { useSaved } from './lib/saved.ts'
+import { money } from './lib/format.ts'
 import { Ask } from './panels/Ask.tsx'
 import { Plan } from './panels/Plan.tsx'
 import { Ledger } from './panels/Ledger.tsx'
 import { Counter } from './panels/Counter.tsx'
+import { Working } from './panels/Working.tsx'
 import { Brief } from './panels/Brief.tsx'
 import { Findings } from './findings/Findings.tsx'
+import { Detail } from './findings/Detail.tsx'
 import { Nothing } from './findings/Nothing.tsx'
 import { FindingsSkeleton } from './findings/Skeleton.tsx'
 import { Offers } from './findings/Offers.tsx'
@@ -13,10 +18,22 @@ import { Map } from './map/Map.tsx'
 
 export function App() {
   const { status, events, result, error, run, configured } = useAsk()
+  const [openId, setOpenId] = useState<string | null>(null)
+  const saved = useSaved(result?.constraint_set.raw_query ?? '')
+
   const planned = events.find(
     (event): event is Extract<AskEvent, { kind: 'planned' }> => event.kind === 'planned',
   )
   const plan = planned?.plan ?? null
+  const open = openId ? result?.entities.find((e) => e.entity_id === openId) : undefined
+  const openEvidence =
+    result && openId
+      ? [
+          ...result.buckets.results,
+          ...result.buckets.unverified,
+          ...result.buckets.rejections,
+        ].find((entry) => entry.entity_id === openId)?.evidence
+      : undefined
 
   return (
     <div className="shell">
@@ -35,6 +52,11 @@ export function App() {
             <span>
               <b>{result.entities.length}</b> looked at
             </span>
+            {saved.homes.length > 0 && (
+              <span>
+                <b>{saved.homes.length}</b> saved
+              </span>
+            )}
           </div>
         )}
       </header>
@@ -51,12 +73,39 @@ export function App() {
         </aside>
 
         <main className="stage">
-          <Map plan={plan} result={result} />
+          <Map plan={plan} result={result} selected={openId} onSelect={setOpenId} />
           <Counter events={events} />
         </main>
 
         <section className="paper">
-          {status === 'idle' && <Brief />}
+          {status === 'idle' && saved.homes.length === 0 && <Brief />}
+
+          {status === 'idle' && saved.homes.length > 0 && (
+            <section>
+              <p className="eyebrow">Kept for later</p>
+              <div className="saved-strip">
+                {saved.homes.map((home) => (
+                  <a
+                    className="saved-card"
+                    key={home.entity_id}
+                    href={home.url ?? '#'}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {home.photo_url && <img src={home.photo_url} alt="" />}
+                    <span>
+                      <b>{money(home.price_cents) ?? '—'}</b>
+                      <br />
+                      {home.title.slice(0, 48)}
+                    </span>
+                  </a>
+                ))}
+              </div>
+              <button className="as-link" onClick={saved.clear}>
+                Clear the shortlist
+              </button>
+            </section>
+          )}
 
           {status === 'running' && !result && (
             <>
@@ -74,19 +123,34 @@ export function App() {
 
           {result && (
             <>
-              {result.buckets.results.length === 0 &&
-              result.buckets.unverified.length === 0 &&
-              result.buckets.rejections.length === 0 ? (
+              {result.entities.length === 0 ? (
                 <Nothing result={result} />
               ) : (
-                <Findings result={result} />
+                <Findings
+                  result={result}
+                  isSaved={saved.isSaved}
+                  onSave={saved.toggle}
+                  onOpen={setOpenId}
+                />
               )}
               <Offers result={result} />
+              <Working result={result} />
               <Ledger result={result} />
             </>
           )}
         </section>
       </div>
+
+      {open && openEvidence && result && (
+        <Detail
+          entity={open}
+          evidence={openEvidence}
+          result={result}
+          saved={saved.isSaved(open.entity_id)}
+          onSave={() => saved.toggle(open)}
+          onClose={() => setOpenId(null)}
+        />
+      )}
     </div>
   )
 }

@@ -32,13 +32,13 @@ query "admin/registry/import" verb=POST {
       error = "A registry with no capabilities would answer nothing."
     }
   
-    // Replace everything, not just this version. An earlier attempt replaced
-    // only the matching version and older ones stayed behind, so the instance
-    // held two registries at once and handed back a mixture labelled with one of
-    // them. /run then refused plans for naming capabilities it could not find.
-    //
-    // The repository is the source of truth, so the instance holds exactly what
-    // the repository last said and nothing else.
+    //  Replace everything, not just this version. An earlier attempt replaced
+    //  only the matching version and older ones stayed behind, so the instance
+    //  held two registries at once and handed back a mixture labelled with one of
+    //  them. /run then refused plans for naming capabilities it could not find.
+    // 
+    //  The repository is the source of truth, so the instance holds exactly what
+    //  the repository last said and nothing else.
     db.query relokit_capability {
       return = {type: "list"}
     } as $existing

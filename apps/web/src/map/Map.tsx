@@ -14,7 +14,17 @@ const SAN_JOSE: [number, number] = [-121.94, 37.34]
  * map when something was actually checked and actually failed. If the run
  * stalls, the map simply stops moving.
  */
-export function Map({ plan, result }: { plan: PlanResult | null; result: AskResult | null }) {
+export function Map({
+  plan,
+  result,
+  selected,
+  onSelect,
+}: {
+  plan: PlanResult | null
+  result: AskResult | null
+  selected: string | null
+  onSelect: (entityId: string) => void
+}) {
   const container = useRef<HTMLDivElement>(null)
   const map = useRef<MapLibreMap | null>(null)
 
@@ -64,6 +74,19 @@ export function Map({ plan, result }: { plan: PlanResult | null; result: AskResu
         },
       })
     })
+    // A pin is a home. Clicking one should open it, the same as clicking its
+    // card, or the map is decoration.
+    instance.on('click', 'homes-dot', (event) => {
+      const id = event.features?.[0]?.properties?.entity_id
+      if (typeof id === 'string') onSelect(id)
+    })
+    instance.on('mouseenter', 'homes-dot', () => {
+      instance.getCanvas().style.cursor = 'pointer'
+    })
+    instance.on('mouseleave', 'homes-dot', () => {
+      instance.getCanvas().style.cursor = ''
+    })
+
     map.current = instance
     return () => {
       instance.remove()
@@ -123,6 +146,7 @@ export function Map({ plan, result }: { plan: PlanResult | null; result: AskResu
             properties: {
               verdict: verdicts[entity.entity_id] ?? 'unchecked',
               title: entity.title,
+              entity_id: entity.entity_id,
             },
             geometry: {
               type: 'Point' as const,
@@ -133,6 +157,14 @@ export function Map({ plan, result }: { plan: PlanResult | null; result: AskResu
     }
     instance.isStyleLoaded() ? draw() : instance.once('load', draw)
   }, [result])
+
+  useEffect(() => {
+    const instance = map.current
+    if (!instance || !selected || !result) return
+    const entity = result.entities.find((e) => e.entity_id === selected)
+    if (entity?.point)
+      instance.easeTo({ center: [entity.point.lng, entity.point.lat], duration: 600 })
+  }, [selected, result])
 
   return <div className="map" ref={container} />
 }

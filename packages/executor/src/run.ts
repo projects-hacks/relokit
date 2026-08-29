@@ -38,6 +38,9 @@ export interface MissingFixture {
   op_id: string
   engine: Engine
   params: Record<string, string | number | boolean>
+  /** What the transport actually said. Losing it turns every fault into the
+   * same shrug, which is how a five hundred reads as "did not answer". */
+  detail: string
 }
 
 export interface SkippedStage {
@@ -217,8 +220,13 @@ export async function replayRun(
           entity_ids: targetEntitiesSafe(bindings),
         })
         outcome.calls += 1
-      } catch {
-        outcome.missing.push({ op_id: op.op_id, engine, params })
+      } catch (error) {
+        outcome.missing.push({
+          op_id: op.op_id,
+          engine,
+          params,
+          detail: error instanceof Error ? error.message : String(error),
+        })
         recordFailure(op, bindings)
         continue
       }
@@ -312,10 +320,16 @@ export async function replayRun(
 
     if (constraint.type === 'commute') {
       const slack = bindings.cluster ? slackSeconds(bindings.cluster.radius_m, constraint.mode) : 0
+      const destination = parsePoint(produced[`constraint.${constraint.id}.destination_point`])
       for (const entityId of entityIds) {
+        const origin = bindings.cluster
+          ? { lat: bindings.cluster.lat, lng: bindings.cluster.lng }
+          : outcome.entities.find((e) => e.entity_id === entityId)?.point
         outcome.evidence.push(
           ...mapDirections(body, constraint, context(op), {
             entity_id: entityId,
+            ...(origin ? { origin } : {}),
+            ...(destination ? { destination } : {}),
             ...(slack > 0 ? { slack_seconds: slack } : {}),
           }),
         )
@@ -417,6 +431,13 @@ export async function replayRun(
     // the whole constraint.
     clusters = gridClusters(box, plan.trace.cardinality.cluster_count)
   }
+}
+
+/** "lat,lng" back into a point, for building a link anyone can open. */
+function parsePoint(value: string | number | undefined): { lat: number; lng: number } | undefined {
+  if (typeof value !== 'string') return undefined
+  const [lat, lng] = value.split(',').map(Number)
+  return Number.isFinite(lat) && Number.isFinite(lng) ? { lat: lat!, lng: lng! } : undefined
 }
 
 /** About the width of a town, when nobody said how far they would travel. */

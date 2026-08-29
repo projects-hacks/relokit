@@ -1,6 +1,14 @@
 import type { CommuteConstraint, EvidenceRow, TravelMode } from '@relokit/schema'
 import { row, unknownRow, type MapperContext } from './context.ts'
 
+/** Google's own words for a mode, in a URL anyone can open. */
+const MODE_URL: Record<TravelMode, string> = {
+  drive: 'driving',
+  bike: 'bicycling',
+  walk: 'walking',
+  transit: 'transit',
+}
+
 const MODE_LABEL: Record<TravelMode, string> = {
   drive: 'Driving',
   bike: 'Cycling',
@@ -15,6 +23,9 @@ interface DirectionsBody {
 
 export interface DirectionsOptions {
   entity_id: string
+  /** Both ends, so the reader can open the same route and see it for themselves. */
+  origin?: { lat: number; lng: number }
+  destination?: { lat: number; lng: number }
   /**
    * Set when the answer describes a cluster centroid rather than the listing.
    * Anything inside the slack band is not settled here and goes to the entity
@@ -68,7 +79,12 @@ export function mapDirections(
       verdict,
       value_canonical: seconds,
       display_value: `${Math.round(seconds / 60)} min by ${constraint.mode}`,
-      source_url: null,
+      // A claim about a journey should be openable. This is the same route, on
+      // a map, for anyone who would rather see it than take our word.
+      source_url:
+        options.origin && options.destination
+          ? `https://www.google.com/maps/dir/?api=1&origin=${options.origin.lat},${options.origin.lng}&destination=${options.destination.lat},${options.destination.lng}&travelmode=${MODE_URL[constraint.mode]}`
+          : null,
       confidence: slack > 0 ? 0.7 : 1,
       eval_state: 'evaluated',
       // Only where the number alone does not explain itself. A rejection at

@@ -78,7 +78,7 @@ export function mapNearbyPlaces(
   }
 
   // A place inside the radius only counts if it is also open when it is wanted.
-  const qualifying: { title: string; meters: number; hours: string }[] = []
+  const qualifying: { title: string; meters: number; hours: string; place_id?: string }[] = []
   let sawUnknownHours = false
 
   for (const { result, meters } of withDistance) {
@@ -86,13 +86,23 @@ export function mapNearbyPlaces(
       continue
     }
     if (!constraint.open_window) {
-      qualifying.push({ title: result.title ?? 'unnamed', meters, hours: result.hours ?? '' })
+      qualifying.push({
+        title: result.title ?? 'unnamed',
+        meters,
+        hours: result.hours ?? '',
+        ...(result.place_id ? { place_id: result.place_id } : {}),
+      })
       continue
     }
     const parsed = parseOperatingHours(result.operating_hours)
     const verdict = satisfiesWindow(parsed, constraint.open_window, options.evaluation_days)
     if (verdict === 'pass') {
-      qualifying.push({ title: result.title ?? 'unnamed', meters, hours: result.hours ?? '' })
+      qualifying.push({
+        title: result.title ?? 'unnamed',
+        meters,
+        hours: result.hours ?? '',
+        ...(result.place_id ? { place_id: result.place_id } : {}),
+      })
     } else if (verdict === 'unknown') {
       sawUnknownHours = true
     }
@@ -113,7 +123,9 @@ export function mapNearbyPlaces(
         verdict: outsideRadius ? 'unknown' : 'pass',
         value_canonical: nearest.meters,
         display_value: `${formatDistance(nearest.meters)} to ${nearest.title}`,
-        source_url: null,
+        // The place itself, so its hours and reviews can be read rather than
+        // taken on trust.
+        source_url: placeUrl(nearest.title, nearest.place_id),
         confidence: slack > 0 ? 0.7 : 1,
         eval_state: 'evaluated',
         reason: outsideRadius
@@ -160,6 +172,13 @@ export function mapNearbyPlaces(
  * single place meant a question naming a workplace produced no point, no search
  * bounds, and no results at all, without saying so.
  */
+function placeUrl(title: string, placeId?: string): string {
+  const query = encodeURIComponent(title)
+  return placeId
+    ? `https://www.google.com/maps/search/?api=1&query=${query}&query_place_id=${placeId}`
+    : `https://www.google.com/maps/search/?api=1&query=${query}`
+}
+
 export function mapGeocode(body: unknown): { point: GeoPoint; title: string } | null {
   const parsed = body as {
     place_results?: { title?: string; gps_coordinates?: { latitude: number; longitude: number } }
