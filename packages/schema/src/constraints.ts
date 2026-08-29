@@ -156,7 +156,12 @@ export const ConstraintSet = z.object({
   locale: z.object({ tz: z.string(), currency: z.literal('USD') }),
   /** Search centre. Derived from a commute destination when the user names no city. */
   search_anchor: PlaceRef.optional(),
-  constraints: z.array(Constraint).min(1),
+  /**
+   * May be empty. "Apartments near the university" is a whole question, and the
+   * place is the requirement. Insisting on one more than that rejected the most
+   * ordinary thing anyone would type.
+   */
+  constraints: z.array(Constraint),
   /** Filename of the prompt that produced this, e.g. "parse.v1.md". */
   parser_version: z.string(),
   parsed_at_ms: z.number().int().positive(),

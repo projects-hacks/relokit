@@ -55,6 +55,9 @@ export interface AskResult {
   evidence: EvidenceRow[]
   buckets: Buckets
   relaxations: Relaxation[]
+  /** The place the question named, so a map can always show what was searched
+   * around even when nothing else was asked for. */
+  anchor: { label: string; point: { lat: number; lng: number } } | null
   /** Empty when everything ran. Never hidden: a run that found nothing has to
    * be able to say why, or it is just a confident blank page. */
   problems: Problem[]
@@ -88,11 +91,21 @@ export async function ask(
 
   // The model names the kind of constraint and copies the words it came from.
   // Every number is read back out of those words here.
-  const { constraint_set, repairs } = normalizeConstraintSet(raw, query, {
-    query_id: `q_${now}`,
-    parser_version: PARSER_VERSION,
-    parsed_at_ms: now,
-  })
+  let normalized
+  try {
+    normalized = normalizeConstraintSet(raw, query, {
+      query_id: `q_${now}`,
+      parser_version: PARSER_VERSION,
+      parsed_at_ms: now,
+    })
+  } catch {
+    // A reader should be told what could not be understood, not handed the
+    // shape of the object that failed to validate.
+    throw new Error(
+      'That question could not be turned into anything to check. Try naming a place, and what has to be true about a home there.',
+    )
+  }
+  const { constraint_set, repairs } = normalized
   report({ kind: 'parsed', answered_by: String(parsed.answered_by), constraint_set, repairs })
 
   const registry = Registry.parse({
@@ -180,6 +193,10 @@ export async function ask(
     evidence: outcome.evidence,
     buckets,
     relaxations: relaxations(buckets, constraint_set.constraints),
+    anchor:
+      constraint_set.search_anchor && outcome.anchor_point
+        ? { label: constraint_set.search_anchor.raw, point: outcome.anchor_point }
+        : null,
     problems: [
       ...outcome.unresolved.map((entry) => ({
         op_id: entry.op_id,

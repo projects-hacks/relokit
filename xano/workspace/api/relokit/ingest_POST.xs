@@ -100,6 +100,7 @@ query ingest verb=POST {
             op_id                : $row.op_id
             precedence           : $row|get:"precedence":1
             reason               : $row|get:"reason":null
+            about                : $row|get:"about":null
           }
         }
       }

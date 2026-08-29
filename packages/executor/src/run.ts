@@ -60,6 +60,8 @@ export interface ObservedPrior {
 
 export interface RunOutcome {
   buckets: Buckets
+  /** Where the search was centred, once something has found it. */
+  anchor_point: { lat: number; lng: number } | null
   observed: ObservedPrior[]
   skipped: SkippedStage[]
   entities: ListingSummary[]
@@ -100,6 +102,7 @@ export async function replayRun(
 ): Promise<RunOutcome> {
   const outcome: RunOutcome = {
     buckets: { results: [], unverified: [], rejections: [] },
+    anchor_point: null,
     observed: [],
     skipped: [],
     entities: [],
@@ -261,6 +264,7 @@ export async function replayRun(
       const geocoded = mapGeocode(body)
       if (!geocoded) return
       produced['query.anchor_point'] = `${geocoded.point.lat},${geocoded.point.lng}`
+      outcome.anchor_point = geocoded.point
       // A commute says how far someone will travel. Without one, a town sized
       // box, which is wide enough to hold the answer and narrow enough to search.
       if (!stageOutputs.bounds) setBounds(geocoded.point, DEFAULT_SEARCH_RADIUS_M)
@@ -329,7 +333,7 @@ export async function replayRun(
           ...mapDirections(body, constraint, context(op), {
             entity_id: entityId,
             ...(origin ? { origin } : {}),
-            ...(destination ? { destination } : {}),
+            ...(destination ? { destination, destination_label: constraint.destination.raw } : {}),
             ...(slack > 0 ? { slack_seconds: slack } : {}),
           }),
         )

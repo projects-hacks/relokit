@@ -26,7 +26,9 @@ export function Finding({
   blocking,
   prominent,
   saved,
+  selected,
   onSave,
+  onSelect,
   onOpen,
 }: {
   entity: ListingSummary
@@ -35,7 +37,9 @@ export function Finding({
   blocking?: string[]
   prominent?: boolean
   saved?: boolean
+  selected?: boolean
   onSave?: () => void
+  onSelect?: () => void
   onOpen?: () => void
 }) {
   const said = new Map(constraints.map((c) => [c.id, c.source_text]))
@@ -44,7 +48,12 @@ export function Finding({
   const price = money(entity.price_cents)
 
   return (
-    <article className="finding" data-prominent={String(Boolean(prominent))}>
+    <article
+      className="finding"
+      data-prominent={String(Boolean(prominent))}
+      data-selected={String(Boolean(selected))}
+      onClick={onSelect}
+    >
       {entity.photo_url && (
         <div className="shot">
           <img src={entity.photo_url} alt="" loading="lazy" decoding="async" />
@@ -68,13 +77,19 @@ export function Finding({
       )}
 
       <header className="finding-head">
-        <h3 className="finding-title">
-          <button className="as-link" onClick={onOpen}>
-            {entity.title}
-          </button>
-        </h3>
+        <h3 className="finding-title">{entity.title}</h3>
         {price && <span className="finding-price">{price}</span>}
       </header>
+
+      <button
+        className="as-link open"
+        onClick={(event) => {
+          event.stopPropagation()
+          onOpen?.()
+        }}
+      >
+        Photos and everything checked
+      </button>
 
       <div className="checks">
         {ordered.map((row) => (

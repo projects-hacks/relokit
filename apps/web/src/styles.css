@@ -1207,3 +1207,52 @@ button:focus-visible,
 .as-link:hover {
   border-bottom-color: var(--ink-dim);
 }
+
+/* ---------- map legend ---------- */
+
+.legend {
+  position: absolute;
+  right: calc(var(--step) * 4);
+  top: calc(var(--step) * 4);
+  z-index: 2;
+  margin: 0;
+  padding: calc(var(--step) * 2.5) calc(var(--step) * 3);
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--chalk-dim);
+  background: rgb(8 23 41 / 84%);
+  border: 1px solid rgb(147 169 196 / 22%);
+  border-radius: var(--radius);
+  backdrop-filter: blur(6px);
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.legend i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.finding {
+  cursor: pointer;
+}
+
+.finding[data-selected='true'] {
+  box-shadow: 0 0 0 2px var(--mark);
+}
+
+.as-link.open {
+  align-self: flex-start;
+  font-size: 12px;
+  color: var(--ink-dim);
+  border-bottom-style: dotted;
+}

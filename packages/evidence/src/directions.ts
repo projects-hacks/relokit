@@ -26,6 +26,7 @@ export interface DirectionsOptions {
   /** Both ends, so the reader can open the same route and see it for themselves. */
   origin?: { lat: number; lng: number }
   destination?: { lat: number; lng: number }
+  destination_label?: string
   /**
    * Set when the answer describes a cluster centroid rather than the listing.
    * Anything inside the slack band is not settled here and goes to the entity

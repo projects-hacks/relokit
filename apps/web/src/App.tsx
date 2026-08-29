@@ -19,6 +19,9 @@ import { Map } from './map/Map.tsx'
 export function App() {
   const { status, events, result, error, run, configured } = useAsk()
   const [openId, setOpenId] = useState<string | null>(null)
+  // Selecting shows a home on the map. Opening covers the map, so it is a
+  // separate act rather than the same click doing both.
+  const [selectedId, setSelectedId] = useState<string | null>(null)
   const saved = useSaved(result?.constraint_set.raw_query ?? '')
 
   const planned = events.find(
@@ -47,7 +50,10 @@ export function App() {
         {result && (
           <div className="ledger-inline">
             <span>
-              <b>{result.buckets.results.length}</b> verified
+              <b>{result.buckets.results.length}</b>{' '}
+              {result.constraint_set.constraints.some((c) => c.hardness === 'hard')
+                ? 'verified'
+                : 'found'}
             </span>
             <span>
               <b>{result.entities.length}</b> looked at
@@ -73,7 +79,7 @@ export function App() {
         </aside>
 
         <main className="stage">
-          <Map plan={plan} result={result} selected={openId} onSelect={setOpenId} />
+          <Map plan={plan} result={result} selected={selectedId} onSelect={setSelectedId} />
           <Counter events={events} />
         </main>
 
@@ -131,6 +137,8 @@ export function App() {
                   isSaved={saved.isSaved}
                   onSave={saved.toggle}
                   onOpen={setOpenId}
+                  onSelect={setSelectedId}
+                  selected={selectedId}
                 />
               )}
               <Offers result={result} />

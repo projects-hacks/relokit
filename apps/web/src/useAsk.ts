@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
 import { ask, httpTransport, type AskEvent, type AskResult } from '@relokit/client'
+import { recall, remember } from './lib/remember.ts'
 
 /**
  * One question, and everything that happened on the way to answering it.
@@ -20,11 +21,13 @@ const api = import.meta.env.VITE_RELOKIT_API ?? ''
 const orgKey = import.meta.env.VITE_RELOKIT_ORG_KEY ?? ''
 
 export function useAsk() {
-  const [state, setState] = useState<AskState>({
-    status: 'idle',
-    events: [],
-    result: null,
-    error: null,
+  // The last answer comes back on a reload. Coming back to a decision an hour
+  // later should not mean asking every source again.
+  const [state, setState] = useState<AskState>(() => {
+    const previous = recall()
+    return previous
+      ? { status: 'done', events: [], result: previous.result, error: null }
+      : { status: 'idle', events: [], result: null, error: null }
   })
 
   const run = useCallback(async (query: string) => {
@@ -34,6 +37,7 @@ export function useAsk() {
         onProgress: (event) =>
           setState((previous) => ({ ...previous, events: [...previous.events, event] })),
       })
+      remember(query, result)
       setState((previous) => ({ ...previous, status: 'done', result }))
     } catch (error) {
       setState((previous) => ({

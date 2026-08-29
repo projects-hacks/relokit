@@ -17,19 +17,32 @@ export function Findings({
   isSaved,
   onSave,
   onOpen,
+  onSelect,
+  selected,
 }: {
   result: AskResult
   isSaved: (entityId: string) => boolean
   onSave: (entity: ListingSummary) => void
   onOpen: (entityId: string) => void
+  onSelect: (entityId: string) => void
+  selected: string | null
 }) {
   const [open, setOpen] = useState<Bucket>('verified')
   const { results, unverified, rejections } = result.buckets
   const entity = (id: string) => result.entities.find((e) => e.entity_id === id)!
   const constraints = result.constraint_set.constraints
 
+  // Nothing was verified if nothing was asked. A question that is only a place
+  // returns homes, and calling them verified claims a check that never happened.
+  const asked = constraints.some((constraint) => constraint.hardness === 'hard')
+
   const tabs: { id: Bucket; label: string; count: number; mark: string }[] = [
-    { id: 'verified', label: 'Verified', count: results.length, mark: 'var(--verified)' },
+    {
+      id: 'verified',
+      label: asked ? 'Verified' : 'Found',
+      count: results.length,
+      mark: 'var(--verified)',
+    },
     {
       id: 'unsure',
       label: 'Couldn\u2019t verify',
@@ -54,10 +67,12 @@ export function Findings({
             mark: 'var(--ruled-out)',
           }))
 
+  const shownTabs = asked ? tabs : tabs.filter((tab) => tab.count > 0)
+
   return (
     <>
       <div className="bucket-tabs" role="tablist">
-        {tabs.map((tab) => (
+        {shownTabs.map((tab) => (
           <button
             key={tab.id}
             role="tab"
@@ -90,7 +105,9 @@ export function Findings({
                 blocking={blocking}
                 prominent={open === 'verified'}
                 saved={isSaved(entry.entity_id)}
+                selected={selected === entry.entity_id}
                 onSave={() => onSave(entity(entry.entity_id))}
+                onSelect={() => onSelect(entry.entity_id)}
                 onOpen={() => onOpen(entry.entity_id)}
               />
             </div>

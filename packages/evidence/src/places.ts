@@ -78,7 +78,13 @@ export function mapNearbyPlaces(
   }
 
   // A place inside the radius only counts if it is also open when it is wanted.
-  const qualifying: { title: string; meters: number; hours: string; place_id?: string }[] = []
+  const qualifying: {
+    title: string
+    meters: number
+    hours: string
+    place_id?: string
+    point: GeoPoint
+  }[] = []
   let sawUnknownHours = false
 
   for (const { result, meters } of withDistance) {
@@ -90,6 +96,7 @@ export function mapNearbyPlaces(
         title: result.title ?? 'unnamed',
         meters,
         hours: result.hours ?? '',
+        point: { lat: result.gps_coordinates!.latitude, lng: result.gps_coordinates!.longitude },
         ...(result.place_id ? { place_id: result.place_id } : {}),
       })
       continue
@@ -101,6 +108,7 @@ export function mapNearbyPlaces(
         title: result.title ?? 'unnamed',
         meters,
         hours: result.hours ?? '',
+        point: { lat: result.gps_coordinates!.latitude, lng: result.gps_coordinates!.longitude },
         ...(result.place_id ? { place_id: result.place_id } : {}),
       })
     } else if (verdict === 'unknown') {
@@ -126,6 +134,7 @@ export function mapNearbyPlaces(
         // The place itself, so its hours and reviews can be read rather than
         // taken on trust.
         source_url: placeUrl(nearest.title, nearest.place_id),
+        about: { label: nearest.title, kind: 'poi', point: nearest.point },
         confidence: slack > 0 ? 0.7 : 1,
         eval_state: 'evaluated',
         reason: outsideRadius

@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { GeoPoint } from './units.ts'
 import { ConstraintType } from './constraints.ts'
 import { Provider } from './capability.ts'
 
@@ -44,6 +45,20 @@ export const EvidenceRow = z.object({
   op_id: z.string(),
   /** Human readable, shown on the rejection card. */
   reason: z.string().optional(),
+  /**
+   * The place this fact is about, when it is about one.
+   *
+   * "0.4 mi to FNS Training Center" is a claim about somewhere, and until this
+   * existed the somewhere was thrown away as soon as the distance was measured.
+   * It is what lets a map show the gym rather than only the home.
+   */
+  about: z
+    .object({
+      label: z.string(),
+      kind: z.enum(['destination', 'poi']),
+      point: GeoPoint,
+    })
+    .optional(),
 })
 
 export type Verdict = z.infer<typeof Verdict>
