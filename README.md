@@ -179,16 +179,18 @@ the network.
 
 ## Scripts
 
-| command                  | does                                                           |
-| ------------------------ | -------------------------------------------------------------- |
-| `pnpm test`              | Full suite, offline.                                           |
-| `pnpm typecheck`         | Every package in one pass.                                     |
-| `pnpm plan`              | Plan and cost trace for the demo query.                        |
-| `pnpm replay`            | The demo run end to end, offline.                              |
-| `pnpm ask "<question>"`  | The same flow the browser runs.                                |
-| `pnpm dev:proxy`         | Serves /api and holds the org key. The built app needs it too. |
-| `pnpm dev:web`           | Web app on port 5173.                                          |
-| `pnpm record <scenario>` | Records a fixture. Spends a search.                            |
+| command                  | does                                                            |
+| ------------------------ | --------------------------------------------------------------- |
+| `pnpm test`              | Full suite, offline.                                            |
+| `pnpm typecheck`         | Every package in one pass.                                      |
+| `pnpm plan`              | Plan and cost trace for the demo query.                         |
+| `pnpm replay`            | The demo run end to end, offline.                               |
+| `pnpm ask "<question>"`  | The same flow the browser runs.                                 |
+| `pnpm dev:proxy`         | Serves /api and holds the org key, for development.             |
+| `pnpm build`             | Builds the web app.                                             |
+| `pnpm start`             | The whole product as one process: the built app, /api, the key. |
+| `pnpm dev:web`           | Web app on port 5173.                                           |
+| `pnpm record <scenario>` | Records a fixture. Spends a search.                             |
 
 ## MCP
 

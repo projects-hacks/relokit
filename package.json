@@ -14,6 +14,8 @@
     "record": "tsx tools/record-fixture/src/main.ts",
     "plan": "tsx tools/plan-preview/src/main.ts",
     "dev:web": "pnpm --filter @relokit/web dev",
+    "build": "pnpm --filter @relokit/web build",
+    "start": "tsx --env-file=.env apps/proxy/src/main.ts",
     "dev:proxy": "tsx --env-file=.env apps/proxy/src/main.ts",
     "replay": "tsx tools/replay-run/src/main.ts",
     "replay:record": "tsx tools/replay-run/src/record.ts",

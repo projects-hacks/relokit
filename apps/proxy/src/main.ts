@@ -1,11 +1,14 @@
+import { createReadStream, existsSync, statSync } from 'node:fs'
 import { createServer } from 'node:http'
+import { extname, join, normalize } from 'node:path'
 
 /*
- * The browser's only way to the backend, in development and in production.
+ * The whole product as one process.
  *
  * The org key authorises spending, so it lives here and never in a bundle
- * anyone can read. Vite forwards /api to this in development; a deployment
- * runs it beside the static build and routes /api the same way.
+ * anyone can read. In development Vite forwards /api here; in production this
+ * also serves the built app itself, so deploying is running this one file
+ * anywhere Node runs.
  */
 
 const port = Number(process.env.RELOKIT_PROXY_PORT ?? 8787)
@@ -19,6 +22,33 @@ if (!base || !orgKey) {
 
 const upstream = `${base}/api:${group}`
 const allowed = new Set(['parse', 'run', 'runs', 'op', 'ingest', 'changes', 'watch'])
+const dist = join(process.cwd(), 'apps/web/dist')
+
+const TYPES: Record<string, string> = {
+  '.html': 'text/html; charset=utf-8',
+  '.js': 'text/javascript',
+  '.css': 'text/css',
+  '.json': 'application/json',
+  '.svg': 'image/svg+xml',
+  '.png': 'image/png',
+  '.webmanifest': 'application/manifest+json',
+}
+
+function serveStatic(pathname: string, response: import('node:http').ServerResponse): boolean {
+  if (!existsSync(dist)) return false
+  // Everything without an extension is a page, and every page is the app.
+  const clean = normalize(pathname).replace(/^\/+/, '')
+  const target = join(dist, clean === '' || !extname(clean) ? 'index.html' : clean)
+  if (!target.startsWith(dist) || !existsSync(target) || !statSync(target).isFile()) {
+    return false
+  }
+  response.writeHead(200, {
+    'content-type': TYPES[extname(target)] ?? 'application/octet-stream',
+    'cache-control': target.endsWith('index.html') ? 'no-cache' : 'public, max-age=86400',
+  })
+  createReadStream(target).pipe(response)
+  return true
+}
 
 function reply(response: import('node:http').ServerResponse, status: number, body: unknown): void {
   response.writeHead(status, { 'content-type': 'application/json; charset=utf-8' })
@@ -30,6 +60,12 @@ createServer(async (request, response) => {
   const incoming = new URL(request.url ?? '/', `http://${request.headers.host ?? 'localhost'}`)
   const path = incoming.pathname.replace(/^\/api\/?/, '')
   const endpoint = path.split('/')[0] ?? ''
+
+  if (!incoming.pathname.startsWith('/api')) {
+    if (method === 'GET' && serveStatic(incoming.pathname, response)) return
+    reply(response, 404, { error: 'Not found.' })
+    return
+  }
 
   if (!allowed.has(endpoint) || !['GET', 'POST'].includes(method)) {
     reply(response, 404, { error: 'Unknown API endpoint.' })
@@ -84,6 +120,6 @@ createServer(async (request, response) => {
       error: 'The search service is temporarily unavailable. Please try again.',
     })
   }
-}).listen(port, '127.0.0.1', () => {
+}).listen(port, process.env.RELOKIT_PROXY_HOST ?? '127.0.0.1', () => {
   console.log(`Relokit web proxy listening at http://127.0.0.1:${port}`)
 })
