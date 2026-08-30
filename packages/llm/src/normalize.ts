@@ -156,13 +156,24 @@ function build(
       }
     }
 
-    case 'unit_attribute':
+    case 'unit_attribute': {
+      // "2 bed" is a number of bedrooms, not a floor to build on, and the
+      // search wants both ends of the range. A model that gives only one end
+      // meant the pair, and leaving the other absent left the provider's own
+      // filter with a hole in it, which dropped the whole search.
+      const min = typeof entry.min === 'number' ? Math.round(entry.min) : undefined
+      const max = typeof entry.max === 'number' ? Math.round(entry.max) : undefined
+      const both = min ?? max
+      if (min === undefined && max !== undefined)
+        note('min', entry.min, max, 'the other end of the range')
+      if (max === undefined && min !== undefined)
+        note('max', entry.max, min, 'the other end of the range')
       return {
         ...base,
         attribute: entry.attribute ?? 'beds',
-        ...(typeof entry.min === 'number' ? { min: Math.round(entry.min) } : {}),
-        ...(typeof entry.max === 'number' ? { max: Math.round(entry.max) } : {}),
+        ...(both === undefined ? {} : { min: min ?? both, max: max ?? both }),
       }
+    }
 
     case 'listing_feature':
       return { ...base, feature: entry.feature, required: entry.required !== false }
@@ -190,6 +201,25 @@ function build(
         mode,
         max_seconds: Math.round(value),
       }
+    }
+
+    case 'proximity': {
+      const place = entry.place
+      const raw =
+        typeof place === 'string' ? place : ((place as { raw?: string } | undefined)?.raw ?? '')
+      // Without a place there is nothing to measure from, and a proximity
+      // constraint that measures from nowhere is the bug this type exists to
+      // prevent.
+      if (raw === '') return null
+      const fromText = distanceMeters(span)
+      const radius = fromText ?? (entry.radius_m as number | undefined) ?? 1609
+      note(
+        'radius_m',
+        entry.radius_m,
+        radius,
+        fromText === null ? 'no distance in the phrase' : 'read from the phrase',
+      )
+      return { ...base, inferred: fromText === null, place: { raw }, radius_m: Math.round(radius) }
     }
 
     case 'nearby_poi': {

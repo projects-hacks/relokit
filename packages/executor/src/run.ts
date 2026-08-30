@@ -1,6 +1,7 @@
 import {
   bucket,
   distanceMeters,
+  formatDistance,
   mapAreaSignal,
   mapDirections,
   mapGeocode,
@@ -20,6 +21,8 @@ import {
   slackSeconds,
 } from '@relokit/planner'
 import type {
+  BBox,
+  ProximityConstraint,
   AreaSignalConstraint,
   Capability,
   ClusterSpec,
@@ -70,6 +73,12 @@ export interface RunOutcome {
   evidence: EvidenceRow[]
   missing: MissingFixture[]
   unresolved: { op_id: string; ref: string }[]
+  /**
+   * Requirements that cannot all hold at once, found by measuring rather than by
+   * searching. Two places further apart than their radii allow have no overlap,
+   * and no amount of looking will produce one.
+   */
+  contradictions: { detail: string }[]
   calls: number
   stages: { stage_id: string; entities_in: number; entities_out: number; calls: number }[]
 }
@@ -119,6 +128,7 @@ export async function replayRun(
     evidence: [],
     missing: [],
     unresolved: [],
+    contradictions: [],
     calls: 0,
     stages: [],
   }
@@ -127,6 +137,9 @@ export async function replayRun(
   const produced: Bindings['produced'] = {}
   let clusters: ClusterSpec[] = plan.clusters
   let surviving: ListingSummary[] = []
+  // Places the question named, once each has been located.
+  const placed: { constraint: ProximityConstraint; point: { lat: number; lng: number } }[] = []
+  const droppedByPlace = new Set<string>()
 
   for (const stage of plan.stages) {
     const before = surviving.length
@@ -147,6 +160,11 @@ export async function replayRun(
     for (const op of stage.ops) {
       await runOp(op, stage)
     }
+    tightenBoundsToPlaces()
+    // Asked before anything is searched for, because the answer is already
+    // known: a search cannot find what geometry says is not there.
+    noteContradictions()
+    if (outcome.contradictions.length > 0) break
 
     surviving = withinAnchor(prune(stage, surviving, outcome.evidence))
     // Removed from the answer as well as from the pipeline. Filtering only what
@@ -154,6 +172,10 @@ export async function replayRun(
     // listed, which is the same wrong answer arrived at more cheaply.
     outcome.entities = withinAnchor(outcome.entities)
     surviving = rejectUnreachable(surviving)
+    surviving = withinPlaces(surviving)
+    outcome.entities = outcome.entities.filter((entity) =>
+      surviving.length === 0 && placed.length === 0 ? true : !droppedByPlace.has(entity.entity_id),
+    )
     outcome.stages.push({
       stage_id: stage.stage_id,
       entities_in: before,
@@ -348,6 +370,121 @@ export async function replayRun(
     return entities.filter((entity) => !out.has(entity.entity_id))
   }
 
+  /**
+   * Measures every listing against every place the question named.
+   *
+   * The geocode was the only call any of this needed. A distance from a point to
+   * a point is arithmetic, so having asked once where the university is, asking
+   * how far each of two hundred homes sits from it costs nothing at all.
+   */
+  function withinPlaces(entities: ListingSummary[]): ListingSummary[] {
+    if (placed.length === 0) return entities
+    const kept: ListingSummary[] = []
+
+    for (const entity of entities) {
+      let out = false
+      for (const { constraint, point } of placed) {
+        if (!entity.point) continue
+        if (
+          outcome.evidence.some(
+            (r) => r.entity_id === entity.entity_id && r.constraint_id === constraint.id,
+          )
+        )
+          continue
+        const meters = distanceMeters(point, entity.point)
+        const within = meters <= constraint.radius_m
+        if (!within) out = true
+        outcome.evidence.push({
+          entity_id: entity.entity_id,
+          constraint_id: constraint.id,
+          constraint_type: 'proximity',
+          verdict: within ? 'pass' : 'fail',
+          value_canonical: Math.round(meters),
+          display_value: `${formatDistance(meters)} from ${constraint.place.raw}`,
+          source: 'geometry',
+          source_url: null,
+          confidence: 1,
+          eval_state: 'evaluated',
+          fetched_at_ms: options.now_ms,
+          ttl_seconds: GEOMETRY_TTL_SECONDS,
+          expires_at_ms: options.now_ms + GEOMETRY_TTL_SECONDS * 1000,
+          capability_id: 'proximity.geometry.entity',
+          op_id: `op_proximity_geometry_${constraint.id}`,
+          about: { label: constraint.place.raw, kind: 'destination', point },
+        })
+      }
+      if (out) droppedByPlace.add(entity.entity_id)
+      else kept.push(entity)
+    }
+    return kept
+  }
+
+  /**
+   * Places that cannot all be satisfied at once.
+   *
+   * Two circles overlap only if their centres are closer than their radii added
+   * together. When they are not, nothing exists that is inside both, and saying
+   * so costs nothing and is a better answer than an empty list arrived at after
+   * a search.
+   */
+  function noteContradictions() {
+    const circles = [
+      ...placed.map(({ constraint, point }) => ({
+        label: constraint.place.raw,
+        radius: constraint.radius_m,
+        point,
+      })),
+      ...(constraints.search_anchor?.radius_m && outcome.anchor_point
+        ? [
+            {
+              label: constraints.search_anchor.raw,
+              radius: constraints.search_anchor.radius_m,
+              point: outcome.anchor_point,
+            },
+          ]
+        : []),
+    ]
+
+    for (let i = 0; i < circles.length; i += 1) {
+      for (let j = i + 1; j < circles.length; j += 1) {
+        const a = circles[i]!
+        const b = circles[j]!
+        const apart = distanceMeters(a.point, b.point)
+        if (apart <= a.radius + b.radius) continue
+        outcome.contradictions.push({
+          detail:
+            `Nothing can be within ${formatDistance(a.radius)} of ${a.label} and ` +
+            `${formatDistance(b.radius)} of ${b.label}: they are ${formatDistance(apart)} apart.`,
+        })
+      }
+    }
+  }
+
+  /**
+   * Every place named narrows where it is worth looking, so the box searched is
+   * the overlap of theirs. It is never larger than any one of them and is often
+   * very much smaller, which is the whole saving: one search instead of a
+   * question asked of every home.
+   */
+  function tightenBoundsToPlaces() {
+    if (placed.length === 0) return
+    const boxes = placed.map(({ constraint, point }) => boxAround(point, constraint.radius_m))
+    const north = Math.min(...boxes.map((b) => b.ne.lat))
+    const east = Math.min(...boxes.map((b) => b.ne.lng))
+    const south = Math.max(...boxes.map((b) => b.sw.lat))
+    const west = Math.max(...boxes.map((b) => b.sw.lng))
+    const current = stageOutputs.bounds
+
+    stageOutputs.bounds = {
+      north: current ? Math.min(Number(current.north), north) : north,
+      east: current ? Math.min(Number(current.east), east) : east,
+      south: current ? Math.max(Number(current.south), south) : south,
+      west: current ? Math.max(Number(current.west), west) : west,
+      lat: placed[0]!.point.lat,
+      lng: placed[0]!.point.lng,
+    }
+  }
+
   function base(extra: Partial<Bindings>): Bindings {
     return {
       constraints: constraints.constraints,
@@ -384,6 +521,18 @@ export async function replayRun(
       if (!stageOutputs.bounds) {
         setBounds(geocoded.point, constraints.search_anchor?.radius_m ?? DEFAULT_SEARCH_RADIUS_M)
       }
+      return
+    }
+
+    if (op.capability_id === 'proximity.geocode.region') {
+      const geocoded = mapGeocode(body)
+      const constraint = constraints.constraints.find(
+        (c): c is ProximityConstraint => c.type === 'proximity' && c.id === op.constraint_ids[0],
+      )
+      if (!geocoded || !constraint) return
+      placed.push({ constraint, point: geocoded.point })
+      produced[`constraint.${constraint.id}.place_point`] =
+        `${geocoded.point.lat},${geocoded.point.lng}`
       return
     }
 

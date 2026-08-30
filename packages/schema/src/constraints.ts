@@ -18,6 +18,13 @@ export const ConstraintType = z.enum([
   'unit_attribute',
   'listing_feature',
   'commute',
+  /**
+   * Within a stated distance of a place the question names by name. Not
+   * nearby_poi, which is about a kind of place: one university is not another,
+   * and answering "within 2 miles of the university" with a different school
+   * down the road is how this went wrong before.
+   */
+  'proximity',
   'nearby_poi',
   'area_signal',
 ])
@@ -129,6 +136,20 @@ export const NearbyPoiConstraint = z.object({
   open_window: OpenWindow.optional(),
 })
 
+/**
+ * A named place and how far from it to be.
+ *
+ * Answered in two free halves: geocoding the place narrows the search box, and
+ * every listing that comes back is then measured against it with coordinates
+ * already in hand. Nothing is asked per home.
+ */
+export const ProximityConstraint = z.object({
+  ...base,
+  type: z.literal('proximity'),
+  place: PlaceRef,
+  radius_m: Meters,
+})
+
 export const AreaSignalTopic = z.enum(['construction', 'safety', 'noise', 'development', 'schools'])
 
 /** Narrowed to soft on purpose. A news headline must never be able to reject a home. */
@@ -146,6 +167,7 @@ export const Constraint = z.discriminatedUnion('type', [
   UnitAttributeConstraint,
   ListingFeatureConstraint,
   CommuteConstraint,
+  ProximityConstraint,
   NearbyPoiConstraint,
   AreaSignalConstraint,
 ])
@@ -188,6 +210,7 @@ export type BudgetConstraint = z.infer<typeof BudgetConstraint>
 export type UnitAttributeConstraint = z.infer<typeof UnitAttributeConstraint>
 export type ListingFeatureConstraint = z.infer<typeof ListingFeatureConstraint>
 export type CommuteConstraint = z.infer<typeof CommuteConstraint>
+export type ProximityConstraint = z.infer<typeof ProximityConstraint>
 export type NearbyPoiConstraint = z.infer<typeof NearbyPoiConstraint>
 export type AreaSignalConstraint = z.infer<typeof AreaSignalConstraint>
 export type Constraint = z.infer<typeof Constraint>

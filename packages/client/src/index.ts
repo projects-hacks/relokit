@@ -215,6 +215,9 @@ export async function ask(
         ? { label: constraint_set.search_anchor.raw, point: outcome.anchor_point }
         : null,
     problems: [
+      // Said first, because it explains an empty answer completely and nothing
+      // below it will.
+      ...outcome.contradictions.map((entry) => ({ op_id: 'requirements', detail: entry.detail })),
       ...outcome.unresolved.map((entry) => ({
         op_id: entry.op_id,
         detail: `nothing had established ${entry.ref} by the time it was needed`,

@@ -313,8 +313,15 @@ function assemble(
     ...constraintSelections.flatMap((selection) => {
       const region = selection.byTier.get('region')
       const constraint = selection.slot.constraint!
-      if (!region || constraint.type !== 'commute' || constraint.destination.point) return []
-      return [op(region, selection.slot, 1)]
+      if (!region) return []
+      // Both kinds of place have to be found before the search, not after it:
+      // one says how far anybody will travel, the other says how far from here
+      // to look, and each of them decides the box the search is made in.
+      if (constraint.type === 'commute')
+        return constraint.destination.point ? [] : [op(region, selection.slot, 1)]
+      if (constraint.type === 'proximity')
+        return constraint.place.point ? [] : [op(region, selection.slot, 1)]
+      return []
     }),
   ]
   if (geocodes.length > 0) {
@@ -376,7 +383,8 @@ function assemble(
   // Region level signals that rank but never prune.
   const signals = constraintSelections.flatMap((selection) => {
     const region = selection.byTier.get('region')
-    if (!region || selection.slot.constraint!.type === 'commute') return []
+    const type = selection.slot.constraint!.type
+    if (!region || type === 'commute' || type === 'proximity') return []
     return [op(region, selection.slot, 0)]
   })
   if (signals.length > 0) {

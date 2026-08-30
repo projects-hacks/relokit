@@ -1,5 +1,5 @@
 {
-  "registry_version": "2026-08-29.2",
+  "registry_version": "2026-08-29.3",
   "capabilities": [
     {
       "capability_id": "candidates.anchor.geocode",
@@ -23,6 +23,29 @@
       },
       "produces": ["query.anchor_point"],
       "notes": "Turns the place being searched into a point, so a question naming only a town can be answered. Without it the only way to bound a search was a commute destination, and a question with no commute returned nothing at all while reporting that it had been efficient about it."
+    },
+    {
+      "capability_id": "proximity.geocode.region",
+      "constraint_type": "proximity",
+      "provider": "google_maps",
+      "endpoint": "google_maps:search",
+      "granularity": "region",
+      "cost_units": 1,
+      "latency_p50_ms": 900,
+      "selectivity_prior": 1,
+      "observation_n": 0,
+      "ttl_seconds": 2592000,
+      "coverage": 0.99,
+      "precedence": 1,
+      "enabled": true,
+      "max_fanout": 4,
+      "params_template": {
+        "engine": "google_maps",
+        "type": "search",
+        "q": "$constraint.self.place_raw"
+      },
+      "produces": ["constraint.$self.place_point"],
+      "notes": "Turns a named place into a point once, for the whole search. The distance from every listing to it is then arithmetic on coordinates already in hand, so the check itself costs nothing."
     },
     {
       "capability_id": "candidates.zillow.region",

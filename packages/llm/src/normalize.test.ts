@@ -178,3 +178,68 @@ describe('how far to look', () => {
     expect(constraint_set.search_anchor).toEqual({ raw: 'San Jose' })
   })
 })
+
+describe('a place the question names', () => {
+  it('becomes a proximity constraint with the distance read from the words', () => {
+    const { constraint_set } = normalizeConstraintSet(
+      {
+        location: 'San Jose',
+        constraints: [
+          {
+            id: 'c1',
+            type: 'proximity',
+            hardness: 'hard',
+            weight: 1,
+            source_text: 'within 2 km of Diridon Station',
+            place: { raw: 'Diridon Station' },
+          },
+        ],
+      },
+      '1 bed within 2 km of Diridon Station, in San Jose',
+      meta,
+    )
+    expect(constraint_set.constraints[0]).toMatchObject({
+      type: 'proximity',
+      place: { raw: 'Diridon Station' },
+      radius_m: 2000,
+    })
+  })
+
+  it('drops one that names no place, because there is nothing to measure from', () => {
+    const { constraint_set } = normalizeConstraintSet(
+      {
+        location: 'San Jose',
+        constraints: [
+          { id: 'c1', type: 'proximity', hardness: 'hard', weight: 1, source_text: 'nearby' },
+        ],
+      },
+      'somewhere nearby',
+      meta,
+    )
+    expect(constraint_set.constraints).toHaveLength(0)
+  })
+})
+
+describe('a bedroom count given as one end of a range', () => {
+  it('fills in the other end, so the provider filter is not left with a hole', () => {
+    const { constraint_set } = normalizeConstraintSet(
+      {
+        location: 'San Jose',
+        constraints: [
+          {
+            id: 'c1',
+            type: 'unit_attribute',
+            hardness: 'hard',
+            weight: 1,
+            source_text: '1 bed',
+            attribute: 'beds',
+            min: 1,
+          },
+        ],
+      },
+      '1 bed in San Jose',
+      meta,
+    )
+    expect(constraint_set.constraints[0]).toMatchObject({ min: 1, max: 1 })
+  })
+})
