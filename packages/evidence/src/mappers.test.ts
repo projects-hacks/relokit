@@ -95,6 +95,18 @@ describe('commute', () => {
     expect(evidence!.verdict).toBe('fail')
   })
 
+  it('anchors the drawn route to both ends of the journey', () => {
+    // Manoeuvre points alone start at the first turn and stop at the last,
+    // leaving a line that floats between two places it never touches.
+    const [evidence] = mapDirections(route, commute, context, {
+      entity_id: 'e1',
+      origin: { lat: 37.31, lng: -121.95 },
+      destination: { lat: 37.372, lng: -121.968 },
+    })
+    expect(evidence!.route![0]).toEqual({ lat: 37.31, lng: -121.95 })
+    expect(evidence!.route!.at(-1)).toEqual({ lat: 37.372, lng: -121.968 })
+  })
+
   it('draws the route that produced the number, not the one listed first', () => {
     const [evidence] = mapDirections(route, commute, context, { entity_id: 'e1' })
     // Both alternatives leave from the same doorstep, so the shape is what

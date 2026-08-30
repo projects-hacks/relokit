@@ -81,11 +81,18 @@ export function mapDirections(
   // route that has one. It is the same journey by the same mode; where the two
   // disagree it is by a minute, and a line no one can draw is worse than a line
   // drawn from the next best alternative.
-  const route = shapeOf(
+  const shape = shapeOf(
     (parsed.directions ?? [])
       .filter((candidate) => candidate.travel_mode === label)
       .sort((a, b) => (a.duration ?? Infinity) - (b.duration ?? Infinity))[0],
   )
+  // The provider marks manoeuvres, so the shape starts at the first turn and
+  // stops at the last one. Drawn as is it floats between two places it never
+  // touches; the ends of the journey are known here, so they anchor it.
+  const route =
+    shape && options.origin && options.destination
+      ? [options.origin, ...shape, options.destination]
+      : shape
   const slack = options.slack_seconds ?? 0
   const overBySlack = seconds - slack > constraint.max_seconds
   const within = seconds <= constraint.max_seconds
