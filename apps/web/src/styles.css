@@ -1,35 +1,39 @@
 /*
- * A cyanotype.
+ * A product, not an instrument panel.
  *
- * The machine's side of the work sits on blueprint blue with a drafting
- * graticule over it. What it found sits on pale paper, like a survey slip
- * pinned to the plan. Dark is the asking; light is the record.
+ * One brand colour, and it is the promise: verification green. Everything sits
+ * on warm white surfaces the way a consumer product does, and the receipts,
+ * every fact's source and age in mono, stay as the signature that no listing
+ * site has.
  */
 
 :root {
-  --ground: #0b1f3a;
-  --ground-raised: #102a4c;
-  --ground-sunk: #081729;
-  --graticule: rgb(147 169 196 / 7%);
-  --chalk: #e8eef5;
-  --chalk-dim: #8fa6c2;
-  --chalk-faint: #5f7691;
+  --ground: #ffffff;
+  --ground-raised: #f4f6f3;
+  --ground-sunk: #eceeeb;
+  --graticule: transparent;
+  --chalk: #182420;
+  --chalk-dim: #5c6b64;
+  --chalk-faint: #93a09a;
 
-  --paper: #e9eff4;
-  --paper-edge: #cbd8e4;
-  --ink: #0b1f3a;
-  --ink-dim: #4a6486;
+  --paper: #f6f7f4;
+  --paper-edge: #e4e8e2;
+  --ink: #182420;
+  --ink-dim: #5c6b64;
 
-  --measure: #4da3ff;
-  --verified: #0f7a5a;
-  --unsure: #a9741a;
-  --ruled-out: #b4402f;
+  --measure: #0e7a5c;
+  --verified: #0e7a5c;
+  --unsure: #a97314;
+  --ruled-out: #c04a33;
+
+  --wash: #e7f2ec;
+  --shadow: 0 1px 2px rgb(24 36 32 / 5%), 0 6px 20px rgb(24 36 32 / 6%);
 
   --step: 4px;
-  --radius: 3px;
+  --radius: 12px;
 
-  --sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
-  --condensed: 'IBM Plex Sans Condensed', 'IBM Plex Sans', sans-serif;
+  --sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --condensed: 'Plus Jakarta Sans', ui-sans-serif, sans-serif;
   --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
 }
 
@@ -71,17 +75,15 @@ body {
   row-gap: calc(var(--step) * 2);
   gap: calc(var(--step) * 4);
   padding: calc(var(--step) * 3) calc(var(--step) * 4);
-  border-bottom: 1px solid rgb(147 169 196 / 20%);
-  background: rgb(8 23 41 / 70%);
+  border-bottom: 1px solid var(--paper-edge);
+  background: rgb(255 255 255 / 85%);
   backdrop-filter: blur(6px);
 }
 
 .wordmark {
-  font-family: var(--condensed);
-  font-weight: 600;
-  font-size: 17px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: -0.02em;
   margin: 0;
 }
 
@@ -118,7 +120,7 @@ body {
 .rail {
   order: 1;
   padding: calc(var(--step) * 4);
-  border-right: 1px solid rgb(147 169 196 / 16%);
+  border-right: 1px solid var(--paper-edge);
   display: flex;
   flex-direction: column;
   gap: calc(var(--step) * 6);
@@ -173,12 +175,13 @@ body {
   width: 100%;
   min-height: 116px;
   resize: vertical;
-  padding: calc(var(--step) * 3);
-  font: 400 14px/1.55 var(--sans);
-  color: var(--chalk);
-  background: var(--ground-sunk);
-  border: 1px solid rgb(147 169 196 / 28%);
+  padding: calc(var(--step) * 3.5);
+  font: 400 15px/1.55 var(--sans);
+  color: var(--ink);
+  background: #fff;
+  border: 1.5px solid var(--paper-edge);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .ask textarea::placeholder {
@@ -207,7 +210,7 @@ button:focus-visible,
 .ask button:disabled {
   background: transparent;
   color: var(--chalk-faint);
-  border: 1px solid rgb(147 169 196 / 24%);
+  border: 1px solid var(--paper-edge);
   cursor: default;
 }
 
@@ -232,7 +235,7 @@ button:focus-visible,
   gap: calc(var(--step) * 2);
   align-items: baseline;
   padding: calc(var(--step) * 2) 0;
-  border-bottom: 1px solid rgb(147 169 196 / 12%);
+  border-bottom: 1px solid var(--paper-edge);
 }
 
 .plan-step:last-child {
@@ -303,7 +306,7 @@ button:focus-visible,
   gap: calc(var(--step) * 3);
   align-items: baseline;
   padding-bottom: calc(var(--step) * 2);
-  border-bottom: 1px solid rgb(147 169 196 / 12%);
+  border-bottom: 1px solid var(--paper-edge);
 }
 
 .tally dt {
@@ -370,7 +373,7 @@ button:focus-visible,
   gap: calc(var(--step) * 3);
   padding: calc(var(--step) * 2.5) calc(var(--step) * 4);
   background: rgb(8 23 41 / 88%);
-  border: 1px solid rgb(147 169 196 / 24%);
+  border: 1px solid var(--paper-edge);
   border-radius: var(--radius);
   backdrop-filter: blur(6px);
 }
@@ -469,6 +472,8 @@ button:focus-visible,
 
 .finding {
   cursor: pointer;
+  overflow: hidden;
+  box-shadow: var(--shadow);
   /* Eighty-eight cards is a lot of paint for a list only a few of which are
      ever on screen. */
   content-visibility: auto;
@@ -772,7 +777,7 @@ button:focus-visible,
   color: var(--chalk);
   background: var(--ground-raised);
   border: none;
-  border-top: 1px solid rgb(147 169 196 / 18%);
+  border-top: 1px solid var(--paper-edge);
   padding: calc(var(--step) * 3.5);
   cursor: pointer;
   text-align: left;
@@ -942,9 +947,9 @@ button:focus-visible,
   line-height: 1.45;
   color: var(--chalk);
   background: var(--ground-sunk);
-  border: 1px solid rgb(147 169 196 / 28%);
+  border: 1px solid var(--paper-edge);
   border-radius: var(--radius);
-  box-shadow: 0 6px 18px rgb(8 23 41 / 28%);
+  box-shadow: var(--shadow);
   pointer-events: none;
 }
 
@@ -1184,7 +1189,7 @@ button:focus-visible,
   position: fixed;
   inset: 0;
   z-index: 40;
-  background: rgb(8 23 41 / 55%);
+  background: rgb(24 36 32 / 40%);
   backdrop-filter: blur(2px);
   display: flex;
   justify-content: flex-end;
@@ -1605,7 +1610,8 @@ button:focus-visible,
 }
 
 .standing {
-  justify-self: start;
+  display: inline-block;
+  width: fit-content;
   font-family: var(--condensed);
   font-size: 11px;
   font-weight: 600;
@@ -1641,7 +1647,7 @@ button:focus-visible,
   font-size: 12.5px;
   color: var(--chalk);
   background: var(--ground-raised);
-  border: 1px solid rgb(147 169 196 / 24%);
+  border: 1px solid var(--paper-edge);
   border-radius: var(--radius);
   padding: calc(var(--step) * 1.5) calc(var(--step) * 2.5);
   cursor: pointer;
@@ -1663,7 +1669,7 @@ button:focus-visible,
   z-index: 50;
   display: flex;
   justify-content: flex-end;
-  background: rgb(8 23 41 / 55%);
+  background: rgb(24 36 32 / 40%);
 }
 
 .saved-locations-panel {
@@ -1766,7 +1772,7 @@ button:focus-visible,
   top: calc(var(--step) * 4);
   z-index: 2;
   display: flex;
-  border: 1px solid rgb(147 169 196 / 24%);
+  border: 1px solid var(--paper-edge);
   border-radius: var(--radius);
   background: rgb(8 23 41 / 84%);
   backdrop-filter: blur(6px);

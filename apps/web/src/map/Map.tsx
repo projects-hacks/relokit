@@ -198,9 +198,9 @@ export function Map({
         filter: ['has', 'point_count'],
         paint: {
           'circle-radius': ['step', ['get', 'point_count'], 14, 10, 18, 30, 23],
-          'circle-color': 'rgba(47,211,159,0.22)',
-          'circle-stroke-width': 1.5,
-          'circle-stroke-color': 'rgba(47,211,159,0.65)',
+          'circle-color': 'rgba(13,138,102,0.3)',
+          'circle-stroke-width': 2,
+          'circle-stroke-color': '#ffffff',
         },
       })
       instance.addLayer({
@@ -213,7 +213,11 @@ export function Map({
           'text-size': 12,
           'text-font': ['Noto Sans Regular'],
         },
-        paint: { 'text-color': '#e8eef5' },
+        paint: {
+          'text-color': '#0d5c45',
+          'text-halo-color': '#ffffff',
+          'text-halo-width': 1.2,
+        },
       })
       instance.addLayer({
         id: 'homes-dot',
@@ -233,12 +237,12 @@ export function Map({
             'match',
             ['get', 'verdict'],
             'verified',
-            '#2fd39f',
+            '#0d8a66',
             'unsure',
-            '#e0a338',
+            '#c98a12',
             'out',
-            '#e0674f',
-            '#7a90ad',
+            '#c9502f',
+            '#8595a0',
           ],
           'circle-opacity': ['case', ['==', ['get', 'verdict'], 'out'], 0.35, 0.95],
           'circle-stroke-width': [
@@ -249,7 +253,7 @@ export function Map({
             2,
             0,
           ],
-          'circle-stroke-color': 'rgba(232,238,245,0.55)',
+          'circle-stroke-color': '#ffffff',
         },
       })
       setStyleReady((count) => count + 1)
@@ -521,13 +525,13 @@ export function Map({
       {result && (
         <ul className="legend">
           <li>
-            <i style={{ background: '#2fd39f' }} /> cleared everything
+            <i style={{ background: '#0d8a66' }} /> cleared everything
           </li>
           <li>
-            <i style={{ background: '#e0a338' }} /> could not be checked
+            <i style={{ background: '#c98a12' }} /> could not be checked
           </li>
           <li>
-            <i style={{ background: '#e0674f' }} /> ruled out
+            <i style={{ background: '#c9502f' }} /> ruled out
           </li>
           <li>
             <i style={{ background: '#ffd166' }} /> where you are going

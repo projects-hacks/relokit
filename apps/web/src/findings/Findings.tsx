@@ -166,7 +166,7 @@ export function Findings({
           constraints={constraints}
           showing={shown.length}
           total={bucket.length}
-          word={SUBJECT_WORDS[result.constraint_set.subject].many}
+          word={SUBJECT_WORDS[result.constraint_set.subject]}
         />
       )}
 

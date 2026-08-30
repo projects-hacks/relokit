@@ -41,9 +41,9 @@ export function App() {
   const [savedOpen, setSavedOpen] = useState(false)
   const [mapTheme, setMapTheme] = useState<MapTheme>(() => {
     try {
-      return localStorage.getItem('relokit-map-theme') === 'bright' ? 'bright' : 'dark'
+      return localStorage.getItem('relokit-map-theme') === 'dark' ? 'dark' : 'bright'
     } catch {
-      return 'dark'
+      return 'bright'
     }
   })
   // The end of the run is as much a thing to be told as the middle of it.
@@ -102,9 +102,7 @@ export function App() {
         <h1 className="wordmark">
           Relo<span>kit</span>
         </h1>
-        <p className="strapline">
-          Every requirement checked against the place that actually holds the answer
-        </p>
+        <p className="strapline">Every answer checked at its source</p>
         {result && (
           <div className="ledger-inline">
             <span>

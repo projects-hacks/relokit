@@ -33,7 +33,7 @@ export function Controls({
   onFilters: (filters: Filters) => void
   constraints: ConstraintSet['constraints']
   showing: number
-  word: string
+  word: { one: string; many: string }
   total: number
 }) {
   const budget = constraints.find((c) => c.type === 'budget')
@@ -95,7 +95,9 @@ export function Controls({
       </label>
 
       <p className="showing" aria-live="polite">
-        {showing === total ? `${total} ${word}` : `${showing} of ${total}`}
+        {showing === total
+          ? `${total} ${total === 1 ? word.one : word.many}`
+          : `${showing} of ${total}`}
         {touched && (
           <button
             className="as-link"
