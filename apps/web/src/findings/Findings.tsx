@@ -4,6 +4,7 @@ import {
   NO_FILTERS,
   availableSorts,
   filterEntries,
+  frontier,
   sortEntries,
   type Filters,
   type SortKey,
@@ -84,6 +85,13 @@ export function Findings({
             mark: 'var(--ruled-out)',
           }))
 
+  // Which verified results are beaten outright, and by whom. Only the verified
+  // bucket: dominance among the rejected is an answer nobody asked for.
+  const standings = useMemo(() => frontier(results, result.entities), [results, result.entities])
+  const efficient = results.filter(
+    (entry) => standings.get(entry.entity_id)?.status === 'efficient',
+  ).length
+
   const sorts = useMemo(
     () =>
       availableSorts(
@@ -141,6 +149,13 @@ export function Findings({
         ))}
       </div>
 
+      {open === 'verified' && efficient > 0 && efficient < results.length && (
+        <p className="frontier-note">
+          <b>{efficient}</b> of {results.length} are efficient: nothing beats them on every count.
+          The rest say who does.
+        </p>
+      )}
+
       {bucket.length > 0 && (
         <Controls
           sorts={sorts}
@@ -181,6 +196,7 @@ export function Findings({
               <div key={entry.entity_id} style={{ '--mark': mark } as React.CSSProperties}>
                 <Finding
                   entity={home}
+                  standing={open === 'verified' ? standings.get(entry.entity_id) : undefined}
                   evidence={entry.evidence}
                   constraints={constraints}
                   blocking={blocking}

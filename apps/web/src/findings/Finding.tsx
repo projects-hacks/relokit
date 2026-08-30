@@ -1,3 +1,4 @@
+import type { Standing } from '@relokit/evidence'
 import type { Constraint, EvidenceRow, Place } from '@relokit/schema'
 import { ago, money, sourceName, tight } from '../lib/format.ts'
 import { Tip } from '../lib/tooltip.tsx'
@@ -21,6 +22,7 @@ const EXPLAIN: Record<string, string> = {
  */
 export function Finding({
   entity,
+  standing,
   evidence,
   constraints,
   blocking,
@@ -34,6 +36,7 @@ export function Finding({
   onOpen,
 }: {
   entity: Place
+  standing?: Standing
   evidence: EvidenceRow[]
   constraints: Constraint[]
   blocking?: string[]
@@ -111,6 +114,17 @@ export function Finding({
         {price && <span className="finding-price">{price}</span>}
         {!entity.photo_url && saveButton && <span className="pin-inline">{saveButton}</span>}
       </header>
+
+      {standing?.status === 'efficient' && (
+        <span className="standing" data-kind="efficient">
+          nothing beats it
+        </span>
+      )}
+      {standing?.beaten_by && (
+        <span className="standing" data-kind="beaten">
+          {standing.beaten_by.title.split(',')[0]} is {standing.beaten_by.on.join(' and ')}
+        </span>
+      )}
 
       <button
         className="as-link open"
