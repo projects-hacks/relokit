@@ -1,15 +1,14 @@
 import { describe, expect, it } from 'vitest'
-import type { EvidenceRow, ListingSummary } from '@relokit/schema'
+import type { EvidenceRow, Place } from '@relokit/schema'
 import { availableSorts, filterEntries, sortEntries, type Sortable } from './order.ts'
 
-const home = (id: string, price: number | null, beds: number | null): ListingSummary => ({
+const home = (id: string, price: number | null, beds: number | null): Place => ({
   entity_id: id,
   title: id,
   point: { lat: 37.3, lng: -121.9 },
   price_cents: price,
   price_cents_upper: null,
-  beds,
-  baths: 1,
+  attributes: beds === null ? {} : { beds },
   url: null,
   photo_url: null,
   photos: [],

@@ -26,7 +26,10 @@ export const OpStatus = z.enum([
   'skipped',
 ])
 
-export const ListingSummary = z.object({
+/** Anything a source can put on a map: a flat, a restaurant, a university. */
+export const AttributeValue = z.union([z.string(), z.number(), z.boolean()])
+
+export const Place = z.object({
   entity_id: z.string(),
   title: z.string(),
   /**
@@ -37,8 +40,12 @@ export const ListingSummary = z.object({
   point: GeoPoint.nullable(),
   price_cents: z.number().int().nullable(),
   price_cents_upper: z.number().int().nullable(),
-  beds: z.number().nullable(),
-  baths: z.number().nullable(),
+  /**
+   * Everything else the source knows: bedrooms, a star rating, a cuisine. Open
+   * so a new kind of result needs no change here, and rendered through a table
+   * of keys worth showing.
+   */
+  attributes: z.record(z.string(), AttributeValue).default({}),
   url: z.string().nullable(),
   photo_url: z.string().nullable(),
   /** More of the same listing, for anyone who wants to look before checking. */
@@ -96,7 +103,7 @@ export const RunResult = z.object({
   version: z.number().int(),
   plan_trace: PlanTrace,
   stages: z.array(StageProgress),
-  entities: z.record(z.string(), ListingSummary),
+  entities: z.record(z.string(), Place),
   results: z.array(RankedEntity),
   unverified: z.array(UnverifiedEntity),
   rejections: z.array(RejectedEntity),
@@ -105,7 +112,14 @@ export const RunResult = z.object({
 
 export type RunStatus = z.infer<typeof RunStatus>
 export type OpStatus = z.infer<typeof OpStatus>
-export type ListingSummary = z.infer<typeof ListingSummary>
+/** A number a source recorded, or null if it recorded none. */
+export function numberOf(place: { attributes: Record<string, AttributeValue> }, key: string) {
+  const value = place.attributes[key]
+  return typeof value === 'number' ? value : null
+}
+
+export type AttributeValue = z.infer<typeof AttributeValue>
+export type Place = z.infer<typeof Place>
 export type StageProgress = z.infer<typeof StageProgress>
 export type CostTrace = z.infer<typeof CostTrace>
 export type RankedEntity = z.infer<typeof RankedEntity>

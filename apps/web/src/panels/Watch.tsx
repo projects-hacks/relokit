@@ -6,7 +6,7 @@ import {
   type AskResult,
   type WatchState,
 } from '@relokit/client'
-import type { ListingSummary } from '@relokit/schema'
+import type { Place } from '@relokit/schema'
 import { ago, money } from '../lib/format.ts'
 
 const api = import.meta.env.VITE_RELOKIT_API ?? ''
@@ -109,7 +109,7 @@ export function Watch({ result }: { result: AskResult }) {
  * one entry per bedroom count carries that id with the count appended, so the
  * title is found by what the two share.
  */
-function describe(change: Change, entities: ListingSummary[]): string {
+function describe(change: Change, entities: Place[]): string {
   const home = entities.find(
     (entity) =>
       entity.entity_id === change.entity_id || entity.entity_id.startsWith(`${change.entity_id}#`),

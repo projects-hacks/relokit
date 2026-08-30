@@ -29,7 +29,7 @@ import type {
   CommuteConstraint,
   ConstraintSet,
   EvidenceRow,
-  ListingSummary,
+  Place,
   NearbyPoiConstraint,
   Op,
   PlanResult,
@@ -69,7 +69,7 @@ export interface RunOutcome {
   anchor_point: { lat: number; lng: number } | null
   observed: ObservedPrior[]
   skipped: SkippedStage[]
-  entities: ListingSummary[]
+  entities: Place[]
   evidence: EvidenceRow[]
   missing: MissingFixture[]
   unresolved: { op_id: string; ref: string }[]
@@ -136,7 +136,7 @@ export async function replayRun(
   const stageOutputs: Bindings['stage'] = {}
   const produced: Bindings['produced'] = {}
   let clusters: ClusterSpec[] = plan.clusters
-  let surviving: ListingSummary[] = []
+  let surviving: Place[] = []
   // Places the question named, once each has been located.
   const placed: { constraint: ProximityConstraint; point: { lat: number; lng: number } }[] = []
   const droppedByPlace = new Set<string>()
@@ -300,7 +300,7 @@ export async function replayRun(
    * measured off here rather than asked about: the coordinates are already in
    * hand, so it costs nothing.
    */
-  function withinAnchor(entities: ListingSummary[]): ListingSummary[] {
+  function withinAnchor(entities: Place[]): Place[] {
     const radius = constraints.search_anchor?.radius_m
     const centre = outcome.anchor_point
     if (!radius || !centre) return entities
@@ -320,7 +320,7 @@ export async function replayRun(
    * coordinates are already here, so it is free, and it is a rejection rather
    * than a guess: it is arithmetic, and the reason says so.
    */
-  function rejectUnreachable(entities: ListingSummary[]): ListingSummary[] {
+  function rejectUnreachable(entities: Place[]): Place[] {
     const commutes = constraints.constraints.filter(
       (c): c is CommuteConstraint => c.type === 'commute' && c.hardness === 'hard',
     )
@@ -377,9 +377,9 @@ export async function replayRun(
    * a point is arithmetic, so having asked once where the university is, asking
    * how far each of two hundred homes sits from it costs nothing at all.
    */
-  function withinPlaces(entities: ListingSummary[]): ListingSummary[] {
+  function withinPlaces(entities: Place[]): Place[] {
     if (placed.length === 0) return entities
-    const kept: ListingSummary[] = []
+    const kept: Place[] = []
 
     for (const entity of entities) {
       let out = false
@@ -734,11 +734,7 @@ function inCell(
   return nearest.cluster_id === cell.cluster_id
 }
 
-function prune(
-  stage: Stage,
-  surviving: ListingSummary[],
-  evidence: EvidenceRow[],
-): ListingSummary[] {
+function prune(stage: Stage, surviving: Place[], evidence: EvidenceRow[]): Place[] {
   if (!stage.prune || stage.prune.on_fail.length === 0) return surviving
   const rejected = new Set(
     evidence

@@ -134,7 +134,7 @@ describe('budget', () => {
 describe('bedrooms', () => {
   it('reads the band bedroom count off the unit, not the building', () => {
     const band = result.entities.find((e) => e.entity_id.endsWith('#1bed'))!
-    expect(band.beds).toBe(1)
+    expect(band.attributes.beds).toBe(1)
     expect(byConstraint(band.entity_id, 'c2').verdict).toBe('pass')
   })
 

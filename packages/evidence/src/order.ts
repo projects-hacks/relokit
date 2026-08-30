@@ -1,4 +1,4 @@
-import type { EvidenceRow, ListingSummary } from '@relokit/schema'
+import { numberOf, type EvidenceRow, type Place } from '@relokit/schema'
 
 /**
  * Putting a list of homes in an order somebody asked for.
@@ -28,7 +28,7 @@ export const NO_FILTERS: Filters = { max_price_cents: null, beds: null }
 
 export function sortEntries<T extends Sortable>(
   entries: T[],
-  entities: ListingSummary[],
+  entities: Place[],
   key: SortKey,
 ): T[] {
   const byId = new Map(entities.map((entity) => [entity.entity_id, entity]))
@@ -41,12 +41,7 @@ export function sortEntries<T extends Sortable>(
   })
 }
 
-function compare<T extends Sortable>(
-  a: T,
-  b: T,
-  byId: Map<string, ListingSummary>,
-  key: SortKey,
-): number {
+function compare<T extends Sortable>(a: T, b: T, byId: Map<string, Place>, key: SortKey): number {
   if (key === 'best') return (b.score ?? 0) - (a.score ?? 0)
   if (key === 'cheapest') return lowestFirst(price(a, byId), price(b, byId))
   if (key === 'quickest') return lowestFirst(travel(a), travel(b))
@@ -65,7 +60,7 @@ function lowestFirst(a: number | null, b: number | null): number {
   return a - b
 }
 
-function price(entry: Sortable, byId: Map<string, ListingSummary>): number | null {
+function price(entry: Sortable, byId: Map<string, Place>): number | null {
   return byId.get(entry.entity_id)?.price_cents ?? null
 }
 
@@ -87,7 +82,7 @@ function smallest(evidence: EvidenceRow[], type: EvidenceRow['constraint_type'])
 
 export function filterEntries<T extends Sortable>(
   entries: T[],
-  entities: ListingSummary[],
+  entities: Place[],
   filters: Filters,
 ): T[] {
   const byId = new Map(entities.map((entity) => [entity.entity_id, entity]))
@@ -106,7 +101,8 @@ export function filterEntries<T extends Sortable>(
       return false
     }
 
-    if (filters.beds !== null && entity.beds !== null && entity.beds !== filters.beds) {
+    const beds = numberOf(entity, 'beds')
+    if (filters.beds !== null && beds !== null && beds !== filters.beds) {
       return false
     }
 

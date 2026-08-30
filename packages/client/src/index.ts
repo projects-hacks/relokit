@@ -7,7 +7,7 @@ import {
   Registry,
   type ConstraintSet,
   type EvidenceRow,
-  type ListingSummary,
+  type Place,
   type PlanResult,
   type Weekday,
 } from '@relokit/schema'
@@ -51,7 +51,7 @@ export interface AskResult {
   constraint_set: ConstraintSet
   repairs: Repair[]
   plan: PlanResult
-  entities: ListingSummary[]
+  entities: Place[]
   evidence: EvidenceRow[]
   buckets: Buckets
   relaxations: Relaxation[]
