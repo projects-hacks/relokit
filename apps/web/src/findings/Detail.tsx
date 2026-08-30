@@ -82,7 +82,7 @@ export function Detail({
           </button>
           {entity.url && (
             <a className="outward" href={entity.url} target="_blank" rel="noreferrer">
-              See it on Zillow
+              See the full listing
             </a>
           )}
         </div>

@@ -144,7 +144,7 @@ export function App() {
         </main>
 
         <section className="paper" id="results">
-          {status === 'idle' && saved.homes.length === 0 && <Brief />}
+          {status === 'idle' && saved.homes.length === 0 && <Brief onAsk={run} />}
 
           {status === 'idle' && saved.homes.length > 0 && (
             <section>
