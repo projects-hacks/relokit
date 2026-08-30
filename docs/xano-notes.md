@@ -123,6 +123,23 @@ runs one at a time.
 The floor is therefore about 2.6 s per operation, and the way past it is fewer
 round trips rather than more of them at once.
 
+## The instance flaps under sustained load
+
+An evening of continuous runs produced a pattern: first the largest write starts
+returning 502 with an nginx page while reads still answer, then everything
+returns 503 in under 200ms, then it recovers on its own in roughly ten minutes,
+and a burst of writes can knock it straight back down.
+
+Two mitigations are in. The client persists a run in chunks rather than one
+request, so a struggling gateway drops a piece instead of the whole record. And
+the interface shows a gateway page as a plain sentence, not markup.
+
+For a demo: warm the instance with one small request first, do not hammer it in
+the minutes before, and if it flaps, the replay works with no instance at all.
+
+Pruning old rows to lighten it was considered and rejected: old evidence rows
+are the ledger, and deleting them buys instance health by spending searches.
+
 ## Other things that bite
 
 A query parameter arrives as text. `db.get` on an int column with one fails with

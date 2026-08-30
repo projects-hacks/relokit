@@ -176,22 +176,30 @@ export async function ask(
   for (const stage of outcome.stages) report({ kind: 'stage', ...stage })
   for (const skipped of outcome.skipped) report({ kind: 'skipped', ...skipped })
 
-  await transport.post('/ingest', {
-    run_id: runId,
-    entities: outcome.entities.map((entity) => ({
-      entity_id: entity.entity_id,
-      kind: 'listing',
-      provider: 'zillow',
-      lat: entity.point?.lat ?? null,
-      lng: entity.point?.lng ?? null,
-      display: entity,
-    })),
-    evidence: outcome.evidence.map((row) => ({
-      ...row,
-      value_canonical: typeof row.value_canonical === 'number' ? row.value_canonical : null,
-      value_text: typeof row.value_canonical === 'string' ? row.value_canonical : null,
-    })),
-  })
+  // In chunks, because the whole record of a big run in one request is what a
+  // struggling gateway drops first. Each piece is additive, so partial
+  // persistence degrades to fewer stored rows rather than a failed run.
+  const entityRows = outcome.entities.map((entity) => ({
+    entity_id: entity.entity_id,
+    kind: 'listing',
+    provider: 'zillow',
+    lat: entity.point?.lat ?? null,
+    lng: entity.point?.lng ?? null,
+    display: entity,
+  }))
+  const evidenceRows = outcome.evidence.map((row) => ({
+    ...row,
+    value_canonical: typeof row.value_canonical === 'number' ? row.value_canonical : null,
+    value_text: typeof row.value_canonical === 'string' ? row.value_canonical : null,
+  }))
+  const CHUNK = 60
+  for (let at = 0; at < Math.max(entityRows.length, evidenceRows.length, 1); at += CHUNK) {
+    await transport.post('/ingest', {
+      run_id: runId,
+      entities: entityRows.slice(at, at + CHUNK),
+      evidence: evidenceRows.slice(at, at + CHUNK),
+    })
+  }
 
   const stored = (await transport.get(`/runs?run_id=${runId}`)) as {
     ops: { status: string }[]
