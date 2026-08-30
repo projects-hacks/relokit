@@ -1,5 +1,5 @@
 {
-  "registry_version": "2026-08-30.4",
+  "registry_version": "2026-08-30.5",
   "capabilities": [
     {
       "capability_id": "candidates.anchor.geocode",
@@ -71,6 +71,31 @@
       "notes": "One call per page. The plan emits a single op and the executor repeats it while the response reports more pages, up to max_fanout, because the page count is data and the plan is written before any of it exists. The free predicates cut the page count as well as the candidate count: the unfiltered San Jose pool is 20 pages, the filtered one is a single page. A listing price is stable over days rather than hours, and the six hour life it had before meant a second question about the same city an hour later paid for the whole candidate set again, which is the opposite of what the ledger is for. Forty eight hours, and the interface shows the real age of every fact either way.",
       "produces": ["entity", "stage.candidates"],
       "subjects": ["rental"]
+    },
+    {
+      "capability_id": "candidates.zillow.sale.region",
+      "constraint_type": "candidate_source",
+      "provider": "zillow",
+      "endpoint": "zillow:search",
+      "granularity": "region",
+      "cost_units": 1,
+      "latency_p50_ms": 1900,
+      "selectivity_prior": 1,
+      "observation_n": 0,
+      "ttl_seconds": 172800,
+      "coverage": 1,
+      "precedence": 1,
+      "enabled": true,
+      "max_fanout": 8,
+      "params_template": {
+        "engine": "zillow",
+        "status_type": "sale",
+        "map_bounds": "$stage.bounds.north,$stage.bounds.east,$stage.bounds.south,$stage.bounds.west",
+        "page": 1
+      },
+      "notes": "The same search against what is for sale rather than to let.",
+      "produces": ["entity", "stage.candidates"],
+      "subjects": ["home_for_sale"]
     },
     {
       "capability_id": "candidates.places.region",

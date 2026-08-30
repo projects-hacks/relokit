@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
-import { ConstraintSet, Registry } from '@relokit/schema'
+import { ConstraintSet, Registry, Subject } from '@relokit/schema'
 import { plan } from './plan.ts'
 
 const registry = Registry.parse(
@@ -49,5 +49,19 @@ describe('what is being looked for', () => {
     // plan has nothing to search with rather than searching for the wrong thing.
     const ops = run('restaurant').stages.flatMap((stage) => stage.ops)
     expect(ops.some((op) => op.capability_id === 'candidates.zillow.region')).toBe(false)
+  })
+})
+
+describe('every subject has somewhere to come from', () => {
+  it('can plan a search for each one it offers', () => {
+    // A subject with no source is a question the interface invites and cannot
+    // answer, which is worse than not offering it.
+    for (const subject of Subject.options) {
+      const ops = run(subject).stages.flatMap((stage) => stage.ops)
+      expect({
+        subject,
+        sourced: ops.some((op) => op.capability_id.startsWith('candidates.')),
+      }).toEqual({ subject, sourced: true })
+    }
   })
 })

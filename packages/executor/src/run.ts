@@ -606,7 +606,8 @@ export async function replayRun(
       return
     }
 
-    if (op.capability_id === 'candidates.zillow.region') {
+    // Letting and selling are the same search against a different market.
+    if (op.capability_id.startsWith('candidates.zillow.')) {
       const pushedDown = op.constraint_ids.filter((id) => id !== 'candidate_source')
       const answered = constraints.constraints.filter((c) => pushedDown.includes(c.id))
       const mapped = mapZillowSearch(body, answered, context(op), pushedDown)

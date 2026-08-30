@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { AskEvent } from '@relokit/client'
 import { applyRelaxation } from '@relokit/evidence'
+import { SUBJECT_WORDS } from '@relokit/schema'
 import { useAsk } from './useAsk.ts'
 import { useDeferred } from './lib/deferred.ts'
 import { useSaved } from './lib/saved.ts'
@@ -41,7 +42,7 @@ export function App() {
     status === 'running'
       ? describe(events)
       : result
-        ? `${result.buckets.results.length} of ${result.entities.length} homes cleared every requirement`
+        ? `${result.buckets.results.length} of ${result.entities.length} ${SUBJECT_WORDS[result.constraint_set.subject].many} cleared every requirement`
         : status === 'failed'
           ? `The run stopped: ${error ?? 'no reason given'}`
           : ''
