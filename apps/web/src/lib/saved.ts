@@ -91,5 +91,11 @@ export function useSaved(query: string) {
     })
   }, [])
 
-  return { homes, toggle, remove, clear, isSaved: (id: string) => homes.some((h) => h.entity_id === id) }
+  return {
+    homes,
+    toggle,
+    remove,
+    clear,
+    isSaved: (id: string) => homes.some((h) => h.entity_id === id),
+  }
 }
