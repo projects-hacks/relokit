@@ -315,7 +315,11 @@ function assemble(
   const areaSelection = selections.find((selection) => selection.slot.type === SEARCH_AREA)
   const areaCandidate = areaSelection?.byTier.get('region')
   const geocodes = [
-    ...(areaCandidate ? [op(areaCandidate, areaSelection!.slot, 0)] : []),
+    // An anchor that already carries its point, the reader's own location,
+    // needs nobody to tell it where it is.
+    ...(areaCandidate && !input.constraints.search_anchor?.point
+      ? [op(areaCandidate, areaSelection!.slot, 0)]
+      : []),
     ...constraintSelections.flatMap((selection) => {
       const region = selection.byTier.get('region')
       const constraint = selection.slot.constraint!

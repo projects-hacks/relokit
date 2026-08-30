@@ -1,6 +1,7 @@
 import { bucket, relaxations, type Buckets, type Relaxation } from '@relokit/evidence'
 import { replayRun } from '@relokit/executor'
 import { normalizeConstraintSet, PARSER_VERSION, type Repair } from '@relokit/llm'
+import { NEAR_ME, anchorToHere } from './near.ts'
 import { plan } from '@relokit/planner'
 import {
   PlanBudget,
@@ -89,6 +90,8 @@ export interface AskOptions {
   constraints?: ConstraintSet
   /** Stops the run between calls. What was already fetched stays fetched. */
   signal?: AbortSignal
+  /** The reader's own coordinates, when the question says near me. */
+  here?: { lat: number; lng: number }
 }
 
 export async function ask(
@@ -123,7 +126,10 @@ export async function ask(
     )
   }
   const { constraint_set: parsedSet, repairs } = normalized
-  const constraint_set = options.constraints ?? parsedSet
+  let constraint_set = options.constraints ?? parsedSet
+  if (options.here && NEAR_ME.test(query)) {
+    constraint_set = anchorToHere(constraint_set, options.here)
+  }
   report({ kind: 'parsed', answered_by: String(parsed.answered_by), constraint_set, repairs })
 
   const registry = Registry.parse({
@@ -359,3 +365,5 @@ export async function setWatch(
 ): Promise<void> {
   await transport.post('/watch', { run_id: runId, name, enabled })
 }
+
+export { NEAR_ME, anchorToHere } from './near.ts'

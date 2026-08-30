@@ -143,6 +143,22 @@ export async function replayRun(
   const placed: { constraint: ProximityConstraint; point: { lat: number; lng: number } }[] = []
   const droppedByPlace = new Set<string>()
 
+  // Points handed in with the question, the reader's own location above all,
+  // stand in for the geocodes that would otherwise have to find them.
+  if (constraints.search_anchor?.point) {
+    const point = constraints.search_anchor.point
+    produced['query.anchor_point'] = `${point.lat},${point.lng}`
+    outcome.anchor_point = point
+    setBounds(point, constraints.search_anchor.radius_m ?? DEFAULT_SEARCH_RADIUS_M)
+  }
+  for (const constraint of constraints.constraints) {
+    if (constraint.type === 'proximity' && constraint.place.point) {
+      placed.push({ constraint, point: constraint.place.point })
+      produced[`constraint.${constraint.id}.place_point`] =
+        `${constraint.place.point.lat},${constraint.place.point.lng}`
+    }
+  }
+
   for (const stage of plan.stages) {
     const before = surviving.length
     const callsBefore = outcome.calls
@@ -299,13 +315,26 @@ export async function replayRun(
     // had budgeted for was priced and never collected. The provider says how
     // many pages exist; the ceiling still governs the spend.
     if (stage.fanout === 'paged' && answers[0]?.kind === 'answered') {
-      const said = (answers[0].body as { search_information?: { total_pages?: number } })
-        .search_information?.total_pages
-      const pages = Math.min(typeof said === 'number' ? said : 1, MAX_SEARCH_PAGES)
+      // Each engine turns pages its own way: Zillow numbers them and says how
+      // many there are; a place search offsets by twenty and only says whether
+      // more exist.
+      const first = answers[0].body as {
+        search_information?: { total_pages?: number }
+        serpapi_pagination?: { next?: string }
+      }
+      const resolvedOnce = resolveParams(op.params, answers[0].bindings)
+      const engine = String(resolvedOnce.engine ?? 'zillow')
+      const pages =
+        engine === 'zillow'
+          ? Math.min(first.search_information?.total_pages ?? 1, MAX_SEARCH_PAGES)
+          : first.serpapi_pagination?.next
+            ? 2
+            : 1
       for (let page = 2; page <= pages; page += 1) {
         try {
           const resolved = resolveParams(op.params, answers[0].bindings)
-          const params = { ...resolved, page }
+          const params =
+            engine === 'zillow' ? { ...resolved, page } : { ...resolved, start: (page - 1) * 20 }
           const body = await search(String(resolved.engine ?? 'zillow') as Engine, params, {
             op_id: `${op.op_id}_p${page}`,
             capability_id: op.capability_id,

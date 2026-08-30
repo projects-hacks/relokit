@@ -10,7 +10,7 @@ const EXAMPLES: { label: string; query: string }[] = [
     label: 'Dinner near Santana Row, open late',
     query: 'somewhere to eat within 1 mile of Santana Row in San Jose that is open past 10pm',
   },
-  { label: 'A gym that opens before work', query: 'gyms in downtown Austin open before 6am' },
+  { label: 'Dinner near me, open late', query: 'mexican restaurants near me open past 10pm' },
   {
     label: 'Near the station and the shops',
     query: '1 bed within 3 km of Diridon Station and 3 km of Santana Row, in San Jose',

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { ask, httpTransport, type AskEvent, type AskResult } from '@relokit/client'
+import { NEAR_ME, ask, httpTransport, type AskEvent, type AskResult } from '@relokit/client'
 import type { ConstraintSet } from '@relokit/schema'
 import { forget, recall, remember } from './lib/remember.ts'
 
@@ -72,7 +72,25 @@ export function useAsk() {
     controller.current = own
     setState({ status: 'running', events: [], result: null, query, error: null, restored: null })
     try {
+      // Near me means the reader's coordinates, asked for only when the words
+      // ask for them, and refused with directions rather than a shrug.
+      let here: { lat: number; lng: number } | undefined
+      if (NEAR_ME.test(query)) {
+        try {
+          here = await locate()
+        } catch {
+          if (own.signal.aborted) return
+          setState((previous) => ({
+            ...previous,
+            status: 'failed',
+            error:
+              'To search near you the browser has to share your location. Allow it and ask again, or name a place instead.',
+          }))
+          return
+        }
+      }
       const result = await ask(httpTransport(api, orgKey), query, {
+        ...(here ? { here } : {}),
         onProgress: (event) =>
           setState((previous) => ({ ...previous, events: [...previous.events, event] })),
         signal: own.signal,
@@ -132,4 +150,14 @@ function friendlyError(error: unknown): string {
     return 'The search service could not be reached. Check the connection and try again.'
   }
   return detail
+}
+
+function locate(): Promise<{ lat: number; lng: number }> {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => resolve({ lat: position.coords.latitude, lng: position.coords.longitude }),
+      reject,
+      { timeout: 8000, maximumAge: 300_000 },
+    )
+  })
 }
