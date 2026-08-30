@@ -33,6 +33,9 @@ export function App() {
   const saved = useSaved(result?.constraint_set.raw_query ?? '')
   const working = useDeferred(status === 'running' && !result)
   const notice = useToast()
+  // On a phone the answer comes first and the map is asked for. Above that it
+  // is always open and the control is not rendered at all.
+  const [mapShut, setMapShut] = useState(true)
   // The end of the run is as much a thing to be told as the middle of it.
   const progress =
     status === 'running'
@@ -67,7 +70,7 @@ export function App() {
       : undefined
 
   return (
-    <div className="shell">
+    <div className="shell" data-answered={String(Boolean(result))}>
       {/* One region, present from the start, so a reader is told how the run is
           going rather than left with a page that silently rearranges itself. */}
       <div className="sr-only" role="status" aria-live="polite">
@@ -116,8 +119,16 @@ export function App() {
           <Plan plan={plan} events={events} />
         </aside>
 
-        <main className="stage">
+        <main className="stage" data-shut={String(mapShut)}>
+          <button
+            className="stage-toggle"
+            onClick={() => setMapShut((current) => !current)}
+            aria-expanded={!mapShut}
+          >
+            {mapShut ? 'Show the map' : 'Hide the map'}
+          </button>
           <Map
+            shut={mapShut}
             plan={plan}
             result={result}
             selected={selectedId}

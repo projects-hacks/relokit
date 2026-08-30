@@ -21,7 +21,7 @@ export function Plan({ plan, events }: { plan: PlanResult | null; events: AskEve
   )
 
   return (
-    <section>
+    <section className="plan">
       <p className="eyebrow">How it will be checked</p>
       {plan.stages.map((stage) => {
         const report = done.get(stage.stage_id)

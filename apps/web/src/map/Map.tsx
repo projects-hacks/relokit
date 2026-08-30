@@ -18,6 +18,7 @@ export function Map({
   plan,
   result,
   selected,
+  shut,
   hovered,
   onSelect,
   onHover,
@@ -26,6 +27,9 @@ export function Map({
   plan: PlanResult | null
   result: AskResult | null
   selected: string | null
+  /** Shut on a phone until asked for. A canvas measured at zero height stays
+   * zero until it is told to measure again. */
+  shut?: boolean
   hovered: string | null
   onSelect: (entityId: string) => void
   onHover: (entityId: string | null) => void
@@ -38,6 +42,17 @@ export function Map({
   // itself called Map and shadows the constructor.
   const featureIds = useRef<Record<string, number>>({})
   const lit = useRef<number | null>(null)
+
+  // A canvas measured while its container was collapsed keeps that size until
+  // it is told to measure again, so reopening the sheet would otherwise show a
+  // sliver of map.
+  useEffect(() => {
+    if (shut) return
+    const instance = map.current
+    if (!instance) return
+    const timer = setTimeout(() => instance.resize(), 60)
+    return () => clearTimeout(timer)
+  }, [shut])
 
   useEffect(() => {
     if (!container.current || map.current) return
