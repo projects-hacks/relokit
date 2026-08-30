@@ -793,108 +793,6 @@ button:focus-visible,
   display: none;
 }
 
-@media (min-width: 900px) {
-  .masthead {
-    flex-wrap: nowrap;
-    padding: calc(var(--step) * 3) calc(var(--step) * 6);
-  }
-
-  .masthead .strapline {
-    display: block;
-  }
-
-  .masthead .ledger-inline {
-    margin-left: auto;
-  }
-
-  /* Room for the question beside the map, with the answer across the foot.
-     The map goes back to the middle, where the phone had put it last. */
-  .columns {
-    grid-template-columns: 300px minmax(0, 1fr);
-  }
-
-  .rail {
-    order: 1;
-    padding: calc(var(--step) * 5);
-  }
-
-  .stage {
-    order: 2;
-  }
-
-  .paper {
-    order: 3;
-  }
-
-  .paper {
-    grid-column: 1 / -1;
-    padding: calc(var(--step) * 5);
-  }
-
-  /* The map is always open and fills its pane, so it goes back to sitting
-     inside it and the sheet control has nothing left to do. */
-  .stage {
-    display: block;
-    min-height: 460px;
-  }
-
-  /* The sheet is only shut on a phone. Here the map is always open, so the
-     rule that hides it has to be lifted as well as repositioned. */
-  .stage .map,
-  .stage[data-shut='true'] .map,
-  .stage[data-shut='false'] .map {
-    display: block;
-    position: absolute;
-    inset: 0;
-    width: auto;
-    height: auto;
-  }
-
-  .stage-toggle {
-    display: none;
-  }
-
-  .stage .legend,
-  .stage[data-shut='true'] .legend,
-  .stage[data-shut='false'] .legend {
-    display: grid;
-  }
-
-  .stage .counter,
-  .stage[data-shut='true'] .counter {
-    display: flex;
-    position: absolute;
-    left: calc(var(--step) * 5);
-    bottom: calc(var(--step) * 5);
-    margin: 0;
-  }
-
-  .detail {
-    width: min(560px, 100%);
-  }
-}
-
-@media (min-width: 1180px) {
-  /* Three panes, each scrolling on its own. */
-  .columns {
-    grid-template-columns: 340px minmax(0, 1fr) 460px;
-    overflow: hidden;
-  }
-
-  .rail {
-    overflow-y: auto;
-  }
-
-  .paper {
-    grid-column: auto;
-    overflow-y: auto;
-  }
-
-  .stage {
-    min-height: 0;
-  }
-}
-
 /* ---------- the idle brief ---------- */
 
 .brief {
@@ -2032,4 +1930,107 @@ button:focus-visible,
 /* The sheet opens by height, so the height is what eases. */
 .stage .map {
   transition: height 260ms ease;
+}
+
+/* Wider screens last, so every base rule above can be overridden here. */
+@media (min-width: 900px) {
+  .masthead {
+    flex-wrap: nowrap;
+    padding: calc(var(--step) * 3) calc(var(--step) * 6);
+  }
+
+  .masthead .strapline {
+    display: block;
+  }
+
+  .masthead .ledger-inline {
+    margin-left: auto;
+  }
+
+  /* Room for the question beside the map, with the answer across the foot.
+     The map goes back to the middle, where the phone had put it last. */
+  .columns {
+    grid-template-columns: 300px minmax(0, 1fr);
+  }
+
+  .rail {
+    order: 1;
+    padding: calc(var(--step) * 5);
+  }
+
+  .stage {
+    order: 2;
+  }
+
+  .paper {
+    order: 3;
+  }
+
+  .paper {
+    grid-column: 1 / -1;
+    padding: calc(var(--step) * 5);
+  }
+
+  /* The map is always open and fills its pane, so it goes back to sitting
+     inside it and the sheet control has nothing left to do. */
+  .stage {
+    display: block;
+    min-height: 460px;
+  }
+
+  /* The sheet is only shut on a phone. Here the map is always open, so the
+     rule that hides it has to be lifted as well as repositioned. */
+  .stage .map,
+  .stage[data-shut='true'] .map,
+  .stage[data-shut='false'] .map {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: auto;
+    height: auto;
+  }
+
+  .stage-toggle {
+    display: none;
+  }
+
+  .stage .legend,
+  .stage[data-shut='true'] .legend,
+  .stage[data-shut='false'] .legend {
+    display: grid;
+  }
+
+  .stage .counter,
+  .stage[data-shut='true'] .counter {
+    display: flex;
+    position: absolute;
+    left: calc(var(--step) * 5);
+    bottom: calc(var(--step) * 5);
+    margin: 0;
+  }
+
+  .detail {
+    width: min(560px, 100%);
+  }
+}
+
+@media (min-width: 1180px) {
+  /* Three panes, each scrolling on its own. */
+  .columns {
+    grid-template-columns: 340px minmax(0, 1fr) 460px;
+    overflow: hidden;
+  }
+
+  .rail {
+    overflow-y: auto;
+  }
+
+  .paper {
+    grid-column: auto;
+    overflow-y: auto;
+  }
+
+  .stage {
+    min-height: 0;
+  }
 }

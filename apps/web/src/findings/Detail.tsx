@@ -78,7 +78,7 @@ export function Detail({
 
         <div className="detail-actions">
           <button className={saved ? 'saved' : 'save'} onClick={onSave}>
-            {saved ? 'Saved location' : 'Save location'}
+            {saved ? 'Saved' : 'Save this place'}
           </button>
           {entity.url && (
             <a className="outward" href={entity.url} target="_blank" rel="noreferrer">

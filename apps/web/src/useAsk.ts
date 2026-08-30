@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { ask, httpTransport, type AskEvent, type AskResult } from '@relokit/client'
 import type { ConstraintSet } from '@relokit/schema'
 import { forget, recall, remember } from './lib/remember.ts'
@@ -24,6 +24,26 @@ const api = '/api'
 const orgKey = ''
 
 export function useAsk() {
+  // ?demo restores the committed fixture run instead of asking anything, so
+  // every screen can be shown with no backend reachable at all.
+  useEffect(() => {
+    if (!new URLSearchParams(location.search).has('demo')) return
+    fetch('/demo-run.json')
+      .then((response) => response.json())
+      .then(({ query, result }: { query: string; result: AskResult }) =>
+        setState({
+          status: 'done',
+          events: [],
+          result,
+          error: null,
+          restored: { query, at: Date.now() },
+        }),
+      )
+      .catch(() => {
+        // The fixture is optional; without it the page just starts empty.
+      })
+  }, [])
+
   // The last answer comes back on a reload. Coming back to a decision an hour
   // later should not mean asking every source again.
   const [state, setState] = useState<AskState>(() => {
