@@ -4,11 +4,17 @@ Output only JSON. No prose, no code fence, no explanation.
 
 Shape:
 
-{"location": "where they are looking", "constraints": [ ... ]}
+{"location": "where they are looking", "radius_m": 3218, "constraints": [ ... ]}
 
 location is the town, city or area being searched, copied as written. If the
 question names no area but names a place to travel to, use that place. This is
 the one field that is always needed: without it there is nowhere to search.
+
+radius_m is how far around that place to look, when the question says. "within 2
+miles of the university" is 3218. Leave it out when no distance is given. This is
+a bound on where to search, so leave the question's own words in source_text of
+no constraint: it is answered by looking in the right place, not by asking about
+each home.
 
 Every constraint carries:
 
@@ -50,3 +56,9 @@ sensible limit is filled in and marked as an assumption.
 
 One phrase can produce one constraint. Do not split "a gym within half a mile
 open before 6am" into two.
+
+nearby_poi is for a kind of place that has to be near the home: a gym, a grocery,
+any park. It is never for a place the question names. "Within 2 miles of San Jose
+State University" names one particular university, and a search for a nearby
+school would answer it with a different school down the road. Put that place in
+location and the distance in radius_m.

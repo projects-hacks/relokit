@@ -155,3 +155,26 @@ describe('two models, one answer', () => {
     expect(gymRadius).toBe(805)
   })
 })
+
+describe('how far to look', () => {
+  it('carries a stated radius onto the search anchor', () => {
+    const { constraint_set } = normalizeConstraintSet(
+      { location: 'San Jose State University', radius_m: 3218, constraints: [] },
+      'show me 2 bedroom apartments within 2 miles of San Jose State University',
+      meta,
+    )
+    expect(constraint_set.search_anchor).toEqual({
+      raw: 'San Jose State University',
+      radius_m: 3218,
+    })
+  })
+
+  it('leaves the radius off when the question gives none', () => {
+    const { constraint_set } = normalizeConstraintSet(
+      { location: 'San Jose', constraints: [] },
+      'apartments in San Jose',
+      meta,
+    )
+    expect(constraint_set.search_anchor).toEqual({ raw: 'San Jose' })
+  })
+})

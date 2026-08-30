@@ -73,6 +73,8 @@ export interface AskResult {
 }
 
 export interface AskOptions {
+  /** Calls of one operation to have in the air at once. */
+  concurrency?: number
   now_ms?: number
   evaluation_days?: Weekday[]
   onProgress?: AskProgress
@@ -163,6 +165,11 @@ export async function ask(
       now_ms: now,
       evaluation_days: options.evaluation_days ?? ['tue'],
       overshoot_factor: budget.overshoot_factor,
+      // One at a time. Measured against the live backend, six in flight left a
+      // cache hit taking 26 seconds instead of 2.6 and the whole run slower:
+      // the requests queue there rather than running alongside each other, so
+      // asking for parallelism only moves the waiting.
+      concurrency: options.concurrency ?? 1,
     },
   )
 

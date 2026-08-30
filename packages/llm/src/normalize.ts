@@ -97,7 +97,17 @@ export function normalizeConstraintSet(
       query_id: meta.query_id,
       raw_query: query,
       locale: { tz: meta.tz ?? 'America/Los_Angeles', currency: 'USD' },
-      ...(anchor === '' ? {} : { search_anchor: { raw: anchor } }),
+      ...(anchor === ''
+        ? {}
+        : {
+            search_anchor: {
+              raw: anchor,
+              ...(typeof (raw as { radius_m?: unknown }).radius_m === 'number' &&
+              (raw as { radius_m: number }).radius_m > 0
+                ? { radius_m: (raw as { radius_m: number }).radius_m }
+                : {}),
+            },
+          }),
       constraints,
       parser_version: meta.parser_version,
       parsed_at_ms: meta.parsed_at_ms,

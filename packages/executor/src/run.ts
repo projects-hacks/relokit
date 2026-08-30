@@ -1,5 +1,6 @@
 import {
   bucket,
+  distanceMeters,
   mapAreaSignal,
   mapDirections,
   mapGeocode,
@@ -98,7 +99,15 @@ export async function replayRun(
   constraints: ConstraintSet,
   registry: Capability[],
   search: Search,
-  options: { now_ms: number; evaluation_days: Weekday[]; overshoot_factor: number },
+  options: {
+    now_ms: number
+    evaluation_days: Weekday[]
+    overshoot_factor: number
+    /** How many calls of one operation may be in the air at once. One is the
+     * old behaviour and is what replaying from files wants, since there is no
+     * latency to hide. */
+    concurrency?: number
+  },
 ): Promise<RunOutcome> {
   const outcome: RunOutcome = {
     buckets: { results: [], unverified: [], rejections: [] },
@@ -138,7 +147,11 @@ export async function replayRun(
       await runOp(op, stage)
     }
 
-    surviving = prune(stage, surviving, outcome.evidence)
+    surviving = withinAnchor(prune(stage, surviving, outcome.evidence))
+    // Removed from the answer as well as from the pipeline. Filtering only what
+    // gets asked about would leave the corners of the box unexamined and still
+    // listed, which is the same wrong answer arrived at more cheaply.
+    outcome.entities = withinAnchor(outcome.entities)
     outcome.stages.push({
       stage_id: stage.stage_id,
       entities_in: before,
@@ -199,22 +212,21 @@ export async function replayRun(
               )
           : [base({})]
 
-    for (const bindings of targets) {
+    // One operation over thirty listings is thirty independent questions, and
+    // asking them one at a time spent the whole run waiting. They go out
+    // together; what comes back is applied in the order it was asked, so the
+    // evidence a run produces does not depend on which answer arrived first.
+    const answers = await inFlight(targets, options.concurrency ?? 1, async (bindings) => {
       let params: Record<string, string | number | boolean>
       try {
         params = resolveParams(op.params, bindings)
       } catch (error) {
         if (!(error instanceof UnresolvedRef)) throw error
-        // The plan said this was feasible and it was not. Record it against the
-        // listings rather than sending a request with a hole in it.
-        outcome.unresolved.push({ op_id: op.op_id, ref: error.ref })
-        recordFailure(op, bindings)
-        continue
+        return { kind: 'unresolved' as const, bindings, ref: error.ref }
       }
       const engine = String(params.engine ?? 'zillow') as Engine
-      let body: unknown
       try {
-        body = await search(engine, params, {
+        const body = await search(engine, params, {
           op_id: op.op_id,
           capability_id: op.capability_id,
           endpoint: op.endpoint,
@@ -222,19 +234,57 @@ export async function replayRun(
           constraint_ids: op.constraint_ids,
           entity_ids: targetEntitiesSafe(bindings),
         })
-        outcome.calls += 1
+        return { kind: 'answered' as const, bindings, body }
       } catch (error) {
-        outcome.missing.push({
-          op_id: op.op_id,
+        return {
+          kind: 'failed' as const,
+          bindings,
           engine,
           params,
           detail: error instanceof Error ? error.message : String(error),
-        })
-        recordFailure(op, bindings)
+        }
+      }
+    })
+
+    for (const answer of answers) {
+      if (answer.kind === 'unresolved') {
+        // The plan said this was feasible and it was not. Record it against the
+        // listings rather than sending a request with a hole in it.
+        outcome.unresolved.push({ op_id: op.op_id, ref: answer.ref })
+        recordFailure(op, answer.bindings)
         continue
       }
-      absorb(op, stage, bindings, body)
+      if (answer.kind === 'failed') {
+        outcome.missing.push({
+          op_id: op.op_id,
+          engine: answer.engine,
+          params: answer.params,
+          detail: answer.detail,
+        })
+        recordFailure(op, answer.bindings)
+        continue
+      }
+      outcome.calls += 1
+      absorb(op, stage, answer.bindings, answer.body)
     }
+  }
+
+  /**
+   * A radius is a circle and a search takes a box, so the box that holds the
+   * circle also holds its corners. Two miles asked for is two and four tenths
+   * delivered at the diagonal, which is not what anybody meant. The corners are
+   * measured off here rather than asked about: the coordinates are already in
+   * hand, so it costs nothing.
+   */
+  function withinAnchor(entities: ListingSummary[]): ListingSummary[] {
+    const radius = constraints.search_anchor?.radius_m
+    const centre = outcome.anchor_point
+    if (!radius || !centre) return entities
+    // A listing with no coordinates cannot be placed, and being unplaceable is
+    // not grounds for removal.
+    return entities.filter(
+      (entity) => !entity.point || distanceMeters(centre, entity.point) <= radius,
+    )
   }
 
   function base(extra: Partial<Bindings>): Bindings {
@@ -267,7 +317,12 @@ export async function replayRun(
       outcome.anchor_point = geocoded.point
       // A commute says how far someone will travel. Without one, a town sized
       // box, which is wide enough to hold the answer and narrow enough to search.
-      if (!stageOutputs.bounds) setBounds(geocoded.point, DEFAULT_SEARCH_RADIUS_M)
+      // A question that says how far to look is answered by looking that far.
+      // Everything the search returns then satisfies it, and no home has to be
+      // asked about individually.
+      if (!stageOutputs.bounds) {
+        setBounds(geocoded.point, constraints.search_anchor?.radius_m ?? DEFAULT_SEARCH_RADIUS_M)
+      }
       return
     }
 
@@ -511,4 +566,35 @@ function observePriors(evidence: EvidenceRow[]): ObservedPrior[] {
 
 function round2(value: number): number {
   return Math.round(value * 100) / 100
+}
+
+/**
+ * Runs a bounded number of tasks at once and returns their results in the order
+ * they were given, not the order they finished.
+ *
+ * Ordering is the whole point: a run that produced its evidence in whatever
+ * order the network happened to answer would not be reproducible, and this
+ * project's claim is that it is.
+ */
+async function inFlight<T, R>(
+  items: T[],
+  limit: number,
+  task: (item: T) => Promise<R>,
+): Promise<R[]> {
+  if (limit <= 1 || items.length <= 1) {
+    const results: R[] = []
+    for (const item of items) results.push(await task(item))
+    return results
+  }
+
+  const results = new Array<R>(items.length)
+  let next = 0
+  const workers = Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (next < items.length) {
+      const index = next++
+      results[index] = await task(items[index]!)
+    }
+  })
+  await Promise.all(workers)
+  return results
 }

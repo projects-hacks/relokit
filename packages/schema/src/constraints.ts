@@ -154,8 +154,17 @@ export const ConstraintSet = z.object({
   query_id: z.string(),
   raw_query: z.string(),
   locale: z.object({ tz: z.string(), currency: z.literal('USD') }),
-  /** Search centre. Derived from a commute destination when the user names no city. */
-  search_anchor: PlaceRef.optional(),
+  /**
+   * Search centre, and how far around it to look.
+   *
+   * A radius here is a bound on the search itself, not a fact about a home.
+   * "Within two miles of the university" is answered by where we look, so every
+   * listing that comes back satisfies it by construction and none of them need
+   * asking about. Treating it as a per home question is both slower and wrong:
+   * it sends a search for a nearby place of that kind, which finds a different
+   * school down the road and reports the requirement met.
+   */
+  search_anchor: PlaceRef.extend({ radius_m: Meters.optional() }).optional(),
   /**
    * May be empty. "Apartments near the university" is a whole question, and the
    * place is the requirement. Insisting on one more than that rejected the most

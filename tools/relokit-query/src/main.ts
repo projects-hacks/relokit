@@ -25,6 +25,7 @@ if (!query) {
 }
 
 const result = await ask(httpTransport(api, orgKey), query, {
+  concurrency: Number(process.env.RELOKIT_CONCURRENCY ?? 1),
   onProgress: (event) => {
     if (event.kind === 'parsed') {
       console.log(`parsed by ${event.answered_by}, ${event.repairs.length} numbers re-read\n`)

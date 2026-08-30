@@ -123,9 +123,18 @@ function "Relokit/execute_op" {
           error = "No search key is configured on this instance."
         }
       
+        // Counted rather than read off the run, because calls of one operation
+        // now go out together and a counter read, incremented and written back
+        // by several at once loses all but one of them. Every call writes its
+        // own row, so counting them cannot be raced.
+        db.query relokit_run_op {
+          where = $db.relokit_run_op.run_id == $run.id && $db.relokit_run_op.status == "ok"
+          return = {type: "count"}
+        } as $spent
+      
         // Refusing beats overspending. A run that stops here reports partial,
         // and its unevaluated listings are unverified rather than rejected.
-        precondition ($run.actual_cost_units < $run.ceiling_cost_units) {
+        precondition ($spent < $run.ceiling_cost_units) {
           error_type = "badrequest"
           error = "This run has reached the ceiling it was accepted on."
         }
@@ -197,8 +206,10 @@ function "Relokit/execute_op" {
             db.edit relokit_run {
               field_name = "id"
               field_value = $run.id
+              // Kept for a quick read of a run in progress. The authoritative
+              // number is the count of live op rows, which is what is reported.
               data = {
-                actual_cost_units: ($run.actual_cost_units + 1)
+                actual_cost_units: ($spent + 1)
                 version          : ($run.version + 1)
                 status           : "running"
               }
