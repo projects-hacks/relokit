@@ -294,3 +294,11 @@ describe('geocoding a place named loosely', () => {
     expect(mapGeocode(patchy)!.title).toBe('Has one')
   })
 })
+
+describe('the unit the question used', () => {
+  it('answers kilometres with kilometres', () => {
+    expect(formatDistance(2897, 'km')).toBe('2.9 km')
+    expect(formatDistance(85, 'km')).toBe('85 m')
+    expect(formatDistance(2897)).toBe('1.8 mi')
+  })
+})

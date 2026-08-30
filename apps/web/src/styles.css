@@ -1582,6 +1582,30 @@ button:focus-visible,
   color: var(--ink-dim);
 }
 
+.units {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(var(--step) * 1.5);
+  font-size: 12px;
+  color: var(--ink-dim);
+}
+
+.units button {
+  font: 500 12px/1 var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--paper-edge);
+  border-radius: 999px;
+  padding: calc(var(--step) * 1.25) calc(var(--step) * 2.5);
+  cursor: pointer;
+}
+
+.units button:hover {
+  border-color: var(--measure);
+  color: var(--measure);
+}
+
 /* ---------- the efficient set ---------- */
 
 .frontier-note {

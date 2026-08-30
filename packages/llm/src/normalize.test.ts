@@ -381,3 +381,17 @@ describe('a stated search radius', () => {
     expect(constraint_set.constraints.filter((c) => c.type === 'proximity')).toHaveLength(1)
   })
 })
+
+describe('the distance unit', () => {
+  const locale = (query: string) =>
+    normalizeConstraintSet({ location: 'San Jose', constraints: [] }, query, meta).constraint_set
+      .locale.distance_unit
+
+  it('is read from the words of the question', () => {
+    expect(locale('flats within 3 km of the station')).toBe('km')
+    expect(locale('flats within 2 miles of the station')).toBe('mi')
+    // Both mentioned: miles win, because that is what the answers compare to.
+    expect(locale('within 2 miles, gym within 500 km')).toBe('mi')
+    expect(locale('flats in San Jose')).toBe('mi')
+  })
+})

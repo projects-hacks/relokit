@@ -231,7 +231,9 @@ export async function ask(
     entities: outcome.entities,
     evidence: outcome.evidence,
     buckets,
-    relaxations: relaxations(buckets, constraint_set.constraints),
+    relaxations: relaxations(buckets, constraint_set.constraints, {
+      distance_unit: constraint_set.locale.distance_unit,
+    }),
     anchor:
       constraint_set.search_anchor && outcome.anchor_point
         ? { label: constraint_set.search_anchor.raw, point: outcome.anchor_point }

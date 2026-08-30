@@ -164,6 +164,15 @@ Start with [docs/contracts.md](docs/contracts.md) for the wire format,
 [docs/smoke-test-2026-08-28.md](docs/smoke-test-2026-08-28.md) for what the
 providers actually return.
 
+## Deploying
+
+One process serves everything: `pnpm build && pnpm start` runs the built app,
+/api and the org key on any Node host. For Vercel, the repo carries
+`vercel.json` and `api/proxy.ts`: import the repo, set `XANO_INSTANCE_URL`,
+`XANO_API_GROUP` and `RELOKIT_ORG_KEY` in the project's environment, deploy.
+The app lands on the CDN, the key stays in the function, Xano stays the
+backend, and HTTPS comes with it, which is what searching near me requires.
+
 ## Fixtures
 
 Recorded responses live in `fixtures/serpapi`, redacted and committed, so the

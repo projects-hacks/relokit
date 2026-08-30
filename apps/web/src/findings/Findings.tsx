@@ -5,6 +5,7 @@ import {
   availableSorts,
   filterEntries,
   frontier,
+  groupSiblings,
   sortEntries,
   type Filters,
   type SortKey,
@@ -132,6 +133,19 @@ export function Findings({
     return ordered
   }, [bucket, result.entities, filters, active, open, standings])
 
+  // One building, one card: a block that arrived as one listing per bedroom
+  // count folds under whichever unit the order put first.
+  const grouped = useMemo(
+    () =>
+      groupSiblings(shown.map((row) => row.entry)).map((group) => ({
+        row: shown.find((candidate) => candidate.entry === group.primary)!,
+        siblings: group.siblings
+          .map((sibling) => entity(sibling.entity_id))
+          .filter((sibling): sibling is Place => sibling !== undefined),
+      })),
+    [shown],
+  )
+
   const shownTabs = asked ? tabs : tabs.filter((tab) => tab.count > 0)
 
   // Arrow keys move between tabs and only the selected one is a tab stop, so
@@ -214,13 +228,14 @@ export function Findings({
                   : 'Nothing was ruled out.'}
           </p>
         ) : (
-          shown.map(({ entry, blocking, mark }) => {
+          grouped.map(({ row: { entry, blocking, mark }, siblings }) => {
             const home = entity(entry.entity_id)
             if (!home) return null
             return (
               <div key={entry.entity_id} style={{ '--mark': mark } as React.CSSProperties}>
                 <Finding
                   entity={home}
+                  siblings={siblings}
                   standing={open === 'verified' ? standings.get(entry.entity_id) : undefined}
                   evidence={entry.evidence}
                   constraints={constraints}
@@ -233,6 +248,7 @@ export function Findings({
                   onSelect={() => onSelect(home.entity_id)}
                   onHover={(over) => onHover(over ? home.entity_id : null)}
                   onOpen={() => onOpen(home.entity_id)}
+                  onOpenSibling={onOpen}
                 />
               </div>
             )

@@ -1,6 +1,6 @@
 import type { Constraint, EvidenceRow, RejectedEntity, UnverifiedEntity } from '@relokit/schema'
 import type { Buckets } from './buckets.ts'
-import { formatDistance } from './distance.ts'
+import { formatDistance, type DistanceUnit } from './distance.ts'
 
 /**
  * What one small change to the question would buy.
@@ -40,6 +40,8 @@ export interface RelaxOptions {
   max_steps?: number
   /** Ignore a change larger than this share of the current bound. */
   max_stretch?: number
+  /** The unit the question used for distances. */
+  distance_unit?: DistanceUnit
 }
 
 export function relaxations(
@@ -49,6 +51,7 @@ export function relaxations(
 ): Relaxation[] {
   const maxSteps = options.max_steps ?? 3
   const maxStretch = options.max_stretch ?? 0.5
+  const unit = options.distance_unit ?? 'mi'
   const byId = new Map(constraints.map((c) => [c.id, c]))
 
   // Only rejections are considered. An unverified home is not blocked by a
@@ -119,7 +122,7 @@ export function relaxations(
       const unlocked = values.filter((v) => v.value <= value)
       steps.push({
         to: value,
-        display_to: format(constraint, value),
+        display_to: format(constraint, value, unit),
         unlocks: unlocked.length,
         entity_ids: unlocked.map((v) => v.entity_id).sort(),
       })
@@ -131,7 +134,7 @@ export function relaxations(
       ...base,
       kind: 'raise_bound',
       from: bound,
-      display_from: format(constraint, bound),
+      display_from: format(constraint, bound, unit),
       steps,
     })
   }
@@ -163,14 +166,14 @@ function numericValue(evidence: EvidenceRow[], constraintId: string): number | n
   return typeof row?.value_canonical === 'number' ? row.value_canonical : null
 }
 
-function format(constraint: Constraint, value: number): string {
+function format(constraint: Constraint, value: number, unit: DistanceUnit): string {
   switch (constraint.type) {
     case 'budget':
       return `$${Math.round(value / 100).toLocaleString('en-US')}`
     case 'commute':
       return `${Math.round(value / 60)} min`
     case 'nearby_poi':
-      return formatDistance(value)
+      return formatDistance(value, unit)
     default:
       return String(value)
   }

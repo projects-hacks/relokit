@@ -1,6 +1,7 @@
 import { createReadStream, existsSync, statSync } from 'node:fs'
 import { createServer } from 'node:http'
 import { extname, join, normalize } from 'node:path'
+import { configFromEnv, relay } from './relay.ts'
 
 /*
  * The whole product as one process.
@@ -12,16 +13,7 @@ import { extname, join, normalize } from 'node:path'
  */
 
 const port = Number(process.env.RELOKIT_PROXY_PORT ?? 8787)
-const base = (process.env.XANO_INSTANCE_URL ?? '').replace(/\/+$/, '').replace(/\/workspace$/, '')
-const group = process.env.XANO_API_GROUP ?? 'vZQqb3Je'
-const orgKey = process.env.RELOKIT_ORG_KEY ?? ''
-
-if (!base || !orgKey) {
-  throw new Error('XANO_INSTANCE_URL and RELOKIT_ORG_KEY are required to run the web proxy')
-}
-
-const upstream = `${base}/api:${group}`
-const allowed = new Set(['parse', 'run', 'runs', 'op', 'ingest', 'changes', 'watch'])
+const config = configFromEnv(process.env)
 const dist = join(process.cwd(), 'apps/web/dist')
 
 const TYPES: Record<string, string> = {
@@ -32,6 +24,11 @@ const TYPES: Record<string, string> = {
   '.svg': 'image/svg+xml',
   '.png': 'image/png',
   '.webmanifest': 'application/manifest+json',
+}
+
+function reply(response: import('node:http').ServerResponse, status: number, body: unknown): void {
+  response.writeHead(status, { 'content-type': 'application/json; charset=utf-8' })
+  response.end(JSON.stringify(body))
 }
 
 function serveStatic(pathname: string, response: import('node:http').ServerResponse): boolean {
@@ -50,16 +47,9 @@ function serveStatic(pathname: string, response: import('node:http').ServerRespo
   return true
 }
 
-function reply(response: import('node:http').ServerResponse, status: number, body: unknown): void {
-  response.writeHead(status, { 'content-type': 'application/json; charset=utf-8' })
-  response.end(JSON.stringify(body))
-}
-
 createServer(async (request, response) => {
   const method = request.method ?? 'GET'
   const incoming = new URL(request.url ?? '/', `http://${request.headers.host ?? 'localhost'}`)
-  const path = incoming.pathname.replace(/^\/api\/?/, '')
-  const endpoint = path.split('/')[0] ?? ''
 
   if (!incoming.pathname.startsWith('/api')) {
     if (method === 'GET' && serveStatic(incoming.pathname, response)) return
@@ -67,21 +57,9 @@ createServer(async (request, response) => {
     return
   }
 
-  if (!allowed.has(endpoint) || !['GET', 'POST'].includes(method)) {
-    reply(response, 404, { error: 'Unknown API endpoint.' })
-    return
-  }
-
   try {
-    const target = new URL(`${upstream}/${path}`)
-    for (const [key, value] of incoming.searchParams) {
-      if (key !== 'org_key') target.searchParams.set(key, value)
-    }
-
-    let body: string | undefined
-    if (method === 'GET') {
-      target.searchParams.set('org_key', orgKey)
-    } else {
+    let bodyText: string | undefined
+    if (method !== 'GET') {
       const chunks: Buffer[] = []
       let size = 0
       for await (const chunk of request) {
@@ -93,28 +71,16 @@ createServer(async (request, response) => {
         }
         chunks.push(Buffer.from(chunk))
       }
-      const parsed = JSON.parse(Buffer.concat(chunks).toString('utf8') || '{}') as Record<
-        string,
-        unknown
-      >
-      // Tenant authority belongs to this server, never to the browser.
-      body = JSON.stringify({ ...parsed, org_key: orgKey })
+      bodyText = Buffer.concat(chunks).toString('utf8')
     }
-
-    const upstreamResponse = await fetch(target, {
+    const answer = await relay(config, {
       method,
-      headers: method === 'POST' ? { 'content-type': 'application/json' } : undefined,
-      body,
-      // A search can legitimately take minutes; a hung one should not hold a
-      // socket forever.
-      signal: AbortSignal.timeout(180_000),
+      path: incoming.pathname.replace(/^\/api\/?/, ''),
+      search: incoming.searchParams,
+      bodyText,
     })
-    const text = await upstreamResponse.text()
-    response.writeHead(upstreamResponse.status, {
-      'content-type':
-        upstreamResponse.headers.get('content-type') ?? 'application/json; charset=utf-8',
-    })
-    response.end(text)
+    response.writeHead(answer.status, { 'content-type': answer.contentType })
+    response.end(answer.body)
   } catch {
     reply(response, 502, {
       error: 'The search service is temporarily unavailable. Please try again.',

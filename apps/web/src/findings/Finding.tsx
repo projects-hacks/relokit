@@ -23,6 +23,7 @@ const EXPLAIN: Record<string, string> = {
  */
 export function Finding({
   entity,
+  siblings,
   standing,
   evidence,
   constraints,
@@ -35,8 +36,11 @@ export function Finding({
   onSelect,
   onHover,
   onOpen,
+  onOpenSibling,
 }: {
   entity: Place
+  /** The building's other units, folded under this card. */
+  siblings?: Place[]
   standing?: Standing
   evidence: EvidenceRow[]
   constraints: Constraint[]
@@ -49,6 +53,7 @@ export function Finding({
   onSelect?: () => void
   onHover?: (over: boolean) => void
   onOpen?: () => void
+  onOpenSibling?: (entityId: string) => void
 }) {
   const said = new Map(constraints.map((c) => [c.id, c.source_text]))
   const ordered = [...evidence].sort((a, b) => (a.constraint_id < b.constraint_id ? -1 : 1))
@@ -117,6 +122,23 @@ export function Finding({
       </header>
 
       {described(entity).length > 0 && <p className="traits">{described(entity).join(' · ')}</p>}
+
+      {siblings && siblings.length > 0 && (
+        <div className="units">
+          <span>Also in this building:</span>
+          {siblings.map((unit) => (
+            <button
+              key={unit.entity_id}
+              onClick={(event) => {
+                event.stopPropagation()
+                onOpenSibling?.(unit.entity_id)
+              }}
+            >
+              {unitLabel(unit)}
+            </button>
+          ))}
+        </div>
+      )}
 
       {standing?.status === 'efficient' && (
         <span className="standing" data-kind="efficient">
@@ -193,4 +215,10 @@ function reasonFor(evidence: EvidenceRow[], blocking: string[] | undefined): str
     return 'Nothing could be established about this one, so it is neither ruled in nor out.'
   }
   return null
+}
+
+/** "2 bed · $3,100", or whatever of that the source stated. */
+function unitLabel(unit: Place): string {
+  const beds = typeof unit.attributes.beds === 'number' ? `${unit.attributes.beds} bed` : null
+  return [beds, money(unit.price_cents)].filter(Boolean).join(' · ') || unit.title.slice(0, 24)
 }

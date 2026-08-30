@@ -188,7 +188,12 @@ export const ConstraintSet = z.object({
   raw_query: z.string(),
   /** What to look for. Decides which sources can produce candidates. */
   subject: Subject.default('rental'),
-  locale: z.object({ tz: z.string(), currency: z.literal('USD') }),
+  locale: z.object({
+    tz: z.string(),
+    currency: z.literal('USD'),
+    /** Distances are answered in the unit the question used. */
+    distance_unit: z.enum(['mi', 'km']).default('mi'),
+  }),
   /**
    * Search centre, and how far around it to look.
    *

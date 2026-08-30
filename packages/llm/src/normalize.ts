@@ -164,7 +164,13 @@ export function normalizeConstraintSet(
       query_id: meta.query_id,
       raw_query: query,
       ...(subject === null ? {} : { subject }),
-      locale: { tz: meta.tz ?? 'America/Los_Angeles', currency: 'USD' },
+      locale: {
+        tz: meta.tz ?? 'America/Los_Angeles',
+        currency: 'USD',
+        // Kilometres asked and no miles mentioned means kilometres answered.
+        distance_unit:
+          /\b(?:km|kilomet)/i.test(query) && !/\b(?:miles?|mi)\b/i.test(query) ? 'km' : 'mi',
+      },
       ...(anchor === ''
         ? {}
         : {

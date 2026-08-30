@@ -465,7 +465,7 @@ export async function replayRun(
           constraint_type: 'proximity',
           verdict: within ? 'pass' : 'fail',
           value_canonical: Math.round(meters),
-          display_value: `${formatDistance(meters)} from ${constraint.place.raw}`,
+          display_value: `${formatDistance(meters, constraints.locale.distance_unit)} from ${constraint.place.raw}`,
           source: 'geometry',
           source_url: null,
           confidence: 1,
@@ -518,8 +518,9 @@ export async function replayRun(
         if (apart <= a.radius + b.radius) continue
         outcome.contradictions.push({
           detail:
-            `Nothing can be within ${formatDistance(a.radius)} of ${a.label} and ` +
-            `${formatDistance(b.radius)} of ${b.label}: they are ${formatDistance(apart)} apart.`,
+            `Nothing can be within ${formatDistance(a.radius, constraints.locale.distance_unit)} of ${a.label} and ` +
+            `${formatDistance(b.radius, constraints.locale.distance_unit)} of ${b.label}: they are ` +
+            `${formatDistance(apart, constraints.locale.distance_unit)} apart.`,
         })
       }
     }
@@ -587,6 +588,7 @@ export async function replayRun(
       source: op.provider,
       fetched_at_ms: options.now_ms,
       ttl_seconds: op.ttl_seconds,
+      distance_unit: constraints.locale.distance_unit,
     }
   }
 

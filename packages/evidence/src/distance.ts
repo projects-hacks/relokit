@@ -12,9 +12,15 @@ export function distanceMeters(a: GeoPoint, b: GeoPoint): Meters {
   return Math.round(2 * EARTH_RADIUS_M * Math.asin(Math.sqrt(h)))
 }
 
-export function formatDistance(meters: Meters): string {
+export type DistanceUnit = 'mi' | 'km'
+
+/** Answered in the unit the question used: kilometres asked, kilometres said. */
+export function formatDistance(meters: Meters, unit: DistanceUnit = 'mi'): string {
+  if (unit === 'km') {
+    return meters < 100 ? `${Math.round(meters)} m` : `${(meters / 1000).toFixed(1)} km`
+  }
   const miles = meters / 1609.34
-  return miles < 0.1 ? `${meters} m` : `${miles.toFixed(1)} mi`
+  return miles < 0.1 ? `${Math.round(meters)} m` : `${miles.toFixed(1)} mi`
 }
 
 function toRadians(degrees: number): number {

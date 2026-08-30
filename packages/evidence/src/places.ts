@@ -65,7 +65,7 @@ export function mapNearbyPlaces(
         constraint_type: 'nearby_poi',
         verdict: 'fail',
         value_canonical: null,
-        display_value: `no ${constraint.category} within ${formatDistance(constraint.radius_m)}`,
+        display_value: `no ${constraint.category} within ${formatDistance(constraint.radius_m, context.distance_unit)}`,
         source_url: null,
         confidence: slack > 0 ? 0.7 : 1,
         eval_state: 'evaluated',
@@ -130,7 +130,7 @@ export function mapNearbyPlaces(
         // here. The listing is nearer or further than its centroid.
         verdict: outsideRadius ? 'unknown' : 'pass',
         value_canonical: nearest.meters,
-        display_value: `${formatDistance(nearest.meters)} to ${nearest.title}`,
+        display_value: `${formatDistance(nearest.meters, context.distance_unit)} to ${nearest.title}`,
         // The place itself, so its hours and reviews can be read rather than
         // taken on trust.
         source_url: placeUrl(nearest.title, nearest.place_id),

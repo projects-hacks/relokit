@@ -3,5 +3,5 @@
   "compilerOptions": {
     "types": ["node"]
   },
-  "include": ["packages/*/src", "tools/*/src", "vitest.config.ts"]
+  "include": ["packages/*/src", "tools/*/src", "apps/proxy/src", "api", "vitest.config.ts"]
 }

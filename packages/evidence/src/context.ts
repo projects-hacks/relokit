@@ -8,6 +8,8 @@ export interface MapperContext {
   /** Passed in rather than read from a clock, so a mapper stays testable. */
   fetched_at_ms: number
   ttl_seconds: number
+  /** The unit the question used, so answers speak the asker's language. */
+  distance_unit?: 'mi' | 'km'
 }
 
 export interface MapperResult {
