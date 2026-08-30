@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { AskEvent } from '@relokit/client'
 import { applyRelaxation } from '@relokit/evidence'
 import { SUBJECT_WORDS } from '@relokit/schema'
@@ -20,10 +20,10 @@ import { Detail } from './findings/Detail.tsx'
 import { Nothing } from './findings/Nothing.tsx'
 import { FindingsSkeleton } from './findings/Skeleton.tsx'
 import { Offers } from './findings/Offers.tsx'
-import { Map, type MapTheme, type MapView } from './map/Map.tsx'
+import { Map, type MapTheme } from './map/Map.tsx'
 
 export function App() {
-  const { status, events, result, error, restored, run, dismiss, configured } = useAsk()
+  const { status, events, result, error, restored, run, dismiss } = useAsk()
   const [openId, setOpenId] = useState<string | null>(null)
   // Selecting shows a home on the map. Opening covers the map, so it is a
   // separate act rather than the same click doing both.
@@ -39,10 +39,13 @@ export function App() {
   // is always open and the control is not rendered at all.
   const [mapShut, setMapShut] = useState(true)
   const [savedOpen, setSavedOpen] = useState(false)
-  const [mapTheme, setMapTheme] = useState<MapTheme>(
-    () => (localStorage.getItem('relokit-map-theme') === 'dark' ? 'dark' : 'bright'),
-  )
-  const mapView = useRef<MapView | null>(null)
+  const [mapTheme, setMapTheme] = useState<MapTheme>(() => {
+    try {
+      return localStorage.getItem('relokit-map-theme') === 'bright' ? 'bright' : 'dark'
+    } catch {
+      return 'dark'
+    }
+  })
   // The end of the run is as much a thing to be told as the middle of it.
   const progress =
     status === 'running'
@@ -66,7 +69,11 @@ export function App() {
       ?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
   }, [fromMap, hoveredId])
   useEffect(() => {
-    localStorage.setItem('relokit-map-theme', mapTheme)
+    try {
+      localStorage.setItem('relokit-map-theme', mapTheme)
+    } catch {
+      // A preference that cannot be kept is still a working page.
+    }
   }, [mapTheme])
 
   const open = openId ? result?.entities.find((e) => e.entity_id === openId) : undefined
@@ -92,17 +99,12 @@ export function App() {
       </a>
 
       <header className="masthead">
-        <div className="brand">
-          <span className="brand-mark" aria-hidden="true">R</span>
-          <div>
-            <h1 className="wordmark">Relokit</h1>
-            <p className="strapline">A clearer way to choose where you live</p>
-          </div>
-        </div>
-        <div className="trust-note">
-          <span className="trust-dot" aria-hidden="true" />
-          Evidence-backed search
-        </div>
+        <h1 className="wordmark">
+          Relo<span>kit</span>
+        </h1>
+        <p className="strapline">
+          Every requirement checked against the place that actually holds the answer
+        </p>
         {result && (
           <div className="ledger-inline">
             <span>
@@ -119,7 +121,7 @@ export function App() {
         {saved.homes.length > 0 && (
           <button className="saved-access" onClick={() => setSavedOpen(true)}>
             <span aria-hidden="true">★</span>
-            <span className="saved-access-text">Saved locations</span>
+            <span className="saved-access-text">Saved</span>
             <b>{saved.homes.length}</b>
           </button>
         )}
@@ -127,16 +129,7 @@ export function App() {
 
       <div className="columns">
         <aside className="rail">
-          <Ask
-            onAsk={run}
-            busy={status === 'running'}
-            configured={configured}
-          />
-          {!configured && (
-            <p className="note">
-              No backend is configured. Set VITE_RELOKIT_API and VITE_RELOKIT_ORG_KEY, then reload.
-            </p>
-          )}
+          <Ask onAsk={run} busy={status === 'running'} />
           <Plan plan={plan} events={events} />
         </aside>
 
@@ -152,9 +145,7 @@ export function App() {
             </span>
           </button>
           <Map
-            key={mapTheme}
             theme={mapTheme}
-            viewRef={mapView}
             shut={mapShut}
             plan={plan}
             result={result}
@@ -167,10 +158,6 @@ export function App() {
             }}
             onOpen={setOpenId}
           />
-          <div className="map-label" aria-hidden="true">
-            <span className="map-label-dot" />
-            Search area
-          </div>
           <div className="map-theme" role="group" aria-label="Map colour">
             <button
               type="button"
@@ -197,7 +184,7 @@ export function App() {
 
           {status === 'idle' && saved.homes.length > 0 && (
             <section>
-              <p className="eyebrow">Saved locations</p>
+              <p className="eyebrow">Kept for later</p>
               <div className="saved-strip">
                 {saved.homes.map((home) => (
                   <a
@@ -229,10 +216,10 @@ export function App() {
                 className="as-link"
                 onClick={() => {
                   const restore = saved.clear()
-                  notice.show('Saved locations cleared.', restore)
+                  notice.show('Saved places cleared.', restore)
                 }}
               >
-                Clear saved locations
+                Clear the list
               </button>
             </section>
           )}
@@ -322,12 +309,12 @@ export function App() {
           onClose={() => setSavedOpen(false)}
           onRemove={(entityId) => {
             saved.remove(entityId)
-            notice.show('Saved location removed.')
+            notice.show('Removed.')
           }}
           onClear={() => {
             const restore = saved.clear()
             setSavedOpen(false)
-            notice.show('Saved locations cleared.', restore)
+            notice.show('Saved places cleared.', restore)
           }}
         />
       )}

@@ -1,4 +1,4 @@
-import { useEffect, useRef, type MutableRefObject } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Map as MapLibreMap, type GeoJSONSource } from 'maplibre-gl'
 import type { FeatureCollection } from 'geojson'
 import type { AskResult } from '@relokit/client'
@@ -12,12 +12,6 @@ const MAP_STYLES = {
 } as const
 
 export type MapTheme = keyof typeof MAP_STYLES
-export interface MapView {
-  center: [number, number]
-  zoom: number
-  bearing: number
-  pitch: number
-}
 
 /**
  * A pin's colour comes only from evidence that exists.
@@ -28,7 +22,6 @@ export interface MapView {
  */
 export function Map({
   theme,
-  viewRef,
   plan,
   result,
   selected,
@@ -39,9 +32,6 @@ export function Map({
   onOpen,
 }: {
   theme: MapTheme
-  /** Kept outside the Map instance so a style change does not drop the user's
-   * current neighbourhood, zoom, or orientation. */
-  viewRef: MutableRefObject<MapView | null>
   plan: PlanResult | null
   result: AskResult | null
   selected: string | null
@@ -60,6 +50,11 @@ export function Map({
   // itself called Map and shadows the constructor.
   const featureIds = useRef<Record<string, number>>({})
   const lit = useRef<number | null>(null)
+  // Bumped each time a style finishes loading. A style change empties the map
+  // of our sources, so every drawing effect below re-runs off this and puts its
+  // data back.
+  const [styleReady, setStyleReady] = useState(0)
+  const appliedTheme = useRef<MapTheme>(theme)
 
   // A canvas measured while its container was collapsed keeps that size until
   // it is told to measure again, so reopening the sheet would otherwise show a
@@ -72,18 +67,21 @@ export function Map({
     return () => clearTimeout(timer)
   }, [shut])
 
+  // Swapping the style keeps the camera where the reader left it, which is the
+  // whole point of a theme toggle: the same picture in different colours.
+  useEffect(() => {
+    if (appliedTheme.current === theme) return
+    appliedTheme.current = theme
+    map.current?.setStyle(MAP_STYLES[theme])
+  }, [theme])
+
   useEffect(() => {
     if (!container.current || map.current) return
-    const previousView = viewRef.current
     const instance = new MapLibreMap({
       container: container.current,
-      // Both OpenFreeMap styles use the same map data. Recreating the map when
-      // this preference changes keeps the custom evidence layers in sync.
-      style: MAP_STYLES[theme],
-      center: previousView?.center ?? SAN_JOSE,
-      zoom: previousView?.zoom ?? 10.5,
-      bearing: previousView?.bearing ?? 0,
-      pitch: previousView?.pitch ?? 0,
+      style: MAP_STYLES[appliedTheme.current],
+      center: SAN_JOSE,
+      zoom: 10.5,
       attributionControl: { compact: true },
     })
     // The published basemap names a fill pattern its own sprite sheet does not
@@ -93,7 +91,9 @@ export function Map({
       instance.addImage(id, { width: 1, height: 1, data: new Uint8Array(4) })
     })
 
-    instance.on('load', () => {
+    // Fires for the first style and again for every setStyle, which is what
+    // makes the theme toggle safe: the sources come back with the style.
+    instance.on('style.load', () => {
       instance.addSource('bounds', { type: 'geojson', data: empty() })
       instance.addLayer({
         id: 'bounds-line',
@@ -252,6 +252,7 @@ export function Map({
           'circle-stroke-color': 'rgba(232,238,245,0.55)',
         },
       })
+      setStyleReady((count) => count + 1)
     })
     // A pin is a home. Clicking one opens it, the same as clicking its card, or
     // the map is decoration.
@@ -291,40 +292,42 @@ export function Map({
 
     map.current = instance
     return () => {
-      const center = instance.getCenter()
-      viewRef.current = {
-        center: [center.lng, center.lat],
-        zoom: instance.getZoom(),
-        bearing: instance.getBearing(),
-        pitch: instance.getPitch(),
-      }
       instance.remove()
       map.current = null
     }
-  }, [theme, viewRef])
+  }, [])
 
   useEffect(() => {
     const instance = map.current
     if (!instance || !plan?.search_bounds) return
     const { sw, ne } = plan.search_bounds
-    const draw = () => {
-      const source = instance.getSource('bounds') as GeoJSONSource | undefined
-      source?.setData({
-        type: 'Feature',
-        properties: {},
-        geometry: {
-          type: 'Polygon',
-          coordinates: [
-            [
-              [sw.lng, sw.lat],
-              [ne.lng, sw.lat],
-              [ne.lng, ne.lat],
-              [sw.lng, ne.lat],
-              [sw.lng, sw.lat],
-            ],
+    const source = instance.getSource('bounds') as GeoJSONSource | undefined
+    source?.setData({
+      type: 'Feature',
+      properties: {},
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [sw.lng, sw.lat],
+            [ne.lng, sw.lat],
+            [ne.lng, ne.lat],
+            [sw.lng, ne.lat],
+            [sw.lng, sw.lat],
           ],
-        },
-      })
+        ],
+      },
+    })
+  }, [plan, styleReady])
+
+  // Framing is its own concern, and deliberately not tied to styleReady: a new
+  // answer brings the camera to it, a theme change leaves the camera alone.
+  // Camera moves work before any style has loaded, so this needs no guard.
+  useEffect(() => {
+    const instance = map.current
+    if (!instance) return
+    if (plan?.search_bounds) {
+      const { sw, ne } = plan.search_bounds
       instance.fitBounds(
         [
           [sw.lng, sw.lat],
@@ -332,9 +335,23 @@ export function Map({
         ],
         { padding: 56, duration: 700 },
       )
+      return
     }
-    instance.isStyleLoaded() ? draw() : instance.once('load', draw)
-  }, [plan])
+    // A question that only named a place has no planned box; its answer can
+    // still be far from where the camera happens to sit. Austin's gyms were
+    // arriving on a map of San Jose.
+    const points = (result?.entities ?? []).filter((e) => e.point).map((e) => e.point!)
+    if (points.length === 0) return
+    const lats = points.map((point) => point.lat)
+    const lngs = points.map((point) => point.lng)
+    instance.fitBounds(
+      [
+        [Math.min(...lngs), Math.min(...lats)],
+        [Math.max(...lngs), Math.max(...lats)],
+      ],
+      { padding: 56, maxZoom: 14, duration: 700 },
+    )
+  }, [plan, result])
 
   useEffect(() => {
     const instance = map.current
@@ -369,8 +386,8 @@ export function Map({
           })),
       })
     }
-    instance.isStyleLoaded() ? draw() : instance.once('load', draw)
-  }, [result])
+    draw()
+  }, [result, styleReady])
 
   // Choosing a home answers "why this one?". The place you searched around, the
   // gym that satisfied the gym requirement, the shop that satisfied the shop:
@@ -457,8 +474,7 @@ export function Map({
       })
     }
 
-    if (instance.isStyleLoaded()) draw()
-    else instance.once('load', draw)
+    draw()
 
     if (home?.point) {
       const points = [
@@ -476,7 +492,7 @@ export function Map({
         { padding: 120, maxZoom: 15, duration: 700 },
       )
     }
-  }, [selected, result])
+  }, [selected, result, styleReady])
 
   // One pin is lit at a time: whichever home the pointer or the list is on.
   useEffect(() => {
@@ -491,13 +507,13 @@ export function Map({
       instance.setFeatureState({ source: 'homes', id: next }, { lit: true })
     }
     lit.current = next ?? null
-  }, [hovered, selected, result])
+  }, [hovered, selected, result, styleReady])
 
   return (
     <>
       <div className="map" ref={container} role="region" aria-label="Search map" />
       {!plan && !result && (
-        <div className="map-empty" aria-live="polite">
+        <div className="map-empty">
           <b>Your search area will appear here</b>
           <span>Start with the place and priorities that matter to you.</span>
         </div>
