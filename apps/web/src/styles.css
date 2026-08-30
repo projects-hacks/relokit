@@ -1919,6 +1919,15 @@ button:focus-visible,
   }
 }
 
+/* While a run is going the plan is the progress and is worth the space. Once
+   there is an answer it is a screenful between the question and the reply, so
+   on a phone it stands down. */
+@media (max-width: 899px) {
+  .shell[data-answered='true'] .plan {
+    display: none;
+  }
+}
+
 /* ---------- motion ---------- */
 
 /*
