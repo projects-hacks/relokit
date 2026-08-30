@@ -69,7 +69,7 @@ export function plan(input: PlanInput): PlanResult {
   // Only the ones this question actually asked for. A free predicate nobody
   // named prunes nothing, and counting it shrinks the estimate below the truth,
   // which is how the page budget ends up short.
-  const asked = new Set(constraints.map((constraint) => constraint.type))
+  const asked = new Set<string>(constraints.map((constraint) => constraint.type))
   const natives = [...index.values()]
     .flat()
     .filter((c) => c.granularity === 'native' && asked.has(c.constraint_type))

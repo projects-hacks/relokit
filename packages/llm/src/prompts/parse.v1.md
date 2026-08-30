@@ -43,6 +43,8 @@ Types and their fields:
   bike, walk, transit, drive; max_seconds
 - proximity: place {"raw": "the place as written"}; radius_m. Use this for a
   place the question names by name, with a distance
+- opening_hours: open_window with opens_by_s or closes_after_s. Use this when the
+  question says when the thing being looked for is open
 - nearby_poi: category one of gym, grocery, cafe, restaurant, pharmacy, park,
   school, transit_stop; radius_m; min_count; open_window with opens_by_s or
   closes_after_s
@@ -64,6 +66,10 @@ sensible limit is filled in and marked as an assumption.
 
 One phrase can produce one constraint. Do not split "a gym within half a mile
 open before 6am" into two.
+
+Opening times belong to whatever they describe. "Restaurants open past 10pm" is
+an opening_hours constraint, because it is the restaurants that must be open. "A
+flat with a gym open past 10pm" is a nearby_poi, because it is the gym.
 
 nearby_poi is for a kind of place that has to be near the home: a gym, a grocery,
 any park. It is never for a place the question names. "Within 2 miles of San Jose

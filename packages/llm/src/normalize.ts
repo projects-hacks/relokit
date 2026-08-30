@@ -227,6 +227,17 @@ function build(
       return { ...base, inferred: fromText === null, place: { raw }, radius_m: Math.round(radius) }
     }
 
+    case 'opening_hours': {
+      const window = openWindow(
+        span,
+        entry.open_window as Record<string, number> | undefined,
+        id,
+        repairs,
+      )
+      if (!window) return null
+      return { ...base, open_window: window }
+    }
+
     case 'nearby_poi': {
       const category = String(entry.category ?? 'cafe')
       const fromText = distanceMeters(span)

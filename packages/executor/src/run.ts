@@ -484,7 +484,26 @@ export async function replayRun(
       west: current ? Math.max(Number(current.west), west) : west,
       lat: placed[0]!.point.lat,
       lng: placed[0]!.point.lng,
+      zoom: '',
     }
+    const b = stageOutputs.bounds
+    b.zoom = zoomFor(Number(b.north), Number(b.south), Number(b.east), Number(b.west))
+  }
+
+  /**
+   * How far in a place search should be looking.
+   *
+   * A search takes a centre and a zoom, not a box, and returns one screenful.
+   * At the wide default that screenful spread fifteen kilometres for a question
+   * about one mile, so nearly all of it was thrown away unread. The zoom follows
+   * the box: ask about a mile and it looks at a mile.
+   */
+  function zoomFor(north: number, south: number, east: number, west: number): string {
+    const height = (north - south) * 111_320
+    const midpoint = ((north + south) / 2) * (Math.PI / 180)
+    const width = (east - west) * 111_320 * Math.cos(midpoint)
+    const span = Math.max(height, width, 200)
+    return `${Math.min(18, Math.max(10, Math.round(13 + Math.log2(30_000 / span))))}z`
   }
 
   function base(extra: Partial<Bindings>): Bindings {
@@ -559,6 +578,7 @@ export async function replayRun(
         west: box.sw.lng,
         lat: geocoded.point.lat,
         lng: geocoded.point.lng,
+        zoom: zoomFor(box.ne.lat, box.sw.lat, box.ne.lng, box.sw.lng),
       }
       // Entity coordinates do not exist yet, so the plan lays a grid over the
       // box. It is replaced with cells fitted to the listings as soon as there
@@ -714,6 +734,7 @@ export async function replayRun(
       west: box.sw.lng,
       lat: centre.lat,
       lng: centre.lng,
+      zoom: zoomFor(box.ne.lat, box.sw.lat, box.ne.lng, box.sw.lng),
     }
     // Entity coordinates do not exist yet, so the plan lays a grid over the box.
     // It is replaced with cells fitted to the listings as soon as there are any:

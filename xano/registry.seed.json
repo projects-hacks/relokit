@@ -1,5 +1,5 @@
 {
-  "registry_version": "2026-08-30.3",
+  "registry_version": "2026-08-30.4",
   "capabilities": [
     {
       "capability_id": "candidates.anchor.geocode",
@@ -91,7 +91,7 @@
         "engine": "google_maps",
         "type": "search",
         "q": "$query.subject_term",
-        "ll": "@$stage.bounds.lat,$stage.bounds.lng,13z"
+        "ll": "@$stage.bounds.lat,$stage.bounds.lng,$stage.bounds.zoom"
       },
       "produces": ["entity"],
       "subjects": [
