@@ -8,7 +8,7 @@ import {
   type Filters,
   type SortKey,
 } from '@relokit/evidence'
-import type { Place } from '@relokit/schema'
+import { SUBJECT_WORDS, type Place } from '@relokit/schema'
 import { Controls } from './Controls.tsx'
 import { Finding } from './Finding.tsx'
 
@@ -151,6 +151,7 @@ export function Findings({
           constraints={constraints}
           showing={shown.length}
           total={bucket.length}
+          word={SUBJECT_WORDS[result.constraint_set.subject].many}
         />
       )}
 

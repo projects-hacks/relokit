@@ -251,7 +251,7 @@ export function App() {
           {result && result.problems.length > 0 && result.entities.length > 0 && (
             <p className="note partial">
               {result.problems.length} {result.problems.length === 1 ? 'call' : 'calls'} did not
-              happen, so some homes were checked less thoroughly than others.
+              happen, so some results were checked less thoroughly than others.
             </p>
           )}
 

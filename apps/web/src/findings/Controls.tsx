@@ -23,6 +23,7 @@ export function Controls({
   onFilters,
   constraints,
   showing,
+  word,
   total,
 }: {
   sorts: SortKey[]
@@ -32,6 +33,7 @@ export function Controls({
   onFilters: (filters: Filters) => void
   constraints: ConstraintSet['constraints']
   showing: number
+  word: string
   total: number
 }) {
   const budget = constraints.find((c) => c.type === 'budget')
@@ -93,7 +95,7 @@ export function Controls({
       </label>
 
       <p className="showing" aria-live="polite">
-        {showing === total ? `${total} homes` : `${showing} of ${total}`}
+        {showing === total ? `${total} ${word}` : `${showing} of ${total}`}
         {touched && (
           <button
             className="as-link"

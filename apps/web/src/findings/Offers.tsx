@@ -1,4 +1,5 @@
 import type { AskResult } from '@relokit/client'
+import { SUBJECT_WORDS } from '@relokit/schema'
 
 /**
  * What one change would buy.
@@ -16,6 +17,7 @@ export function Offers({
   onRelax: (constraintId: string, to: number) => void
 }) {
   if (result.relaxations.length === 0) return null
+  const word = SUBJECT_WORDS[result.constraint_set.subject]
 
   return (
     <section>
@@ -25,8 +27,8 @@ export function Offers({
           <h3>{offer.source_text}</h3>
           <p className="note" style={{ marginBottom: 8 }}>
             The only thing standing in front of {offer.sole_blocker_count}{' '}
-            {offer.sole_blocker_count === 1 ? 'home' : 'homes'}. These are the ones a small change
-            reaches.
+            {offer.sole_blocker_count === 1 ? word.one : word.many}. These are the ones a small
+            change reaches.
           </p>
           {offer.steps.map((step) => (
             <button

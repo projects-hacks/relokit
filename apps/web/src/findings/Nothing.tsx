@@ -1,4 +1,5 @@
 import type { AskResult } from '@relokit/client'
+import { SUBJECT_WORDS } from '@relokit/schema'
 
 /**
  * When there is nothing to show.
@@ -13,7 +14,7 @@ export function Nothing({ result }: { result: AskResult }) {
   return (
     <div className="nothing">
       <p className="eyebrow">Nothing came back</p>
-      <h2>No home cleared every requirement.</h2>
+      <h2>No {SUBJECT_WORDS[result.constraint_set.subject].one} cleared every requirement.</h2>
 
       {result.unanswered.length > 0 && (
         <>

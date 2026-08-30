@@ -82,7 +82,10 @@ export function Detail({
           </button>
           {entity.url && (
             <a className="outward" href={entity.url} target="_blank" rel="noreferrer">
-              See the full listing
+              {result.constraint_set.subject === 'rental' ||
+              result.constraint_set.subject === 'home_for_sale'
+                ? 'See the full listing'
+                : 'Visit the website'}
             </a>
           )}
         </div>
