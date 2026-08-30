@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { AskResult } from '@relokit/client'
+import { Ledger } from './Ledger.tsx'
 
 /**
  * How the answer was reached.
@@ -19,7 +20,8 @@ export function Working({ result }: { result: AskResult }) {
       <button className="working-toggle" onClick={() => setOpen(!open)} aria-expanded={open}>
         <span>How this was worked out</span>
         <span className="working-hint">
-          {result.plan.stages.length} steps · {result.cost.planned_units} searches planned
+          {result.plan.stages.length} steps · {result.cost.planned_units} planned ·{' '}
+          {result.cost.actual_units} spent
         </span>
         <span className="chevron" aria-hidden="true">
           {open ? '−' : '+'}
@@ -79,6 +81,7 @@ export function Working({ result }: { result: AskResult }) {
               <li key={decision.step}>{decision.detail}</li>
             ))}
           </ul>
+          <Ledger result={result} />
         </div>
       )}
     </section>

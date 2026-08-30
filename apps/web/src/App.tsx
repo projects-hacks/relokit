@@ -9,7 +9,6 @@ import { Toast, useToast } from './lib/toast.tsx'
 import { ago, money } from './lib/format.ts'
 import { Ask } from './panels/Ask.tsx'
 import { Plan } from './panels/Plan.tsx'
-import { Ledger } from './panels/Ledger.tsx'
 import { Counter } from './panels/Counter.tsx'
 import { Working } from './panels/Working.tsx'
 import { Brief } from './panels/Brief.tsx'
@@ -306,9 +305,9 @@ export function App() {
                     })
                   }}
                 />
-                <Watch result={result} />
+                {/* The fixture demo is nobody's saved question. */}
+                {result.run_id !== 0 && <Watch result={result} />}
                 <Working result={result} />
-                <Ledger result={result} />
               </>
             )}
           </section>

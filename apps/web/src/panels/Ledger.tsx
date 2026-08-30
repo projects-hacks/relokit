@@ -1,13 +1,8 @@
 import type { AskResult } from '@relokit/client'
 
 /**
- * What the answer cost.
- *
- * Three numbers rather than a ratio, because the middle one is the honest part:
- * what the provider's own filters would have saved anyway, before any of this
- * decided anything. The bars are gone because at this spread they cannot be
- * read: eighty one against thirteen thousand is a sliver, and a sliver argues
- * nothing. The numbers argue on their own.
+ * What the answer cost. Lives inside the working, because that is what it is:
+ * the arithmetic of the run, not a property of any bucket.
  */
 export function Ledger({ result }: { result: AskResult }) {
   const naive = result.cost.naive_units
@@ -15,7 +10,7 @@ export function Ledger({ result }: { result: AskResult }) {
   const planned = result.cost.planned_units
 
   return (
-    <section className="footnote">
+    <div className="footnote">
       <p className="eyebrow">What this took</p>
       <dl className="tally">
         <div>
@@ -44,6 +39,6 @@ export function Ledger({ result }: { result: AskResult }) {
             }.`
           : `${result.cost.actual_units} spent, ${result.cost.cache_hits} already fetched, ${result.cost.ledger_hits} already known.`}
       </p>
-    </section>
+    </div>
   )
 }
