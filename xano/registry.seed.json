@@ -1,5 +1,5 @@
 {
-  "registry_version": "2026-08-30.5",
+  "registry_version": "2026-08-31.1",
   "capabilities": [
     {
       "capability_id": "candidates.anchor.geocode",
@@ -57,7 +57,7 @@
       "latency_p50_ms": 1900,
       "selectivity_prior": 1,
       "observation_n": 0,
-      "ttl_seconds": 172800,
+      "ttl_seconds": 43200,
       "coverage": 1,
       "precedence": 1,
       "enabled": true,
@@ -68,7 +68,7 @@
         "map_bounds": "$stage.bounds.north,$stage.bounds.east,$stage.bounds.south,$stage.bounds.west",
         "page": 1
       },
-      "notes": "One call per page. The plan emits a single op and the executor repeats it while the response reports more pages, up to max_fanout, because the page count is data and the plan is written before any of it exists. The free predicates cut the page count as well as the candidate count: the unfiltered San Jose pool is 20 pages, the filtered one is a single page. A listing price is stable over days rather than hours, and the six hour life it had before meant a second question about the same city an hour later paid for the whole candidate set again, which is the opposite of what the ledger is for. Forty eight hours, and the interface shows the real age of every fact either way.",
+      "notes": "One call per page. The plan emits a single op and the executor repeats it while the response reports more pages, up to max_fanout, because the page count is data and the plan is written before any of it exists. The free predicates cut the page count as well as the candidate count: the unfiltered San Jose pool is 20 pages, the filtered one is a single page. A listing price is stable over days rather than hours, and the six hour life it had before meant a second question about the same city an hour later paid for the whole candidate set again, which is the opposite of what the ledger is for. Forty eight hours, and the interface shows the real age of every fact either way. The list itself is fresher than the facts: what exists churns daily, so the search is kept twelve hours while per-listing facts keep their two days.",
       "produces": ["entity", "stage.candidates"],
       "subjects": ["rental"]
     },
@@ -82,7 +82,7 @@
       "latency_p50_ms": 1900,
       "selectivity_prior": 1,
       "observation_n": 0,
-      "ttl_seconds": 172800,
+      "ttl_seconds": 43200,
       "coverage": 1,
       "precedence": 1,
       "enabled": true,
@@ -93,7 +93,7 @@
         "map_bounds": "$stage.bounds.north,$stage.bounds.east,$stage.bounds.south,$stage.bounds.west",
         "page": 1
       },
-      "notes": "The same search against what is for sale rather than to let.",
+      "notes": "The same search against what is for sale rather than to let. The list itself is fresher than the facts: what exists churns daily, so the search is kept twelve hours while per-listing facts keep their two days.",
       "produces": ["entity", "stage.candidates"],
       "subjects": ["home_for_sale"]
     },

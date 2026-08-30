@@ -293,6 +293,40 @@ export async function replayRun(
       outcome.calls += 1
       absorb(op, stage, answer.bindings, answer.body)
     }
+
+    // The plan prices pages; this is where they are actually turned. Without it
+    // every paged search stopped at page one, and half the inventory the run
+    // had budgeted for was priced and never collected. The provider says how
+    // many pages exist; the ceiling still governs the spend.
+    if (stage.fanout === 'paged' && answers[0]?.kind === 'answered') {
+      const said = (answers[0].body as { search_information?: { total_pages?: number } })
+        .search_information?.total_pages
+      const pages = Math.min(typeof said === 'number' ? said : 1, MAX_SEARCH_PAGES)
+      for (let page = 2; page <= pages; page += 1) {
+        try {
+          const resolved = resolveParams(op.params, answers[0].bindings)
+          const params = { ...resolved, page }
+          const body = await search(String(resolved.engine ?? 'zillow') as Engine, params, {
+            op_id: `${op.op_id}_p${page}`,
+            capability_id: op.capability_id,
+            endpoint: op.endpoint,
+            ttl_seconds: op.ttl_seconds,
+            constraint_ids: op.constraint_ids,
+            entity_ids: [],
+          })
+          outcome.calls += 1
+          absorb(op, stage, answers[0].bindings, body)
+        } catch (error) {
+          outcome.missing.push({
+            op_id: `${op.op_id}_p${page}`,
+            engine: 'zillow',
+            params: {},
+            detail: error instanceof Error ? error.message : String(error),
+          })
+          break
+        }
+      }
+    }
   }
 
   /**
@@ -754,6 +788,9 @@ function parsePoint(value: string | number | undefined): { lat: number; lng: num
 
 /** About the width of a town, when nobody said how far they would travel. */
 const DEFAULT_SEARCH_RADIUS_M = 8000
+
+/** Five pages is two hundred listings, which is a browse, not an answer. */
+const MAX_SEARCH_PAGES = 5
 
 /** Geometry does not go stale the way an opening time does. Coordinates move
  * only when a listing is re-published, and then it is a different run. */
