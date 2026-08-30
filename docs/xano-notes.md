@@ -105,6 +105,24 @@ both the executor and the warmer call, so there is one definition of what makes
 two calls the same. The property is checkable directly: warm the same parameters
 in two orders and the second reports `warmed: false`.
 
+## Requests queue, so asking for parallelism only moves the waiting
+
+A run makes one call per operation and every one is its own round trip. Sending
+six at a time looked like the obvious win. Measured against the live instance:
+
+| in flight | median call | whole run |
+| --------- | ----------- | --------- |
+| 1         | 2.6 s       | 205 s     |
+| 6         | 25.9 s      | 258 s     |
+
+The same seventy nine calls, none of which spent anything. Six in flight made each
+one ten times slower and the run slower overall. The executor can still fan out,
+because replaying from files has no latency to hide, but against this backend it
+runs one at a time.
+
+The floor is therefore about 2.6 s per operation, and the way past it is fewer
+round trips rather than more of them at once.
+
 ## Other things that bite
 
 A query parameter arrives as text. `db.get` on an int column with one fails with
