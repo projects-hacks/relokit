@@ -30,6 +30,7 @@ network.
 ```
 pnpm plan       # print the plan and the cost trace for the demo query
 pnpm replay     # run it end to end from committed responses
+pnpm dev:proxy  # server-side bridge to Xano; keeps the org key out of the browser
 pnpm dev:web    # the app on port 5173
 ```
 
@@ -165,6 +166,7 @@ the network.
 | `pnpm plan`              | Plan and cost trace for the demo query. |
 | `pnpm replay`            | The demo run end to end, offline.       |
 | `pnpm ask "<question>"`  | The same flow the browser runs.         |
+| `pnpm dev:proxy`         | Local server-side Xano bridge on port 8787. |
 | `pnpm dev:web`           | Web app on port 5173.                   |
 | `pnpm record <scenario>` | Records a fixture. Spends a search.     |
 

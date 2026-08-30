@@ -9,8 +9,8 @@ import {
 import type { ListingSummary } from '@relokit/schema'
 import { ago, money } from '../lib/format.ts'
 
-const api = import.meta.env.VITE_RELOKIT_API ?? ''
-const orgKey = import.meta.env.VITE_RELOKIT_ORG_KEY ?? ''
+const api = '/api'
+const orgKey = ''
 
 /**
  * Keep asking, and say what moved.

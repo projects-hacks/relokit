@@ -20,8 +20,8 @@ export interface AskState {
   restored: { query: string; at: number } | null
 }
 
-const api = import.meta.env.VITE_RELOKIT_API ?? ''
-const orgKey = import.meta.env.VITE_RELOKIT_ORG_KEY ?? ''
+const api = '/api'
+const orgKey = ''
 
 export function useAsk() {
   // The last answer comes back on a reload. Coming back to a decision an hour
@@ -53,7 +53,7 @@ export function useAsk() {
       setState((previous) => ({
         ...previous,
         status: 'failed',
-        error: error instanceof Error ? error.message : String(error),
+        error: friendlyError(error),
       }))
     }
   }, [])
@@ -65,5 +65,14 @@ export function useAsk() {
     setState({ status: 'idle', events: [], result: null, error: null, restored: null })
   }, [])
 
-  return { ...state, run, dismiss, configured: api !== '' && orgKey !== '' }
+  return { ...state, run, dismiss, configured: true }
+}
+
+function friendlyError(error: unknown): string {
+  const detail = error instanceof Error ? error.message : String(error)
+  if (detail.includes('401') || detail.includes('403')) {
+    return 'This search service is not available to your workspace right now.'
+  }
+  if (detail.includes('429')) return 'The search service is busy. Please wait a moment, then try again.'
+  return 'We could not complete this search. Please try again.'
 }

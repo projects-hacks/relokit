@@ -50,6 +50,20 @@ export function Finding({
   const ordered = [...evidence].sort((a, b) => (a.constraint_id < b.constraint_id ? -1 : 1))
   const reason = reasonFor(ordered, blocking)
   const price = money(entity.price_cents)
+  const saveButton = onSave && (
+    <button
+      className="pin"
+      data-saved={String(Boolean(saved))}
+      title={saved ? 'Remove saved location' : 'Save this location'}
+      onClick={(event) => {
+        event.stopPropagation()
+        onSave()
+      }}
+      aria-label={saved ? 'Remove saved location' : `Save ${entity.title}`}
+    >
+      {saved ? '★' : '☆'}
+    </button>
+  )
 
   return (
     <article
@@ -73,26 +87,7 @@ export function Finding({
             decoding="async"
           />
           {entity.photos.length > 1 && <span className="shot-count">{entity.photos.length}</span>}
-          {onSave && (
-            <Tip
-              text={saved ? 'Remove from your shortlist' : 'Keep this one to come back to'}
-              side="left"
-            >
-              <button
-                className="pin"
-                data-saved={String(Boolean(saved))}
-                // Keeping a home should not also fly the map to it. Without
-                // this the click reaches the card behind and does both.
-                onClick={(event) => {
-                  event.stopPropagation()
-                  onSave()
-                }}
-                aria-label={saved ? 'Saved' : 'Save this home'}
-              >
-                {saved ? '★' : '☆'}
-              </button>
-            </Tip>
-          )}
+          {saveButton}
         </div>
       )}
 
@@ -114,6 +109,7 @@ export function Finding({
           </button>
         </h3>
         {price && <span className="finding-price">{price}</span>}
+        {!entity.photo_url && saveButton && <span className="pin-inline">{saveButton}</span>}
       </header>
 
       <button
