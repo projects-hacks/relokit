@@ -26,6 +26,9 @@ export const ConstraintType = z.enum([
    * down the road is how this went wrong before.
    */
   'proximity',
+  /** When the thing being looked for is open. Not nearby_poi, which is about
+   * somewhere else. */
+  'opening_hours',
   'nearby_poi',
   'area_signal',
 ])
@@ -151,6 +154,12 @@ export const ProximityConstraint = z.object({
   radius_m: Meters,
 })
 
+export const OpeningHoursConstraint = z.object({
+  ...base,
+  type: z.literal('opening_hours'),
+  open_window: OpenWindow,
+})
+
 export const AreaSignalTopic = z.enum(['construction', 'safety', 'noise', 'development', 'schools'])
 
 /** Narrowed to soft on purpose. A news headline must never be able to reject a home. */
@@ -169,6 +178,7 @@ export const Constraint = z.discriminatedUnion('type', [
   ListingFeatureConstraint,
   CommuteConstraint,
   ProximityConstraint,
+  OpeningHoursConstraint,
   NearbyPoiConstraint,
   AreaSignalConstraint,
 ])
@@ -214,6 +224,7 @@ export type UnitAttributeConstraint = z.infer<typeof UnitAttributeConstraint>
 export type ListingFeatureConstraint = z.infer<typeof ListingFeatureConstraint>
 export type CommuteConstraint = z.infer<typeof CommuteConstraint>
 export type ProximityConstraint = z.infer<typeof ProximityConstraint>
+export type OpeningHoursConstraint = z.infer<typeof OpeningHoursConstraint>
 export type NearbyPoiConstraint = z.infer<typeof NearbyPoiConstraint>
 export type AreaSignalConstraint = z.infer<typeof AreaSignalConstraint>
 export type Constraint = z.infer<typeof Constraint>

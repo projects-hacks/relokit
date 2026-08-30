@@ -36,3 +36,19 @@ export const SUBJECT_WORDS: Record<Subject, { one: string; many: string }> = {
   pharmacy: { one: 'pharmacy', many: 'pharmacies' },
   hotel: { one: 'hotel', many: 'hotels' },
 }
+
+/** What to type into a place search to find one. */
+export const SUBJECT_TERMS: Record<Subject, string> = {
+  rental: 'apartments for rent',
+  home_for_sale: 'homes for sale',
+  restaurant: 'restaurants',
+  cafe: 'coffee shops',
+  bar: 'bars',
+  gym: 'gyms',
+  grocery: 'grocery stores',
+  school: 'schools',
+  university: 'universities',
+  park: 'parks',
+  pharmacy: 'pharmacies',
+  hotel: 'hotels',
+}

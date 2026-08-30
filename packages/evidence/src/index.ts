@@ -1,6 +1,7 @@
 export * from './hours.ts'
 export * from './context.ts'
 export * from './zillow.ts'
+export * from './candidates.ts'
 export * from './distance.ts'
 export * from './directions.ts'
 export * from './places.ts'

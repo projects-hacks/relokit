@@ -28,6 +28,16 @@ const run = (subject: string) =>
     now_ms: Date.parse('2026-08-30T12:00:00Z'),
   })
 
+describe('free predicates', () => {
+  it('counts only the ones the question asked for', () => {
+    // A question with no requirements prunes nothing at the source, so the
+    // estimate must be the whole box. Counting every native capability in the
+    // registry shrank it below the truth and short changed the page budget.
+    const trace = run('rental').trace.cardinality
+    expect(trace.survivors_by_stage.candidates).toBe(trace.region_entities)
+  })
+})
+
 describe('what is being looked for', () => {
   it('plans a search when a source can produce the subject', () => {
     const ops = run('rental').stages.flatMap((stage) => stage.ops)

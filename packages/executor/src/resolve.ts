@@ -14,6 +14,8 @@ export interface Bindings {
   /** Where the search happens. Named on the question rather than on any one
    * constraint, which is why it needs its own namespace. */
   anchor: string
+  /** What to type into a place search to find the kind of thing asked for. */
+  subject_term: string
   /**
    * Constraint fields an earlier op bound, keyed by the full ref, such as
    * `constraint.c3.destination_point`. These are the ones no amount of reading
@@ -63,6 +65,7 @@ function resolveRef(ref: string, bindings: Bindings): string | number | undefine
 
   if (namespace === 'query') {
     if (a === 'anchor') return bindings.anchor === '' ? undefined : bindings.anchor
+    if (a === 'subject_term') return bindings.subject_term
     return bindings.produced['query.anchor_point']
   }
 

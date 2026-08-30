@@ -1,4 +1,4 @@
-import { Constraint, ConstraintSet, type ConstraintType } from '@relokit/schema'
+import { Constraint, ConstraintSet, Subject, type ConstraintType } from '@relokit/schema'
 import { clockSeconds, distanceMeters, durationSeconds, moneyCents, windowSide } from './units.ts'
 
 /**
@@ -96,6 +96,11 @@ export function normalizeConstraintSet(
     constraint_set: ConstraintSet.parse({
       query_id: meta.query_id,
       raw_query: query,
+      // A subject nobody can source is worse than none: the default finds homes,
+      // which is what an unqualified question means.
+      ...(Subject.safeParse((raw as { subject?: unknown }).subject).success
+        ? { subject: (raw as { subject: string }).subject }
+        : {}),
       locale: { tz: meta.tz ?? 'America/Los_Angeles', currency: 'USD' },
       ...(anchor === ''
         ? {}

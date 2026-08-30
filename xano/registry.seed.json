@@ -1,5 +1,5 @@
 {
-  "registry_version": "2026-08-30.1",
+  "registry_version": "2026-08-30.3",
   "capabilities": [
     {
       "capability_id": "candidates.anchor.geocode",
@@ -71,6 +71,62 @@
       "notes": "One call per page. The plan emits a single op and the executor repeats it while the response reports more pages, up to max_fanout, because the page count is data and the plan is written before any of it exists. The free predicates cut the page count as well as the candidate count: the unfiltered San Jose pool is 20 pages, the filtered one is a single page. A listing price is stable over days rather than hours, and the six hour life it had before meant a second question about the same city an hour later paid for the whole candidate set again, which is the opposite of what the ledger is for. Forty eight hours, and the interface shows the real age of every fact either way.",
       "produces": ["entity", "stage.candidates"],
       "subjects": ["rental"]
+    },
+    {
+      "capability_id": "candidates.places.region",
+      "constraint_type": "candidate_source",
+      "provider": "google_maps",
+      "endpoint": "google_maps:search",
+      "granularity": "region",
+      "cost_units": 1,
+      "latency_p50_ms": 1100,
+      "selectivity_prior": 1,
+      "observation_n": 0,
+      "ttl_seconds": 604800,
+      "coverage": 0.95,
+      "precedence": 1,
+      "enabled": true,
+      "max_fanout": 1,
+      "params_template": {
+        "engine": "google_maps",
+        "type": "search",
+        "q": "$query.subject_term",
+        "ll": "@$stage.bounds.lat,$stage.bounds.lng,13z"
+      },
+      "produces": ["entity"],
+      "subjects": [
+        "restaurant",
+        "cafe",
+        "bar",
+        "gym",
+        "grocery",
+        "school",
+        "university",
+        "park",
+        "pharmacy",
+        "hotel"
+      ],
+      "notes": "One place search over the area, for everything that is not a home. Rating, price level and whether it is open now come back with it at no extra cost."
+    },
+    {
+      "capability_id": "opening_hours.places.native",
+      "constraint_type": "opening_hours",
+      "provider": "google_maps",
+      "endpoint": "google_maps:search",
+      "granularity": "native",
+      "cost_units": 0,
+      "latency_p50_ms": 0,
+      "selectivity_prior": 0.6,
+      "observation_n": 0,
+      "ttl_seconds": 604800,
+      "coverage": 0.8,
+      "precedence": 1,
+      "enabled": true,
+      "max_fanout": 1,
+      "params_template": {},
+      "produces": [],
+      "subjects": [],
+      "notes": "The place search already returns opening times, so this is settled from a call that was being made anyway."
     },
     {
       "capability_id": "budget.zillow.native",

@@ -6,6 +6,7 @@ import {
   mapDirections,
   mapGeocode,
   mapNearbyPlaces,
+  mapPlaceCandidates,
   mapZillowSearch,
   type Buckets,
   type MapperContext,
@@ -37,6 +38,7 @@ import type {
   Weekday,
 } from '@relokit/schema'
 import type { Engine } from '@relokit/serpapi'
+import { SUBJECT_TERMS } from '@relokit/schema'
 import { UnresolvedRef, resolveParams, type Bindings } from './resolve.ts'
 
 export interface MissingFixture {
@@ -489,6 +491,7 @@ export async function replayRun(
     return {
       constraints: constraints.constraints,
       anchor: constraints.search_anchor?.raw ?? '',
+      subject_term: SUBJECT_TERMS[constraints.subject],
       produced,
       stage: stageOutputs,
       ...extra,
@@ -562,6 +565,24 @@ export async function replayRun(
       // are any: a grid across a 23 km box gives cells wide enough that the
       // slack swallows the whole constraint.
       clusters = gridClusters(box, plan.trace.cardinality.cluster_count)
+      return
+    }
+
+    if (op.capability_id === 'candidates.places.region') {
+      const pushed = op.constraint_ids.filter((id) => id !== 'candidate_source')
+      const mapped = mapPlaceCandidates(
+        body,
+        constraints.constraints.filter((c) => pushed.includes(c.id)),
+        context(op),
+        options.evaluation_days,
+      )
+      outcome.evidence.push(...mapped.evidence)
+      outcome.entities.push(...mapped.entities)
+      surviving = outcome.entities
+      const points = outcome.entities.filter((e) => e.point).map((e) => e.point!)
+      if (points.length > 0) {
+        clusters = refineClusters(points, plan.trace.cardinality.cluster_count)
+      }
       return
     }
 

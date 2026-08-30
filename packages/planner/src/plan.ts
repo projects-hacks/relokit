@@ -66,7 +66,13 @@ export function plan(input: PlanInput): PlanResult {
   // survivor count depends on which tiers were chosen. Native predicates break
   // the circle: they are free, always taken when enabled, and prune at the
   // source, so their effect can be worked out before anything is selected.
-  const natives = registry.filter((c) => c.enabled && c.granularity === 'native')
+  // Only the ones this question actually asked for. A free predicate nobody
+  // named prunes nothing, and counting it shrinks the estimate below the truth,
+  // which is how the page budget ends up short.
+  const asked = new Set(constraints.map((constraint) => constraint.type))
+  const natives = [...index.values()]
+    .flat()
+    .filter((c) => c.granularity === 'native' && asked.has(c.constraint_type))
   const afterNative = survivors(SEED_REGION_CANDIDATES, natives)
 
   const firstPass = select(constraints, index, trace, unsatisfied, {

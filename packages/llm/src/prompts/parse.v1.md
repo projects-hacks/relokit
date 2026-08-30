@@ -4,7 +4,12 @@ Output only JSON. No prose, no code fence, no explanation.
 
 Shape:
 
-{"location": "where they are looking", "radius_m": 3218, "constraints": [ ... ]}
+{"subject": "what they want to find", "location": "where they are looking", "radius_m": 3218, "constraints": [ ... ]}
+
+subject is one of rental, home_for_sale, restaurant, cafe, bar, gym, grocery,
+school, university, park, pharmacy, hotel. "Apartments", "flats" and "places to
+rent" are rental. "Houses to buy" is home_for_sale. Use rental when the question
+names no kind of thing, because that is what is usually meant.
 
 location is the town, city or area being searched, copied as written. If the
 question names no area but names a place to travel to, use that place. This is
