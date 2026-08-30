@@ -1,5 +1,13 @@
 import { createServer } from 'node:http'
 
+/*
+ * The browser's only way to the backend, in development and in production.
+ *
+ * The org key authorises spending, so it lives here and never in a bundle
+ * anyone can read. Vite forwards /api to this in development; a deployment
+ * runs it beside the static build and routes /api the same way.
+ */
+
 const port = Number(process.env.RELOKIT_PROXY_PORT ?? 8787)
 const base = (process.env.XANO_INSTANCE_URL ?? '').replace(/\/+$/, '').replace(/\/workspace$/, '')
 const group = process.env.XANO_API_GROUP ?? 'vZQqb3Je'
@@ -39,8 +47,20 @@ createServer(async (request, response) => {
       target.searchParams.set('org_key', orgKey)
     } else {
       const chunks: Buffer[] = []
-      for await (const chunk of request) chunks.push(Buffer.from(chunk))
-      const parsed = JSON.parse(Buffer.concat(chunks).toString('utf8') || '{}') as Record<string, unknown>
+      let size = 0
+      for await (const chunk of request) {
+        size += chunk.length
+        // A question is a few kilobytes; anything near this is not one.
+        if (size > 1_000_000) {
+          reply(response, 413, { error: 'The request is too large.' })
+          return
+        }
+        chunks.push(Buffer.from(chunk))
+      }
+      const parsed = JSON.parse(Buffer.concat(chunks).toString('utf8') || '{}') as Record<
+        string,
+        unknown
+      >
       // Tenant authority belongs to this server, never to the browser.
       body = JSON.stringify({ ...parsed, org_key: orgKey })
     }
@@ -49,14 +69,20 @@ createServer(async (request, response) => {
       method,
       headers: method === 'POST' ? { 'content-type': 'application/json' } : undefined,
       body,
+      // A search can legitimately take minutes; a hung one should not hold a
+      // socket forever.
+      signal: AbortSignal.timeout(180_000),
     })
     const text = await upstreamResponse.text()
     response.writeHead(upstreamResponse.status, {
-      'content-type': upstreamResponse.headers.get('content-type') ?? 'application/json; charset=utf-8',
+      'content-type':
+        upstreamResponse.headers.get('content-type') ?? 'application/json; charset=utf-8',
     })
     response.end(text)
   } catch {
-    reply(response, 502, { error: 'The search service is temporarily unavailable. Please try again.' })
+    reply(response, 502, {
+      error: 'The search service is temporarily unavailable. Please try again.',
+    })
   }
 }).listen(port, '127.0.0.1', () => {
   console.log(`Relokit web proxy listening at http://127.0.0.1:${port}`)
