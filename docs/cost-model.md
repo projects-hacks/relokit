@@ -211,3 +211,25 @@ Survivor counts are not knowable at plan time, so Xano reports the measured
 Priors are seeded by guesswork and labelled as such in the registry `notes`. After
 each run the observed pass rate is written back to `selectivity_observed`, so the
 numbers driving the ordering stop being invented.
+
+## Widening a number costs listings, not lookups
+
+Raising a rent cap from $3,500 to $3,800 on an already answered question cost 34
+searches, and it is worth being exact about where they went:
+
+| capability                 | live | from the ledger |
+| -------------------------- | ---: | --------------: |
+| candidates.zillow.region   |    1 |               0 |
+| commute.directions.cluster |    5 |               1 |
+| commute.directions.entity  |   14 |              21 |
+| nearby_poi.maps.entity     |   14 |              21 |
+
+One of those is the search. The other 33 are homes between the old cap and the
+new one, each needing its own journey and its own gym: real work about listings
+nobody had seen yet, not the same work repeated. Meanwhile 42 of the 70 per
+listing checks came back from the ledger, which is the reuse the design is for.
+
+The reason to write this down is that it kills an appealing idea. Caching a
+widened range so the second search reads from the first would save exactly one
+call, because the search was never the expensive part. What costs is measuring
+homes, and there is no way to measure a home nobody has measured yet.
