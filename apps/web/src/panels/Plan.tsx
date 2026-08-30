@@ -22,7 +22,7 @@ export function Plan({ plan, events }: { plan: PlanResult | null; events: AskEve
 
   return (
     <section className="plan">
-      <p className="eyebrow">How it will be checked</p>
+      <p className="eyebrow">What we’ll check</p>
       {plan.stages.map((stage) => {
         const report = done.get(stage.stage_id)
         const passed = skipped.get(stage.stage_id)

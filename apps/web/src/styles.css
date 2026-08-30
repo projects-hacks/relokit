@@ -98,10 +98,6 @@ body {
   margin: 0;
 }
 
-.masthead .ledger-inline {
-  margin-left: 0;
-}
-
 /*
  * A phone first, and widened from there.
  *
@@ -277,22 +273,6 @@ button:focus-visible,
 }
 
 /* ---------- ledger ---------- */
-
-.ledger-inline {
-  display: flex;
-  gap: calc(var(--step) * 5);
-  font-family: var(--mono);
-  font-size: 12px;
-}
-
-.ledger-inline b {
-  font-weight: 500;
-  color: var(--chalk);
-}
-
-.ledger-inline span {
-  color: var(--chalk-dim);
-}
 
 .tally {
   margin: 0;
@@ -1938,6 +1918,245 @@ button:focus-visible,
   transition: height 260ms ease;
 }
 
+/* ---------- the landing ---------- */
+
+.landing {
+  overflow-y: auto;
+  background:
+    radial-gradient(60% 40% at 70% 0%, rgb(14 122 92 / 7%), transparent 70%), var(--ground);
+}
+
+.hero {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: calc(var(--step) * 20) calc(var(--step) * 5) calc(var(--step) * 10);
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0 0 calc(var(--step) * 4);
+  font-size: clamp(34px, 6vw, 58px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.hero-sub {
+  margin: 0 auto calc(var(--step) * 8);
+  max-width: 52ch;
+  font-size: clamp(15px, 2vw, 17px);
+  line-height: 1.6;
+  color: var(--ink-dim);
+}
+
+.hero-search {
+  display: flex;
+  gap: calc(var(--step) * 2);
+  padding: calc(var(--step) * 2);
+  background: #fff;
+  border: 1.5px solid var(--paper-edge);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+
+.hero-search:focus-within {
+  border-color: var(--measure);
+}
+
+.hero-search input {
+  flex: 1;
+  min-width: 0;
+  padding: calc(var(--step) * 2.5) calc(var(--step) * 4);
+  font: 400 15px/1.4 var(--sans);
+  color: var(--ink);
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.hero-search button {
+  flex: none;
+  padding: calc(var(--step) * 2.5) calc(var(--step) * 6);
+  font: 700 15px/1 var(--sans);
+  color: #fff;
+  background: var(--measure);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.hero-search button:hover {
+  background: #0a6349;
+}
+
+.hero-examples {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: calc(var(--step) * 2);
+  margin-top: calc(var(--step) * 5);
+}
+
+.hero-examples button {
+  font: 500 13px/1 var(--sans);
+  color: var(--ink-dim);
+  background: #fff;
+  border: 1px solid var(--paper-edge);
+  border-radius: 999px;
+  padding: calc(var(--step) * 2) calc(var(--step) * 3.5);
+  cursor: pointer;
+}
+
+.hero-examples button:hover {
+  color: var(--measure);
+  border-color: var(--measure);
+}
+
+.receipts {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: calc(var(--step) * 6) calc(var(--step) * 5);
+  text-align: center;
+}
+
+.receipt-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(var(--step) * 3);
+  margin-top: calc(var(--step) * 4);
+  text-align: left;
+}
+
+.receipt {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: calc(var(--step) * 2.5);
+  align-items: center;
+  padding: calc(var(--step) * 3.5);
+  background: #fff;
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-size: 13.5px;
+}
+
+.receipt-mark {
+  color: var(--verified);
+  font-weight: 700;
+}
+
+.receipt-src {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: var(--chalk-faint);
+  text-align: right;
+}
+
+.steps {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: calc(var(--step) * 10) calc(var(--step) * 5);
+  text-align: center;
+}
+
+.step-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(var(--step) * 4);
+  margin-top: calc(var(--step) * 5);
+  text-align: left;
+}
+
+.step h3 {
+  margin: calc(var(--step) * 2) 0 calc(var(--step) * 1.5);
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+
+.step p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+}
+
+.step-n {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  font: 700 14px/1 var(--sans);
+  color: var(--measure);
+  background: var(--wash);
+}
+
+.subjects {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 calc(var(--step) * 5) calc(var(--step) * 10);
+  text-align: center;
+}
+
+.subject-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: calc(var(--step) * 2);
+  margin-top: calc(var(--step) * 4);
+}
+
+.subject-chips span {
+  font-size: 13px;
+  color: var(--ink-dim);
+  background: #fff;
+  border: 1px solid var(--paper-edge);
+  border-radius: 999px;
+  padding: calc(var(--step) * 1.5) calc(var(--step) * 3);
+}
+
+.landing-foot {
+  display: grid;
+  gap: calc(var(--step) * 1.5);
+  justify-items: center;
+  padding: calc(var(--step) * 8) calc(var(--step) * 5) calc(var(--step) * 12);
+  border-top: 1px solid var(--paper-edge);
+  font-size: 12.5px;
+  color: var(--chalk-faint);
+  text-align: center;
+}
+
+.landing-foot b {
+  color: var(--ink-dim);
+}
+
+.brand-home {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 720px) {
+  .receipt-strip,
+  .step-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: calc(var(--step) * 12);
+  }
+
+  .hero-search {
+    flex-direction: column;
+    border-radius: var(--radius);
+  }
+
+  .hero-search button {
+    width: 100%;
+    padding: calc(var(--step) * 3);
+  }
+}
+
 /* Wider screens last, so every base rule above can be overridden here. */
 @media (min-width: 900px) {
   .masthead {
@@ -1947,10 +2166,6 @@ button:focus-visible,
 
   .masthead .strapline {
     display: block;
-  }
-
-  .masthead .ledger-inline {
-    margin-left: auto;
   }
 
   /* Room for the question beside the map, with the answer across the foot.

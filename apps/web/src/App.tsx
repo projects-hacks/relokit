@@ -21,9 +21,24 @@ import { Nothing } from './findings/Nothing.tsx'
 import { FindingsSkeleton } from './findings/Skeleton.tsx'
 import { Offers } from './findings/Offers.tsx'
 import { Map, type MapTheme } from './map/Map.tsx'
+import { Landing } from './Landing.tsx'
+
+const inApp = () => location.hash === '#app' || location.search.includes('demo')
 
 export function App() {
   const { status, events, result, error, restored, run, dismiss } = useAsk()
+  // The address bar is the router: the landing at /, the app at #app, and the
+  // back button works because the hash is the state.
+  const [view, setView] = useState<'landing' | 'app'>(() => (inApp() ? 'app' : 'landing'))
+  useEffect(() => {
+    const sync = () => setView(inApp() ? 'app' : 'landing')
+    addEventListener('hashchange', sync)
+    return () => removeEventListener('hashchange', sync)
+  }, [])
+  const enterApp = (query?: string) => {
+    location.hash = '#app'
+    if (query) run(query)
+  }
   const [openId, setOpenId] = useState<string | null>(null)
   // Selecting shows a home on the map. Opening covers the map, so it is a
   // separate act rather than the same click doing both.
@@ -99,23 +114,20 @@ export function App() {
       </a>
 
       <header className="masthead">
-        <h1 className="wordmark">
-          Relo<span>kit</span>
-        </h1>
+        <a
+          className="brand-home"
+          href="/"
+          onClick={(event) => {
+            event.preventDefault()
+            history.pushState(null, '', '/')
+            setView('landing')
+          }}
+        >
+          <h1 className="wordmark">
+            Relo<span>kit</span>
+          </h1>
+        </a>
         <p className="strapline">Every answer checked at its source</p>
-        {result && (
-          <div className="ledger-inline">
-            <span>
-              <b>{result.buckets.results.length}</b>{' '}
-              {result.constraint_set.constraints.some((c) => c.hardness === 'hard')
-                ? 'verified'
-                : 'found'}
-            </span>
-            <span>
-              <b>{result.entities.length}</b> looked at
-            </span>
-          </div>
-        )}
         {saved.homes.length > 0 && (
           <button className="saved-access" onClick={() => setSavedOpen(true)}>
             <span aria-hidden="true">★</span>
@@ -125,179 +137,183 @@ export function App() {
         )}
       </header>
 
-      <div className="columns">
-        <aside className="rail">
-          <Ask onAsk={run} busy={status === 'running'} />
-          <Plan plan={plan} events={events} />
-        </aside>
+      {view === 'landing' && <Landing onSearch={enterApp} />}
 
-        <main className="stage" data-shut={String(mapShut)}>
-          <button
-            className="stage-toggle"
-            onClick={() => setMapShut((current) => !current)}
-            aria-expanded={!mapShut}
-          >
-            <span>{mapShut ? 'Show the map' : 'Hide the map'}</span>
-            <span className="map-toggle-icon" aria-hidden="true">
-              {mapShut ? '↗' : '×'}
-            </span>
-          </button>
-          <Map
-            theme={mapTheme}
-            shut={mapShut}
-            plan={plan}
-            result={result}
-            selected={selectedId}
-            hovered={hoveredId}
-            onSelect={setSelectedId}
-            onHover={(id) => {
-              setFromMap(id !== null)
-              setHoveredId(id)
-            }}
-            onOpen={setOpenId}
-          />
-          <div className="map-theme" role="group" aria-label="Map colour">
+      {view === 'app' && (
+        <div className="columns">
+          <aside className="rail">
+            <Ask onAsk={run} busy={status === 'running'} />
+            <Plan plan={plan} events={events} />
+          </aside>
+
+          <main className="stage" data-shut={String(mapShut)}>
             <button
-              type="button"
-              data-active={String(mapTheme === 'bright')}
-              aria-pressed={mapTheme === 'bright'}
-              onClick={() => setMapTheme('bright')}
+              className="stage-toggle"
+              onClick={() => setMapShut((current) => !current)}
+              aria-expanded={!mapShut}
             >
-              Bright
-            </button>
-            <button
-              type="button"
-              data-active={String(mapTheme === 'dark')}
-              aria-pressed={mapTheme === 'dark'}
-              onClick={() => setMapTheme('dark')}
-            >
-              Dark
-            </button>
-          </div>
-          <Counter events={events} />
-        </main>
-
-        <section className="paper" id="results">
-          {status === 'idle' && saved.homes.length === 0 && <Brief onAsk={run} />}
-
-          {status === 'idle' && saved.homes.length > 0 && (
-            <section>
-              <p className="eyebrow">Kept for later</p>
-              <div className="saved-strip">
-                {saved.homes.map((home) => (
-                  <a
-                    className="saved-card"
-                    key={home.entity_id}
-                    href={home.url ?? '#'}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {home.photo_url && (
-                      <img
-                        src={home.photo_url}
-                        alt=""
-                        width={96}
-                        height={64}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    )}
-                    <span>
-                      <b>{money(home.price_cents) ?? '—'}</b>
-                      <br />
-                      {home.title.slice(0, 48)}
-                    </span>
-                  </a>
-                ))}
-              </div>
-              <button
-                className="as-link"
-                onClick={() => {
-                  const restore = saved.clear()
-                  notice.show('Saved places cleared.', restore)
-                }}
-              >
-                Clear the list
-              </button>
-            </section>
-          )}
-
-          {working && (
-            <>
-              <p className="pending">{progress}</p>
-              <FindingsSkeleton />
-            </>
-          )}
-
-          {status === 'failed' && (
-            <div className="failure">
-              <p className="eyebrow">The run stopped</p>
-              <p className="note">{error}</p>
-            </div>
-          )}
-
-          {restored && (
-            <div className="restored">
-              <span>
-                Showing what you asked {ago(restored.at)}: “{restored.query.slice(0, 54)}
-                {restored.query.length > 54 ? '…' : ''}”
+              <span>{mapShut ? 'Show the map' : 'Hide the map'}</span>
+              <span className="map-toggle-icon" aria-hidden="true">
+                {mapShut ? '↗' : '×'}
               </span>
-              <button onClick={dismiss}>Clear</button>
+            </button>
+            <Map
+              theme={mapTheme}
+              shut={mapShut}
+              plan={plan}
+              result={result}
+              selected={selectedId}
+              hovered={hoveredId}
+              onSelect={setSelectedId}
+              onHover={(id) => {
+                setFromMap(id !== null)
+                setHoveredId(id)
+              }}
+              onOpen={setOpenId}
+            />
+            <div className="map-theme" role="group" aria-label="Map colour">
+              <button
+                type="button"
+                data-active={String(mapTheme === 'bright')}
+                aria-pressed={mapTheme === 'bright'}
+                onClick={() => setMapTheme('bright')}
+              >
+                Bright
+              </button>
+              <button
+                type="button"
+                data-active={String(mapTheme === 'dark')}
+                aria-pressed={mapTheme === 'dark'}
+                onClick={() => setMapTheme('dark')}
+              >
+                Dark
+              </button>
             </div>
-          )}
+            <Counter events={events} />
+          </main>
 
-          {result && result.problems.length > 0 && result.entities.length > 0 && (
-            <p className="note partial">
-              {result.problems.length} {result.problems.length === 1 ? 'call' : 'calls'} did not
-              happen, so some results were checked less thoroughly than others.
-            </p>
-          )}
+          <section className="paper" id="results">
+            {status === 'idle' && saved.homes.length === 0 && <Brief onAsk={run} />}
 
-          {result && !working && (
-            <>
-              {result.entities.length === 0 ? (
-                <Nothing result={result} />
-              ) : (
-                <Findings
+            {status === 'idle' && saved.homes.length > 0 && (
+              <section>
+                <p className="eyebrow">Kept for later</p>
+                <div className="saved-strip">
+                  {saved.homes.map((home) => (
+                    <a
+                      className="saved-card"
+                      key={home.entity_id}
+                      href={home.url ?? '#'}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {home.photo_url && (
+                        <img
+                          src={home.photo_url}
+                          alt=""
+                          width={96}
+                          height={64}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      )}
+                      <span>
+                        <b>{money(home.price_cents) ?? '—'}</b>
+                        <br />
+                        {home.title.slice(0, 48)}
+                      </span>
+                    </a>
+                  ))}
+                </div>
+                <button
+                  className="as-link"
+                  onClick={() => {
+                    const restore = saved.clear()
+                    notice.show('Saved places cleared.', restore)
+                  }}
+                >
+                  Clear the list
+                </button>
+              </section>
+            )}
+
+            {working && (
+              <>
+                <p className="pending">{progress}</p>
+                <FindingsSkeleton />
+              </>
+            )}
+
+            {status === 'failed' && (
+              <div className="failure">
+                <p className="eyebrow">The run stopped</p>
+                <p className="note">{error}</p>
+              </div>
+            )}
+
+            {restored && (
+              <div className="restored">
+                <span>
+                  Showing what you asked {ago(restored.at)}: “{restored.query.slice(0, 54)}
+                  {restored.query.length > 54 ? '…' : ''}”
+                </span>
+                <button onClick={dismiss}>Clear</button>
+              </div>
+            )}
+
+            {result && result.problems.length > 0 && result.entities.length > 0 && (
+              <p className="note partial">
+                {result.problems.length} {result.problems.length === 1 ? 'call' : 'calls'} did not
+                happen, so some results were checked less thoroughly than others.
+              </p>
+            )}
+
+            {result && !working && (
+              <>
+                {result.entities.length === 0 ? (
+                  <Nothing result={result} />
+                ) : (
+                  <Findings
+                    result={result}
+                    isSaved={saved.isSaved}
+                    onSave={(home) => {
+                      notice.show(saved.isSaved(home.entity_id) ? 'Removed.' : 'Saved.')
+                      saved.toggle(home)
+                    }}
+                    onOpen={setOpenId}
+                    onSelect={setSelectedId}
+                    onHover={(id) => {
+                      setFromMap(false)
+                      setHoveredId(id)
+                    }}
+                    selected={selectedId}
+                    hovered={hoveredId}
+                  />
+                )}
+                <Offers
                   result={result}
-                  isSaved={saved.isSaved}
-                  onSave={(home) => {
-                    notice.show(saved.isSaved(home.entity_id) ? 'Removed.' : 'Saved.')
-                    saved.toggle(home)
+                  onRelax={(constraintId, to) => {
+                    // Asking again with one bound moved. Only that bound changes,
+                    // and it is marked as ours so the interface can say the
+                    // number stopped being theirs.
+                    run(result.constraint_set.raw_query, {
+                      ...result.constraint_set,
+                      constraints: applyRelaxation(
+                        result.constraint_set.constraints,
+                        constraintId,
+                        to,
+                      ),
+                    })
                   }}
-                  onOpen={setOpenId}
-                  onSelect={setSelectedId}
-                  onHover={(id) => {
-                    setFromMap(false)
-                    setHoveredId(id)
-                  }}
-                  selected={selectedId}
-                  hovered={hoveredId}
                 />
-              )}
-              <Offers
-                result={result}
-                onRelax={(constraintId, to) => {
-                  // Asking again with one bound moved. Only that bound changes,
-                  // and it is marked as ours so the interface can say the
-                  // number stopped being theirs.
-                  run(result.constraint_set.raw_query, {
-                    ...result.constraint_set,
-                    constraints: applyRelaxation(
-                      result.constraint_set.constraints,
-                      constraintId,
-                      to,
-                    ),
-                  })
-                }}
-              />
-              <Watch result={result} />
-              <Working result={result} />
-              <Ledger result={result} />
-            </>
-          )}
-        </section>
-      </div>
+                <Watch result={result} />
+                <Working result={result} />
+                <Ledger result={result} />
+              </>
+            )}
+          </section>
+        </div>
+      )}
 
       <Toast toast={notice.toast} onDismiss={notice.dismiss} />
 

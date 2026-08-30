@@ -14,7 +14,7 @@ export function Ask({ onAsk, busy }: { onAsk: (query: string) => void; busy: boo
         if (query.trim()) onAsk(query.trim())
       }}
     >
-      <p className="eyebrow">What has to be true</p>
+      <p className="eyebrow">What matters to you</p>
       <textarea
         value={query}
         onChange={(event) => setQuery(event.target.value)}
@@ -22,10 +22,10 @@ export function Ask({ onAsk, busy }: { onAsk: (query: string) => void; busy: boo
         aria-label="Your requirements"
       />
       <button type="submit" disabled={busy || query.trim() === ''}>
-        {busy ? 'Checking…' : 'Check every one'}
+        {busy ? 'Checking…' : 'Search'}
       </button>
       <button type="button" className="example" onClick={() => setQuery(EXAMPLE)}>
-        Use the San Jose example
+        Try an example
       </button>
     </form>
   )
