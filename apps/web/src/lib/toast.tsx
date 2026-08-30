@@ -8,7 +8,7 @@ interface Toast {
 /**
  * A short line about something that just happened, and a way back from it.
  *
- * Clearing a shortlist somebody spent an evening building is not worth a
+ * Clearing saved locations somebody spent an evening building is not worth a
  * confirmation dialog and is certainly not worth losing. The way out is offered
  * after the fact rather than demanded before it.
  */

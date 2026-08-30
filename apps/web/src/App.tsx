@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { AskEvent } from '@relokit/client'
 import { applyRelaxation } from '@relokit/evidence'
 import { SUBJECT_WORDS } from '@relokit/schema'
@@ -13,13 +13,14 @@ import { Ledger } from './panels/Ledger.tsx'
 import { Counter } from './panels/Counter.tsx'
 import { Working } from './panels/Working.tsx'
 import { Brief } from './panels/Brief.tsx'
+import { SavedLocations } from './panels/SavedLocations.tsx'
 import { Watch } from './panels/Watch.tsx'
 import { Findings } from './findings/Findings.tsx'
 import { Detail } from './findings/Detail.tsx'
 import { Nothing } from './findings/Nothing.tsx'
 import { FindingsSkeleton } from './findings/Skeleton.tsx'
 import { Offers } from './findings/Offers.tsx'
-import { Map } from './map/Map.tsx'
+import { Map, type MapTheme, type MapView } from './map/Map.tsx'
 
 export function App() {
   const { status, events, result, error, restored, run, dismiss, configured } = useAsk()
@@ -37,6 +38,11 @@ export function App() {
   // On a phone the answer comes first and the map is asked for. Above that it
   // is always open and the control is not rendered at all.
   const [mapShut, setMapShut] = useState(true)
+  const [savedOpen, setSavedOpen] = useState(false)
+  const [mapTheme, setMapTheme] = useState<MapTheme>(
+    () => (localStorage.getItem('relokit-map-theme') === 'dark' ? 'dark' : 'bright'),
+  )
+  const mapView = useRef<MapView | null>(null)
   // The end of the run is as much a thing to be told as the middle of it.
   const progress =
     status === 'running'
@@ -59,6 +65,9 @@ export function App() {
       .querySelector(`[data-entity="${CSS.escape(hoveredId)}"]`)
       ?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
   }, [fromMap, hoveredId])
+  useEffect(() => {
+    localStorage.setItem('relokit-map-theme', mapTheme)
+  }, [mapTheme])
 
   const open = openId ? result?.entities.find((e) => e.entity_id === openId) : undefined
   const openEvidence =
@@ -83,12 +92,17 @@ export function App() {
       </a>
 
       <header className="masthead">
-        <h1 className="wordmark">
-          Relo<span>kit</span>
-        </h1>
-        <p className="strapline">
-          Every requirement checked against the place that actually holds the answer
-        </p>
+        <div className="brand">
+          <span className="brand-mark" aria-hidden="true">R</span>
+          <div>
+            <h1 className="wordmark">Relokit</h1>
+            <p className="strapline">A clearer way to choose where you live</p>
+          </div>
+        </div>
+        <div className="trust-note">
+          <span className="trust-dot" aria-hidden="true" />
+          Evidence-backed search
+        </div>
         {result && (
           <div className="ledger-inline">
             <span>
@@ -100,18 +114,24 @@ export function App() {
             <span>
               <b>{result.entities.length}</b> looked at
             </span>
-            {saved.homes.length > 0 && (
-              <span>
-                <b>{saved.homes.length}</b> saved
-              </span>
-            )}
           </div>
+        )}
+        {saved.homes.length > 0 && (
+          <button className="saved-access" onClick={() => setSavedOpen(true)}>
+            <span aria-hidden="true">★</span>
+            <span className="saved-access-text">Saved locations</span>
+            <b>{saved.homes.length}</b>
+          </button>
         )}
       </header>
 
       <div className="columns">
         <aside className="rail">
-          <Ask onAsk={run} busy={status === 'running'} configured={configured} />
+          <Ask
+            onAsk={run}
+            busy={status === 'running'}
+            configured={configured}
+          />
           {!configured && (
             <p className="note">
               No backend is configured. Set VITE_RELOKIT_API and VITE_RELOKIT_ORG_KEY, then reload.
@@ -126,9 +146,15 @@ export function App() {
             onClick={() => setMapShut((current) => !current)}
             aria-expanded={!mapShut}
           >
-            {mapShut ? 'Show the map' : 'Hide the map'}
+            <span>{mapShut ? 'Show the map' : 'Hide the map'}</span>
+            <span className="map-toggle-icon" aria-hidden="true">
+              {mapShut ? '↗' : '×'}
+            </span>
           </button>
           <Map
+            key={mapTheme}
+            theme={mapTheme}
+            viewRef={mapView}
             shut={mapShut}
             plan={plan}
             result={result}
@@ -141,6 +167,28 @@ export function App() {
             }}
             onOpen={setOpenId}
           />
+          <div className="map-label" aria-hidden="true">
+            <span className="map-label-dot" />
+            Search area
+          </div>
+          <div className="map-theme" role="group" aria-label="Map colour">
+            <button
+              type="button"
+              data-active={String(mapTheme === 'bright')}
+              aria-pressed={mapTheme === 'bright'}
+              onClick={() => setMapTheme('bright')}
+            >
+              Bright
+            </button>
+            <button
+              type="button"
+              data-active={String(mapTheme === 'dark')}
+              aria-pressed={mapTheme === 'dark'}
+              onClick={() => setMapTheme('dark')}
+            >
+              Dark
+            </button>
+          </div>
           <Counter events={events} />
         </main>
 
@@ -149,7 +197,7 @@ export function App() {
 
           {status === 'idle' && saved.homes.length > 0 && (
             <section>
-              <p className="eyebrow">Kept for later</p>
+              <p className="eyebrow">Saved locations</p>
               <div className="saved-strip">
                 {saved.homes.map((home) => (
                   <a
@@ -181,10 +229,10 @@ export function App() {
                 className="as-link"
                 onClick={() => {
                   const restore = saved.clear()
-                  notice.show('Shortlist cleared.', restore)
+                  notice.show('Saved locations cleared.', restore)
                 }}
               >
-                Clear the shortlist
+                Clear saved locations
               </button>
             </section>
           )}
@@ -267,6 +315,22 @@ export function App() {
       </div>
 
       <Toast toast={notice.toast} onDismiss={notice.dismiss} />
+
+      {savedOpen && (
+        <SavedLocations
+          homes={saved.homes}
+          onClose={() => setSavedOpen(false)}
+          onRemove={(entityId) => {
+            saved.remove(entityId)
+            notice.show('Saved location removed.')
+          }}
+          onClear={() => {
+            const restore = saved.clear()
+            setSavedOpen(false)
+            notice.show('Saved locations cleared.', restore)
+          }}
+        />
+      )}
 
       {open && openEvidence && result && (
         <Detail

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, type MutableRefObject } from 'react'
 import { Map as MapLibreMap, type GeoJSONSource } from 'maplibre-gl'
 import type { FeatureCollection } from 'geojson'
 import type { AskResult } from '@relokit/client'
@@ -6,6 +6,18 @@ import type { PlanResult } from '@relokit/schema'
 import 'maplibre-gl/dist/maplibre-gl.css'
 
 const SAN_JOSE: [number, number] = [-121.94, 37.34]
+const MAP_STYLES = {
+  bright: 'https://tiles.openfreemap.org/styles/bright',
+  dark: 'https://tiles.openfreemap.org/styles/dark',
+} as const
+
+export type MapTheme = keyof typeof MAP_STYLES
+export interface MapView {
+  center: [number, number]
+  zoom: number
+  bearing: number
+  pitch: number
+}
 
 /**
  * A pin's colour comes only from evidence that exists.
@@ -15,6 +27,8 @@ const SAN_JOSE: [number, number] = [-121.94, 37.34]
  * stalls, the map simply stops moving.
  */
 export function Map({
+  theme,
+  viewRef,
   plan,
   result,
   selected,
@@ -24,6 +38,10 @@ export function Map({
   onHover,
   onOpen,
 }: {
+  theme: MapTheme
+  /** Kept outside the Map instance so a style change does not drop the user's
+   * current neighbourhood, zoom, or orientation. */
+  viewRef: MutableRefObject<MapView | null>
   plan: PlanResult | null
   result: AskResult | null
   selected: string | null
@@ -56,11 +74,16 @@ export function Map({
 
   useEffect(() => {
     if (!container.current || map.current) return
+    const previousView = viewRef.current
     const instance = new MapLibreMap({
       container: container.current,
-      style: 'https://tiles.openfreemap.org/styles/dark',
-      center: SAN_JOSE,
-      zoom: 10.5,
+      // Both OpenFreeMap styles use the same map data. Recreating the map when
+      // this preference changes keeps the custom evidence layers in sync.
+      style: MAP_STYLES[theme],
+      center: previousView?.center ?? SAN_JOSE,
+      zoom: previousView?.zoom ?? 10.5,
+      bearing: previousView?.bearing ?? 0,
+      pitch: previousView?.pitch ?? 0,
       attributionControl: { compact: true },
     })
     // The published basemap names a fill pattern its own sprite sheet does not
@@ -268,10 +291,17 @@ export function Map({
 
     map.current = instance
     return () => {
+      const center = instance.getCenter()
+      viewRef.current = {
+        center: [center.lng, center.lat],
+        zoom: instance.getZoom(),
+        bearing: instance.getBearing(),
+        pitch: instance.getPitch(),
+      }
       instance.remove()
       map.current = null
     }
-  }, [])
+  }, [theme, viewRef])
 
   useEffect(() => {
     const instance = map.current
@@ -465,7 +495,13 @@ export function Map({
 
   return (
     <>
-      <div className="map" ref={container} />
+      <div className="map" ref={container} role="region" aria-label="Search map" />
+      {!plan && !result && (
+        <div className="map-empty" aria-live="polite">
+          <b>Your search area will appear here</b>
+          <span>Start with the place and priorities that matter to you.</span>
+        </div>
+      )}
       {result && (
         <ul className="legend">
           <li>
