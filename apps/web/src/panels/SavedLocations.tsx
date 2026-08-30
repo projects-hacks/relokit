@@ -61,7 +61,7 @@ export function SavedLocations({
                 <div className="saved-property-actions">
                   {home.url && (
                     <a href={home.url} target="_blank" rel="noreferrer">
-                      View listing ↗
+                      Open ↗
                     </a>
                   )}
                   <button onClick={() => onRemove(home.entity_id)}>Remove</button>
