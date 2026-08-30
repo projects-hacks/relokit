@@ -191,6 +191,12 @@ button:focus-visible,
   outline-offset: 2px;
 }
 
+.ask button.stop {
+  color: var(--ruled-out);
+  background: none;
+  border: 1.5px solid var(--ruled-out);
+}
+
 .ask button {
   align-self: flex-start;
   padding: calc(var(--step) * 2.5) calc(var(--step) * 5);

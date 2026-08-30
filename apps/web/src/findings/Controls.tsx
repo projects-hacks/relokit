@@ -22,6 +22,8 @@ export function Controls({
   filters,
   onFilters,
   constraints,
+  priced,
+  bedded,
   showing,
   word,
   total,
@@ -32,6 +34,10 @@ export function Controls({
   filters: Filters
   onFilters: (filters: Filters) => void
   constraints: ConstraintSet['constraints']
+  /** Which filters mean anything for what was searched. A rent ceiling over
+   * restaurants and a bedroom count over gyms are dials wired to nothing. */
+  priced: boolean
+  bedded: boolean
   showing: number
   word: { one: string; many: string }
   total: number
@@ -55,44 +61,51 @@ export function Controls({
         </select>
       </label>
 
-      <label className="control">
-        <span>Rent up to</span>
-        <input
-          type="number"
-          inputMode="numeric"
-          step={100}
-          min={0}
-          placeholder={asked ? String(Math.round(asked / 100)) : 'any'}
-          value={filters.max_price_cents === null ? '' : Math.round(filters.max_price_cents / 100)}
-          onChange={(event) =>
-            onFilters({
-              ...filters,
-              max_price_cents: event.target.value === '' ? null : Number(event.target.value) * 100,
-            })
-          }
-        />
-      </label>
+      {priced && (
+        <label className="control">
+          <span>Rent up to</span>
+          <input
+            type="number"
+            inputMode="numeric"
+            step={100}
+            min={0}
+            placeholder={asked ? String(Math.round(asked / 100)) : 'any'}
+            value={
+              filters.max_price_cents === null ? '' : Math.round(filters.max_price_cents / 100)
+            }
+            onChange={(event) =>
+              onFilters({
+                ...filters,
+                max_price_cents:
+                  event.target.value === '' ? null : Number(event.target.value) * 100,
+              })
+            }
+          />
+        </label>
+      )}
 
-      <label className="control">
-        <span>Bedrooms</span>
-        <select
-          value={filters.beds === null ? '' : String(filters.beds)}
-          onChange={(event) =>
-            onFilters({
-              ...filters,
-              beds: event.target.value === '' ? null : Number(event.target.value),
-            })
-          }
-        >
-          <option value="">any</option>
-          {[0, 1, 2, 3, 4].map((count) => (
-            <option key={count} value={count}>
-              {count === 0 ? 'studio' : count}
-              {askedBeds === count ? ' · asked for' : ''}
-            </option>
-          ))}
-        </select>
-      </label>
+      {bedded && (
+        <label className="control">
+          <span>Bedrooms</span>
+          <select
+            value={filters.beds === null ? '' : String(filters.beds)}
+            onChange={(event) =>
+              onFilters({
+                ...filters,
+                beds: event.target.value === '' ? null : Number(event.target.value),
+              })
+            }
+          >
+            <option value="">any</option>
+            {[0, 1, 2, 3, 4].map((count) => (
+              <option key={count} value={count}>
+                {count === 0 ? 'studio' : count}
+                {askedBeds === count ? ' · asked for' : ''}
+              </option>
+            ))}
+          </select>
+        </label>
+      )}
 
       <p className="showing" aria-live="polite">
         {showing === total

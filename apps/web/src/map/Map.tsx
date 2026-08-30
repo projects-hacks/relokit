@@ -414,8 +414,12 @@ export function Map({
     // The place searched around is shown whether or not anything else was
     // asked. "Apartments near the university" asks for nothing except the
     // university, and a map that leaves it out is pins with no reason attached.
+    // When the question named places to be near, those are the reference and
+    // the city point is noise: a dotted line to "San Jose" says nothing about
+    // a restaurant chosen for being near Santana Row.
+    const named = checked.some((place) => place.kind === 'near' || place.kind === 'destination')
     const anchor =
-      selected && result.anchor
+      selected && result.anchor && !named
         ? [
             {
               label: result.anchor.label,

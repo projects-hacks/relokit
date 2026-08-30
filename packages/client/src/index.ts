@@ -87,6 +87,8 @@ export interface AskOptions {
    * minutes would add one more" be a thing you can press.
    */
   constraints?: ConstraintSet
+  /** Stops the run between calls. What was already fetched stays fetched. */
+  signal?: AbortSignal
 }
 
 export async function ask(
@@ -96,6 +98,10 @@ export async function ask(
 ): Promise<AskResult> {
   const now = options.now_ms ?? Date.now()
   const report = options.onProgress ?? (() => {})
+  const stopped = () => {
+    if (options.signal?.aborted) throw new DOMException('The run was stopped.', 'AbortError')
+  }
+  stopped()
 
   const parsed = await transport.post('/parse', { query })
   const raw = readJson(String(parsed.raw_text))
@@ -149,6 +155,7 @@ export async function ask(
     constraint_set,
     registry.capabilities,
     async (_engine, params, context) => {
+      stopped()
       const answer = await transport.post('/op', {
         run_id: runId,
         op_id: context.op_id,
@@ -193,6 +200,7 @@ export async function ask(
     value_text: typeof row.value_canonical === 'string' ? row.value_canonical : null,
   }))
   const CHUNK = 60
+  stopped()
   for (let at = 0; at < Math.max(entityRows.length, evidenceRows.length, 1); at += CHUNK) {
     await transport.post('/ingest', {
       run_id: runId,

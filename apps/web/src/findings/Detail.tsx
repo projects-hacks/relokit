@@ -76,6 +76,8 @@ export function Detail({
           </div>
         )}
 
+        {/* places:<id> is Google's own place id, so their link opens the exact
+            listing rather than a search for its name. */}
         <div className="detail-actions">
           <button className={saved ? 'saved' : 'save'} onClick={onSave}>
             {saved ? 'Saved' : 'Save this place'}
@@ -86,6 +88,30 @@ export function Detail({
               result.constraint_set.subject === 'home_for_sale'
                 ? 'See the full listing'
                 : 'Visit the website'}
+            </a>
+          )}
+          {entity.point && (
+            <a
+              className="outward"
+              href={
+                entity.entity_id.startsWith('places:')
+                  ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(entity.title)}&query_place_id=${entity.entity_id.slice('places:'.length)}`
+                  : `https://www.google.com/maps/search/?api=1&query=${entity.point.lat},${entity.point.lng}`
+              }
+              target="_blank"
+              rel="noreferrer"
+            >
+              Google Maps
+            </a>
+          )}
+          {entity.point && (
+            <a
+              className="outward"
+              href={`https://maps.apple.com/?q=${encodeURIComponent(entity.title)}&ll=${entity.point.lat},${entity.point.lng}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Apple Maps
             </a>
           )}
         </div>

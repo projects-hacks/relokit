@@ -25,7 +25,7 @@ import { Landing } from './Landing.tsx'
 const inApp = () => location.hash === '#app' || location.search.includes('demo')
 
 export function App() {
-  const { status, events, result, error, restored, run, dismiss } = useAsk()
+  const { status, events, result, query, error, restored, run, stop, dismiss } = useAsk()
   // The address bar is the router: the landing at /, the app at #app, and the
   // back button works because the hash is the state.
   const [view, setView] = useState<'landing' | 'app'>(() => (inApp() ? 'app' : 'landing'))
@@ -141,7 +141,7 @@ export function App() {
       {view === 'app' && (
         <div className="columns">
           <aside className="rail">
-            <Ask onAsk={run} busy={status === 'running'} />
+            <Ask onAsk={run} onStop={stop} busy={status === 'running'} asking={query} />
             <Plan plan={plan} events={events} />
           </aside>
 

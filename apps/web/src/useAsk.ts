@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { ask, httpTransport, type AskEvent, type AskResult } from '@relokit/client'
 import type { ConstraintSet } from '@relokit/schema'
 import { forget, recall, remember } from './lib/remember.ts'
@@ -15,6 +15,9 @@ export interface AskState {
   status: 'idle' | 'running' | 'done' | 'failed'
   events: AskEvent[]
   result: AskResult | null
+  /** What is being asked right now, so the question stays on screen while it
+   * runs, wherever it was typed. */
+  query: string | null
   error: string | null
   /** True while showing an answer from a previous visit rather than this one. */
   restored: { query: string; at: number } | null
@@ -35,6 +38,7 @@ export function useAsk() {
           status: 'done',
           events: [],
           result,
+          query,
           error: null,
           restored: { query, at: Date.now() },
         }),
@@ -53,23 +57,32 @@ export function useAsk() {
           status: 'done',
           events: [],
           result: previous.result,
+          query: previous.query,
           error: null,
           restored: { query: previous.query, at: previous.at },
         }
-      : { status: 'idle', events: [], result: null, error: null, restored: null }
+      : { status: 'idle', events: [], result: null, query: null, error: null, restored: null }
   })
 
+  const controller = useRef<AbortController | null>(null)
+
   const run = useCallback(async (query: string, constraints?: ConstraintSet) => {
-    setState({ status: 'running', events: [], result: null, error: null, restored: null })
+    controller.current?.abort()
+    const own = new AbortController()
+    controller.current = own
+    setState({ status: 'running', events: [], result: null, query, error: null, restored: null })
     try {
       const result = await ask(httpTransport(api, orgKey), query, {
         onProgress: (event) =>
           setState((previous) => ({ ...previous, events: [...previous.events, event] })),
+        signal: own.signal,
         ...(constraints ? { constraints } : {}),
       })
       remember(query, result)
       setState((previous) => ({ ...previous, status: 'done', result }))
     } catch (error) {
+      // Stopping is the reader's act, not a failure to report.
+      if (own.signal.aborted) return
       setState((previous) => ({
         ...previous,
         status: 'failed',
@@ -78,14 +91,21 @@ export function useAsk() {
     }
   }, [])
 
+  // Back to quiet. Everything already fetched stays in the ledger, so asking
+  // again later starts from where this left off.
+  const stop = useCallback(() => {
+    controller.current?.abort()
+    setState({ status: 'idle', events: [], result: null, query: null, error: null, restored: null })
+  }, [])
+
   // Throwing away the previous answer is a deliberate act, not a side effect of
   // arriving on the page.
   const dismiss = useCallback(() => {
     forget()
-    setState({ status: 'idle', events: [], result: null, error: null, restored: null })
+    setState({ status: 'idle', events: [], result: null, query: null, error: null, restored: null })
   }, [])
 
-  return { ...state, run, dismiss }
+  return { ...state, run, stop, dismiss }
 }
 
 /**

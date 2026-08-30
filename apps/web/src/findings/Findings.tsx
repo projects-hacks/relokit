@@ -164,6 +164,11 @@ export function Findings({
           filters={filters}
           onFilters={setFilters}
           constraints={constraints}
+          priced={result.entities.some((entity) => entity.price_cents !== null)}
+          bedded={
+            result.constraint_set.subject === 'rental' ||
+            result.constraint_set.subject === 'home_for_sale'
+          }
           showing={shown.length}
           total={bucket.length}
           word={SUBJECT_WORDS[result.constraint_set.subject]}
