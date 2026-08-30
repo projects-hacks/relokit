@@ -55,7 +55,17 @@ export const EvidenceRow = z.object({
   about: z
     .object({
       label: z.string(),
-      kind: z.enum(['destination', 'poi']),
+      /**
+       * destination  somewhere the journey ends
+       * near         a place named in the question to be close to
+       * poi          a kind of place that had to be found nearby
+       * area         the place searched around
+       *
+       * They look alike on a map and mean different things, and one label over
+       * all of them told people they were travelling to a supermarket they had
+       * only asked to live near.
+       */
+      kind: z.enum(['destination', 'near', 'poi', 'area']),
       point: GeoPoint,
     })
     .optional(),

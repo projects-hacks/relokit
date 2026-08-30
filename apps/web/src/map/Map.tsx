@@ -116,8 +116,18 @@ export function Map({
         type: 'circle',
         source: 'asked',
         paint: {
-          'circle-radius': ['case', ['==', ['get', 'kind'], 'destination'], 8, 6],
-          'circle-color': ['match', ['get', 'kind'], 'destination', '#ffd166', '#7fd7ff'],
+          'circle-radius': ['match', ['get', 'kind'], 'destination', 8, 'near', 8, 'area', 7, 6],
+          'circle-color': [
+            'match',
+            ['get', 'kind'],
+            'destination',
+            '#ffd166',
+            'near',
+            '#c58fff',
+            'area',
+            '#9fb3c8',
+            '#7fd7ff',
+          ],
           'circle-stroke-width': 2,
           'circle-stroke-color': 'rgba(8,23,41,0.85)',
         },
@@ -351,9 +361,9 @@ export function Map({
         ? [
             {
               label: result.anchor.label,
-              kind: 'destination' as const,
+              kind: 'area' as const,
               point: result.anchor.point,
-              said: 'what you searched around',
+              said: 'the area you searched',
             },
           ]
         : []
@@ -464,7 +474,13 @@ export function Map({
             <i style={{ background: '#ffd166' }} /> where you are going
           </li>
           <li>
-            <i style={{ background: '#7fd7ff' }} /> what you asked to be near
+            <i style={{ background: '#c58fff' }} /> a place you asked to be near
+          </li>
+          <li>
+            <i style={{ background: '#7fd7ff' }} /> what was found nearby
+          </li>
+          <li>
+            <i style={{ background: '#9fb3c8' }} /> the area you searched
           </li>
         </ul>
       )}

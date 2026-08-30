@@ -410,7 +410,7 @@ export async function replayRun(
           expires_at_ms: options.now_ms + GEOMETRY_TTL_SECONDS * 1000,
           capability_id: 'proximity.geometry.entity',
           op_id: `op_proximity_geometry_${constraint.id}`,
-          about: { label: constraint.place.raw, kind: 'destination', point },
+          about: { label: constraint.place.raw, kind: 'near', point },
         })
       }
       if (out) droppedByPlace.add(entity.entity_id)
