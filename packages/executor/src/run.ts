@@ -13,6 +13,7 @@ import {
   boxAround,
   eliminationPower,
   gridClusters,
+  floorSeconds,
   reachRadiusMeters,
   refineClusters,
   slackMeters,
@@ -152,6 +153,7 @@ export async function replayRun(
     // gets asked about would leave the corners of the box unexamined and still
     // listed, which is the same wrong answer arrived at more cheaply.
     outcome.entities = withinAnchor(outcome.entities)
+    surviving = rejectUnreachable(surviving)
     outcome.stages.push({
       stage_id: stage.stage_id,
       entities_in: before,
@@ -285,6 +287,65 @@ export async function replayRun(
     return entities.filter(
       (entity) => !entity.point || distanceMeters(centre, entity.point) <= radius,
     )
+  }
+
+  /**
+   * Rules out what the shortest possible journey cannot reach.
+   *
+   * A route is never shorter than the straight line between its ends, and never
+   * faster than the mode can go, so a listing whose straight line alone takes
+   * longer than the limit can be rejected without asking anybody. The
+   * coordinates are already here, so it is free, and it is a rejection rather
+   * than a guess: it is arithmetic, and the reason says so.
+   */
+  function rejectUnreachable(entities: ListingSummary[]): ListingSummary[] {
+    const commutes = constraints.constraints.filter(
+      (c): c is CommuteConstraint => c.type === 'commute' && c.hardness === 'hard',
+    )
+    if (commutes.length === 0) return entities
+
+    const settled = new Set(outcome.evidence.map((row) => `${row.entity_id}|${row.constraint_id}`))
+    const out = new Set<string>()
+
+    for (const commute of commutes) {
+      const raw = produced[`constraint.${commute.id}.destination_point`]
+      if (typeof raw !== 'string') continue
+      const [lat, lng] = raw.split(',').map(Number)
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) continue
+
+      for (const entity of entities) {
+        if (!entity.point) continue
+        if (settled.has(`${entity.entity_id}|${commute.id}`)) continue
+        const floor = floorSeconds(
+          commute.mode,
+          distanceMeters({ lat: lat!, lng: lng! }, entity.point),
+        )
+        if (floor <= commute.max_seconds) continue
+
+        out.add(entity.entity_id)
+        outcome.evidence.push({
+          entity_id: entity.entity_id,
+          constraint_id: commute.id,
+          constraint_type: 'commute',
+          verdict: 'fail',
+          value_canonical: Math.round(floor),
+          display_value: `at least ${Math.round(floor / 60)} min by ${commute.mode}`,
+          source: 'geometry',
+          source_url: null,
+          confidence: 1,
+          eval_state: 'evaluated',
+          reason:
+            'The straight line alone takes longer than the limit, and no road is shorter than that.',
+          fetched_at_ms: options.now_ms,
+          ttl_seconds: GEOMETRY_TTL_SECONDS,
+          expires_at_ms: options.now_ms + GEOMETRY_TTL_SECONDS * 1000,
+          capability_id: 'commute.geometry.entity',
+          op_id: 'op_commute_geometry',
+        })
+      }
+    }
+
+    return entities.filter((entity) => !out.has(entity.entity_id))
   }
 
   function base(extra: Partial<Bindings>): Bindings {
@@ -501,6 +562,10 @@ function parsePoint(value: string | number | undefined): { lat: number; lng: num
 
 /** About the width of a town, when nobody said how far they would travel. */
 const DEFAULT_SEARCH_RADIUS_M = 8000
+
+/** Geometry does not go stale the way an opening time does. Coordinates move
+ * only when a listing is re-published, and then it is a different run. */
+const GEOMETRY_TTL_SECONDS = 30 * 24 * 60 * 60
 
 /** Nearest centroid wins, so every listing belongs to exactly one cell. */
 function inCell(

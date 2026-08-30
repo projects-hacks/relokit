@@ -9,6 +9,12 @@ export const Provider = z.enum([
   'google_maps_reviews',
   'yelp',
   'google_news',
+  /**
+   * Not a provider. Facts established by arithmetic on coordinates already in
+   * hand, which cost nothing and are attributed to nobody. A claim we worked out
+   * ourselves must not be able to appear as one somebody answered.
+   */
+  'geometry',
 ])
 
 /**
