@@ -82,7 +82,10 @@ function friendlyError(error: unknown): string {
       const message = (JSON.parse(body) as { message?: string }).message
       if (message) return message
     } catch {
-      // Not JSON. The raw text below still says more than a canned line.
+      // Not JSON. Markup is a gateway page, not a sentence anyone wrote.
+      if (body.trimStart().startsWith('<')) {
+        return 'The search service stumbled mid-run. Ask again; what was already fetched is kept.'
+      }
     }
   }
   if (/Failed to fetch|NetworkError|fetch failed|ECONNREFUSED/.test(detail)) {

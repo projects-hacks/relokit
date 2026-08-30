@@ -472,7 +472,10 @@ button:focus-visible,
   /* Eighty-eight cards is a lot of paint for a list only a few of which are
      ever on screen. */
   content-visibility: auto;
-  contain-intrinsic-size: auto 320px;
+  /* Must stay near a real card's height. At 320 against a measured 570 every
+     card entering render shifted the page a quarter screen, which is scroll
+     that jumps and clicks that land on the wrong thing. */
+  contain-intrinsic-size: auto 570px;
   border: 1px solid var(--paper-edge);
   border-left: 3px solid var(--mark);
   border-radius: var(--radius);
@@ -1392,6 +1395,10 @@ button:focus-visible,
   border-radius: var(--radius);
   background: #fff;
   overflow: hidden;
+  /* overflow hidden zeroes a flex child's automatic minimum size, and the paper
+     column is a flexbox, so without this the whole section is squashed to its
+     two border pixels and the toggle inside is unreachable. */
+  flex: none;
 }
 
 .working-toggle {
