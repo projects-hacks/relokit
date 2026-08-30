@@ -63,6 +63,13 @@ export function Map({
       zoom: 10.5,
       attributionControl: { compact: true },
     })
+    // The published basemap names a fill pattern its own sprite sheet does not
+    // carry, and every load says so in the console. Nothing on screen wants it,
+    // so it is answered with a transparent pixel rather than left to complain.
+    instance.setMissingStyleImageResolver((id) => {
+      instance.addImage(id, { width: 1, height: 1, data: new Uint8Array(4) })
+    })
+
     instance.on('load', () => {
       instance.addSource('bounds', { type: 'geojson', data: empty() })
       instance.addLayer({
