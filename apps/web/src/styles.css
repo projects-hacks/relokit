@@ -67,8 +67,10 @@ body {
 .masthead {
   display: flex;
   align-items: baseline;
+  flex-wrap: wrap;
+  row-gap: calc(var(--step) * 2);
   gap: calc(var(--step) * 4);
-  padding: calc(var(--step) * 3) calc(var(--step) * 6);
+  padding: calc(var(--step) * 3) calc(var(--step) * 4);
   border-bottom: 1px solid rgb(147 169 196 / 20%);
   background: rgb(8 23 41 / 70%);
   backdrop-filter: blur(6px);
@@ -88,33 +90,48 @@ body {
 }
 
 .strapline {
+  display: none;
   font-size: 12.5px;
   color: var(--chalk-dim);
   margin: 0;
 }
 
 .masthead .ledger-inline {
-  margin-left: auto;
+  margin-left: 0;
 }
 
+/*
+ * A phone first, and widened from there.
+ *
+ * One column that scrolls once: the question, then the answer, then the map
+ * underneath both, because the map is consulted rather than read. Three panes
+ * that each scroll on their own need the width for three panes, and only get it
+ * at the top breakpoint.
+ */
 .columns {
   display: grid;
-  grid-template-columns: 340px minmax(0, 1fr) 460px;
+  grid-template-columns: minmax(0, 1fr);
   min-height: 0;
+  overflow-y: auto;
 }
 
 .rail {
-  padding: calc(var(--step) * 5);
-  overflow-y: auto;
+  order: 1;
+  padding: calc(var(--step) * 4);
   border-right: 1px solid rgb(147 169 196 / 16%);
   display: flex;
   flex-direction: column;
   gap: calc(var(--step) * 6);
 }
 
+/* The map sits absolutely inside its pane on a wide screen, which leaves no
+   room for a control above it. Here it is in the flow, so the sheet opens and
+   closes by height. */
 .stage {
+  order: 3;
   position: relative;
-  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ---------- typographic furniture ---------- */
@@ -329,8 +346,12 @@ button:focus-visible,
 /* ---------- map ---------- */
 
 .map {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  width: 100%;
+  height: 0;
+  /* A flex child is shrunk to fit before its container scrolls, which would
+     leave the opened sheet a few pixels tall. */
+  flex: none;
 }
 
 .maplibregl-ctrl-attrib {
@@ -338,9 +359,8 @@ button:focus-visible,
 }
 
 .counter {
-  position: absolute;
-  left: calc(var(--step) * 5);
-  bottom: calc(var(--step) * 5);
+  margin: calc(var(--step) * 3) calc(var(--step) * 4);
+  justify-content: space-between;
   z-index: 2;
   display: flex;
   align-items: center;
@@ -383,12 +403,12 @@ button:focus-visible,
 /* ---------- findings ---------- */
 
 .paper {
+  order: 2;
   background: var(--paper);
   scroll-padding-top: 64px;
   color: var(--ink);
-  overflow-y: auto;
   overscroll-behavior: contain;
-  padding: calc(var(--step) * 5);
+  padding: calc(var(--step) * 4);
   display: flex;
   flex-direction: column;
   gap: calc(var(--step) * 5);
@@ -737,136 +757,134 @@ button:focus-visible,
  * stops being three things that scroll independently and becomes one document
  * that scrolls once, which is the only arrangement that survives a phone.
  */
+/* Only shown where the map is a sheet. */
 .stage-toggle {
+  display: block;
+  width: 100%;
+  font: inherit;
+  font-size: 13px;
+  color: var(--chalk);
+  background: var(--ground-raised);
+  border: none;
+  border-top: 1px solid rgb(147 169 196 / 18%);
+  padding: calc(var(--step) * 3.5);
+  cursor: pointer;
+  text-align: left;
+}
+
+.stage[data-shut='true'] .map,
+.stage[data-shut='true'] .legend,
+.stage[data-shut='true'] .counter {
   display: none;
 }
 
-@media (max-width: 1180px) {
-  .columns {
-    grid-template-columns: 300px minmax(0, 1fr);
-    overflow-y: auto;
+.stage[data-shut='false'] .map {
+  height: 70vh;
+}
+
+.stage[data-shut='false'] .legend {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .masthead {
+    flex-wrap: nowrap;
+    padding: calc(var(--step) * 3) calc(var(--step) * 6);
   }
 
-  .rail,
+  .masthead .strapline {
+    display: block;
+  }
+
+  .masthead .ledger-inline {
+    margin-left: auto;
+  }
+
+  /* Room for the question beside the map, with the answer across the foot.
+     The map goes back to the middle, where the phone had put it last. */
+  .columns {
+    grid-template-columns: 300px minmax(0, 1fr);
+  }
+
+  .rail {
+    order: 1;
+    padding: calc(var(--step) * 5);
+  }
+
+  .stage {
+    order: 2;
+  }
+
   .paper {
-    overflow: visible;
+    order: 3;
   }
 
   .paper {
     grid-column: 1 / -1;
+    padding: calc(var(--step) * 5);
   }
 
+  /* The map is always open and fills its pane, so it goes back to sitting
+     inside it and the sheet control has nothing left to do. */
   .stage {
+    display: block;
     min-height: 460px;
   }
-}
 
-@media (max-width: 900px) {
-  .masthead {
-    flex-wrap: wrap;
-    row-gap: calc(var(--step) * 2);
-    padding: calc(var(--step) * 3) calc(var(--step) * 4);
-  }
-
-  .masthead .strapline {
-    display: none;
-  }
-
-  .masthead .ledger-inline {
-    margin-left: 0;
-  }
-
-  .columns {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  /* Ask, then the answer, and the map underneath both because it is the thing
-     you consult rather than the thing you read. */
-  .rail {
-    order: 1;
-    padding: calc(var(--step) * 4);
-  }
-
-  .paper {
-    order: 2;
-    grid-column: 1;
-    padding: calc(var(--step) * 4);
-  }
-
-  /* The map fills its pane by sitting absolutely inside it, which leaves no
-     room for a control above it. On a phone it goes back into the flow so the
-     sheet can open and close by height. */
-  .stage {
-    order: 3;
-    grid-column: 1;
-    /* The wide layout lets this shrink so three panes can share one screen
-       height. Here it has to grow to whatever the open sheet needs, or the
-       grid row keeps the button and the map spills out of it. */
-    min-height: auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .stage .map {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    height: 0;
-    /* A flex child is shrunk to fit before its container scrolls, which would
-       leave the opened sheet a few pixels tall. */
-    flex: none;
+  /* The sheet is only shut on a phone. Here the map is always open, so the
+     rule that hides it has to be lifted as well as repositioned. */
+  .stage .map,
+  .stage[data-shut='true'] .map,
+  .stage[data-shut='false'] .map {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: auto;
+    height: auto;
   }
 
   .stage-toggle {
-    display: block;
-    width: 100%;
-    font: inherit;
-    font-size: 13px;
-    color: var(--chalk);
-    background: var(--ground-raised);
-    border: none;
-    border-top: 1px solid rgb(147 169 196 / 18%);
-    padding: calc(var(--step) * 3.5);
-    cursor: pointer;
-    text-align: left;
+    display: none;
   }
 
-  .stage[data-shut='true'] .map,
+  .stage .legend,
   .stage[data-shut='true'] .legend,
-  .stage[data-shut='true'] .counter {
-    display: none;
-  }
-
-  .stage[data-shut='false'] .map {
-    height: 70vh;
-  }
-
   .stage[data-shut='false'] .legend {
-    display: none;
+    display: grid;
   }
 
-  /* The narrowing sits over the map on a wide screen. With the map in the flow
-     it has nothing to sit over, and absolute placement lifts it onto the
-     results above. It goes back into the flow with everything else. */
-  .stage .counter {
-    position: static;
-    margin: calc(var(--step) * 3) calc(var(--step) * 4);
-    justify-content: space-between;
+  .stage .counter,
+  .stage[data-shut='true'] .counter {
+    display: flex;
+    position: absolute;
+    left: calc(var(--step) * 5);
+    bottom: calc(var(--step) * 5);
+    margin: 0;
   }
 
-  /* A drawer that is most of the screen may as well be all of it. */
   .detail {
-    width: 100%;
+    width: min(560px, 100%);
+  }
+}
+
+@media (min-width: 1180px) {
+  /* Three panes, each scrolling on its own. */
+  .columns {
+    grid-template-columns: 340px minmax(0, 1fr) 460px;
+    overflow: hidden;
   }
 
-  .finding-list {
-    gap: calc(var(--step) * 4);
+  .rail {
+    overflow-y: auto;
   }
 
-  /* While a run is going the plan is the progress and is worth the space. Once
-     there is an answer it is a screenful between the question and the reply. */
-  .shell[data-answered='true'] .plan {
-    display: none;
+  .paper {
+    grid-column: auto;
+    overflow-y: auto;
+  }
+
+  .stage {
+    min-height: 0;
   }
 }
 
@@ -923,7 +941,6 @@ button:focus-visible,
 
 /* The second column carries a sentence now, not a company, so it wraps. */
 .holder span:last-child {
-  text-align: right;
   color: var(--ink-dim);
   font-size: 12.5px;
 }
@@ -936,11 +953,11 @@ button:focus-visible,
   border-radius: var(--radius);
 }
 
+/* Stacked, because the second column is a sentence now and the pane it sits in
+   is the narrowest one on the page. */
 .holder {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: calc(var(--step) * 3);
-  align-items: baseline;
+  gap: calc(var(--step) * 0.5);
   padding: calc(var(--step) * 2.5) calc(var(--step) * 3);
   background: #fff;
   font-size: 12.5px;
@@ -1269,7 +1286,7 @@ button:focus-visible,
 }
 
 .detail {
-  width: min(560px, 100%);
+  width: 100%;
   height: 100%;
   overflow-y: auto;
   overscroll-behavior: contain;
