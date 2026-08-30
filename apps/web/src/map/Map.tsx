@@ -100,7 +100,7 @@ export function Map({
         type: 'line',
         source: 'bounds',
         paint: {
-          'line-color': '#4da3ff',
+          'line-color': appliedTheme.current === 'bright' ? '#3a6ea5' : '#4da3ff',
           'line-width': 1,
           'line-dasharray': [4, 3],
           'line-opacity': 0.7,
@@ -133,10 +133,10 @@ export function Map({
         type: 'line',
         source: 'links',
         paint: {
-          'line-color': '#7fd7ff',
-          'line-width': 1.2,
+          'line-color': appliedTheme.current === 'bright' ? '#31536b' : '#7fd7ff',
+          'line-width': 1.4,
           'line-dasharray': [2, 2],
-          'line-opacity': 0.55,
+          'line-opacity': 0.75,
         },
       })
 
@@ -528,27 +528,43 @@ export function Map({
       )}
       {result && (
         <ul className="legend">
-          <li>
-            <i style={{ background: '#0d8a66' }} /> cleared everything
-          </li>
-          <li>
-            <i style={{ background: '#c98a12' }} /> could not be checked
-          </li>
-          <li>
-            <i style={{ background: '#c9502f' }} /> ruled out
-          </li>
-          <li>
-            <i style={{ background: '#ffd166' }} /> where you are going
-          </li>
-          <li>
-            <i style={{ background: '#c58fff' }} /> a place you asked to be near
-          </li>
-          <li>
-            <i style={{ background: '#7fd7ff' }} /> what was found nearby
-          </li>
-          <li>
-            <i style={{ background: '#9fb3c8' }} /> the area you searched
-          </li>
+          {/* Only what this answer actually put on the map. A key naming seven
+              things over a map showing two is furniture. */}
+          {result.buckets.results.length > 0 && (
+            <li>
+              <i style={{ background: '#0d8a66' }} /> cleared everything
+            </li>
+          )}
+          {result.buckets.unverified.length > 0 && (
+            <li>
+              <i style={{ background: '#c98a12' }} /> could not be checked
+            </li>
+          )}
+          {result.buckets.rejections.length > 0 && (
+            <li>
+              <i style={{ background: '#c9502f' }} /> ruled out
+            </li>
+          )}
+          {result.evidence.some((row) => row.about?.kind === 'destination') && (
+            <li>
+              <i style={{ background: '#ffd166' }} /> where you are going
+            </li>
+          )}
+          {result.evidence.some((row) => row.about?.kind === 'near') && (
+            <li>
+              <i style={{ background: '#c58fff' }} /> a place you asked to be near
+            </li>
+          )}
+          {result.evidence.some((row) => row.about?.kind === 'poi') && (
+            <li>
+              <i style={{ background: '#7fd7ff' }} /> what was found nearby
+            </li>
+          )}
+          {result.anchor && (
+            <li>
+              <i style={{ background: '#9fb3c8' }} /> the area you searched
+            </li>
+          )}
         </ul>
       )}
     </>

@@ -69,7 +69,8 @@ function travel(entry: Sortable): number | null {
 }
 
 function distance(entry: Sortable): number | null {
-  return smallest(entry.evidence, 'nearby_poi')
+  const near = smallest(entry.evidence, 'proximity')
+  return near !== null ? near : smallest(entry.evidence, 'nearby_poi')
 }
 
 /** The best measurement of its kind on a home, ignoring anything unmeasured. */
@@ -116,6 +117,12 @@ export function availableSorts(entries: Sortable[], hasScores: boolean): SortKey
   const evidence = entries.flatMap((entry) => entry.evidence)
   keys.push('cheapest')
   if (evidence.some((row) => row.constraint_type === 'commute')) keys.push('quickest')
-  if (evidence.some((row) => row.constraint_type === 'nearby_poi')) keys.push('nearest')
+  if (
+    evidence.some(
+      (row) => row.constraint_type === 'nearby_poi' || row.constraint_type === 'proximity',
+    )
+  ) {
+    keys.push('nearest')
+  }
   return keys
 }

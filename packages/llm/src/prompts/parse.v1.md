@@ -94,9 +94,11 @@ miles of Caltrain station in Sunnyvale" is location "Sunnyvale", no radius_m, an
 two proximity constraints.
 
 Only when no town is named does the first place with a distance become location
-and radius_m instead, because a search needs a centre. "Apartments within 2 miles
-of San Jose State University" is location "San Jose State University" with
-radius_m 3218 and no proximity constraint.
+and radius_m instead, because a search needs a centre. It is still also a
+proximity constraint: the search is bounded by it, and each result shows its own
+distance. "Apartments within 2 miles of San Jose State University" is location
+"San Jose State University", radius_m 3218, and one proximity constraint for the
+same place.
 
 Two worked examples of location against proximity.
 

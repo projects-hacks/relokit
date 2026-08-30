@@ -118,6 +118,38 @@ export function normalizeConstraintSet(
     ]
   })
 
+  // A stated radius is both the bound on the search and a fact worth showing:
+  // bounded silently, the reader cannot tell held-by-construction from dropped.
+  // Models skip the constraint half however they are asked, so it is made here.
+  const location =
+    typeof (raw as { location?: unknown }).location === 'string'
+      ? (raw as { location: string }).location.trim()
+      : ''
+  const stated_radius = (raw as { radius_m?: unknown }).radius_m
+  if (
+    location !== '' &&
+    typeof stated_radius === 'number' &&
+    stated_radius > 0 &&
+    !kept.some((c) => c.type === 'proximity' && c.place.raw === location)
+  ) {
+    const phrase =
+      /within\s+(?:a\s+)?[\w.]+\s*(?:miles?|mi|kilometers?|kilometres?|km|meters?|metres?)/i.exec(
+        query,
+      )?.[0]
+    kept.push(
+      Constraint.parse({
+        id: `c${constraints.length + 1}`,
+        type: 'proximity',
+        hardness: 'hard',
+        weight: 1,
+        source_text: phrase ? `${phrase} of ${location}` : `near ${location}`,
+        inferred: false,
+        place: { raw: location },
+        radius_m: Math.round(stated_radius),
+      }),
+    )
+  }
+
   // Where to look. Without it there is nowhere to search, so it is taken from
   // the model, and failing that from wherever the person said they were
   // travelling to.

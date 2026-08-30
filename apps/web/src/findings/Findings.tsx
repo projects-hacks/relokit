@@ -42,7 +42,14 @@ export function Findings({
   hovered: string | null
 }) {
   const [open, setOpen] = useState<Bucket>('verified')
-  const [sort, setSort] = useState<SortKey>('best')
+  // A question about being near somewhere reads most naturally nearest first;
+  // anything else starts from what clears the limits best.
+  const [sort, setSort] = useState<SortKey>(() =>
+    result.constraint_set.constraints.some((c) => c.type === 'proximity') &&
+    !result.constraint_set.constraints.some((c) => c.type === 'commute')
+      ? 'nearest'
+      : 'best',
+  )
   const [filters, setFilters] = useState<Filters>(NO_FILTERS)
   const { results, unverified, rejections } = result.buckets
   // A bucket entry naming a listing that never arrived is a bug somewhere else,

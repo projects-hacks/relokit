@@ -338,3 +338,46 @@ describe('when the model and the sentence disagree', () => {
     expect(constraint_set.subject).toBe('rental')
   })
 })
+
+describe('a stated search radius', () => {
+  it('is also measured per result, whatever the model omitted', () => {
+    // Bounded silently, the reader cannot tell held-by-construction from
+    // dropped. The constraint is made here because models skip it however
+    // they are asked.
+    const { constraint_set } = normalizeConstraintSet(
+      { location: 'San Jose State University', radius_m: 3218, constraints: [] },
+      '2 bed flats within 2 miles of San Jose State University under 3800',
+      meta,
+    )
+    const near = constraint_set.constraints.find((c) => c.type === 'proximity')
+    expect(near).toMatchObject({
+      place: { raw: 'San Jose State University' },
+      radius_m: 3218,
+      source_text: 'within 2 miles of San Jose State University',
+    })
+    expect(constraint_set.search_anchor).toMatchObject({ radius_m: 3218 })
+  })
+
+  it('does not double one the model already made', () => {
+    const { constraint_set } = normalizeConstraintSet(
+      {
+        location: 'San Jose State University',
+        radius_m: 3218,
+        constraints: [
+          {
+            id: 'c1',
+            type: 'proximity',
+            hardness: 'hard',
+            weight: 1,
+            source_text: 'within 2 miles of San Jose State University',
+            place: { raw: 'San Jose State University' },
+            radius_m: 3218,
+          },
+        ],
+      },
+      'flats within 2 miles of San Jose State University',
+      meta,
+    )
+    expect(constraint_set.constraints.filter((c) => c.type === 'proximity')).toHaveLength(1)
+  })
+})
