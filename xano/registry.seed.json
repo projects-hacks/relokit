@@ -1,5 +1,5 @@
 {
-  "registry_version": "2026-08-29.3",
+  "registry_version": "2026-08-30.1",
   "capabilities": [
     {
       "capability_id": "candidates.anchor.geocode",
@@ -69,7 +69,8 @@
         "page": 1
       },
       "notes": "One call per page. The plan emits a single op and the executor repeats it while the response reports more pages, up to max_fanout, because the page count is data and the plan is written before any of it exists. The free predicates cut the page count as well as the candidate count: the unfiltered San Jose pool is 20 pages, the filtered one is a single page. A listing price is stable over days rather than hours, and the six hour life it had before meant a second question about the same city an hour later paid for the whole candidate set again, which is the opposite of what the ledger is for. Forty eight hours, and the interface shows the real age of every fact either way.",
-      "produces": ["entity", "stage.candidates"]
+      "produces": ["entity", "stage.candidates"],
+      "subjects": ["rental"]
     },
     {
       "capability_id": "budget.zillow.native",

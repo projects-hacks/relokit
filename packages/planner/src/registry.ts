@@ -1,9 +1,18 @@
-import type { Capability, ConstraintType, Tier } from '@relokit/schema'
+import type { Capability, ConstraintType, Subject, Tier } from '@relokit/schema'
 
-export function enabledByConstraintType(registry: Capability[]): Map<ConstraintType, Capability[]> {
+/**
+ * Capabilities that could run, grouped by what they answer. A candidate source
+ * that cannot produce the subject asked for is not one of them.
+ */
+export function enabledByConstraintType(
+  registry: Capability[],
+  subject?: Subject,
+): Map<ConstraintType, Capability[]> {
   const index = new Map<ConstraintType, Capability[]>()
   for (const capability of registry) {
     if (!capability.enabled) continue
+    if (subject && capability.subjects.length > 0 && !capability.subjects.includes(subject))
+      continue
     const bucket = index.get(capability.constraint_type)
     if (bucket) bucket.push(capability)
     else index.set(capability.constraint_type, [capability])

@@ -8,12 +8,12 @@ bounds, and opening hours. None of it knows what a home is.
 
 ## What was not
 
-| | |
-| --- | --- |
-| One candidate source | Zillow alone could produce results; everything else answers questions about them |
-| No subject | The question said where to look, never what to look for |
-| Rental shaped entity | `beds`, `baths`, `price_cents` on the core type |
-| Three rental constraints | `budget`, `unit_attribute`, `listing_feature` |
+|                          |                                                                                  |
+| ------------------------ | -------------------------------------------------------------------------------- |
+| One candidate source     | Zillow alone could produce results; everything else answers questions about them |
+| No subject               | The question said where to look, never what to look for                          |
+| Rental shaped entity     | `beds`, `baths`, `price_cents` on the core type                                  |
+| Three rental constraints | `budget`, `unit_attribute`, `listing_feature`                                    |
 
 ## Decisions
 

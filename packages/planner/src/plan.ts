@@ -55,7 +55,7 @@ const AREA_SLOT: Slot = { id: 'area', type: SEARCH_AREA, constraint: null }
 export function plan(input: PlanInput): PlanResult {
   const { budget, registry } = input
   const constraints = input.constraints.constraints
-  const index = enabledByConstraintType(registry)
+  const index = enabledByConstraintType(registry, input.constraints.subject)
   const trace: CandidateTrace[] = []
   const decisions: { step: string; detail: string }[] = []
   const unsatisfied: UnsatisfiedConstraint[] = []

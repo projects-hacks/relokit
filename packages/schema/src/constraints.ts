@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { Subject } from './subject.ts'
 import { Cents, Meters, PlaceRef, SecondsOfDay, Seconds, Weekday } from './units.ts'
 
 export const ConstraintType = z.enum([
@@ -175,6 +176,8 @@ export const Constraint = z.discriminatedUnion('type', [
 export const ConstraintSet = z.object({
   query_id: z.string(),
   raw_query: z.string(),
+  /** What to look for. Decides which sources can produce candidates. */
+  subject: Subject.default('rental'),
   locale: z.object({ tz: z.string(), currency: z.literal('USD') }),
   /**
    * Search centre, and how far around it to look.

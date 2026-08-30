@@ -27,6 +27,7 @@ const cap = (over: Partial<Capability> = {}): Capability => ({
   max_fanout: 16,
   params_template: {},
   produces: [],
+  subjects: [],
   ...over,
 })
 

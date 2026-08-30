@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { Subject } from './subject.ts'
 import { ConstraintType } from './constraints.ts'
 
 export const Provider = z.enum([
@@ -85,6 +86,11 @@ export const Capability = z.object({
    * so a row cannot claim to need less than it uses.
    */
   produces: z.array(z.string()).default([]),
+  /**
+   * Subjects a candidate source can produce. Empty on everything else, which
+   * answers questions about candidates rather than making them.
+   */
+  subjects: z.array(Subject).default([]),
   notes: z.string().optional(),
 })
 

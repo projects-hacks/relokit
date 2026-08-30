@@ -8,6 +8,7 @@
 export const SCHEMA_VERSION = '1'
 
 export * from './units.ts'
+export * from './subject.ts'
 export * from './constraints.ts'
 export * from './capability.ts'
 export * from './evidence.ts'
