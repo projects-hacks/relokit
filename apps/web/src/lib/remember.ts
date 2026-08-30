@@ -1,4 +1,5 @@
 import type { AskResult } from '@relokit/client'
+import { ConstraintSet, EvidenceRow, Place } from '@relokit/schema'
 
 /**
  * Keeps the last answer across a reload.
@@ -31,7 +32,15 @@ export function recall(): Remembered | null {
     const raw = localStorage.getItem(KEY)
     if (!raw) return null
     const parsed = JSON.parse(raw) as Remembered
-    return parsed.result?.buckets ? parsed : null
+    if (!parsed.result?.buckets) return null
+    // Stored by whatever version of the page ran last, so it is held to the
+    // real contracts before it is trusted: the schema defaults fill what an
+    // older shape never had, and anything that will not fit is let go. An old
+    // answer is disposable; a crashed first render is not.
+    parsed.result.constraint_set = ConstraintSet.parse(parsed.result.constraint_set)
+    parsed.result.entities = parsed.result.entities.map((entity) => Place.parse(entity))
+    parsed.result.evidence = parsed.result.evidence.map((row) => EvidenceRow.parse(row))
+    return parsed
   } catch {
     return null
   }
