@@ -103,12 +103,13 @@ export function Findings({
     () =>
       availableSorts(
         bucket.map((row) => row.entry),
+        result.entities,
         open === 'verified' && asked,
       ),
     [bucket, open, asked],
   )
 
-  const active = sorts.includes(sort) ? sort : sorts[0]!
+  const active = sorts.includes(sort) ? sort : (sorts[0] ?? 'best')
 
   const shown = useMemo(() => {
     const rows = new Map(bucket.map((row) => [row.entry.entity_id, row]))
@@ -117,8 +118,19 @@ export function Findings({
       result.entities,
       filters,
     )
-    return sortEntries(kept, result.entities, active).map((entry) => rows.get(entry.entity_id)!)
-  }, [bucket, result.entities, filters, active])
+    const ordered = sortEntries(kept, result.entities, active).map((entry) =>
+      rows.get(entry.entity_id)!,
+    )
+    // Under the default order the efficient set leads: what nothing beats is a
+    // better first screen than a tie broken by id.
+    if (active === 'best' && open === 'verified') {
+      return [
+        ...ordered.filter((row) => standings.get(row.entry.entity_id)?.status !== 'beaten'),
+        ...ordered.filter((row) => standings.get(row.entry.entity_id)?.status === 'beaten'),
+      ]
+    }
+    return ordered
+  }, [bucket, result.entities, filters, active, open, standings])
 
   const shownTabs = asked ? tabs : tabs.filter((tab) => tab.count > 0)
 
@@ -172,6 +184,7 @@ export function Findings({
           onFilters={setFilters}
           constraints={constraints}
           priced={result.entities.some((entity) => entity.price_cents !== null)}
+          rated={result.entities.some((entity) => typeof entity.attributes.rating === 'number')}
           bedded={
             result.constraint_set.subject === 'rental' ||
             result.constraint_set.subject === 'home_for_sale'

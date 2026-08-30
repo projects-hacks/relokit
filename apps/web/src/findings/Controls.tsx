@@ -1,7 +1,8 @@
-import type { Filters, SortKey } from '@relokit/evidence'
+import { NO_FILTERS, type Filters, type SortKey } from '@relokit/evidence'
 import type { ConstraintSet } from '@relokit/schema'
 
 const ORDER_LABEL: Record<SortKey, string> = {
+  rated: 'Top rated first',
   best: 'Clears your limits best',
   cheapest: 'Cheapest first',
   quickest: 'Shortest journey',
@@ -24,6 +25,7 @@ export function Controls({
   constraints,
   priced,
   bedded,
+  rated,
   showing,
   word,
   total,
@@ -38,6 +40,7 @@ export function Controls({
    * restaurants and a bedroom count over gyms are dials wired to nothing. */
   priced: boolean
   bedded: boolean
+  rated: boolean
   showing: number
   word: { one: string; many: string }
   total: number
@@ -46,20 +49,36 @@ export function Controls({
   const asked = budget?.type === 'budget' ? budget.max_cents : undefined
   const beds = constraints.find((c) => c.type === 'unit_attribute' && c.attribute === 'beds')
   const askedBeds = beds?.type === 'unit_attribute' ? (beds.min ?? beds.max) : undefined
-  const touched = filters.max_price_cents !== null || filters.beds !== null
+  const touched =
+    filters.max_price_cents !== null ||
+    filters.beds !== null ||
+    filters.min_rating !== null ||
+    filters.q !== ''
 
   return (
     <div className="controls">
-      <label className="control">
-        <span>Order</span>
-        <select value={sort} onChange={(event) => onSort(event.target.value as SortKey)}>
-          {sorts.map((key) => (
-            <option key={key} value={key}>
-              {ORDER_LABEL[key]}
-            </option>
-          ))}
-        </select>
+      <label className="control control-q">
+        <span>Find in results</span>
+        <input
+          type="search"
+          placeholder="name or address"
+          value={filters.q}
+          onChange={(event) => onFilters({ ...filters, q: event.target.value })}
+        />
       </label>
+
+      {sorts.length > 0 && (
+        <label className="control">
+          <span>Order</span>
+          <select value={sort} onChange={(event) => onSort(event.target.value as SortKey)}>
+            {sorts.map((key) => (
+              <option key={key} value={key}>
+                {ORDER_LABEL[key]}
+              </option>
+            ))}
+          </select>
+        </label>
+      )}
 
       {priced && (
         <label className="control">
@@ -107,15 +126,34 @@ export function Controls({
         </label>
       )}
 
+      {rated && (
+        <label className="control">
+          <span>Rating at least</span>
+          <select
+            value={filters.min_rating === null ? '' : String(filters.min_rating)}
+            onChange={(event) =>
+              onFilters({
+                ...filters,
+                min_rating: event.target.value === '' ? null : Number(event.target.value),
+              })
+            }
+          >
+            <option value="">any</option>
+            {[3.5, 4, 4.5].map((floor) => (
+              <option key={floor} value={floor}>
+                {floor}+
+              </option>
+            ))}
+          </select>
+        </label>
+      )}
+
       <p className="showing" aria-live="polite">
         {showing === total
           ? `${total} ${total === 1 ? word.one : word.many}`
           : `${showing} of ${total}`}
         {touched && (
-          <button
-            className="as-link"
-            onClick={() => onFilters({ max_price_cents: null, beds: null })}
-          >
+          <button className="as-link" onClick={() => onFilters(NO_FILTERS)}>
             clear
           </button>
         )}

@@ -103,36 +103,70 @@ describe('filtering', () => {
   const entries = [entry('a'), entry('b'), entry('c')]
 
   it('drops a home whose stated rent is over the ceiling', () => {
-    const kept = filterEntries(entries, entities, { max_price_cents: 250_000, beds: null })
+    const kept = filterEntries(entries, entities, {
+      max_price_cents: 250_000,
+      beds: null,
+      min_rating: null,
+      q: '',
+    })
     expect(kept.map((e) => e.entity_id)).toEqual(['b', 'c'])
   })
 
   it('keeps a home whose rent nobody stated', () => {
     // The filter narrows what is known. Hiding what is uncertain would quietly
     // drop the price-band buildings, which are a fifth of everything.
-    const kept = filterEntries(entries, entities, { max_price_cents: 100, beds: null })
+    const kept = filterEntries(entries, entities, {
+      max_price_cents: 100,
+      beds: null,
+      min_rating: null,
+      q: '',
+    })
     expect(kept.map((e) => e.entity_id)).toEqual(['c'])
   })
 
   it('matches a bedroom count exactly', () => {
-    const kept = filterEntries(entries, entities, { max_price_cents: null, beds: 1 })
+    const kept = filterEntries(entries, entities, {
+      max_price_cents: null,
+      beds: 1,
+      min_rating: null,
+      q: '',
+    })
     expect(kept.map((e) => e.entity_id)).toEqual(['b', 'c'])
   })
 
   it('returns everything when nothing is asked', () => {
-    const kept = filterEntries(entries, entities, { max_price_cents: null, beds: null })
+    const kept = filterEntries(entries, entities, {
+      max_price_cents: null,
+      beds: null,
+      min_rating: null,
+      q: '',
+    })
     expect(kept).toHaveLength(3)
   })
 })
 
 describe('what is worth offering', () => {
+  const priced = [home('a', 100_000, 1)]
+
   it('only offers an order it can actually compute', () => {
     const withCommute = [entry('a', [fact('a', 'commute', 60)])]
-    expect(availableSorts(withCommute, true)).toEqual(['best', 'cheapest', 'quickest'])
+    expect(availableSorts(withCommute, priced, true)).toEqual(['best', 'cheapest', 'quickest'])
   })
 
   it('does not offer the best order where nothing was ranked', () => {
     // Nothing was asked, so nothing cleared anything more comfortably.
-    expect(availableSorts([entry('a')], false)).toEqual(['cheapest'])
+    expect(availableSorts([entry('a')], priced, false)).toEqual(['cheapest'])
+  })
+
+  it('offers neither price nor rating orders over results that have neither', () => {
+    // Parks have no rent and often no stars. Offering cheapest over them is a
+    // dial wired to nothing.
+    const bare = [{ ...home('a', null, null), attributes: {} }]
+    expect(availableSorts([entry('a')], bare, false)).toEqual([])
+  })
+
+  it('offers a rating order when the results are rated', () => {
+    const rated = [{ ...home('a', null, null), attributes: { rating: 4.4 } }]
+    expect(availableSorts([entry('a')], rated, false)).toEqual(['rated'])
   })
 })

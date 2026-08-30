@@ -9,7 +9,7 @@ import { numberOf, type EvidenceRow, type Place } from '@relokit/schema'
  * is read from evidence already gathered rather than fetched again.
  */
 
-export type SortKey = 'best' | 'cheapest' | 'quickest' | 'nearest'
+export type SortKey = 'best' | 'cheapest' | 'quickest' | 'nearest' | 'rated'
 
 export interface Sortable {
   entity_id: string
@@ -22,9 +22,14 @@ export interface Filters {
    * a price filter, because not knowing is not the same as being too dear. */
   max_price_cents: number | null
   beds: number | null
+  /** A floor, and only ever a floor: an unrated place is not a bad one, so it
+   * is never hidden by a rating filter. */
+  min_rating: number | null
+  /** Plain words matched against the name. */
+  q: string
 }
 
-export const NO_FILTERS: Filters = { max_price_cents: null, beds: null }
+export const NO_FILTERS: Filters = { max_price_cents: null, beds: null, min_rating: null, q: '' }
 
 export function sortEntries<T extends Sortable>(
   entries: T[],
@@ -44,6 +49,7 @@ export function sortEntries<T extends Sortable>(
 function compare<T extends Sortable>(a: T, b: T, byId: Map<string, Place>, key: SortKey): number {
   if (key === 'best') return (b.score ?? 0) - (a.score ?? 0)
   if (key === 'cheapest') return lowestFirst(price(a, byId), price(b, byId))
+  if (key === 'rated') return lowestFirst(negRating(a, byId), negRating(b, byId))
   if (key === 'quickest') return lowestFirst(travel(a), travel(b))
   return lowestFirst(distance(a), distance(b))
 }
@@ -66,6 +72,12 @@ function price(entry: Sortable, byId: Map<string, Place>): number | null {
 
 function travel(entry: Sortable): number | null {
   return smallest(entry.evidence, 'commute')
+}
+
+function negRating(entry: Sortable, byId: Map<string, Place>): number | null {
+  const entity = byId.get(entry.entity_id)
+  const rating = entity ? numberOf(entity, 'rating') : null
+  return rating === null ? null : -rating
 }
 
 function distance(entry: Sortable): number | null {
@@ -107,15 +119,28 @@ export function filterEntries<T extends Sortable>(
       return false
     }
 
+    const rating = numberOf(entity, 'rating')
+    if (filters.min_rating !== null && rating !== null && rating < filters.min_rating) {
+      return false
+    }
+
+    if (filters.q !== '' && !entity.title.toLowerCase().includes(filters.q.toLowerCase())) {
+      return false
+    }
+
     return true
   })
 }
 
 /** What sorting is worth offering, given what was actually measured. */
-export function availableSorts(entries: Sortable[], hasScores: boolean): SortKey[] {
+export function availableSorts(
+  entries: Sortable[],
+  entities: Place[],
+  hasScores: boolean,
+): SortKey[] {
   const keys: SortKey[] = hasScores ? ['best'] : []
   const evidence = entries.flatMap((entry) => entry.evidence)
-  keys.push('cheapest')
+  if (entities.some((entity) => entity.price_cents !== null)) keys.push('cheapest')
   if (evidence.some((row) => row.constraint_type === 'commute')) keys.push('quickest')
   if (
     evidence.some(
@@ -124,5 +149,6 @@ export function availableSorts(entries: Sortable[], hasScores: boolean): SortKey
   ) {
     keys.push('nearest')
   }
+  if (entities.some((entity) => numberOf(entity, 'rating') !== null)) keys.push('rated')
   return keys
 }

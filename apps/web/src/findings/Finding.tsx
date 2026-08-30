@@ -1,5 +1,6 @@
 import type { Standing } from '@relokit/evidence'
 import type { Constraint, EvidenceRow, Place } from '@relokit/schema'
+import { described } from '../lib/attributes.ts'
 import { ago, money, sourceName, tight } from '../lib/format.ts'
 import { Tip } from '../lib/tooltip.tsx'
 
@@ -114,6 +115,8 @@ export function Finding({
         {price && <span className="finding-price">{price}</span>}
         {!entity.photo_url && saveButton && <span className="pin-inline">{saveButton}</span>}
       </header>
+
+      {described(entity).length > 0 && <p className="traits">{described(entity).join(' · ')}</p>}
 
       {standing?.status === 'efficient' && (
         <span className="standing" data-kind="efficient">
