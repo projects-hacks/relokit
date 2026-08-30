@@ -12,8 +12,9 @@ constraints by how many candidates each removes per API call, and evaluates each
 one at the cheapest granularity that can settle it. Every fact it reports carries
 a source, a timestamp and an expiry.
 
-For the demo query that is **41 searches instead of 18,179**, and the numbers are
-measured rather than estimated: run `pnpm replay` and see.
+For the demo query that is **39 searches instead of 18,179**, and the numbers are
+measured rather than estimated: run `pnpm replay` and see. Every response it needs
+is committed, so that run reaches the network zero times.
 
 ## Try it
 
@@ -28,8 +29,18 @@ network.
 
 ```
 pnpm plan       # print the plan and the cost trace for the demo query
-pnpm dev:web    # the plan trace, cost bars, search box and cluster grid
+pnpm replay     # run it end to end from committed responses
+pnpm dev:web    # the app on port 5173
 ```
+
+## What you get back
+
+Three lists, never two: what cleared every requirement, what could not be
+checked, and what was ruled out with the reason attached. Every fact carries the
+source that answered it and how old the answer is. Homes can be kept to a
+shortlist without an account, and a question can be left running, so it is asked
+again each night and reports what moved. Asking again is nearly free, because
+most of the answers are still good.
 
 ## The question it answers
 
@@ -78,11 +89,11 @@ bindings: each round takes what can actually run, keeps the best per constraint,
 and adds whatever it makes available. The tier order above falls out of that
 rather than being imposed on it.
 
-For the San Jose query that means Zillow's own filters take 4,517 rentals to 20
-for a single call, six cluster centroids settle the commute for six more, and
-only the eleven survivors get an exact route and a search for a gym and a
-grocery. One home comes back verified on all six constraints, four unverified,
-and fifteen rejected with the reason attached.
+For the San Jose query that means Zillow's own filters take 4,517 rentals to 58
+for two calls, cluster centroids settle the commute for a batch more, and only
+the survivors get an exact route and a search for a gym and a grocery. One home
+comes back verified on all six constraints, four unverified, and fifteen rejected
+with the reason attached.
 
 Cluster work has to earn its place. A cluster call answers about a centroid
 rather than a listing, so the planner runs one only when it removes more listings
@@ -122,7 +133,7 @@ change.
 | `packages/planner`     | The planner. Pure, synchronous, one dependency, no I/O.                 |
 | `packages/serpapi`     | Typed client with fixture record and replay.                            |
 | `packages/mcp`         | MCP server. `relokit_plan` runs locally and costs nothing.              |
-| `apps/web`             | Plan trace, cost trace, map.                                            |
+| `apps/web`             | The app: results, map, provenance, shortlist, watch.                    |
 | `tools/record-fixture` | The only thing that can spend a SerpApi search.                         |
 | `xano/`                | Registry seed and table definitions.                                    |
 | `docs/`                | Contracts, cost model, provider findings.                               |
@@ -152,6 +163,8 @@ the network.
 | `pnpm test`              | Full suite, offline.                    |
 | `pnpm typecheck`         | Every package in one pass.              |
 | `pnpm plan`              | Plan and cost trace for the demo query. |
+| `pnpm replay`            | The demo run end to end, offline.       |
+| `pnpm ask "<question>"`  | The same flow the browser runs.         |
 | `pnpm dev:web`           | Web app on port 5173.                   |
 | `pnpm record <scenario>` | Records a fixture. Spends a search.     |
 

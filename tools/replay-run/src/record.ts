@@ -18,7 +18,11 @@ try {
 }
 
 const wet = process.argv.includes('--record')
-const clusters = Number(process.env.RELOKIT_CLUSTERS ?? 6)
+// The same default as the replay. They disagreed at six against twelve, which
+// gave the two tools different centroids and so different journeys, and a
+// recorder that cannot satisfy the replayer records the wrong six things
+// forever.
+const clusters = Number(process.env.RELOKIT_CLUSTERS ?? 12)
 
 const registry = Registry.parse(JSON.parse(readFileSync('xano/registry.seed.json', 'utf8')))
 const constraints = ConstraintSet.parse(

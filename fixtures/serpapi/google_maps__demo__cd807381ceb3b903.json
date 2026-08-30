@@ -1,0 +1,434 @@
+{
+  "key": "google_maps__demo__cd807381ceb3b903",
+  "engine": "google_maps",
+  "params": {
+    "engine": "google_maps",
+    "type": "search",
+    "q": "San Jose, CA"
+  },
+  "recorded_at_ms": 1788049669920,
+  "status": 200,
+  "body": {
+    "search_metadata": {
+      "id": "6a937904dc74d0ebd81035df",
+      "status": "Success",
+      "json_endpoint": "https://serpapi.com/searches/TzA62r36nx57olVCNCZzWy6-bXuw5Cyz0xD-Q6406RQ/6a937904dc74d0ebd81035df.json",
+      "markdown_endpoint": "https://serpapi.com/searches/TzA62r36nx57olVCNCZzWy6-bXuw5Cyz0xD-Q6406RQ/6a937904dc74d0ebd81035df.md",
+      "created_at": "2026-08-30 00:27:48 UTC",
+      "processed_at": "2026-08-30 00:27:48 UTC",
+      "google_maps_url": "https://www.google.com/maps/search/San+Jose%2C+CA//data=!3m1!4b1!4m2!2m1!6e5?hl=en",
+      "raw_html_file": "https://serpapi.com/searches/TzA62r36nx57olVCNCZzWy6-bXuw5Cyz0xD-Q6406RQ/6a937904dc74d0ebd81035df.html",
+      "prettify_html_file": "https://serpapi.com/searches/TzA62r36nx57olVCNCZzWy6-bXuw5Cyz0xD-Q6406RQ/6a937904dc74d0ebd81035df.prettify",
+      "total_time_taken": 1.58
+    },
+    "search_parameters": {
+      "engine": "google_maps",
+      "type": "search",
+      "q": "San Jose, CA",
+      "google_domain": "google.com",
+      "hl": "en"
+    },
+    "search_information": {
+      "local_results_state": "Showing results for type: \"place\" instead of type: \"search\"",
+      "query_displayed": "San Jose, CA"
+    },
+    "place_results": {
+      "title": "San Jose",
+      "place_id": "ChIJ9T_5iuTKj4ARe3GfygqMnbk",
+      "data_id": "0x808fcae48af93ff5:0xb99d8c0aca9f717b",
+      "data_cid": "13375000446337249659",
+      "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcae48af93ff5%3A0xb99d8c0aca9f717b&engine=google_maps_reviews&hl=en",
+      "photos_link": "https://serpapi.com/search.json?data_id=0x808fcae48af93ff5%3A0xb99d8c0aca9f717b&engine=google_maps_photos&hl=en",
+      "gps_coordinates": {
+        "latitude": 37.33874,
+        "longitude": -121.88525249999999
+      },
+      "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJ9T_5iuTKj4ARe3GfygqMnbk",
+      "provider_id": "/m/0f04v",
+      "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlbrDhFaEEIU6wlDTYm7zA3nFBgfdqf9NDfO2PcSL-IZINcU7-oUAk4SMK0nWo_MCRcB2vKMHs9sojcVGgikKyXAKDcairDKopdGEIRfs7F4qabdmoXgi3yVbOylwaRybyzMe7Z=w1000-h1000-c-n",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/OuEZdXicHcRLDoIwFADAE1VQjEQTF2hBSUUNir-NgQcUtPQhRUm9oGfwNibOYr6fom1rNTEMUVg9jshF9lRZAyjbTLY9wMrgtSKgiDKcZbjdH0XS0MKLXdePRp2g-3Nlvx1LejOep498vKb5ZrCF3Yr4F38NkU0wcu7DXcBMecRrMA9hNnixYKnGCm9wWPDyzvTJYRTisqEM63Th-mGubG_4iJO0whMvLX1INlp0cagT_Q4y-zLt-qZpkuI_EPkDQKRFSQ",
+      "description": {
+        "snippet": "San Jose is a large city surrounded by rolling hills in Silicon Valley, a major technology hub in California's Bay Area. Architectural landmarks, from the 1883 Italianate-style Oddfellows building to Spanish Colonial Revival structures, make up the downtown historic district. The downtown area is also home to the Tech Museum of Innovation, devoted to the exploration of science and technology."
+      },
+      "address": "California",
+      "country": "United States",
+      "weather": {
+        "conditions": "Sunny",
+        "conditions_thumbnail": "https://ssl.gstatic.com/onebox/weather/32/sunny.png",
+        "celsius": "24°C",
+        "fahrenheit": "75°F"
+      },
+      "images": [
+        {
+          "title": "All",
+          "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlbrDhFaEEIU6wlDTYm7zA3nFBgfdqf9NDfO2PcSL-IZINcU7-oUAk4SMK0nWo_MCRcB2vKMHs9sojcVGgikKyXAKDcairDKopdGEIRfs7F4qabdmoXgi3yVbOylwaRybyzMe7Z=w1000-h1000-c-n",
+          "serpapi_thumbnail": "https://serpapi.com/images/url/OuEZdXicHcRLDoIwFADAE1VQjEQTF2hBSUUNir-NgQcUtPQhRUm9oGfwNibOYr6fom1rNTEMUVg9jshF9lRZAyjbTLY9wMrgtSKgiDKcZbjdH0XS0MKLXdePRp2g-3Nlvx1LejOep498vKb5ZrCF3Yr4F38NkU0wcu7DXcBMecRrMA9hNnixYKnGCm9wWPDyzvTJYRTisqEM63Th-mGubG_4iJO0whMvLX1INlp0cagT_Q4y-zLt-qZpkuI_EPkDQKRFSQ"
+        },
+        {
+          "title": "Videos",
+          "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlhGdVcCzjfHbB2B3VZjYRSihopMFPTYiCkgIDGNpTyFoqcsW6wqXrB8ovyy51DeZvY7AHC9pgbnWhk5pKeyLmOCPiY_4MnfPccrVP3tqppCSaLO17DAv7PLrotmXKErvY7RQux3A=w1000-h1000-c-n",
+          "serpapi_thumbnail": "https://serpapi.com/images/url/lHuwLnicHctLcoIwAADQE_ETLdUZFxCqdESNwIC4cTSNCQpJSCKKN_QIvY2Om7d7_0-qtVATy6qpaxLOSY2vCkvEmcZMm4g3FhHKQMpQlh8lMCtqOv_LEXicT9ExGARuvjuXSVpRLpYzmJUVuJDfcL4SWT_jLVLF163dyuCbd30_ckK860rPj8BYkCMr6GUkFriPmzWAVbkfLtkJIiRz6OpWCJAe4rXjhX7nwVhy3WwXP_Ldk8317vrTm2PbtkE_IoO9AG-5Rq8"
+        }
+      ],
+      "web_results_link": "https://www.google.com/search?q=local+guide+program&ibp=gwp;0,26,OhsKGSIVU2FuIEpvc2UgU2FuIEpvc2UsIENBKAI&pcl=lp",
+      "serpapi_web_results_link": "https://serpapi.com/search.json?device=desktop&engine=google&google_domain=google.com&ibp=gwp%3B0%2C26%2COhsKGSIVU2FuIEpvc2UgU2FuIEpvc2UsIENBKAI&q=local+guide+program",
+      "neighborhoods": [
+        {
+          "position": 1,
+          "title": "Downtown San Jose",
+          "description": "Upbeat nightlife & iconic arts theaters",
+          "thumbnail": "http://lh4.googleusercontent.com/proxy/LfYAGDb_T-WD3ev5TGqDCr2hlmg359ZZpRYgK-qhFigMW7n9w5jV7QlfjEzN1gQQFYlwbawHEHs9Yp3cTAHf695jNBTtwxMd8HI0QR-br7eUF9h7KQk8eJcBy-CpSoMO4VPosdo0qbkvutnUOhy5LInrRi7hv4sv21bRiYnGDe_p=w330-h180-n",
+          "data_id": "0x808fcca3f83c3049:0x33f11bbbc2fa2490",
+          "data_cid": "3742803258565600400",
+          "place_id": "ChIJSTA8-KPMj4ARkCT6wrsb8TM",
+          "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcca3f83c3049%3A0x33f11bbbc2fa2490&engine=google_maps_reviews&hl=en",
+          "photos_link": "https://serpapi.com/search.json?data_id=0x808fcca3f83c3049%3A0x33f11bbbc2fa2490&engine=google_maps_photos&hl=en"
+        },
+        {
+          "position": 2,
+          "title": "Willow Glen",
+          "description": "Lincoln Avenue shops & family dining",
+          "thumbnail": "http://lh5.googleusercontent.com/proxy/YNMpYWJVYK0U7enk8NSrEkY8N4Hy5gx3wju5kPWvRq0KpBJWa6IiqcFqhCeX-Em4OycwLR9PbHfi_I2IYU6UVQnLLbvIUGDaadNyqR3K_YbW1RwsyEjGFttp2grTOW3dPBlramjZAgO9-PZqmQ0TEVyv-lkLf6hNosLHAsGxjAkl=w330-h180-n",
+          "data_id": "0x808e349fe9fcfa03:0x8a27b4690a4f5602",
+          "data_cid": "9955123864563308034",
+          "place_id": "ChIJA_r86Z80joARAlZPCmm0J4o",
+          "reviews_link": "https://serpapi.com/search.json?data_id=0x808e349fe9fcfa03%3A0x8a27b4690a4f5602&engine=google_maps_reviews&hl=en",
+          "photos_link": "https://serpapi.com/search.json?data_id=0x808e349fe9fcfa03%3A0x8a27b4690a4f5602&engine=google_maps_photos&hl=en"
+        },
+        {
+          "position": 3,
+          "title": "Japantown",
+          "description": "Homestyle Japanese dining & hip shops",
+          "thumbnail": "http://lh5.googleusercontent.com/proxy/fVGdNZc8GdVZg56Q_QrmFKvudjn3To7IJOpZjjEUGijasOQ3cfHSAbs_asZbVSAkwpvZVVWG8ZRo8nAZYSnOdI1Qf_2x6FqDy5r_T2xl1MEaPObg5p5iEmzrgHKLysc8HfK9dTdteucYH6hReIEbxb3PYXxHIAKp1aGlQFCVGT1e=w330-h180-n",
+          "data_id": "0x808fcc83d011c4cd:0xa5fefbd335bdc1b2",
+          "data_cid": "11961274544900915634",
+          "place_id": "ChIJzcQR0IPMj4ARssG9NdP7_qU",
+          "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcc83d011c4cd%3A0xa5fefbd335bdc1b2&engine=google_maps_reviews&hl=en",
+          "photos_link": "https://serpapi.com/search.json?data_id=0x808fcc83d011c4cd%3A0xa5fefbd335bdc1b2&engine=google_maps_photos&hl=en"
+        },
+        {
+          "position": 4,
+          "title": "Alum Rock",
+          "description": "Alum Rock Park trails & Lake Cunningham",
+          "thumbnail": "http://lh3.googleusercontent.com/proxy/3gaKPBjSQMIYz4APQobXeeJlTUuwoStn_UJm5DYqWOYfWXIdbbG64GD51zwkhwO_RDcyKiPJY9nGsEgm6Cc11LKPZc6gvQ4P_ecKqTk86Xol4dTKFKml5wdJIgWeEbQiB5dmV4cZ9JvbG0SHVw5E6X11oWN6wTWORFt_76Gsmknl=w330-h180-n",
+          "data_id": "0x808fcd61454a2895:0x36c6316b9d36f7c4",
+          "data_cid": "3946896461705705412",
+          "place_id": "ChIJlShKRWHNj4ARxPc2nWsxxjY",
+          "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcd61454a2895%3A0x36c6316b9d36f7c4&engine=google_maps_reviews&hl=en",
+          "photos_link": "https://serpapi.com/search.json?data_id=0x808fcd61454a2895%3A0x36c6316b9d36f7c4&engine=google_maps_photos&hl=en"
+        },
+        {
+          "position": 5,
+          "title": "Rose Garden",
+          "description": "Ancient treasure, blooms & vintage shops",
+          "thumbnail": "http://lh3.googleusercontent.com/proxy/UCmiV5S2N5dWduHfLq9AXyAhGMwU38Fhq-YzNUQ3MkuNa8UFUPrXz6KeJtdrwkivx5KeZbz9aYoVofk1-Xskbpp4_eVE1bA1ow5fQFzatZHQr4rQwqDItrjPUYxuAsa_zxVnEN61I1r8JweOL-lZMyiW4C_pqbCaoK7AQ1WF9Sar=w330-h180-n",
+          "data_id": "0x808fcb13c6ff239f:0x751121f171fb8900",
+          "data_cid": "8435560897924794624",
+          "place_id": "ChIJnyP_xhPLj4ARAIn7cfEhEXU",
+          "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb13c6ff239f%3A0x751121f171fb8900&engine=google_maps_reviews&hl=en",
+          "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb13c6ff239f%3A0x751121f171fb8900&engine=google_maps_photos&hl=en"
+        }
+      ],
+      "hotels": [
+        {
+          "position": 1,
+          "title": "Holiday Inn San Jose - Silicon Valley by IHG",
+          "rating": 3.9,
+          "reviews": 2153,
+          "type": "4-star hotel",
+          "price": "$104",
+          "check_in_date": "2026-08-31",
+          "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmRIdVb6Tu0GOZvTocyQuPAeSaCxpaDFF5qgQBX6xr08DZosgqb9vU2sgs1f6E8ELZdtCjHwhqGveW-yy06d_5_kp6josDU9p6mcwyoDpDBtqZsoTzYH5kGYxnbvE5cFE8u=w150-h150-n-k-no",
+          "data_id": "0x808fcb85ec354dcd:0xe4189e7245fa445d",
+          "data_cid": "16436061053726114909",
+          "place_id": "ChIJzU017IXLj4ARXUT6RXKeGOQ",
+          "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcb85ec354dcd%3A0xe4189e7245fa445d&engine=google_maps_reviews&hl=en",
+          "photos_link": "https://serpapi.com/search.json?data_id=0x808fcb85ec354dcd%3A0xe4189e7245fa445d&engine=google_maps_photos&hl=en",
+          "gps_coordinates": {
+            "latitude": 37.361884,
+            "longitude": -121.908514
+          },
+          "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJzU017IXLj4ARXUT6RXKeGOQ"
+        },
+        {
+          "position": 2,
+          "title": "Four Points by Sheraton San Jose Downtown",
+          "rating": 3.9,
+          "reviews": 1093,
+          "type": "3-star hotel",
+          "price": "$122",
+          "check_in_date": "2026-08-31",
+          "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl0cmS2TYcOvXRXWBezzp0HJBFzmcwwsWtfPH9nze0Si9jWVtZOMyb4zSW-7MyedtX5u1bQBA5VfT3t0NSsWMDKBRQrZKMt4DNiuipFF_aNHY9uSTat1DDHcuakGJgH48T0awgafb-eiFUL=w150-h150-n-k-no",
+          "data_id": "0x808fccbafbb2f08b:0x6425e6303eccc542",
+          "data_cid": "7216427072817513794",
+          "place_id": "ChIJi_Cy-7rMj4ARQsXMPjDmJWQ",
+          "reviews_link": "https://serpapi.com/search.json?data_id=0x808fccbafbb2f08b%3A0x6425e6303eccc542&engine=google_maps_reviews&hl=en",
+          "photos_link": "https://serpapi.com/search.json?data_id=0x808fccbafbb2f08b%3A0x6425e6303eccc542&engine=google_maps_photos&hl=en",
+          "gps_coordinates": {
+            "latitude": 37.332223,
+            "longitude": -121.888045
+          },
+          "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJi_Cy-7rMj4ARQsXMPjDmJWQ"
+        },
+        {
+          "position": 3,
+          "title": "Hayes Mansion San Jose, Curio Collection by Hilton",
+          "rating": 4.3,
+          "reviews": 2406,
+          "type": "4-star hotel",
+          "price": "$177",
+          "check_in_date": "2026-08-31",
+          "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmOPlKhQPDctkCaxefS-8FUPJ-eC42j3uDsHgDqOL2m9tHP6m5Vpop1GI1wOEMT4oos5eILDM4omA1rNALeKZUtv3yeO_TIAF5mxyU6pdIcQVidDZjy6i9IbJzDW6Xs4cG2Nsae=w150-h150-n-k-no",
+          "data_id": "0x808e31d4b51ac39b:0xba75c2d0de62f6f9",
+          "data_cid": "13435859265669756665",
+          "place_id": "ChIJm8MatdQxjoAR-fZi3tDCdbo",
+          "reviews_link": "https://serpapi.com/search.json?data_id=0x808e31d4b51ac39b%3A0xba75c2d0de62f6f9&engine=google_maps_reviews&hl=en",
+          "photos_link": "https://serpapi.com/search.json?data_id=0x808e31d4b51ac39b%3A0xba75c2d0de62f6f9&engine=google_maps_photos&hl=en",
+          "gps_coordinates": {
+            "latitude": 37.262308,
+            "longitude": -121.820776
+          },
+          "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJm8MatdQxjoAR-fZi3tDCdbo"
+        },
+        {
+          "position": 4,
+          "title": "Residence Inn by Marriott San Jose South",
+          "rating": 4,
+          "reviews": 620,
+          "type": "3-star hotel",
+          "price": "$160",
+          "check_in_date": "2026-08-31",
+          "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmPfQ9XwfPlaYjvOooZwDHtFG1Lzrn13Eqgyw9VukNI7SUKYV8WUEAZi7WD21lzOs8F5cFUxNBnwmusiHbXZXQQjPhYhWS_c53z8y4T2MKTOZQXwfLPlT-MoC7TQA2wGyJPBhYP99ZhZOk=w150-h150-n-k-no",
+          "data_id": "0x808e2fae8703783b:0x9f93036190d4ddc3",
+          "data_cid": "11498537991183588803",
+          "place_id": "ChIJO3gDh64vjoARw93UkGEDk58",
+          "reviews_link": "https://serpapi.com/search.json?data_id=0x808e2fae8703783b%3A0x9f93036190d4ddc3&engine=google_maps_reviews&hl=en",
+          "photos_link": "https://serpapi.com/search.json?data_id=0x808e2fae8703783b%3A0x9f93036190d4ddc3&engine=google_maps_photos&hl=en",
+          "gps_coordinates": {
+            "latitude": 37.233903,
+            "longitude": -121.773555
+          },
+          "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJO3gDh64vjoARw93UkGEDk58"
+        },
+        {
+          "position": 5,
+          "title": "Hotel De Anza",
+          "rating": 4,
+          "reviews": 1261,
+          "type": "4-star hotel",
+          "price": "$125",
+          "check_in_date": "2026-08-31",
+          "thumbnail": "https://lh5.googleusercontent.com/proxy/eavaV5AshaVk5vEKsgnsYrsVaRPHT6xU23nL5AB7-CTiz2jmIyOh78g4ec_mRwCYi1j6wq3autrpHGv3MUkD7m8Vmu-egzQLsmUCQ7l96cYJA1a5LLGRVPlAMnwp8Vk6ZHTkuINZJShFBNK_VBfcc7OXO8n6ZFE=w150-h150-n-k-no",
+          "data_id": "0x808fcd667597abeb:0xa56887df05f5bc00",
+          "data_cid": "11918925805783464960",
+          "place_id": "ChIJ66uXdWbNj4ARALz1Bd-HaKU",
+          "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcd667597abeb%3A0xa56887df05f5bc00&engine=google_maps_reviews&hl=en",
+          "photos_link": "https://serpapi.com/search.json?data_id=0x808fcd667597abeb%3A0xa56887df05f5bc00&engine=google_maps_photos&hl=en",
+          "gps_coordinates": {
+            "latitude": 37.334441,
+            "longitude": -121.894919
+          },
+          "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJ66uXdWbNj4ARALz1Bd-HaKU"
+        },
+        {
+          "position": 6,
+          "title": "DoubleTree by Hilton Hotel San Jose",
+          "rating": 3.8,
+          "reviews": 3963,
+          "type": "4-star hotel",
+          "price": "$137",
+          "check_in_date": "2026-08-31",
+          "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlmN-cxoo6tE_GplP11sQiHSF4Axov05Cs3sX9zdpQnCEgOY50pSUQUf99mzfMqA_UepKWlS0dWcaDkflD4ex-aLs0KzNpOfAUAPRBjlXZ0-UhuZ-yVvPlrmqkkhX1N1e_HOekO=w150-h150-n-k-no",
+          "data_id": "0x808fcbea46de432b:0x143d6b946b2164f5",
+          "data_cid": "1458440139534591221",
+          "place_id": "ChIJK0PeRurLj4AR9WQha5RrPRQ",
+          "reviews_link": "https://serpapi.com/search.json?data_id=0x808fcbea46de432b%3A0x143d6b946b2164f5&engine=google_maps_reviews&hl=en",
+          "photos_link": "https://serpapi.com/search.json?data_id=0x808fcbea46de432b%3A0x143d6b946b2164f5&engine=google_maps_photos&hl=en",
+          "gps_coordinates": {
+            "latitude": 37.371772,
+            "longitude": -121.922713
+          },
+          "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJK0PeRurLj4AR9WQha5RrPRQ"
+        },
+        {
+          "position": 7,
+          "title": "Hilton San Jose",
+          "rating": 4,
+          "reviews": 2455,
+          "type": "4-star hotel",
+          "price": "$161",
+          "check_in_date": "2026-08-31",
+          "thumbnail": "https://lh3.googleusercontent.com/proxy/MHQLDh2SHeMe4nVy3_W1jMj7ZKww8vJWaJhhgG3lfMCvFTnmWfhO2vjV1CpsFzXc5MF2vbf7mTIzqjYo8iwGcLNq0j7vBXEFWljzJEGYsHcILFbr7QQbIGT1sVYFln6cB0raqvtIuV4APu5JWXLZzGNRKvtUdR4=w150-h150-n-k-no",
+          "data_id": "0x808fccaffa1a35c1:0xe31f46e79632fe7d",
+          "data_cid": "16365877531358985853",
+          "place_id": "ChIJwTUa-q_Mj4ARff4yludGH-M",
+          "reviews_link": "https://serpapi.com/search.json?data_id=0x808fccaffa1a35c1%3A0xe31f46e79632fe7d&engine=google_maps_reviews&hl=en",
+          "photos_link": "https://serpapi.com/search.json?data_id=0x808fccaffa1a35c1%3A0xe31f46e79632fe7d&engine=google_maps_photos&hl=en",
+          "gps_coordinates": {
+            "latitude": 37.329303,
+            "longitude": -121.890581
+          },
+          "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJwTUa-q_Mj4ARff4yludGH-M"
+        },
+        {
+          "position": 8,
+          "title": "La Hacienda San Jose Silicon Valley",
+          "rating": 4.6,
+          "reviews": 724,
+          "type": "3-star hotel",
+          "price": "$93",
+          "check_in_date": "2026-08-31",
+          "thumbnail": "https://lh6.googleusercontent.com/proxy/Z0LEZXU1o6wek2d3ig8eFdnzF3E2SxAhviGZIUegF-04M3v9fRPEkhFFJ5a8cHEzNVe2l-aGgufbpLUN_q0lgZs1JBpTeoMbgcoEEacXQH-Ao-salHdEsr7cnx6k-dd-QPp3PhWVZq8CaAxfLlBkWzk7ZvLPw0Q=w150-h150-n-k-no",
+          "data_id": "0x808e2e5093246a01:0x8abab1d6bf4463a6",
+          "data_cid": "9996497858792285094",
+          "place_id": "ChIJAWokk1AujoARpmNEv9axuoo",
+          "reviews_link": "https://serpapi.com/search.json?data_id=0x808e2e5093246a01%3A0x8abab1d6bf4463a6&engine=google_maps_reviews&hl=en",
+          "photos_link": "https://serpapi.com/search.json?data_id=0x808e2e5093246a01%3A0x8abab1d6bf4463a6&engine=google_maps_photos&hl=en",
+          "gps_coordinates": {
+            "latitude": 37.247869,
+            "longitude": -121.773161
+          },
+          "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJAWokk1AujoARpmNEv9axuoo"
+        }
+      ],
+      "vacation_rentals": [
+        {
+          "position": 1,
+          "title": "Great Stay in San Jose - Two-Bedroom Suite",
+          "property_type": "House",
+          "capacity": "Sleeps 6",
+          "price": "$128",
+          "check_in_date": "2026-09-28",
+          "thumbnail": "https://lh3.googleusercontent.com/proxy/wh7CcIGlwVcQgdHic5DDhgOBJ4wjTJGE0Y6BUhjc_12aRZbB_1x92yqQVQQ2aoiUUd55FUYrHDp6gQKfKGZ876IVd-LMF0zWUz5DSVNWktXMckomU8PE9wHheNk90n3WFWJ05PXrp_Fb26EjmHtW9dDu5ZvOoA=w150-h150-n-k-no",
+          "data_id": "0x0:0x2622990a1c8f08e1",
+          "data_cid": "2747926991357282529",
+          "place_id": "CgkR4QiPHAqZIiY",
+          "gps_coordinates": {
+            "latitude": 37.38282,
+            "longitude": -121.876999
+          },
+          "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=CgkR4QiPHAqZIiY"
+        },
+        {
+          "position": 2,
+          "title": "@ Marbella Lane -SiliconValley 3BR Gem in SJ",
+          "property_type": "House",
+          "capacity": "Sleeps 6",
+          "price": "$256",
+          "check_in_date": "2026-09-28",
+          "thumbnail": "https://lh4.googleusercontent.com/proxy/ExC5VDJM21fn7khwPVVh7ADqBkWY1Enzqd0lcK9VAy_81b0t1GVLXzTtnOWQztSRI1emT0hdbQP4e0-oEyr5gK3T8Hn9hrH59ko5HLmzHS4JpVyTSG5PNd0Fcy9QWiRYROoQJgcVsZwVROAvb7-cq5e7TUJxoQ=w150-h150-n-k-no",
+          "data_id": "0x0:0xfda0907daaa5fd7d",
+          "data_cid": "18275766157277789565",
+          "place_id": "CgkRff2lqn2QoP0",
+          "gps_coordinates": {
+            "latitude": 37.317505,
+            "longitude": -121.892929
+          },
+          "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=CgkRff2lqn2QoP0"
+        },
+        {
+          "position": 3,
+          "title": "Silicon Valley Hideaway w/ Private Garden",
+          "property_type": "House",
+          "capacity": "Sleeps 6",
+          "price": "$104",
+          "check_in_date": "2026-09-28",
+          "thumbnail": "https://lh6.googleusercontent.com/proxy/-kkltTSSOWXUxaAYHpz8SPF5UxGH5OvhZ47d6SX8jywgAsH3E7I4xj_sYe6npcWyIsmP6G2NlkzSF1W_V8Bu2waiPH-MNLLfNaTkeM_6ynxOqHTHPgUUatiuLBrcbeQuDytfMR3WTVWd4jRFc1FamD86tIqhAvw=w150-h150-n-k-no",
+          "data_id": "0x0:0x41462a9e22c2bc95",
+          "data_cid": "4703493719511448725",
+          "place_id": "CgkRlbzCIp4qRkE",
+          "gps_coordinates": {
+            "latitude": 37.317055,
+            "longitude": -121.892876
+          },
+          "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=CgkRlbzCIp4qRkE"
+        },
+        {
+          "position": 4,
+          "title": "Spacious 3BR Townhome All Bedrooms w Private Baths",
+          "property_type": "House",
+          "capacity": "Sleeps 10",
+          "price": "$270",
+          "check_in_date": "2026-09-28",
+          "thumbnail": "https://lh6.googleusercontent.com/proxy/07nIC4989SHzWxqiHDlK-daNr-HZFMO-kbq5ZG_kRtQpdVCHBAGb6H4MB1ctkW-C4inuxpIA1q6pLoPsZyOiXMKZIXVvlDId__LbldaNWTOi2DXSKZPX0-Ks4q7Jl68RaBplfm0yTMMq8JHHPsVOCZ3IWve0cAw=w150-h150-n-k-no",
+          "data_id": "0x0:0xe35c1b39bf1ebc02",
+          "data_cid": "16382999479300570114",
+          "place_id": "CgkRArwevzkbXOM",
+          "gps_coordinates": {
+            "latitude": 37.325367,
+            "longitude": -121.88147
+          },
+          "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=CgkRArwevzkbXOM"
+        },
+        {
+          "position": 5,
+          "title": "Japantown, near SJC w/fast wi-fi",
+          "property_type": "Cottage",
+          "capacity": "Sleeps 7",
+          "price": "$187",
+          "check_in_date": "2026-09-28",
+          "thumbnail": "https://lh6.googleusercontent.com/proxy/yTuWIfxKzpwaH6rOJHfYB1p144DT6MRyGia10_eoWwvPJOriF4WR9bCHRwwkRycohAdlrE7eof0S3AJfDKtnwZj1vClDvBGT1DOkwICR0yVUZEHFldcChWmUgbQZovcVq_gEO9kOvV4154MDUUAaj_K73o_mwqA=w150-h150-n-k-no",
+          "data_id": "0x0:0x123bc9f430d2a4b2",
+          "data_cid": "1313865766936945842",
+          "place_id": "CgkRsqTSMPTJOxI",
+          "gps_coordinates": {
+            "latitude": 37.347263,
+            "longitude": -121.901642
+          },
+          "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=CgkRsqTSMPTJOxI"
+        },
+        {
+          "position": 6,
+          "title": "Business/Family Retreat Near Levi's Stadium!",
+          "property_type": "House",
+          "capacity": "Sleeps 8",
+          "price": "$188",
+          "check_in_date": "2026-09-28",
+          "thumbnail": "https://lh4.googleusercontent.com/proxy/DQekxByRR9pwIT6cWsaRwuqvQLsaj15izWoAIkugqqTvazyDrf402TTYEEUcizHAXDT9jTckZ9KT7qyOH4C7tRFOAMhkgUWAF3Tp50WhtocaRK1lPDKiHpNxxVKeuj2FngOxljy0xrcctmtrgBR36APMjtNzWdM=w150-h150-n-k-no",
+          "data_id": "0x0:0xabcf3e48dd6fa307",
+          "data_cid": "12380182383338431239",
+          "place_id": "CgkRB6Nv3Ug-z6s",
+          "gps_coordinates": {
+            "latitude": 37.400387,
+            "longitude": -121.958801
+          },
+          "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=CgkRB6Nv3Ug-z6s"
+        },
+        {
+          "position": 7,
+          "title": "\"Luxury: 4B/3B with Dual EnSuites, Parking, WiFI\"",
+          "property_type": "House",
+          "capacity": "Sleeps 12",
+          "price": "$371",
+          "check_in_date": "2026-09-28",
+          "thumbnail": "https://lh6.googleusercontent.com/proxy/v7V0GSel0EfybFK52B7hY4nxvKzIgR3c1KYJszYlAxeec1L5ZSFjmIa1zFhnVvlBAm3bdShm6zC3wAHI0Mx-kesel1TMAUiGZTbn8e_zfy-mo6FG27jU_mduvMcWsPlLF5q7P3Hkzhcv-dlbEwLH2wvP0Y0e6g=w150-h150-n-k-no",
+          "data_id": "0x0:0x33f0763cb7616708",
+          "data_cid": "3742621293491611400",
+          "place_id": "CgkRCGdhtzx28DM",
+          "gps_coordinates": {
+            "latitude": 37.296627,
+            "longitude": -121.95816
+          },
+          "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=CgkRCGdhtzx28DM"
+        },
+        {
+          "position": 8,
+          "title": "@ Marbella Lane - Immaculate & Cozy 3BR Home",
+          "property_type": "House",
+          "capacity": "Sleeps 6",
+          "price": "$180",
+          "check_in_date": "2026-09-28",
+          "thumbnail": "https://lh3.googleusercontent.com/proxy/nwTNcesJwvyDl1Bedu8PfDOX8A1LETJCjmZ9rc8IChoUJNEp6StOIyfdNv4ZFvLMUf8pW_WKfgWeS-zeTRNcDkH2gQRpS1E99Eyz50tCA-gDgQF7T9-06M7B0F0YcKC8I201ryxKZ85rorZo88FMbjl34UsL6Q=w150-h150-n-k-no",
+          "data_id": "0x0:0xb1c1288db2439b5b",
+          "data_cid": "12808563404264676187",
+          "place_id": "CgkRW5tDso0owbE",
+          "gps_coordinates": {
+            "latitude": 37.327892,
+            "longitude": -121.94458
+          },
+          "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=CgkRW5tDso0owbE"
+        }
+      ]
+    }
+  }
+}
