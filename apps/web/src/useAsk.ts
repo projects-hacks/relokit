@@ -65,14 +65,28 @@ export function useAsk() {
     setState({ status: 'idle', events: [], result: null, error: null, restored: null })
   }, [])
 
-  return { ...state, run, dismiss, configured: true }
+  return { ...state, run, dismiss }
 }
 
+/**
+ * Failures stay specific. "The search allowance for this month is used up" says
+ * what happened and what to do; a generic retry line says neither, and being
+ * plain about what could not be done is the point of the product. Only the
+ * transport's own noise is translated.
+ */
 function friendlyError(error: unknown): string {
   const detail = error instanceof Error ? error.message : String(error)
-  if (detail.includes('401') || detail.includes('403')) {
-    return 'This search service is not available to your workspace right now.'
+  const body = detail.match(/returned \d+: (.*)$/s)?.[1]
+  if (body) {
+    try {
+      const message = (JSON.parse(body) as { message?: string }).message
+      if (message) return message
+    } catch {
+      // Not JSON. The raw text below still says more than a canned line.
+    }
   }
-  if (detail.includes('429')) return 'The search service is busy. Please wait a moment, then try again.'
-  return 'We could not complete this search. Please try again.'
+  if (/Failed to fetch|NetworkError|fetch failed|ECONNREFUSED/.test(detail)) {
+    return 'The search service could not be reached. Check the connection and try again.'
+  }
+  return detail
 }

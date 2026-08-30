@@ -257,7 +257,9 @@ export function httpTransport(api: string, orgKey: string): Transport {
       const response = await fetch(`${api}${path}`, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ org_key: orgKey, ...body }),
+        // Behind the proxy the key is added server side, so an empty one is
+        // not sent at all rather than sent blank.
+        body: JSON.stringify(orgKey ? { org_key: orgKey, ...body } : body),
       })
       const text = await response.text()
       if (!response.ok)
@@ -266,7 +268,8 @@ export function httpTransport(api: string, orgKey: string): Transport {
     },
     async get(path) {
       const separator = path.includes('?') ? '&' : '?'
-      const response = await fetch(`${api}${path}${separator}org_key=${encodeURIComponent(orgKey)}`)
+      const suffix = orgKey ? `${separator}org_key=${encodeURIComponent(orgKey)}` : ''
+      const response = await fetch(`${api}${path}${suffix}`)
       const text = await response.text()
       if (!response.ok)
         throw new Error(`${path} returned ${response.status}: ${text.slice(0, 300)}`)
