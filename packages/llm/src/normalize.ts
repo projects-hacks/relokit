@@ -1,4 +1,10 @@
-import { Constraint, ConstraintSet, Subject, type ConstraintType } from '@relokit/schema'
+import {
+  Constraint,
+  ConstraintSet,
+  Subject,
+  subjectFromQuery,
+  type ConstraintType,
+} from '@relokit/schema'
 import { clockSeconds, distanceMeters, durationSeconds, moneyCents, windowSide } from './units.ts'
 
 /**
@@ -83,6 +89,35 @@ export function normalizeConstraintSet(
     constraints.push(parsed.data)
   })
 
+  // What to look for. The model decides, and where it did not the noun the
+  // question opens with does, because several of these words are also things a
+  // home can be near.
+  // The noun comes first. Asked for gyms, a model will still sometimes answer
+  // rental, because a gym is also something a home can be near; the word the
+  // sentence opens with is not ambiguous in that way.
+  const stated = Subject.safeParse((raw as { subject?: unknown }).subject)
+  const subject = subjectFromQuery(query) ?? (stated.success ? stated.data : null)
+
+  // Whatever is being counted is not also a requirement of itself. A question
+  // asking for gyms must not carry a constraint saying each gym needs a gym.
+  // Where such a constraint carries opening times it is kept as those, because
+  // dropping it would lose something the question asked for.
+  const kept = constraints.flatMap((c): Constraint[] => {
+    if (subject === null || c.type !== 'nearby_poi' || c.category !== subject) return [c]
+    if (!c.open_window) return []
+    return [
+      {
+        id: c.id,
+        type: 'opening_hours',
+        hardness: c.hardness,
+        weight: c.weight,
+        source_text: c.source_text,
+        inferred: c.inferred,
+        open_window: c.open_window,
+      },
+    ]
+  })
+
   // Where to look. Without it there is nowhere to search, so it is taken from
   // the model, and failing that from wherever the person said they were
   // travelling to.
@@ -90,17 +125,13 @@ export function normalizeConstraintSet(
     typeof (raw as { location?: unknown }).location === 'string' &&
     (raw as { location: string }).location.trim() !== ''
       ? (raw as { location: string }).location.trim()
-      : (constraints.find((c) => c.type === 'commute')?.destination.raw ?? '')
+      : (kept.find((c) => c.type === 'commute')?.destination.raw ?? '')
 
   return {
     constraint_set: ConstraintSet.parse({
       query_id: meta.query_id,
       raw_query: query,
-      // A subject nobody can source is worse than none: the default finds homes,
-      // which is what an unqualified question means.
-      ...(Subject.safeParse((raw as { subject?: unknown }).subject).success
-        ? { subject: (raw as { subject: string }).subject }
-        : {}),
+      ...(subject === null ? {} : { subject }),
       locale: { tz: meta.tz ?? 'America/Los_Angeles', currency: 'USD' },
       ...(anchor === ''
         ? {}
@@ -113,7 +144,7 @@ export function normalizeConstraintSet(
                 : {}),
             },
           }),
-      constraints,
+      constraints: kept,
       parser_version: meta.parser_version,
       parsed_at_ms: meta.parsed_at_ms,
     }),

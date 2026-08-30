@@ -51,6 +51,10 @@ table relokit_capability {
   
     json params_template
     json produces
+
+    // Subjects a candidate source can produce. Empty on everything that answers
+    // questions about candidates rather than making them.
+    json subjects?
     text notes?
   }
 

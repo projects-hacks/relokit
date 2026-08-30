@@ -243,3 +243,98 @@ describe('a bedroom count given as one end of a range', () => {
     expect(constraint_set.constraints[0]).toMatchObject({ min: 1, max: 1 })
   })
 })
+
+describe('what the question is asking for', () => {
+  const parse = (raw: object, query: string) => normalizeConstraintSet(raw, query, meta)
+
+  it('reads the subject from the opening noun when the model omits it', () => {
+    const { constraint_set } = parse(
+      {
+        location: 'downtown Austin',
+        constraints: [
+          {
+            id: 'c1',
+            type: 'nearby_poi',
+            hardness: 'hard',
+            weight: 1,
+            source_text: 'gyms within 1 mile',
+            category: 'gym',
+            radius_m: 1609,
+          },
+        ],
+      },
+      'gyms within 1 mile of downtown Austin that open before 6am',
+    )
+    expect(constraint_set.subject).toBe('gym')
+    // A question asking for gyms must not also require each gym to be near one.
+    expect(constraint_set.constraints).toHaveLength(0)
+  })
+
+  it('keeps opening times the question asked for rather than dropping them', () => {
+    const { constraint_set } = parse(
+      {
+        location: 'downtown Austin',
+        constraints: [
+          {
+            id: 'c1',
+            type: 'nearby_poi',
+            hardness: 'hard',
+            weight: 1,
+            source_text: 'gyms that open before 6am',
+            category: 'gym',
+            radius_m: 1609,
+            open_window: { opens_by_s: 21600 },
+          },
+        ],
+      },
+      'gyms in downtown Austin that open before 6am',
+    )
+    expect(constraint_set.subject).toBe('gym')
+    expect(constraint_set.constraints[0]).toMatchObject({ type: 'opening_hours' })
+  })
+
+  it('keeps a requirement that is not the thing being counted', () => {
+    const { constraint_set } = parse(
+      {
+        subject: 'rental',
+        location: 'Austin',
+        constraints: [
+          {
+            id: 'c1',
+            type: 'nearby_poi',
+            hardness: 'hard',
+            weight: 1,
+            source_text: 'near a gym',
+            category: 'gym',
+            radius_m: 1609,
+          },
+        ],
+      },
+      'flats in Austin near a gym',
+    )
+    expect(constraint_set.subject).toBe('rental')
+    expect(constraint_set.constraints).toHaveLength(1)
+  })
+})
+
+describe('when the model and the sentence disagree', () => {
+  it('believes the noun the question opens with', () => {
+    // Asked for gyms, a model will still answer rental, because a gym is also
+    // something a home can be near.
+    const { constraint_set } = normalizeConstraintSet(
+      { subject: 'rental', location: 'Austin', constraints: [] },
+      'gyms in downtown Austin open before 6am',
+      meta,
+    )
+    expect(constraint_set.subject).toBe('gym')
+  })
+
+  it('still reads flats as flats when a gym is only a requirement', () => {
+    const { constraint_set } = normalizeConstraintSet(
+      { subject: 'rental', location: 'Austin', constraints: [] },
+      'flats in Austin near a gym',
+      meta,
+    )
+    expect(constraint_set.subject).toBe('rental')
+  })
+})

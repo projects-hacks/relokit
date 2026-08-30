@@ -82,6 +82,7 @@ query "admin/registry/import" verb=POST {
             max_fanout                                                         : $capability.max_fanout
             params_template                                                    : $capability.params_template
             produces                                                           : $capability.produces
+            subjects                                                           : $capability|get:"subjects":[]
             notes                                                              : $capability|get:"notes":null
           }
         }

@@ -52,3 +52,38 @@ export const SUBJECT_TERMS: Record<Subject, string> = {
   pharmacy: 'pharmacies',
   hotel: 'hotels',
 }
+
+/** Words a question opens with when it is asking for one of these. */
+const NOUNS: [RegExp, Subject][] = [
+  [/\b(flats?|apartments?|rentals?|places? to (rent|live))\b/, 'rental'],
+  [/\b(houses?|homes?) (for sale|to buy)\b/, 'home_for_sale'],
+  [/\b(restaurants?|places? to eat|somewhere to eat|dinner|food)\b/, 'restaurant'],
+  [/\b(cafes?|coffee shops?|coffee)\b/, 'cafe'],
+  [/\b(bars?|pubs?)\b/, 'bar'],
+  [/\b(gyms?|fitness centou?rs?)\b/, 'gym'],
+  [/\b(grocery stores?|groceries|supermarkets?)\b/, 'grocery'],
+  [/\b(universit(y|ies)|colleges?)\b/, 'university'],
+  [/\b(schools?)\b/, 'school'],
+  [/\b(parks?)\b/, 'park'],
+  [/\b(pharmac(y|ies)|chemists?)\b/, 'pharmacy'],
+  [/\b(hotels?|places? to stay)\b/, 'hotel'],
+]
+
+/**
+ * The kind of thing a question opens by asking for.
+ *
+ * Several of these words are also things a home can be near, and a model reading
+ * "gyms near the park" will sometimes file the gym as a requirement rather than
+ * as the thing being counted. What is being asked for is whatever the sentence
+ * leads with, so that is read here rather than left to interpretation.
+ */
+export function subjectFromQuery(query: string): Subject | null {
+  const opening = query.toLowerCase().slice(0, 60)
+  let best: { at: number; subject: Subject } | null = null
+  for (const [pattern, subject] of NOUNS) {
+    const at = opening.search(pattern)
+    if (at === -1) continue
+    if (!best || at < best.at) best = { at, subject }
+  }
+  return best?.subject ?? null
+}

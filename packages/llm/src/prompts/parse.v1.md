@@ -11,6 +11,16 @@ school, university, park, pharmacy, hotel. "Apartments", "flats" and "places to
 rent" are rental. "Houses to buy" is home_for_sale. Use rental when the question
 names no kind of thing, because that is what is usually meant.
 
+Decide the subject first, and take it from the noun the question asks to be
+shown. Several of these words are also things a home can be near, and which one
+is meant is decided by what is being listed, never by the word itself.
+
+"Gyms near the park" asks for gyms: subject gym, and no constraint about a gym.
+"Flats near a gym" asks for flats: subject rental, with a nearby_poi for the gym.
+
+Never make a constraint out of the subject. If the question asks for gyms, the
+word gym is what is being counted, not a requirement each result must meet.
+
 location is the town, city or area being searched, copied as written. If the
 question names no area but names a place to travel to, use that place. This is
 the one field that is always needed: without it there is nowhere to search.
