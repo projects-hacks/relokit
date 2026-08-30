@@ -8,7 +8,7 @@ import {
   type Filters,
   type SortKey,
 } from '@relokit/evidence'
-import type { ListingSummary } from '@relokit/schema'
+import type { Place } from '@relokit/schema'
 import { Controls } from './Controls.tsx'
 import { Finding } from './Finding.tsx'
 
@@ -33,7 +33,7 @@ export function Findings({
 }: {
   result: AskResult
   isSaved: (entityId: string) => boolean
-  onSave: (entity: ListingSummary) => void
+  onSave: (entity: Place) => void
   onOpen: (entityId: string) => void
   onSelect: (entityId: string) => void
   onHover: (entityId: string | null) => void

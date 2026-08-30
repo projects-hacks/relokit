@@ -1,4 +1,10 @@
-import { Constraint, ConstraintSet, type ConstraintType } from '@relokit/schema'
+import {
+  Constraint,
+  ConstraintSet,
+  Subject,
+  subjectFromQuery,
+  type ConstraintType,
+} from '@relokit/schema'
 import { clockSeconds, distanceMeters, durationSeconds, moneyCents, windowSide } from './units.ts'
 
 /**
@@ -83,6 +89,35 @@ export function normalizeConstraintSet(
     constraints.push(parsed.data)
   })
 
+  // What to look for. The model decides, and where it did not the noun the
+  // question opens with does, because several of these words are also things a
+  // home can be near.
+  // The noun comes first. Asked for gyms, a model will still sometimes answer
+  // rental, because a gym is also something a home can be near; the word the
+  // sentence opens with is not ambiguous in that way.
+  const stated = Subject.safeParse((raw as { subject?: unknown }).subject)
+  const subject = subjectFromQuery(query) ?? (stated.success ? stated.data : null)
+
+  // Whatever is being counted is not also a requirement of itself. A question
+  // asking for gyms must not carry a constraint saying each gym needs a gym.
+  // Where such a constraint carries opening times it is kept as those, because
+  // dropping it would lose something the question asked for.
+  const kept = constraints.flatMap((c): Constraint[] => {
+    if (subject === null || c.type !== 'nearby_poi' || c.category !== subject) return [c]
+    if (!c.open_window) return []
+    return [
+      {
+        id: c.id,
+        type: 'opening_hours',
+        hardness: c.hardness,
+        weight: c.weight,
+        source_text: c.source_text,
+        inferred: c.inferred,
+        open_window: c.open_window,
+      },
+    ]
+  })
+
   // Where to look. Without it there is nowhere to search, so it is taken from
   // the model, and failing that from wherever the person said they were
   // travelling to.
@@ -90,15 +125,26 @@ export function normalizeConstraintSet(
     typeof (raw as { location?: unknown }).location === 'string' &&
     (raw as { location: string }).location.trim() !== ''
       ? (raw as { location: string }).location.trim()
-      : (constraints.find((c) => c.type === 'commute')?.destination.raw ?? '')
+      : (kept.find((c) => c.type === 'commute')?.destination.raw ?? '')
 
   return {
     constraint_set: ConstraintSet.parse({
       query_id: meta.query_id,
       raw_query: query,
+      ...(subject === null ? {} : { subject }),
       locale: { tz: meta.tz ?? 'America/Los_Angeles', currency: 'USD' },
-      ...(anchor === '' ? {} : { search_anchor: { raw: anchor } }),
-      constraints,
+      ...(anchor === ''
+        ? {}
+        : {
+            search_anchor: {
+              raw: anchor,
+              ...(typeof (raw as { radius_m?: unknown }).radius_m === 'number' &&
+              (raw as { radius_m: number }).radius_m > 0
+                ? { radius_m: (raw as { radius_m: number }).radius_m }
+                : {}),
+            },
+          }),
+      constraints: kept,
       parser_version: meta.parser_version,
       parsed_at_ms: meta.parsed_at_ms,
     }),
@@ -146,13 +192,24 @@ function build(
       }
     }
 
-    case 'unit_attribute':
+    case 'unit_attribute': {
+      // "2 bed" is a number of bedrooms, not a floor to build on, and the
+      // search wants both ends of the range. A model that gives only one end
+      // meant the pair, and leaving the other absent left the provider's own
+      // filter with a hole in it, which dropped the whole search.
+      const min = typeof entry.min === 'number' ? Math.round(entry.min) : undefined
+      const max = typeof entry.max === 'number' ? Math.round(entry.max) : undefined
+      const both = min ?? max
+      if (min === undefined && max !== undefined)
+        note('min', entry.min, max, 'the other end of the range')
+      if (max === undefined && min !== undefined)
+        note('max', entry.max, min, 'the other end of the range')
       return {
         ...base,
         attribute: entry.attribute ?? 'beds',
-        ...(typeof entry.min === 'number' ? { min: Math.round(entry.min) } : {}),
-        ...(typeof entry.max === 'number' ? { max: Math.round(entry.max) } : {}),
+        ...(both === undefined ? {} : { min: min ?? both, max: max ?? both }),
       }
+    }
 
     case 'listing_feature':
       return { ...base, feature: entry.feature, required: entry.required !== false }
@@ -180,6 +237,36 @@ function build(
         mode,
         max_seconds: Math.round(value),
       }
+    }
+
+    case 'proximity': {
+      const place = entry.place
+      const raw =
+        typeof place === 'string' ? place : ((place as { raw?: string } | undefined)?.raw ?? '')
+      // Without a place there is nothing to measure from, and a proximity
+      // constraint that measures from nowhere is the bug this type exists to
+      // prevent.
+      if (raw === '') return null
+      const fromText = distanceMeters(span)
+      const radius = fromText ?? (entry.radius_m as number | undefined) ?? 1609
+      note(
+        'radius_m',
+        entry.radius_m,
+        radius,
+        fromText === null ? 'no distance in the phrase' : 'read from the phrase',
+      )
+      return { ...base, inferred: fromText === null, place: { raw }, radius_m: Math.round(radius) }
+    }
+
+    case 'opening_hours': {
+      const window = openWindow(
+        span,
+        entry.open_window as Record<string, number> | undefined,
+        id,
+        repairs,
+      )
+      if (!window) return null
+      return { ...base, open_window: window }
     }
 
     case 'nearby_poi': {

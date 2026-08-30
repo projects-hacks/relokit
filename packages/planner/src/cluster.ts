@@ -14,6 +14,36 @@ export const MODE_SPEED_MPS: Record<TravelMode, number> = {
   drive: 11.1,
 }
 
+/**
+ * Speeds nobody will beat, used only to prove a journey impossible.
+ *
+ * The pair above sizes the search box and is meant to be typical, because a box
+ * that is too tight throws away the answer. These are the opposite: a journey is
+ * never shorter than the line between its ends and never faster than this, so
+ * when the line alone cannot be covered in the time allowed, no road could be.
+ *
+ * Bike is measured rather than guessed. Across the 93 recorded routes the line
+ * is 0.68 of the road on average and the quickest covers it at 4.33 m/s, so 6
+ * leaves about half again in hand. The others have no recorded routes yet and
+ * stay deliberately loose; a loose bound only rejects less, never wrongly.
+ * `admissible against every recorded route` in the tests is what holds this
+ * honest, and it fails if anyone tightens these past the evidence.
+ */
+export const MAX_SPEED_MPS: Record<TravelMode, number> = {
+  walk: 2.5,
+  bike: 6,
+  transit: 25,
+  drive: 35,
+}
+
+/**
+ * The least time a journey could possibly take, ignoring roads, traffic, waiting
+ * and every other thing that only ever makes it longer.
+ */
+export function floorSeconds(mode: TravelMode, meters: number): number {
+  return meters / MAX_SPEED_MPS[mode]
+}
+
 const METERS_PER_DEGREE_LAT = 111_320
 
 export function reachRadiusMeters(

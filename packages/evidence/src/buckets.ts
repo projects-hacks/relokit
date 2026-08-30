@@ -1,7 +1,7 @@
 import type {
   Constraint,
   EvidenceRow,
-  ListingSummary,
+  Place,
   RankedEntity,
   RejectedEntity,
   UnverifiedEntity,
@@ -22,7 +22,7 @@ export interface Buckets {
  * folding one into the other is where a tool starts lying.
  */
 export function bucket(
-  entities: ListingSummary[],
+  entities: Place[],
   evidence: EvidenceRow[],
   constraints: Constraint[],
 ): Buckets {

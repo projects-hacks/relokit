@@ -85,6 +85,16 @@ export function resolveConstraintField(
       // destination_point is deliberately absent. It is produced by a geocode.
       return undefined
 
+    case 'proximity':
+      if (field === 'place_raw') return constraint.place.raw
+      if (field === 'radius_m') return constraint.radius_m
+      return undefined
+
+    case 'opening_hours':
+      if (field === 'opens_by_s') return constraint.open_window.opens_by_s
+      if (field === 'closes_after_s') return constraint.open_window.closes_after_s
+      return undefined
+
     case 'nearby_poi':
       if (field === 'category') return constraint.category
       if (field === 'query') return constraint.query ?? constraint.category
@@ -111,6 +121,8 @@ export const FREE_CONSTRAINT_FIELDS: Record<ConstraintType, readonly string[]> =
   unit_attribute: ['attribute', 'min', 'max'],
   listing_feature: ['feature', 'required'],
   commute: ['mode', 'travel_mode_code', 'max_seconds', 'depart_at', 'destination_raw'],
+  proximity: ['place_raw', 'radius_m'],
+  opening_hours: ['opens_by_s', 'closes_after_s'],
   nearby_poi: [
     'category',
     'query',

@@ -3,9 +3,10 @@ import type {
   Constraint,
   EvidenceRow,
   ListingFeatureConstraint,
-  ListingSummary,
+  Place,
   UnitAttributeConstraint,
 } from '@relokit/schema'
+import { numberOf } from '@relokit/schema'
 import { row, unknownRow, type MapperContext, type MapperResult } from './context.ts'
 
 /**
@@ -61,7 +62,7 @@ export function mapZillowSearch(
   pushedDown: string[] = [],
 ): MapperResult {
   const results = (body as { organic_results?: ZillowResult[] }).organic_results ?? []
-  const entities: ListingSummary[] = []
+  const entities: Place[] = []
   const evidence: EvidenceRow[] = []
 
   for (const result of results) {
@@ -77,7 +78,7 @@ export function mapZillowSearch(
 }
 
 /** One search result becomes one listing, or one listing per bedroom band. */
-function expand(result: ZillowResult): ListingSummary[] {
+function expand(result: ZillowResult): Place[] {
   const point = result.gps_coordinates
     ? { lat: result.gps_coordinates.latitude, lng: result.gps_coordinates.longitude }
     : null
@@ -98,8 +99,7 @@ function expand(result: ZillowResult): ListingSummary[] {
         entity_id: `zillow:${result.zpid ?? result.provider_listing_id ?? result.link}`,
         price_cents: price?.cents ?? result.extracted_price ?? null,
         price_cents_upper: null,
-        beds: result.beds ?? null,
-        baths: result.baths ?? null,
+        attributes: attrs({ beds: result.beds, baths: result.baths }),
       },
     ]
   }
@@ -114,14 +114,20 @@ function expand(result: ZillowResult): ListingSummary[] {
       title: `${result.building_name ?? base.title}, ${unit.beds ?? '?'} bed`,
       price_cents: price?.cents ?? null,
       price_cents_upper: null,
-      beds: Number.isFinite(beds) ? beds : null,
-      baths: null,
+      attributes: attrs({ beds: Number.isFinite(beds) ? beds : null }),
     }
   })
 }
 
+/** Keeps absent values out of the record rather than storing them as null. */
+function attrs(values: Record<string, number | null | undefined>) {
+  return Object.fromEntries(
+    Object.entries(values).filter(([, value]) => typeof value === 'number'),
+  ) as Record<string, number>
+}
+
 function evaluate(
-  entity: ListingSummary,
+  entity: Place,
   result: ZillowResult,
   constraint: Constraint,
   context: MapperContext,
@@ -140,7 +146,7 @@ function evaluate(
 }
 
 function budgetRow(
-  entity: ListingSummary,
+  entity: Place,
   result: ZillowResult,
   constraint: BudgetConstraint,
   context: MapperContext,
@@ -150,7 +156,7 @@ function budgetRow(
   }
 
   const raw = result.units
-    ? result.units.find((u) => String(u.beds) === String(entity.beds))?.price
+    ? result.units.find((u) => String(u.beds) === String(numberOf(entity, 'beds')))?.price
     : result.price
   const isFloor = parsePriceCents(raw)?.isFloor ?? false
   const max = constraint.max_cents
@@ -179,25 +185,26 @@ function budgetRow(
 }
 
 function unitAttributeRow(
-  entity: ListingSummary,
+  entity: Place,
   constraint: UnitAttributeConstraint,
   context: MapperContext,
 ): EvidenceRow {
   if (constraint.attribute !== 'beds') {
     return unknownRow(context, entity.entity_id, constraint, 'only beds are read from search')
   }
-  if (entity.beds === null) {
+  const beds = numberOf(entity, 'beds')
+  if (beds === null) {
     return unknownRow(context, entity.entity_id, constraint, 'no bedroom count on the listing')
   }
-  const tooFew = constraint.min !== undefined && entity.beds < constraint.min
-  const tooMany = constraint.max !== undefined && entity.beds > constraint.max
+  const tooFew = constraint.min !== undefined && beds < constraint.min
+  const tooMany = constraint.max !== undefined && beds > constraint.max
   return row(context, {
     entity_id: entity.entity_id,
     constraint_id: constraint.id,
     constraint_type: 'unit_attribute',
     verdict: tooFew || tooMany ? 'fail' : 'pass',
-    value_canonical: entity.beds,
-    display_value: `${entity.beds} bed`,
+    value_canonical: beds,
+    display_value: `${beds} bed`,
     source_url: entity.url,
     confidence: 1,
     eval_state: 'evaluated',
@@ -211,7 +218,7 @@ function unitAttributeRow(
  * upgrades it to something directly read.
  */
 function featureRow(
-  entity: ListingSummary,
+  entity: Place,
   constraint: ListingFeatureConstraint,
   context: MapperContext,
   pushedDown: string[],

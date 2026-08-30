@@ -20,7 +20,7 @@ query runs verb=GET {
     function.run "Relokit/require_org" {
       input = {org_key: $input.org_key}
     } as $org
-  
+
     // to_int because a query parameter arrives as text and an int column will
     // not be searched with one.
     db.get relokit_run {
@@ -38,6 +38,14 @@ query runs verb=GET {
       return = {type: "list"}
     } as $ops
   
+    // What was actually spent, counted from the calls themselves. The column on
+    // the run is a running convenience and cannot be trusted once calls of one
+    // operation go out together.
+    db.query relokit_run_op {
+      where = $db.relokit_run_op.run_id == $run.id && $db.relokit_run_op.status == "ok"
+      return = {type: "count"}
+    } as $spent
+
     db.query relokit_evidence {
       where = $db.relokit_evidence.run_id == $run.id
       return = {type: "list"}
@@ -65,7 +73,7 @@ query runs verb=GET {
       {
         naive_units  : $run.naive_cost_units
         planned_units: $run.planned_cost_units
-        actual_units : $run.actual_cost_units
+        actual_units : $spent
         ceiling_units: $run.ceiling_cost_units
       }
       ```

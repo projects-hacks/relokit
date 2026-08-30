@@ -1,5 +1,5 @@
 {
-  "registry_version": "2026-08-29.2",
+  "registry_version": "2026-08-30.4",
   "capabilities": [
     {
       "capability_id": "candidates.anchor.geocode",
@@ -25,6 +25,29 @@
       "notes": "Turns the place being searched into a point, so a question naming only a town can be answered. Without it the only way to bound a search was a commute destination, and a question with no commute returned nothing at all while reporting that it had been efficient about it."
     },
     {
+      "capability_id": "proximity.geocode.region",
+      "constraint_type": "proximity",
+      "provider": "google_maps",
+      "endpoint": "google_maps:search",
+      "granularity": "region",
+      "cost_units": 1,
+      "latency_p50_ms": 900,
+      "selectivity_prior": 1,
+      "observation_n": 0,
+      "ttl_seconds": 2592000,
+      "coverage": 0.99,
+      "precedence": 1,
+      "enabled": true,
+      "max_fanout": 4,
+      "params_template": {
+        "engine": "google_maps",
+        "type": "search",
+        "q": "$constraint.self.place_raw"
+      },
+      "produces": ["constraint.$self.place_point"],
+      "notes": "Turns a named place into a point once, for the whole search. The distance from every listing to it is then arithmetic on coordinates already in hand, so the check itself costs nothing."
+    },
+    {
       "capability_id": "candidates.zillow.region",
       "constraint_type": "candidate_source",
       "provider": "zillow",
@@ -46,7 +69,64 @@
         "page": 1
       },
       "notes": "One call per page. The plan emits a single op and the executor repeats it while the response reports more pages, up to max_fanout, because the page count is data and the plan is written before any of it exists. The free predicates cut the page count as well as the candidate count: the unfiltered San Jose pool is 20 pages, the filtered one is a single page. A listing price is stable over days rather than hours, and the six hour life it had before meant a second question about the same city an hour later paid for the whole candidate set again, which is the opposite of what the ledger is for. Forty eight hours, and the interface shows the real age of every fact either way.",
-      "produces": ["entity", "stage.candidates"]
+      "produces": ["entity", "stage.candidates"],
+      "subjects": ["rental"]
+    },
+    {
+      "capability_id": "candidates.places.region",
+      "constraint_type": "candidate_source",
+      "provider": "google_maps",
+      "endpoint": "google_maps:search",
+      "granularity": "region",
+      "cost_units": 1,
+      "latency_p50_ms": 1100,
+      "selectivity_prior": 1,
+      "observation_n": 0,
+      "ttl_seconds": 604800,
+      "coverage": 0.95,
+      "precedence": 1,
+      "enabled": true,
+      "max_fanout": 1,
+      "params_template": {
+        "engine": "google_maps",
+        "type": "search",
+        "q": "$query.subject_term",
+        "ll": "@$stage.bounds.lat,$stage.bounds.lng,$stage.bounds.zoom"
+      },
+      "produces": ["entity"],
+      "subjects": [
+        "restaurant",
+        "cafe",
+        "bar",
+        "gym",
+        "grocery",
+        "school",
+        "university",
+        "park",
+        "pharmacy",
+        "hotel"
+      ],
+      "notes": "One place search over the area, for everything that is not a home. Rating, price level and whether it is open now come back with it at no extra cost."
+    },
+    {
+      "capability_id": "opening_hours.places.native",
+      "constraint_type": "opening_hours",
+      "provider": "google_maps",
+      "endpoint": "google_maps:search",
+      "granularity": "native",
+      "cost_units": 0,
+      "latency_p50_ms": 0,
+      "selectivity_prior": 0.6,
+      "observation_n": 0,
+      "ttl_seconds": 604800,
+      "coverage": 0.8,
+      "precedence": 1,
+      "enabled": true,
+      "max_fanout": 1,
+      "params_template": {},
+      "produces": [],
+      "subjects": [],
+      "notes": "The place search already returns opening times, so this is settled from a call that was being made anyway."
     },
     {
       "capability_id": "budget.zillow.native",

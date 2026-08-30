@@ -7,7 +7,7 @@ import {
   Registry,
   type ConstraintSet,
   type EvidenceRow,
-  type ListingSummary,
+  type Place,
   type PlanResult,
   type Weekday,
 } from '@relokit/schema'
@@ -51,7 +51,7 @@ export interface AskResult {
   constraint_set: ConstraintSet
   repairs: Repair[]
   plan: PlanResult
-  entities: ListingSummary[]
+  entities: Place[]
   evidence: EvidenceRow[]
   buckets: Buckets
   relaxations: Relaxation[]
@@ -73,6 +73,8 @@ export interface AskResult {
 }
 
 export interface AskOptions {
+  /** Calls of one operation to have in the air at once. */
+  concurrency?: number
   now_ms?: number
   evaluation_days?: Weekday[]
   onProgress?: AskProgress
@@ -163,6 +165,11 @@ export async function ask(
       now_ms: now,
       evaluation_days: options.evaluation_days ?? ['tue'],
       overshoot_factor: budget.overshoot_factor,
+      // One at a time. Measured against the live backend, six in flight left a
+      // cache hit taking 26 seconds instead of 2.6 and the whole run slower:
+      // the requests queue there rather than running alongside each other, so
+      // asking for parallelism only moves the waiting.
+      concurrency: options.concurrency ?? 1,
     },
   )
 
@@ -208,6 +215,9 @@ export async function ask(
         ? { label: constraint_set.search_anchor.raw, point: outcome.anchor_point }
         : null,
     problems: [
+      // Said first, because it explains an empty answer completely and nothing
+      // below it will.
+      ...outcome.contradictions.map((entry) => ({ op_id: 'requirements', detail: entry.detail })),
       ...outcome.unresolved.map((entry) => ({
         op_id: entry.op_id,
         detail: `nothing had established ${entry.ref} by the time it was needed`,

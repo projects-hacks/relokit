@@ -1,8 +1,9 @@
 import { createPortal } from 'react-dom'
 import type { AskResult } from '@relokit/client'
-import type { EvidenceRow, ListingSummary } from '@relokit/schema'
+import type { EvidenceRow, Place } from '@relokit/schema'
 import { ago, money, sourceName, tight } from '../lib/format.ts'
 import { useDialog } from '../lib/dialog.ts'
+import { described } from '../lib/attributes.ts'
 
 const MARK: Record<string, string> = { pass: '✓', fail: '✕', unknown: '?' }
 
@@ -21,7 +22,7 @@ export function Detail({
   onSave,
   onClose,
 }: {
-  entity: ListingSummary
+  entity: Place
   evidence: EvidenceRow[]
   result: AskResult
   saved: boolean
@@ -52,15 +53,7 @@ export function Detail({
         <header className="detail-head">
           <div>
             <h2>{entity.title}</h2>
-            <p className="note">
-              {[
-                price,
-                entity.beds !== null && `${entity.beds} bed`,
-                entity.baths !== null && `${entity.baths} bath`,
-              ]
-                .filter(Boolean)
-                .join(' · ')}
-            </p>
+            <p className="note">{[price, ...described(entity)].filter(Boolean).join(' · ')}</p>
           </div>
           <button className="ghost" onClick={onClose} aria-label="Close">
             ✕
@@ -89,7 +82,7 @@ export function Detail({
           </button>
           {entity.url && (
             <a className="outward" href={entity.url} target="_blank" rel="noreferrer">
-              See it on Zillow
+              See the full listing
             </a>
           )}
         </div>

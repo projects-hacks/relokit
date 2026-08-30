@@ -1,4 +1,4 @@
-import type { Constraint, EvidenceRow, ListingSummary, Provider } from '@relokit/schema'
+import type { Constraint, EvidenceRow, Place, Provider } from '@relokit/schema'
 
 /** What a mapper needs to know beyond the provider's own response. */
 export interface MapperContext {
@@ -11,7 +11,7 @@ export interface MapperContext {
 }
 
 export interface MapperResult {
-  entities: ListingSummary[]
+  entities: Place[]
   evidence: EvidenceRow[]
 }
 

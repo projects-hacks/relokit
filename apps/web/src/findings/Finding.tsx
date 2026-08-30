@@ -1,4 +1,4 @@
-import type { Constraint, EvidenceRow, ListingSummary } from '@relokit/schema'
+import type { Constraint, EvidenceRow, Place } from '@relokit/schema'
 import { ago, money, sourceName, tight } from '../lib/format.ts'
 import { Tip } from '../lib/tooltip.tsx'
 
@@ -33,7 +33,7 @@ export function Finding({
   onHover,
   onOpen,
 }: {
-  entity: ListingSummary
+  entity: Place
   evidence: EvidenceRow[]
   constraints: Constraint[]
   blocking?: string[]

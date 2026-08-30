@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { Subject } from './subject.ts'
 import { Cents, Meters, PlaceRef, SecondsOfDay, Seconds, Weekday } from './units.ts'
 
 export const ConstraintType = z.enum([
@@ -18,6 +19,16 @@ export const ConstraintType = z.enum([
   'unit_attribute',
   'listing_feature',
   'commute',
+  /**
+   * Within a stated distance of a place the question names by name. Not
+   * nearby_poi, which is about a kind of place: one university is not another,
+   * and answering "within 2 miles of the university" with a different school
+   * down the road is how this went wrong before.
+   */
+  'proximity',
+  /** When the thing being looked for is open. Not nearby_poi, which is about
+   * somewhere else. */
+  'opening_hours',
   'nearby_poi',
   'area_signal',
 ])
@@ -129,6 +140,26 @@ export const NearbyPoiConstraint = z.object({
   open_window: OpenWindow.optional(),
 })
 
+/**
+ * A named place and how far from it to be.
+ *
+ * Answered in two free halves: geocoding the place narrows the search box, and
+ * every listing that comes back is then measured against it with coordinates
+ * already in hand. Nothing is asked per home.
+ */
+export const ProximityConstraint = z.object({
+  ...base,
+  type: z.literal('proximity'),
+  place: PlaceRef,
+  radius_m: Meters,
+})
+
+export const OpeningHoursConstraint = z.object({
+  ...base,
+  type: z.literal('opening_hours'),
+  open_window: OpenWindow,
+})
+
 export const AreaSignalTopic = z.enum(['construction', 'safety', 'noise', 'development', 'schools'])
 
 /** Narrowed to soft on purpose. A news headline must never be able to reject a home. */
@@ -146,6 +177,8 @@ export const Constraint = z.discriminatedUnion('type', [
   UnitAttributeConstraint,
   ListingFeatureConstraint,
   CommuteConstraint,
+  ProximityConstraint,
+  OpeningHoursConstraint,
   NearbyPoiConstraint,
   AreaSignalConstraint,
 ])
@@ -153,9 +186,20 @@ export const Constraint = z.discriminatedUnion('type', [
 export const ConstraintSet = z.object({
   query_id: z.string(),
   raw_query: z.string(),
+  /** What to look for. Decides which sources can produce candidates. */
+  subject: Subject.default('rental'),
   locale: z.object({ tz: z.string(), currency: z.literal('USD') }),
-  /** Search centre. Derived from a commute destination when the user names no city. */
-  search_anchor: PlaceRef.optional(),
+  /**
+   * Search centre, and how far around it to look.
+   *
+   * A radius here is a bound on the search itself, not a fact about a home.
+   * "Within two miles of the university" is answered by where we look, so every
+   * listing that comes back satisfies it by construction and none of them need
+   * asking about. Treating it as a per home question is both slower and wrong:
+   * it sends a search for a nearby place of that kind, which finds a different
+   * school down the road and reports the requirement met.
+   */
+  search_anchor: PlaceRef.extend({ radius_m: Meters.optional() }).optional(),
   /**
    * May be empty. "Apartments near the university" is a whole question, and the
    * place is the requirement. Insisting on one more than that rejected the most
@@ -179,6 +223,8 @@ export type BudgetConstraint = z.infer<typeof BudgetConstraint>
 export type UnitAttributeConstraint = z.infer<typeof UnitAttributeConstraint>
 export type ListingFeatureConstraint = z.infer<typeof ListingFeatureConstraint>
 export type CommuteConstraint = z.infer<typeof CommuteConstraint>
+export type ProximityConstraint = z.infer<typeof ProximityConstraint>
+export type OpeningHoursConstraint = z.infer<typeof OpeningHoursConstraint>
 export type NearbyPoiConstraint = z.infer<typeof NearbyPoiConstraint>
 export type AreaSignalConstraint = z.infer<typeof AreaSignalConstraint>
 export type Constraint = z.infer<typeof Constraint>

@@ -1,9 +1,12 @@
 import {
   bucket,
+  distanceMeters,
+  formatDistance,
   mapAreaSignal,
   mapDirections,
   mapGeocode,
   mapNearbyPlaces,
+  mapPlaceCandidates,
   mapZillowSearch,
   type Buckets,
   type MapperContext,
@@ -12,19 +15,22 @@ import {
   boxAround,
   eliminationPower,
   gridClusters,
+  floorSeconds,
   reachRadiusMeters,
   refineClusters,
   slackMeters,
   slackSeconds,
 } from '@relokit/planner'
 import type {
+  BBox,
+  ProximityConstraint,
   AreaSignalConstraint,
   Capability,
   ClusterSpec,
   CommuteConstraint,
   ConstraintSet,
   EvidenceRow,
-  ListingSummary,
+  Place,
   NearbyPoiConstraint,
   Op,
   PlanResult,
@@ -32,6 +38,7 @@ import type {
   Weekday,
 } from '@relokit/schema'
 import type { Engine } from '@relokit/serpapi'
+import { SUBJECT_TERMS } from '@relokit/schema'
 import { UnresolvedRef, resolveParams, type Bindings } from './resolve.ts'
 
 export interface MissingFixture {
@@ -64,10 +71,16 @@ export interface RunOutcome {
   anchor_point: { lat: number; lng: number } | null
   observed: ObservedPrior[]
   skipped: SkippedStage[]
-  entities: ListingSummary[]
+  entities: Place[]
   evidence: EvidenceRow[]
   missing: MissingFixture[]
   unresolved: { op_id: string; ref: string }[]
+  /**
+   * Requirements that cannot all hold at once, found by measuring rather than by
+   * searching. Two places further apart than their radii allow have no overlap,
+   * and no amount of looking will produce one.
+   */
+  contradictions: { detail: string }[]
   calls: number
   stages: { stage_id: string; entities_in: number; entities_out: number; calls: number }[]
 }
@@ -98,7 +111,15 @@ export async function replayRun(
   constraints: ConstraintSet,
   registry: Capability[],
   search: Search,
-  options: { now_ms: number; evaluation_days: Weekday[]; overshoot_factor: number },
+  options: {
+    now_ms: number
+    evaluation_days: Weekday[]
+    overshoot_factor: number
+    /** How many calls of one operation may be in the air at once. One is the
+     * old behaviour and is what replaying from files wants, since there is no
+     * latency to hide. */
+    concurrency?: number
+  },
 ): Promise<RunOutcome> {
   const outcome: RunOutcome = {
     buckets: { results: [], unverified: [], rejections: [] },
@@ -109,6 +130,7 @@ export async function replayRun(
     evidence: [],
     missing: [],
     unresolved: [],
+    contradictions: [],
     calls: 0,
     stages: [],
   }
@@ -116,7 +138,10 @@ export async function replayRun(
   const stageOutputs: Bindings['stage'] = {}
   const produced: Bindings['produced'] = {}
   let clusters: ClusterSpec[] = plan.clusters
-  let surviving: ListingSummary[] = []
+  let surviving: Place[] = []
+  // Places the question named, once each has been located.
+  const placed: { constraint: ProximityConstraint; point: { lat: number; lng: number } }[] = []
+  const droppedByPlace = new Set<string>()
 
   for (const stage of plan.stages) {
     const before = surviving.length
@@ -137,8 +162,22 @@ export async function replayRun(
     for (const op of stage.ops) {
       await runOp(op, stage)
     }
+    tightenBoundsToPlaces()
+    // Asked before anything is searched for, because the answer is already
+    // known: a search cannot find what geometry says is not there.
+    noteContradictions()
+    if (outcome.contradictions.length > 0) break
 
-    surviving = prune(stage, surviving, outcome.evidence)
+    surviving = withinAnchor(prune(stage, surviving, outcome.evidence))
+    // Removed from the answer as well as from the pipeline. Filtering only what
+    // gets asked about would leave the corners of the box unexamined and still
+    // listed, which is the same wrong answer arrived at more cheaply.
+    outcome.entities = withinAnchor(outcome.entities)
+    surviving = rejectUnreachable(surviving)
+    surviving = withinPlaces(surviving)
+    outcome.entities = outcome.entities.filter((entity) =>
+      surviving.length === 0 && placed.length === 0 ? true : !droppedByPlace.has(entity.entity_id),
+    )
     outcome.stages.push({
       stage_id: stage.stage_id,
       entities_in: before,
@@ -199,22 +238,21 @@ export async function replayRun(
               )
           : [base({})]
 
-    for (const bindings of targets) {
+    // One operation over thirty listings is thirty independent questions, and
+    // asking them one at a time spent the whole run waiting. They go out
+    // together; what comes back is applied in the order it was asked, so the
+    // evidence a run produces does not depend on which answer arrived first.
+    const answers = await inFlight(targets, options.concurrency ?? 1, async (bindings) => {
       let params: Record<string, string | number | boolean>
       try {
         params = resolveParams(op.params, bindings)
       } catch (error) {
         if (!(error instanceof UnresolvedRef)) throw error
-        // The plan said this was feasible and it was not. Record it against the
-        // listings rather than sending a request with a hole in it.
-        outcome.unresolved.push({ op_id: op.op_id, ref: error.ref })
-        recordFailure(op, bindings)
-        continue
+        return { kind: 'unresolved' as const, bindings, ref: error.ref }
       }
       const engine = String(params.engine ?? 'zillow') as Engine
-      let body: unknown
       try {
-        body = await search(engine, params, {
+        const body = await search(engine, params, {
           op_id: op.op_id,
           capability_id: op.capability_id,
           endpoint: op.endpoint,
@@ -222,25 +260,257 @@ export async function replayRun(
           constraint_ids: op.constraint_ids,
           entity_ids: targetEntitiesSafe(bindings),
         })
-        outcome.calls += 1
+        return { kind: 'answered' as const, bindings, body }
       } catch (error) {
-        outcome.missing.push({
-          op_id: op.op_id,
+        return {
+          kind: 'failed' as const,
+          bindings,
           engine,
           params,
           detail: error instanceof Error ? error.message : String(error),
-        })
-        recordFailure(op, bindings)
+        }
+      }
+    })
+
+    for (const answer of answers) {
+      if (answer.kind === 'unresolved') {
+        // The plan said this was feasible and it was not. Record it against the
+        // listings rather than sending a request with a hole in it.
+        outcome.unresolved.push({ op_id: op.op_id, ref: answer.ref })
+        recordFailure(op, answer.bindings)
         continue
       }
-      absorb(op, stage, bindings, body)
+      if (answer.kind === 'failed') {
+        outcome.missing.push({
+          op_id: op.op_id,
+          engine: answer.engine,
+          params: answer.params,
+          detail: answer.detail,
+        })
+        recordFailure(op, answer.bindings)
+        continue
+      }
+      outcome.calls += 1
+      absorb(op, stage, answer.bindings, answer.body)
     }
+  }
+
+  /**
+   * A radius is a circle and a search takes a box, so the box that holds the
+   * circle also holds its corners. Two miles asked for is two and four tenths
+   * delivered at the diagonal, which is not what anybody meant. The corners are
+   * measured off here rather than asked about: the coordinates are already in
+   * hand, so it costs nothing.
+   */
+  function withinAnchor(entities: Place[]): Place[] {
+    const radius = constraints.search_anchor?.radius_m
+    const centre = outcome.anchor_point
+    if (!radius || !centre) return entities
+    // A listing with no coordinates cannot be placed, and being unplaceable is
+    // not grounds for removal.
+    return entities.filter(
+      (entity) => !entity.point || distanceMeters(centre, entity.point) <= radius,
+    )
+  }
+
+  /**
+   * Rules out what the shortest possible journey cannot reach.
+   *
+   * A route is never shorter than the straight line between its ends, and never
+   * faster than the mode can go, so a listing whose straight line alone takes
+   * longer than the limit can be rejected without asking anybody. The
+   * coordinates are already here, so it is free, and it is a rejection rather
+   * than a guess: it is arithmetic, and the reason says so.
+   */
+  function rejectUnreachable(entities: Place[]): Place[] {
+    const commutes = constraints.constraints.filter(
+      (c): c is CommuteConstraint => c.type === 'commute' && c.hardness === 'hard',
+    )
+    if (commutes.length === 0) return entities
+
+    const settled = new Set(outcome.evidence.map((row) => `${row.entity_id}|${row.constraint_id}`))
+    const out = new Set<string>()
+
+    for (const commute of commutes) {
+      const raw = produced[`constraint.${commute.id}.destination_point`]
+      if (typeof raw !== 'string') continue
+      const [lat, lng] = raw.split(',').map(Number)
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) continue
+
+      for (const entity of entities) {
+        if (!entity.point) continue
+        if (settled.has(`${entity.entity_id}|${commute.id}`)) continue
+        const floor = floorSeconds(
+          commute.mode,
+          distanceMeters({ lat: lat!, lng: lng! }, entity.point),
+        )
+        if (floor <= commute.max_seconds) continue
+
+        out.add(entity.entity_id)
+        outcome.evidence.push({
+          entity_id: entity.entity_id,
+          constraint_id: commute.id,
+          constraint_type: 'commute',
+          verdict: 'fail',
+          value_canonical: Math.round(floor),
+          display_value: `at least ${Math.round(floor / 60)} min by ${commute.mode}`,
+          source: 'geometry',
+          source_url: null,
+          confidence: 1,
+          eval_state: 'evaluated',
+          reason:
+            'The straight line alone takes longer than the limit, and no road is shorter than that.',
+          fetched_at_ms: options.now_ms,
+          ttl_seconds: GEOMETRY_TTL_SECONDS,
+          expires_at_ms: options.now_ms + GEOMETRY_TTL_SECONDS * 1000,
+          capability_id: 'commute.geometry.entity',
+          op_id: 'op_commute_geometry',
+        })
+      }
+    }
+
+    return entities.filter((entity) => !out.has(entity.entity_id))
+  }
+
+  /**
+   * Measures every listing against every place the question named.
+   *
+   * The geocode was the only call any of this needed. A distance from a point to
+   * a point is arithmetic, so having asked once where the university is, asking
+   * how far each of two hundred homes sits from it costs nothing at all.
+   */
+  function withinPlaces(entities: Place[]): Place[] {
+    if (placed.length === 0) return entities
+    const kept: Place[] = []
+
+    for (const entity of entities) {
+      let out = false
+      for (const { constraint, point } of placed) {
+        if (!entity.point) continue
+        if (
+          outcome.evidence.some(
+            (r) => r.entity_id === entity.entity_id && r.constraint_id === constraint.id,
+          )
+        )
+          continue
+        const meters = distanceMeters(point, entity.point)
+        const within = meters <= constraint.radius_m
+        if (!within) out = true
+        outcome.evidence.push({
+          entity_id: entity.entity_id,
+          constraint_id: constraint.id,
+          constraint_type: 'proximity',
+          verdict: within ? 'pass' : 'fail',
+          value_canonical: Math.round(meters),
+          display_value: `${formatDistance(meters)} from ${constraint.place.raw}`,
+          source: 'geometry',
+          source_url: null,
+          confidence: 1,
+          eval_state: 'evaluated',
+          fetched_at_ms: options.now_ms,
+          ttl_seconds: GEOMETRY_TTL_SECONDS,
+          expires_at_ms: options.now_ms + GEOMETRY_TTL_SECONDS * 1000,
+          capability_id: 'proximity.geometry.entity',
+          op_id: `op_proximity_geometry_${constraint.id}`,
+          about: { label: constraint.place.raw, kind: 'near', point },
+        })
+      }
+      if (out) droppedByPlace.add(entity.entity_id)
+      else kept.push(entity)
+    }
+    return kept
+  }
+
+  /**
+   * Places that cannot all be satisfied at once.
+   *
+   * Two circles overlap only if their centres are closer than their radii added
+   * together. When they are not, nothing exists that is inside both, and saying
+   * so costs nothing and is a better answer than an empty list arrived at after
+   * a search.
+   */
+  function noteContradictions() {
+    const circles = [
+      ...placed.map(({ constraint, point }) => ({
+        label: constraint.place.raw,
+        radius: constraint.radius_m,
+        point,
+      })),
+      ...(constraints.search_anchor?.radius_m && outcome.anchor_point
+        ? [
+            {
+              label: constraints.search_anchor.raw,
+              radius: constraints.search_anchor.radius_m,
+              point: outcome.anchor_point,
+            },
+          ]
+        : []),
+    ]
+
+    for (let i = 0; i < circles.length; i += 1) {
+      for (let j = i + 1; j < circles.length; j += 1) {
+        const a = circles[i]!
+        const b = circles[j]!
+        const apart = distanceMeters(a.point, b.point)
+        if (apart <= a.radius + b.radius) continue
+        outcome.contradictions.push({
+          detail:
+            `Nothing can be within ${formatDistance(a.radius)} of ${a.label} and ` +
+            `${formatDistance(b.radius)} of ${b.label}: they are ${formatDistance(apart)} apart.`,
+        })
+      }
+    }
+  }
+
+  /**
+   * Every place named narrows where it is worth looking, so the box searched is
+   * the overlap of theirs. It is never larger than any one of them and is often
+   * very much smaller, which is the whole saving: one search instead of a
+   * question asked of every home.
+   */
+  function tightenBoundsToPlaces() {
+    if (placed.length === 0) return
+    const boxes = placed.map(({ constraint, point }) => boxAround(point, constraint.radius_m))
+    const north = Math.min(...boxes.map((b) => b.ne.lat))
+    const east = Math.min(...boxes.map((b) => b.ne.lng))
+    const south = Math.max(...boxes.map((b) => b.sw.lat))
+    const west = Math.max(...boxes.map((b) => b.sw.lng))
+    const current = stageOutputs.bounds
+
+    stageOutputs.bounds = {
+      north: current ? Math.min(Number(current.north), north) : north,
+      east: current ? Math.min(Number(current.east), east) : east,
+      south: current ? Math.max(Number(current.south), south) : south,
+      west: current ? Math.max(Number(current.west), west) : west,
+      lat: placed[0]!.point.lat,
+      lng: placed[0]!.point.lng,
+      zoom: '',
+    }
+    const b = stageOutputs.bounds
+    b.zoom = zoomFor(Number(b.north), Number(b.south), Number(b.east), Number(b.west))
+  }
+
+  /**
+   * How far in a place search should be looking.
+   *
+   * A search takes a centre and a zoom, not a box, and returns one screenful.
+   * At the wide default that screenful spread fifteen kilometres for a question
+   * about one mile, so nearly all of it was thrown away unread. The zoom follows
+   * the box: ask about a mile and it looks at a mile.
+   */
+  function zoomFor(north: number, south: number, east: number, west: number): string {
+    const height = (north - south) * 111_320
+    const midpoint = ((north + south) / 2) * (Math.PI / 180)
+    const width = (east - west) * 111_320 * Math.cos(midpoint)
+    const span = Math.max(height, width, 200)
+    return `${Math.min(18, Math.max(10, Math.round(13 + Math.log2(30_000 / span))))}z`
   }
 
   function base(extra: Partial<Bindings>): Bindings {
     return {
       constraints: constraints.constraints,
       anchor: constraints.search_anchor?.raw ?? '',
+      subject_term: SUBJECT_TERMS[constraints.subject],
       produced,
       stage: stageOutputs,
       ...extra,
@@ -267,7 +537,24 @@ export async function replayRun(
       outcome.anchor_point = geocoded.point
       // A commute says how far someone will travel. Without one, a town sized
       // box, which is wide enough to hold the answer and narrow enough to search.
-      if (!stageOutputs.bounds) setBounds(geocoded.point, DEFAULT_SEARCH_RADIUS_M)
+      // A question that says how far to look is answered by looking that far.
+      // Everything the search returns then satisfies it, and no home has to be
+      // asked about individually.
+      if (!stageOutputs.bounds) {
+        setBounds(geocoded.point, constraints.search_anchor?.radius_m ?? DEFAULT_SEARCH_RADIUS_M)
+      }
+      return
+    }
+
+    if (op.capability_id === 'proximity.geocode.region') {
+      const geocoded = mapGeocode(body)
+      const constraint = constraints.constraints.find(
+        (c): c is ProximityConstraint => c.type === 'proximity' && c.id === op.constraint_ids[0],
+      )
+      if (!geocoded || !constraint) return
+      placed.push({ constraint, point: geocoded.point })
+      produced[`constraint.${constraint.id}.place_point`] =
+        `${geocoded.point.lat},${geocoded.point.lng}`
       return
     }
 
@@ -291,12 +578,31 @@ export async function replayRun(
         west: box.sw.lng,
         lat: geocoded.point.lat,
         lng: geocoded.point.lng,
+        zoom: zoomFor(box.ne.lat, box.sw.lat, box.ne.lng, box.sw.lng),
       }
       // Entity coordinates do not exist yet, so the plan lays a grid over the
       // box. It is replaced with cells fitted to the listings as soon as there
       // are any: a grid across a 23 km box gives cells wide enough that the
       // slack swallows the whole constraint.
       clusters = gridClusters(box, plan.trace.cardinality.cluster_count)
+      return
+    }
+
+    if (op.capability_id === 'candidates.places.region') {
+      const pushed = op.constraint_ids.filter((id) => id !== 'candidate_source')
+      const mapped = mapPlaceCandidates(
+        body,
+        constraints.constraints.filter((c) => pushed.includes(c.id)),
+        context(op),
+        options.evaluation_days,
+      )
+      outcome.evidence.push(...mapped.evidence)
+      outcome.entities.push(...mapped.entities)
+      surviving = outcome.entities
+      const points = outcome.entities.filter((e) => e.point).map((e) => e.point!)
+      if (points.length > 0) {
+        clusters = refineClusters(points, plan.trace.cardinality.cluster_count)
+      }
       return
     }
 
@@ -428,6 +734,7 @@ export async function replayRun(
       west: box.sw.lng,
       lat: centre.lat,
       lng: centre.lng,
+      zoom: zoomFor(box.ne.lat, box.sw.lat, box.ne.lng, box.sw.lng),
     }
     // Entity coordinates do not exist yet, so the plan lays a grid over the box.
     // It is replaced with cells fitted to the listings as soon as there are any:
@@ -447,6 +754,10 @@ function parsePoint(value: string | number | undefined): { lat: number; lng: num
 /** About the width of a town, when nobody said how far they would travel. */
 const DEFAULT_SEARCH_RADIUS_M = 8000
 
+/** Geometry does not go stale the way an opening time does. Coordinates move
+ * only when a listing is re-published, and then it is a different run. */
+const GEOMETRY_TTL_SECONDS = 30 * 24 * 60 * 60
+
 /** Nearest centroid wins, so every listing belongs to exactly one cell. */
 function inCell(
   point: { lat: number; lng: number },
@@ -465,11 +776,7 @@ function inCell(
   return nearest.cluster_id === cell.cluster_id
 }
 
-function prune(
-  stage: Stage,
-  surviving: ListingSummary[],
-  evidence: EvidenceRow[],
-): ListingSummary[] {
+function prune(stage: Stage, surviving: Place[], evidence: EvidenceRow[]): Place[] {
   if (!stage.prune || stage.prune.on_fail.length === 0) return surviving
   const rejected = new Set(
     evidence
@@ -511,4 +818,35 @@ function observePriors(evidence: EvidenceRow[]): ObservedPrior[] {
 
 function round2(value: number): number {
   return Math.round(value * 100) / 100
+}
+
+/**
+ * Runs a bounded number of tasks at once and returns their results in the order
+ * they were given, not the order they finished.
+ *
+ * Ordering is the whole point: a run that produced its evidence in whatever
+ * order the network happened to answer would not be reproducible, and this
+ * project's claim is that it is.
+ */
+async function inFlight<T, R>(
+  items: T[],
+  limit: number,
+  task: (item: T) => Promise<R>,
+): Promise<R[]> {
+  if (limit <= 1 || items.length <= 1) {
+    const results: R[] = []
+    for (const item of items) results.push(await task(item))
+    return results
+  }
+
+  const results = new Array<R>(items.length)
+  let next = 0
+  const workers = Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (next < items.length) {
+      const index = next++
+      results[index] = await task(items[index]!)
+    }
+  })
+  await Promise.all(workers)
+  return results
 }

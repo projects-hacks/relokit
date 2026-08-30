@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import type { ListingSummary } from '@relokit/schema'
+import type { Place } from '@relokit/schema'
 
 /**
  * Saved properties worth coming back to.
@@ -47,7 +47,7 @@ export function useSaved(query: string) {
   }, [])
 
   const toggle = useCallback(
-    (entity: ListingSummary) => {
+    (entity: Place) => {
       setHomes((current) => {
         const without = current.filter((home) => home.entity_id !== entity.entity_id)
         const next =

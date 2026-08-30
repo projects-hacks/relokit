@@ -20,6 +20,7 @@ export function sourceName(source: string): string {
     google_local: 'Google',
     google_maps_reviews: 'Reviews',
     google_news: 'Google News',
+    geometry: 'Geometry',
     yelp: 'Yelp',
   }
   return names[source] ?? source

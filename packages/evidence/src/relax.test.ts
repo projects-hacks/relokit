@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
-import { ConstraintSet, type EvidenceRow, type ListingSummary } from '@relokit/schema'
+import { ConstraintSet, type EvidenceRow, type Place } from '@relokit/schema'
 import { bucket } from './buckets.ts'
 import { applyRelaxation, relaxations } from './relax.ts'
 
@@ -15,14 +15,13 @@ const constraints = ConstraintSet.parse(
 
 const hard = constraints.filter((c) => c.hardness === 'hard').map((c) => c.id)
 
-const listing = (id: string): ListingSummary => ({
+const listing = (id: string): Place => ({
   entity_id: id,
   title: id,
   point: { lat: 37.3, lng: -121.9 },
   price_cents: 250_000,
   price_cents_upper: null,
-  beds: 1,
-  baths: 1,
+  attributes: { beds: 1 },
   url: null,
   photo_url: null,
   photos: [],

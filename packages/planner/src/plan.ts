@@ -55,7 +55,7 @@ const AREA_SLOT: Slot = { id: 'area', type: SEARCH_AREA, constraint: null }
 export function plan(input: PlanInput): PlanResult {
   const { budget, registry } = input
   const constraints = input.constraints.constraints
-  const index = enabledByConstraintType(registry)
+  const index = enabledByConstraintType(registry, input.constraints.subject)
   const trace: CandidateTrace[] = []
   const decisions: { step: string; detail: string }[] = []
   const unsatisfied: UnsatisfiedConstraint[] = []
@@ -66,7 +66,13 @@ export function plan(input: PlanInput): PlanResult {
   // survivor count depends on which tiers were chosen. Native predicates break
   // the circle: they are free, always taken when enabled, and prune at the
   // source, so their effect can be worked out before anything is selected.
-  const natives = registry.filter((c) => c.enabled && c.granularity === 'native')
+  // Only the ones this question actually asked for. A free predicate nobody
+  // named prunes nothing, and counting it shrinks the estimate below the truth,
+  // which is how the page budget ends up short.
+  const asked = new Set<string>(constraints.map((constraint) => constraint.type))
+  const natives = [...index.values()]
+    .flat()
+    .filter((c) => c.granularity === 'native' && asked.has(c.constraint_type))
   const afterNative = survivors(SEED_REGION_CANDIDATES, natives)
 
   const firstPass = select(constraints, index, trace, unsatisfied, {
@@ -313,8 +319,15 @@ function assemble(
     ...constraintSelections.flatMap((selection) => {
       const region = selection.byTier.get('region')
       const constraint = selection.slot.constraint!
-      if (!region || constraint.type !== 'commute' || constraint.destination.point) return []
-      return [op(region, selection.slot, 1)]
+      if (!region) return []
+      // Both kinds of place have to be found before the search, not after it:
+      // one says how far anybody will travel, the other says how far from here
+      // to look, and each of them decides the box the search is made in.
+      if (constraint.type === 'commute')
+        return constraint.destination.point ? [] : [op(region, selection.slot, 1)]
+      if (constraint.type === 'proximity')
+        return constraint.place.point ? [] : [op(region, selection.slot, 1)]
+      return []
     }),
   ]
   if (geocodes.length > 0) {
@@ -376,7 +389,8 @@ function assemble(
   // Region level signals that rank but never prune.
   const signals = constraintSelections.flatMap((selection) => {
     const region = selection.byTier.get('region')
-    if (!region || selection.slot.constraint!.type === 'commute') return []
+    const type = selection.slot.constraint!.type
+    if (!region || type === 'commute' || type === 'proximity') return []
     return [op(region, selection.slot, 0)]
   })
   if (signals.length > 0) {
