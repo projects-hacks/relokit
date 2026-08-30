@@ -45,3 +45,12 @@ screen and opens without a browser around it.
 4. Attribute renderers for anything new worth showing.
 
 No change to the planner, the executor, the cost model or the evidence rules.
+
+## The decision layer over the answers
+
+Verified is not the end of deciding. The frontier pass marks any verified result
+that another beats on every measured count at once: dearer, further, no better
+rated. Beaten results stay visible and name what beats them, trade-offs stay on
+the frontier untouched, and a result with an unknown anywhere is never called
+beaten, because an absent number is not evidence. Costs nothing: every number
+involved was already paid for.

@@ -1,20 +1,40 @@
 # Relokit
 
-A cost-based query planner over walled gardens.
+Ask for a place the way you would ask a person. Every requirement is checked
+against whatever actually holds the answer.
 
-Relocation questions span data no single site owns. Price and bedrooms belong to
-Zillow, commute time to Google Maps, gym hours to Google Local, groceries to Yelp.
-Every one of those filters covers only the facts its owner holds, and the
-constraint you actually care about is usually in someone else's database.
+"2 bed in San Jose under $3,500, 25 minutes by bike to the office, gym open past
+9pm" spans data no single site owns. The rent belongs to a rental site, the ride
+to a routing engine, the gym's hours to a maps index. Each of their search boxes
+covers only the facts its owner holds, and the requirement you care about most is
+usually in someone else's database. Relokit answers across all of them, for
+homes, restaurants, gyms, universities, and eight other kinds of place.
 
-Relokit takes one plain-language question, types it into constraints, orders those
-constraints by how many candidates each removes per API call, and evaluates each
-one at the cheapest granularity that can settle it. Every fact it reports carries
-a source, a timestamp and an expiry.
+It is built as three layers:
+
+**The data plane is SerpApi.** One integration reaches every walled garden the
+question touches, live. Nothing is scraped and nothing is mirrored: every fact is
+fetched from the source that owns it and carries that source, a timestamp and an
+expiry.
+
+**The control plane is Xano.** The ledger of every fact ever fetched, the cache
+that makes a second question about the same city nearly free, the budget that
+refuses a run before it can overspend, and the nightly watch that re-asks a saved
+question and reports what moved. The org key never reaches a browser.
+
+**The decision plane is this repository.** A cost-based query planner in the
+database tradition: constraints are typed from plain language, ordered by how
+many candidates each removes per call, and evaluated at the cheapest granularity
+that can settle each one, with sources that cannot run until another has bound
+their inputs handled as a feasibility fixpoint. Geometry rejects what no road
+could reach before anything is asked. Results land in three buckets, never two,
+because "could not check" and "does not qualify" are different answers. And the
+verified set carries its efficient frontier: any result beaten on every measured
+count says so, and names what beats it.
 
 For the demo query that is **39 searches instead of 18,179**, and the numbers are
-measured rather than estimated: run `pnpm replay` and see. Every response it needs
-is committed, so that run reaches the network zero times.
+measured rather than estimated: run `pnpm replay` and see. Every response it
+needs is committed, so that run reaches the network zero times.
 
 ## Try it
 
