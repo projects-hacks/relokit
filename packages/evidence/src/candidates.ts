@@ -1,4 +1,10 @@
-import type { Constraint, OpeningHoursConstraint, Place, Weekday } from '@relokit/schema'
+import type {
+  AttributeConstraint,
+  Constraint,
+  OpeningHoursConstraint,
+  Place,
+  Weekday,
+} from '@relokit/schema'
 import { row, unknownRow, type MapperContext, type MapperResult } from './context.ts'
 import { parseOperatingHours, satisfiesWindow } from './hours.ts'
 
@@ -35,6 +41,7 @@ export function mapPlaceCandidates(
   const entities: Place[] = []
   const evidence: MapperResult['evidence'] = []
   const hours = answered.filter((c): c is OpeningHoursConstraint => c.type === 'opening_hours')
+  const measures = answered.filter((c): c is AttributeConstraint => c.type === 'attribute')
 
   for (const result of results) {
     const id = result.place_id ?? result.data_id ?? result.title
@@ -59,6 +66,38 @@ export function mapPlaceCandidates(
       photo_url: result.thumbnail ?? null,
       photos: result.thumbnail ? [result.thumbnail] : [],
     })
+
+    // How well reviewed and how dear, from the same response. A place that
+    // states neither is not a bad one, so it goes unknown rather than out.
+    for (const constraint of measures) {
+      const value = measureOf(result, constraint.measure)
+      if (value === null) {
+        evidence.push(
+          unknownRow(
+            context,
+            `places:${id}`,
+            constraint,
+            `no ${WORD[constraint.measure]} was given`,
+          ),
+        )
+        continue
+      }
+      const low = constraint.min !== undefined && value < constraint.min
+      const high = constraint.max !== undefined && value > constraint.max
+      evidence.push(
+        row(context, {
+          entity_id: `places:${id}`,
+          constraint_id: constraint.id,
+          constraint_type: 'attribute',
+          verdict: low || high ? 'fail' : 'pass',
+          value_canonical: value,
+          display_value: said(constraint.measure, value),
+          source_url: null,
+          confidence: 1,
+          eval_state: 'evaluated',
+        }),
+      )
+    }
 
     // The same response carries the opening times, so asking again would be
     // paying twice for one answer.
@@ -91,4 +130,24 @@ export function mapPlaceCandidates(
   }
 
   return { entities, evidence }
+}
+
+const WORD: Record<AttributeConstraint['measure'], string> = {
+  rating: 'rating',
+  reviews: 'review count',
+  price_level: 'price',
+}
+
+/** Money signs are how a provider says price, and counting them is the number. */
+function measureOf(result: LocalResult, measure: AttributeConstraint['measure']): number | null {
+  if (measure === 'rating') return typeof result.rating === 'number' ? result.rating : null
+  if (measure === 'reviews') return typeof result.reviews === 'number' ? result.reviews : null
+  const signs = (result.price ?? '').match(/\$/g)
+  return signs ? signs.length : null
+}
+
+function said(measure: AttributeConstraint['measure'], value: number): string {
+  if (measure === 'rating') return `${value} out of 5`
+  if (measure === 'reviews') return `${value.toLocaleString('en-US')} reviews`
+  return '$'.repeat(Math.max(1, Math.round(value)))
 }

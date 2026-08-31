@@ -2,6 +2,7 @@ import {
   Constraint,
   ConstraintSet,
   Subject,
+  measuresFromQuery,
   subjectFromQuery,
   termFromQuery,
   type ConstraintType,
@@ -106,6 +107,27 @@ export function normalizeConstraintSet(
       ? null
       : (termFromQuery(query, subject) ??
         (typeof said === 'string' && said.trim() !== '' ? said.trim() : null))
+
+  // How good and how dear, read off the sentence. The model is asked for these
+  // as well; anything it found that is not already here is kept beside them.
+  const measures = measuresFromQuery(query, (index) => `c${constraints.length + index + 1}`)
+  for (const measure of measures) {
+    if (!constraints.some((c) => c.type === 'attribute' && c.measure === measure.measure)) {
+      constraints.push(measure)
+    }
+  }
+
+  // A model with nowhere to put "cheap" files it as neighbourhood news, and the
+  // same word then costs a search to answer badly as well as being answered
+  // properly for nothing. Where the sentence has already been read, that
+  // reading stands and the guess beside it goes.
+  const claimed = new Set(measures.map((measure) => measure.source_text.toLowerCase()))
+  for (let at = constraints.length - 1; at >= 0; at -= 1) {
+    const constraint = constraints[at]!
+    if (constraint.type !== 'attribute' && claimed.has(constraint.source_text.toLowerCase())) {
+      constraints.splice(at, 1)
+    }
+  }
 
   // Whatever is being counted is not also a requirement of itself. A question
   // asking for gyms must not carry a constraint saying each gym needs a gym.

@@ -1,5 +1,5 @@
 {
-  "registry_version": "2026-08-31.1",
+  "registry_version": "2026-08-31.2",
   "capabilities": [
     {
       "capability_id": "candidates.anchor.geocode",
@@ -152,6 +152,26 @@
       "produces": [],
       "subjects": [],
       "notes": "The place search already returns opening times, so this is settled from a call that was being made anyway."
+    },
+    {
+      "capability_id": "attribute.places.native",
+      "constraint_type": "attribute",
+      "provider": "google_maps",
+      "endpoint": "google_maps:search",
+      "granularity": "native",
+      "cost_units": 0,
+      "latency_p50_ms": 0,
+      "selectivity_prior": 0.55,
+      "observation_n": 0,
+      "ttl_seconds": 604800,
+      "coverage": 0.9,
+      "precedence": 1,
+      "enabled": true,
+      "max_fanout": 1,
+      "params_template": {},
+      "produces": [],
+      "subjects": [],
+      "notes": "Rating, review count and price bracket arrive with the place search, so a floor on any of them is settled from a call already being made."
     },
     {
       "capability_id": "budget.zillow.native",

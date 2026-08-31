@@ -105,6 +105,12 @@ export function resolveConstraintField(
       if (field === 'closes_after_s') return constraint.open_window?.closes_after_s
       return undefined
 
+    case 'attribute':
+      if (field === 'measure') return constraint.measure
+      if (field === 'min') return constraint.min
+      if (field === 'max') return constraint.max
+      return undefined
+
     case 'area_signal':
       if (field === 'topic') return constraint.topic
       if (field === 'polarity') return constraint.polarity
@@ -119,6 +125,7 @@ export const FREE_CONSTRAINT_FIELDS: Record<ConstraintType, readonly string[]> =
   search_area: [],
   budget: ['max_cents', 'min_cents', 'max_dollars', 'min_dollars'],
   unit_attribute: ['attribute', 'min', 'max'],
+  attribute: ['measure', 'min', 'max'],
   listing_feature: ['feature', 'required'],
   commute: ['mode', 'travel_mode_code', 'max_seconds', 'depart_at', 'destination_raw'],
   proximity: ['place_raw', 'radius_m'],

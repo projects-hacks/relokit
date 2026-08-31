@@ -156,7 +156,13 @@ describe('registry', () => {
   })
 
   it('estimates the survivors the free predicates leave behind', () => {
-    const natives = seed.capabilities.filter((c) => c.granularity === 'native' && c.enabled)
+    // Only what a rental search can push down. A native predicate over a
+    // restaurant's rating narrows nothing about a flat, and counting it here
+    // made the estimate shrink whenever the vocabulary grew.
+    const forRentals = new Set(['budget', 'unit_attribute', 'listing_feature'])
+    const natives = seed.capabilities.filter(
+      (c) => c.granularity === 'native' && c.enabled && forRentals.has(c.constraint_type),
+    )
     // Priors are calibrated to the measured 4,517 rentals down to 56.
     expect(survivors(4517, natives)).toBeGreaterThan(30)
     expect(survivors(4517, natives)).toBeLessThan(80)

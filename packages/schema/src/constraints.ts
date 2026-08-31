@@ -30,6 +30,7 @@ export const ConstraintType = z.enum([
    * somewhere else. */
   'opening_hours',
   'nearby_poi',
+  'attribute',
   'area_signal',
 ])
 
@@ -160,6 +161,26 @@ export const OpeningHoursConstraint = z.object({
   open_window: OpenWindow,
 })
 
+/**
+ * Something a place already says about itself.
+ *
+ * One constraint over a named measure rather than a type per measure, because
+ * every gap in this vocabulary becomes a question the parser has to force into
+ * the wrong shape: it is how a rating floor, a price bracket and a review count
+ * all arrive without three near identical types. The provider returns these
+ * with the search, so checking them costs nothing.
+ */
+export const PlaceMeasure = z.enum(['rating', 'reviews', 'price_level'])
+
+export const AttributeConstraint = z.object({
+  ...base,
+  type: z.literal('attribute'),
+  measure: PlaceMeasure,
+  /** Inclusive. Price level runs 1 to 4, the way a provider counts money signs. */
+  min: z.number().optional(),
+  max: z.number().optional(),
+})
+
 export const AreaSignalTopic = z.enum(['construction', 'safety', 'noise', 'development', 'schools'])
 
 /** Narrowed to soft on purpose. A news headline must never be able to reject a home. */
@@ -180,6 +201,7 @@ export const Constraint = z.discriminatedUnion('type', [
   ProximityConstraint,
   OpeningHoursConstraint,
   NearbyPoiConstraint,
+  AttributeConstraint,
   AreaSignalConstraint,
 ])
 
@@ -239,6 +261,8 @@ export type CommuteConstraint = z.infer<typeof CommuteConstraint>
 export type ProximityConstraint = z.infer<typeof ProximityConstraint>
 export type OpeningHoursConstraint = z.infer<typeof OpeningHoursConstraint>
 export type NearbyPoiConstraint = z.infer<typeof NearbyPoiConstraint>
+export type PlaceMeasure = z.infer<typeof PlaceMeasure>
+export type AttributeConstraint = z.infer<typeof AttributeConstraint>
 export type AreaSignalConstraint = z.infer<typeof AreaSignalConstraint>
 export type Constraint = z.infer<typeof Constraint>
 export type ConstraintSet = z.infer<typeof ConstraintSet>
