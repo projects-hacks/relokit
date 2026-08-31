@@ -3,6 +3,7 @@ import {
   ConstraintSet,
   Subject,
   subjectFromQuery,
+  termFromQuery,
   type ConstraintType,
 } from '@relokit/schema'
 import { clockSeconds, distanceMeters, durationSeconds, moneyCents, windowSide } from './units.ts'
@@ -97,6 +98,14 @@ export function normalizeConstraintSet(
   // sentence opens with is not ambiguous in that way.
   const stated = Subject.safeParse((raw as { subject?: unknown }).subject)
   const subject = subjectFromQuery(query) ?? (stated.success ? stated.data : null)
+  // The model is asked for the wording too, and forgets: mexican restaurants
+  // came back as plain restaurants. Read from the sentence when it does.
+  const said = (raw as { subject_term?: unknown }).subject_term
+  const term =
+    subject === null
+      ? null
+      : (termFromQuery(query, subject) ??
+        (typeof said === 'string' && said.trim() !== '' ? said.trim() : null))
 
   // Whatever is being counted is not also a requirement of itself. A question
   // asking for gyms must not carry a constraint saying each gym needs a gym.
@@ -164,6 +173,7 @@ export function normalizeConstraintSet(
       query_id: meta.query_id,
       raw_query: query,
       ...(subject === null ? {} : { subject }),
+      ...(term === null ? {} : { subject_term: term }),
       locale: {
         tz: meta.tz ?? 'America/Los_Angeles',
         currency: 'USD',

@@ -210,6 +210,14 @@ export const ConstraintSet = z.object({
    * place is the requirement. Insisting on one more than that rejected the most
    * ordinary thing anyone would type.
    */
+  /**
+   * What to search for, in the asker's own words.
+   *
+   * The kind of thing alone throws away every qualifier: "mexican restaurants"
+   * became a search for restaurants and came back with an Irish pub. Optional,
+   * because a question that names only the kind has nothing more to carry.
+   */
+  subject_term: z.string().min(1).optional(),
   constraints: z.array(Constraint),
   /** Filename of the prompt that produced this, e.g. "parse.v1.md". */
   parser_version: z.string(),

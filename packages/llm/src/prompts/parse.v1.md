@@ -4,7 +4,14 @@ Output only JSON. No prose, no code fence, no explanation.
 
 Shape:
 
-{"subject": "what they want to find", "location": "where they are looking", "radius_m": 3218, "constraints": [ ... ]}
+{"subject": "what they want to find", "subject_term": "their own words for it", "location": "where they are looking", "radius_m": 3218, "constraints": [ ... ]}
+
+subject_term is what they are looking for in their own words, qualifier and all:
+"mexican restaurants", "24 hour gyms", "vegan cafes". Copy it as written, without
+the place or the hours. Leave it out when they named only the kind of thing. That
+qualifier is how the search finds the right places, and dropping it returns the
+wrong ones: mexican restaurants searched as restaurants came back with an Irish
+pub.
 
 subject is one of rental, home_for_sale, restaurant, cafe, bar, gym, grocery,
 school, university, park, pharmacy, hotel. "Apartments", "flats" and "places to

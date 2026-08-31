@@ -597,7 +597,9 @@ export async function replayRun(
     return {
       constraints: constraints.constraints,
       anchor: constraints.search_anchor?.raw ?? '',
-      subject_term: SUBJECT_TERMS[constraints.subject],
+      // The asker's own words where they gave them, since the kind of thing
+      // alone loses every qualifier that decides which places are right.
+      subject_term: constraints.subject_term ?? SUBJECT_TERMS[constraints.subject],
       produced,
       stage: stageOutputs,
       ...extra,

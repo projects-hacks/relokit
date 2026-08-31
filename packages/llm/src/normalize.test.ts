@@ -395,3 +395,29 @@ describe('the distance unit', () => {
     expect(locale('flats in San Jose')).toBe('mi')
   })
 })
+
+describe('the words a question uses for what it wants', () => {
+  it('keeps the qualifier that decides which places are right', () => {
+    // Searched as plain restaurants, this came back with an Irish pub.
+    const { constraint_set } = normalizeConstraintSet(
+      {
+        subject: 'restaurant',
+        subject_term: 'mexican restaurants',
+        location: 'San Jose',
+        constraints: [],
+      },
+      'mexican restaurants near me open past 10pm',
+      meta,
+    )
+    expect(constraint_set.subject_term).toBe('mexican restaurants')
+  })
+
+  it('leaves it out when only the kind of thing was named', () => {
+    const { constraint_set } = normalizeConstraintSet(
+      { subject: 'restaurant', location: 'San Jose', constraints: [] },
+      'restaurants in San Jose',
+      meta,
+    )
+    expect(constraint_set.subject_term).toBeUndefined()
+  })
+})

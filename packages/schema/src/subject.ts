@@ -87,3 +87,36 @@ export function subjectFromQuery(query: string): Subject | null {
   }
   return best?.subject ?? null
 }
+
+/** Words that shape a sentence rather than describe what is wanted. */
+const PLUMBING =
+  /^(show|find|get|give|me|i|want|need|looking|for|a|an|the|some|any|please|search|somewhere|place|places|to|in|at|near|around|close|by|open|with|and|of|my|is|are|that|which|within)$/
+
+/**
+ * What the question asks for, in its own words.
+ *
+ * The kind of thing alone is not what to search for: "mexican restaurants"
+ * searched as restaurants comes back with an Irish pub. The model is asked for
+ * this too and sometimes leaves it out, so the qualifier is also read straight
+ * off the sentence, which cannot forget.
+ */
+export function termFromQuery(query: string, subject: Subject): string | null {
+  const opening = query.toLowerCase().slice(0, 80)
+  const pattern = NOUNS.find(([, kind]) => kind === subject)?.[0]
+  if (!pattern) return null
+  const found = opening.match(pattern)
+  if (!found || found.index === undefined) return null
+
+  const before = opening
+    .slice(0, found.index)
+    .split(/[^a-z0-9-]+/)
+    .filter((word) => word !== '')
+  const qualifier: string[] = []
+  // Backwards from the noun, taking only words that describe it.
+  for (let at = before.length - 1; at >= 0 && qualifier.length < 3; at -= 1) {
+    const word = before[at]!
+    if (PLUMBING.test(word)) break
+    qualifier.unshift(word)
+  }
+  return qualifier.length > 0 ? `${qualifier.join(' ')} ${found[0]}` : null
+}
