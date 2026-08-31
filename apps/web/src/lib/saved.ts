@@ -1,35 +1,41 @@
 import { useCallback, useEffect, useState } from 'react'
-import type { Place } from '@relokit/schema'
+import type { AttributeValue, Place } from '@relokit/schema'
 
 /**
- * Saved properties worth coming back to.
+ * Places worth coming back to.
  *
  * Kept in the browser rather than behind an account, because choosing where to
- * live takes days and nobody should have to sign up to keep their saved locations. Enough
- * of the listing is stored to show it again without asking anyone anything.
+ * live, or where to eat, takes longer than one sitting and nobody should have to
+ * sign up to keep a shortlist. Enough of the place is stored to show it in full
+ * later without asking anyone anything.
  */
 const KEY = 'relokit.saved.v1'
 
-export interface SavedHome {
+export interface SavedPlace {
   entity_id: string
   title: string
   price_cents: number | null
   photo_url: string | null
   url: string | null
+  /** What a source said about it: the rating, the price bracket, the beds. */
+  attributes: Record<string, AttributeValue>
+  /** The question it was saved from, which is why it is worth keeping. */
   query: string
   saved_at: number
 }
 
-function read(): SavedHome[] {
+function read(): SavedPlace[] {
   try {
     const raw = localStorage.getItem(KEY)
-    return raw ? (JSON.parse(raw) as SavedHome[]) : []
+    const stored = raw ? (JSON.parse(raw) as SavedPlace[]) : []
+    // Anything kept before a place carried its own facts still opens.
+    return stored.map((place) => ({ ...place, attributes: place.attributes ?? {} }))
   } catch {
     return []
   }
 }
 
-function write(homes: SavedHome[]): void {
+function write(homes: SavedPlace[]): void {
   try {
     localStorage.setItem(KEY, JSON.stringify(homes))
   } catch {
@@ -38,7 +44,7 @@ function write(homes: SavedHome[]): void {
 }
 
 export function useSaved(query: string) {
-  const [homes, setHomes] = useState<SavedHome[]>(read)
+  const [homes, setHomes] = useState<SavedPlace[]>(read)
 
   useEffect(() => {
     const sync = () => setHomes(read())
@@ -59,6 +65,7 @@ export function useSaved(query: string) {
                   price_cents: entity.price_cents,
                   photo_url: entity.photo_url,
                   url: entity.url,
+                  attributes: entity.attributes,
                   query,
                   saved_at: Date.now(),
                 },

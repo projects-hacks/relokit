@@ -1,6 +1,7 @@
 import { createPortal } from 'react-dom'
-import type { SavedHome } from '../lib/saved.ts'
+import type { SavedPlace } from '../lib/saved.ts'
 import { ago, money } from '../lib/format.ts'
+import { described } from '../lib/attributes.ts'
 import { useDialog } from '../lib/dialog.ts'
 
 /**
@@ -16,7 +17,7 @@ export function SavedLocations({
   onRemove,
   onClear,
 }: {
-  homes: SavedHome[]
+  homes: SavedPlace[]
   onClose: () => void
   onRemove: (entityId: string) => void
   onClear: () => void
@@ -57,7 +58,19 @@ export function SavedLocations({
                   <p className="saved-property-price">{money(home.price_cents)}</p>
                 )}
                 <h3>{home.title}</h3>
-                <p>Saved {ago(home.saved_at)}</p>
+                {/* The same facts the card showed when it was starred. A place
+                    with no rent still has a rating, a price bracket and what it
+                    is, and a bare title is not enough to choose from later. */}
+                {described(home).length > 0 && (
+                  <p className="saved-property-traits">{described(home).join(' · ')}</p>
+                )}
+                {home.query && (
+                  <p className="saved-property-from">
+                    Saved {ago(home.saved_at)} from “{home.query.slice(0, 64)}
+                    {home.query.length > 64 ? '…' : ''}”
+                  </p>
+                )}
+                {!home.query && <p className="saved-property-from">Saved {ago(home.saved_at)}</p>}
                 <div className="saved-property-actions">
                   {home.url && (
                     <a href={home.url} target="_blank" rel="noreferrer">
