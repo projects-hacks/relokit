@@ -69,7 +69,7 @@ export function Watch({ result }: { result: AskResult }) {
                 'what appeared, what went, what changed price. Most answers are still ' +
                 'good the next day, so asking again costs a fraction of asking the first time.'
               }
-              side="right"
+              side="left"
             >
               <span className="tip-mark" aria-label="What tracking does">
                 ?

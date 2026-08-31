@@ -570,6 +570,29 @@ export async function replayRun(
     return `${Math.min(18, Math.max(10, Math.round(13 + Math.log2(30_000 / span))))}z`
   }
 
+  /**
+   * A place is a place, however many times a search hands it back.
+   *
+   * Paging asks the same search again from a later offset, and a provider that
+   * returns any overlap between pages was duplicating every place it repeated:
+   * the same restaurant filled the list several times over, the counts above
+   * the buckets were inflated, and narrowing to one result still showed the
+   * wrong card, because two entries claimed the same identity.
+   */
+  function absorbCandidates(mapped: { entities: Place[]; evidence: EvidenceRow[] }) {
+    const known = new Set(outcome.entities.map((entity) => entity.entity_id))
+    const fresh = mapped.entities.filter((entity) => {
+      if (known.has(entity.entity_id)) return false
+      known.add(entity.entity_id)
+      return true
+    })
+    const kept = new Set(fresh.map((entity) => entity.entity_id))
+    outcome.entities.push(...fresh)
+    // Evidence for a place already known was established the first time it was
+    // seen, so keeping the second copy would double every fact about it.
+    outcome.evidence.push(...mapped.evidence.filter((row) => kept.has(row.entity_id)))
+  }
+
   function base(extra: Partial<Bindings>): Bindings {
     return {
       constraints: constraints.constraints,
@@ -661,8 +684,7 @@ export async function replayRun(
         context(op),
         options.evaluation_days,
       )
-      outcome.evidence.push(...mapped.evidence)
-      outcome.entities.push(...mapped.entities)
+      absorbCandidates(mapped)
       surviving = outcome.entities
       const points = outcome.entities.filter((e) => e.point).map((e) => e.point!)
       if (points.length > 0) {
@@ -676,8 +698,7 @@ export async function replayRun(
       const pushedDown = op.constraint_ids.filter((id) => id !== 'candidate_source')
       const answered = constraints.constraints.filter((c) => pushedDown.includes(c.id))
       const mapped = mapZillowSearch(body, answered, context(op), pushedDown)
-      outcome.entities.push(...mapped.entities)
-      outcome.evidence.push(...mapped.evidence)
+      absorbCandidates(mapped)
       surviving = outcome.entities
       const points = outcome.entities.filter((e) => e.point).map((e) => e.point!)
       if (points.length > 0) {

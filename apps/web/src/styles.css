@@ -921,6 +921,10 @@ button:focus-visible,
 }
 
 .tip {
+  /* Sits inside an eyebrow, which is uppercase and widely tracked. A sentence
+     is not a label and must not inherit either. */
+  text-transform: none;
+  letter-spacing: normal;
   position: absolute;
   z-index: 20;
   top: 50%;
@@ -1381,6 +1385,7 @@ button:focus-visible,
   position: absolute;
   right: calc(var(--step) * 4);
   top: calc(var(--step) * 4);
+  backdrop-filter: blur(8px);
   z-index: 2;
   margin: 0;
   padding: calc(var(--step) * 2.5) calc(var(--step) * 3);
