@@ -94,7 +94,7 @@ export function Working({ result }: { result: AskResult }) {
 
 const REASON: Record<string, string> = {
   lower_score: 'another source answered the same thing for fewer searches',
-  no_payback: 'it would have cost more searches than the homes it could rule out',
+  no_payback: 'it would have cost more searches than the results it could rule out',
   over_budget: 'the run was not allowed to spend that much',
   unbound: 'it needed something that never arrived',
   disabled: 'switched off in the registry',

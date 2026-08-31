@@ -1,7 +1,7 @@
 {
   "name": "Relokit",
   "short_name": "Relokit",
-  "description": "Ask for somewhere in plain words. Every requirement checked against whatever actually holds the answer.",
+  "description": "Ask once, in your own words. The price, the journey, what is nearby and when it is open, each answered from the source that holds it.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

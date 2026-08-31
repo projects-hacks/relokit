@@ -22,7 +22,8 @@ import { Offers } from './findings/Offers.tsx'
 import { Map, type MapTheme } from './map/Map.tsx'
 import { Landing } from './Landing.tsx'
 
-const inApp = () => location.hash === '#app' || location.search.includes('demo')
+const asked = () => new URLSearchParams(location.search).get('q')?.trim() ?? ''
+const inApp = () => location.hash === '#app' || location.search.includes('demo') || asked() !== ''
 
 export function App() {
   const { status, events, result, query, error, restored, run, stop, dismiss } = useAsk()
@@ -34,9 +35,25 @@ export function App() {
     addEventListener('hashchange', sync)
     return () => removeEventListener('hashchange', sync)
   }, [])
-  const enterApp = (query?: string) => {
-    location.hash = '#app'
-    if (query) run(query)
+
+  // A question in the address makes an answer something you can send to
+  // somebody, come back to, or open from a list of examples. Asking it again
+  // is answered from the ledger and usually costs nothing.
+  useEffect(() => {
+    const shared = asked()
+    if (shared) run(shared)
+    // Only what the page was opened with. Later questions set the address
+    // themselves rather than being re-run by it.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const enterApp = (question?: string) => {
+    const url = new URL(location.href)
+    if (question) url.searchParams.set('q', question)
+    url.hash = '#app'
+    history.pushState(null, '', url)
+    setView('app')
+    if (question) run(question)
   }
   const [openId, setOpenId] = useState<string | null>(null)
   // Selecting shows a home on the map. Opening covers the map, so it is a
@@ -130,7 +147,7 @@ export function App() {
             Relo<span>kit</span>
           </h1>
         </a>
-        <p className="strapline">Checked, not guessed</p>
+        <p className="strapline">The whole picture, in one question</p>
         {saved.homes.length > 0 && (
           <button className="saved-access" onClick={() => setSavedOpen(true)}>
             <span aria-hidden="true">★</span>
@@ -145,7 +162,21 @@ export function App() {
       {view === 'app' && (
         <div className="columns">
           <aside className="rail">
-            <Ask onAsk={run} onStop={stop} busy={status === 'running'} asking={query} />
+            <Ask
+              onAsk={(question) => {
+                // Every question earns an address, wherever it was typed, so
+                // the answer on screen is always one somebody could send on.
+                const url = new URL(location.href)
+                url.searchParams.set('q', question)
+                url.hash = '#app'
+                history.pushState(null, '', url)
+                run(question)
+              }}
+              onStop={stop}
+              busy={status === 'running'}
+              asking={query}
+              subject={result?.constraint_set.subject ?? null}
+            />
             <Plan plan={plan} events={events} />
             {/* The rail is the method: what will be checked, then how it was.
                 It has the room, and it keeps the answer column to answers. */}

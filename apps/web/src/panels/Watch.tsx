@@ -120,26 +120,29 @@ export function Watch({ result }: { result: AskResult }) {
 }
 
 /**
- * The watch records a home by the id the provider gave it. A listing split into
+ * The watch records a place by the id the provider gave it. A listing split into
  * one entry per bedroom count carries that id with the count appended, so the
  * title is found by what the two share.
+ *
+ * The words stay true of anything that can be tracked. A cafe does not come on
+ * the market and is never delisted; it opens, and one day it is gone.
  */
 function describe(change: Change, entities: Place[]): string {
-  const home = entities.find(
+  const place = entities.find(
     (entity) =>
       entity.entity_id === change.entity_id || entity.entity_id.startsWith(`${change.entity_id}#`),
   )
-  const name = home ? home.title.slice(0, 44) : 'A home'
+  const name = place ? place.title.slice(0, 44) : 'Somewhere new'
 
   if (change.change_type === 'entered_pass') {
     const price = money(change.after?.price ? change.after.price * 100 : null)
-    return `${name} came on the market${price ? ` at ${price}` : ''}.`
+    return `${name} appeared${price ? ` at ${price}` : ''}.`
   }
-  if (change.change_type === 'left_pass') return `${name} is no longer listed.`
+  if (change.change_type === 'left_pass') return `${name} is gone.`
 
   const was = money(change.before?.price ? change.before.price * 100 : null)
   const now = money(change.after?.price ? change.after.price * 100 : null)
-  return `${name} moved from ${was ?? 'an unstated rent'} to ${now ?? 'an unstated rent'}.`
+  return `${name} moved from ${was ?? 'no stated price'} to ${now ?? 'no stated price'}.`
 }
 
 type Change = WatchState['changes'][number]

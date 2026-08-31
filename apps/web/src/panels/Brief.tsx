@@ -24,19 +24,20 @@ const EXAMPLES: { query: string; label: string }[] = [
 
 const ANSWERS: [string, string][] = [
   ['Verified', 'Every requirement checked and met.'],
-  ['Couldn’t verify', 'Something could not be established either way.'],
+  ['Unconfirmed', 'A fact the place itself does not publish, kept apart from the rest.'],
   ['Ruled out', 'Checked, and it does not hold. The reason is on the card.'],
 ]
 
 export function Brief({ onAsk }: { onAsk: (query: string) => void }) {
   return (
     <div className="brief">
-      <p className="eyebrow">Before anything is checked</p>
-      <h2>The thing you care about is almost never held by the site you are searching.</h2>
+      {/* The landing page has already made the argument. This is the way in, so
+          it opens on what to do rather than repeating why. */}
+      <p className="eyebrow">Ask for anything</p>
+      <h2>The price, the journey, what is nearby and when it is open.</h2>
       <p className="note">
-        A rental site knows the rent. It does not know how long the ride to work takes, or whether
-        the gym opens before you do. Ask in your own words and each requirement is checked against
-        whatever actually holds the answer, with the source and the date on every fact.
+        Say it however it comes out. Each part is answered from the source that holds it, and every
+        fact arrives with that source and its date.
       </p>
 
       <p className="eyebrow">Try one</p>

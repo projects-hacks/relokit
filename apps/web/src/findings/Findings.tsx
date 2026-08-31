@@ -76,7 +76,10 @@ export function Findings({
     },
     {
       id: 'unsure',
-      label: 'Couldn\u2019t verify',
+      // Named for what the fact is rather than for what we failed to do. The
+      // rule behind it is unchanged: nothing is ever ruled out by a check that
+      // could not be made.
+      label: 'Unconfirmed',
       count: unverified.length,
       mark: 'var(--unsure)',
     },

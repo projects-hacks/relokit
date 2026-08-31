@@ -82,7 +82,9 @@ export function Controls({
 
       {priced && (
         <label className="control">
-          <span>Rent up to</span>
+          {/* Only somewhere you live has rent. A list of restaurants under a
+              box marked "Rent up to" reads as the wrong product. */}
+          <span>{bedded ? 'Rent up to' : 'Price up to'}</span>
           <input
             type="number"
             inputMode="numeric"

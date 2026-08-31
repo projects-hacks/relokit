@@ -131,7 +131,7 @@ export function mapDirections(
       // back because it was measured from the middle of a neighbourhood does.
       reason:
         verdict === 'unknown'
-          ? 'Measured from the middle of the neighbourhood, and close enough to the limit that this home needs checking on its own.'
+          ? 'Measured from the middle of the neighbourhood, and close enough to the limit that this one needs checking on its own.'
           : undefined,
     }),
   ]

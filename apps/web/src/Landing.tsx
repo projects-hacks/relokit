@@ -17,24 +17,28 @@ const EXAMPLES: { label: string; query: string }[] = [
   },
 ]
 
+/**
+ * Three facts about three different kinds of place, so the strip proves the
+ * breadth while it demonstrates the receipt.
+ */
 const RECEIPTS: [string, string, string][] = [
   ['$2,800 a month', 'the listing', '2d ago'],
   ['21 min by bike, door to door', 'route data', '2d ago'],
-  ['gym open past 9pm', 'map data', '2d ago'],
+  ['open until 11pm on Fridays', 'map data', '2d ago'],
 ]
 
 const STEPS: [string, string][] = [
   [
     'Say it in a sentence',
-    'The rent, the ride to work, what has to be nearby and when it has to be open. No filters to learn, no fields to fill.',
+    'The price, how far you will travel and by what, what has to be nearby and when it has to be open. No filters to learn, no fields to fill.',
   ],
   [
-    'Each part is checked where the answer lives',
-    'The rent from the listing, the journey from the road itself, the opening hours from the place. Crossed in one pass rather than one result at a time.',
+    'Each part is answered where it lives',
+    'The price from the listing, the journey from the road itself, the opening hours from the place. Crossed in a single pass.',
   ],
   [
-    'Three answers, including the honest one',
-    'What holds up. What was ruled out, and why. And what could not be confirmed, said plainly instead of guessed.',
+    'Everything comes back with its source',
+    'Every fact carries where it came from and how old it is, so you can follow any of them back and see for yourself.',
   ],
 ]
 
@@ -59,15 +63,12 @@ export function Landing({ onSearch }: { onSearch: (query?: string) => void }) {
   return (
     <div className="landing">
       <section className="hero">
-        <h1>
-          Stop checking every
-          <br />
-          result by hand.
-        </h1>
+        {/* No forced break: the line that suits 1500px is the wrong one at 390,
+            and the browser balances it better than a guess can. */}
+        <h1>Ask once. Know everything that matters.</h1>
         <p className="hero-sub">
-          A listing tells you what a place is. It never tells you whether it works for you. Ask
-          once, in your own words, and every requirement is checked against whatever actually holds
-          the answer.
+          The price, the journey, what is nearby and when it is open. Each part answered from the
+          source that holds it, with the date attached.
         </p>
 
         <form
@@ -126,23 +127,21 @@ export function Landing({ onSearch }: { onSearch: (query?: string) => void }) {
       </section>
 
       <section className="honesty">
-        <p className="eyebrow">Why three answers and not a ranked list</p>
+        <p className="eyebrow">You always know where you stand</p>
         <div className="honesty-row">
           <div>
-            <b>It holds</b>
-            <p>
-              Every requirement checked, each fact showing where it came from and how old it is.
-            </p>
+            <b>Verified</b>
+            <p>Every requirement met, each fact showing its source and its date.</p>
           </div>
           <div>
-            <b>It does not</b>
-            <p>Ruled out, with the one thing that failed named rather than buried.</p>
+            <b>Ruled out</b>
+            <p>The one thing that decided it, named on the card.</p>
           </div>
           <div>
-            <b>Nobody could say</b>
+            <b>Unconfirmed</b>
             <p>
-              A rent quoted as a range settles nothing against a limit. Said plainly, instead of
-              counted as a pass.
+              Where a place keeps something to itself, you get told which fact and why, and it is
+              kept apart from the rest.
             </p>
           </div>
         </div>
