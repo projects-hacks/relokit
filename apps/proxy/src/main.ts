@@ -19,6 +19,9 @@ const dist = join(process.cwd(), 'apps/web/dist')
 const TYPES: Record<string, string> = {
   '.html': 'text/html; charset=utf-8',
   '.js': 'text/javascript',
+  // A module worker is refused outright if its script is not served as
+  // JavaScript, which is how the map lost its tile parser and rendered blank.
+  '.mjs': 'text/javascript',
   '.css': 'text/css',
   '.json': 'application/json',
   '.svg': 'image/svg+xml',

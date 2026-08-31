@@ -9,13 +9,10 @@ export default defineConfig({
   plugins: [react()],
   server: { port: 5173, proxy: { '/api': 'http://127.0.0.1:8787' } },
   build: {
-    // MapLibre is the heaviest client dependency. Keeping it in its own
-    // cacheable chunk prevents it from delaying the form and results UI.
-    rolldownOptions: {
-      output: {
-        manualChunks: (id) => (id.includes('node_modules/maplibre-gl') ? 'maplibre' : undefined),
-      },
-    },
+    // No manual chunking for maplibre. Collapsing it into one chunk swallows
+    // the entry its web worker is built from, so the worker file is never
+    // emitted and the deployed map renders blank while the dev server, which
+    // does not bundle, looks perfect.
   },
   optimizeDeps: {
     // MapLibre loads its tile parser as a web worker. Pre-bundling rewrites the

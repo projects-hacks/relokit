@@ -6,6 +6,7 @@ import type { PlanResult } from '@relokit/schema'
 import 'maplibre-gl/dist/maplibre-gl.css'
 
 const SAN_JOSE: [number, number] = [-121.94, 37.34]
+
 const MAP_STYLES = {
   bright: 'https://tiles.openfreemap.org/styles/bright',
   dark: 'https://tiles.openfreemap.org/styles/dark',
