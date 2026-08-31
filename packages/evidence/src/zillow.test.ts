@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import { ConstraintSet, type Constraint } from '@relokit/schema'
+import { score } from './buckets.ts'
 import { mapZillowSearch, parsePriceCents } from './zillow.ts'
 import type { MapperContext } from './context.ts'
 
@@ -105,7 +106,10 @@ describe('budget', () => {
     expect(evidence.eval_state).toBe('evaluated')
     expect(evidence.confidence).toBe(0.6)
     expect(evidence.display_value).toMatch(/^from \$/)
-    expect(evidence.reason).toContain('not stated')
+    // Says which of the two numbers is known, and that the cheaper end is
+    // within reach, rather than repeating the one already on the card.
+    expect(evidence.reason).toContain('Rents here start at')
+    expect(evidence.reason).toContain('not published')
   })
 
   it('still rejects a floor already above the cap', () => {
@@ -177,5 +181,43 @@ describe('every row', () => {
   it('never reports a failure it did not actually evaluate', () => {
     const fails = result.evidence.filter((e) => e.verdict === 'fail')
     for (const evidence of fails) expect(evidence.eval_state).toBe('evaluated')
+  })
+})
+
+describe('a building that publishes only its cheapest rent', () => {
+  const set = (max: number) =>
+    ConstraintSet.parse({
+      query_id: 'q',
+      raw_query: 'flats',
+      locale: { tz: 'America/Los_Angeles', currency: 'USD', distance_unit: 'mi' },
+      constraints: [
+        {
+          id: 'c1',
+          type: 'budget',
+          hardness: 'hard',
+          weight: 1,
+          source_text: 'budget',
+          inferred: false,
+          basis: 'rent_monthly',
+          max_cents: max,
+        },
+      ],
+      parser_version: 'parse.v1.md',
+      parsed_at_ms: 1_756_000_000_000,
+    })
+
+  it('ranks a floor far below the cap above one that only just fits', () => {
+    // Both are unknown, but one has room for a bigger unit and the other does not.
+    const roomy = score(
+      [{ constraint_id: 'c1', value_canonical: 195_000, verdict: 'unknown' } as never],
+      set(380_000).constraints,
+      1,
+    )
+    const tight = score(
+      [{ constraint_id: 'c1', value_canonical: 370_000, verdict: 'unknown' } as never],
+      set(380_000).constraints,
+      1,
+    )
+    expect(roomy).toBeGreaterThan(tight)
   })
 })

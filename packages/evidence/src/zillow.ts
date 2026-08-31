@@ -177,9 +177,14 @@ function budgetRow(
     source_url: entity.url,
     confidence: isFloor ? 0.6 : 1,
     eval_state: 'evaluated',
+    // A floor is the building's cheapest unit, not this one's rent. Saying
+    // which of the two is known, and that the cheaper end is within reach, is
+    // more use than repeating the number that is already on the card.
     reason:
       verdict === 'unknown' && isFloor
-        ? `${display}, so the rent for this unit is not stated`
+        ? max !== undefined && entity.price_cents <= max
+          ? `Rents here start at ${money(entity.price_cents)}, under your ${money(max)}, but this unit’s own rent is not published.`
+          : `${display}, so the rent for this unit is not stated`
         : undefined,
   })
 }
