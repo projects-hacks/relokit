@@ -58,9 +58,14 @@ export function Findings({
   const entity = (id: string) => result.entities.find((e) => e.entity_id === id)
   const constraints = result.constraint_set.constraints
 
-  // Nothing was verified if nothing was asked. A question that is only a place
-  // returns homes, and calling them verified claims a check that never happened.
-  const asked = constraints.some((constraint) => constraint.hardness === 'hard')
+  // Verified means something was actually established, so the test is whether
+  // any fact was settled rather than whether a requirement was marked hard. A
+  // question that is only a place settles nothing and says found; a requirement
+  // the provider applied inside its own search is still checked, and calling
+  // that merely found contradicts the tick on every card.
+  const asked = [...results, ...unverified, ...rejections].some((entry) =>
+    entry.evidence.some((row) => row.eval_state === 'evaluated'),
+  )
 
   const tabs: { id: Bucket; label: string; count: number; mark: string }[] = [
     {
