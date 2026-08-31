@@ -1,6 +1,7 @@
 import type {
   AttributeConstraint,
   Constraint,
+  DescriptorConstraint,
   OpeningHoursConstraint,
   Place,
   Weekday,
@@ -10,6 +11,8 @@ import { parseOperatingHours, satisfiesWindow } from './hours.ts'
 
 interface LocalResult {
   title?: string
+  /** Short phrases a provider adds about a place, such as its service options. */
+  extensions?: string[]
   place_id?: string
   data_id?: string
   gps_coordinates?: { latitude: number; longitude: number }
@@ -42,6 +45,7 @@ export function mapPlaceCandidates(
   const evidence: MapperResult['evidence'] = []
   const hours = answered.filter((c): c is OpeningHoursConstraint => c.type === 'opening_hours')
   const measures = answered.filter((c): c is AttributeConstraint => c.type === 'attribute')
+  const descriptors = answered.filter((c): c is DescriptorConstraint => c.type === 'descriptor')
 
   for (const result of results) {
     const id = result.place_id ?? result.data_id ?? result.title
@@ -66,6 +70,46 @@ export function mapPlaceCandidates(
       photo_url: result.thumbnail ?? null,
       photos: result.thumbnail ? [result.thumbnail] : [],
     })
+
+    // What the place says it is, in its own words: the category the provider
+    // gives it and the name over the door. Neither is exhaustive, so a place
+    // that says nothing either way is left unsettled rather than refused.
+    for (const constraint of descriptors) {
+      const says = [result.type, result.title, ...(result.extensions ?? [])]
+        .filter((part): part is string => typeof part === 'string')
+        .join(' ')
+        .toLowerCase()
+      const has = says.includes(constraint.text.toLowerCase())
+      if (!has && constraint.want === 'with') {
+        evidence.push(
+          unknownRow(
+            context,
+            `places:${id}`,
+            constraint,
+            `nothing here says whether it has ${constraint.text}`,
+          ),
+        )
+        continue
+      }
+      evidence.push(
+        row(context, {
+          entity_id: `places:${id}`,
+          constraint_id: constraint.id,
+          constraint_type: 'descriptor',
+          verdict: constraint.want === 'with' ? 'pass' : has ? 'fail' : 'pass',
+          value_canonical: null,
+          display_value:
+            constraint.want === 'with'
+              ? `has ${constraint.text}`
+              : has
+                ? `is ${constraint.text}`
+                : `not ${constraint.text}`,
+          source_url: null,
+          confidence: constraint.want === 'without' && !has ? 0.7 : 1,
+          eval_state: 'evaluated',
+        }),
+      )
+    }
 
     // How well reviewed and how dear, from the same response. A place that
     // states neither is not a bad one, so it goes unknown rather than out.

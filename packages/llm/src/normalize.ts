@@ -2,7 +2,9 @@ import {
   Constraint,
   ConstraintSet,
   Subject,
+  descriptorsFromQuery,
   measuresFromQuery,
+  reachFromQuery,
   subjectFromQuery,
   termFromQuery,
   type ConstraintType,
@@ -121,10 +123,52 @@ export function normalizeConstraintSet(
   // same word then costs a search to answer badly as well as being answered
   // properly for nothing. Where the sentence has already been read, that
   // reading stands and the guess beside it goes.
-  const claimed = new Set(measures.map((measure) => measure.source_text.toLowerCase()))
+  // What a place must be, and must not. Refusing rejects; wanting only ranks.
+  const descriptors = descriptorsFromQuery(query, (index) => `c${constraints.length + index + 1}`)
+  for (const descriptor of descriptors) {
+    if (!constraints.some((c) => c.type === 'descriptor' && c.text === descriptor.text)) {
+      constraints.push(descriptor)
+    }
+  }
+
+  // How far, when the question said it in words rather than numbers. A default
+  // chosen for the kind of thing would quietly ignore what was actually said.
+  const reach = reachFromQuery(query)
+  if (reach !== null) {
+    for (const [at, constraint] of constraints.entries()) {
+      if (constraint.type === 'proximity' && constraint.inferred) {
+        constraints[at] = { ...constraint, radius_m: reach.meters }
+        continue
+      }
+      // Walking distance is a distance, not a journey. Read as a commute it
+      // buys a route for every place, answers worse, and costs a call each
+      // time; as a radius it is answered by geometry for nothing.
+      if (
+        constraint.type === 'commute' &&
+        constraint.source_text.toLowerCase().includes(reach.text.toLowerCase())
+      ) {
+        constraints[at] = Constraint.parse({
+          id: constraint.id,
+          type: 'proximity',
+          hardness: constraint.hardness,
+          weight: constraint.weight,
+          source_text: constraint.source_text,
+          inferred: true,
+          place: constraint.destination,
+          radius_m: reach.meters,
+        })
+      }
+    }
+  }
+
+  const read = [...measures, ...descriptors]
+  const claimed = new Set(read.map((constraint) => constraint.source_text.toLowerCase()))
+  // By identity rather than by type: asking whether a constraint is of some
+  // kind made the readings delete themselves, since they match their own words.
+  const ours = new Set(read.map((constraint) => constraint.id))
   for (let at = constraints.length - 1; at >= 0; at -= 1) {
     const constraint = constraints[at]!
-    if (constraint.type !== 'attribute' && claimed.has(constraint.source_text.toLowerCase())) {
+    if (!ours.has(constraint.id) && claimed.has(constraint.source_text.toLowerCase())) {
       constraints.splice(at, 1)
     }
   }

@@ -31,6 +31,7 @@ export const ConstraintType = z.enum([
   'opening_hours',
   'nearby_poi',
   'attribute',
+  'descriptor',
   'area_signal',
 ])
 
@@ -181,6 +182,22 @@ export const AttributeConstraint = z.object({
   max: z.number().optional(),
 })
 
+/**
+ * Something a place is, or is not.
+ *
+ * Wanting a place and refusing one are the same question asked two ways, so
+ * they are one type: hard and without is a rule that rejects, soft and with is
+ * a preference that only ranks. Without this, "not a chain" had nowhere to go
+ * and was dropped in silence.
+ */
+export const DescriptorConstraint = z.object({
+  ...base,
+  type: z.literal('descriptor'),
+  /** Plain words, matched against what the place says it is. */
+  text: z.string().min(1),
+  want: z.enum(['with', 'without']),
+})
+
 export const AreaSignalTopic = z.enum(['construction', 'safety', 'noise', 'development', 'schools'])
 
 /** Narrowed to soft on purpose. A news headline must never be able to reject a home. */
@@ -202,6 +219,7 @@ export const Constraint = z.discriminatedUnion('type', [
   OpeningHoursConstraint,
   NearbyPoiConstraint,
   AttributeConstraint,
+  DescriptorConstraint,
   AreaSignalConstraint,
 ])
 
@@ -263,6 +281,7 @@ export type OpeningHoursConstraint = z.infer<typeof OpeningHoursConstraint>
 export type NearbyPoiConstraint = z.infer<typeof NearbyPoiConstraint>
 export type PlaceMeasure = z.infer<typeof PlaceMeasure>
 export type AttributeConstraint = z.infer<typeof AttributeConstraint>
+export type DescriptorConstraint = z.infer<typeof DescriptorConstraint>
 export type AreaSignalConstraint = z.infer<typeof AreaSignalConstraint>
 export type Constraint = z.infer<typeof Constraint>
 export type ConstraintSet = z.infer<typeof ConstraintSet>

@@ -111,6 +111,11 @@ export function resolveConstraintField(
       if (field === 'max') return constraint.max
       return undefined
 
+    case 'descriptor':
+      if (field === 'text') return constraint.text
+      if (field === 'want') return constraint.want
+      return undefined
+
     case 'area_signal':
       if (field === 'topic') return constraint.topic
       if (field === 'polarity') return constraint.polarity
@@ -126,6 +131,7 @@ export const FREE_CONSTRAINT_FIELDS: Record<ConstraintType, readonly string[]> =
   budget: ['max_cents', 'min_cents', 'max_dollars', 'min_dollars'],
   unit_attribute: ['attribute', 'min', 'max'],
   attribute: ['measure', 'min', 'max'],
+  descriptor: ['text', 'want'],
   listing_feature: ['feature', 'required'],
   commute: ['mode', 'travel_mode_code', 'max_seconds', 'depart_at', 'destination_raw'],
   proximity: ['place_raw', 'radius_m'],

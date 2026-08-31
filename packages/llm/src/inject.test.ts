@@ -52,3 +52,17 @@ describe('a guess beside a reading', () => {
     expect(constraint_set.constraints.map((c) => c.type)).toEqual(['attribute'])
   })
 })
+
+describe('a reading must not delete itself', () => {
+  it('keeps what it read while dropping the guess at the same words', () => {
+    // Asking whether a constraint was of some kind removed the readings too,
+    // because a reading matches its own words.
+    const { constraint_set } = normalizeConstraintSet(
+      { subject: 'restaurant', location: 'San Jose', constraints: [] },
+      'cheap restaurants in San Jose, not a chain',
+      meta,
+    )
+    const types = constraint_set.constraints.map((c) => c.type).sort()
+    expect(types).toEqual(['attribute', 'descriptor'])
+  })
+})

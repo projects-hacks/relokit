@@ -1,7 +1,7 @@
 {
-  "plan_id": "89186969f5deae19",
+  "plan_id": "822b79a669c9bbcc",
   "planner_version": "0.1.0",
-  "registry_version": "2026-08-31.2",
+  "registry_version": "2026-08-31.3",
   "search_bounds": null,
   "clusters": [],
   "stages": [
@@ -224,7 +224,7 @@
   "estimated_cost_units": 88,
   "estimated_latency_ms": 8600,
   "trace": {
-    "registry_version": "2026-08-31.2",
+    "registry_version": "2026-08-31.3",
     "planner_version": "0.1.0",
     "cardinality": {
       "region_entities": 4517,

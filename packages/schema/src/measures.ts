@@ -1,4 +1,4 @@
-import type { AttributeConstraint } from './constraints.ts'
+import type { AttributeConstraint, DescriptorConstraint } from './constraints.ts'
 
 /**
  * Words people use for how good and how dear a place is.
@@ -69,5 +69,75 @@ export function measuresFromQuery(query: string, nextId: (index: number) => stri
       hit[0].trim(),
     )
   }
+  return found
+}
+
+/**
+ * How far people say a thing is when they do not say a number.
+ *
+ * Nobody types 1200 metres. They say walking distance, and a default radius
+ * chosen for the kind of thing then quietly ignores what they told us. These
+ * are deliberately generous: too tight discards the right answer before
+ * anything has looked at it, and the later checks are what prune.
+ */
+const REACH: [RegExp, number][] = [
+  [/\b(a )?(short|quick|two|five|ten) minute walk\b/i, 800],
+  [/\bwalking distance\b/i, 1200],
+  [/\b(walkable|on foot)\b/i, 1200],
+  [/\b(just|right)? ?(around the corner|down the road|next door)\b/i, 600],
+  [/\b(a )?(short|quick) (drive|ride)\b/i, 5000],
+  [/\b(nearby|close by|near here|round the corner)\b/i, 2000],
+]
+
+export function reachFromQuery(query: string): { meters: number; text: string } | null {
+  for (const [pattern, meters] of REACH) {
+    const hit = query.match(pattern)
+    if (hit) return { meters, text: hit[0].trim() }
+  }
+  return null
+}
+
+/** Ways of refusing a kind of place, and of asking for one. */
+// The words that end a description have to be whole words with a space before
+// them, or the "in" inside "chain" ends it and the refusal becomes "cha".
+const STOP = String.raw`(?=\s*[,.]|\s*$|\s+(?:and|or|but|in|near|within|open|that|which|with|for)\b)`
+const WITHOUT = new RegExp(
+  String.raw`\b(?:not|no|avoid|except|excluding|other than)\s+(?:a\s+|an\s+|the\s+)?([a-z][a-z' -]{2,24}?)` +
+    STOP,
+  'gi',
+)
+const WITH = new RegExp(
+  String.raw`\b(?:ideally with|preferably with|that has|having|with)\s+(?:a\s+|an\s+)?([a-z][a-z' -]{2,24}?)` +
+    STOP,
+  'gi',
+)
+
+/** Words that describe the asking rather than the place. */
+const NOT_A_DESCRIPTOR = /^(more|less|it|them|one|any|other|of|to|me|us|somewhere|anything)$/i
+
+export function descriptorsFromQuery(
+  query: string,
+  nextId: (index: number) => string,
+): DescriptorConstraint[] {
+  const found: DescriptorConstraint[] = []
+  const take = (text: string, want: DescriptorConstraint['want'], whole: string) => {
+    const clean = text.trim().replace(/\s+/g, ' ')
+    if (clean === '' || NOT_A_DESCRIPTOR.test(clean)) return
+    if (found.some((c) => c.text === clean)) return
+    found.push({
+      id: nextId(found.length),
+      type: 'descriptor',
+      // Refusing is a rule; wanting is only a preference, so it ranks rather
+      // than throwing away a place that is otherwise right.
+      hardness: want === 'without' ? 'hard' : 'soft',
+      weight: want === 'without' ? 1 : 0.6,
+      source_text: whole.trim(),
+      inferred: true,
+      text: clean,
+      want,
+    })
+  }
+  for (const hit of query.matchAll(WITHOUT)) take(hit[1] ?? '', 'without', hit[0])
+  for (const hit of query.matchAll(WITH)) take(hit[1] ?? '', 'with', hit[0])
   return found
 }

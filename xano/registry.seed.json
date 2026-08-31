@@ -1,5 +1,5 @@
 {
-  "registry_version": "2026-08-31.2",
+  "registry_version": "2026-08-31.3",
   "capabilities": [
     {
       "capability_id": "candidates.anchor.geocode",
@@ -172,6 +172,26 @@
       "produces": [],
       "subjects": [],
       "notes": "Rating, review count and price bracket arrive with the place search, so a floor on any of them is settled from a call already being made."
+    },
+    {
+      "capability_id": "descriptor.places.native",
+      "constraint_type": "descriptor",
+      "provider": "google_maps",
+      "endpoint": "google_maps:search",
+      "granularity": "native",
+      "cost_units": 0,
+      "latency_p50_ms": 0,
+      "selectivity_prior": 0.7,
+      "observation_n": 0,
+      "ttl_seconds": 604800,
+      "coverage": 0.7,
+      "precedence": 1,
+      "enabled": true,
+      "max_fanout": 1,
+      "params_template": {},
+      "produces": [],
+      "subjects": [],
+      "notes": "What a place says it is comes back with the search, so wanting a kind of place or refusing one is settled from a call already being made."
     },
     {
       "capability_id": "budget.zillow.native",
