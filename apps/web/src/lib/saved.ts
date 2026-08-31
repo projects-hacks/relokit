@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import type { AttributeValue, Place } from '@relokit/schema'
+import type { AttributeValue, GeoPoint, Place } from '@relokit/schema'
 
 /**
  * Places worth coming back to.
@@ -17,6 +17,8 @@ export interface SavedPlace {
   price_cents: number | null
   photo_url: string | null
   url: string | null
+  /** Where it is, so it can still be opened on a map days later. */
+  point: GeoPoint | null
   /** What a source said about it: the rating, the price bracket, the beds. */
   attributes: Record<string, AttributeValue>
   /** The question it was saved from, which is why it is worth keeping. */
@@ -29,7 +31,11 @@ function read(): SavedPlace[] {
     const raw = localStorage.getItem(KEY)
     const stored = raw ? (JSON.parse(raw) as SavedPlace[]) : []
     // Anything kept before a place carried its own facts still opens.
-    return stored.map((place) => ({ ...place, attributes: place.attributes ?? {} }))
+    return stored.map((place) => ({
+      ...place,
+      attributes: place.attributes ?? {},
+      point: place.point ?? null,
+    }))
   } catch {
     return []
   }
@@ -65,6 +71,7 @@ export function useSaved(query: string) {
                   price_cents: entity.price_cents,
                   photo_url: entity.photo_url,
                   url: entity.url,
+                  point: entity.point,
                   attributes: entity.attributes,
                   query,
                   saved_at: Date.now(),

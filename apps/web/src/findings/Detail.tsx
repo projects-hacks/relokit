@@ -3,6 +3,7 @@ import type { AskResult } from '@relokit/client'
 import type { EvidenceRow, Place } from '@relokit/schema'
 import { ago, money, sourceName, tight } from '../lib/format.ts'
 import { useDialog } from '../lib/dialog.ts'
+import { appleMapsUrl, googleMapsUrl } from '../lib/links.ts'
 import { described } from '../lib/attributes.ts'
 
 const MARK: Record<string, string> = { pass: '✓', fail: '✕', unknown: '?' }
@@ -90,27 +91,13 @@ export function Detail({
                 : 'Visit the website'}
             </a>
           )}
-          {entity.point && (
-            <a
-              className="outward"
-              href={
-                entity.entity_id.startsWith('places:')
-                  ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(entity.title)}&query_place_id=${entity.entity_id.slice('places:'.length)}`
-                  : `https://www.google.com/maps/search/?api=1&query=${entity.point.lat},${entity.point.lng}`
-              }
-              target="_blank"
-              rel="noreferrer"
-            >
+          {googleMapsUrl(entity) && (
+            <a className="outward" href={googleMapsUrl(entity)!} target="_blank" rel="noreferrer">
               Google Maps
             </a>
           )}
-          {entity.point && (
-            <a
-              className="outward"
-              href={`https://maps.apple.com/?q=${encodeURIComponent(entity.title)}&ll=${entity.point.lat},${entity.point.lng}`}
-              target="_blank"
-              rel="noreferrer"
-            >
+          {appleMapsUrl(entity) && (
+            <a className="outward" href={appleMapsUrl(entity)!} target="_blank" rel="noreferrer">
               Apple Maps
             </a>
           )}
