@@ -1531,6 +1531,11 @@ button:focus-visible,
 
 /* ---------- what just happened ---------- */
 
+/*
+ * A passing word about something that just happened, so it states its own
+ * colours: it was still wearing the blueprint palette, which after the change
+ * left it pale on pale under a heavy dark shadow.
+ */
 .toast {
   position: fixed;
   left: 50%;
@@ -1540,22 +1545,39 @@ button:focus-visible,
   display: flex;
   align-items: center;
   gap: calc(var(--step) * 4);
+  max-width: min(420px, calc(100vw - var(--step) * 8));
   padding: calc(var(--step) * 3) calc(var(--step) * 4);
   border-radius: var(--radius);
-  background: var(--ground-raised);
-  color: var(--chalk);
-  border: 1px solid rgb(147 169 196 / 22%);
-  box-shadow: 0 8px 30px rgb(3 10 20 / 45%);
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  box-shadow: 0 8px 30px rgb(24 36 32 / 28%);
   font-size: 13px;
 }
 
+/*
+ * The foot of a phone already holds the way between the map and the list, and
+ * the card naming what the map is showing. A third thing landed on top of the
+ * first, so this goes to the head of the screen, which is empty.
+ */
+@media (max-width: 899px) {
+  .toast {
+    top: calc(var(--step) * 3 + env(safe-area-inset-top));
+    bottom: auto;
+  }
+}
+
+/* Verification green is legible on paper and not on ink, and undo is the one
+   thing here anybody needs to find. */
 .toast .as-link {
-  color: var(--measure);
-  border-bottom-color: transparent;
+  flex: none;
+  font-weight: 600;
+  color: #fff;
+  border-bottom-color: rgb(255 255 255 / 45%);
 }
 
 .toast .as-link:hover {
-  border-bottom-color: var(--measure);
+  border-bottom-color: #fff;
 }
 
 /* ---------- focus ---------- */
