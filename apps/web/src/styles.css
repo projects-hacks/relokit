@@ -332,6 +332,17 @@ button:focus-visible,
   margin-right: 6px;
 }
 
+/*
+ * The way between the two views of an answer.
+ *
+ * A control at the end of the results is only reachable by reading all of them
+ * first, so on a phone this follows the reader instead. Above the width where
+ * both views fit together it is not shown at all.
+ */
+.view-switch {
+  display: none;
+}
+
 /* ---------- map ---------- */
 
 .map {
@@ -755,29 +766,12 @@ button:focus-visible,
  * that scrolls once, which is the only arrangement that survives a phone.
  */
 /* Only shown where the map is a sheet. */
-.stage-toggle {
-  display: block;
-  width: 100%;
-  font: inherit;
-  font-size: 13px;
-  color: var(--chalk);
-  background: var(--ground-raised);
-  border: none;
-  border-top: 1px solid var(--paper-edge);
-  padding: calc(var(--step) * 3.5);
-  cursor: pointer;
-  text-align: left;
-}
 
 /* The map stays in the tree at zero height so opening can ease; display none
    would snap it. The overlays can snap. */
 .stage[data-shut='true'] .legend,
 .stage[data-shut='true'] .counter {
   display: none;
-}
-
-.stage[data-shut='false'] .map {
-  height: 70vh;
 }
 
 .stage[data-shut='false'] .legend {
@@ -2204,6 +2198,66 @@ button:focus-visible,
   }
 }
 
+@media (max-width: 899px) {
+  .view-switch {
+    position: fixed;
+    left: 50%;
+    bottom: calc(var(--step) * 5);
+    transform: translateX(-50%);
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    gap: calc(var(--step) * 2);
+    padding: calc(var(--step) * 3) calc(var(--step) * 5);
+    font: 600 14px/1 var(--sans);
+    color: #fff;
+    background: var(--ink);
+    border: none;
+    border-radius: 999px;
+    box-shadow: 0 6px 24px rgb(24 36 32 / 28%);
+    cursor: pointer;
+  }
+
+  /* Clear of the switch, and of the home indicator under it. */
+  .paper {
+    padding-bottom: calc(var(--step) * 22 + env(safe-area-inset-bottom));
+  }
+
+  /* Shut, the map is not merely short: it is out of the document, so nothing
+     of it can be scrolled past or reached by a stray tab. */
+  .stage[data-shut='true'] {
+    display: none;
+  }
+
+  /* Open, it is the whole view rather than a strip at the end of the results,
+     because a map the size of a postcard cannot be read. */
+  .stage[data-shut='false'] {
+    position: fixed;
+    inset: auto 0 0;
+    top: 0;
+    z-index: 30;
+    height: 100dvh;
+    background: var(--ground);
+  }
+
+  /* The base map is a shut sheet, zero high and in the flow. Taking the whole
+     view means saying so, or the canvas keeps the height of the strip. */
+  .stage[data-shut='false'] .map {
+    position: absolute;
+    inset: 0;
+    width: auto;
+    height: auto;
+  }
+
+  /* With the map taking the view, the rest is out of the document rather than
+     merely behind it: nothing to scroll by accident, nothing to tab into. */
+  .shell[data-map='open'] .paper,
+  .shell[data-map='open'] .rail,
+  .shell[data-map='open'] .masthead {
+    display: none;
+  }
+}
+
 /* Wider screens last, so every base rule above can be overridden here. */
 @media (min-width: 900px) {
   .masthead {
@@ -2256,10 +2310,6 @@ button:focus-visible,
     inset: 0;
     width: auto;
     height: auto;
-  }
-
-  .stage-toggle {
-    display: none;
   }
 
   .stage .legend,
@@ -2335,7 +2385,7 @@ button:focus-visible,
   .hero-examples button,
   .brand-home,
   .as-link,
-  .stage-toggle,
+  .view-switch,
   .saved-access {
     min-height: 44px;
   }

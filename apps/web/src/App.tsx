@@ -101,7 +101,11 @@ export function App() {
       : undefined
 
   return (
-    <div className="shell" data-answered={String(Boolean(result))}>
+    <div
+      className="shell"
+      data-answered={String(Boolean(result))}
+      data-map={mapShut ? 'shut' : 'open'}
+    >
       {/* One region, present from the start, so a reader is told how the run is
           going rather than left with a page that silently rearranges itself. */}
       <div className="sr-only" role="status" aria-live="polite">
@@ -148,17 +152,20 @@ export function App() {
             {result && !working && <Working result={result} />}
           </aside>
 
+          {/* On a phone the map and the list are two views of the same
+              answer, so they take turns and the way between them follows the
+              reader rather than sitting under everything they have not read
+              yet. Above that width both are on screen and this is not rendered. */}
+          <button
+            className="view-switch"
+            onClick={() => setMapShut((current) => !current)}
+            aria-pressed={!mapShut}
+          >
+            <span aria-hidden="true">{mapShut ? '◉' : '☰'}</span>
+            {mapShut ? 'Map' : 'List'}
+          </button>
+
           <main className="stage" data-shut={String(mapShut)}>
-            <button
-              className="stage-toggle"
-              onClick={() => setMapShut((current) => !current)}
-              aria-expanded={!mapShut}
-            >
-              <span>{mapShut ? 'Show the map' : 'Hide the map'}</span>
-              <span className="map-toggle-icon" aria-hidden="true">
-                {mapShut ? '↗' : '×'}
-              </span>
-            </button>
             <Map
               theme={mapTheme}
               shut={mapShut}

@@ -57,16 +57,17 @@ export function Map({
   const [styleReady, setStyleReady] = useState(0)
   const appliedTheme = useRef<MapTheme>(theme)
 
-  // A canvas measured while its container was collapsed keeps that size until
-  // it is told to measure again, so reopening the sheet would otherwise show a
-  // sliver of map.
+  // A canvas keeps whatever size it was last measured at, so a map that
+  // becomes the whole view keeps the height of the strip it used to be. A
+  // timeout only guesses when the layout settled; this watches the container
+  // and measures again whenever it actually changes.
   useEffect(() => {
-    if (shut) return
-    const instance = map.current
-    if (!instance) return
-    const timer = setTimeout(() => instance.resize(), 60)
-    return () => clearTimeout(timer)
-  }, [shut])
+    const node = container.current
+    if (!node) return
+    const observer = new ResizeObserver(() => map.current?.resize())
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
 
   // Swapping the style keeps the camera where the reader left it, which is the
   // whole point of a theme toggle: the same picture in different colours.
