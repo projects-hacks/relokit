@@ -123,6 +123,17 @@ runs one at a time.
 The floor is therefore about 2.6 s per operation, and the way past it is fewer
 round trips rather than more of them at once.
 
+## An aborted request keeps what it already wrote
+
+Measured with a throwaway endpoint that wrote a row and then failed a
+precondition on purpose: the row survived. Requests are not transactions, and a
+precondition abort does not roll back earlier statements.
+
+That is load-bearing for batching. A batch endpoint that loops execute_op can
+abort halfway and lose nothing already done: completed calls keep their op rows
+and their cache writes, so re-asking them costs nothing, and only the calls
+after the failure need asking again.
+
 ## A call that fails after the provider answered has still been paid for
 
 Asking again looked free: the read-through cache the first attempt fills would
