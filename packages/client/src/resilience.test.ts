@@ -104,13 +104,22 @@ function backend(fail: Record<string, { times: number }> = {}) {
 const impatient: RetryPolicy = { attempts: 4, base_ms: 0, cap_ms: 0, sleep: async () => {} }
 
 describe('a run that meets a backend having a bad minute', () => {
-  it('still answers when a call fails and the instance comes back', async () => {
-    // Exactly what happened live: three gateway pages in the middle of a run.
-    const { transport, seen } = backend({ '/op': { times: 3 } })
-    const result = await ask(transport, QUERY, { retry: impatient })
-    expect(result.entities.length).toBeGreaterThan(0)
-    // It asked again rather than giving up on that operation.
-    expect(seen.filter((path) => path === '/op').length).toBeGreaterThan(3)
+  it('asks a metered call once, however badly it fails', async () => {
+    // A search that fails after the provider answered has been paid for, so
+    // asking again pays twice. Measured live: forty six planned, fifty spent.
+    const { transport, seen } = backend({ '/op': { times: 1 } })
+    const result = await ask(transport, QUERY)
+    // Asked once and not repeated, so nothing is paid for twice.
+    expect(seen.filter((path) => path === '/op')).toHaveLength(1)
+    // The run still ends, and says what it could not do rather than stopping.
+    expect(result.problems.length).toBeGreaterThan(0)
+  })
+
+  it('waits and asks again for the calls that cost nothing', async () => {
+    // The parse is free to repeat, so a bad minute there is worth sitting out.
+    const { transport, seen } = backend({ '/parse': { times: 2 } })
+    await ask(transport, QUERY, { retry: impatient })
+    expect(seen.filter((path) => path === '/parse').length).toBe(3)
   })
 
   it('still answers when the answer cannot be filed', async () => {

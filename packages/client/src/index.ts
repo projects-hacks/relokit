@@ -3,6 +3,7 @@ import { replayRun } from '@relokit/executor'
 import { normalizeConstraintSet, PARSER_VERSION, type Repair } from '@relokit/llm'
 import { NEAR_ME, anchorToHere } from './near.ts'
 import {
+  ONCE,
   PATIENT,
   Refused,
   Waiting,
@@ -191,7 +192,16 @@ export async function ask(
           entity_ids: context.entity_ids,
           params,
         },
-        patience,
+        // Asked once, whatever the rest of the run does.
+        //
+        // I thought a repeat was free here, because the cache the first attempt
+        // fills would answer the second. Measured, it is not: a run of forty six
+        // planned calls spent fifty real searches, because a call that fails
+        // after the provider has answered has already been paid for, and asking
+        // again pays for it twice. The upstream is metered and the failure is
+        // already handled: the listings that call covered go unverified, which
+        // is the answer this product is built to give.
+        options.retry ?? ONCE,
       )
       return answer.body
     },

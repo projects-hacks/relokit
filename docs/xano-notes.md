@@ -123,6 +123,20 @@ runs one at a time.
 The floor is therefore about 2.6 s per operation, and the way past it is fewer
 round trips rather than more of them at once.
 
+## A call that fails after the provider answered has still been paid for
+
+Asking again looked free: the read-through cache the first attempt fills would
+answer the second, so a repeat would be recorded as a hit rather than a search.
+
+Measured, it is not. A run of forty six planned calls spent fifty real searches
+once the operation call was retried, because a gateway that gives up on a slow
+upstream gives up after the upstream has answered and charged for it. The cache
+write never happens, and the repeat buys the same answer a second time.
+
+So the operation call is asked once, whatever the rest of the run does, and only
+the calls that cost nothing wait and ask again. Where the upstream is metered,
+once is the only honest number.
+
 ## The instance flaps under sustained load
 
 An evening of continuous runs produced a pattern: first the largest write starts

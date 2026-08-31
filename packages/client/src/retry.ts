@@ -26,6 +26,15 @@ export interface RetryPolicy {
 
 export const PATIENT: RetryPolicy = { attempts: 4, base_ms: 400, cap_ms: 6000 }
 
+/**
+ * For a call that costs money to make.
+ *
+ * A search that fails after the provider has answered has already been paid
+ * for, and asking again pays for it twice. Where the upstream is metered, once
+ * is the only honest number.
+ */
+export const ONCE: RetryPolicy = { attempts: 1, base_ms: 0, cap_ms: 0 }
+
 /** Nothing to gain by asking again: the request itself is what it objects to. */
 export class Refused extends Error {
   constructor(
