@@ -215,5 +215,10 @@ describe('offers a person could act on', () => {
     const labels = offer!.steps.map((step) => step.display_to)
     expect(labels).not.toContain(offer!.display_from)
     expect(new Set(labels).size).toBe(labels.length)
+
+    // Raised to a number somebody would type, and counting what setting it
+    // would really add: eleven minutes reaches 602, 618 and 640.
+    expect(offer!.steps[0]).toMatchObject({ to: 660, display_to: '11 min', unlocks: 3 })
+    expect(offer!.steps[1]).toMatchObject({ to: 720, display_to: '12 min', unlocks: 4 })
   })
 })

@@ -115,21 +115,24 @@ export function relaxations(
       .filter((entry) => entry.value > bound)
       .sort((a, b) => a.value - b.value)
 
-    // Offers are told apart by the words they are offered in, not by the
-    // numbers underneath. Measurements are seconds and are shown as whole
-    // minutes, so three bounds a few seconds apart all read "10 min" and the
-    // page offered to change ten minutes to ten minutes, three times.
-    const here = format(constraint, bound, unit)
+    // An offer is a number somebody is going to type, so it is raised to one
+    // they would: a journey to the next whole minute, a distance to the next
+    // tenth. Ten minutes two seconds and ten minutes eighteen are both real
+    // bounds and both read "10 min", so offering each of them separately
+    // offered to change ten minutes to ten minutes, twice. Raised instead of
+    // dropped, they survive together inside the eleven minute offer, which is
+    // what a person would actually set to reach them.
     const steps: RelaxationStep[] = []
     for (const { value } of values) {
       if ((value - bound) / bound > maxStretch) break
-      const label = format(constraint, value, unit)
-      // A change nobody could act on is not a change worth offering.
-      if (label === here || steps.some((step) => step.display_to === label)) continue
-      const unlocked = values.filter((v) => v.value <= value)
+      const to = reachable(constraint, value, unit)
+      if (to <= bound || steps.some((step) => step.to === to)) continue
+      // Counted at the number offered, not the one measured, so what it says it
+      // adds is what setting it would add.
+      const unlocked = values.filter((v) => v.value <= to)
       steps.push({
-        to: value,
-        display_to: label,
+        to,
+        display_to: format(constraint, to, unit),
         unlocks: unlocked.length,
         entity_ids: unlocked.map((v) => v.entity_id).sort(),
       })
@@ -171,6 +174,24 @@ function boundOf(constraint: Constraint): number | null {
 function numericValue(evidence: EvidenceRow[], constraintId: string): number | null {
   const row = evidence.find((e) => e.constraint_id === constraintId)
   return typeof row?.value_canonical === 'number' ? row.value_canonical : null
+}
+
+/**
+ * The nearest number above this one that somebody would actually set.
+ *
+ * Nobody types six hundred and two seconds. They type eleven minutes, so an
+ * offer is raised to the step the reader can see and reach: a whole minute for
+ * a journey, a tenth of the unit for a distance. Money is already offered in
+ * whole currency and needs no raising.
+ */
+function reachable(constraint: Constraint, value: number, unit: DistanceUnit): number {
+  const step =
+    constraint.type === 'commute'
+      ? 60
+      : constraint.type === 'nearby_poi'
+        ? Math.round(unit === 'km' ? 100 : 160.934)
+        : 100
+  return Math.ceil(value / step) * step
 }
 
 function format(constraint: Constraint, value: number, unit: DistanceUnit): string {
