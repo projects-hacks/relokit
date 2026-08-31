@@ -14,3 +14,5 @@ xano/workspace/.env.example
 # environment variables into this file, secrets included, which is how three
 # keys reached a public repository.
 xano/workspace/workspace/
+.vercel
+.env*.local

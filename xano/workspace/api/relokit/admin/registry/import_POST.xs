@@ -18,13 +18,6 @@ query "admin/registry/import" verb=POST {
   }
 
   stack {
-    // Shut while the admin key rotates: it appeared in the public git history
-    // on 30 Aug and stays untrusted until replaced.
-    precondition (false) {
-      error_type = "unauthorized"
-      error = "Admin endpoints are disabled during key rotation."
-    }
-  
     precondition ($env.relokit_admin_key != null) {
       error_type = "unauthorized"
       error = "Relokit has no admin key configured on this instance."
