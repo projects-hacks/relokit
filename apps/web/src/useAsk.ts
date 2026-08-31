@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { NEAR_ME, ask, httpTransport, type AskEvent, type AskResult } from '@relokit/client'
 import type { ConstraintSet } from '@relokit/schema'
 import { forget, recall, remember } from './lib/remember.ts'
-import { locate } from './lib/locate.ts'
+import { locate, locationRefused } from './lib/locate.ts'
 
 /**
  * One question, and everything that happened on the way to answering it.
@@ -81,11 +81,16 @@ export function useAsk() {
           here = await locate()
         } catch {
           if (own.signal.aborted) return
+          // Advice you can act on: what to do differs entirely between a
+          // browser that has not been asked and one that was told no, and a
+          // browser told no is never asked again.
+          const refused = await locationRefused()
           setState((previous) => ({
             ...previous,
             status: 'failed',
-            error:
-              'To search near you the browser has to share your location. Allow it and ask again, or name a place instead.',
+            error: refused
+              ? 'This browser is set to refuse your location for this site. Allow it from the address bar or your browser settings, or name a place instead, like “near Santana Row”.'
+              : 'To search near you the browser has to share your location. Allow it and ask again, or name a place instead, like “near Santana Row”.',
           }))
           return
         }

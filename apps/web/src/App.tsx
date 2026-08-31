@@ -165,7 +165,7 @@ export function App() {
             {mapShut ? 'Map' : 'List'}
           </button>
 
-          <main className="stage" data-shut={String(mapShut)}>
+          <main className="stage" data-shut={String(mapShut)} data-theme={mapTheme}>
             <Map
               theme={mapTheme}
               shut={mapShut}

@@ -2399,3 +2399,85 @@ button:focus-visible,
     align-items: center;
   }
 }
+
+/* ---------- chrome that follows the map under it ---------- */
+
+/*
+ * The legend and the narrowing are dark glass, which reads as a hole punched in
+ * a pale basemap. On the bright map they become light glass with dark type, so
+ * the panel sits on the map rather than over it.
+ */
+.stage[data-theme='bright'] .legend,
+.stage[data-theme='bright'] .counter,
+.stage[data-theme='bright'] .map-empty {
+  color: var(--ink);
+  background: rgb(255 255 255 / 88%);
+  border-color: rgb(24 36 32 / 12%);
+  box-shadow: 0 2px 12px rgb(24 36 32 / 10%);
+}
+
+.stage[data-theme='bright'] .counter-step span,
+.stage[data-theme='bright'] .map-empty span,
+.stage[data-theme='bright'] .legend li {
+  color: var(--ink-dim);
+}
+
+.stage[data-theme='bright'] .counter-step b,
+.stage[data-theme='bright'] .counter-arrow,
+.stage[data-theme='bright'] .map-empty b {
+  color: var(--ink);
+}
+
+/* The theme switch is chrome over imagery either way, so it keeps its own
+   contrast rather than borrowing the map's. */
+.stage[data-theme='bright'] .map-theme {
+  background: rgb(255 255 255 / 92%);
+  border-color: rgb(24 36 32 / 12%);
+}
+
+.stage[data-theme='bright'] .map-theme button {
+  color: var(--ink-dim);
+}
+
+.stage[data-theme='bright'] .map-theme button:hover {
+  color: var(--ink);
+  background: rgb(24 36 32 / 6%);
+}
+
+.stage[data-theme='bright'] .map-theme button[data-active='true'] {
+  color: #fff;
+  background: var(--ink);
+}
+
+/*
+ * Chrome over the dark map states its own light type rather than borrowing the
+ * page's. When the palette turned light, the tokens these leant on turned with
+ * it and the legend became dark grey on dark glass.
+ */
+.stage[data-theme='dark'] .legend,
+.stage[data-theme='dark'] .counter,
+.stage[data-theme='dark'] .map-empty {
+  color: #eef2f0;
+  border-color: rgb(255 255 255 / 16%);
+}
+
+.stage[data-theme='dark'] .legend li,
+.stage[data-theme='dark'] .counter-step span,
+.stage[data-theme='dark'] .map-empty span {
+  color: #b9c4c0;
+}
+
+.stage[data-theme='dark'] .counter-step b,
+.stage[data-theme='dark'] .counter-arrow,
+.stage[data-theme='dark'] .map-empty b {
+  color: #fff;
+}
+
+.stage[data-theme='dark'] .map-theme button {
+  color: #b9c4c0;
+}
+
+.stage[data-theme='dark'] .map-theme button[data-active='true'] {
+  color: var(--ink);
+  background: #fff;
+}
