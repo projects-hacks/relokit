@@ -36,30 +36,34 @@ export function Working({ result }: { result: AskResult }) {
           </p>
 
           <p className="eyebrow">Sources used</p>
-          <table className="scores">
-            <thead>
-              <tr>
-                <th>source</th>
-                <th>for</th>
-                <th>rules out</th>
-                <th>answers</th>
-                <th>calls</th>
-              </tr>
-            </thead>
-            <tbody>
-              {chosen.map((candidate, index) => (
-                <tr key={index}>
-                  <td>{candidate.capability_id}</td>
-                  <td>{candidate.constraint_id}</td>
-                  <td>{Math.round((1 - candidate.selectivity_prior) * 100)}%</td>
-                  <td>{Math.round(candidate.coverage * 100)}%</td>
-                  <td>
-                    {candidate.cost_units * candidate.entities_requiring_evaluation || 'free'}
-                  </td>
+          {/* Wider than the rail it now lives in, so it scrolls rather than
+              clipping a column heading in half. */}
+          <div className="scores-scroll">
+            <table className="scores">
+              <thead>
+                <tr>
+                  <th>source</th>
+                  <th>for</th>
+                  <th>rules out</th>
+                  <th>answers</th>
+                  <th>calls</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {chosen.map((candidate, index) => (
+                  <tr key={index}>
+                    <td>{candidate.capability_id}</td>
+                    <td>{candidate.constraint_id}</td>
+                    <td>{Math.round((1 - candidate.selectivity_prior) * 100)}%</td>
+                    <td>{Math.round(candidate.coverage * 100)}%</td>
+                    <td>
+                      {candidate.cost_units * candidate.entities_requiring_evaluation || 'free'}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
           {passedOver.length > 0 && (
             <>

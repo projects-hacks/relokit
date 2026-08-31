@@ -143,6 +143,9 @@ export function App() {
           <aside className="rail">
             <Ask onAsk={run} onStop={stop} busy={status === 'running'} asking={query} />
             <Plan plan={plan} events={events} />
+            {/* The rail is the method: what will be checked, then how it was.
+                It has the room, and it keeps the answer column to answers. */}
+            {result && !working && <Working result={result} />}
           </aside>
 
           <main className="stage" data-shut={String(mapShut)}>
@@ -307,7 +310,6 @@ export function App() {
                 />
                 {/* The fixture demo is nobody's saved question. */}
                 {result.run_id !== 0 && <Watch result={result} />}
-                <Working result={result} />
               </>
             )}
           </section>

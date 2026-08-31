@@ -8,6 +8,7 @@ import {
 } from '@relokit/client'
 import type { Place } from '@relokit/schema'
 import { ago, money } from '../lib/format.ts'
+import { Tip } from '../lib/tooltip.tsx'
 
 const api = '/api'
 const orgKey = ''
@@ -60,13 +61,27 @@ export function Watch({ result }: { result: AskResult }) {
     <section className="watch">
       <div className="watch-head">
         <div>
-          <p className="eyebrow">Keep asking</p>
+          <p className="eyebrow">
+            Track this search
+            <Tip
+              text={
+                'Relokit re-runs this exact question once a night and shows what moved: ' +
+                'what appeared, what went, what changed price. Most answers are still ' +
+                'good the next day, so asking again costs a fraction of asking the first time.'
+              }
+              side="right"
+            >
+              <span className="tip-mark" aria-label="What tracking does">
+                ?
+              </span>
+            </Tip>
+          </p>
           <p className="note">
             {!state?.watching
-              ? 'The market changes whether or not you are looking.'
+              ? 'Places appear and disappear daily. Track this and see what changed, without asking again.'
               : state.asked_at
-                ? `Asked again every night. Last asked ${ago(state.asked_at)}.`
-                : 'Asked again every night. You will see what moved here.'}
+                ? `Checked nightly. Last checked ${ago(state.asked_at)}.`
+                : 'Checked nightly from now on. Anything that moves shows up here.'}
           </p>
         </div>
         <button
@@ -75,20 +90,20 @@ export function Watch({ result }: { result: AskResult }) {
           disabled={busy}
           aria-pressed={Boolean(state?.watching)}
         >
-          {state?.watching ? 'Watching' : 'Watch this search'}
+          {state?.watching ? 'Tracking' : 'Track this search'}
         </button>
       </div>
 
       {state && state.re_asked > 0 && (
         <p className="note watch-cost">
-          Asked again {state.re_asked === 1 ? 'once' : `${state.re_asked} times`}. The first answer
-          took <b>{state.first_cost}</b> {state.first_cost === 1 ? 'search' : 'searches'}; the last
-          took <b>{state.last_cost ?? 0}</b>, because most of it was already known.
+          Checked {state.re_asked === 1 ? 'once' : `${state.re_asked} times`} since. The first
+          answer took <b>{state.first_cost}</b> {state.first_cost === 1 ? 'search' : 'searches'};
+          the latest took <b>{state.last_cost ?? 0}</b>, because most of it was already known.
         </p>
       )}
 
       {state?.watching && changes.length === 0 && state.re_asked > 0 && (
-        <p className="note">Nothing moved. Which is an answer, not a blank.</p>
+        <p className="note">Nothing has changed since you last looked.</p>
       )}
 
       {changes.length > 0 && (
