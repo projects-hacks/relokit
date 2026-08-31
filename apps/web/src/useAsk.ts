@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { NEAR_ME, ask, httpTransport, type AskEvent, type AskResult } from '@relokit/client'
 import type { ConstraintSet } from '@relokit/schema'
 import { forget, recall, remember } from './lib/remember.ts'
+import { locate } from './lib/locate.ts'
 
 /**
  * One question, and everything that happened on the way to answering it.
@@ -150,14 +151,4 @@ function friendlyError(error: unknown): string {
     return 'The search service could not be reached. Check the connection and try again.'
   }
   return detail
-}
-
-function locate(): Promise<{ lat: number; lng: number }> {
-  return new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => resolve({ lat: position.coords.latitude, lng: position.coords.longitude }),
-      reject,
-      { timeout: 8000, maximumAge: 300_000 },
-    )
-  })
 }
