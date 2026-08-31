@@ -2,13 +2,30 @@ import { describe, expect, it } from 'vitest'
 import { measuresFromQuery } from './measures.ts'
 
 const read = (q: string) =>
-  measuresFromQuery(q, (i) => `c${i + 1}`).map((c) => ({
+  measuresFromQuery(q, (i) => `c${i + 1}`, 'restaurant').map((c) => ({
     measure: c.measure,
     min: c.min,
     max: c.max,
   }))
 
 describe('how good and how dear, read from the sentence', () => {
+  it('says nothing about a kind of thing that has no such measure', () => {
+    // A flat has no star rating and no price bracket, so asking put every
+    // listing into "couldn't verify" and verified nothing at all.
+    expect(measuresFromQuery('cheap flats in San Jose', (i) => `c${i + 1}`, 'rental')).toEqual([])
+  })
+
+  it('reads budget as a cap when a number follows it', () => {
+    // "budget 3800 dollars" is what someone will spend, not a word for cheap.
+    expect(
+      measuresFromQuery(
+        '2 bed near Seattle, budget 3800 dollars',
+        (i) => `c${i + 1}`,
+        'restaurant',
+      ),
+    ).toEqual([])
+  })
+
   it('reads a price bracket from the ordinary word for it', () => {
     expect(read('cheap mexican restaurants in San Jose')).toEqual([
       { measure: 'price_level', min: undefined, max: 2 },

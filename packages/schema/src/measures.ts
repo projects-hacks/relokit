@@ -1,4 +1,25 @@
 import type { AttributeConstraint, DescriptorConstraint } from './constraints.ts'
+import type { Subject } from './subject.ts'
+
+/**
+ * Kinds of thing that state these about themselves.
+ *
+ * A rental has no star rating and no price bracket, so a floor on either can
+ * only ever come back unknown, and asking put every flat in the world into
+ * "couldn't verify".
+ */
+const MEASURED: Subject[] = [
+  'restaurant',
+  'cafe',
+  'bar',
+  'gym',
+  'grocery',
+  'pharmacy',
+  'park',
+  'school',
+  'university',
+  'hotel',
+]
 
 /**
  * Words people use for how good and how dear a place is.
@@ -15,8 +36,12 @@ const PHRASES: {
   min?: number
   max?: number
 }[] = [
+  // Budget is a cap when a number follows it and a word for cheap when one does
+  // not: "budget 3800 dollars" is what somebody will spend, and reading it as a
+  // preference for cheap places put every flat into "couldn't verify".
+  { pattern: /\bbudget\b(?!\s*(?:of\s*)?[$£€]?\d)/i, measure: 'price_level', max: 2 },
   {
-    pattern: /\b(cheap|budget|inexpensive|affordable|low[- ]cost)\b/i,
+    pattern: /\b(cheap|inexpensive|affordable|low[- ]cost)\b/i,
     measure: 'price_level',
     max: 2,
   },
@@ -37,7 +62,12 @@ const PHRASES: {
 /** "4 stars", "4.5+ rating", "at least 4 stars". */
 const STARS = /\b(\d(?:\.\d)?)\s*\+?\s*(?:stars?\b|star\b|out of 5\b|\+?\s*rating\b)/i
 
-export function measuresFromQuery(query: string, nextId: (index: number) => string) {
+export function measuresFromQuery(
+  query: string,
+  nextId: (index: number) => string,
+  subject: Subject | null,
+) {
+  if (subject === null || !MEASURED.includes(subject)) return []
   const found: AttributeConstraint[] = []
   const add = (
     measure: AttributeConstraint['measure'],

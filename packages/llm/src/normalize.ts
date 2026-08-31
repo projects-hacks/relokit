@@ -112,7 +112,11 @@ export function normalizeConstraintSet(
 
   // How good and how dear, read off the sentence. The model is asked for these
   // as well; anything it found that is not already here is kept beside them.
-  const measures = measuresFromQuery(query, (index) => `c${constraints.length + index + 1}`)
+  const measures = measuresFromQuery(
+    query,
+    (index) => `c${constraints.length + index + 1}`,
+    subject,
+  )
   for (const measure of measures) {
     if (!constraints.some((c) => c.type === 'attribute' && c.measure === measure.measure)) {
       constraints.push(measure)
