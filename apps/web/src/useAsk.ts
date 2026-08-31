@@ -98,7 +98,14 @@ export function useAsk() {
       const result = await ask(httpTransport(api, orgKey), query, {
         ...(here ? { here } : {}),
         onProgress: (event) =>
-          setState((previous) => ({ ...previous, events: [...previous.events, event] })),
+          setState((previous) => ({
+            ...previous,
+            events: [...previous.events, event],
+            // What is known so far stands in for the answer while the rest is
+            // checked, so results appear stage by stage rather than after a
+            // minutes-long blank.
+            ...(event.kind === 'partial' ? { result: event.result } : {}),
+          })),
         signal: own.signal,
         ...(constraints ? { constraints } : {}),
       })

@@ -55,6 +55,9 @@ export type AskEvent =
   | { kind: 'accepted'; run_id: number; worst_case_units: number; ceiling_cost_units: number }
   | { kind: 'stage'; stage_id: string; entities_in: number; entities_out: number; calls: number }
   | { kind: 'skipped'; stage_id: string; reason: string }
+  /** Everything known so far, in the same shape as the final answer, so a page
+   * can show it while the rest is still being checked. */
+  | { kind: 'partial'; result: AskResult }
 
 /** Something that stopped a call from happening, in words a person can act on. */
 export interface Problem {
@@ -214,6 +217,35 @@ export async function ask(
       // the requests queue there rather than running alongside each other, so
       // asking for parallelism only moves the waiting.
       concurrency: options.concurrency ?? 1,
+      // What is already known, after every stage. The relaxation offers wait
+      // for the end, because half-checked failures make bad advice.
+      onStage: (partial) => {
+        const soFar = bucket(partial.entities, partial.evidence, constraint_set.constraints)
+        report({
+          kind: 'partial',
+          result: {
+            run_id: runId,
+            constraint_set,
+            repairs,
+            plan: planned,
+            entities: partial.entities,
+            evidence: partial.evidence,
+            buckets: soFar,
+            relaxations: [],
+            anchor: null,
+            problems: [],
+            unanswered: [],
+            cost: {
+              naive_units: planned.trace.naive_cost_units,
+              planned_units: planned.trace.planned_cost_units,
+              actual_units: 0,
+              live: 0,
+              cache_hits: 0,
+              ledger_hits: 0,
+            },
+          },
+        })
+      },
     },
   )
 

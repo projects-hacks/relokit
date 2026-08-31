@@ -119,6 +119,13 @@ export async function replayRun(
      * old behaviour and is what replaying from files wants, since there is no
      * latency to hide. */
     concurrency?: number
+    /**
+     * Called as each stage completes, with everything known so far. A run can
+     * take minutes, and a page that shows nothing until the last call answers
+     * reads as broken to anybody watching it; what is known already is an
+     * honest thing to show.
+     */
+    onStage?: (partial: { stage_id: string; entities: Place[]; evidence: EvidenceRow[] }) => void
   },
 ): Promise<RunOutcome> {
   const outcome: RunOutcome = {
@@ -199,6 +206,13 @@ export async function replayRun(
       entities_in: before,
       entities_out: surviving.length,
       calls: outcome.calls - callsBefore,
+    })
+    // Copies, so a listener holding a snapshot is not surprised by the next
+    // stage growing it underneath them.
+    options.onStage?.({
+      stage_id: stage.stage_id,
+      entities: [...outcome.entities],
+      evidence: [...outcome.evidence],
     })
   }
 

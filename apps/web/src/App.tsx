@@ -362,7 +362,7 @@ export function App() {
                   }}
                 />
                 {/* The fixture demo is nobody's saved question. */}
-                {result.run_id !== 0 && <Watch result={result} />}
+                {status === 'done' && result.run_id !== 0 && <Watch result={result} />}
               </>
             )}
           </section>
