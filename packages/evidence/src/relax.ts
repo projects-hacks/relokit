@@ -115,14 +115,21 @@ export function relaxations(
       .filter((entry) => entry.value > bound)
       .sort((a, b) => a.value - b.value)
 
+    // Offers are told apart by the words they are offered in, not by the
+    // numbers underneath. Measurements are seconds and are shown as whole
+    // minutes, so three bounds a few seconds apart all read "10 min" and the
+    // page offered to change ten minutes to ten minutes, three times.
+    const here = format(constraint, bound, unit)
     const steps: RelaxationStep[] = []
     for (const { value } of values) {
-      if (steps.some((step) => step.to === value)) continue
       if ((value - bound) / bound > maxStretch) break
+      const label = format(constraint, value, unit)
+      // A change nobody could act on is not a change worth offering.
+      if (label === here || steps.some((step) => step.display_to === label)) continue
       const unlocked = values.filter((v) => v.value <= value)
       steps.push({
         to: value,
-        display_to: format(constraint, value, unit),
+        display_to: label,
         unlocks: unlocked.length,
         entity_ids: unlocked.map((v) => v.entity_id).sort(),
       })

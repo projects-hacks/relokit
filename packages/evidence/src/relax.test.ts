@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
-import { ConstraintSet, type EvidenceRow, type Place } from '@relokit/schema'
+import { ConstraintSet, type Constraint, type EvidenceRow, type Place } from '@relokit/schema'
 import { bucket } from './buckets.ts'
 import { applyRelaxation, relaxations } from './relax.ts'
 
@@ -170,5 +170,50 @@ describe('accepting an offer', () => {
 
   it('does nothing for an id that is not there', () => {
     expect(applyRelaxation(constraints, 'c99', 1)).toEqual(constraints)
+  })
+})
+
+describe('offers a person could act on', () => {
+  it('never offers a change to the number already set', () => {
+    // Ten minutes is 600 seconds; 602, 618 and 640 are all shown as ten or
+    // eleven minutes, and the page offered to change 10 min to 10 min, three
+    // times over, because it told them apart by the seconds nobody sees.
+    const constraints = [
+      {
+        id: 'c1',
+        type: 'commute',
+        hardness: 'hard',
+        weight: 1,
+        source_text: '10 min bike to San Jose State University',
+        inferred: false,
+        destination: { raw: 'San Jose State University' },
+        mode: 'bike',
+        max_seconds: 600,
+      },
+    ] as never as Constraint[]
+
+    const blocked = [602, 618, 640, 700].map((seconds, index) => ({
+      entity_id: `e${index}`,
+      evidence: [
+        {
+          entity_id: `e${index}`,
+          constraint_id: 'c1',
+          constraint_type: 'commute',
+          verdict: 'fail',
+          eval_state: 'evaluated',
+          value_canonical: seconds,
+        },
+      ],
+      failed_constraint_ids: ['c1'],
+      unknown_constraint_ids: [],
+    }))
+
+    const [offer] = relaxations(
+      { results: [], unverified: [], rejections: blocked } as never,
+      constraints,
+    )
+    const labels = offer!.steps.map((step) => step.display_to)
+    expect(labels).not.toContain(offer!.display_from)
+    expect(new Set(labels).size).toBe(labels.length)
   })
 })
