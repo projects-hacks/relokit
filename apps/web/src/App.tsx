@@ -20,6 +20,7 @@ import { Nothing } from './findings/Nothing.tsx'
 import { FindingsSkeleton } from './findings/Skeleton.tsx'
 import { Offers } from './findings/Offers.tsx'
 import { Map, type MapTheme } from './map/Map.tsx'
+import { Peek } from './map/Peek.tsx'
 import { Landing } from './Landing.tsx'
 
 const asked = () => new URLSearchParams(location.search).get('q')?.trim() ?? ''
@@ -107,6 +108,9 @@ export function App() {
     }
   }, [mapTheme])
 
+  const selected = selectedId
+    ? (result?.entities.find((e) => e.entity_id === selectedId) ?? null)
+    : null
   const open = openId ? result?.entities.find((e) => e.entity_id === openId) : undefined
   const openEvidence =
     result && openId
@@ -211,6 +215,17 @@ export function App() {
               }}
               onOpen={setOpenId}
             />
+
+            {/* Only where the list is not beside the map. On a wide screen the
+                card is already on screen and this would repeat it. */}
+            {selected && (
+              <Peek
+                place={selected}
+                onOpen={() => setOpenId(selected.entity_id)}
+                onDismiss={() => setSelectedId(null)}
+              />
+            )}
+
             <div className="map-theme" role="group" aria-label="Map colour">
               <button
                 type="button"
