@@ -2486,7 +2486,18 @@ button:focus-visible,
 
 /* ---------- why three answers ---------- */
 
+/* Every other section on the landing is held to this width and centred. Without
+   its own rule this one ran the full viewport, so its heading was cut off at
+   the left edge and the last column pushed past the right. */
+.honesty {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 calc(var(--step) * 5) calc(var(--step) * 10);
+  text-align: center;
+}
+
 .honesty-row {
+  text-align: left;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: calc(var(--step) * 5);
