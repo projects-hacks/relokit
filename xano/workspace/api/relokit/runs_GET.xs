@@ -51,10 +51,6 @@ query runs verb=GET {
       return = {type: "list"}
     } as $evidence
   
-    db.query relokit_entity {
-      where = $db.relokit_entity.org_id == $org.id
-      return = {type: "list"}
-    } as $entities
   }
 
   response = {
@@ -62,7 +58,6 @@ query runs verb=GET {
     status                                                                     : $run.status
     version                                                                    : $run.version
     plan_id                                                                    : $run.plan_id
-    entities                                                                   : $entities
     evidence                                                                   : $evidence
     "// One row per call"                                                      : ``
     "with how it was answered. A cache hit is a call this"                     : ``
