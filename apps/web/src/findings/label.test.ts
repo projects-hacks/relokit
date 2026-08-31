@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import type { Buckets, EvidenceRow } from '@relokit/schema'
+import type { Buckets } from '@relokit/evidence'
+import type { EvidenceRow } from '@relokit/schema'
 
 /**
  * What the tab over the results is allowed to claim.
@@ -10,7 +11,7 @@ import type { Buckets, EvidenceRow } from '@relokit/schema'
  */
 function verified(buckets: Buckets): boolean {
   return [...buckets.results, ...buckets.unverified, ...buckets.rejections].some((entry) =>
-    entry.evidence.some((row) => row.eval_state === 'evaluated'),
+    entry.evidence.some((row: EvidenceRow) => row.eval_state === 'evaluated'),
   )
 }
 
