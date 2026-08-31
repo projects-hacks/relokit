@@ -2665,3 +2665,29 @@ button:focus-visible,
     cursor: pointer;
   }
 }
+
+/* A link that carries a mark sets it beside the words rather than above them. */
+.detail-actions a,
+.saved-property-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--step) * 1.5);
+}
+
+.detail-actions a svg,
+.saved-property-actions a svg {
+  flex: none;
+}
+
+/* The question a place was kept from: two lines, then stop, with the whole of
+   it on hover. This panel scrolls, so nothing here may rely on overflowing it. */
+.saved-property-question {
+  margin: calc(var(--step) * 1) 0 0;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--chalk-faint);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

@@ -3,7 +3,7 @@ import type { SavedPlace } from '../lib/saved.ts'
 import { ago, money } from '../lib/format.ts'
 import { described } from '../lib/attributes.ts'
 import { appleMapsUrl, googleMapsUrl } from '../lib/links.ts'
-import { Tip } from '../lib/tooltip.tsx'
+import { MapMark } from '../lib/MapMark.tsx'
 import { useDialog } from '../lib/dialog.ts'
 
 /**
@@ -66,19 +66,17 @@ export function SavedLocations({
                 {described(home).length > 0 && (
                   <p className="saved-property-traits">{described(home).join(' · ')}</p>
                 )}
-                <p className="saved-property-from">
-                  Saved {ago(home.saved_at)}
-                  {/* The question can be a whole paragraph. Cutting it off mid
-                      word told nobody anything, so it waits behind a mark and
-                      arrives whole. */}
-                  {home.query && (
-                    <Tip text={`Saved from: ${home.query}`} side="left">
-                      <span className="tip-mark" aria-label="The question this came from">
-                        ?
-                      </span>
-                    </Tip>
-                  )}
-                </p>
+                <p className="saved-property-from">Saved {ago(home.saved_at)}</p>
+                {/* Written out rather than hidden behind a mark. This panel
+                    scrolls, and anything absolutely positioned inside something
+                    that scrolls is cut off at its edge, so the tooltip that was
+                    here could not be read. Two lines, and the whole question on
+                    hover, which nothing can clip. */}
+                {home.query && (
+                  <p className="saved-property-question" title={home.query}>
+                    from “{home.query}”
+                  </p>
+                )}
                 <div className="saved-property-actions">
                   {home.url && (
                     <a href={home.url} target="_blank" rel="noreferrer">
@@ -87,12 +85,14 @@ export function SavedLocations({
                   )}
                   {googleMapsUrl(home) && (
                     <a href={googleMapsUrl(home)!} target="_blank" rel="noreferrer">
-                      Google Maps ↗
+                      <MapMark of="google" />
+                      Google Maps
                     </a>
                   )}
                   {appleMapsUrl(home) && (
                     <a href={appleMapsUrl(home)!} target="_blank" rel="noreferrer">
-                      Apple Maps ↗
+                      <MapMark of="apple" />
+                      Apple Maps
                     </a>
                   )}
                   <button onClick={() => onRemove(home.entity_id)}>Remove</button>

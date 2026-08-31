@@ -4,6 +4,7 @@ import type { EvidenceRow, Place } from '@relokit/schema'
 import { ago, money, sourceName, tight } from '../lib/format.ts'
 import { useDialog } from '../lib/dialog.ts'
 import { appleMapsUrl, googleMapsUrl } from '../lib/links.ts'
+import { MapMark } from '../lib/MapMark.tsx'
 import { described } from '../lib/attributes.ts'
 
 const MARK: Record<string, string> = { pass: '✓', fail: '✕', unknown: '?' }
@@ -93,11 +94,13 @@ export function Detail({
           )}
           {googleMapsUrl(entity) && (
             <a className="outward" href={googleMapsUrl(entity)!} target="_blank" rel="noreferrer">
+              <MapMark of="google" />
               Google Maps
             </a>
           )}
           {appleMapsUrl(entity) && (
             <a className="outward" href={appleMapsUrl(entity)!} target="_blank" rel="noreferrer">
+              <MapMark of="apple" />
               Apple Maps
             </a>
           )}
