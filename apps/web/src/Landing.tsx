@@ -2,15 +2,15 @@ import { useState } from 'react'
 
 const EXAMPLES: { label: string; query: string }[] = [
   {
-    label: 'A 2 bed with a bikeable commute',
+    label: 'A 2 bed I can cycle to work from',
     query:
       '2 bed apartment in San Jose under $3,500, 25 min bike to 1 Infinite Loop, gym open past 9pm',
   },
   {
-    label: 'Dinner near Santana Row, open late',
+    label: 'Dinner near Santana Row, still open late',
     query: 'somewhere to eat within 1 mile of Santana Row in San Jose that is open past 10pm',
   },
-  { label: 'Dinner near me, open late', query: 'mexican restaurants near me open past 10pm' },
+  { label: 'Mexican near me, open past 10', query: 'mexican restaurants near me open past 10pm' },
   {
     label: 'Near the station and the shops',
     query: '1 bed within 3 km of Diridon Station and 3 km of Santana Row, in San Jose',
@@ -24,14 +24,17 @@ const RECEIPTS: [string, string, string][] = [
 ]
 
 const STEPS: [string, string][] = [
-  ['Say it in a sentence', 'Rent, commute, hours, places to be near. No filters to learn.'],
   [
-    'Each requirement is checked at its source',
-    'The rent from the listing, the ride from the road, the hours from the place itself.',
+    'Say it in a sentence',
+    'The rent, the ride to work, what has to be nearby and when it has to be open. No filters to learn, no fields to fill.',
   ],
   [
-    'Three honest answers',
-    'Verified, couldn’t verify, and ruled out with the reason. Never a guess dressed as a result.',
+    'Each part is checked where the answer lives',
+    'The rent from the listing, the journey from the road itself, the opening hours from the place. Crossed in one pass rather than one result at a time.',
+  ],
+  [
+    'Three answers, including the honest one',
+    'What holds up. What was ruled out, and why. And what could not be confirmed, said plainly instead of guessed.',
   ],
 ]
 
@@ -57,13 +60,14 @@ export function Landing({ onSearch }: { onSearch: (query?: string) => void }) {
     <div className="landing">
       <section className="hero">
         <h1>
-          Ask for a place like
+          Stop checking every
           <br />
-          you&rsquo;d ask a person.
+          result by hand.
         </h1>
         <p className="hero-sub">
-          One question across rent, commute, and opening hours. Every answer checked at its source,
-          with the receipt to prove it.
+          A listing tells you what a place is. It never tells you whether it works for you. Ask
+          once, in your own words, and every requirement is checked against whatever actually holds
+          the answer.
         </p>
 
         <form
@@ -92,7 +96,7 @@ export function Landing({ onSearch }: { onSearch: (query?: string) => void }) {
       </section>
 
       <section className="receipts" aria-label="What an answer looks like">
-        <p className="eyebrow">Every fact carries its receipt</p>
+        <p className="eyebrow">Every fact shows its working</p>
         <div className="receipt-strip">
           {RECEIPTS.map(([fact, source, age]) => (
             <div className="receipt" key={fact}>
@@ -118,6 +122,29 @@ export function Landing({ onSearch }: { onSearch: (query?: string) => void }) {
               <p>{detail}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="honesty">
+        <p className="eyebrow">Why three answers and not a ranked list</p>
+        <div className="honesty-row">
+          <div>
+            <b>It holds</b>
+            <p>
+              Every requirement checked, each fact showing where it came from and how old it is.
+            </p>
+          </div>
+          <div>
+            <b>It does not</b>
+            <p>Ruled out, with the one thing that failed named rather than buried.</p>
+          </div>
+          <div>
+            <b>Nobody could say</b>
+            <p>
+              A rent quoted as a range settles nothing against a limit. Said plainly, instead of
+              counted as a pass.
+            </p>
+          </div>
         </div>
       </section>
 

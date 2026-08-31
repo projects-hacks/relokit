@@ -130,7 +130,7 @@ export function App() {
             Relo<span>kit</span>
           </h1>
         </a>
-        <p className="strapline">Every answer checked at its source</p>
+        <p className="strapline">Checked, not guessed</p>
         {saved.homes.length > 0 && (
           <button className="saved-access" onClick={() => setSavedOpen(true)}>
             <span aria-hidden="true">★</span>

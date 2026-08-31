@@ -2481,3 +2481,44 @@ button:focus-visible,
   color: var(--ink);
   background: #fff;
 }
+
+/* ---------- why three answers ---------- */
+
+.honesty-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: calc(var(--step) * 5);
+  margin-top: calc(var(--step) * 4);
+}
+
+.honesty-row > div {
+  padding-left: calc(var(--step) * 3.5);
+  border-left: 2px solid var(--paper-edge);
+}
+
+/* The three marks the results themselves use, so the promise here and the
+   answer later are visibly the same thing. */
+.honesty-row > div:nth-child(1) {
+  border-left-color: var(--verified);
+}
+
+.honesty-row > div:nth-child(2) {
+  border-left-color: var(--ruled-out);
+}
+
+.honesty-row > div:nth-child(3) {
+  border-left-color: var(--unsure);
+}
+
+.honesty-row b {
+  display: block;
+  font-size: 14px;
+  margin-bottom: calc(var(--step) * 1.5);
+}
+
+.honesty-row p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+}
