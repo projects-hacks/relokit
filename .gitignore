@@ -9,3 +9,8 @@ dist/
 node_modules/
 profile.yaml
 xano/workspace/.env.example
+
+# Instance configuration, not code. A xano pull writes the instance's own
+# environment variables into this file, secrets included, which is how three
+# keys reached a public repository.
+xano/workspace/workspace/
