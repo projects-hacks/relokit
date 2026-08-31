@@ -2324,3 +2324,28 @@ button:focus-visible,
   color: var(--measure);
   border-color: var(--measure);
 }
+
+/* ---------- something a thumb can hit ---------- */
+
+/*
+ * A pointer lands where it is aimed and a thumb does not, so anything tappable
+ * gets a comfortable height on a touch screen even where the text is small.
+ */
+@media (pointer: coarse) {
+  .hero-examples button,
+  .brand-home,
+  .as-link,
+  .stage-toggle,
+  .saved-access {
+    min-height: 44px;
+  }
+
+  .hero-examples button {
+    padding: calc(var(--step) * 3) calc(var(--step) * 4);
+  }
+
+  .brand-home {
+    display: inline-flex;
+    align-items: center;
+  }
+}
