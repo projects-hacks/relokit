@@ -2,6 +2,15 @@ import { bucket, relaxations, type Buckets, type Relaxation } from '@relokit/evi
 import { replayRun } from '@relokit/executor'
 import { normalizeConstraintSet, PARSER_VERSION, type Repair } from '@relokit/llm'
 import { NEAR_ME, anchorToHere } from './near.ts'
+import {
+  PATIENT,
+  Refused,
+  Waiting,
+  retryAfterMs,
+  withRetry,
+  worthRetrying,
+  type RetryPolicy,
+} from './retry.ts'
 import { plan } from '@relokit/planner'
 import {
   PlanBudget,
@@ -26,7 +35,12 @@ import {
  * next to the person asking.
  */
 export interface Transport {
-  post(path: string, body: Record<string, unknown>): Promise<Record<string, unknown>>
+  /** A policy overrides the default waiting, for a call not safe to repeat. */
+  post(
+    path: string,
+    body: Record<string, unknown>,
+    policy?: RetryPolicy,
+  ): Promise<Record<string, unknown>>
   get(path: string): Promise<Record<string, unknown>>
 }
 
@@ -92,6 +106,8 @@ export interface AskOptions {
   signal?: AbortSignal
   /** The reader's own coordinates, when the question says near me. */
   here?: { lat: number; lng: number }
+  /** How long to wait before asking a failing backend again. */
+  retry?: RetryPolicy
 }
 
 export async function ask(
@@ -106,7 +122,8 @@ export async function ask(
   }
   stopped()
 
-  const parsed = await transport.post('/parse', { query })
+  const patience = options.retry
+  const parsed = await transport.post('/parse', { query }, patience)
   const raw = readJson(String(parsed.raw_text))
 
   // The model names the kind of constraint and copies the words it came from.
@@ -147,7 +164,7 @@ export async function ask(
   })
   report({ kind: 'planned', plan: planned })
 
-  const accepted = await transport.post('/run', { constraint_set, plan: planned })
+  const accepted = await transport.post('/run', { constraint_set, plan: planned }, patience)
   const runId = Number(accepted.run_id)
   report({
     kind: 'accepted',
@@ -162,16 +179,20 @@ export async function ask(
     registry.capabilities,
     async (_engine, params, context) => {
       stopped()
-      const answer = await transport.post('/op', {
-        run_id: runId,
-        op_id: context.op_id,
-        capability_id: context.capability_id,
-        endpoint: context.endpoint,
-        ttl_seconds: context.ttl_seconds,
-        constraint_ids: context.constraint_ids,
-        entity_ids: context.entity_ids,
-        params,
-      })
+      const answer = await transport.post(
+        '/op',
+        {
+          run_id: runId,
+          op_id: context.op_id,
+          capability_id: context.capability_id,
+          endpoint: context.endpoint,
+          ttl_seconds: context.ttl_seconds,
+          constraint_ids: context.constraint_ids,
+          entity_ids: context.entity_ids,
+          params,
+        },
+        patience,
+      )
       return answer.body
     },
     {
@@ -207,19 +228,42 @@ export async function ask(
   }))
   const CHUNK = 60
   stopped()
+  // Keeping the record is not what the reader asked for. The answer is already
+  // in hand by this point, computed here from what came back, so a backend that
+  // refuses the write costs a stored copy and a nightly comparison, not the
+  // answer on screen. It is written down as a problem rather than swallowed.
+  //
+  // Not retried, either: a repeat would write every fact in the chunk a second
+  // time, since only entities are checked before insert.
+  const keeping: string[] = []
   for (let at = 0; at < Math.max(entityRows.length, evidenceRows.length, 1); at += CHUNK) {
-    await transport.post('/ingest', {
-      run_id: runId,
-      entities: entityRows.slice(at, at + CHUNK),
-      evidence: evidenceRows.slice(at, at + CHUNK),
-    })
+    try {
+      await transport.post(
+        '/ingest',
+        {
+          run_id: runId,
+          entities: entityRows.slice(at, at + CHUNK),
+          evidence: evidenceRows.slice(at, at + CHUNK),
+        },
+        { attempts: 1, base_ms: 0, cap_ms: 0 },
+      )
+    } catch (error) {
+      keeping.push(error instanceof Error ? error.message : String(error))
+    }
   }
 
-  const stored = (await transport.get(`/runs?run_id=${runId}`)) as {
-    ops: { status: string }[]
-    cost: { naive_units: number; planned_units: number; actual_units: number }
+  // The tallies are a nicety; the spend the reader is shown comes back with
+  // them, so falling back to what the executor counted is honest rather than
+  // blank.
+  type Stored = { ops: { status: string }[]; cost: Record<string, number> }
+  let stored: Stored | null = null
+  try {
+    stored = (await transport.get(`/runs?run_id=${runId}`)) as unknown as Stored
+  } catch {
+    // Left as nothing, and the counts below fall back to what was measured here.
   }
-  const tally = (status: string) => stored.ops.filter((o) => o.status === status).length
+  const tally = (status: string) =>
+    stored ? stored.ops.filter((op) => op.status === status).length : 0
 
   const buckets = bucket(outcome.entities, outcome.evidence, constraint_set.constraints)
 
@@ -250,16 +294,31 @@ export async function ask(
         op_id: entry.op_id,
         detail: readable(entry.detail, entry.engine),
       })),
+      // The answer stands; what failed was writing it down. Worth saying,
+      // because it is why tracking this question would find nothing tonight.
+      ...(keeping.length > 0
+        ? [
+            {
+              op_id: 'keeping',
+              detail:
+                'This answer could not be filed, so tracking it would have nothing to compare against. Asking again will file it.',
+            },
+          ]
+        : []),
     ],
     unanswered: planned.unsatisfied.map((entry) => ({
       constraint_id: entry.constraint_id,
       reason: UNANSWERED[entry.reason] ?? entry.reason,
     })),
+    // The backend keeps the authoritative tally, and where it could not be
+    // asked the plan and the run itself still know what was intended and what
+    // was called. Better a number measured here than a blank where a number
+    // belongs.
     cost: {
-      naive_units: stored.cost.naive_units,
-      planned_units: stored.cost.planned_units,
-      actual_units: stored.cost.actual_units,
-      live: tally('ok'),
+      naive_units: stored?.cost.naive_units ?? planned.trace.naive_cost_units,
+      planned_units: stored?.cost.planned_units ?? planned.trace.planned_cost_units,
+      actual_units: stored?.cost.actual_units ?? outcome.calls,
+      live: stored ? tally('ok') : outcome.calls,
       cache_hits: tally('cache_hit'),
       ledger_hits: tally('ledger_hit'),
     },
@@ -275,29 +334,56 @@ function readJson(text: string): unknown {
 }
 
 /** Talks to a Relokit backend, adding the org key to everything. */
-export function httpTransport(api: string, orgKey: string): Transport {
+/**
+ * Every call goes through the same waiting.
+ *
+ * Asking an operation again is safe for the budget, which is the only thing
+ * that would make retrying dishonest: the first attempt fills the cache before
+ * the gateway gives up on it, so a second attempt reads that cache, is recorded
+ * as a cache hit rather than a search, and the ledger stays true.
+ */
+async function once(url: string, init: RequestInit | undefined, path: string): Promise<unknown> {
+  let response: Response
+  try {
+    response = await fetch(url, init)
+  } catch (error) {
+    // Never reached the other end, so nothing happened there to repeat.
+    throw new Error(`${path} could not be reached: ${(error as Error).message}`)
+  }
+  const text = await response.text()
+  if (response.ok) return JSON.parse(text)
+
+  const said = `${path} returned ${response.status}: ${text.slice(0, 300)}`
+  if (!worthRetrying(response.status)) throw new Refused(said, response.status)
+  const after = retryAfterMs(response.headers.get('retry-after'))
+  throw after === null ? new Error(said) : new Waiting(said, after)
+}
+
+export function httpTransport(api: string, orgKey: string, policy = PATIENT): Transport {
   return {
-    async post(path, body) {
-      const response = await fetch(`${api}${path}`, {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        // Behind the proxy the key is added server side, so an empty one is
-        // not sent at all rather than sent blank.
-        body: JSON.stringify(orgKey ? { org_key: orgKey, ...body } : body),
-      })
-      const text = await response.text()
-      if (!response.ok)
-        throw new Error(`${path} returned ${response.status}: ${text.slice(0, 300)}`)
-      return JSON.parse(text)
+    async post(path, body, override) {
+      return withRetry(
+        () =>
+          once(
+            `${api}${path}`,
+            {
+              method: 'POST',
+              headers: { 'content-type': 'application/json' },
+              // Behind the proxy the key is added server side, so an empty one
+              // is not sent at all rather than sent blank.
+              body: JSON.stringify(orgKey ? { org_key: orgKey, ...body } : body),
+            },
+            path,
+          ),
+        override ?? policy,
+      ) as Promise<Record<string, unknown>>
     },
     async get(path) {
       const separator = path.includes('?') ? '&' : '?'
       const suffix = orgKey ? `${separator}org_key=${encodeURIComponent(orgKey)}` : ''
-      const response = await fetch(`${api}${path}${suffix}`)
-      const text = await response.text()
-      if (!response.ok)
-        throw new Error(`${path} returned ${response.status}: ${text.slice(0, 300)}`)
-      return JSON.parse(text)
+      return withRetry(() => once(`${api}${path}${suffix}`, undefined, path), policy) as Promise<
+        Record<string, unknown>
+      >
     },
   }
 }
