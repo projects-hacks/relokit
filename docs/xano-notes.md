@@ -173,3 +173,14 @@ A query parameter arrives as text. `db.get` on an int column with one fails with
 A counter incremented inside nested conditionals inside a `foreach` stops being
 numeric. Totals that matter are kept on a row and updated as they change, rather
 than recomputed by walking rows in a stack.
+
+The whole `$input` object cannot be piped: `$input|get:"region":null` fails at
+runtime with `Unable to locate input: ` and an empty name, so an endpoint that
+compiled fine dies on every call that reaches the expression. A declared input
+is read as `$input.region`, and declaring it `text region?` is what makes the
+absent case null.
+
+An instance is winded right after a run's own burst of calls, which is exactly
+when the filing starts. The big evidence chunks are what it drops first; a small
+request goes through in the same minute. Anything that must land, like the
+observation counts, travels first and alone.
