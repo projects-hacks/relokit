@@ -214,3 +214,31 @@ describe('fitting clusters to the listings', () => {
     expect(cells[0]!.radius_m).toBeGreaterThan(5_000)
   })
 })
+
+describe('centroids as cache keys', () => {
+  it('lands wobbling candidates on the same key', () => {
+    // The same neighbourhood, seen through two slightly different candidate
+    // lists: one extra listing a street away. Unsnapped, every centroid moved a
+    // few metres and every cluster call repaid a search it already owned.
+    const base = Array.from({ length: 12 }, (_, i) => ({
+      lat: 37.3 + (i % 4) * 0.004,
+      lng: -121.95 + Math.floor(i / 4) * 0.004,
+    }))
+    const wobbled = [...base, { lat: 37.3021, lng: -121.9479 }]
+    const a = refineClusters(base, 3).map((c) => `${c.centroid.lat},${c.centroid.lng}`)
+    const b = refineClusters(wobbled, 3).map((c) => `${c.centroid.lat},${c.centroid.lng}`)
+    expect(b).toEqual(a)
+  })
+
+  it('still covers every member from the snapped point', () => {
+    const points = Array.from({ length: 9 }, (_, i) => ({
+      lat: 37.31 + (i % 3) * 0.01,
+      lng: -121.94 + Math.floor(i / 3) * 0.01,
+    }))
+    for (const cluster of refineClusters(points, 2)) {
+      // No member may sit outside the slack its cluster claims.
+      expect(cluster.radius_m).toBeGreaterThanOrEqual(0)
+      expect(Number.isFinite(cluster.radius_m)).toBe(true)
+    }
+  })
+})

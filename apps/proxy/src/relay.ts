@@ -5,7 +5,7 @@
  * allowed through and how the key is attached can never drift between the two
  * ways of deploying.
  */
-const allowed = new Set(['parse', 'run', 'runs', 'op', 'ingest', 'changes', 'watch'])
+const allowed = new Set(['parse', 'run', 'runs', 'op', 'ops', 'ingest', 'changes', 'watch'])
 
 export interface RelayConfig {
   instance: string

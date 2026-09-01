@@ -106,6 +106,15 @@ type Search = (
   context: OpContext,
 ) => Promise<unknown>
 
+/** Several calls in one asking, answers in the same order. */
+export type SearchBatch = (
+  requests: {
+    engine: Engine
+    params: Record<string, string | number | boolean>
+    context: OpContext
+  }[],
+) => Promise<unknown[]>
+
 export async function replayRun(
   plan: PlanResult,
   constraints: ConstraintSet,
@@ -126,6 +135,14 @@ export async function replayRun(
      * honest thing to show.
      */
     onStage?: (partial: { stage_id: string; entities: Place[]; evidence: EvidenceRow[] }) => void
+    /**
+     * When present, calls of one operation go over together in groups rather
+     * than one request each. A group that fails falls back to single calls: an
+     * aborted group keeps everything it finished (requests are not
+     * transactions), so the singles that repeat it are answered from cache for
+     * nothing.
+     */
+    searchBatch?: SearchBatch
   },
 ): Promise<RunOutcome> {
   const outcome: RunOutcome = {
@@ -272,24 +289,22 @@ export async function replayRun(
     // asking them one at a time spent the whole run waiting. They go out
     // together; what comes back is applied in the order it was asked, so the
     // evidence a run produces does not depend on which answer arrived first.
-    const answers = await inFlight(targets, options.concurrency ?? 1, async (bindings) => {
-      let params: Record<string, string | number | boolean>
+    const contextFor = (bindings: Bindings): OpContext => ({
+      op_id: op.op_id,
+      capability_id: op.capability_id,
+      endpoint: op.endpoint,
+      ttl_seconds: op.ttl_seconds,
+      constraint_ids: op.constraint_ids,
+      entity_ids: targetEntitiesSafe(bindings),
+    })
+
+    const askOne = async (
+      bindings: Bindings,
+      params: Record<string, string | number | boolean>,
+      engine: Engine,
+    ) => {
       try {
-        params = resolveParams(op.params, bindings)
-      } catch (error) {
-        if (!(error instanceof UnresolvedRef)) throw error
-        return { kind: 'unresolved' as const, bindings, ref: error.ref }
-      }
-      const engine = String(params.engine ?? 'zillow') as Engine
-      try {
-        const body = await search(engine, params, {
-          op_id: op.op_id,
-          capability_id: op.capability_id,
-          endpoint: op.endpoint,
-          ttl_seconds: op.ttl_seconds,
-          constraint_ids: op.constraint_ids,
-          entity_ids: targetEntitiesSafe(bindings),
-        })
+        const body = await search(engine, params, contextFor(bindings))
         return { kind: 'answered' as const, bindings, body }
       } catch (error) {
         return {
@@ -300,7 +315,91 @@ export async function replayRun(
           detail: error instanceof Error ? error.message : String(error),
         }
       }
-    })
+    }
+
+    type Outcome =
+      | { kind: 'unresolved'; bindings: Bindings; ref: string }
+      | { kind: 'answered'; bindings: Bindings; body: unknown }
+      | {
+          kind: 'failed'
+          bindings: Bindings
+          engine: Engine
+          params: Record<string, string | number | boolean>
+          detail: string
+        }
+
+    const resolveOne = (
+      bindings: Bindings,
+    ):
+      | Outcome
+      | {
+          params: Record<string, string | number | boolean>
+          engine: Engine
+          bindings: Bindings
+        } => {
+      try {
+        const params = resolveParams(op.params, bindings)
+        return { params, engine: String(params.engine ?? 'zillow') as Engine, bindings }
+      } catch (error) {
+        if (!(error instanceof UnresolvedRef)) throw error
+        return { kind: 'unresolved' as const, bindings, ref: error.ref }
+      }
+    }
+
+    let answers: Outcome[]
+    const resolved = targets.map(resolveOne)
+    const askable = resolved.filter(
+      (
+        entry,
+      ): entry is {
+        params: Record<string, string | number | boolean>
+        engine: Engine
+        bindings: Bindings
+      } => !('kind' in entry),
+    )
+
+    if (options.searchBatch && askable.length > 1) {
+      // Groups of six: enough to collapse the round trips, small enough that a
+      // group with a slow provider call inside it still fits a gateway's
+      // patience.
+      const byBinding = new Map<Bindings, Outcome>()
+      for (const entry of resolved) {
+        if ('kind' in entry) byBinding.set(entry.bindings, entry)
+      }
+      const GROUP = 6
+      for (let at = 0; at < askable.length; at += GROUP) {
+        const group = askable.slice(at, at + GROUP)
+        try {
+          const bodies = await options.searchBatch(
+            group.map((entry) => ({
+              engine: entry.engine,
+              params: entry.params,
+              context: contextFor(entry.bindings),
+            })),
+          )
+          group.forEach((entry, index) => {
+            byBinding.set(entry.bindings, {
+              kind: 'answered',
+              bindings: entry.bindings,
+              body: bodies[index],
+            })
+          })
+        } catch {
+          // The group aborted somewhere inside. Whatever finished kept its
+          // cache, so asking one by one repeats nothing that costs.
+          for (const entry of group) {
+            byBinding.set(entry.bindings, await askOne(entry.bindings, entry.params, entry.engine))
+          }
+        }
+      }
+      answers = targets.map((bindings) => byBinding.get(bindings)!)
+    } else {
+      answers = await inFlight(targets, options.concurrency ?? 1, async (bindings) => {
+        const entry = resolveOne(bindings)
+        if ('kind' in entry) return entry
+        return askOne(entry.bindings, entry.params, entry.engine)
+      })
+    }
 
     for (const answer of answers) {
       if (answer.kind === 'unresolved') {

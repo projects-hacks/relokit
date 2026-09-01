@@ -139,6 +139,15 @@ function "Relokit/execute_op" {
           error = "This run has reached the ceiling it was accepted on."
         }
       
+        // And a cap the caller cannot raise. The page is public and every
+        // search spends from one metered account, so one run may buy at most
+        // this many live answers; everything past it degrades to unconfirmed,
+        // the same honest way the ceiling does. Cache hits are never capped.
+        precondition ($spent < 32) {
+          error_type = "badrequest"
+          error = "the search allowance for one question is used up; what was fetched is kept"
+        }
+      
         api.request {
           url = "https://serpapi.com/search.json"
           method = "GET"

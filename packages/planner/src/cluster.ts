@@ -165,17 +165,32 @@ export function refineClusters(points: GeoPoint[], count: number): ClusterSpec[]
   }
 
   return centroids
-    .map((centroid, i) => ({
-      cluster_id: `k${i}`,
-      centroid,
-      // The radius is the furthest listing in the cell, which is exactly the
-      // error a centroid answer can carry, and so exactly the slack to allow.
-      radius_m: (members[i] ?? []).reduce(
-        (max, point) => Math.max(max, haversineMeters(centroid, point)),
-        0,
-      ),
-    }))
+    .map((centroid, i) => {
+      // Snapped to a hundredth of a degree, about a kilometre, before it can
+      // become a cache key. A centroid moves a few streets whenever the
+      // candidate list shifts at all, and every such wobble minted twelve new
+      // keys and paid twelve searches for answers already held. The snap is a
+      // rounding error against cluster-sized radii; the radius below is
+      // measured from the snapped point, so the slack still covers every
+      // member.
+      const snapped = { lat: snap(centroid.lat), lng: snap(centroid.lng) }
+      return {
+        cluster_id: `k${i}`,
+        centroid: snapped,
+        // The radius is the furthest listing in the cell, which is exactly the
+        // error a centroid answer can carry, and so exactly the slack to allow.
+        radius_m: (members[i] ?? []).reduce(
+          (max, point) => Math.max(max, haversineMeters(snapped, point)),
+          0,
+        ),
+      }
+    })
     .filter((_, i) => (members[i] ?? []).length > 0)
+}
+
+/** To a hundredth of a degree: stable across runs, meaningless to a route. */
+function snap(degrees: number): number {
+  return Math.round(degrees * 100) / 100
 }
 
 function nearest(point: GeoPoint, centroids: GeoPoint[]): number {

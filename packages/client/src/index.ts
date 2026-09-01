@@ -217,6 +217,34 @@ export async function ask(
       // the requests queue there rather than running alongside each other, so
       // asking for parallelism only moves the waiting.
       concurrency: options.concurrency ?? 1,
+      // Six operations per request instead of one each. A refused group falls
+      // back to singles inside the executor, and the cache the finished part
+      // filled makes that repetition free.
+      searchBatch: async (requests) => {
+        const answered = await transport.post(
+          '/ops',
+          {
+            run_id: runId,
+            calls: requests.map((request) => ({
+              op_id: request.context.op_id,
+              capability_id: request.context.capability_id,
+              endpoint: request.context.endpoint,
+              ttl_seconds: request.context.ttl_seconds,
+              constraint_ids: request.context.constraint_ids,
+              entity_ids: request.context.entity_ids,
+              params: request.params,
+            })),
+          },
+          // Once: a group that dies mid-flight has already paid for what it
+          // finished, and the fallback is the honest repeat.
+          ONCE,
+        )
+        const answers = answered.answers as { body: unknown }[]
+        if (!Array.isArray(answers) || answers.length !== requests.length) {
+          throw new Error('/ops answered a different number of calls than were asked')
+        }
+        return answers.map((answer) => answer.body)
+      },
       // What is already known, after every stage. The relaxation offers wait
       // for the end, because half-checked failures make bad advice.
       onStage: (partial) => {
