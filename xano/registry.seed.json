@@ -1,5 +1,5 @@
 {
-  "registry_version": "2026-08-31.3",
+  "registry_version": "2026-08-31.4",
   "capabilities": [
     {
       "capability_id": "candidates.anchor.geocode",
@@ -310,7 +310,7 @@
       "cost_units": 1,
       "latency_p50_ms": 2400,
       "selectivity_prior": 0.44,
-      "observation_n": 20,
+      "observation_n": 0,
       "ttl_seconds": 604800,
       "coverage": 0.8,
       "precedence": 2,
@@ -323,8 +323,7 @@
         "travel_mode": "$constraint.self.travel_mode_code"
       },
       "notes": "travel_mode is an integer on this engine: 0 driving, 1 cycling, 2 walking, 3 transit. directions[] returns route alternatives and the first is not always the fastest, so the verdict takes the minimum duration across them. duration is already in seconds and distance in meters. Prunes with slack only: a listing can be nearer the destination than its own centroid. Measured 28 Aug 2026 over 20 answers: coverage 0.80 and selectivity 0.44, once cells are fitted to the listings rather than laid over the box.",
-      "produces": [],
-      "selectivity_observed": 0.44
+      "produces": []
     },
     {
       "capability_id": "commute.directions.entity",
@@ -335,7 +334,7 @@
       "cost_units": 1,
       "latency_p50_ms": 2400,
       "selectivity_prior": 0.7,
-      "observation_n": 10,
+      "observation_n": 0,
       "ttl_seconds": 604800,
       "coverage": 1.0,
       "precedence": 1,
@@ -348,8 +347,7 @@
         "travel_mode": "$constraint.self.travel_mode_code"
       },
       "notes": "travel_mode is an integer on this engine: 0 driving, 1 cycling, 2 walking, 3 transit. directions[] returns route alternatives and the first is not always the fastest, so the verdict takes the minimum duration across them. duration is already in seconds and distance in meters.",
-      "produces": [],
-      "selectivity_observed": 0.7
+      "produces": []
     },
     {
       "capability_id": "nearby_poi.maps.cluster",
@@ -360,7 +358,7 @@
       "cost_units": 1,
       "latency_p50_ms": 1600,
       "selectivity_prior": 0.94,
-      "observation_n": 40,
+      "observation_n": 0,
       "ttl_seconds": 2592000,
       "coverage": 0.45,
       "precedence": 2,
@@ -373,8 +371,7 @@
         "ll": "@$cluster.lat,$cluster.lng,14z"
       },
       "notes": "google_local ignores ll and answers for the wrong city. google_maps with type=search honours it and carries operating_hours per weekday, which is what makes an opening time answerable rather than a guess. Measured 28 Aug 2026 over 40 answers: coverage 0.45 and selectivity 0.94. Slack leaves more than half its answers undecided and it rules almost nothing out, so its elimination power is close to zero and the planner is right to leave it out unless the candidate set is very large.",
-      "produces": [],
-      "selectivity_observed": 0.94
+      "produces": []
     },
     {
       "capability_id": "nearby_poi.maps.entity",
@@ -385,7 +382,7 @@
       "cost_units": 1,
       "latency_p50_ms": 1600,
       "selectivity_prior": 0.8,
-      "observation_n": 20,
+      "observation_n": 0,
       "ttl_seconds": 2592000,
       "coverage": 1.0,
       "precedence": 1,
@@ -398,8 +395,7 @@
         "ll": "@$entity.lat,$entity.lng,15z"
       },
       "notes": "google_local ignores ll and answers for the wrong city. google_maps with type=search honours it and carries operating_hours per weekday, which is what makes an opening time answerable rather than a guess.",
-      "produces": [],
-      "selectivity_observed": 0.8
+      "produces": []
     },
     {
       "capability_id": "nearby_poi.yelp.cluster",

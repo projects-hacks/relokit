@@ -192,6 +192,12 @@ query parse verb=POST {
     var $registry_version {
       value = $registry|first|get:"registry_version"
     }
+
+    // Raw counts of what each capability did in past runs. The caller turns
+    // them into priors; serving rows keeps every decision in one tested place.
+    db.query relokit_observation {
+      return = {type: "list", paging: {page: 1, per_page: 500}}
+    } as $observations
   }
 
   response = {
@@ -200,6 +206,7 @@ query parse verb=POST {
     prompt_version  : $input.prompt_version
     registry        : $registry
     registry_version: $registry_version
+    observations    : $observations|get:"items":[]
     budget          : ```
       {
         max_cost_units  : 200
