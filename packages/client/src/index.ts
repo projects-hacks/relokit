@@ -217,12 +217,14 @@ export async function ask(
       // the requests queue there rather than running alongside each other, so
       // asking for parallelism only moves the waiting.
       concurrency: options.concurrency ?? 1,
-      // Six operations per request instead of one each. A refused group falls
-      // back to singles inside the executor, and the cache the finished part
-      // filled makes that repetition free.
+      // A whole stage handed to the queue in one request, then worked off by
+      // short polls, four calls a turn. No connection is ever held open while
+      // a provider thinks: a poll that dies loses nothing, the next one
+      // carries on, and a job that kills two polls is passed over and comes
+      // back as its own failure without taking its neighbours with it.
       searchBatch: async (requests) => {
-        const answered = await transport.post(
-          '/ops',
+        const queued = await transport.post(
+          '/jobs',
           {
             run_id: runId,
             calls: requests.map((request) => ({
@@ -235,16 +237,36 @@ export async function ask(
               params: request.params,
             })),
           },
-          // Once: a group that dies mid-flight has already paid for what it
-          // finished, and the fallback is the honest repeat.
+          // Enqueued once: a repeat would queue every job twice.
           ONCE,
         )
-        const answers = answered.answers as { body: unknown }[]
-        if (!Array.isArray(answers) || answers.length !== requests.length) {
-          throw new Error('/ops answered a different number of calls than were asked')
+        const ids = queued.job_ids as number[]
+        if (!Array.isArray(ids) || ids.length !== requests.length) {
+          throw new Error('/jobs queued a different number of calls than were handed over')
         }
-        return answers.map((answer) => answer.body)
+
+        // Polls tolerate a bad minute; the queue holds the state, not the
+        // connection. The cap is generous: a full stage at four jobs a turn,
+        // with room for every job to fail twice.
+        for (let turn = 0; turn < requests.length + 8; turn += 1) {
+          stopped()
+          const progress = await transport.post('/jobs/run', { run_id: runId })
+          if (Number(progress.pending) === 0) break
+        }
+
+        const held = (await transport.get(`/jobs?run_id=${runId}`)) as unknown as {
+          jobs: { id: number; status: string; answer?: { body?: unknown } }[]
+        }
+        const byId = new Map(held.jobs.map((job) => [job.id, job]))
+        return ids.map((id) => {
+          const job = byId.get(id)
+          if (job?.status === 'done') return job.answer?.body
+          return { batch_failed: 'passed over after two attempts; the source could not settle it' }
+        })
       },
+      // A stage travels whole: the polls are short regardless of how much
+      // waits, so there is no reason to split the handover.
+      groupSize: 24,
       // What is already known, after every stage. The relaxation offers wait
       // for the end, because half-checked failures make bad advice.
       onStage: (partial) => {
@@ -477,6 +499,9 @@ const UNANSWERED: Record<string, string> = {
  */
 function readable(detail: string, engine: string): string {
   if (!detail) return `${engine} did not answer`
+  // The queue writes its verdicts in plain words already; translating them
+  // into "did not answer" would lose the only part worth reading.
+  if (detail.includes('passed over')) return `${engine}: ${detail}`
   if (detail.includes('run out of searches') || detail.includes(' 429')) {
     return 'the search allowance for this month is used up, so nothing new could be looked up'
   }

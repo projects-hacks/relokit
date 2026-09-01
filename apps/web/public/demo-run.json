@@ -3687,6 +3687,42 @@
         "expires_at_ms": 1790510400000,
         "capability_id": "nearby_poi.maps.entity",
         "op_id": "op_nearby_poi_maps_entity_2"
+      },
+      {
+        "entity_id": "zillow:1n1kmf7xftepv#1bed",
+        "constraint_id": "c4",
+        "constraint_type": "nearby_poi",
+        "verdict": "unknown",
+        "value_canonical": null,
+        "display_value": "not checked",
+        "source": "geometry",
+        "source_url": null,
+        "fetched_at_ms": 1787918400000,
+        "ttl_seconds": 0,
+        "expires_at_ms": 1787918400000,
+        "confidence": 0,
+        "eval_state": "skipped",
+        "capability_id": "none",
+        "op_id": "unreached",
+        "reason": "Left unchecked to stay inside this question’s search allowance. Narrowing the search reaches it."
+      },
+      {
+        "entity_id": "zillow:1n1kmf7xftepv#1bed",
+        "constraint_id": "c6",
+        "constraint_type": "nearby_poi",
+        "verdict": "unknown",
+        "value_canonical": null,
+        "display_value": "not checked",
+        "source": "geometry",
+        "source_url": null,
+        "fetched_at_ms": 1787918400000,
+        "ttl_seconds": 0,
+        "expires_at_ms": 1787918400000,
+        "confidence": 0,
+        "eval_state": "skipped",
+        "capability_id": "none",
+        "op_id": "unreached",
+        "reason": "Left unchecked to stay inside this question’s search allowance. Narrowing the search reaches it."
       }
     ],
     "buckets": {
@@ -4439,6 +4475,24 @@
             },
             {
               "entity_id": "zillow:1n1kmf7xftepv#1bed",
+              "constraint_id": "c4",
+              "constraint_type": "nearby_poi",
+              "verdict": "unknown",
+              "value_canonical": null,
+              "display_value": "not checked",
+              "source": "geometry",
+              "source_url": null,
+              "fetched_at_ms": 1787918400000,
+              "ttl_seconds": 0,
+              "expires_at_ms": 1787918400000,
+              "confidence": 0,
+              "eval_state": "skipped",
+              "capability_id": "none",
+              "op_id": "unreached",
+              "reason": "Left unchecked to stay inside this question’s search allowance. Narrowing the search reaches it."
+            },
+            {
+              "entity_id": "zillow:1n1kmf7xftepv#1bed",
               "constraint_id": "c5",
               "constraint_type": "listing_feature",
               "verdict": "pass",
@@ -4454,6 +4508,24 @@
               "expires_at_ms": 1787961600000,
               "capability_id": "candidates.zillow.region",
               "op_id": "op_candidates"
+            },
+            {
+              "entity_id": "zillow:1n1kmf7xftepv#1bed",
+              "constraint_id": "c6",
+              "constraint_type": "nearby_poi",
+              "verdict": "unknown",
+              "value_canonical": null,
+              "display_value": "not checked",
+              "source": "geometry",
+              "source_url": null,
+              "fetched_at_ms": 1787918400000,
+              "ttl_seconds": 0,
+              "expires_at_ms": 1787918400000,
+              "confidence": 0,
+              "eval_state": "skipped",
+              "capability_id": "none",
+              "op_id": "unreached",
+              "reason": "Left unchecked to stay inside this question’s search allowance. Narrowing the search reaches it."
             }
           ]
         },

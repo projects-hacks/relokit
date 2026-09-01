@@ -106,6 +106,15 @@ type Search = (
   context: OpContext,
 ) => Promise<unknown>
 
+/** A call that travelled but could not be answered, without failing its group. */
+export interface BatchMiss {
+  batch_failed: string
+}
+
+export function isBatchMiss(body: unknown): body is BatchMiss {
+  return typeof body === 'object' && body !== null && 'batch_failed' in body
+}
+
 /** Several calls in one asking, answers in the same order. */
 export type SearchBatch = (
   requests: {
@@ -113,7 +122,7 @@ export type SearchBatch = (
     params: Record<string, string | number | boolean>
     context: OpContext
   }[],
-) => Promise<unknown[]>
+) => Promise<(unknown | BatchMiss)[]>
 
 export async function replayRun(
   plan: PlanResult,
@@ -143,6 +152,9 @@ export async function replayRun(
      * nothing.
      */
     searchBatch?: SearchBatch
+    /** How many calls travel together. Short synchronous groups want six; a
+     * queue that answers by polling can carry a whole stage. */
+    groupSize?: number
   },
 ): Promise<RunOutcome> {
   const outcome: RunOutcome = {
@@ -233,6 +245,45 @@ export async function replayRun(
     })
   }
 
+  // Every hard requirement leaves a mark on every place, even the places the
+  // budget never reached. A home past the fan-out cap was unconfirmed in the
+  // counts but blank on its card: the reader saw two ticks and no mention of
+  // the ride at all, and silence reads as nothing was ever asked. An unknown
+  // that says why is the honest version of the same fact.
+  const answered = plan.stages.flatMap((stage) => stage.ops).flatMap((op) => op.constraint_ids)
+  for (const constraint of constraints.constraints) {
+    if (constraint.hardness !== 'hard') continue
+    if (!answered.includes(constraint.id)) continue
+    const marked = new Set(
+      outcome.evidence
+        .filter((row) => row.constraint_id === constraint.id)
+        .map((row) => row.entity_id),
+    )
+    for (const entity of outcome.entities) {
+      if (marked.has(entity.entity_id)) continue
+      outcome.evidence.push({
+        entity_id: entity.entity_id,
+        constraint_id: constraint.id,
+        constraint_type: constraint.type,
+        verdict: 'unknown',
+        value_canonical: null,
+        display_value: 'not checked',
+        source: 'geometry',
+        source_url: null,
+        fetched_at_ms: options.now_ms,
+        ttl_seconds: 0,
+        expires_at_ms: options.now_ms,
+        confidence: 0,
+        eval_state: 'skipped',
+        capability_id: 'none',
+        op_id: 'unreached',
+        reason: entity.point
+          ? 'Left unchecked to stay inside this question’s search allowance. Narrowing the search reaches it.'
+          : 'This place comes with no coordinates, so nothing positional can be measured for it.',
+      })
+    }
+  }
+
   outcome.buckets = bucket(outcome.entities, outcome.evidence, constraints.constraints)
   outcome.observed = observePriors(outcome.evidence)
   return outcome
@@ -249,6 +300,22 @@ export async function replayRun(
    */
   function shouldSkip(stage: Stage, entities: number): string | null {
     if (stage.tier !== 'cluster' || entities === 0) return null
+    // Work nobody else will do is never skipped. The payback rule prices a
+    // cluster stage against the entity work it saves, but a tight limit can
+    // convince the planner that clusters settle everything, so no entity stage
+    // exists; skipping the clusters then leaves the requirement unmeasured for
+    // every home, which is how a question about a ten minute ride came back
+    // with eighty eight shrugs and nothing checked at all. An optimisation may
+    // only ever remove cost, never the answer.
+    const answeredLater = new Set(
+      plan.stages
+        .filter((later) => later.tier === 'entity')
+        .flatMap((later) => later.ops)
+        .flatMap((op) => op.constraint_ids),
+    )
+    if (!stage.ops.every((op) => op.constraint_ids.every((id) => answeredLater.has(id)))) {
+      return null
+    }
     const clusterCount = Math.min(clusters.length, entities)
     const entityOps = plan.stages.find((s) => s.tier === 'entity')?.ops.length ?? 0
     // What gets through every cluster predicate, so what the entity tier still
@@ -359,14 +426,15 @@ export async function replayRun(
     )
 
     if (options.searchBatch && askable.length > 1) {
-      // Groups of six: enough to collapse the round trips, small enough that a
-      // group with a slow provider call inside it still fits a gateway's
-      // patience.
+      // Groups of six by default: enough to collapse the round trips, small
+      // enough that a group with a slow provider call inside it still fits a
+      // gateway's patience. A queue transport raises it, since its polls are
+      // short whatever the group carries.
       const byBinding = new Map<Bindings, Outcome>()
       for (const entry of resolved) {
         if ('kind' in entry) byBinding.set(entry.bindings, entry)
       }
-      const GROUP = 6
+      const GROUP = options.groupSize ?? 6
       for (let at = 0; at < askable.length; at += GROUP) {
         const group = askable.slice(at, at + GROUP)
         try {
@@ -378,11 +446,21 @@ export async function replayRun(
             })),
           )
           group.forEach((entry, index) => {
-            byBinding.set(entry.bindings, {
-              kind: 'answered',
-              bindings: entry.bindings,
-              body: bodies[index],
-            })
+            const body = bodies[index]
+            // One job passed over fails alone; its neighbours keep their
+            // answers rather than being re-asked for company.
+            byBinding.set(
+              entry.bindings,
+              isBatchMiss(body)
+                ? {
+                    kind: 'failed',
+                    bindings: entry.bindings,
+                    engine: entry.engine,
+                    params: entry.params,
+                    detail: body.batch_failed,
+                  }
+                : { kind: 'answered', bindings: entry.bindings, body },
+            )
           })
         } catch {
           // The group aborted somewhere inside. Whatever finished kept its

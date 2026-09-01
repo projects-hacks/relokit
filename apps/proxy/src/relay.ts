@@ -5,7 +5,10 @@
  * allowed through and how the key is attached can never drift between the two
  * ways of deploying.
  */
-const allowed = new Set(['parse', 'run', 'runs', 'op', 'ops', 'ingest', 'changes', 'watch'])
+// Grown twice by the same failure: a new endpoint that is not named here
+// 404s at the door, and the run falls back to the burst this passage exists
+// to prevent. Add the name with the endpoint, always.
+const allowed = new Set(['parse', 'run', 'runs', 'op', 'ops', 'jobs', 'ingest', 'changes', 'watch'])
 
 export interface RelayConfig {
   instance: string

@@ -43,13 +43,62 @@ const PLACES = {
 
 const GEOCODE = { place_results: { gps_coordinates: { latitude: 37.33, longitude: -121.88 } } }
 
+/** A rental question, whose entity tier is what actually fans out. */
+const RENTAL_QUERY = '2 bed in San Jose, 20 min bike to 1 First St'
+const RENTAL_PARSED = JSON.stringify({
+  subject: 'rental',
+  location: 'San Jose',
+  constraints: [
+    {
+      id: 'c1',
+      type: 'commute',
+      hardness: 'hard',
+      weight: 1,
+      source_text: '20 min bike to 1 First St',
+      destination: { raw: '1 First St' },
+      mode: 'bike',
+      max_seconds: 1200,
+    },
+  ],
+})
+// Far enough apart that every home is its own cluster, so the cluster tier
+// fans out and the group path actually carries something.
+const ZILLOW = {
+  organic_results: [1, 2, 3, 4].map((n) => ({
+    zpid: String(n),
+    title: `${n} Elm St`,
+    price: '$2,000/mo',
+    link: `https://x/${n}`,
+    gps_coordinates: { latitude: 37.1 + n * 0.2, longitude: -121.9 + n * 0.15 },
+  })),
+}
+const RIDE = { directions: [{ travel_mode: 'Cycling', duration: 900 }] }
+
+function answerFor(capability: string): unknown {
+  if (capability.includes('geocode')) return GEOCODE
+  if (capability.includes('zillow')) return ZILLOW
+  if (capability.includes('directions')) return RIDE
+  return PLACES
+}
+
 /**
  * A backend that answers, and can be told to refuse particular calls: how many
  * times, and whether it ever relents.
  */
-function backend(fail: Record<string, { times: number }> = {}) {
+function backend(fail: Record<string, { times: number }> = {}, poison: number[] = []) {
   const seen: string[] = []
   const left = new Map(Object.entries(fail).map(([path, f]) => [path, f.times]))
+  // The queue, as the instance holds it: jobs keyed by id, worked in polls.
+  const queue = new Map<
+    number,
+    {
+      call: { op_id?: string; capability_id?: string }
+      status: string
+      attempts: number
+      answer?: { body: unknown }
+    }
+  >()
+  let nextJob = 1
 
   const refuse = (path: string) => {
     const remaining = left.get(path) ?? 0
@@ -67,7 +116,7 @@ function backend(fail: Record<string, { times: number }> = {}) {
         if (refuse(path)) throw new Error(`${path} returned 502: <html>bad gateway</html>`)
         if (path === '/parse') {
           return {
-            raw_text: PARSED,
+            raw_text: (body as { query?: string }).query === RENTAL_QUERY ? RENTAL_PARSED : PARSED,
             answered_by: 'test',
             registry: seed.capabilities,
             registry_version: seed.registry_version,
@@ -84,7 +133,31 @@ function backend(fail: Record<string, { times: number }> = {}) {
         }
         if (path === '/op') {
           const capability = String((body as { capability_id?: string }).capability_id ?? '')
-          return { body: capability.includes('geocode') ? GEOCODE : PLACES, from: 'cache' } as never
+          return { body: answerFor(capability), from: 'cache' } as never
+        }
+        if (path === '/jobs') {
+          const calls = (body as { calls: { op_id?: string }[] }).calls
+          const ids = calls.map((call) => {
+            queue.set(nextJob, { call, status: 'pending', attempts: 0 })
+            return nextJob++
+          })
+          return { job_ids: ids } as never
+        }
+        if (path === '/jobs/run') {
+          let worked = 0
+          for (const [id, job] of queue) {
+            if (worked >= 4) break
+            if (job.status !== 'pending' || job.attempts >= 2) continue
+            job.attempts += 1
+            worked += 1
+            if (poison.includes(id)) continue
+            job.answer = { body: answerFor(String(job.call.capability_id ?? '')) }
+            job.status = 'done'
+          }
+          const pending = [...queue.values()].filter(
+            (job) => job.status === 'pending' && job.attempts < 2,
+          ).length
+          return { worked, pending } as never
         }
         return {} as never
       }, policy) as Promise<Record<string, unknown>>
@@ -93,6 +166,9 @@ function backend(fail: Record<string, { times: number }> = {}) {
       return withRetry(async () => {
         seen.push(path)
         if (refuse(path)) throw new Error(`${path} returned 503: <html>unavailable</html>`)
+        if (path.startsWith('/jobs')) {
+          return { jobs: [...queue.entries()].map(([id, job]) => ({ id, ...job })) } as never
+        }
         return { ops: [{ status: 'cache_hit' }], cost: {} } as never
       }) as Promise<Record<string, unknown>>
     },
@@ -150,5 +226,30 @@ describe('a run that meets a backend having a bad minute', () => {
     // Not everything is worth surviving: with no parse there is nothing to run.
     const { transport } = backend({ '/parse': { times: 99 } })
     await expect(ask(transport, QUERY, { retry: impatient })).rejects.toThrow(/502/)
+  })
+})
+
+describe('a stage handed to the queue', () => {
+  it('one poisoned job fails alone; its neighbours keep their answers', async () => {
+    // Job 2 dies on every attempt. It must come back as a problem on the
+    // answer, not as a reason to re-ask the whole group.
+    const { transport } = backend({}, [2])
+    const result = await ask(transport, RENTAL_QUERY, { retry: impatient })
+    expect(result.entities.length).toBeGreaterThan(0)
+    expect(result.problems.some((problem) => /could not settle/.test(problem.detail))).toBe(true)
+    // The neighbours were answered: at least one home carries a measured ride.
+    expect(
+      result.evidence.some((row) => row.constraint_type === 'commute' && row.verdict !== 'unknown'),
+    ).toBe(true)
+  })
+
+  it('a poll that dies loses nothing; the next one carries on', async () => {
+    const { transport, seen } = backend({ '/jobs/run': { times: 1 } })
+    const result = await ask(transport, RENTAL_QUERY, { retry: impatient })
+    expect(result.entities.length).toBeGreaterThan(0)
+    expect(
+      seen.filter((path) => path === '/jobs/run').length,
+      `paths seen: ${JSON.stringify([...new Set(seen)])} | entities ${result.entities.length} | evidence kinds ${JSON.stringify([...new Set(result.evidence.map((r) => r.constraint_type))])}`,
+    ).toBeGreaterThan(1)
   })
 })
