@@ -56,8 +56,17 @@ function "Relokit/execute_op" {
   
     conditional {
       if (($input.entity_ids|count) > 0) {
+        //  Narrowed to the facts this call is actually about.
+        //
+        //  This asked for every unexpired row the org owns and then sifted them
+        //  here, one conditional at a time. At eighteen thousand rows that cost
+        //  four seconds on every call that named an entity, which is most of
+        //  them, and it grew with the ledger: a question answered entirely from
+        //  what was already known still took five minutes, and calls drifted
+        //  close enough to the gateway's patience to start being cut off. The
+        //  same two conditions belong in the query, where an index answers them.
         db.query relokit_evidence {
-          where = $db.relokit_evidence.org_id == $input.org_id && $db.relokit_evidence.expires_at > "now"
+          where = $db.relokit_evidence.org_id == $input.org_id && $db.relokit_evidence.expires_at > "now" && $db.relokit_evidence.entity_id in $input.entity_ids && $db.relokit_evidence.constraint_id in $input.constraint_ids
           return = {type: "list"}
         } as $fresh
       

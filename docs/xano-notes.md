@@ -199,3 +199,24 @@ an attempt before it runs anything and survives the connection dying, so a call
 that outlives its poll is finished by the next one; a direct call that dies
 takes the fact with it. Everything the queue can carry now goes through it,
 including a lone call.
+
+## Sifting rows in the script instead of in the query
+
+The ledger check asked for every unexpired evidence row the org owned and then
+sifted them with a conditional inside a foreach. It was correct and it was the
+slowest thing in the product: eighteen thousand rows, four seconds on every call
+that named an entity, and worse every week as the ledger grew.
+
+A question answered entirely from what was already known took five minutes and
+twelve seconds. With the same two conditions moved into the where clause, where
+an index answers them, the same question takes sixteen seconds. Same answer,
+same nothing spent.
+
+The syntax for a list membership test is bare, and neither piped form works.
+`$db.table.field in $input.list` runs; `$db.table.field|in:$input.list` compiles
+and then fails at runtime with "Invalid value for param", which is a parse error
+raised at execution and reads like a data problem rather than a syntax one.
+
+The lesson is older than the fix: a filter written in the script runs once per
+row in the language that is slowest at it, and a query that returns everything is
+a table scan wearing a where clause.
