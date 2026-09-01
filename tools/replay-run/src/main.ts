@@ -100,7 +100,7 @@ console.log('\nwhat each capability actually did')
 console.log('  capability                       answered  decisive  coverage  selectivity')
 for (const o of outcome.observed) {
   console.log(
-    `  ${o.capability_id.padEnd(32)} ${String(o.answered).padStart(8)}  ${String(o.decisive).padStart(8)}  ${o.coverage.toFixed(2).padStart(8)}  ${o.selectivity.toFixed(2).padStart(11)}`,
+    `  ${o.capability_id.padEnd(32)} ${String(o.answered).padStart(8)}  ${String(o.decisive).padStart(8)}  ${(o.answered === 0 ? 0 : o.decisive / o.answered).toFixed(2).padStart(8)}  ${(o.decisive === 0 ? 0 : o.passed / o.decisive).toFixed(2).padStart(11)}`,
   )
 }
 

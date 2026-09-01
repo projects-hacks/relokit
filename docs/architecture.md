@@ -58,8 +58,8 @@ involved was already paid for.
 ## What a run teaches the next one
 
 Every run counts what each capability answered, settled and passed, and files
-those counts with its evidence into an append-only observation table, keyed by
-the place the question named. Every parse serves the counts back, and the next
+those counts into an append-only observation table, keyed by a hash of the place
+the question named. Every parse serves that org's recent counts back, and the next
 plan replaces a guessed prior with the measured ratio once a place has ten
 decisive answers, falling back to the tally across all places, and then to the
 guess, which is labelled as one. In a town never searched before, the first run

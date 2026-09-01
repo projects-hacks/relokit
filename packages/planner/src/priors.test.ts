@@ -103,11 +103,13 @@ describe('the honesty ladder', () => {
 })
 
 describe('the region key', () => {
-  it('is the anchor text, normalized', () => {
-    expect(regionKey(constraints)).toBe('san jose, ca')
-    expect(
-      regionKey({ ...constraints, search_anchor: { raw: '  San  Jose,  CA ' } }),
-    ).toBe('san jose, ca')
+  it('recognises the same place written differently, without carrying it', () => {
+    const key = regionKey(constraints)
+    expect(regionKey({ ...constraints, search_anchor: { raw: '  San  Jose,  CA ' } })).toBe(key)
+    // Rows travel to every reader, so the address itself must not be in them.
+    expect(key).toMatch(/^[0-9a-f]{16}$/)
+    expect(key).not.toContain('san jose')
+    expect(regionKey({ ...constraints, search_anchor: { raw: 'Lisbon' } })).not.toBe(key)
   })
 
   it('no place named, or the reader\'s own location, never earns a regional number', () => {
@@ -125,7 +127,13 @@ describe('the plan trace', () => {
       JSON.parse(readFileSync(new URL('../../../xano/registry.seed.json', import.meta.url), 'utf8')),
     )
     const rows = [
-      row({ capability_id: 'commute.directions.cluster', answered: 12, decisive: 12, passed: 6 }),
+      row({
+        capability_id: 'commute.directions.cluster',
+        region: regionKey(constraints),
+        answered: 12,
+        decisive: 12,
+        passed: 6,
+      }),
     ]
     const planned = plan({
       constraints,

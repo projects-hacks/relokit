@@ -209,10 +209,16 @@ Survivor counts are not knowable at plan time, so Xano reports the measured
 `entities_out` per stage back into the run record and the UI renders those.
 
 Priors start as engineering guesses, labelled as such in the registry `notes`, and
-every run measures the truth: how many rows each capability answered, how many were
-decisive, how many passed. The client files those counts with the run's evidence,
-they land in an append-only observation table keyed by the normalized place the
-question named, and every parse serves them back.
+every run measures the truth: of the answers a capability actually gave, how many
+settled anything and how many passed. Only rows the provider really answered are
+counted. A row left by our own failure, a spent allowance or a constraint never
+reached says nothing about the source, and counting those would teach the planner
+that a bad afternoon here is a property of a provider there, then price that
+capability out of the plans that would have corrected the record.
+
+The client files those counts with the run, they land in an append-only
+observation table keyed by a hash of the place the question named, and every parse
+serves back that org's recent rows, newest first.
 
 The next plan applies a strict ladder per capability: the measured ratios for this
 place if it has at least ten decisive answers, the measured ratios across all
@@ -227,8 +233,11 @@ zero survives the trip through storage. Registry imports never touch the
 observation table, so a prior tweak does not reset what has been learned.
 
 None of this can move a verdict. Priors decide only what is worth asking and in
-what order; a listing is still only ever ruled out by an evaluated fail, and the
-suite pins that inverted priors change the spend and never a bucket.
+what order; a listing is still only ever ruled out by an evaluated fail. The
+suite pins it twice over, against a fixture that really does reject some homes
+and keep others: once with every prior inverted, once with measurements served
+that reorder the plan. Both answer the same buckets. What a wrong prior costs is
+a verified listing becoming an unverified one, never a good listing called bad.
 
 ## Widening a number costs listings, not lookups
 

@@ -135,17 +135,32 @@ query ingest verb=POST {
       }
     }
   
-    db.edit relokit_run {
-      field_name = "id"
-      field_value = $run.id
-      data = {version: ($run.version + 1)}
+    // Only when something of the record arrived. The counts are filed in their
+    // own small request, and a version that counted those would say a run had
+    // changed when nothing about its answer had.
+    var $version {
+      value = $run.version
+    }
+
+    conditional {
+      if (($input.entities|count) > 0 || ($input.evidence|count) > 0) {
+        var $version {
+          value = ($run.version + 1)
+        }
+
+        db.edit relokit_run {
+          field_name = "id"
+          field_value = $run.id
+          data = {version: $version}
+        }
+      }
     }
   }
 
   response = {
     entities: $input.entities|count
     evidence: $input.evidence|count
-    version : ($run.version + 1)
+    version : $version
   }
 
   guid = "zdzlySVf6aSZgcs0aC6cPOp-8iw"

@@ -24,13 +24,29 @@ this repo and changes the demo, which is a two hour bug at the worst moment.
 
 ### capability
 
-The registry row from `packages/schema/src/capability.ts`, plus `registry_version`,
-`selectivity_observed` and `observation_n`. Unique on
-`(capability_id, registry_version)`.
+The registry row from `packages/schema/src/capability.ts`, plus
+`registry_version`. Unique on `(capability_id, registry_version)`.
 
 `selectivity_prior` is the fraction expected to **pass**, not the fraction
-eliminated. `selectivity_observed` is written back from real pass rates after each
-run, so the priors stop being guesses.
+eliminated. It is an engineering estimate and stays one: what runs measure lives
+in `observation`, and the planner substitutes it there rather than here.
+
+### observation
+
+`id`, `created_at`, `org_id`, `run_id`, `capability_id`, `registry_version`,
+`region`, and the counts `answered`, `decisive`, `passed`. Unique on
+`(run_id, capability_id)`, which makes a double filing impossible.
+
+Append-only. Nothing edits a row, nothing seeds one, and a registry import does
+not touch the table, so a change to the estimates never erases what was measured.
+Counts rather than ratios: counts sum exactly across runs, and a measured zero
+survives storage where a ratio would be indistinguishable from a default.
+
+`region` is a hash of the place the question named, not the place itself. The
+rows are served back to every reader of `/parse`, and an anchor is where somebody
+lives or works, so what travels is enough to recognise the same place twice and
+nothing more. Null when no place was named or the anchor was the reader's own
+location.
 
 ### saved_query
 

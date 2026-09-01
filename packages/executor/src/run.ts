@@ -61,8 +61,6 @@ export interface ObservedPrior {
   answered: number
   decisive: number
   passed: number
-  coverage: number
-  selectivity: number
 }
 
 export interface RunOutcome {
@@ -1099,26 +1097,23 @@ function prune(stage: Stage, surviving: Place[], evidence: EvidenceRow[]): Place
 function observePriors(evidence: EvidenceRow[]): ObservedPrior[] {
   const tally = new Map<string, { answered: number; decisive: number; passed: number }>()
   for (const row of evidence) {
+    // Only what the provider actually answered. A row left by our own failure,
+    // a spent allowance or a constraint never reached says nothing about the
+    // source, and counting it teaches the planner that a bad afternoon here is
+    // a property of the source there. A capability priced out by that lesson
+    // stops producing rows, so it could never correct itself.
+    if (row.eval_state !== 'evaluated') continue
     const entry = tally.get(row.capability_id) ?? { answered: 0, decisive: 0, passed: 0 }
     entry.answered += 1
-    if (row.eval_state === 'evaluated' && row.verdict !== 'unknown') {
+    if (row.verdict !== 'unknown') {
       entry.decisive += 1
       if (row.verdict === 'pass') entry.passed += 1
     }
     tally.set(row.capability_id, entry)
   }
   return [...tally.entries()]
-    .map(([capability_id, t]) => ({
-      capability_id,
-      ...t,
-      coverage: round2(t.decisive / t.answered),
-      selectivity: t.decisive === 0 ? 0 : round2(t.passed / t.decisive),
-    }))
+    .map(([capability_id, t]) => ({ capability_id, ...t }))
     .sort((a, b) => (a.capability_id < b.capability_id ? -1 : 1))
-}
-
-function round2(value: number): number {
-  return Math.round(value * 100) / 100
 }
 
 /**

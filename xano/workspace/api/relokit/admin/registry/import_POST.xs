@@ -69,7 +69,6 @@ query "admin/registry/import" verb=POST {
             cost_units                                                         : $capability.cost_units
             latency_p50_ms                                                     : $capability.latency_p50_ms
             selectivity_prior                                                  : $capability.selectivity_prior
-            observation_n                                                      : $capability|get:"observation_n":0
             ttl_seconds                                                        : $capability.ttl_seconds
             coverage                                                           : $capability.coverage
             precedence                                                         : $capability.precedence

@@ -198,7 +198,8 @@ resolve.
 
 Priors are set so their product matches the measured 4,517 to 56. The split
 between the three is provisional until each filter is recorded on its own, and
-`selectivity_observed` will overwrite all of it once runs start.
+the observation rows written by later runs stand in for all of it once a
+capability has ten decisive answers.
 
 ## Still open
 

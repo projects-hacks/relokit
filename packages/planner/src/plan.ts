@@ -121,7 +121,23 @@ export function plan(input: PlanInput): PlanResult {
   }
 
   return {
-    plan_id: stableHash([input.constraints, input.registry_version, budget, PLANNER_VERSION]),
+    // The priors are in the id because they are no longer implied by the
+    // registry version: the same question against the same version plans
+    // differently once runs have measured something, and an identifier that
+    // does not move with the plan identifies nothing.
+    plan_id: stableHash([
+      input.constraints,
+      input.registry_version,
+      budget,
+      PLANNER_VERSION,
+      input.registry
+        .map((capability) => [
+          capability.capability_id,
+          capability.selectivity_prior,
+          capability.coverage,
+        ])
+        .sort((a, b) => (a[0]! < b[0]! ? -1 : 1)),
+    ]),
     planner_version: PLANNER_VERSION,
     registry_version: input.registry_version,
     search_bounds: bounds,

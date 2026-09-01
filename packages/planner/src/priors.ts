@@ -1,16 +1,20 @@
 import type { Capability, ConstraintSet, ObservationRow, PriorBasis } from '@relokit/schema'
+import { stableHash } from './params.ts'
 
 /** Below this many decisive answers a measurement is noise and the guess stands. */
 export const DECISIVE_THRESHOLD = 10
 
 /**
- * Where this search happens, as text: the only place signal that exists at
- * plan time. Null when no place was named, or when the anchor is the reader's
- * own location, which must never pool different readers under one key.
+ * Where this search happens, hashed. Text is the only place signal that exists
+ * at plan time, and the anchor is an address somebody typed, so what is stored
+ * and served back is a hash of it: enough to recognise the same place twice,
+ * and nothing a stranger could read. Null when no place was named, or when the
+ * anchor is the reader's own location, which must never pool different readers
+ * under one key.
  */
 export function regionKey(set: ConstraintSet): string | null {
   const raw = (set.search_anchor?.raw ?? '').toLowerCase().trim().replace(/\s+/g, ' ')
-  return raw === '' || raw === 'your location' ? null : raw
+  return raw === '' || raw === 'your location' ? null : stableHash(raw)
 }
 
 interface Tally {
@@ -48,10 +52,11 @@ export function applyObservations(
   return registry.map((capability) => {
     const here = region === null ? null : sum(rows, capability.capability_id, region)
     const anywhere = sum(rows, capability.capability_id, null)
+    const enough = (tally: Tally) => tally.decisive >= DECISIVE_THRESHOLD && tally.answered > 0
     const chosen: { tally: Tally; basis: PriorBasis } | null =
-      here !== null && here.decisive >= DECISIVE_THRESHOLD
+      here !== null && enough(here)
         ? { tally: here, basis: 'measured_here' }
-        : anywhere.decisive >= DECISIVE_THRESHOLD
+        : enough(anywhere)
           ? { tally: anywhere, basis: 'measured' }
           : null
     if (chosen === null) return { ...capability, prior_basis: 'assumed', observation_n: 0 }

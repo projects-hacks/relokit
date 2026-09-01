@@ -195,7 +195,18 @@ query parse verb=POST {
 
     // Raw counts of what each capability did in past runs. The caller turns
     // them into priors; serving rows keeps every decision in one tested place.
+    //
+    // This org's rows only: they travel to whoever asks, and one org's search
+    // history is not another's to read or to move.
+    //
+    // Newest first, and a window rather than the lot. Oldest-first paging
+    // would freeze the ladder on the first afternoon of runs the moment the
+    // table passed a page, which is a silent wrong answer rather than a loud
+    // one. What the recent past measured is also the more honest number: a
+    // provider that changed last week should not be judged on last month.
     db.query relokit_observation {
+      where = $db.relokit_observation.org_id == $org.id
+      sort = {id: "desc"}
       return = {type: "list", paging: {page: 1, per_page: 500}}
     } as $observations
   }

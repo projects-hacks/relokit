@@ -9,7 +9,7 @@ import { withRetry, type RetryPolicy } from './retry.ts'
  */
 export const seed = JSON.parse(readFileSync('xano/registry.seed.json', 'utf8')) as {
   registry_version: string
-  capabilities: { selectivity_prior: number }[]
+  capabilities: { capability_id: string; selectivity_prior: number }[]
 }
 
 export const QUERY = 'restaurants in San Jose'
@@ -54,22 +54,42 @@ const RENTAL_PARSED = JSON.stringify({
   ],
 })
 // Far enough apart that every home is its own cluster, so the cluster tier
-// fans out and the group path actually carries something.
+// fans out and the group path carries something, and near enough to the
+// destination that the free geometric floor cannot settle the ride on its own.
+// Spread them across a county and every home is rejected before a single
+// direction is asked for, which quietly tests nothing.
 const ZILLOW = {
   organic_results: [1, 2, 3, 4].map((n) => ({
     zpid: String(n),
     title: `${n} Elm St`,
     price: '$2,000/mo',
     link: `https://x/${n}`,
-    gps_coordinates: { latitude: 37.1 + n * 0.2, longitude: -121.9 + n * 0.15 },
+    gps_coordinates: { latitude: 37.3 + n * 0.02, longitude: -121.88 + n * 0.015 },
   })),
 }
-const RIDE = { directions: [{ travel_mode: 'Cycling', duration: 900 }] }
+// Rides either side of the twenty minute limit, so verdicts really are mixed.
+// A fixture where everything passes cannot tell a working rejection rule from
+// a broken one: both answer the same.
+//
+// Keyed to where the ride starts rather than to the order calls arrive in. A
+// counter would hand the same home a different answer once a plan reordered
+// its calls, and a test for what priors cannot change must not itself change
+// with them.
+// The listings sit on a known ladder of latitudes, so each band gets its own
+// answer and the mix is a property of the fixture rather than of a hash.
+const RIDES = [900, 1500, 780, 1800]
 
-function answerFor(capability: string): unknown {
+function rideFrom(params: Record<string, unknown> | undefined): unknown {
+  const lat = Number(String(params?.start_coords ?? '').split(',')[0])
+  const band = Number.isFinite(lat) ? Math.round((lat - 37.32) / 0.02) : 0
+  const duration = RIDES[Math.min(Math.max(band, 0), RIDES.length - 1)]
+  return { directions: [{ travel_mode: 'Cycling', duration }] }
+}
+
+function answerFor(capability: string, params?: Record<string, unknown>): unknown {
   if (capability.includes('geocode')) return GEOCODE
   if (capability.includes('zillow')) return ZILLOW
-  if (capability.includes('directions')) return RIDE
+  if (capability.includes('directions')) return rideFrom(params)
   return PLACES
 }
 
@@ -96,7 +116,7 @@ export function backend(
   const queue = new Map<
     number,
     {
-      call: { op_id?: string; capability_id?: string }
+      call: { op_id?: string; capability_id?: string; params?: Record<string, unknown> }
       status: string
       attempts: number
       answer?: { body: unknown }
@@ -138,8 +158,11 @@ export function backend(
           return { run_id: 1, worst_case_units: 4, ceiling_cost_units: 200 } as never
         }
         if (path === '/op') {
-          const capability = String((body as { capability_id?: string }).capability_id ?? '')
-          return { body: answerFor(capability), from: 'cache' } as never
+          const call = body as { capability_id?: string; params?: Record<string, unknown> }
+          return {
+            body: answerFor(String(call.capability_id ?? ''), call.params),
+            from: 'cache',
+          } as never
         }
         if (path === '/jobs') {
           const calls = (body as { calls: { op_id?: string }[] }).calls
@@ -157,7 +180,9 @@ export function backend(
             job.attempts += 1
             worked += 1
             if (poison.includes(id)) continue
-            job.answer = { body: answerFor(String(job.call.capability_id ?? '')) }
+            job.answer = {
+              body: answerFor(String(job.call.capability_id ?? ''), job.call.params),
+            }
             job.status = 'done'
           }
           const pending = [...queue.values()].filter(

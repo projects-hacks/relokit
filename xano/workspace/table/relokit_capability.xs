@@ -35,7 +35,6 @@ table relokit_capability {
     // direction backwards inverts every plan.
     decimal selectivity_prior
   
-    int observation_n?
     int ttl_seconds
     decimal coverage
     int precedence
