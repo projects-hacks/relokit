@@ -1432,6 +1432,31 @@ button:focus-visible,
   border-radius: 2px;
 }
 
+/* Said while the counts above it are still moving, so a reader does not take a
+   number mid run for the answer. Quieter than a problem, because it is not one. */
+.pending-note {
+  padding: calc(var(--step) * 2) calc(var(--step) * 3);
+  background: #fff;
+  border-left: 3px solid var(--paper-edge);
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pending-note {
+    animation: settle 1.6s ease-in-out infinite;
+  }
+}
+
+@keyframes settle {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 /* ---------- narrowing the list ---------- */
 
 .controls {

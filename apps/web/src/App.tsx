@@ -337,11 +337,27 @@ export function App() {
 
             {result && !working && (
               <>
+                {status === 'running' && result.entities.length > 0 && (
+                  <p className="note pending-note">
+                    Still checking. These counts move as answers come back.
+                  </p>
+                )}
                 {result.entities.length === 0 ? (
-                  <Nothing result={result} />
+                  // Only once the run has stopped. Partway through, no places
+                  // yet means none have been found so far, and saying nothing
+                  // came back is a verdict on a search that is still running.
+                  status === 'running' ? (
+                    <>
+                      <p className="pending">{progress}</p>
+                      <FindingsSkeleton />
+                    </>
+                  ) : (
+                    <Nothing result={result} />
+                  )
                 ) : (
                   <Findings
                     result={result}
+                    running={status === 'running'}
                     isSaved={saved.isSaved}
                     onSave={(home) => {
                       notice.show(saved.isSaved(home.entity_id) ? 'Removed.' : 'Saved.')

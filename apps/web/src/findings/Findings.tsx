@@ -32,6 +32,7 @@ export function Findings({
   onHover,
   selected,
   hovered,
+  running = false,
 }: {
   result: AskResult
   isSaved: (entityId: string) => boolean
@@ -39,6 +40,8 @@ export function Findings({
   onOpen: (entityId: string) => void
   onSelect: (entityId: string) => void
   onHover: (entityId: string | null) => void
+  /** True while answers are still coming back, so an empty list is not a verdict. */
+  running?: boolean
   selected: string | null
   hovered: string | null
 }) {
@@ -229,11 +232,16 @@ export function Findings({
           <p className="note">
             {bucket.length > 0
               ? 'Nothing here matches what you narrowed to. Widen it above.'
-              : open === 'verified'
-                ? 'Nothing cleared every requirement. What would take the fewest changes is below.'
-                : open === 'unsure'
-                  ? 'Everything that was checked could be settled one way or the other.'
-                  : 'Nothing was ruled out.'}
+              : // Empty part way through means none yet, not none at all. The
+                // settled wording below is a conclusion, and the run has not
+                // reached one.
+                running
+                ? 'Still checking. Places appear here as answers come back.'
+                : open === 'verified'
+                  ? 'Nothing cleared every requirement. What would take the fewest changes is below.'
+                  : open === 'unsure'
+                    ? 'Everything that was checked could be settled one way or the other.'
+                    : 'Nothing was ruled out.'}
           </p>
         ) : (
           grouped.map(({ row: { entry, blocking, mark }, siblings }) => {
