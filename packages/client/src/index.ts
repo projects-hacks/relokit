@@ -340,6 +340,30 @@ export async function ask(
   // Not retried, either: a repeat would write every fact in the chunk a second
   // time, since only entities are checked before insert.
   const keeping: string[] = []
+  // Counts of what each capability did, filed first and alone. The run's own
+  // burst leaves the instance winded exactly when filing starts, and the big
+  // chunks are what it drops; a small request lands where a heavy one dies,
+  // so the learning is not chained to the least reliable call of the run.
+  try {
+    await transport.post(
+      '/ingest',
+      {
+        run_id: runId,
+        entities: [],
+        evidence: [],
+        region,
+        observations: outcome.observed.map(({ capability_id, answered, decisive, passed }) => ({
+          capability_id,
+          answered,
+          decisive,
+          passed,
+        })),
+      },
+      { attempts: 1, base_ms: 0, cap_ms: 0 },
+    )
+  } catch {
+    // The next run measures the same things; a lost filing costs nothing.
+  }
   for (let at = 0; at < Math.max(entityRows.length, evidenceRows.length, 1); at += CHUNK) {
     try {
       await transport.post(
@@ -348,19 +372,6 @@ export async function ask(
           run_id: runId,
           entities: entityRows.slice(at, at + CHUNK),
           evidence: evidenceRows.slice(at, at + CHUNK),
-          // Counts of what each capability did, filed once with the first
-          // chunk so the next question can plan on measurement.
-          ...(at === 0 && {
-            region,
-            observations: outcome.observed.map(
-              ({ capability_id, answered, decisive, passed }) => ({
-                capability_id,
-                answered,
-                decisive,
-                passed,
-              }),
-            ),
-          }),
         },
         { attempts: 1, base_ms: 0, cap_ms: 0 },
       )
@@ -417,8 +428,9 @@ export async function ask(
         ? [
             {
               op_id: 'keeping',
-              detail:
-                'This answer could not be filed, so tracking it would have nothing to compare against. Asking again will file it.',
+              // The cause rides along, because a filing that fails the same
+              // way every night is invisible without it.
+              detail: `This answer could not be filed, so tracking it would have nothing to compare against. Asking again will file it. (${keeping[0]})`,
             },
           ]
         : []),

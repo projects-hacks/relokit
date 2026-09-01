@@ -8,7 +8,7 @@ import { RENTAL_QUERY, backend, impatient, seed } from './fake.ts'
  * touch what the reader is told about a place.
  */
 describe('what a run teaches the next one', () => {
-  it('what each source did travels once, with the first filing', async () => {
+  it('what each source did travels once, small and alone', async () => {
     const { transport, posts } = backend()
     await ask(transport, RENTAL_QUERY, { retry: impatient })
 
@@ -18,8 +18,13 @@ describe('what a run teaches the next one', () => {
     expect(carrying).toHaveLength(1)
     const body = carrying[0]!.body as {
       region: string | null
+      entities: unknown[]
+      evidence: unknown[]
       observations: Record<string, unknown>[]
     }
+    // Alone, because the heavy filings are what a winded instance drops.
+    expect(body.entities).toHaveLength(0)
+    expect(body.evidence).toHaveLength(0)
     expect(body.region).toBe('san jose')
     expect(body.observations.length).toBeGreaterThan(0)
     for (const row of body.observations) {

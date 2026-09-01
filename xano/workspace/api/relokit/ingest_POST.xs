@@ -34,7 +34,33 @@ query ingest verb=POST {
       error_type = "notfound"
       error = "No such run for this org."
     }
-  
+
+    // What each capability did, as counts, filed once per run. First, before
+    // the heavy loops below: writes survive an abort here (measured), so a
+    // gateway that kills the filing mid-way still leaves the counts kept. The
+    // unique index on (run_id, capability_id) makes a double filing impossible.
+    conditional {
+      if ($input.observations != null) {
+        foreach ($input.observations) {
+          each as $obs {
+            db.add relokit_observation {
+              data = {
+                created_at      : "now"
+                org_id          : $org.id
+                run_id          : $run.id
+                capability_id   : $obs.capability_id
+                registry_version: $run.registry_version
+                region          : $input.region
+                answered        : $obs|get:"answered":0
+                decisive        : $obs|get:"decisive":0
+                passed          : $obs|get:"passed":0
+              }
+            }
+          }
+        }
+      }
+    }
+
     foreach ($input.entities) {
       each as $entity {
         db.query relokit_entity {
@@ -109,30 +135,6 @@ query ingest verb=POST {
       }
     }
   
-    // What each capability did, as counts, filed once per run. The unique
-    // index on (run_id, capability_id) makes a double filing impossible.
-    conditional {
-      if ($input.observations != null) {
-        foreach ($input.observations) {
-          each as $obs {
-            db.add relokit_observation {
-              data = {
-                created_at      : "now"
-                org_id          : $org.id
-                run_id          : $run.id
-                capability_id   : $obs.capability_id
-                registry_version: $run.registry_version
-                region          : $input|get:"region":null
-                answered        : $obs|get:"answered":0
-                decisive        : $obs|get:"decisive":0
-                passed          : $obs|get:"passed":0
-              }
-            }
-          }
-        }
-      }
-    }
-
     db.edit relokit_run {
       field_name = "id"
       field_value = $run.id
