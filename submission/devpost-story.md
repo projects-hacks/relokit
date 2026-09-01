@@ -58,6 +58,49 @@ The frontend is React and TypeScript with a MapLibre map that draws the actual r
 
 Stack: TypeScript across eight packages, React and Vite, Xano for the backend with 16 tables, 27 endpoints and 4 shared functions, SerpApi for seven engines, 421 tests.
 
+## Why not just ask an LLM with web search?
+
+This is the first question anyone asks, so here is the honest answer.
+
+Relokit is not a language model given live data. It is close to the opposite.
+The model is called once, at the start, and it does one job: read your sentence
+and say which phrase is a budget, which is a commute, which is an opening time.
+It never sees a listing, never sees a search result, and never decides whether
+anything passes. Even its own numbers are not trusted. Every number is re-read
+from the words you actually wrote, because the model once read "open past 10pm"
+as thirty six thousand seconds, which is ten in the morning, and filed it as an
+opening time rather than a closing one. The planner, the executor and the
+verdicts never touch a model at all.
+
+So the model understands the question, and ordinary tested code answers it.
+That split is the design, and it is there for four reasons.
+
+**The work is combinatorial and a model will not do it.** Six requirements
+across ninety listings is 13,662 calls done the naive way. The planner gets it
+to 76 by ordering the work: filters the provider already applies for free,
+then geometry, because a straight line is a hard lower bound on a real journey
+and rules places out for no calls at all, then one call per neighbourhood, then
+one call per listing only for what survived. An agent looping over tools has no
+cost model. It makes a handful of calls and asserts the rest.
+
+**A model cannot tell you what it failed to check.** It produces one confident
+narrative. It has no way to say "for this listing the price is quoted as a range,
+so it settles nothing against your cap, and that is the one fact I could not
+get". Relokit can, because it tracks per listing and per requirement whether a
+source actually answered. The three buckets are a data structure, not a
+prompting trick.
+
+**Every fact carries its source and its age.** You can follow any of them back.
+A generated answer is a blend of whatever was in the context window.
+
+**The same question gives the same answer.** Same plan, same identifier, same
+result. That matters when the decision is a lease.
+
+Where a model with search is genuinely better: one fact, asked once. What time
+does this gym close. It will beat this comfortably. The moment it becomes many
+places times many requirements, and being wrong costs you a year of rent,
+guessing quietly stops being acceptable, and that is the part this is built for.
+
 ## Challenges I ran into
 
 **Retrying a metered call spends twice.** I assumed a repeated call would be free because the first attempt would have filled the cache. Then I measured it: 46 planned calls spent 50 real searches. When a gateway gives up after the provider has already answered, the money is gone and the cache write never happened, so asking again pays again. Free calls now retry patiently with jitter. Metered ones are asked exactly once, whatever else the run does, and a failed one is reported as unchecked rather than quietly repeated.

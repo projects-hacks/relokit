@@ -1,6 +1,6 @@
-# Demo video, 3 minutes
+# Demo video, 3 minutes 20
 
-Xano asks for 2 to 4 minutes end to end. Aim for 3.
+Xano asks for 2 to 4 minutes end to end.
 
 **Before recording.** Run both demo questions once so they answer from the
 ledger. Both currently cost nothing and return in about 16 seconds, which is
@@ -61,7 +61,15 @@ Open the working panel.
 > "Every source it used, what it cost, and whether those numbers are measured
 > from real runs or still an estimate. It tells you which."
 
-**2:45 to 3:00. The ledger, and close.**
+**2:45 to 3:05. Say why this is not a chatbot.**
+
+Worth twenty seconds, because every judge is thinking it.
+
+> "A model reads your sentence and nothing else. It never sees a listing and it
+> never decides what passes. The checking is ordinary code against real sources,
+> which is why it can tell you what it could not confirm instead of guessing."
+
+**3:05 to 3:20. The ledger, and close.**
 
 Ask the same question again. It returns fast and spends nothing.
 
