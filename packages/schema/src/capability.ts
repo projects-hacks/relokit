@@ -52,6 +52,12 @@ export const ParamValue = z
     message: 'param ref is outside the closed set',
   })
 
+/**
+ * Where a capability's numbers come from: measured in this place, measured
+ * somewhere, or still the registry's labelled guess. Nothing in between.
+ */
+export const PriorBasis = z.enum(['assumed', 'measured_here', 'measured'])
+
 export const Capability = z.object({
   capability_id: z.string(),
   constraint_type: ConstraintType,
@@ -67,9 +73,12 @@ export const Capability = z.object({
    * eliminated. 0.35 on in_unit_laundry means 35% of listings have it.
    */
   selectivity_prior: z.number().min(0).max(1),
-  /** Written back from observed pass rates after each run. */
+  /** Import-era leftover. Observed numbers live in observation rows now. */
   selectivity_observed: z.number().min(0).max(1).optional(),
+  /** Decisive answers behind the numbers above when they are measured. */
   observation_n: z.number().int().nonnegative().default(0),
+  /** Set at plan time by the observation ladder. Never stored. */
+  prior_basis: PriorBasis.default('assumed'),
   ttl_seconds: z.number().int().positive(),
   /** Fraction of entities for which this returns a verdict other than unknown. */
   coverage: z.number().min(0).max(1),
@@ -100,6 +109,7 @@ export const Registry = z.object({
 })
 
 export type Provider = z.infer<typeof Provider>
+export type PriorBasis = z.infer<typeof PriorBasis>
 export type Granularity = z.infer<typeof Granularity>
 export type ParamValue = z.infer<typeof ParamValue>
 export type Capability = z.infer<typeof Capability>

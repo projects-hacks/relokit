@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { BBox, GeoPoint, Meters, Seconds } from './units.ts'
 import { ConstraintSet } from './constraints.ts'
-import { Capability, Granularity, ParamValue, Provider } from './capability.ts'
+import { Capability, Granularity, ParamValue, PriorBasis, Provider } from './capability.ts'
 
 export const Tier = Granularity
 
@@ -96,6 +96,8 @@ export const CandidateTrace = z.object({
   tier: Tier,
   selectivity_prior: z.number(),
   coverage: z.number(),
+  prior_basis: PriorBasis.default('assumed'),
+  observation_n: z.number().int().nonnegative().default(0),
   cost_units: z.number(),
   entities_requiring_evaluation: z.number(),
   /** Null for a native capability. Free predicates are not scored: they run

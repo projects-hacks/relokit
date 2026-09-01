@@ -558,6 +558,8 @@ function toTrace(candidate: Candidate, reason: CandidateTrace['reason']): Candid
     tier: candidate.tier,
     selectivity_prior: candidate.capability.selectivity_prior,
     coverage: candidate.capability.coverage,
+    prior_basis: candidate.capability.prior_basis,
+    observation_n: candidate.capability.observation_n,
     cost_units: candidate.capability.cost_units,
     entities_requiring_evaluation: candidate.entities_requiring_evaluation,
     score: Number.isFinite(candidate.score) ? candidate.score : null,

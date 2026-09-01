@@ -20,6 +20,7 @@ const cap = (over: Partial<Capability> = {}): Capability => ({
   latency_p50_ms: 2400,
   selectivity_prior: 0.35,
   observation_n: 0,
+  prior_basis: 'assumed',
   ttl_seconds: 604800,
   coverage: 1,
   precedence: 1,
