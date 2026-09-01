@@ -14,4 +14,7 @@ export const ObservationRow = z.object({
   passed: z.number().int().nonnegative(),
 })
 
+export const ObservationRows = z.array(ObservationRow)
+
 export type ObservationRow = z.infer<typeof ObservationRow>
+export type ObservationRows = z.infer<typeof ObservationRows>

@@ -78,7 +78,7 @@ describe('the honesty ladder', () => {
 
   it('a measured pass rate of zero replaces the guess rather than vanishing', () => {
     const rows = [row({ answered: 12, decisive: 12, passed: 0 })]
-    const [measured] = applyObservations([cap()], rows, 'san jose, ca')
+    const measured = applyObservations([cap()], rows, 'san jose, ca')[0]!
     expect(measured.selectivity_prior).toBe(0)
     expect(measured.prior_basis).toBe('measured_here')
   })
@@ -88,7 +88,7 @@ describe('the honesty ladder', () => {
       row({ answered: 2, decisive: 2, passed: 2 }),
       row({ answered: 18, decisive: 18, passed: 0 }),
     ]
-    const [summed] = applyObservations([cap()], rows, 'san jose, ca')
+    const summed = applyObservations([cap()], rows, 'san jose, ca')[0]!
     // 2 of 20, not the average of 100 percent and 0 percent.
     expect(summed.selectivity_prior).toBe(0.1)
     expect(summed.observation_n).toBe(20)
@@ -114,7 +114,7 @@ describe('the region key', () => {
     expect(regionKey({ ...constraints, search_anchor: undefined })).toBeNull()
     expect(regionKey({ ...constraints, search_anchor: { raw: 'your location' } })).toBeNull()
     const rows = [row({ region: null, answered: 40, decisive: 40, passed: 20 })]
-    const [pooled] = applyObservations([cap()], rows, null)
+    const pooled = applyObservations([cap()], rows, null)[0]!
     expect(pooled.prior_basis).toBe('measured')
   })
 })

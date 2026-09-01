@@ -12,8 +12,9 @@ import {
   worthRetrying,
   type RetryPolicy,
 } from './retry.ts'
-import { plan } from '@relokit/planner'
+import { applyObservations, plan, regionKey } from '@relokit/planner'
 import {
+  ObservationRows,
   PlanBudget,
   Registry,
   type ConstraintSet,
@@ -158,10 +159,21 @@ export async function ask(
     capabilities: parsed.registry,
   })
 
+  // What past runs measured, turned into priors by the ladder. A malformed
+  // learning payload costs the learning, never the search.
+  let observed: ObservationRows = []
+  try {
+    observed = ObservationRows.parse(parsed.observations ?? [])
+  } catch {
+    observed = []
+  }
+  const region = regionKey(constraint_set)
+  const capabilities = applyObservations(registry.capabilities, observed, region)
+
   const budget = PlanBudget.parse(parsed.budget)
   const planned = plan({
     constraints: constraint_set,
-    registry: registry.capabilities,
+    registry: capabilities,
     registry_version: registry.registry_version,
     budget,
     now_ms: now,
@@ -180,7 +192,7 @@ export async function ask(
   const outcome = await replayRun(
     planned,
     constraint_set,
-    registry.capabilities,
+    capabilities,
     async (_engine, params, context) => {
       stopped()
       const answer = await transport.post(
@@ -336,6 +348,19 @@ export async function ask(
           run_id: runId,
           entities: entityRows.slice(at, at + CHUNK),
           evidence: evidenceRows.slice(at, at + CHUNK),
+          // Counts of what each capability did, filed once with the first
+          // chunk so the next question can plan on measurement.
+          ...(at === 0 && {
+            region,
+            observations: outcome.observed.map(
+              ({ capability_id, answered, decisive, passed }) => ({
+                capability_id,
+                answered,
+                decisive,
+                passed,
+              }),
+            ),
+          }),
         },
         { attempts: 1, base_ms: 0, cap_ms: 0 },
       )
