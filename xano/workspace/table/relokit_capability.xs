@@ -35,10 +35,6 @@ table relokit_capability {
     // direction backwards inverts every plan.
     decimal selectivity_prior
   
-    // Written back from what actually happened, so the guesses above stop being
-    // guesses. Null until a run has reported.
-    decimal selectivity_observed?
-  
     int observation_n?
     int ttl_seconds
     decimal coverage

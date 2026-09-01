@@ -73,8 +73,6 @@ export const Capability = z.object({
    * eliminated. 0.35 on in_unit_laundry means 35% of listings have it.
    */
   selectivity_prior: z.number().min(0).max(1),
-  /** Import-era leftover. Observed numbers live in observation rows now. */
-  selectivity_observed: z.number().min(0).max(1).optional(),
   /** Decisive answers behind the numbers above when they are measured. */
   observation_n: z.number().int().nonnegative().default(0),
   /** Set at plan time by the observation ladder. Never stored. */

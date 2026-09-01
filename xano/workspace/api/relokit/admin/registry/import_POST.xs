@@ -69,11 +69,6 @@ query "admin/registry/import" verb=POST {
             cost_units                                                         : $capability.cost_units
             latency_p50_ms                                                     : $capability.latency_p50_ms
             selectivity_prior                                                  : $capability.selectivity_prior
-            "// Read with a default. XanoScript raises on a key an object does": ``
-            "// not have rather than answering null"                           : ``
-            "and most capabilities have"                                       : ``
-            "// never been observed."                                          : ``
-            selectivity_observed                                               : $capability|get:"selectivity_observed":null
             observation_n                                                      : $capability|get:"observation_n":0
             ttl_seconds                                                        : $capability.ttl_seconds
             coverage                                                           : $capability.coverage
