@@ -14,6 +14,7 @@ import { Working } from './panels/Working.tsx'
 import { Brief } from './panels/Brief.tsx'
 import { SavedLocations } from './panels/SavedLocations.tsx'
 import { Watch } from './panels/Watch.tsx'
+import { useWide } from './lib/wide.ts'
 import { Findings } from './findings/Findings.tsx'
 import { Detail } from './findings/Detail.tsx'
 import { Nothing } from './findings/Nothing.tsx'
@@ -66,6 +67,10 @@ export function App() {
   const [fromMap, setFromMap] = useState(false)
   const saved = useSaved(result?.constraint_set.raw_query ?? '')
   const working = useDeferred(status === 'running' && !result)
+  const wide = useWide()
+  // One question worth tracking, rendered in one of two places. The fixture
+  // demo is nobody's saved question.
+  const watchable = result !== null && !working && status === 'done' && result.run_id !== 0
   const notice = useToast()
   // On a phone the answer comes first and the map is asked for. Above that it
   // is always open and the control is not rendered at all.
@@ -182,9 +187,12 @@ export function App() {
               subject={result?.constraint_set.subject ?? null}
             />
             <Plan plan={plan} events={events} />
-            {/* The rail is the method: what will be checked, then how it was.
-                It has the room, and it keeps the answer column to answers. */}
+            {/* The rail is the method: what will be checked, then how it was,
+                then keeping it checked. It has the room, and it keeps the
+                answer column to answers. */}
             {result && !working && <Working result={result} />}
+            {/* The fixture demo is nobody's saved question. */}
+            {wide && watchable && <Watch result={result} />}
           </aside>
 
           {/* On a phone the map and the list are two views of the same
@@ -270,6 +278,10 @@ export function App() {
                           height={64}
                           loading="lazy"
                           decoding="async"
+                          referrerPolicy="no-referrer"
+                          onError={(event) => {
+                            event.currentTarget.remove()
+                          }}
                         />
                       )}
                       <span>
@@ -361,8 +373,10 @@ export function App() {
                     })
                   }}
                 />
-                {/* The fixture demo is nobody's saved question. */}
-                {status === 'done' && result.run_id !== 0 && <Watch result={result} />}
+                {/* On a phone the rail stacks above the answer, so tracking is
+                    rendered here instead: nothing the reader has to scroll past
+                    to reach what they asked for. */}
+                {!wide && watchable && <Watch result={result} />}
               </>
             )}
           </section>

@@ -53,7 +53,17 @@ export function SavedLocations({
           {homes.map((home) => (
             <article className="saved-property" key={home.entity_id}>
               {home.photo_url && (
-                <img src={home.photo_url} alt="" width={168} height={112} loading="lazy" />
+                <img
+                  src={home.photo_url}
+                  alt=""
+                  width={168}
+                  height={112}
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                  onError={(event) => {
+                    event.currentTarget.remove()
+                  }}
+                />
               )}
               <div className="saved-property-copy">
                 {money(home.price_cents) && (

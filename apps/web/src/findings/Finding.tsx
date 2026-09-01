@@ -94,6 +94,15 @@ export function Finding({
             height={360}
             loading="lazy"
             decoding="async"
+            // Asked for without a referrer, and dropped if it still will not
+            // come. A listing with no photograph of its own comes back as a
+            // signed static map, and that signature is for the site that made
+            // it: asked for from here it answers 403, and a broken frame reads
+            // as a broken product rather than as a home nobody photographed.
+            referrerPolicy="no-referrer"
+            onError={(event) => {
+              event.currentTarget.closest('.shot')?.remove()
+            }}
           />
           {entity.photos.length > 1 && <span className="shot-count">{entity.photos.length}</span>}
           {saveButton}

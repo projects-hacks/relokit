@@ -27,7 +27,17 @@ export function Peek({
     <div className="peek">
       <button className="peek-body" onClick={onOpen}>
         {place.photo_url && (
-          <img src={place.photo_url} alt="" width={64} height={64} loading="lazy" />
+          <img
+            src={place.photo_url}
+            alt=""
+            width={64}
+            height={64}
+            loading="lazy"
+            referrerPolicy="no-referrer"
+            onError={(event) => {
+              event.currentTarget.remove()
+            }}
+          />
         )}
         <span className="peek-copy">
           <b>{place.title}</b>

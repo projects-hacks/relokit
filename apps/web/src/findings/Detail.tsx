@@ -73,6 +73,10 @@ export function Detail({
                 height={340}
                 loading="lazy"
                 decoding="async"
+                referrerPolicy="no-referrer"
+                onError={(event) => {
+                  event.currentTarget.remove()
+                }}
               />
             ))}
           </div>
