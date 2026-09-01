@@ -160,3 +160,56 @@ describe('the payback rule and the answer', () => {
     ).toBe(true)
   })
 })
+
+describe('what the budget measures first', () => {
+  it('rides the nearest homes before the far ones', async () => {
+    // The spend cap cuts the entity list short, and cut in arrival order it
+    // measured whichever homes the provider listed first. The straight line is
+    // free, so the cap now spends itself on the homes most likely to qualify.
+    const { readFileSync } = await import('node:fs')
+    const { ConstraintSet, Registry } = await import('@relokit/schema')
+    const { plan } = await import('@relokit/planner')
+    const { createClient } = await import('@relokit/serpapi')
+    const { replayRun } = await import('./run.ts')
+    const { distanceMeters } = await import('@relokit/evidence')
+
+    const registry = Registry.parse(JSON.parse(readFileSync('xano/registry.seed.json', 'utf8')))
+    const constraints = ConstraintSet.parse(
+      JSON.parse(readFileSync('fixtures/queries/relocation-san-jose.json', 'utf8')),
+    )
+    const NOW = Date.parse('2026-08-28T12:00:00Z')
+    const planned = plan({
+      constraints,
+      registry: registry.capabilities,
+      registry_version: registry.registry_version,
+      budget: { max_cost_units: 400, max_stages: 6, cluster_count: 12, overshoot_factor: 1.3 },
+      now_ms: NOW,
+    })
+    const client = createClient({ mode: 'replay' })
+
+    const rides: string[] = []
+    await replayRun(
+      planned,
+      constraints,
+      registry.capabilities,
+      (engine, params) => {
+        if (engine === 'google_maps_directions' && typeof params.start_coords === 'string') {
+          rides.push(params.start_coords)
+        }
+        return client.search(engine, params)
+      },
+      { now_ms: NOW, evaluation_days: ['tue'], overshoot_factor: 1.3 },
+    )
+
+    // The entity-tier rides, in the order they were asked. Whatever produced
+    // them, each must start no further from the destination than the next.
+    const commuteDest = { lat: 37.3726799, lng: -121.9678625 }
+    const entityRides = rides.slice(-Math.max(2, rides.length - 12))
+    const asKm = entityRides.map((coords) => {
+      const [lat, lng] = coords.split(',').map(Number)
+      return distanceMeters({ lat: lat!, lng: lng! }, commuteDest)
+    })
+    const sorted = [...asKm].sort((a, b) => a - b)
+    expect(asKm).toEqual(sorted)
+  })
+})

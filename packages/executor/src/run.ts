@@ -345,11 +345,16 @@ export async function replayRun(
             }),
           )
         : stage.fanout === 'per_entity'
-          ? surviving
-              .filter((e) => e.point)
-              .map((e) =>
-                base({ entity: { id: e.entity_id, lat: e.point!.lat, lng: e.point!.lng } }),
-              )
+          ? // Nearest the destination first. The spend cap can cut this list
+            // short, and cut in arrival order it measured whichever homes the
+            // provider happened to list first; cut nearest-first it measures
+            // the ones most likely to qualify, and the far ones it leaves are
+            // the ones a straight line already made doubtful. Free, because
+            // geometry costs nothing, and honest, because whatever is left
+            // unmeasured still says so on its card.
+            promising(surviving.filter((e) => e.point)).map((e) =>
+              base({ entity: { id: e.entity_id, lat: e.point!.lat, lng: e.point!.lng } }),
+            )
           : [base({})]
 
     // One operation over thirty listings is thirty independent questions, and
@@ -782,6 +787,19 @@ export async function replayRun(
     // Evidence for a place already known was established the first time it was
     // seen, so keeping the second copy would double every fact about it.
     outcome.evidence.push(...mapped.evidence.filter((row) => kept.has(row.entity_id)))
+  }
+
+  /** Ordered by straight-line distance to wherever the question points. */
+  function promising(entities: Place[]): Place[] {
+    const targets = constraints.constraints
+      .filter((c) => c.type === 'commute')
+      .map((c) => parsePoint(produced[`constraint.${c.id}.destination_point`]))
+      .filter((point): point is { lat: number; lng: number } => point !== undefined)
+    const there = targets[0] ?? outcome.anchor_point
+    if (!there) return entities
+    return [...entities].sort(
+      (a, b) => distanceMeters(a.point!, there) - distanceMeters(b.point!, there),
+    )
   }
 
   function base(extra: Partial<Bindings>): Bindings {
