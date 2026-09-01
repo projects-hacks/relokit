@@ -184,3 +184,18 @@ An instance is winded right after a run's own burst of calls, which is exactly
 when the filing starts. The big evidence chunks are what it drops first; a small
 request goes through in the same minute. Anything that must land, like the
 observation counts, travels first and alone.
+
+## A proxy that waits longer than its host lives
+
+The passage to Xano waited three minutes inside a Vercel function that is
+killed at sixty seconds. The longer timeout could never fire: the platform
+killed the function first, so a slow call reached the browser as an unreadable
+gateway page rather than an error the app could explain, and a metered call
+cannot be repeated to find out what happened. Whatever waits upstream has to
+give up before whatever is hosting it does.
+
+A single call was also the one path with no queue behind it. The queue records
+an attempt before it runs anything and survives the connection dying, so a call
+that outlives its poll is finished by the next one; a direct call that dies
+takes the fact with it. Everything the queue can carry now goes through it,
+including a lone call.

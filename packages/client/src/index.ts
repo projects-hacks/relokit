@@ -216,7 +216,11 @@ export async function ask(
         // again pays for it twice. The upstream is metered and the failure is
         // already handled: the listings that call covered go unverified, which
         // is the answer this product is built to give.
-        options.retry ?? ONCE,
+        //
+        // Not options.retry: a caller that asks for patience elsewhere is
+        // asking about calls that cost nothing, and letting that reach here
+        // would quietly buy every failed search a second time.
+        ONCE,
       )
       return answer.body
     },

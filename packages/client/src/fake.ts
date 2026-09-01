@@ -36,7 +36,7 @@ const PLACES = {
 const GEOCODE = { place_results: { gps_coordinates: { latitude: 37.33, longitude: -121.88 } } }
 
 /** A rental question, whose entity tier is what actually fans out. */
-export const RENTAL_QUERY = '2 bed in San Jose, 20 min bike to 1 First St'
+export const RENTAL_QUERY = '2 bed in San Jose, 60 min bike to 1 First St'
 const RENTAL_PARSED = JSON.stringify({
   subject: 'rental',
   location: 'San Jose',
@@ -46,44 +46,48 @@ const RENTAL_PARSED = JSON.stringify({
       type: 'commute',
       hardness: 'hard',
       weight: 1,
-      source_text: '20 min bike to 1 First St',
+      source_text: '60 min bike to 1 First St',
       destination: { raw: '1 First St' },
       mode: 'bike',
-      max_seconds: 1200,
+      max_seconds: 3600,
     },
   ],
 })
-// Far enough apart that every home is its own cluster, so the cluster tier
-// fans out and the group path carries something, and near enough to the
-// destination that the free geometric floor cannot settle the ride on its own.
-// Spread them across a county and every home is rejected before a single
-// direction is asked for, which quietly tests nothing.
+// One home per corner of the searched box, which puts each in its own grid
+// cell so the cluster tier fans out and the group path carries something.
+// Near enough to the destination that the free geometric floor cannot settle
+// the ride on its own: spread them wider and every home is ruled out before a
+// single direction is asked for, which quietly tests nothing.
 const ZILLOW = {
-  organic_results: [1, 2, 3, 4].map((n) => ({
-    zpid: String(n),
-    title: `${n} Elm St`,
+  organic_results: [
+    [0.05, 0.07],
+    [-0.05, 0.07],
+    [0.05, -0.07],
+    [-0.05, -0.07],
+  ].map(([north = 0, east = 0], n) => ({
+    zpid: String(n + 1),
+    title: `${n + 1} Elm St`,
     price: '$2,000/mo',
-    link: `https://x/${n}`,
-    gps_coordinates: { latitude: 37.3 + n * 0.02, longitude: -121.88 + n * 0.015 },
+    link: `https://x/${n + 1}`,
+    gps_coordinates: { latitude: 37.33 + north, longitude: -121.88 + east },
   })),
 }
-// Rides either side of the twenty minute limit, so verdicts really are mixed.
-// A fixture where everything passes cannot tell a working rejection rule from
-// a broken one: both answer the same.
+// One answer per quadrant, two inside the limit and two outside, so verdicts
+// really are mixed: a fixture where everything passes cannot tell a working
+// rejection rule from a broken one, because both answer the same.
 //
 // Keyed to where the ride starts rather than to the order calls arrive in. A
 // counter would hand the same home a different answer once a plan reordered
 // its calls, and a test for what priors cannot change must not itself change
 // with them.
-// The listings sit on a known ladder of latitudes, so each band gets its own
-// answer and the mix is a property of the fixture rather than of a hash.
-const RIDES = [900, 1500, 780, 1800]
+const RIDES = [1800, 4200, 1500, 5400]
 
 function rideFrom(params: Record<string, unknown> | undefined): unknown {
-  const lat = Number(String(params?.start_coords ?? '').split(',')[0])
-  const band = Number.isFinite(lat) ? Math.round((lat - 37.32) / 0.02) : 0
-  const duration = RIDES[Math.min(Math.max(band, 0), RIDES.length - 1)]
-  return { directions: [{ travel_mode: 'Cycling', duration }] }
+  const [lat = 0, lng = 0] = String(params?.start_coords ?? '')
+    .split(',')
+    .map(Number)
+  const quadrant = (lat > 37.33 ? 1 : 0) + (lng > -121.88 ? 2 : 0)
+  return { directions: [{ travel_mode: 'Cycling', duration: RIDES[quadrant] }] }
 }
 
 function answerFor(capability: string, params?: Record<string, unknown>): unknown {

@@ -428,7 +428,13 @@ export async function replayRun(
       } => !('kind' in entry),
     )
 
-    if (options.searchBatch && askable.length > 1) {
+    // Every call the queue can carry goes through it, including a lone one.
+    // A direct call holds a connection open while a provider thinks, and when
+    // the gateway gives up on it the fact is lost for good, because a metered
+    // call cannot be safely repeated. The queue records the attempt before it
+    // runs anything and survives the connection dying, so a call that outlives
+    // its poll is finished by the next one rather than abandoned.
+    if (options.searchBatch && askable.length >= 1) {
       // Groups of six by default: enough to collapse the round trips, small
       // enough that a group with a slow provider call inside it still fits a
       // gateway's patience. A queue transport raises it, since its polls are

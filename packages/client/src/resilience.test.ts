@@ -19,10 +19,19 @@ describe('a run that meets a backend having a bad minute', () => {
   it('asks a metered call once, however badly it fails', async () => {
     // A search that fails after the provider answered has been paid for, so
     // asking again pays twice. Measured live: forty six planned, fifty spent.
-    const { transport, seen } = backend({ '/op': { times: 1 } })
-    const result = await ask(transport, QUERY)
-    // Asked once and not repeated, so nothing is paid for twice.
-    expect(seen.filter((path) => path === '/op')).toHaveLength(1)
+    //
+    // The handover is refused here, which is what drops a run back to asking
+    // one call at a time. That fallback is the path with no queue behind it,
+    // so it is the one that must never repeat a call.
+    const { transport, posts } = backend({ '/jobs': { times: 99 }, '/op': { times: 1 } })
+    const result = await ask(transport, QUERY, { retry: impatient })
+    const asked = posts
+      .filter((post) => post.path === '/op')
+      .map((post) => (post.body as { op_id?: string }).op_id)
+    expect(asked.length).toBeGreaterThan(0)
+    // No call travelled twice, including the one that failed, and including
+    // when the caller asked for patience on the calls that cost nothing.
+    expect(new Set(asked).size).toBe(asked.length)
     // The run still ends, and says what it could not do rather than stopping.
     expect(result.problems.length).toBeGreaterThan(0)
   })
@@ -67,9 +76,10 @@ describe('a run that meets a backend having a bad minute', () => {
 
 describe('a stage handed to the queue', () => {
   it('one poisoned job fails alone; its neighbours keep their answers', async () => {
-    // Job 2 dies on every attempt. It must come back as a problem on the
-    // answer, not as a reason to re-ask the whole group.
-    const { transport } = backend({}, [2])
+    // One of the four ride calls dies on every attempt. It must come back as a
+    // problem on the answer, not as a reason to re-ask the whole group, and its
+    // neighbours in the same handover must keep what they were told.
+    const { transport } = backend({}, [5])
     const result = await ask(transport, RENTAL_QUERY, { retry: impatient })
     expect(result.entities.length).toBeGreaterThan(0)
     expect(result.problems.some((problem) => /could not settle/.test(problem.detail))).toBe(true)

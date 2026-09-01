@@ -69,13 +69,24 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(request).then((hit) => {
       if (hit) return hit
-      return fetch(request).then((response) => {
-        if (response.ok && response.type === 'basic') {
-          const copy = response.clone()
-          caches.open(CACHE).then((cache) => cache.put(request, copy))
-        }
-        return response
-      })
+      return fetch(request)
+        .then((response) => {
+          if (response.ok && response.type === 'basic') {
+            const copy = response.clone()
+            caches.open(CACHE).then((cache) => cache.put(request, copy))
+          }
+          return response
+        })
+        .catch(
+          () =>
+            // A dropped request must not become an unhandled rejection: that
+            // fails the whole event and takes the page down with it, on a
+            // phone with one bar, over one asset that could have waited.
+            new Response(JSON.stringify({ error: 'The network dropped this one.' }), {
+              status: 504,
+              headers: { 'content-type': 'application/json' },
+            }),
+        )
     }),
   )
 })
