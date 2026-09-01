@@ -54,3 +54,15 @@ rated. Beaten results stay visible and name what beats them, trade-offs stay on
 the frontier untouched, and a result with an unknown anywhere is never called
 beaten, because an absent number is not evidence. Costs nothing: every number
 involved was already paid for.
+
+## What a run teaches the next one
+
+Every run counts what each capability answered, settled and passed, and files
+those counts with its evidence into an append-only observation table, keyed by
+the place the question named. Every parse serves the counts back, and the next
+plan replaces a guessed prior with the measured ratio once a place has ten
+decisive answers, falling back to the tally across all places, and then to the
+guess, which is labelled as one. In a town never searched before, the first run
+plans on the fallbacks and writes the first rows. Priors route spend only: a
+result is still only ever ruled out by an evaluated fail, whatever the numbers
+that ordered the asking.

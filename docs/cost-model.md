@@ -208,9 +208,27 @@ Everything above the entity tier is an estimate made before any call has returne
 Survivor counts are not knowable at plan time, so Xano reports the measured
 `entities_out` per stage back into the run record and the UI renders those.
 
-Priors are seeded by guesswork and labelled as such in the registry `notes`. After
-each run the observed pass rate is written back to `selectivity_observed`, so the
-numbers driving the ordering stop being invented.
+Priors start as engineering guesses, labelled as such in the registry `notes`, and
+every run measures the truth: how many rows each capability answered, how many were
+decisive, how many passed. The client files those counts with the run's evidence,
+they land in an append-only observation table keyed by the normalized place the
+question named, and every parse serves them back.
+
+The next plan applies a strict ladder per capability: the measured ratios for this
+place if it has at least ten decisive answers, the measured ratios across all
+places if those reach ten, and otherwise the registry's guess, which says so. A
+served number is a measurement with its n or an assumption; nothing in between,
+and nothing is ever seeded to look measured. In a town no one has searched, the
+first run plans on global measurements or labelled guesses and writes the first
+rows; the second run there can already plan on numbers measured in that town.
+
+Counts rather than ratios, because counts sum exactly across runs and a measured
+zero survives the trip through storage. Registry imports never touch the
+observation table, so a prior tweak does not reset what has been learned.
+
+None of this can move a verdict. Priors decide only what is worth asking and in
+what order; a listing is still only ever ruled out by an evaluated fail, and the
+suite pins that inverted priors change the spend and never a bucket.
 
 ## Widening a number costs listings, not lookups
 

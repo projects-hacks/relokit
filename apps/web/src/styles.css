@@ -1358,6 +1358,14 @@ button:focus-visible,
   font-family: var(--sans);
 }
 
+.scores .basis {
+  display: block;
+  font-family: var(--sans);
+  font-size: 10px;
+  color: var(--ink-dim);
+  white-space: nowrap;
+}
+
 .as-link {
   font: inherit;
   color: inherit;

@@ -54,7 +54,10 @@ export function Working({ result }: { result: AskResult }) {
                   <tr key={index}>
                     <td>{candidate.capability_id}</td>
                     <td>{candidate.constraint_id}</td>
-                    <td>{Math.round((1 - candidate.selectivity_prior) * 100)}%</td>
+                    <td>
+                      {Math.round((1 - candidate.selectivity_prior) * 100)}%
+                      <span className="basis">{basis(candidate)}</span>
+                    </td>
                     <td>{Math.round(candidate.coverage * 100)}%</td>
                     <td>
                       {candidate.cost_units * candidate.entities_requiring_evaluation || 'free'}
@@ -90,6 +93,14 @@ export function Working({ result }: { result: AskResult }) {
       )}
     </section>
   )
+}
+
+/** Whether a number was measured on real runs, and over how many answers. */
+function basis(candidate: { prior_basis: string; observation_n: number }): string {
+  if (candidate.prior_basis === 'measured_here')
+    return `measured here, ${candidate.observation_n} answers`
+  if (candidate.prior_basis === 'measured') return `measured, ${candidate.observation_n} answers`
+  return 'assumed'
 }
 
 const REASON: Record<string, string> = {
