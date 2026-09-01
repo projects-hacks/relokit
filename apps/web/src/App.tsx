@@ -156,7 +156,7 @@ export function App() {
             Relo<span>kit</span>
           </h1>
         </a>
-        <p className="strapline">The whole picture, in one question</p>
+        <p className="strapline">Know a place before you get there</p>
         {saved.homes.length > 0 && (
           <button className="saved-access" onClick={() => setSavedOpen(true)}>
             <span aria-hidden="true">★</span>

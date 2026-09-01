@@ -1,7 +1,7 @@
 {
   "name": "Relokit",
   "short_name": "Relokit",
-  "description": "Ask once, in your own words. The price, the ride, what is nearby and when it is open, each one checked against the source that holds it.",
+  "description": "Find places that fit in a city you do not know yet. Say what you need in one sentence and each part is checked against the source that holds it.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

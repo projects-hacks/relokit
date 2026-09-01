@@ -65,10 +65,10 @@ export function Landing({ onSearch }: { onSearch: (query?: string) => void }) {
       <section className="hero">
         {/* No forced break: the line that suits 1500px is the wrong one at 390,
             and the browser balances it better than a guess can. */}
-        <h1>Ask once. Every part checked.</h1>
+        <h1>Find places that fit, in a city you don&rsquo;t know yet.</h1>
         <p className="hero-sub">
-          The price, the ride, the opening hours. Each one answered by the source that holds it,
-          with the date it was checked.
+          An apartment near the new job. Dinner that is still open. A gym before six. Say what you
+          need in one sentence, and each part is checked against the source that holds it.
         </p>
 
         <form
