@@ -65,10 +65,10 @@ export function Landing({ onSearch }: { onSearch: (query?: string) => void }) {
       <section className="hero">
         {/* No forced break: the line that suits 1500px is the wrong one at 390,
             and the browser balances it better than a guess can. */}
-        <h1>Ask once. Know everything that matters.</h1>
+        <h1>Ask once. Every part checked.</h1>
         <p className="hero-sub">
-          The price, the journey, what is nearby and when it is open. Each part answered from the
-          source that holds it, with the date attached.
+          The price, the ride, the opening hours. Each one answered by the source that holds it,
+          with the date it was checked.
         </p>
 
         <form
@@ -134,15 +134,15 @@ export function Landing({ onSearch }: { onSearch: (query?: string) => void }) {
             <p>Every requirement met, each fact showing its source and its date.</p>
           </div>
           <div>
-            <b>Ruled out</b>
-            <p>The one thing that decided it, named on the card.</p>
-          </div>
-          <div>
             <b>Unconfirmed</b>
             <p>
               Where a place keeps something to itself, you get told which fact and why, and it is
               kept apart from the rest.
             </p>
+          </div>
+          <div>
+            <b>Ruled out</b>
+            <p>The one thing that decided it, named on the card.</p>
           </div>
         </div>
       </section>
