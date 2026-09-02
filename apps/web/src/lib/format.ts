@@ -20,7 +20,9 @@ export function sourceName(source: string): string {
     google_local: 'Google',
     google_maps_reviews: 'Reviews',
     google_news: 'Google News',
-    geometry: 'Geometry',
+    // Not a provider. Worked out here from coordinates somebody else supplied,
+    // and the reader is owed that distinction in a word they use.
+    geometry: 'Measured',
     yelp: 'Yelp',
   }
   return names[source] ?? source

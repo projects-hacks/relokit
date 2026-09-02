@@ -191,6 +191,49 @@ stays. The rule is about payback, not about which constraint it is.
 Entity work is never dropped this way. It is where the verdict comes from rather
 than a shortcut to avoid work later.
 
+## Answering is worth something even when eliminating is not
+
+The payback rule and the score both ask how many listings a source removes per
+call. That is the right question while there is a choice between sources, and the
+wrong one when the alternative is not asking at all.
+
+A question about Jersey City showed the difference. Two hundred candidates, a gym
+and a grocery wanted, and one call per listing per requirement is four hundred
+calls against an allowance of two hundred. The per listing source was priced out.
+The cluster source, at about twelve calls, had already lost the comparison on
+elimination power and was not there to fall back on. Both requirements came back
+unmeasured, and because a listing is only verified when every hard requirement
+passes, nothing verified at all: nought verified, one hundred and forty five
+unconfirmed.
+
+So a requirement still unanswered when everything has been priced now takes the
+cheapest source that can answer it and still fits, whatever its elimination
+power, and the interface says that is why it was picked. Measured across eight
+allowances against the demo query it answers strictly more at three of them and
+the same at the rest, and the committed plan for the demo does not move.
+
+## A place already found settles the question for its neighbours
+
+A nearby search returns real coordinates, and a shop is where it is whoever asked
+for it. Those coordinates used to be read once, against the point the search was
+made from, and thrown away. At cluster level that meant measuring from the middle
+of a cell and holding the answer at 0.7 confidence to pay for the error.
+
+Every place seen is now pooled per requirement, and each listing is measured
+against the pool from its own coordinates. This is the second half of filter and
+refine, and it is the mirror of the straight line bound:
+
+- a straight line can prove a journey **too long**, never short enough
+- a place in the pool can prove a requirement **met**, never unmet
+
+Absence from the pool settles nothing, because the pool is a union of what
+searches happened to return, and reading a failure out of it would make it a
+liar. What it cannot settle goes to a search aimed at that address.
+
+On the Jersey City question this turned nought verified into four, with two
+hundred and seven requirements answered from the pool at no extra call, and not
+one additional rejection.
+
 ## Why the second query is cheaper
 
 Evidence rows carry a TTL per source. A gym's opening hours are good for 30 days,

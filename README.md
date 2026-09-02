@@ -119,20 +119,40 @@ Execution runs free predicates first, then region, then cluster, then per place.
 Only the last tier scales with the candidate count, so it runs last, against the
 smallest set that is still correct.
 
-Four ideas do most of the saving:
+Five ideas do most of the saving. Two of them are the halves of filter and
+refine, which is how spatial databases avoid running an expensive check on
+everything: settle cheaply whatever can be settled cheaply, and pay only for
+what is left.
 
 - **Free filters first.** A price cap and a bedroom count are filters on the
   search itself. Applying them costs nothing and shrinks everything downstream.
-- **Geometry before network.** A straight line is a hard lower bound on a real
-  journey. If the crow flies further than your limit allows, no road will fit,
-  and the place is ruled out with no call and no guess.
+- **A straight line certifies a miss.** It is a hard lower bound on a real
+  journey, so if the crow flies further than your limit allows, no road will fit
+  and the place is ruled out with no call and no guess. It can never certify a
+  hit, because a short line says nothing about the roads.
+- **A place already found certifies a hit.** Every nearby search comes back with
+  real coordinates, and a shop is where it is whoever asked. Those are pooled, so
+  a gym within half a mile of one home can settle the question for a neighbour it
+  was never searched for, measured exactly and for no extra call. Finding nothing
+  in the pool certifies nothing: it is a union of what searches returned, and
+  absence from it is not absence from the map.
 - **Clusters before places.** Neighbours share a commute. One call per cluster,
   with slack so a place is only ruled out when even its nearest corner fails.
 - **A ledger, not a cache.** Facts are stored per fact with the expiry each one
   deserves. A price is good for two days, opening hours for a month. Asking again
   costs almost nothing.
 
-Cost is not the whole story, because some sources cannot run until another has
+Scoring is not the whole story either, in two ways.
+
+A source is ranked by how many places it removes per call, which is the right
+question while there is a choice between sources and the wrong one when the
+alternative is not asking. A source that answers a requirement and rules almost
+nothing out scores near zero and loses every round; if the source that outscored
+it is then priced out, the requirement comes back unmeasured for every place. So
+anything still unanswered at the end takes the cheapest source that can answer it
+and still fits, and the interface says that is why it was picked.
+
+And some sources cannot run until another has
 bound their inputs. Directions needs a destination point, and producing one
 eliminates no candidates, so on pruning power alone a geocode scores zero and
 loses every comparison it enters. Selection is a fixpoint over bindings: each
