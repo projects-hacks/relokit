@@ -18,6 +18,76 @@ interface LocalResult {
   place_id?: string
 }
 
+/** A place a search actually located, so it can be measured against later. */
+export interface PoiCandidate {
+  title: string
+  point: GeoPoint
+  hours: string
+  place_id?: string
+  rating?: number
+  operating_hours?: Record<string, unknown>
+}
+
+/** Every place the search put on the map. One without coordinates cannot be
+ * measured against anything, so it is not a candidate for anything either. */
+export function readNearbyPois(body: unknown): PoiCandidate[] {
+  const results = (body as { local_results?: LocalResult[] }).local_results ?? []
+  return results
+    .filter((r) => r.gps_coordinates)
+    .map((r) => ({
+      title: r.title ?? 'unnamed',
+      point: { lat: r.gps_coordinates!.latitude, lng: r.gps_coordinates!.longitude },
+      hours: r.hours ?? '',
+      ...(r.place_id ? { place_id: r.place_id } : {}),
+      ...(r.rating === undefined ? {} : { rating: r.rating }),
+      ...(r.operating_hours ? { operating_hours: r.operating_hours } : {}),
+    }))
+}
+
+/**
+ * Whether a place is the kind being asked for, ignoring where it is.
+ *
+ * Close enough is a separate question and is asked by whoever knows the origin.
+ * Only the opening hours can come back unreadable, and that is reported rather
+ * than counted as shut.
+ */
+export function qualifies(
+  poi: PoiCandidate,
+  constraint: NearbyPoiConstraint,
+  evaluationDays: Weekday[],
+): 'pass' | 'fail' | 'unknown' {
+  if (constraint.min_rating !== undefined && (poi.rating ?? 0) < constraint.min_rating) {
+    return 'fail'
+  }
+  if (!constraint.open_window) return 'pass'
+  return satisfiesWindow(
+    parseOperatingHours(poi.operating_hours),
+    constraint.open_window,
+    evaluationDays,
+  )
+}
+
+/**
+ * The nearest qualifying place, measured from a real address.
+ *
+ * No slack: slack is the allowance for measuring from the middle of a
+ * neighbourhood instead of from a home, and this measures from the home.
+ */
+export function nearestQualifying(
+  pois: PoiCandidate[],
+  constraint: NearbyPoiConstraint,
+  from: GeoPoint,
+  evaluationDays: Weekday[],
+): { poi: PoiCandidate; meters: number } | null {
+  const within = pois
+    .filter((poi) => qualifies(poi, constraint, evaluationDays) === 'pass')
+    .map((poi) => ({ poi, meters: distanceMeters(from, poi.point) }))
+    .filter((found) => found.meters <= constraint.radius_m)
+    .sort((a, b) => a.meters - b.meters)
+  if (within.length < constraint.min_count) return null
+  return within[0] ?? null
+}
+
 export interface PlacesOptions {
   entity_id: string
   /** Where the radius is measured from: the listing, or a cluster centroid. */
@@ -42,18 +112,10 @@ export function mapNearbyPlaces(
   context: MapperContext,
   options: PlacesOptions,
 ): EvidenceRow[] {
-  const results = (body as { local_results?: LocalResult[] }).local_results ?? []
   const slack = options.slack_meters ?? 0
 
-  const withDistance = results
-    .filter((r) => r.gps_coordinates)
-    .map((r) => ({
-      result: r,
-      meters: distanceMeters(options.origin, {
-        lat: r.gps_coordinates!.latitude,
-        lng: r.gps_coordinates!.longitude,
-      }),
-    }))
+  const withDistance = readNearbyPois(body)
+    .map((result) => ({ result, meters: distanceMeters(options.origin, result.point) }))
     .filter((r) => r.meters <= constraint.radius_m + slack)
     .sort((a, b) => a.meters - b.meters)
 
@@ -88,32 +150,9 @@ export function mapNearbyPlaces(
   let sawUnknownHours = false
 
   for (const { result, meters } of withDistance) {
-    if (constraint.min_rating !== undefined && (result.rating ?? 0) < constraint.min_rating) {
-      continue
-    }
-    if (!constraint.open_window) {
-      qualifying.push({
-        title: result.title ?? 'unnamed',
-        meters,
-        hours: result.hours ?? '',
-        point: { lat: result.gps_coordinates!.latitude, lng: result.gps_coordinates!.longitude },
-        ...(result.place_id ? { place_id: result.place_id } : {}),
-      })
-      continue
-    }
-    const parsed = parseOperatingHours(result.operating_hours)
-    const verdict = satisfiesWindow(parsed, constraint.open_window, options.evaluation_days)
-    if (verdict === 'pass') {
-      qualifying.push({
-        title: result.title ?? 'unnamed',
-        meters,
-        hours: result.hours ?? '',
-        point: { lat: result.gps_coordinates!.latitude, lng: result.gps_coordinates!.longitude },
-        ...(result.place_id ? { place_id: result.place_id } : {}),
-      })
-    } else if (verdict === 'unknown') {
-      sawUnknownHours = true
-    }
+    const verdict = qualifies(result, constraint, options.evaluation_days)
+    if (verdict === 'pass') qualifying.push({ ...result, meters })
+    else if (verdict === 'unknown') sawUnknownHours = true
   }
 
   const nearest = qualifying[0]
@@ -181,7 +220,7 @@ export function mapNearbyPlaces(
  * single place meant a question naming a workplace produced no point, no search
  * bounds, and no results at all, without saying so.
  */
-function placeUrl(title: string, placeId?: string): string {
+export function placeUrl(title: string, placeId?: string): string {
   const query = encodeURIComponent(title)
   return placeId
     ? `https://www.google.com/maps/search/?api=1&query=${query}&query_place_id=${placeId}`
