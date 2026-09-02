@@ -16,3 +16,6 @@ xano/workspace/.env.example
 xano/workspace/workspace/
 .vercel
 .env*.local
+
+# Submission drafts for the hackathon form. Working material, not the product.
+submission/
