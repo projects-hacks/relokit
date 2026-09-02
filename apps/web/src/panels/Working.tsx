@@ -107,6 +107,7 @@ const REASON: Record<string, string> = {
   lower_score: 'another source answered the same thing for fewer searches',
   no_payback: 'it would have cost more searches than the results it could rule out',
   over_budget: 'the run was not allowed to spend that much',
+  last_resort: 'the only source left that could answer this at all',
   unbound: 'it needed something that never arrived',
   disabled: 'switched off in the registry',
   zero_coverage: 'it never actually answers this',

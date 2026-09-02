@@ -21,7 +21,7 @@ import { SEED_REGION_CANDIDATES, eliminationPower, pagesFor, survivors } from '.
 import { boxAround, gridClusters, reachRadiusMeters, slackMeters, slackSeconds } from './cluster.ts'
 import { bindSelf, mergeParams, stableHash } from './params.ts'
 import { enabledByConstraintType, entitiesRequiringEvaluation } from './registry.ts'
-import { compareCandidates, scoreCandidate, type Candidate } from './score.ts'
+import { compareCandidates, scoreCandidate, tierRank, type Candidate } from './score.ts'
 
 export const PLANNER_VERSION = '0.1.0'
 
@@ -269,6 +269,66 @@ function select(
 
     closeDerived(bound)
     if (round > slots.length + DERIVED_ROUNDS_HEADROOM) break
+  }
+
+  // Scoring ranks a source by how many listings it removes per call, which is
+  // the right question while there is a choice and the wrong one when there is
+  // not. A source that answers a requirement and rules almost nothing out
+  // scores near zero, loses every round, and if the source that outscored it is
+  // then priced out, the requirement comes back unmeasured for every listing.
+  // A partial answer beats none, so anything still unanswered takes the
+  // cheapest thing that can answer it and still fits.
+  for (const slot of slots) {
+    if (slot.constraint === null || selections.has(slot.id)) continue
+    const affordable = (index.get(slot.type) ?? [])
+      .filter((capability) => isFeasible(requirementsOf(capability, slot.type), bound))
+      .map((capability) =>
+        scoreCandidate(
+          capability,
+          slot.id,
+          entitiesRequiringEvaluation(capability.granularity, ctx),
+        ),
+      )
+      .map((candidate) => ({
+        candidate,
+        cost:
+          candidate.capability.cost_units *
+          (entitiesRequiringEvaluation(candidate.tier, ctx) || 1),
+      }))
+      // Cheapest wins here rather than best scoring, because the question has
+      // stopped being which source is best and become which one we can have.
+      // Ties break the way the fixpoint breaks them, so row order cannot decide.
+      .sort(
+        (a, b) =>
+          a.cost - b.cost ||
+          tierRank(a.candidate.tier) - tierRank(b.candidate.tier) ||
+          a.candidate.capability.precedence - b.candidate.capability.precedence ||
+          (a.candidate.capability.capability_id < b.candidate.capability.capability_id ? -1 : 1),
+      )
+
+    const taken = affordable.find((entry) => spent + entry.cost <= ctx.max_cost_units)
+    if (!taken) continue
+    spent += taken.cost
+    selections.set(slot.id, {
+      slot,
+      byTier: new Map([[taken.candidate.tier, taken.candidate]]),
+    })
+    // Re-marked rather than added, so one capability keeps one line in the
+    // trace and the reader is not told it was considered twice.
+    const already = trace.find(
+      (entry) =>
+        entry.capability_id === taken.candidate.capability.capability_id &&
+        entry.constraint_id === slot.id,
+    )
+    if (already) {
+      already.reason = 'last_resort'
+      already.chosen = true
+    } else {
+      const row = toTrace(taken.candidate, 'last_resort')
+      row.chosen = true
+      trace.push(row)
+    }
+    for (const produced of taken.candidate.capability.produces) bound.add(produced)
   }
 
   for (const constraint of constraints) {

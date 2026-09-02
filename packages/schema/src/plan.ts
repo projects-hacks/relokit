@@ -116,6 +116,13 @@ export const CandidateTrace = z.object({
     'unbound',
     /** Would cost more calls than the listings it could remove. */
     'no_payback',
+    /**
+     * Admitted after everything else had been priced, because it was the only
+     * thing left that could answer the requirement at all. Scoring ranks by how
+     * many listings a source removes, which values nothing about a source that
+     * merely answers.
+     */
+    'last_resort',
   ]),
 })
 

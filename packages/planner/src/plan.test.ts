@@ -347,3 +347,54 @@ describe('a question that names only a place', () => {
     expect(result.unsatisfied).toEqual([])
   })
 })
+
+/**
+ * Scoring asks which source removes the most listings per call. That is the
+ * right question while there is a choice between sources and the wrong one when
+ * the alternative is not asking at all.
+ */
+describe('a requirement nothing affordable wanted to answer', () => {
+  // Only the per listing source, and far too many listings to afford it.
+  const onlyExpensive = registry.capabilities.filter(
+    (c) => c.capability_id !== 'nearby_poi.maps.cluster',
+  )
+
+  it('does not fire when everything already has an answer', () => {
+    expect(plan(input).trace.candidates.some((c) => c.reason === 'last_resort')).toBe(false)
+    expect(plan(input).unsatisfied).toEqual([])
+  })
+
+  it('takes a cheaper source rather than leaving the requirement unmeasured', () => {
+    // Enough to afford one call per cell, nowhere near enough for one per home.
+    const tight = { ...input, budget: { ...input.budget, max_cost_units: 40 } }
+    expect(plan(tight).unsatisfied).toEqual([])
+    // Removing the cheap source is the only difference between the two.
+    expect(plan({ ...tight, registry: onlyExpensive }).unsatisfied.length).toBeGreaterThan(0)
+  })
+
+  it('answers at least as much at every allowance as it did before', () => {
+    // The cheap source may only ever add an answer. A budget at which having it
+    // available leaves more unanswered would mean it had displaced something.
+    for (const max of [20, 30, 40, 50, 60, 80, 100, 200]) {
+      const budget = { ...input.budget, max_cost_units: max }
+      const withCheap = plan({ ...input, budget }).unsatisfied.map((u) => u.constraint_id)
+      const without = plan({ ...input, budget, registry: onlyExpensive }).unsatisfied.map(
+        (u) => u.constraint_id,
+      )
+      for (const id of withCheap) expect(without).toContain(id)
+    }
+  })
+
+  it('still refuses what it cannot pay for', () => {
+    // Not enough for the candidate search, let alone anything after it.
+    const broke = plan({ ...input, budget: { ...input.budget, max_cost_units: 2 } })
+    expect(broke.estimated_cost_units).toBeLessThanOrEqual(2)
+    expect(broke.unsatisfied.length).toBeGreaterThan(0)
+  })
+
+  it('never admits one twice, however it was admitted', () => {
+    const tight = plan({ ...input, budget: { ...input.budget, max_cost_units: 60 } })
+    const seen = tight.trace.candidates.map((c) => `${c.capability_id}|${c.constraint_id}`)
+    expect(new Set(seen).size).toBe(seen.length)
+  })
+})
