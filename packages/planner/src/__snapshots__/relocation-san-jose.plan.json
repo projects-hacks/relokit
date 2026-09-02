@@ -429,7 +429,7 @@
       },
       {
         "step": "pushdown",
-        "detail": "3 predicates applied inside the search for nothing, budgeting 2 pages rather than the 111 the unfiltered box would need"
+        "detail": "3 predicates applied inside the search at no cost, budgeting 2 pages rather than the 111 the unfiltered box would need"
       }
     ],
     "naive_cost_units": 18179,

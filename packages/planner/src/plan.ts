@@ -462,7 +462,7 @@ function assemble(
     })
     decisions.push({
       step: 'pushdown',
-      detail: `${natives.length} predicates applied inside the search for nothing, budgeting ${pageBudget} page${pageBudget === 1 ? '' : 's'} rather than the ${pagesFor(SEED_REGION_CANDIDATES)} the unfiltered box would need`,
+      detail: `${natives.length} predicates applied inside the search at no cost, budgeting ${pageBudget} page${pageBudget === 1 ? '' : 's'} rather than the ${pagesFor(SEED_REGION_CANDIDATES)} the unfiltered box would need`,
     })
   }
 

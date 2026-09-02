@@ -2795,3 +2795,7 @@ button:focus-visible,
     padding: calc(var(--step) * 4);
   }
 }
+
+.for-what {
+  color: var(--ink-dim);
+}

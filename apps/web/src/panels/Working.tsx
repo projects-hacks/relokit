@@ -42,6 +42,9 @@ function Sheet({ result, onClose }: { result: AskResult; onClose: () => void }) 
   const dialog = useDialog<HTMLElement>(onClose)
   const chosen = result.plan.trace.candidates.filter((candidate) => candidate.chosen)
   const passedOver = result.plan.trace.candidates.filter((candidate) => !candidate.chosen)
+  // The same source is priced once per requirement, so a list of bare ids
+  // repeats itself and reads as a duplicate rather than as two decisions.
+  const said = new Map(result.constraint_set.constraints.map((c) => [c.id, c.source_text]))
 
   // Outside the application root, so the root can be made inert while this is
   // open without the dialog disabling itself.
@@ -114,8 +117,11 @@ function Sheet({ result, onClose }: { result: AskResult; onClose: () => void }) 
               <ul className="plain">
                 {passedOver.slice(0, 6).map((candidate, index) => (
                   <li key={index}>
-                    <b>{candidate.capability_id}</b> —{' '}
-                    {REASON[candidate.reason] ?? candidate.reason}
+                    <b>{candidate.capability_id}</b>
+                    {said.get(candidate.constraint_id) && (
+                      <span className="for-what"> for {said.get(candidate.constraint_id)}</span>
+                    )}{' '}
+                    — {REASON[candidate.reason] ?? candidate.reason}
                   </li>
                 ))}
               </ul>
