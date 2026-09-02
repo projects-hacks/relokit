@@ -139,17 +139,18 @@ is marketing.
 | listing detail, commute, gym, grocery and news, on 4,517 candidates each | 18,068     |
 | **total**                                                                | **18,179** |
 
-| planned                                                           | calls  | candidates after |
-| ----------------------------------------------------------------- | ------ | ---------------- |
-| geocode the office                                                | 1      |                  |
-| Zillow search with price, beds and laundry applied natively       | 1      | 20               |
-| bike route from 6 cells fitted to the listings, pruned with slack | 6      | 11               |
-| exact route, gym and grocery for each of the eleven that are left | 33     | 5                |
-| **total**                                                         | **41** | **5**            |
+| planned                                                            | calls  | candidates after |
+| ------------------------------------------------------------------ | ------ | ---------------- |
+| geocode the office and the anchor                                  | 2      |                  |
+| Zillow search with price, beds and laundry applied natively        | 1      | 19               |
+| bike route from 12 cells fitted to the listings, pruned with slack | 12     | 8                |
+| exact route, gym and grocery for the eight that are left           | 24     | 5                |
+| **total**                                                          | **39** | **5**            |
 
-41 against 18,179. One verified home, four unverified, fifteen rejected with a
-reason, and the nearest miss is a listing 26 minutes away against a 25 minute
-limit.
+39 against 18,179, and 88 was the plan: the difference is work the plan budgeted
+for and the run did not need. One verified home, four unverified, fifteen
+rejected with a reason, and the nearest miss is a listing 26 minutes away against
+a 25 minute limit.
 
 Both numbers are computed from `PlanTrace` at runtime and rendered as whatever is
 true for the query that just ran. Neither is hardcoded, and if the real numbers
@@ -182,7 +183,7 @@ entities_entering_the_tier * elimination_power > cost_units * cluster_count
 Measured over forty answers, proximity at cluster level has coverage 0.45 and
 selectivity 0.94: slack leaves most answers undecided and nearly all the rest
 pass. Twelve calls to remove about one listing. The planner drops it, the entity
-tier still answers the constraint, and the run goes from 80 calls to 41 with an
+tier still answers the constraint, and the run is cheaper for it with an
 identical result.
 
 Commute at cluster level measures 0.80 and 0.44 once cells are fitted, so it
@@ -209,7 +210,7 @@ unconfirmed.
 So a requirement still unanswered when everything has been priced now takes the
 cheapest source that can answer it and still fits, whatever its elimination
 power, and the interface says that is why it was picked. Measured across eight
-allowances against the demo query it answers strictly more at three of them and
+allowances against the demo query it answers strictly more at four of them and
 the same at the rest, and the committed plan for the demo does not move.
 
 ## A place already found settles the question for its neighbours
