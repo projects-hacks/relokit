@@ -1365,7 +1365,8 @@ button:focus-visible,
   font-family: var(--sans);
   font-size: 10px;
   color: var(--ink-dim);
-  white-space: nowrap;
+  /* The count is the point of the label, so wrap rather than clip it. */
+  overflow-wrap: anywhere;
 }
 
 .as-link {
