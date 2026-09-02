@@ -657,9 +657,11 @@ button:focus-visible,
 }
 
 .watch button.watch-on {
-  color: #fff;
-  background: var(--ground);
-  border: 1px solid var(--ground);
+  /* --ground is the page, not an ink. This was white on white, so the only
+     control that turns tracking on could not be seen or found. */
+  color: var(--ground);
+  background: var(--measure);
+  border: 1px solid var(--measure);
 }
 
 /* Once it is on, the control stops advertising itself and just reports. */
