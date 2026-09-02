@@ -13,6 +13,7 @@ import {
 import { SUBJECT_WORDS, type Place } from '@relokit/schema'
 import { Controls } from './Controls.tsx'
 import { Finding } from './Finding.tsx'
+import { FindingSkeleton } from './Skeleton.tsx'
 
 type Bucket = 'verified' | 'unsure' | 'out'
 
@@ -229,20 +230,30 @@ export function Findings({
         aria-labelledby={`tab-${open}`}
       >
         {shown.length === 0 ? (
-          <p className="note">
-            {bucket.length > 0
-              ? 'Nothing here matches what you narrowed to. Widen it above.'
-              : // Empty part way through means none yet, not none at all. The
-                // settled wording below is a conclusion, and the run has not
-                // reached one.
-                running
-                ? 'Still checking. Places appear here as answers come back.'
-                : open === 'verified'
-                  ? 'Nothing cleared every requirement. What would take the fewest changes is below.'
-                  : open === 'unsure'
-                    ? 'Everything that was checked could be settled one way or the other.'
-                    : 'Nothing was ruled out.'}
-          </p>
+          <>
+            <p className="note">
+              {bucket.length > 0
+                ? 'Nothing here matches what you narrowed to. Widen it above.'
+                : // Empty part way through means none yet, not none at all. The
+                  // settled wording below is a conclusion, and the run has not
+                  // reached one.
+                  running
+                  ? 'Still checking. Places appear here as answers come back.'
+                  : open === 'verified'
+                    ? 'Nothing cleared every requirement. What would take the fewest changes is below.'
+                    : open === 'unsure'
+                      ? 'Everything that was checked could be settled one way or the other.'
+                      : 'Nothing was ruled out.'}
+            </p>
+            {/* A sentence alone under an empty bucket reads as a stalled page.
+                The shape of what is coming reads as work in progress. */}
+            {bucket.length === 0 && running && (
+              <div className="skeleton-stack">
+                <FindingSkeleton />
+                <FindingSkeleton checks={4} />
+              </div>
+            )}
+          </>
         ) : (
           grouped.map(({ row: { entry, blocking, mark }, siblings }) => {
             const home = entity(entry.entity_id)
