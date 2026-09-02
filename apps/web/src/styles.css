@@ -2727,3 +2727,71 @@ button:focus-visible,
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* The working panel opens over the page rather than inside the rail, because a
+   five column table does not fit a column sized for a search box. */
+.working-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgb(24 36 32 / 40%);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--step) * 4);
+}
+
+.working-modal {
+  width: min(880px, 100%);
+  max-height: min(86vh, 980px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 64px rgb(24 36 32 / 24%);
+  padding: calc(var(--step) * 5);
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--step) * 3);
+}
+
+.working-modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: calc(var(--step) * 3);
+}
+
+.working-modal-head h2 {
+  margin: 0;
+  font: 500 16px/1.3 var(--sans);
+}
+
+.working-modal .working-body {
+  padding: 0;
+  border-top: none;
+  padding-top: 0;
+}
+
+.working-scrim {
+  animation: fade 160ms ease-out;
+}
+
+.working-modal {
+  animation: rise 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (max-width: 640px) {
+  .working-scrim {
+    padding: calc(var(--step) * 2);
+    align-items: flex-end;
+  }
+
+  .working-modal {
+    max-height: 92vh;
+    padding: calc(var(--step) * 4);
+  }
+}

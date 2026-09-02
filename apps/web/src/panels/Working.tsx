@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { createPortal } from 'react-dom'
 import type { AskResult } from '@relokit/client'
 import { Ledger } from './Ledger.tsx'
+import { useDialog } from '../lib/dialog.ts'
 
 /**
  * How the answer was reached.
@@ -9,11 +11,14 @@ import { Ledger } from './Ledger.tsx'
  * click away because anyone who wants to know whether to believe the answer
  * needs all of it: which source was asked what, which were considered and
  * passed over, and on what arithmetic.
+ *
+ * It opens as a dialog rather than inside the rail. A five column table of
+ * sources with a percentage, its basis and a reason cannot be read in a column
+ * sized for a search box, and the rail was clipping the very counts that make
+ * the numbers worth believing.
  */
 export function Working({ result }: { result: AskResult }) {
   const [open, setOpen] = useState(false)
-  const chosen = result.plan.trace.candidates.filter((candidate) => candidate.chosen)
-  const passedOver = result.plan.trace.candidates.filter((candidate) => !candidate.chosen)
 
   return (
     <section className="working" data-open={String(open)}>
@@ -24,11 +29,46 @@ export function Working({ result }: { result: AskResult }) {
           {result.cost.actual_units} spent
         </span>
         <span className="chevron" aria-hidden="true">
-          {open ? '−' : '+'}
+          →
         </span>
       </button>
 
-      {open && (
+      {open && <Sheet result={result} onClose={() => setOpen(false)} />}
+    </section>
+  )
+}
+
+function Sheet({ result, onClose }: { result: AskResult; onClose: () => void }) {
+  const dialog = useDialog<HTMLElement>(onClose)
+  const chosen = result.plan.trace.candidates.filter((candidate) => candidate.chosen)
+  const passedOver = result.plan.trace.candidates.filter((candidate) => !candidate.chosen)
+
+  // Outside the application root, so the root can be made inert while this is
+  // open without the dialog disabling itself.
+  return createPortal(
+    <div className="working-scrim" onClick={onClose}>
+      <section
+        className="working-modal"
+        ref={dialog}
+        role="dialog"
+        aria-modal="true"
+        aria-label="How this was worked out"
+        tabIndex={-1}
+        onClick={(event) => event.stopPropagation()}
+      >
+        <header className="working-modal-head">
+          <div>
+            <h2>How this was worked out</h2>
+            <p className="working-hint">
+              {result.plan.stages.length} steps · {result.cost.planned_units} planned ·{' '}
+              {result.cost.actual_units} spent
+            </p>
+          </div>
+          <button className="ghost" onClick={onClose} aria-label="Close">
+            ✕
+          </button>
+        </header>
+
         <div className="working-body">
           <p className="note">
             Each requirement is answered by whichever source can settle it for the fewest searches.
@@ -90,8 +130,9 @@ export function Working({ result }: { result: AskResult }) {
           </ul>
           <Ledger result={result} />
         </div>
-      )}
-    </section>
+      </section>
+    </div>,
+    document.body,
   )
 }
 
