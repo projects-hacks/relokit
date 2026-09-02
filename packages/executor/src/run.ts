@@ -8,8 +8,12 @@ import {
   mapNearbyPlaces,
   mapPlaceCandidates,
   mapZillowSearch,
+  nearestQualifying,
+  placeUrl,
+  readNearbyPois,
   type Buckets,
   type MapperContext,
+  type PoiCandidate,
 } from '@relokit/evidence'
 import {
   boxAround,
@@ -176,6 +180,10 @@ export async function replayRun(
   // Places the question named, once each has been located.
   const placed: { constraint: ProximityConstraint; point: { lat: number; lng: number } }[] = []
   const droppedByPlace = new Set<string>()
+  // Every place a nearby search returned, kept per requirement because the
+  // searches differ by what was asked for. A shop is where it is whoever asked,
+  // so an answer bought for one address can be measured from another.
+  const poiPool = new Map<string, PoiCandidate[]>()
 
   // Points handed in with the question, the reader's own location above all,
   // stand in for the geocodes that would otherwise have to find them.
@@ -228,6 +236,10 @@ export async function replayRun(
     outcome.entities = outcome.entities.filter((entity) =>
       surviving.length === 0 && placed.length === 0 ? true : !droppedByPlace.has(entity.entity_id),
     )
+    // After the pruning, so it can never bring back a listing that was ruled
+    // out, and before the next stage, so the per listing tier can see what is
+    // already settled and not buy it again.
+    certifyFromPool()
     outcome.stages.push({
       stage_id: stage.stage_id,
       entities_in: before,
@@ -684,6 +696,82 @@ export async function replayRun(
     return kept
   }
 
+  /** Deduped by the provider's own id, and by position when it gave none, so
+   * the same shop returned by two neighbouring searches is not counted twice
+   * against min_count. */
+  function remember(constraintId: string, seen: PoiCandidate[]) {
+    const held = poiPool.get(constraintId) ?? []
+    const known = new Set(held.map(poiKey))
+    for (const poi of seen) {
+      if (known.has(poiKey(poi))) continue
+      known.add(poiKey(poi))
+      held.push(poi)
+    }
+    poiPool.set(constraintId, held)
+  }
+
+  /**
+   * Settles a requirement from places an earlier search already paid for.
+   *
+   * Only ever a pass. Finding nothing in the pool means the pool is short of
+   * this corner of the map, not that the corner is empty, so absence is left to
+   * a search aimed at this address. Reading a failure out of this would make it
+   * a liar.
+   *
+   * Every listing, not just the survivors: the per listing tier stops at its
+   * fanout and the rest would otherwise be reported unchecked, when the answer
+   * for them is already in hand.
+   */
+  function certifyFromPool() {
+    if (poiPool.size === 0) return
+    // An answer somebody paid for, or one this already settled. A cluster
+    // answer measured from a centroid is not that: it is held at 0.7 precisely
+    // because the listing may be nearer or further than the middle of its
+    // cell, and measuring from the listing is what improves it.
+    const exact = new Set(
+      outcome.evidence
+        .filter((r) => r.eval_state === 'evaluated' && r.confidence >= 1 && r.verdict !== 'unknown')
+        .map((r) => `${r.entity_id}|${r.constraint_id}`),
+    )
+
+    for (const constraint of constraints.constraints) {
+      if (constraint.type !== 'nearby_poi') continue
+      const pool = poiPool.get(constraint.id)
+      if (!pool || pool.length === 0) continue
+
+      for (const entity of outcome.entities) {
+        if (!entity.point) continue
+        if (exact.has(`${entity.entity_id}|${constraint.id}`)) continue
+        const found = nearestQualifying(
+          pool,
+          constraint,
+          entity.point,
+          options.evaluation_days,
+        )
+        if (!found) continue
+        outcome.evidence.push({
+          entity_id: entity.entity_id,
+          constraint_id: constraint.id,
+          constraint_type: 'nearby_poi',
+          verdict: 'pass',
+          value_canonical: found.meters,
+          display_value: `${formatDistance(found.meters, constraints.locale.distance_unit)} to ${found.poi.title}`,
+          source: 'geometry',
+          source_url: placeUrl(found.poi.title, found.poi.place_id),
+          confidence: 1,
+          eval_state: 'evaluated',
+          reason: 'Measured from this address to a place an earlier search already found.',
+          fetched_at_ms: options.now_ms,
+          ttl_seconds: GEOMETRY_TTL_SECONDS,
+          expires_at_ms: options.now_ms + GEOMETRY_TTL_SECONDS * 1000,
+          capability_id: 'nearby_poi.geometry.entity',
+          op_id: `op_nearby_poi_geometry_${constraint.id}`,
+          about: { label: found.poi.title, kind: 'poi', point: found.poi.point },
+        })
+      }
+    }
+  }
+
   /**
    * Places that cannot all be satisfied at once.
    *
@@ -950,6 +1038,7 @@ export async function replayRun(
     }
 
     if (constraint.type === 'nearby_poi') {
+      remember(constraint.id, readNearbyPois(body))
       for (const entityId of entityIds) {
         const entity = outcome.entities.find((e) => e.entity_id === entityId)
         const origin = bindings.cluster
@@ -1061,6 +1150,10 @@ const MAX_SEARCH_PAGES = 5
 
 /** Geometry does not go stale the way an opening time does. Coordinates move
  * only when a listing is re-published, and then it is a different run. */
+/** A provider id when there is one, otherwise where it stands. */
+const poiKey = (poi: PoiCandidate) =>
+  poi.place_id ?? `${poi.point.lat.toFixed(5)},${poi.point.lng.toFixed(5)}`
+
 const GEOMETRY_TTL_SECONDS = 30 * 24 * 60 * 60
 
 /** Nearest centroid wins, so every listing belongs to exactly one cell. */
