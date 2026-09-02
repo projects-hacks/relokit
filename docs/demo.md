@@ -8,7 +8,7 @@ costs a full run and takes about three minutes. Run the demo query once the
 morning of, and check the spend afterwards:
 
 ```
-pnpm ask "2 bed apartment in San Jose under $3,500, 25 min bike to 1 Infinite Loop, gym open past 9pm"
+pnpm ask "Under $2,800, one bedroom, no more than 25 minutes by bike to 2788 San Tomas Expressway, gym within half a mile open before 6am, in-unit laundry, grocery open past 10pm."
 curl -s "https://serpapi.com/account?api_key=$SERPAPI_API_KEY" | jq .total_searches_left
 ```
 
