@@ -47,8 +47,10 @@ const result = {
   problems: [],
   unanswered: [],
   cost: {
-    naive_units: 18179,
-    planned_units: 88,
+    // Read off the plan rather than typed in, so the shipped demo cannot go on
+    // claiming a number the planner has stopped producing.
+    naive_units: planned.trace.naive_cost_units,
+    planned_units: planned.trace.planned_cost_units,
     actual_units: outcome.calls,
     live: 0,
     cache_hits: outcome.calls,

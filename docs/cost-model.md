@@ -230,9 +230,10 @@ Absence from the pool settles nothing, because the pool is a union of what
 searches happened to return, and reading a failure out of it would make it a
 liar. What it cannot settle goes to a search aimed at that address.
 
-On the Jersey City question this turned nought verified into four, with two
-hundred and seven requirements answered from the pool at no extra call, and not
-one additional rejection.
+On the Jersey City question the pool answered two hundred and seven requirements
+at no extra call. It could only do that because the cheap gather had been
+scheduled at all, which is the change described above: together they turned
+nought verified into four, with not one additional rejection.
 
 ## Why the second query is cheaper
 

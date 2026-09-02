@@ -1,0 +1,467 @@
+{
+  "key": "google_maps_directions__demo__97f48ce3988a5815",
+  "engine": "google_maps_directions",
+  "params": {
+    "engine": "google_maps_directions",
+    "start_coords": "37.36,-121.96",
+    "end_coords": "37.3726799,-121.9678625",
+    "travel_mode": "1"
+  },
+  "recorded_at_ms": 1788331752844,
+  "status": 200,
+  "body": {
+    "search_metadata": {
+      "id": "6a97c6e8392e0bf2ea0126a1",
+      "status": "Success",
+      "json_endpoint": "https://serpapi.com/searches/EGquDx9NWP-q-qGvxqtwi85c5kJe4mOU7F9-cjPBikM/6a97c6e8392e0bf2ea0126a1.json",
+      "markdown_endpoint": "https://serpapi.com/searches/EGquDx9NWP-q-qGvxqtwi85c5kJe4mOU7F9-cjPBikM/6a97c6e8392e0bf2ea0126a1.md",
+      "created_at": "2026-09-02 06:49:12 UTC",
+      "processed_at": "2026-09-02 06:49:12 UTC",
+      "google_maps_directions_url": "https://www.google.com/maps/dir/37.3600000%2C+-121.9600000/37.3726799%2C+-121.9678625/data=!3m1!4b1!4m10!4m9!1m3!2m2!1d-121.96!2d37.36!1m3!2m2!1d-121.9678625!2d37.3726799!3e1?hl=en",
+      "raw_html_file": "https://serpapi.com/searches/EGquDx9NWP-q-qGvxqtwi85c5kJe4mOU7F9-cjPBikM/6a97c6e8392e0bf2ea0126a1.html",
+      "prettify_html_file": "https://serpapi.com/searches/EGquDx9NWP-q-qGvxqtwi85c5kJe4mOU7F9-cjPBikM/6a97c6e8392e0bf2ea0126a1.prettify",
+      "total_time_taken": 0.77
+    },
+    "search_parameters": {
+      "engine": "google_maps_directions",
+      "hl": "en",
+      "start_coords": "37.36,-121.96",
+      "end_coords": "37.3726799,-121.9678625",
+      "travel_mode": "1"
+    },
+    "places_info": [
+      {
+        "address": "37.3600000, -121.9600000",
+        "gps_coordinates": {
+          "latitude": 37.36,
+          "longitude": -121.96
+        }
+      },
+      {
+        "address": "37.3726799, -121.9678625",
+        "gps_coordinates": {
+          "latitude": 37.3726799,
+          "longitude": -121.9678625
+        }
+      }
+    ],
+    "directions": [
+      {
+        "travel_mode": "Cycling",
+        "via": "Monroe St and San Tomas Aquino Creek Trail",
+        "distance": 2442,
+        "duration": 560,
+        "formatted_distance": "1.5 miles",
+        "formatted_duration": "9 min",
+        "icon": "https://serpapi.com/assets/google_maps_directions/cycling.svg",
+        "elevation_profile": {
+          "ascent": 2,
+          "descent": 6,
+          "max_altitude": 17,
+          "min_altitude": 12,
+          "formatted_ascent": "7 ft",
+          "formatted_descent": "20 ft",
+          "formatted_max_altitude": "56 ft",
+          "formatted_min_altitude": "39 ft"
+        },
+        "trips": [
+          {
+            "travel_mode": "Cycling",
+            "distance": 2442,
+            "duration": 561,
+            "formatted_distance": "1.5 mi",
+            "formatted_duration": "9 min",
+            "details": [
+              {
+                "title": "Head  south",
+                "action": "straight",
+                "distance": 20,
+                "duration": 4,
+                "formatted_distance": "66 ft",
+                "formatted_duration": "4 sec",
+                "extensions": [
+                  "Restricted usage road"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  toward  Scott Blvd",
+                "action": "turn-left",
+                "distance": 29,
+                "duration": 6,
+                "formatted_distance": "95 ft",
+                "formatted_duration": "6 sec",
+                "extensions": [
+                  "Restricted usage road"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Scott Blvd",
+                "action": "turn-left",
+                "distance": 131,
+                "duration": 51,
+                "formatted_distance": "430 ft",
+                "formatted_duration": "51 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Monroe St",
+                "action": "turn-left",
+                "distance": 660,
+                "duration": 158,
+                "formatted_distance": "0.4 mi",
+                "formatted_duration": "3 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=GFokyuvCF387AMeUV_Sljw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=359.94174&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.36082562179297,
+                  "longitude": -121.95959092505879
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Slight  left  to stay on  Monroe St",
+                "action": "turn-slight-left",
+                "distance": 245,
+                "duration": 86,
+                "formatted_distance": "0.2 mi",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=4ascHy5Ch3UZkxBy4LW7PQ&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=299.62134&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.36310900966685,
+                  "longitude": -121.96605945069112
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_slight_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  San Tomas Aquino Creek Trail",
+                "action": "turn-right",
+                "distance": 516,
+                "duration": 82,
+                "formatted_distance": "0.3 mi",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=7Cc9IMLZ2_O_NGJdlQlu-Q&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=103.37353&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.364020898443265,
+                  "longitude": -121.96860289586279
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Slight  right  to stay on  San Tomas Aquino Creek Trail",
+                "action": "turn-slight-right",
+                "distance": 515,
+                "duration": 118,
+                "formatted_distance": "0.3 mi",
+                "formatted_duration": "2 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=R74jkG1CN5pVAkE0x5vvKg&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=53.618797&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.36849303051096,
+                  "longitude": -121.96884822078219
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_slight_left_grey800_18dp.png"
+              },
+              {
+                "title": "Continue straight to stay on  San Tomas Aquino Creek Trail",
+                "action": "straight",
+                "distance": 93,
+                "duration": 18,
+                "formatted_distance": "305 ft",
+                "formatted_duration": "18 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  Condensa St",
+                "action": "turn-right",
+                "distance": 104,
+                "duration": 16,
+                "formatted_distance": "341 ft",
+                "formatted_duration": "16 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  to stay on  Condensa St",
+                "action": "turn-right",
+                "distance": 129,
+                "duration": 22,
+                "formatted_distance": "423 ft",
+                "formatted_duration": "22 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=2qnmdTNaVCjWpzu40-iBQQ&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=332.1211&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.373851202241426,
+                  "longitude": -121.96807189179614
+                },
+                "extensions": [
+                  "Destination will be on the left"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "travel_mode": "Cycling",
+        "via": "Scott Blvd and Walsh Ave",
+        "distance": 2247,
+        "duration": 583,
+        "formatted_distance": "1.4 miles",
+        "formatted_duration": "10 min",
+        "icon": "https://serpapi.com/assets/google_maps_directions/cycling.svg",
+        "elevation_profile": {
+          "ascent": 2,
+          "descent": 6,
+          "max_altitude": 17,
+          "min_altitude": 12,
+          "formatted_ascent": "7 ft",
+          "formatted_descent": "20 ft",
+          "formatted_max_altitude": "56 ft",
+          "formatted_min_altitude": "39 ft"
+        },
+        "trips": [
+          {
+            "travel_mode": "Cycling",
+            "distance": 2247,
+            "duration": 584,
+            "formatted_distance": "1.4 mi",
+            "formatted_duration": "10 min",
+            "details": [
+              {
+                "title": "Head  south",
+                "action": "straight",
+                "distance": 20,
+                "duration": 4,
+                "formatted_distance": "66 ft",
+                "formatted_duration": "4 sec",
+                "extensions": [
+                  "Restricted usage road"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  toward  Scott Blvd",
+                "action": "turn-left",
+                "distance": 29,
+                "duration": 6,
+                "formatted_distance": "95 ft",
+                "formatted_duration": "6 sec",
+                "extensions": [
+                  "Restricted usage road"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Scott Blvd",
+                "action": "turn-left",
+                "distance": 1082,
+                "duration": 286,
+                "formatted_distance": "0.7 mi",
+                "formatted_duration": "5 min",
+                "extensions": [
+                  "Pass by Subway (on the right in 0.5 mi)"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Walsh Ave",
+                "action": "turn-left",
+                "distance": 768,
+                "duration": 230,
+                "formatted_distance": "0.5 mi",
+                "formatted_duration": "4 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=KUE-r7xh5EwkcxLOvG4Iqw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=359.7754&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.36935095430728,
+                  "longitude": -121.95955030898335
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  Condensa St",
+                "action": "turn-right",
+                "distance": 348,
+                "duration": 58,
+                "formatted_distance": "0.2 mi",
+                "formatted_duration": "58 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=nwrZ1pXCExZ50nPZSYhzxg&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=267.80542&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.369563342923236,
+                  "longitude": -121.96794849090774
+                },
+                "extensions": [
+                  "Destination will be on the right"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "travel_mode": "Cycling",
+        "via": "Scott Blvd and Central Expy",
+        "distance": 3155,
+        "duration": 707,
+        "formatted_distance": "2.0 miles",
+        "formatted_duration": "12 min",
+        "icon": "https://serpapi.com/assets/google_maps_directions/cycling.svg",
+        "elevation_profile": {
+          "ascent": 5,
+          "descent": 9,
+          "max_altitude": 17,
+          "min_altitude": 11,
+          "formatted_ascent": "16 ft",
+          "formatted_descent": "30 ft",
+          "formatted_max_altitude": "56 ft",
+          "formatted_min_altitude": "36 ft"
+        },
+        "trips": [
+          {
+            "travel_mode": "Cycling",
+            "distance": 3155,
+            "duration": 708,
+            "formatted_distance": "2.0 mi",
+            "formatted_duration": "12 min",
+            "details": [
+              {
+                "title": "Head  south",
+                "action": "straight",
+                "distance": 20,
+                "duration": 4,
+                "formatted_distance": "66 ft",
+                "formatted_duration": "4 sec",
+                "extensions": [
+                  "Restricted usage road"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  toward  Scott Blvd",
+                "action": "turn-left",
+                "distance": 29,
+                "duration": 6,
+                "formatted_distance": "95 ft",
+                "formatted_duration": "6 sec",
+                "extensions": [
+                  "Restricted usage road"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Scott Blvd",
+                "action": "turn-left",
+                "distance": 1624,
+                "duration": 401,
+                "formatted_distance": "1.0 mi",
+                "formatted_duration": "7 min",
+                "extensions": [
+                  "Pass by Subway (on the right in 0.5 mi)"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  left  onto  Central Expy",
+                "action": "turn-left",
+                "distance": 830,
+                "duration": 156,
+                "formatted_distance": "0.5 mi",
+                "formatted_duration": "3 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=nwDOUx5m32qnFc7vplsTPw&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=179.1676&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.374250055469005,
+                  "longitude": -121.95944564441197
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  San Tomas Aquino Creek Trail",
+                "action": "turn-right",
+                "distance": 88,
+                "duration": 11,
+                "formatted_distance": "289 ft",
+                "formatted_duration": "11 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=21-Pog1bl0Fn-JfWT5RWPg&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=89.86164&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.37461816198352,
+                  "longitude": -121.96860541246362
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Sharp  right  to stay on  San Tomas Aquino Creek Trail",
+                "action": "turn-sharp-right",
+                "distance": 238,
+                "duration": 71,
+                "formatted_distance": "0.1 mi",
+                "formatted_duration": "1 min",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=NZ2jt271eydRC22e8ktpbA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=329.68048&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.375184572916865,
+                  "longitude": -121.96881732740198
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_sharp_left_grey800_18dp.png"
+              },
+              {
+                "title": "Sharp  right  to stay on  San Tomas Aquino Creek Trail",
+                "action": "turn-sharp-right",
+                "distance": 93,
+                "duration": 21,
+                "formatted_distance": "305 ft",
+                "formatted_duration": "21 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=QzJlnci6ATu-oWku0jsTAA&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=154.50705&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.37349549391659,
+                  "longitude": -121.96882348872289
+                },
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_sharp_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  onto  Condensa St",
+                "action": "turn-right",
+                "distance": 104,
+                "duration": 16,
+                "formatted_distance": "341 ft",
+                "formatted_duration": "16 sec",
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              },
+              {
+                "title": "Turn  right  to stay on  Condensa St",
+                "action": "turn-right",
+                "distance": 129,
+                "duration": 22,
+                "formatted_distance": "423 ft",
+                "formatted_duration": "22 sec",
+                "geo_photo": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=2qnmdTNaVCjWpzu40-iBQQ&cb_client=gps-low-qps-live-launch.grass&w=203&h=100&yaw=332.1211&pitch=0&thumbfov=100",
+                "gps_coordinates": {
+                  "latitude": 37.373851202241426,
+                  "longitude": -121.96807189179614
+                },
+                "extensions": [
+                  "Destination will be on the left"
+                ],
+                "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "durations": [
+      {
+        "travel_mode": "Driving",
+        "duration": 277,
+        "formatted_duration": "5 min"
+      },
+      {
+        "travel_mode": "Walking",
+        "duration": 1788,
+        "formatted_duration": "30 min"
+      },
+      {
+        "travel_mode": "Cycling",
+        "duration": 560,
+        "formatted_duration": "9 min"
+      }
+    ]
+  }
+}

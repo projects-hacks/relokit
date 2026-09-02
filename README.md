@@ -205,7 +205,7 @@ touching the network.
 | `packages/mcp`         | MCP server. `relokit_plan` runs locally and costs nothing.             |
 | `apps/web`             | The app: results, map, provenance, shortlist, watch.                   |
 | `apps/proxy`           | The one passage to Xano. Holds the key, never the browser.             |
-| `xano/`                | Backend as files: 16 tables, 27 endpoints, 4 shared functions.         |
+| `xano/`                | Backend as files: 16 tables, 16 endpoints of our own on top of Xano's auth starter, 4 shared functions, 1 nightly task, 1 AI agent. |
 | `tools/record-fixture` | The only thing that can spend a SerpApi search.                        |
 
 Start with [docs/contracts.md](docs/contracts.md) for the wire format,
